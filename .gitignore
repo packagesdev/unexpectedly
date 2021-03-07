@@ -1,0 +1,6 @@
+distribution/build
+distribution/artifacts
+
+app_unexpectedly/app_unexpectedly.xcodeproj/project.xcworkspace/xcuserdata/stephane.xcuserdatad/UserInterfaceState.xcuserstate
+
+app_unexpectedly/app_unexpectedly.xcodeproj/xcuserdata/stephane.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
