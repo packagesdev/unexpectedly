@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUICrashLogsListViewController">
+            <connections>
+                <outlet property="_filterField" destination="kV4-Gy-Y5g" id="ayX-rw-DHI"/>
+                <outlet property="_shareMenu" destination="fYp-Jl-UVV" id="UDn-zl-y3K"/>
+                <outlet property="_sortPopUpButton" destination="vD3-8d-OAL" id="bxh-ry-Anh"/>
+                <outlet property="_tableView" destination="up6-IV-9dX" id="qr9-ho-AXW"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="356"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="38" horizontalPageScroll="10" verticalLineScroll="38" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="3HT-Gz-85z">
+                    <rect key="frame" x="-1" y="23" width="242" height="333"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" id="pIU-n9-gmy">
+                        <rect key="frame" x="1" y="1" width="240" height="331"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="36" rowSizeStyle="automatic" viewBased="YES" id="up6-IV-9dX">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="331"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="crashlog" width="237" minWidth="40" maxWidth="3000" id="mvk-6t-fLR">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="mYa-rl-emi">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <tableCellView identifier="crashlog cell" id="Xca-mC-mWV" customClass="CUICrashLogTableCellView">
+                                                <rect key="frame" x="1" y="1" width="237" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="mVA-Z6-k5O">
+                                                        <rect key="frame" x="31" y="17" width="130" height="14"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="x97-bl-W1B">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="PbV-Y5-NBE">
+                                                        <rect key="frame" x="3" y="6" width="24" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="CAj-gG-wBu"/>
+                                                    </imageView>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="JiO-a5-b11">
+                                                        <rect key="frame" x="31" y="5" width="132" height="11"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="JeG-Im-RXs" customClass="CUISelectedWhiteTextFieldCell">
+                                                            <font key="font" metaFont="miniSystem"/>
+                                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="BBl-CI-Lfa">
+                                                        <rect key="frame" x="165" y="11" width="71" height="12"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" id="zKb-T5-FgR">
+                                                            <font key="font" metaFont="miniSystemBold"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <connections>
+                                                    <outlet property="dateLabel" destination="JiO-a5-b11" id="HbY-n5-YwU"/>
+                                                    <outlet property="exceptionTypeLabel" destination="BBl-CI-Lfa" id="oYd-S0-W7S"/>
+                                                    <outlet property="imageView" destination="PbV-Y5-NBE" id="MnJ-Rq-ILZ"/>
+                                                    <outlet property="textField" destination="mVA-Z6-k5O" id="36v-QD-EVB"/>
+                                                </connections>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="-2" id="cwW-Ck-seH"/>
+                                    <outlet property="delegate" destination="-2" id="9Oi-EP-GeV"/>
+                                    <outlet property="menu" destination="K9J-Sc-Re6" id="I8m-OA-9dB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="9gf-HZ-0gE">
+                        <rect key="frame" x="-100" y="-100" width="223" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="fDS-AZ-p9b">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <popUpButton id="vD3-8d-OAL">
+                    <rect key="frame" x="207" y="4" width="29" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="only" alignment="left" lineBreakMode="truncatingTail" tag="-1" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" id="GL8-00-Vd6">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="9d9-ef-5mD">
+                            <items>
+                                <menuItem image="NSActionTemplate" tag="-1" hidden="YES" id="29W-Zg-HYo">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="Trier par date" id="JK6-HP-t2c"/>
+                                <menuItem title="Trier par nom" tag="1" id="ONn-2g-Z6J"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="switchSortType:" target="-2" id="18O-p9-B0u"/>
+                    </connections>
+                </popUpButton>
+                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" id="kV4-Gy-Y5g">
+                    <rect key="frame" x="5" y="2" width="201" height="19"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="Filtrer" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="vf8-7z-IX2">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </searchFieldCell>
+                    <connections>
+                        <action selector="takeFilterPatternFrom:" target="-2" id="AbZ-G7-C3w"/>
+                        <outlet property="nextKeyView" destination="up6-IV-9dX" id="fro-eH-HkL"/>
+                    </connections>
+                </searchField>
+            </subviews>
+            <point key="canvasLocation" x="-70" y="-115"/>
+        </customView>
+        <menu id="K9J-Sc-Re6">
+            <items>
+                <menuItem title="Partager" id="Z85-YC-iqx">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Partager" id="fYp-Jl-UVV">
+                        <items>
+                            <menuItem title="Item" id="mcY-bs-XBY">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="77W-Wm-C8z"/>
+                <menuItem title="Afficher dans le Finder" id="1tQ-M6-BhY">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showInFinder:" target="-2" id="VM3-SG-pFL"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="wYO-OM-Zfy"/>
+                <menuItem title="Placer dans la corbeille" id="H9t-ba-DIj">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="CUI_MENUACTION_moveToTrash:" target="-2" id="5Yv-gc-anj"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Move All xxxxx to Trash" alternate="YES" id="bpu-1P-Sum">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                    <connections>
+                        <action selector="CUI_MENUACTION_moveAllToTrash:" target="-2" id="jz9-Pm-lkY"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="265" y="167"/>
+        </menu>
+    </objects>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+    </resources>
+</document>

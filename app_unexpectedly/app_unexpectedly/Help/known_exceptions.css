@@ -1,0 +1,66 @@
+
+    body {
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 12px;
+        margin-bottom: 10px;
+        
+        font-family: -apple-system, Helvetica;
+        font-size:11;
+        
+    }
+        
+        a:link {
+            text-decoration: none;
+            color: #0055FF;
+        }
+        
+        a:visited {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        a:active {
+            text-decoration: underline;
+        }
+        
+        div.external_link {
+            text-align: right;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body
+            {
+                margin-left: 16px;
+                margin-right: 16px;
+                margin-top: 12px;
+                margin-bottom: 10px;
+                
+                font-family: -apple-system, Helvetica;
+                font-size:11;
+                
+                color: #ddd;
+                background: #262626;
+            }
+            
+            a:link {
+                text-decoration: none;
+                color: #3f87d6
+            }
+            
+            a:visited {
+                text-decoration: none;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+            
+            a:active {
+                text-decoration: underline;
+            }
+        }
+

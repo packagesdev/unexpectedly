@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUICrashLogsMainViewController">
+            <connections>
+                <outlet property="_leftView" destination="AU0-18-zRp" id="yVw-cI-PsS"/>
+                <outlet property="_middleView" destination="DJu-Py-N57" id="SBd-he-a3h"/>
+                <outlet property="_rightView" destination="Z8I-nA-wcp" id="meo-8K-uFg"/>
+                <outlet property="_splitView" destination="yf5-xt-Weo" id="Qki-dj-LUr"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="1078" height="687"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <splitView dividerStyle="thin" vertical="YES" id="yf5-xt-Weo">
+                    <rect key="frame" x="0.0" y="0.0" width="1078" height="687"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <customView id="AU0-18-zRp">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="687"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <connections>
+                                <outlet property="nextKeyView" destination="DJu-Py-N57" id="QL4-Wh-PD8"/>
+                            </connections>
+                        </customView>
+                        <customView id="DJu-Py-N57">
+                            <rect key="frame" x="251" y="0.0" width="576" height="687"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <connections>
+                                <outlet property="nextKeyView" destination="Z8I-nA-wcp" id="yxq-aw-bYw"/>
+                            </connections>
+                        </customView>
+                        <customView id="Z8I-nA-wcp">
+                            <rect key="frame" x="828" y="0.0" width="250" height="687"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="250"/>
+                        <real value="250"/>
+                        <real value="250"/>
+                    </holdingPriorities>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="qoa-3N-sEt"/>
+                    </connections>
+                </splitView>
+            </subviews>
+            <connections>
+                <outlet property="nextKeyView" destination="AU0-18-zRp" id="TB8-UD-8lG"/>
+            </connections>
+            <point key="canvasLocation" x="483" y="13"/>
+        </customView>
+    </objects>
+</document>

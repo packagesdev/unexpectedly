@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUIPresentationTextNavigationViewController">
+            <connections>
+                <outlet property="_crashLogsChevronView" destination="kHF-1f-fxH" id="QVQ-PN-nFU"/>
+                <outlet property="_crashLogsPopUpButton" destination="75E-lV-XXs" id="cLI-rv-qen"/>
+                <outlet property="_sectionsPopUpButton" destination="MWA-bF-3yf" id="P7o-kw-2mQ"/>
+                <outlet property="_sourcesChevronView" destination="tL8-D0-cSF" id="wnV-ed-k7g"/>
+                <outlet property="_sourcesPopUpButton" destination="uUQ-QP-ysl" id="d3w-3A-aJn"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="781" height="26"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <subviews>
+                <popUpButton id="uUQ-QP-ysl">
+                    <rect key="frame" x="3" y="4" width="149" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingMiddle" imageScaling="proportionallyDown" inset="2" arrowPosition="noArrow" altersStateOfSelectedItem="NO" selectedItem="7ez-gA-lWd" id="YVM-Pa-UQb">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <menu key="menu" id="HZx-G6-NCk">
+                            <items>
+                                <menuItem title="Item 1" id="7ez-gA-lWd"/>
+                                <menuItem title="Item 2" id="Esv-PL-GRD"/>
+                                <menuItem title="Item 3" id="eBq-oU-aGy"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="switchSourceCrashLog:" target="-2" id="7NE-0f-o5c"/>
+                    </connections>
+                </popUpButton>
+                <popUpButton id="75E-lV-XXs">
+                    <rect key="frame" x="187" y="4" width="149" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingMiddle" imageScaling="proportionallyDown" inset="2" arrowPosition="noArrow" altersStateOfSelectedItem="NO" selectedItem="OSw-VA-GIL" id="0rx-7Z-eY5">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <menu key="menu" id="CtZ-wl-2JL">
+                            <items>
+                                <menuItem title="Item 1" id="OSw-VA-GIL"/>
+                                <menuItem title="Item 2" id="6gM-kT-etl"/>
+                                <menuItem title="Item 3" id="kdH-Fd-XUf"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="switchCrashLog:" target="-2" id="pbU-Zd-yti"/>
+                    </connections>
+                </popUpButton>
+                <popUpButton id="MWA-bF-3yf">
+                    <rect key="frame" x="371" y="4" width="149" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="bevel" title="Item 1" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingMiddle" imageScaling="proportionallyDown" inset="2" arrowPosition="noArrow" altersStateOfSelectedItem="NO" selectedItem="1nd-cT-Ox6" id="Lov-L8-qry">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <menu key="menu" id="Ose-3h-odp">
+                            <items>
+                                <menuItem title="Item 1" id="1nd-cT-Ox6"/>
+                                <menuItem title="Item 2" id="YaV-vo-lbz"/>
+                                <menuItem title="Item 3" id="hOq-65-Yok"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="switchSection:" target="-2" id="xfm-zC-I48"/>
+                    </connections>
+                </popUpButton>
+                <customView id="tL8-D0-cSF" customClass="CUINavigationChevronView">
+                    <rect key="frame" x="162" y="6" width="15" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView id="kHF-1f-fxH" customClass="CUINavigationChevronView">
+                    <rect key="frame" x="346" y="6" width="15" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="116.5" y="-299"/>
+        </customView>
+    </objects>
+</document>

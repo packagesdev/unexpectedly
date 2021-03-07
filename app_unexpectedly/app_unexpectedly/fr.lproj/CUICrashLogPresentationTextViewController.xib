@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUICrashLogPresentationTextViewController">
+            <connections>
+                <outlet property="_sectionsVisibilityPopUpButton" destination="o3T-bg-7a6" id="vRD-qm-Pyp"/>
+                <outlet property="_showBinaryNameButton" destination="Ytt-64-lj2" id="6lh-Tf-i9B"/>
+                <outlet property="_showByteOffsetButton" destination="gHh-U9-6ts" id="w5b-4r-VB4"/>
+                <outlet property="_showMachineInstructionAddressButton" destination="V1i-87-jZk" id="tAE-2I-lj8"/>
+                <outlet property="_showOnlyCrashedThreadButton" destination="hZe-Mo-RWl" id="pSn-XW-qF6"/>
+                <outlet property="_textView" destination="Gtc-Yk-xtd" id="s9U-Yv-TsI"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="692" height="612"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <popUpButton toolTip="Filtrer les sections visibles" id="o3T-bg-7a6">
+                    <rect key="frame" x="0.0" y="1" width="31" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" id="hR3-DY-z5t">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="e8c-hg-WG7">
+                            <items>
+                                <menuItem state="on" image="quote_Template" hidden="YES" id="ggI-rC-fEt">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="En-tête" id="zdn-EI-sae">
+                                    <connections>
+                                        <action selector="CUI_MENUACTION_switchHeaderVisibility:" target="-2" id="QIM-JJ-4Lh"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="fZC-QV-uXY"/>
+                                <menuItem title="Information sur l'exception" id="LpK-Zx-Gla">
+                                    <connections>
+                                        <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-2" id="2VZ-w6-6FZ"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Messages de diagnostic" id="M4h-Oa-aq3">
+                                    <connections>
+                                        <action selector="CUI_MENUACTION_switchDiagnosticMessagesVisibility:" target="-2" id="hQt-R4-vLH"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="3Wr-0I-wum"/>
+                                <menuItem title="Trace des appels" id="kXZ-qs-DxU">
+                                    <connections>
+                                        <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-2" id="B8j-HN-qA3"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="État du thread" id="d7k-xL-Hbq">
+                                    <connections>
+                                        <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-2" id="c9g-bt-Ect"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Images des binaires" id="FHu-OU-dEn">
+                                    <connections>
+                                        <action selector="CUI_MENUACTION_switchBinaryImagesVisibility:" target="-2" id="E7Q-0s-gFI"/>
+                                    </connections>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
+                <button toolTip="Afficher uniquement le thread planté" verticalHuggingPriority="750" id="hZe-Mo-RWl">
+                    <rect key="frame" x="574" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="cgk-bN-rIw">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="CUI_MENUACTION_switchShowOnlyCrashedThread:" target="-2" id="hSj-AL-N38"/>
+                    </connections>
+                </button>
+                <button toolTip="Masquer ou afficher le décalage d'octet" verticalHuggingPriority="750" id="gHh-U9-6ts">
+                    <rect key="frame" x="661" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="O1c-Fy-oRt">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="s9c-GQ-gYk"/>
+                    </connections>
+                </button>
+                <button toolTip="Masquer ou afficher l'adresse de l'instruction machine" verticalHuggingPriority="750" id="V1i-87-jZk">
+                    <rect key="frame" x="632" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" title="0x" bezelStyle="texturedRounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="N9g-4y-bag">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" size="11" name="Monaco"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="muF-oq-Yyp"/>
+                    </connections>
+                </button>
+                <button toolTip="Masquer ou afficher le nom du binaire" verticalHuggingPriority="750" id="Ytt-64-lj2">
+                    <rect key="frame" x="603" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="feE-rv-jxh">
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="CUI_MENUACTION_switchShowBinaryImageIdentifier:" target="-2" id="pin-0C-OOg"/>
+                    </connections>
+                </button>
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="ekh-hq-gUp" customClass="NSCrashLogTextScrollView">
+                    <rect key="frame" x="0.0" y="23" width="692" height="589"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="5MQ-yl-x1z">
+                        <rect key="frame" x="0.0" y="0.0" width="692" height="589"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" smartInsertDelete="YES" id="Gtc-Yk-xtd" customClass="CUICrashLogTextView">
+                                <rect key="frame" x="0.0" y="0.0" width="692" height="589"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="692" height="589"/>
+                                <size key="maxSize" width="692" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ilc-Nf-Ue4">
+                        <rect key="frame" x="677" y="0.0" width="15" height="589"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <point key="canvasLocation" x="327" y="99"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="binaryImage_Template" width="16" height="16"/>
+        <image name="bytesOffset_Template" width="16" height="16"/>
+        <image name="quote_Template" width="16" height="16"/>
+        <image name="smallCrashedThread_Template" width="16" height="15"/>
+    </resources>
+</document>

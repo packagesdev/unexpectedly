@@ -1,0 +1,539 @@
+/*
+ Copyright (c) 2020-2021, Stephane Sudre
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ 
+ - Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ - Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ - Neither the name of the WhiteBox nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#import "CUICrashLog.h"
+
+#import "CUIParsingErrors.h"
+
+#import "CUICrashLogSectionsDetector.h"
+
+@interface CUICrashLog ()
+
+    @property NSError * parsingError;
+
+    // Sections ranges
+
+    @property NSRange headerRange;
+
+    @property NSRange exceptionInformationRange;
+    @property NSRange diagnosticMessagesRange;
+
+    @property NSRange backtracesRange;
+
+    @property NSRange threadStateRange;
+
+    @property NSRange binaryImagesRange;
+
+    @property BOOL fullyParsed;
+
+
+    @property CUICrashLogHeader * header;
+
+    @property CUICrashLogExceptionInformation * exceptionInformation;
+
+    @property CUICrashLogDianosticMessages * diagnosticMessages;
+
+    @property CUICrashLogBacktraces * backtraces;
+
+    @property CUICrashLogThreadState * threadState;
+
+    @property CUICrashLogBinaryImages * binaryImages;
+
+@end
+
+@implementation CUICrashLog
+
+/*- (instancetype)initWithContentsOfURL:(NSURL *)inURL error:(NSError **)outError
+{
+    if ([inURL isKindOfClass:[NSURL class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    NSError * tError=nil;
+    
+    NSData * tData=[NSData dataWithContentsOfURL:inURL options:0 error:&tError];
+    
+    if (tData==nil)
+    {
+        if (outError!=NULL)
+            *outError=tError;
+        
+        return nil;
+    }
+    
+    self=[self initWithData:tData error:outError];
+    
+    if (self!=nil)
+    {
+        id tResourceIdentifier=nil;
+        
+        if ([inURL getResourceValue:&tResourceIdentifier forKey:NSURLFileResourceIdentifierKey error:NULL]==YES)
+        {
+            _resourceIdentifier=tResourceIdentifier;
+        }
+        
+        _crashLogFilePath=[inURL.path copy];
+        
+        
+        NSDictionary * tExtendedAttributes=[[NSFileManager defaultManager] WB_extendedAttributesOfItemAtURL:inURL error:nil];
+        
+        NSData * tData=tExtendedAttributes[@"ReopenPath"];
+        
+        if (tData!=nil)
+            _reopenFilePath=[[NSString alloc] initWithData:tData encoding:NSUTF8StringEncoding];
+    }
+    
+    return self;
+    
+    
+}
+
+- (instancetype)initWithContentsOfFile:(NSString *)inPath error:(NSError **)outError
+{
+	if ([inPath isKindOfClass:[NSString class]]==NO)
+	{
+		if (outError!=NULL)
+			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+		
+		return nil;
+	}
+    
+	return [self initWithContentsOfURL:[NSURL fileURLWithPath:inPath] error:outError];
+}
+
+- (instancetype)initWithData:(NSData *)inData error:(NSError **)outError
+{
+	if ([inData isKindOfClass:[NSData class]]==NO)
+	{
+		if (outError!=NULL)
+			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+		
+		return nil;
+	}
+	
+	NSString * tString=[[NSString alloc] initWithData:inData encoding:NSASCIIStringEncoding];
+	
+	if (tString==nil)
+	{
+        *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:ENOMEM userInfo:@{}];
+        
+		return nil;
+	}
+	
+	return [self initWithString:tString error:outError];
+}*/
+
+- (instancetype)initWithString:(NSString *)inString error:(NSError **)outError
+{
+    if ([inString isKindOfClass:[NSString class]]==NO)
+	{
+		if (outError!=NULL)
+			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+		
+		return nil;
+	}
+	
+	self=[super initWithString:inString error:outError];
+	
+	if (self!=nil)
+	{
+        /*_rawText=[inString copy];
+        
+        _resourceIdentifier=[NSUUID UUID];*/
+        
+        _headerRange.location=NSNotFound;
+        
+        _exceptionInformationRange.location=NSNotFound;
+        _diagnosticMessagesRange.location=NSNotFound;
+        
+        _backtracesRange.location=NSNotFound;
+        
+        _threadStateRange.location=NSNotFound;
+        
+        _binaryImagesRange.location=NSNotFound;
+        
+        NSError * tError=nil;
+        
+        NSMutableArray * tLines=[NSMutableArray array];
+        
+        [inString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
+            
+            [tLines addObject:bLine];
+        }];
+
+        @try
+        {
+            BOOL tResult=[self detectSectionsOfTextualRepresentation:tLines error:&tError];
+            
+            if (tResult==NO)
+            {
+                NSLog(@"Error detecting section : %@",tError.userInfo[CUIParsingErrorSectionNameKey]);
+                
+                _parsingError=tError;
+                
+                // Raw Text Mode only
+                
+                // A COMPLETER
+                
+                return nil;
+            }
+            
+            _header=[[CUICrashLogHeader alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_headerRange] error:&tError];
+            
+            if (_header==nil)
+            {
+                if (tError!=nil)
+                {
+                    NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                    
+                    NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                    
+                    _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+                }
+                
+                // A COMPLETER
+                
+                return nil;
+            }
+            
+            _exceptionInformation=[[CUICrashLogExceptionInformation alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_exceptionInformationRange] reportVersion:_header.reportVersion error:&tError];
+            
+            if (_exceptionInformation==nil)
+            {
+                if (tError!=nil)
+                {
+                    NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                    
+                    NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                    
+                    _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+                }
+                
+                // A COMPLETER
+                
+                return nil;
+            }
+            
+            if (_diagnosticMessagesRange.location!=NSNotFound)
+            {
+                _diagnosticMessages=[[CUICrashLogDianosticMessages alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_diagnosticMessagesRange] reportVersion:_header.reportVersion error:&tError];
+                
+                if (_diagnosticMessages==nil)
+                {
+                    if (tError!=nil)
+                    {
+                        NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                        
+                        NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                        
+                        _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+                    }
+                    
+                    // A COMPLETER
+                    
+                    return nil;
+                }
+            }
+            
+            // The other sections will be parsed when the log is displayed for real
+        }
+        
+        @catch (NSException *exception)
+        {
+            NSLog(@"Exception raised while parsing \"%@\"",self.rawText);
+                  
+            return nil;
+        }
+        
+        @finally
+        {
+        }
+	}
+    
+	return self;
+}
+
+#pragma mark -
+
+- (id)valueForKeyPath:(NSString *)inKeyPath
+{
+    if ([inKeyPath isEqualToString:@"header.bundleIdentifier"]==YES)
+        return self.header.bundleIdentifier;
+    
+    if ([inKeyPath isEqualToString:@"header.executablePath"]==YES)
+        return self.header.executablePath;
+    
+    if ([inKeyPath isEqualToString:@"exceptionInformation.crashedThreadName"]==YES)
+        return self.exceptionInformation.crashedThreadName;
+    
+    return [super valueForKeyPath:inKeyPath];
+}
+
+
+- (NSString *)processName
+{
+    return self.header.processName;
+}
+
+- (NSDate *)dateTime
+{
+    return self.header.dateTime;
+}
+
+- (NSNumber *)numberOfHoursSinceCrash
+{
+    NSDate * tDate=[NSDate date];
+    
+    NSTimeInterval tTimeInterval=[tDate timeIntervalSinceDate:self.dateTime];
+    
+    NSInteger tNumberOfHours=round(tTimeInterval/3600);
+    
+    return @(tNumberOfHours);
+}
+
+#pragma mark -
+
+- (BOOL)detectSectionsOfTextualRepresentation:(NSArray *)inLines error:(NSError **)outError
+{
+    NSRange tRange;
+    NSUInteger tFirstLine=0;
+    
+    // Header Section (Required)
+    
+    tRange=[CUICrashLogSectionsDetector detectHeaderSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
+    
+    if (tRange.location==NSNotFound)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:CUIParsingErrorDomain code:CUIParsingSectionDetectionFailedError userInfo:@{CUIParsingErrorSectionNameKey:@"Header"}];
+        
+        return NO;
+    }
+    
+    self.headerRange=tRange;
+    
+    // Exception Information Section (Required)
+    
+    tFirstLine=NSMaxRange(tRange);
+    
+    tRange=[CUICrashLogSectionsDetector detectExceptionInformationSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
+    
+    if (tRange.location==NSNotFound)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:CUIParsingErrorDomain code:CUIParsingSectionDetectionFailedError userInfo:@{CUIParsingErrorSectionNameKey:@"Exception Information"}];
+        
+        return NO;
+    }
+    
+    self.exceptionInformationRange=tRange;
+    
+    // Diagnostic Messages (Optional)
+    
+    tFirstLine=NSMaxRange(tRange);
+    
+    NSString * tString=inLines[tFirstLine];
+    
+    if ([tString hasPrefix:@"Application Specific Information:"]==YES ||
+        [tString hasPrefix:@"VM Regions Near"]==YES)
+    {
+        tRange=[CUICrashLogSectionsDetector detectDiagnosticMessageSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
+        
+        if (tRange.location==NSNotFound)
+        {
+            if (outError!=NULL)
+                *outError=[NSError errorWithDomain:CUIParsingErrorDomain code:CUIParsingSectionDetectionFailedError userInfo:@{CUIParsingErrorSectionNameKey:@"Diagnostic Messages"}];
+            
+            return NO;
+        }
+        
+        self.diagnosticMessagesRange=tRange;
+        
+        tFirstLine=NSMaxRange(tRange);
+        
+        tString=inLines[tFirstLine];
+    }
+    
+    // Backtraces
+    
+    if ([tString isEqualToString:@"Backtrace not available"]==YES ||
+        [tString hasPrefix:@"Application Specific Backtrace"]==YES ||
+        [tString hasPrefix:@"Thread 0"]==YES)
+    {
+        tRange=[CUICrashLogSectionsDetector detectBacktracesSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
+        
+        if (tRange.location==NSNotFound)
+        {
+            if (outError!=NULL)
+                *outError=[NSError errorWithDomain:CUIParsingErrorDomain code:CUIParsingSectionDetectionFailedError userInfo:@{CUIParsingErrorSectionNameKey:@"Backtraces"}];
+            
+            return NO;
+        }
+        
+        self.backtracesRange=tRange;
+        
+        tFirstLine=NSMaxRange(tRange);
+        
+        tString=inLines[tFirstLine];
+    }
+    
+    // Thread State
+    
+    if (([tString hasPrefix:@"Thread"]==YES || [tString hasPrefix:@"Unknown thread"]==YES) && [tString rangeOfString:@"crashed with"].location!=NSNotFound)
+    {
+        tRange=[CUICrashLogSectionsDetector detectThreadStateSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
+        
+        if (tRange.location==NSNotFound)
+        {
+            if (outError!=NULL)
+                *outError=[NSError errorWithDomain:CUIParsingErrorDomain code:CUIParsingSectionDetectionFailedError userInfo:@{CUIParsingErrorSectionNameKey:@"Thread State"}];
+            
+            return NO;
+        }
+        
+        self.threadStateRange=tRange;
+        
+        tFirstLine=NSMaxRange(tRange);
+        
+        tString=inLines[tFirstLine];
+    }
+    
+    // Binary Images
+    
+    if ([tString rangeOfString:@"Binary Images" options:NSCaseInsensitiveSearch].location==0)
+    {
+        tRange=[CUICrashLogSectionsDetector detectBinaryImagesSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
+        
+        if (tRange.location==NSNotFound)
+        {
+            if (outError!=NULL)
+                *outError=[NSError errorWithDomain:CUIParsingErrorDomain code:CUIParsingSectionDetectionFailedError userInfo:@{CUIParsingErrorSectionNameKey:@"Binary Images"}];
+            
+            return NO;
+        }
+        
+        self.binaryImagesRange=tRange;
+    }
+    
+    return YES;
+}
+
+#pragma mark -
+
+- (BOOL)isFullyParsed
+{
+    return self.fullyParsed;
+}
+
+- (BOOL)finalizeParsing
+{
+    NSMutableArray * tLines=[NSMutableArray array];
+    
+    [self.rawText enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
+        
+        [tLines addObject:bLine];
+    }];
+    
+    NSError * tError;
+    
+    if (self.backtracesRange.location!=NSNotFound)
+    {
+        _backtraces=[[CUICrashLogBacktraces alloc] initWithTextualRepresentation:[tLines subarrayWithRange:self.backtracesRange] reportVersion:_header.reportVersion error:&tError];
+        
+        if (_backtraces==nil)
+        {
+            if (tError!=nil)
+            {
+                NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                
+                NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                
+                _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+            }
+            
+            // A COMPLETER
+            
+            return NO;
+        }
+    }
+    
+    if (self.threadStateRange.location!=NSNotFound)
+    {
+        _threadState=[[CUICrashLogThreadState alloc] initWithTextualRepresentation:[tLines subarrayWithRange:self.threadStateRange] reportVersion:_header.reportVersion error:&tError];
+        
+        if (_threadState==nil)
+        {
+            if (tError!=nil)
+            {
+                NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                
+                NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                
+                _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+            }
+            
+            // A COMPLETER
+            
+            return NO;
+        }
+    }
+    
+    if (self.binaryImagesRange.location!=NSNotFound)
+    {
+        _binaryImages=[[CUICrashLogBinaryImages alloc] initWithTextualRepresentation:[tLines subarrayWithRange:self.binaryImagesRange] reportVersion:_header.reportVersion error:&tError];
+        
+        if (_binaryImages==nil)
+        {
+            if (tError!=nil)
+            {
+                NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                
+                NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                
+                _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+            }
+            
+            // A COMPLETER
+            
+            return NO;
+        }
+    }
+    
+    self.fullyParsed=YES;
+    
+    return YES;
+}
+
+#pragma mark -
+
+- (NSString *)description
+{
+	return [NSString stringWithFormat:@"%@ %@",self.processName,self.dateTime.description];
+	
+	//NSMutableString * tMutableString=[NSMutableString string];
+	
+	/*for(CUIThread * tThread in self.threads)
+	{
+		[tMutableString appendFormat:@"%@\n",tThread.description];
+	}*/
+	
+	//return tMutableString;
+}
+
+
+
+@end
