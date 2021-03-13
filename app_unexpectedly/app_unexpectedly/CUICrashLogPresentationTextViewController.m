@@ -983,11 +983,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         return tEnabled;
     }
-    
-    
-    
-    
-    // A COMPLETER
+
     
     return [super validateMenuItem:inMenuItem];
 }
@@ -1236,7 +1232,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         {
             NSBeep();
             
-            // A COMPLETER
+            // A COMPLETER (Alert dialog?)
             
             return;
         }

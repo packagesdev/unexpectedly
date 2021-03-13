@@ -17,6 +17,8 @@
 
 #import "CUIdSYMBundlesManager.h"
 
+#import "CUIRawCrashLog+Path.h"
+
 NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsViewSelectedCallsDidChangeNotification";
 
 @interface CUIThreadsViewController ()
@@ -32,6 +34,18 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark -
+
+- (NSUInteger)numberOfSelectedStackFrames
+{
+    return 0;
+}
+
+- (NSArray<CUIStackFrame *> *)selectedStackFrames
+{
+    return @[];
 }
 
 #pragma mark -
@@ -75,6 +89,46 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
     [tNotificationCenter removeObserver:self name:CUIStackFrameSymbolicationDidSucceedNotification object:nil];
     
     [tNotificationCenter removeObserver:self name:CUIPreferencesSymbolicationSymbolicateAutomaticallyDidChangeNotification object:nil];
+}
+
+#pragma mark -
+
+- (NSMenu *)createFrameContextualMenu
+{
+    NSMenu * tMenu=[[NSMenu alloc] initWithTitle:@""];
+    
+    NSMenuItem * tMenuItem=[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy", @"") action:@selector(copy:) keyEquivalent:@""];
+    tMenuItem.target=self;
+    
+    [tMenu addItem:tMenuItem];
+    
+    tMenuItem=[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy Machine Instruction Address", @"") action:@selector(copyMachineInstructionAddress:) keyEquivalent:@""];
+    tMenuItem.target=self;
+    
+    [tMenu addItem:tMenuItem];
+    
+    tMenuItem=[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy Binary Image Offset", @"") action:@selector(copy:) keyEquivalent:@""];
+    tMenuItem.target=self;
+    tMenuItem.keyEquivalentModifierMask=NSEventModifierFlagOption;
+    tMenuItem.alternate=YES;
+    
+    [tMenu addItem:tMenuItem];
+    
+    // Show With menu
+    
+    NSMenu * tHopperMenu=[[CUIHopperDisassemblerManager sharedManager] availableApplicationsMenuWithTarget:self];
+    
+    if (tHopperMenu!=nil)
+    {
+        [tMenu addItem:[NSMenuItem separatorItem]];
+        
+        tMenuItem=[[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Show In", @"") action:nil keyEquivalent:@""];
+        tMenuItem.submenu=tHopperMenu;
+        
+        [tMenu addItem:tMenuItem];
+    }
+    
+    return tMenu;
 }
 
 #pragma mark -
@@ -126,6 +180,178 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
         
         inTableCellView.openButton.frame=tButtonFrame;
     }
+}
+
+#pragma mark -
+
+- (BOOL)validateMenuItem:(NSMenuItem *)inMenuItem
+{
+    SEL tAction=inMenuItem.action;
+    
+    NSUInteger tCount=self.numberOfSelectedStackFrames;
+    
+    if (tAction==@selector(copy:) ||
+        tAction==@selector(copyMachineInstructionAddress:) ||
+        tAction==@selector(copyBinaryImageOffset:))
+    {
+        return (tCount>0);
+    }
+    
+    if (tAction==@selector(openWithHopperDisassembler:))
+    {
+        if (tCount!=1)
+            return NO;
+        
+        NSArray<CUIStackFrame *> * tCalls=self.selectedStackFrames;
+        
+        NSFileManager * tFileManager=[NSFileManager defaultManager];
+        
+        for(CUIStackFrame * tStackFrame in tCalls)
+        {
+            NSString * tBinaryImageIdentifier=tStackFrame.binaryImageIdentifier;
+            
+            CUIBinaryImage * tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tBinaryImageIdentifier];
+            
+            if (tBinaryImage==nil)
+            {
+                NSString * tAlternateIdentifier=[self.crashLog.binaryImages binaryImageIdentifierForName:tBinaryImageIdentifier];
+                
+                if (tAlternateIdentifier!=nil)
+                    tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tAlternateIdentifier];
+            }
+            
+            NSString * tPath=[self.crashLog stringByResolvingUSERInPath:tBinaryImage.path];
+            
+            if (tPath.length==0)
+                return NO;
+            
+            if ([tFileManager fileExistsAtPath:tPath]==NO)
+                return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (IBAction)copy:(id)sender
+{
+    NSArray<CUIStackFrame *> * tCalls=self.selectedStackFrames;
+    
+    // A VOIR : Ideally I would like to put ... between 2 non sequential calls if multiple row selection is allowed
+    
+    NSArray * tLines=[tCalls WB_arrayByMappingObjectsUsingBlock:^id(CUIStackFrame * bStackFrame, NSUInteger bIndex) {
+        
+        NSString * tLine=[bStackFrame pasteboardRepresentationWithComponents:self.visibleStackFrameComponents];
+        
+        return tLine;
+    }];
+    
+    NSString * tPasteboardString=[tLines componentsJoinedByString:@"\n"];
+    
+    NSPasteboard * tPasteboard=[NSPasteboard  generalPasteboard];
+    
+    [tPasteboard declareTypes:@[NSStringPboardType] owner:nil];
+    [tPasteboard setString:tPasteboardString forType:NSStringPboardType];
+}
+
+- (IBAction)copyMachineInstructionAddress:(id)sender
+{
+    NSArray<CUIStackFrame *> * tCalls=self.selectedStackFrames;
+    
+    NSArray * tAddresses=[tCalls WB_arrayByMappingObjectsUsingBlock:^id(CUIStackFrame * bStackFrame, NSUInteger bIndex) {
+        
+        NSString * tLine=[NSString stringWithFormat:@"0x%lx",bStackFrame.machineInstructionAddress];
+        
+        return tLine;
+    }];
+    
+    NSString * tPasteboardString=[tAddresses componentsJoinedByString:@" "];    // Uses spaces so that the output can paste for atos(1) command line tool
+    
+    NSPasteboard * tPasteboard=[NSPasteboard  generalPasteboard];
+    
+    [tPasteboard declareTypes:@[NSStringPboardType] owner:nil];
+    [tPasteboard setString:tPasteboardString forType:NSStringPboardType];
+    
+}
+
+- (IBAction)copyBinaryImageOffset:(id)sender
+{
+    NSArray<CUIStackFrame *> * tCalls=self.selectedStackFrames;
+    
+    NSArray * tAddresses=[tCalls WB_arrayByMappingObjectsUsingBlock:^id(CUIStackFrame * bCall, NSUInteger bIndex) {
+        
+        NSString * tBinaryImageIdentifier=bCall.binaryImageIdentifier;
+        
+        CUIBinaryImage * tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tBinaryImageIdentifier];
+        
+        if (tBinaryImage==nil)
+        {
+            NSString * tAlternateIdentifier=[self.crashLog.binaryImages binaryImageIdentifierForName:tBinaryImageIdentifier];
+            
+            if (tAlternateIdentifier!=nil)
+                tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tAlternateIdentifier];
+        }
+        
+        NSUInteger tAddress=0;
+        
+        if (bCall.machineInstructionAddress>0x7fff00000000)
+        {
+            tAddress=bCall.machineInstructionAddress-tBinaryImage.addressesRange.loadAddress;
+        }
+        else
+        {
+            tAddress=bCall.machineInstructionAddress-(tBinaryImage.addressesRange.loadAddress-0x100000000);
+        }
+        
+        NSString * tLine=[NSString stringWithFormat:@"0x%lx",tAddress];
+        
+        return tLine;
+    }];
+    
+    NSString * tPasteboardString=[tAddresses componentsJoinedByString:@" "];
+    
+    NSPasteboard * tPasteboard=[NSPasteboard  generalPasteboard];
+    
+    [tPasteboard declareTypes:@[NSStringPboardType] owner:nil];
+    [tPasteboard setString:tPasteboardString forType:NSStringPboardType];
+}
+
+- (IBAction)openWithHopperDisassembler:(NSMenuItem *)sender
+{
+    CUIApplicationItemAttributes * tApplicationItemAttributes=sender.representedObject;
+    
+    NSArray<CUIStackFrame *> * tCalls=self.selectedStackFrames;
+    
+    [tCalls enumerateObjectsUsingBlock:^(CUIStackFrame * bCall, NSUInteger bIndex, BOOL * bOutStop) {
+        
+        NSString * tBinaryImageIdentifier=bCall.binaryImageIdentifier;
+        
+        CUIBinaryImage * tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tBinaryImageIdentifier];
+        
+        if (tBinaryImage==nil)
+        {
+            NSString * tAlternateIdentifier=[self.crashLog.binaryImages binaryImageIdentifierForName:tBinaryImageIdentifier];
+            
+            if (tAlternateIdentifier!=nil)
+                tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tAlternateIdentifier];
+        }
+        
+        NSUInteger tAddress=0;
+        
+        if (bCall.machineInstructionAddress>0x7fff00000000)
+        {
+            tAddress=bCall.machineInstructionAddress-tBinaryImage.addressesRange.loadAddress;
+        }
+        else
+        {
+            tAddress=bCall.machineInstructionAddress-(tBinaryImage.addressesRange.loadAddress-0x100000000);
+        }
+        
+        [[CUIHopperDisassemblerManager sharedManager] openBinaryImage:[self.crashLog stringByResolvingUSERInPath:tBinaryImage.path]
+                                            withApplicationAttributes:tApplicationItemAttributes
+                                                             codeType:self.crashLog.header.codeType
+                                                           fileOffSet:(void *)tAddress];
+    }];
 }
 
 - (IBAction)openSourceFile:(id)sender

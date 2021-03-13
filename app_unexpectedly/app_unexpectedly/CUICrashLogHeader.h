@@ -15,13 +15,7 @@
 
 #import "CUIOperatingSystemVersion.h"
 
-typedef NS_ENUM(NSInteger, CUICodeType)
-{
-    CUICodeTypeUnknown=-1,
-    CUICodeTypeX86=0,
-    CUICodeTypeX86_64,
-    CUICodeTypeARM_64,
-};
+#include "CUICodeType.h"
 
 @interface CUICrashLogHeader : NSObject
 

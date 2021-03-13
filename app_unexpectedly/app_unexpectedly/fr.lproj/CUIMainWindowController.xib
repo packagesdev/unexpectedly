@@ -69,8 +69,8 @@
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="esc-Se-3Gu">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment toolTip="Texte" image="presentation_text_Template" imageScaling="proportionallyUpOrDown" width="32"/>
-                                    <segment toolTip="Outline" image="presentation_structured_Template" imageScaling="proportionallyUpOrDown" width="32" selected="YES" tag="1"/>
+                                    <segment toolTip="Texte" image="presentation_text_Template" width="32"/>
+                                    <segment toolTip="Schéma" image="presentation_structured_Template" width="32" selected="YES" tag="1"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>
@@ -111,7 +111,7 @@
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
                 <outlet property="initialFirstResponder" destination="se5-gp-TjO" id="Ndk-U6-g06"/>
             </connections>
-            <point key="canvasLocation" x="-189" y="-1328"/>
+            <point key="canvasLocation" x="59" y="-1332"/>
         </window>
     </objects>
     <resources>

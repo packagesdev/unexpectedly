@@ -284,7 +284,7 @@ CA
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="eRM-Kc-O5r"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Outline" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
+                            <menuItem title="Schéma" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="TDI-d2-Yku"/>

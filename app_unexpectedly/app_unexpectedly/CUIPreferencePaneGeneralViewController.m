@@ -15,132 +15,7 @@
 
 #import "CUIApplicationPreferences.h"
 
-@interface CUIApplicationItemAttributes : NSObject
-
-    @property (readonly) NSURL * applicationURL;
-
-    @property NSString * displayName;
-
-    @property NSString * bundleIdentifier;
-
-    @property NSImage * icon;
-
-    @property NSString * version;
-
-    @property (nonatomic,readonly) NSMenuItem * applicationMenuItem;
-
-    @property BOOL showsVersion;
-
-    @property BOOL duplicate;
-
-- (instancetype)initWithURL:(NSURL *)inApplicationURL;
-
-- (NSComparisonResult)compare:(CUIApplicationItemAttributes *)inOther;
-
-@end
-
-@implementation CUIApplicationItemAttributes
-
-- (instancetype)initWithURL:(NSURL *)inApplicationURL
-{
-    if (inApplicationURL.isFileURL==NO)
-        return nil;
-    
-    self=[super init];
-    
-    if (self!=nil)
-    {
-        _applicationURL=inApplicationURL;
-        
-        _icon=[[NSWorkspace sharedWorkspace] iconForFile:inApplicationURL.path];
-        
-        if (_icon!=nil)
-            _icon.size=NSMakeSize(16.0f,16.0f);
-        
-        _displayName=[[NSFileManager defaultManager] displayNameAtPath:inApplicationURL.path];
-        
-        // Get Version
-        
-        NSBundle * tBundle=[NSBundle bundleWithURL:inApplicationURL];
-        NSString * tVersion=@"1.0";
-        
-        if (tBundle!=nil)
-        {
-            _bundleIdentifier=tBundle.bundleIdentifier;
-            
-            NSDictionary * tInfoDictionary;
-            
-            tInfoDictionary=[tBundle infoDictionary];
-            
-            if (tInfoDictionary!=nil)
-            {
-                tVersion=[tInfoDictionary objectForKey:@"CFBundleShortVersionString"];
-                
-                if (tVersion==nil)
-                {
-                    tVersion=@"1.0";
-                }
-            }
-        }
-        
-        _version=tVersion;
-    }
-    
-    return self;
-}
-
-#pragma mark -
-
-- (NSMenuItem *)applicationMenuItem
-{
-    NSString * tTitle=(self.showsVersion==YES) ? [NSString stringWithFormat:@"%@ (%@)",self.displayName,self.version] : self.displayName;
-    
-    NSMenuItem * tMenuItem=[[NSMenuItem alloc] initWithTitle:tTitle
-                                                      action:nil
-                                               keyEquivalent:@""];
-    
-    tMenuItem.image=self.icon;
-    tMenuItem.representedObject=self;
-    
-    return tMenuItem;
-}
-
-#pragma mark -
-
-- (NSComparisonResult)compare:(CUIApplicationItemAttributes *)inOther
-{
-    NSComparisonResult tResult=NSOrderedSame;
-    
-    if ([self.bundleIdentifier isEqualToString:inOther.bundleIdentifier]==YES)
-    {
-        self.showsVersion=YES;
-        inOther.showsVersion=YES;
-    }
-    else
-    {
-        tResult=[self.displayName caseInsensitiveCompare:inOther.displayName];
-    }
-    
-    if (tResult!=NSOrderedSame)
-        return tResult;
-    
-    // Compare version
-    
-    tResult=[self.version caseInsensitiveCompare:inOther.version];
-    
-    if (tResult==NSOrderedSame)
-    {
-        if ([self.applicationURL.path hasPrefix:@"/Volumes/"]==YES)
-            self.duplicate=YES;
-        else
-            inOther.duplicate=YES;
-    }
-    
-    return -tResult;
-}
-
-@end
-
+#import "CUIApplicationItemAttributes.h"
 
 
 @interface CUIPreferencePaneGeneralViewController ()
@@ -228,6 +103,10 @@
         return [[CUIApplicationItemAttributes alloc] initWithURL:bApplicationURL];
     }] mutableCopy];
     
+    // Sort the array
+    
+    [tApplicationsAttributes sortUsingSelector:@selector(compare:)];
+    
     // Filter the array
     
     tApplicationsAttributes=[tApplicationsAttributes WB_filteredArrayUsingBlock:^BOOL(CUIApplicationItemAttributes * bAttributes, NSUInteger bIndex) {
@@ -235,10 +114,6 @@
         return (bAttributes.duplicate==NO);
         
     }];
-    
-    // Sort the array
-    
-    [tApplicationsAttributes sortUsingSelector:@selector(compare:)];
     
     for(CUIApplicationItemAttributes * tAttributes in tApplicationsAttributes)
     {

@@ -36,6 +36,10 @@
 
 #import "CUICrashLogBrowsingStateRegistry.h"
 
+#import "NSTableView+Selection.h"
+
+#import "CUIRawCrashLog+Path.h"
+
 #define CUIBinaryImageIdentifierTextFieldMaxWidth     200.0
 
 @interface CUIThreadsColumnViewController () <NSTableViewDataSource,NSTableViewDelegate>
@@ -68,6 +72,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // TableView menu
+    
+    NSMenu * tMenu=[self createFrameContextualMenu];
+    
+    _backtraceTableView.menu=tMenu;
 }
 
 - (void)viewWillDisappear
@@ -249,6 +259,21 @@
     
     if (tSelectedRow!=-1)
         [_backtraceTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:tSelectedRow] byExtendingSelection:NO];
+}
+
+- (NSUInteger)numberOfSelectedStackFrames
+{
+    return [_backtraceTableView WB_selectedOrClickedRowIndexes].count;
+}
+
+- (NSArray<CUIStackFrame *> *)selectedStackFrames
+{
+    NSIndexSet * tSelectedRows=[_backtraceTableView WB_selectedOrClickedRowIndexes];
+    
+    if (tSelectedRows.count==0)
+        return @[];
+    
+    return [_selectedThread.callStackBacktrace.stackFrames objectsAtIndexes:tSelectedRows];
 }
 
 #pragma mark -

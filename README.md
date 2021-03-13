@@ -43,3 +43,16 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+## Potentially Interesting Implementations In The Code
+
+- Code to access the segments and sections of a Mach-O file is available in the app_unexpectedly project/app_unexpectedly project/Mach-o directory.
+
+- Code to analyze DWARF files is available in the app_unexpectedly project/app_unexpectedly project/DWARF directory. Unexpectedly does not rely on LLVM.
+
+- A solution to deal with a NSTextView when it comes to vertical scrolling when a vertical ruleview is visible is available in the CUICrashLogTextView class.
+
+- How the project uses - forwardingTargetForSelector: , - respondsToSelector: to go downward in the responders chain might be interesting.
+
+- Code to implement a thick NSSplitView divider with subviews as in Xcode can be found in the CUICrashLogPresentationOutlineViewController class.  

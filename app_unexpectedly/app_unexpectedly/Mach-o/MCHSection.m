@@ -140,41 +140,6 @@
             break;
     
         default:
-    
-            if ([tSegmentName isEqualToString:@SEG_TEXT]==YES)
-            {
-                //__objc_classname__TEXT
-            }
-            else if ([tSegmentName isEqualToString:@SEG_DATA]==YES)
-            {
-                /*if ([tSectionName isEqualToString:@"__cfstring"]==YES)
-                    tSection=[[MTBCCFStringSection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];
-                else if ([tSectionName isEqualToString:@"__objc_classlist"]==YES)
-                    tSection=[[MTBCOBJC2ClassListSection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];
-                else if ([tSectionName isEqualToString:@"__objc_data"]==YES)
-                    tSection=[[MTBCOBJC2ObjcDataSection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
-                
-                
-                
-                
-                // A COMPLETER
-            }
-            else if ([tSegmentName isEqualToString:@SEG_OBJC]==YES)
-            {
-                /*if ([tSectionName isEqualToString:@"__module_info"]==YES)
-                    tSection=[[MTBCOBJC1ModuleInfoSection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];
-                else if ([tSectionName isEqualToString:@"__symbols"]==YES)
-                        tSection=[[MTBCOBJC1SymbolsSection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];
-                else if ([tSectionName isEqualToString:@"__class"]==YES)
-                    tSection=[[MTBCOBJC1ClassSection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];
-                else  if ([tSectionName isEqualToString:@"__category"]==YES)
-                    tSection=[[MTBCOBJC1CategorySection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
-                
-                
-                
-                
-                // A COMPLETER
-            }
             
             if (tSection==nil)
                 tSection=[super initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture];

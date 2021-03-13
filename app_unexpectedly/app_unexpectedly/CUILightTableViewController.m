@@ -105,13 +105,6 @@
     [_dockedThreadsCollectionView reloadData];
 }
 
-- (void)setShowOnlyCrashedThread:(BOOL)aBool
-{
-    [super setShowOnlyCrashedThread:aBool];
-    
-    // A COMPLETER
-}
-
 - (void)setVisibleStackFrameComponents:(CUIStackFrameComponents)inVisibleStackFrameComponents
 {
     [super setVisibleStackFrameComponents:inVisibleStackFrameComponents];

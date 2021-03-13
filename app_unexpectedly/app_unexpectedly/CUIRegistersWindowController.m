@@ -209,8 +209,6 @@
         self.window.minSize=tWindowFrame.size;
     
     self.window.maxSize=tWindowFrame.size;
-    
-    
 }
 
 @end

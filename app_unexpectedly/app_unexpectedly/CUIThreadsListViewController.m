@@ -36,11 +36,11 @@
 
 #import "CUISymbolicationManager.h"
 
-
-
 #import "CUIApplicationPreferences.h"
 
 #import "CUICrashLogBrowsingStateRegistry.h"
+
+#import "NSTableView+Selection.h"
 
 #define CUIBinaryImageIdentifierTextFieldMaxWidth     200.0
 
@@ -82,8 +82,6 @@
     CGFloat _optimizedBinaryImageTextFieldWidth;
 }
 
-- (IBAction)showHideThreadState:(id)sender;
-
 - (void)delayedReloadSymbols;
 
 @end
@@ -100,6 +98,12 @@
     [super viewDidLoad];
     
     _threadStateRowHeight=205;
+    
+    // OutlineView menu
+    
+    NSMenu * tMenu=[self createFrameContextualMenu];
+    
+    _outlineView.menu=tMenu;
     
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:_outlineView];
 }
@@ -310,44 +314,34 @@
     [_outlineView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,_outlineView.numberOfRows)] columnIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,_outlineView.numberOfColumns)]];
 }
 
-#pragma mark -
+- (NSUInteger)numberOfSelectedStackFrames
+{
+    return [_outlineView WB_selectedOrClickedRowIndexes].count;
+}
 
-- (IBAction)copy:(id)sender
-{    
-    NSIndexSet * tIndexSet=[_outlineView selectedRowIndexes];
+- (NSArray<CUIStackFrame *> *)selectedStackFrames
+{
+    NSIndexSet * tSelectedRows=[_outlineView WB_selectedOrClickedRowIndexes];
     
-    if (tIndexSet.count==0)
-        return;
+    if (tSelectedRows.count==0)
+        return @[];
     
-    NSMutableString * tMutableString=[NSMutableString string];
+    NSMutableArray * tMutableArray=[NSMutableArray array];
     
-    [tIndexSet enumerateIndexesUsingBlock:^(NSUInteger bRow, BOOL * bOutStop) {
+    [tSelectedRows enumerateIndexesUsingBlock:^(NSUInteger bRow, BOOL * bOutStop) {
         
-        CUIStackFrame * tCall=[self->_outlineView itemAtRow:bRow];
+        CUIStackFrame * tStackFrame=[self->_outlineView itemAtRow:bRow];
         
-        if ([tCall isKindOfClass:[CUIStackFrame class]]==NO)
+        if ([tStackFrame isKindOfClass:[CUIStackFrame class]]==NO)
             return;
         
-        NSString * tString=[tCall pasteboardRepresentationWithComponents:self.visibleStackFrameComponents];
-        
-        if (tString!=nil)
-            [tMutableString appendString:tString];
-        
-        
+        [tMutableArray addObject:tStackFrame];
     }];
     
-    NSPasteboard * tPasteboard=[NSPasteboard  generalPasteboard];
-    
-    [tPasteboard declareTypes:@[NSStringPboardType] owner:nil];
-    [tPasteboard setString:tMutableString forType:NSStringPboardType];
+    return [tMutableArray copy];
 }
 
-- (IBAction)showHideThreadState:(id)sender
-{
-    _showCrashedThreadState=!_showCrashedThreadState;
-    
-    [_outlineView reloadData];
-}
+#pragma mark -
 
 - (IBAction)openSourceFile:(id)sender
 {

@@ -85,7 +85,17 @@
         NSData * tData=tExtendedAttributes[@"ReopenPath"];
         
         if (tData!=nil)
+        {
             _reopenFilePath=[[NSString alloc] initWithData:tData encoding:NSUTF8StringEncoding];
+            
+            if ([_reopenFilePath hasPrefix:@"/Users/"]==YES)
+            {
+                NSArray * tComponents=[_reopenFilePath componentsSeparatedByString:@"/"];
+                
+                if (tComponents.count>2)
+                    _USERPathComponent=[tComponents[2] copy];
+            }
+        }
     }
     
     return self;

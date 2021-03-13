@@ -149,7 +149,9 @@
     
     if (tHTMLContents==nil)
     {
-        // A COMPLETER
+        NSLog(@"Missing HTML document at %@",_contentsFileURL.path);
+        
+        // A COMPLETER (Provide a basic HTML error report to display)
         
         return;
     }

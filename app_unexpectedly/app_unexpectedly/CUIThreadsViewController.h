@@ -23,7 +23,12 @@
 
 #import "CUISymbolicationDataFormatter.h"
 
-@interface CUIThreadsViewController : NSViewController
+#import "CUIHopperDisassemblerManager.h"
+
+@interface CUIThreadsViewController : NSViewController <CUIHopperDisassemblerActions>
+{
+    IBOutlet NSMenuItem * _showWithMenuItem;
+}
 
     @property (nonatomic) CUICrashLog * crashLog;
 
@@ -35,6 +40,17 @@
 
     @property (readonly) CUISymbolicationDataFormatter * lineColumnFormatter;
 
+
+    @property (nonatomic) NSUInteger numberOfSelectedStackFrames;
+
+    @property (nonatomic) NSArray<CUIStackFrame *> * selectedStackFrames;
+
+- (NSMenu *)createFrameContextualMenu;;
+
+- (IBAction)copyMachineInstructionAddress:(id)sender;
+    
+- (IBAction)copyBinaryImageOffset:(id)sender;
+    
 - (IBAction)openSourceFile:(id)sender;
 
 - (void)setUpSourceFileCellView:(CUISourceFileTableCellView *)inTableCellView withSymbolicationData:(CUISymbolicationData *)inSymbolicationData;

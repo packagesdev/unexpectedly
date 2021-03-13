@@ -72,7 +72,7 @@
     
     if (tCrashLog==nil)
     {
-        // A COMPLETER
+        NSLog(@"Error when parsing report file \"%@\", will try to parse it as raw report",inPath);
         
         tCrashLog=[[CUIRawCrashLog alloc] initWithContentsOfFile:inPath error:outError];
     }

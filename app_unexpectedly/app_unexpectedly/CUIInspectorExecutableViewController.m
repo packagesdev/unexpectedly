@@ -15,6 +15,7 @@
 
 #import "CUICrashLog+UI.h"
 
+#import "CUIRawCrashLog+Path.h"
 
 @interface CUIInspectorExecutableViewController ()
 {
@@ -94,10 +95,10 @@
     
     _executableArchitectureValue.stringValue=tArchitectureValue;
     
-    NSString * tExecutablePath=tCrashLog.reopenFilePath;
+    NSString * tExecutablePath=[tCrashLog stringByResolvingUSERInPath:tHeader.executablePath];
     
     if (tExecutablePath==nil)
-        tExecutablePath=tHeader.executablePath;
+        tExecutablePath=tCrashLog.reopenFilePath;
     
     if (tExecutablePath==nil)
     {

@@ -47,8 +47,6 @@
 {
     [super viewDidLoad];
     
-    // A COMPLETER
-    
     [((NSButton *)[_presentationModeTabHeaderView viewWithTag:CUIPresentationModeText]) setState:NSOnState];
     
     [self showPaneForPresentationMode:CUIPresentationModeText];

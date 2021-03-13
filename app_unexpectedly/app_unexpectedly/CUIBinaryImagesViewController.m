@@ -19,15 +19,23 @@
 
 #import "CUICallsSelection.h"
 
+#import "CUIApplicationItemAttributes.h"
+
 #import "NSArray+WBExtensions.h"
 
 #import "NSTableView+Selection.h"
 
 #import "NSSet+WBExtensions.h"
 
-@interface CUIBinaryImagesViewController () <NSTableViewDataSource,NSTableViewDelegate>
+#import "CUIRawCrashLog+Path.h"
+
+#import "CUIHopperDisassemblerManager.h"
+
+@interface CUIBinaryImagesViewController () <NSTableViewDataSource,NSTableViewDelegate,CUIHopperDisassemblerActions>
 {
     IBOutlet NSTableView * _tableView;
+    
+    IBOutlet NSMenuItem * _openWithMenuItem;
     
     IBOutlet NSSearchField * _filterField;
     
@@ -37,6 +45,10 @@
     
     NSSet * _highlightedBinaryImagesSet;
 }
+
+    @property (nonatomic,copy) NSString * userCodeBinaryImageIdentifier;
+
+    @property (nonatomic) NSArray * binaryImages;
 
 - (void)refreshList;
 
@@ -75,9 +87,20 @@
 {
     [super viewDidLoad];
     
+    // Table
+    
     NSSortDescriptor *buildETASortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"addressesRange" ascending:YES];
     
     _tableView.sortDescriptors=@[buildETASortDescriptor];
+    
+    // Open With menu
+    
+    NSMenu * tHopperMenu=[[CUIHopperDisassemblerManager sharedManager] availableApplicationsMenuWithTarget:self];
+    
+    _openWithMenuItem.submenu=tHopperMenu;
+    _openWithMenuItem.hidden=(tHopperMenu==nil);
+    
+    // Filter Field
     
     _filterField.centersPlaceholder=NO;
     
@@ -94,14 +117,15 @@
 
 #pragma mark -
 
-- (void)setUserCodeBinaryImageIdentifier:(NSString *)userCodeBinaryImageIdentifier
+- (void)setCrashLog:(CUICrashLog *)inCrashLog
 {
-    _userCodeBinaryImageIdentifier=[userCodeBinaryImageIdentifier copy];
-}
-
-- (void)setBinaryImages:(NSArray *)inBinaryImages
-{
-    _binaryImages=inBinaryImages;
+    if (_crashLog==inCrashLog)
+        return;
+    
+    _crashLog=inCrashLog;
+    
+    _binaryImages=_crashLog.binaryImages.binaryImages;
+    _userCodeBinaryImageIdentifier=_crashLog.header.bundleIdentifier;
     
     [_tableView sizeLastColumnToFit];
     
@@ -181,7 +205,8 @@
     
     NSIndexSet * tSelectedRows=[_tableView WB_selectedOrClickedRowIndexes];
     
-    if (tAction==@selector(showInFinder:))
+    if (tAction==@selector(showInFinder:) ||
+        tAction==@selector(openWithHopperDisassembler:))
     {
         if (tSelectedRows.count==0)
             return NO;
@@ -217,6 +242,24 @@
         
         if (bBinaryImage.path.length>0)
             [tSharedWorkspace selectFile:bBinaryImage.path inFileViewerRootedAtPath:@""];
+    }];
+}
+
+- (IBAction)openWithHopperDisassembler:(NSMenuItem *)sender
+{
+    NSIndexSet * tSelectionIndexSet=_tableView.WB_selectedOrClickedRowIndexes;
+    
+    CUIApplicationItemAttributes * tApplicationItemAttributes=sender.representedObject;
+    
+    [_sortedAndFilteredBinaryImagesArray enumerateObjectsAtIndexes:tSelectionIndexSet options:0 usingBlock:^(CUIBinaryImage * bBinaryImage, NSUInteger bIndex, BOOL * bOutStop) {
+        
+        if (bBinaryImage.path.length>0)
+        {
+            [[CUIHopperDisassemblerManager sharedManager] openBinaryImage:bBinaryImage.path
+                                                withApplicationAttributes:tApplicationItemAttributes
+                                                                 codeType:self.crashLog.header.codeType
+                                                               fileOffSet:NULL];
+        }
     }];
 }
 
@@ -292,7 +335,7 @@
     }
     else if ([tTableColumnIdentifier isEqualToString:@"path"]==YES)
     {
-        tTableCellView.textField.stringValue=tBinaryImage.path;
+        tTableCellView.textField.stringValue=[self.crashLog stringByResolvingUSERInPath:tBinaryImage.path];
     }
     
     return tTableCellView;

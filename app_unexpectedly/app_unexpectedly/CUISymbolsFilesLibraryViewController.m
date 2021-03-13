@@ -505,8 +505,6 @@
     }
     
     _removeButton.enabled=YES;
-    
-    // A COMPLETER
 }
 
 - (void)dSYMBundlesManagerDidAddBundles:(NSNotification *)inNotification

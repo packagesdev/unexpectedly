@@ -44,6 +44,8 @@ typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
 
     @property (readonly,copy) NSString * reopenFilePath;
 
+    @property (readonly,copy) NSString * USERPathComponent;
+
 
 - (instancetype)initWithContentsOfURL:(NSURL *)inURL error:(NSError **)outError;
 

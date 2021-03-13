@@ -13,10 +13,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "CUICrashLog.h"
+
 @interface CUIBinaryImagesViewController : NSViewController
 
-    @property (nonatomic,copy) NSString * userCodeBinaryImageIdentifier;
-
-    @property (nonatomic) NSArray * binaryImages;
+    @property (nonatomic) CUICrashLog * crashLog;
 
 @end

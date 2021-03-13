@@ -65,8 +65,6 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 	
     IBOutlet NSButton * _exceptionTypeMoreInfoButton;
     
-    
-    
     IBOutlet NSSplitView * _splitView;
     
     IBOutlet NSView * _topView;
@@ -241,7 +239,7 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         tTopViewHeight=[tNumber doubleValue];
     
     
-    // A COMPLETER
+
     
     tNumber=[tUserDefaults objectForKey:CUIDefaultsBottomViewCollapsedKey];
     
@@ -380,16 +378,7 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         _showBinaryNameButton.state=NSOffState;
     }
     
-    if (tIsRawCrashLog==NO)
-    {
-        _binaryImagesViewController.userCodeBinaryImageIdentifier=inCrashLog.header.bundleIdentifier;
-        _binaryImagesViewController.binaryImages=inCrashLog.binaryImages.binaryImages;
-    }
-    else
-    {
-        _binaryImagesViewController.userCodeBinaryImageIdentifier=nil;
-        _binaryImagesViewController.binaryImages=nil;
-    }
+    _binaryImagesViewController.crashLog=(tIsRawCrashLog==NO) ? inCrashLog : nil;
     
     [self refresh];
 }

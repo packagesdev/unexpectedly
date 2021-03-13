@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="CUIBinaryImagesViewController">
             <connections>
                 <outlet property="_filterField" destination="JbX-mT-2UH" id="02i-kF-XTY"/>
+                <outlet property="_openWithMenuItem" destination="YLm-YP-LL9" id="Oa6-K5-zJI"/>
                 <outlet property="_tableView" destination="H2N-iz-CG5" id="8vi-YE-vnm"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -219,6 +220,16 @@
                     <connections>
                         <action selector="showInFinder:" target="-2" id="C8h-FR-DuE"/>
                     </connections>
+                </menuItem>
+                <menuItem title="Open With" id="YLm-YP-LL9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Open With" id="SGI-Dm-tOB">
+                        <items>
+                            <menuItem title="-" id="9Ch-Xx-Yu3">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
             </items>
         </menu>

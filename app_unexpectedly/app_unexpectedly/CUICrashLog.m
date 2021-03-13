@@ -53,90 +53,6 @@
 
 @implementation CUICrashLog
 
-/*- (instancetype)initWithContentsOfURL:(NSURL *)inURL error:(NSError **)outError
-{
-    if ([inURL isKindOfClass:[NSURL class]]==NO)
-    {
-        if (outError!=NULL)
-            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
-        
-        return nil;
-    }
-    
-    NSError * tError=nil;
-    
-    NSData * tData=[NSData dataWithContentsOfURL:inURL options:0 error:&tError];
-    
-    if (tData==nil)
-    {
-        if (outError!=NULL)
-            *outError=tError;
-        
-        return nil;
-    }
-    
-    self=[self initWithData:tData error:outError];
-    
-    if (self!=nil)
-    {
-        id tResourceIdentifier=nil;
-        
-        if ([inURL getResourceValue:&tResourceIdentifier forKey:NSURLFileResourceIdentifierKey error:NULL]==YES)
-        {
-            _resourceIdentifier=tResourceIdentifier;
-        }
-        
-        _crashLogFilePath=[inURL.path copy];
-        
-        
-        NSDictionary * tExtendedAttributes=[[NSFileManager defaultManager] WB_extendedAttributesOfItemAtURL:inURL error:nil];
-        
-        NSData * tData=tExtendedAttributes[@"ReopenPath"];
-        
-        if (tData!=nil)
-            _reopenFilePath=[[NSString alloc] initWithData:tData encoding:NSUTF8StringEncoding];
-    }
-    
-    return self;
-    
-    
-}
-
-- (instancetype)initWithContentsOfFile:(NSString *)inPath error:(NSError **)outError
-{
-	if ([inPath isKindOfClass:[NSString class]]==NO)
-	{
-		if (outError!=NULL)
-			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
-		
-		return nil;
-	}
-    
-	return [self initWithContentsOfURL:[NSURL fileURLWithPath:inPath] error:outError];
-}
-
-- (instancetype)initWithData:(NSData *)inData error:(NSError **)outError
-{
-	if ([inData isKindOfClass:[NSData class]]==NO)
-	{
-		if (outError!=NULL)
-			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
-		
-		return nil;
-	}
-	
-	NSString * tString=[[NSString alloc] initWithData:inData encoding:NSASCIIStringEncoding];
-	
-	if (tString==nil)
-	{
-        *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:ENOMEM userInfo:@{}];
-        
-		return nil;
-	}
-	
-	return [self initWithString:tString error:outError];
-}*/
-
 - (instancetype)initWithString:(NSString *)inString error:(NSError **)outError
 {
     if ([inString isKindOfClass:[NSString class]]==NO)
@@ -151,10 +67,6 @@
 	
 	if (self!=nil)
 	{
-        /*_rawText=[inString copy];
-        
-        _resourceIdentifier=[NSUUID UUID];*/
-        
         _headerRange.location=NSNotFound;
         
         _exceptionInformationRange.location=NSNotFound;
