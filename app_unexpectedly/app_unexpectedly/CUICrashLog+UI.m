@@ -65,6 +65,19 @@
 
 - (NSString *)operatingSystemDisplayName
 {
+    CUIOperatingSystemVersion * tVersion=self.header.operatingSystemVersion;
+    
+    switch(tVersion.majorVersion)
+    {
+        case 11:
+            
+            return @"macOS Big Sur";
+            
+        default:
+            
+            break;
+    }
+    
 	NSUInteger tMinorVersion=self.header.operatingSystemVersion.minorVersion;
 	
 	switch(tMinorVersion)
@@ -96,8 +109,6 @@
         case 15:
 			
 			return @"macOS Catalina";
-			
-		
 	}
 	
 	return @"macOS";
