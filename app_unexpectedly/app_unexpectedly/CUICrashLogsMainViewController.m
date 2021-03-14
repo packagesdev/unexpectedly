@@ -406,7 +406,6 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
         if (tRightWidth<CUIInspectorMinimumWidth)
         {
             tRightWidth=CUIInspectorMinimumWidth;
-            
             tLeftWidth=NSWidth(tSplitViewFrame)-CUIContentsMinimumWidth-CUIInspectorMinimumWidth-2*inSplitView.dividerThickness;
         }
     }

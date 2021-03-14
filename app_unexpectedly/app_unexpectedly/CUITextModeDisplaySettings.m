@@ -30,14 +30,6 @@ NSString * const CUITextModeDisplaySettingsVisibleStackFrameComponentsKey=@"stac
     
     if (self!=nil)
     {
-        /*NSNumber * tNumber=inDictionary[CUITextModeDisplaySettingsHyperlinksKey];
-        
-        if ([tNumber isKindOfClass:[NSNumber class]]==NO)
-            return nil;
-        
-        _hyperlinks=[tNumber boolValue];*/
-        
-        
         NSNumber * tNumber=inDictionary[CUITextModeDisplaySettingsVisibleSectionKey];
         
         if ([tNumber isKindOfClass:[NSNumber class]]==NO)
@@ -60,7 +52,6 @@ NSString * const CUITextModeDisplaySettingsVisibleStackFrameComponentsKey=@"stac
 - (NSDictionary *)representation
 {
     return @{
-             //CUITextModeDisplaySettingsHyperlinksKey:@(self.hyperlinks),
              CUITextModeDisplaySettingsVisibleSectionKey:@(self.visibleSections),
              CUITextModeDisplaySettingsVisibleStackFrameComponentsKey:@(self.visibleStackFrameComponents)
              };
@@ -71,8 +62,6 @@ NSString * const CUITextModeDisplaySettingsVisibleStackFrameComponentsKey=@"stac
 - (id)copyWithZone:(NSZone *)zone
 {
     CUITextModeDisplaySettings * nSettings=[CUITextModeDisplaySettings new];
-    
-    //nSettings.hyperlinks=self.hyperlinks;
     
     nSettings.visibleSections=self.visibleSections;
     

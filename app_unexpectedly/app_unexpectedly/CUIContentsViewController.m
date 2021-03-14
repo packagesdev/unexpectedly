@@ -156,9 +156,6 @@
     if ([_selection isEqual:inSelection]==YES)
         return;
     
-    /*if (_selection.crashLogs.firstObject!=nil)
-        [NSObject cancelPreviousPerformRequestsWithTarget:_contentsViewController selector:@selector(setCrashLog:) object:_selection.crashLogs.firstObject];*/
-    
     _selection=[inSelection copy];
     
     NSViewController * tNewController=nil;
@@ -175,9 +172,7 @@
     }
     
     if (_currentController!=tNewController)
-    {
         [_currentController.view removeFromSuperview];
-    }
     
     tNewController.view.frame=_contentsView.bounds;
     
@@ -189,7 +184,6 @@
     
     if (_selection.crashLogs.count!=0)
     {
-        //[_contentsViewController performSelector:@selector(setCrashLog:) withObject:_selection.crashLogs.firstObject afterDelay:0.1];
         _contentsViewController.crashLog=_selection.crashLogs.firstObject;
         
         _navigationViewController.presentationViewController=_contentsViewController.presentationViewController;

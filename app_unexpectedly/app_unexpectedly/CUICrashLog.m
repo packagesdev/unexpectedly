@@ -435,17 +435,6 @@
 - (NSString *)description
 {
 	return [NSString stringWithFormat:@"%@ %@",self.processName,self.dateTime.description];
-	
-	//NSMutableString * tMutableString=[NSMutableString string];
-	
-	/*for(CUIThread * tThread in self.threads)
-	{
-		[tMutableString appendFormat:@"%@\n",tThread.description];
-	}*/
-	
-	//return tMutableString;
 }
-
-
 
 @end

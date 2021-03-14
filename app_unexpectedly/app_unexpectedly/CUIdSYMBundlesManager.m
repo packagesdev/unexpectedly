@@ -71,10 +71,6 @@ NSString * const CUIdSYMBundlesManagerContentsKey=@"dSYMLibrary.contents";
             
             [self _addBundles:tBundles andNotify:NO];
         }
-        
-        /*tBundle=[[CUIdSYMBundle alloc] initWithPath:@"/Users/stephane/Library/Developer/Xcode/DerivedData/testCrash-gnacpjuniqxcfhdnbwrsfwvemwrz/Build/Products/Release/testCrash.dSYM"];
-        
-        [self addBundle:tBundle];*/
     }
     
     return self;

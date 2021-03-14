@@ -192,14 +192,12 @@ NSString * const CUIRegistersMainViewContentsViewDidChangeNotificaton=@"CUIRegis
 {
     static NSSize sLastIdealSize={.width=300, .height=200};
     
-    if (_currentViewController==_registersViewController)
-    {
-        sLastIdealSize=[_registersViewController idealSizeForNumberOfColumns:inColumnsNumber];
-    }
-    else
-    {
+    if (_currentViewController!=_registersViewController)
         return NSZeroSize;
-    }
+    
+    // A VOIR (We can get rid of the static if we stay with this implementation)
+    
+    sLastIdealSize=[_registersViewController idealSizeForNumberOfColumns:inColumnsNumber];
     
     return sLastIdealSize;
 }

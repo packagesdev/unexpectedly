@@ -5,18 +5,6 @@
 
 #include <mach-o/loader.h>
 
-/*#import "MTBCCStringSection.h"
-#import "MTBCCFStringSection.h"
-
-
-#import "MTBCOBJC1ModuleInfoSection.h"
-#import "MTBCOBJC1SymbolsSection.h"
-#import "MTBCOBJC1ClassSection.h"
-#import "MTBCOBJC1CategorySection.h"
-
-#import "MTBCOBJC2ClassListSection.h"
-#import "MTBCOBJC2ObjcDataSection.h"*/
-
 @implementation MCHSection
 
 - (id)initWithBytes:(const char *)inBytes length:(NSUInteger)inLength swap:(BOOL)inSwap architecture:(MCHArchitecture)inArchitecture objectFile:( MCHObjectFile *)inObjectFile;
@@ -129,13 +117,9 @@
     {
         case S_CSTRING_LITERALS:
             
-            /*tSection=[[MTBCCStringSection alloc] initWithBytes:inObjectFile.buffer+tOffset length:(NSUInteger)tSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
-            
             break;
             
         case S_ZEROFILL:
-            
-            
             
             break;
     

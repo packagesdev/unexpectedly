@@ -641,15 +641,11 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)inTableView
 {
     if (inTableView==_themesTableView)
-    {
         return _cachedSortedThemes.count;
-    }
     
     if (inTableView==_categoriesTableView)
-    {
         return _cachedItemsNames.count;
-    }
-    
+
     return 0;
 }
 
@@ -698,13 +694,9 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
         tTableCellView.textField.font=tItemAttributes.font;
         
         if ([_categoriesTableView isRowSelected:inRow]==YES)
-        {
             tTableCellView.textField.backgroundColor=[[_selectedThemeItemsGroup attributesForItem:CUIThemeItemSelectionBackground] color];
-        }
         else
-        {
             tTableCellView.textField.backgroundColor=_cachedBackgroundColor;
-        }
         
         tTableCellView.textField.textColor=tItemAttributes.color;
         
@@ -717,9 +709,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
 - (CGFloat)tableView:(NSTableView *)inTableView heightOfRow:(NSInteger)inRow
 {
     if (inTableView==_themesTableView)
-    {
         return 26.0;
-    }
     
     if (inTableView==_categoriesTableView)
     {

@@ -1468,12 +1468,12 @@
 				F432ACCB24A9502A000A3E7A /* CUIThreadsViewController.m */,
 				F4F5395324D2063100D537BC /* View Mode - List */,
 				F4F5395424D2064600D537BC /* View Mode - Columns */,
-				F4E1C11024C22CD0000F5C0F /* View Mode - Light Table */,
+				F4E1C11024C22CD0000F5C0F /* View Mode - Light Table - Not used */,
 			);
 			name = "Presentation Outline";
 			sourceTree = "<group>";
 		};
-		F4E1C11024C22CD0000F5C0F /* View Mode - Light Table */ = {
+		F4E1C11024C22CD0000F5C0F /* View Mode - Light Table - Not used */ = {
 			isa = PBXGroup;
 			children = (
 				F44A5F3824CCE28F006B59B8 /* Views */,
@@ -1493,7 +1493,7 @@
 				F4E1C11224C22CF5000F5C0F /* CUILightTableViewController.m */,
 				F4E1C11324C22CF5000F5C0F /* CUILightTableViewController.xib */,
 			);
-			name = "View Mode - Light Table";
+			name = "View Mode - Light Table - Not used";
 			sourceTree = "<group>";
 		};
 		F4EAFA2924FA538F00C0B729 /* Views */ = {

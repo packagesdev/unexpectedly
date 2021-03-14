@@ -349,9 +349,6 @@
 {
     if (inTableView==_threadsTableView)
 	{
-		/*if (self.showOnlyCrashedThread==YES)
-            inRow=self.crashLog.exceptionInformation.crashedThreadIndex;*/
-        
         CUIThread * tThread=(CUIThread *)_filteredThreads[inRow];
 		
 		NSTableCellView * tTableCellView=nil;
@@ -716,53 +713,6 @@
         }
         
         return tCallTableCellView;
-        
-        /*NSString * tTableColumnIdentifier=inTableColumn.identifier;
-		NSTableCellView * tTableCellView=[inTableView makeViewWithIdentifier:tTableColumnIdentifier owner:self];
-		
-		if ([tTableColumnIdentifier isEqualToString:@"symbol"]==YES)
-		{
-			
-			
-			NSMutableString * tCallLine=[NSMutableString stringWithFormat:@"%lu ",tCall.index];
-			
-			[tCallLine appendString:tCall.symbol];
-			
-			if ((self.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0)
-			{
-				[tCallLine appendFormat:@" + %lu",tCall.offset];
-			}
-			
-			tTableCellView.textField.stringValue=tCallLine;
-			
-			if ([tCall.binaryImageIdentifier isEqualToString:self.crashLog.header.bundleIdentifier]==YES)
-			{
-				tTableCellView.imageView.image=[NSImage imageNamed:@"call-usercode"];
-			}
-			else
-			{
-				tTableCellView.imageView.image=tCall.binaryImageIcon;
-			}
-		}
-		else if ([tTableColumnIdentifier isEqualToString:@"address"]==YES)
-		{
-			tTableCellView.textField.stringValue=[NSString stringWithFormat:@"0x%012lx",tCall.memoryAddress];
-		}
-		else if ([tTableColumnIdentifier isEqualToString:@"binary"]==YES)
-		{
-			tTableCellView.textField.stringValue=[NSString stringWithFormat:@"%@",tCall.binaryImageIdentifier];
-		}
-		
-		if ([tCall.binaryImageIdentifier isEqualToString:self.crashLog.header.bundleIdentifier]==YES)
-		{
-			tTableCellView.textField.textColor=[NSColor labelColor];
-		}
-		else
-		{
-			tTableCellView.textField.textColor=[NSColor secondaryLabelColor];
-		}
-		
-		return tTableCellView;*/
 	}
 	
 	return nil;

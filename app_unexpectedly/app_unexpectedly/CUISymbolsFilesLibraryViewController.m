@@ -205,9 +205,7 @@
     }
     
     if (tAction==@selector(selectAll:))
-    {
         return (_filteredAndSortedBundlesArray.count>0);
-    }
     
     if (tAction==@selector(showInFinder:))
     {
@@ -250,8 +248,6 @@
     tOpenPanel.canChooseDirectories=NO;
     tOpenPanel.allowsMultipleSelection=YES;
     tOpenPanel.allowedFileTypes=@[@"dSYM"];
-    
-    //tOpenPanel.delegate=self;
     
     [tOpenPanel beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse bReturnCode) {
         
@@ -339,9 +335,7 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)inTableView
 {
     if (inTableView==_tableView)
-    {
         return _filteredAndSortedBundlesArray.count;
-    }
     
     return 0;
 }
@@ -509,15 +503,11 @@
 
 - (void)dSYMBundlesManagerDidAddBundles:(NSNotification *)inNotification
 {
-    // A COMPLETER
-    
     [self refreshList];
 }
 
 - (void)dSYMBundlesManagerDidRemoveBundles:(NSNotification *)inNotification
 {
-    // A COMPLETER
-    
     [self refreshList];
 }
 

@@ -137,13 +137,9 @@
     NSMenu * tMenu=[CUIPreferencePaneGeneralViewController sourceEditorsMenu];
     
     if (tMenu.numberOfItems>0)
-    {
         _sourceEditorsPopUpButton.menu=tMenu;
-    }
     else
-    {
         _sourceEditorsPopUpButton.enabled=NO;
-    }
     
     // Default reports viewer
     
@@ -186,19 +182,13 @@
         }];
         
         if (tIndex!=NSNotFound)
-        {
             tPreferences.preferedSourceCodeEditorURL=tPreferedApplicationURL;
-        }
     }
     
     if (tIndex!=NSNotFound)
-    {
         [_sourceEditorsPopUpButton selectItemAtIndex:tIndex];
-    }
     else
-    {
         NSLog(@"Ouille ouille ouille!");
-    }
     
     // Default reports viewer
     
@@ -215,12 +205,6 @@
     if (tIndex!=NSNotFound)
         [_reportViewersPopUpButton selectItemAtIndex:tIndex];
 }
-
-/*
-+ (BOOL) setMyselfAsDefaultApplicationForFileExtension:(NSString *) fileExtension {
- 
-}
- */
 
 #pragma mark -
 
@@ -244,7 +228,7 @@
     
     if (tResult != noErr)
     {
-        
+        // A VOIR (report error if we can figure out which error values this method can return)
     }
 }
 

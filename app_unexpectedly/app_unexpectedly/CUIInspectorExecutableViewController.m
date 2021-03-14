@@ -36,12 +36,9 @@
 
 - (IBAction)showExecutableInFinder:(id)sender;
 
-
 @end
 
 @implementation CUIInspectorExecutableViewController
-
-
 
 - (void)viewDidLoad
 {
@@ -90,7 +87,6 @@
             tArchitectureValue=@"TBD";
             break;
     }
-    
     
     
     _executableArchitectureValue.stringValue=tArchitectureValue;

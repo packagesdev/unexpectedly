@@ -100,11 +100,6 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
 {
     SEL tAction=inMenuItem.action;
     
-    if (self!=inMenuItem.target && [self respondsToSelector:tAction]==NO)
-    {
-        
-    }
-    
     if (tAction==@selector(CUIMENUACTION_showHideRegisters:))
     {
         CUIRegistersWindowController * tRegistersWindowController=[CUIRegistersWindowController sharedRegistersWindowController];
@@ -153,9 +148,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     // Show Registers window?
     
     if ([CUIApplicationPreferences sharedPreferences].showsRegistersWindowAutomaticallyAtLaunch==YES)
-    {
         [self CUIMENUACTION_showHideRegisters:self];
-    }
 }
 
 #pragma mark - Notifications

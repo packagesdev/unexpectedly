@@ -137,77 +137,6 @@ typedef NS_ENUM(uint8_t, DW_CHILDREN)
 
 @end
 
-/*@interface DWRFAbbreviationDeclarationEntriesEnumerator : NSEnumerator
-{
-    NSMutableArray * _stack;
-    
-    DWRFAbbreviationDebugingInformationEntry * _nextEntry;
-}
-
-- (instancetype)initWithAbbreviationDeclaration:(DWRFAbbreviationDeclaration*)inDeclaration;
-
-@end
-
-@implementation DWRFAbbreviationDeclarationEntriesEnumerator
-
-- (instancetype)initWithAbbreviationDeclaration:(DWRFAbbreviationDeclaration*)inDeclaration
-{
-    self=[super init];
-    
-    if (self!=nil)
-    {
-        _stack=[NSMutableArray array];
-        
-        _nextEntry=inDeclaration.firstDebugingInformationEntry;
-    }
-    
-    return self;
-}
-
-#pragma mark -
-
-- (id)nextObject
-{
-    if (_nextEntry==nil)
-        return nil;
-    
-    DWRFAbbreviationDebugingInformationEntry * tReturnedEntry=_nextEntry;
-    
-    if (_nextEntry.children!=nil)
-    {
-        _nextEntry=_nextEntry.children.firstObject;
-    }
-    else
-    {
-        if (_nextEntry.next!=nil)
-        {
-            _nextEntry=_nextEntry.next;
-        }
-        else
-        {
-            while (1)
-            {
-                _nextEntry=_nextEntry.parent;
-                
-                if (_nextEntry==nil)
-                    break;
-                
-                if (_nextEntry.next!=nil)
-                {
-                    _nextEntry=_nextEntry.next;
-                    break;
-                }
-            }
-            
-            _nextEntry=_nextEntry.parent.next;
-        }
-    }
-    
-    return tReturnedEntry;
-}
-
-@end*/
-
 
 @interface DWRFAbbreviationDeclarationsSet ()
 {
@@ -267,15 +196,6 @@ typedef NS_ENUM(uint8_t, DW_CHILDREN)
     
     return _abbreviationDeclarations[inCode];
 }
-
-#pragma mark -
-
-/*- (NSEnumerator *)debuggingInformationEntriesEnumerator
-{
-    DWRFAbbreviationDeclarationEntriesEnumerator * tEnumerator=[[DWRFAbbreviationDeclarationEntriesEnumerator alloc] initWithAbbreviationDeclaration:self];
-    
-    return tEnumerator;
-}*/
 
 @end
 

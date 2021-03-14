@@ -23,8 +23,6 @@
 
 @implementation CUIAddressesRange
 
-
-
 + (CUIAddressesRange *)addressesRangeWithLocation:(NSUInteger)inLocation length:(NSUInteger)inLength
 {
     return [[CUIAddressesRange alloc] initWithLocation:inLocation length:inLength];
@@ -101,6 +99,7 @@
 
 @end
 
+// Line example:
 // 0x7fff2d259000 -     0x7fff2d259fff  com.apple.Accelerate (1.11 - Accelerate 1.11) <B2A0C739-1D41-3452-9D00-8C01ADA5DD99> /System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
 
 @implementation CUIBinaryImage

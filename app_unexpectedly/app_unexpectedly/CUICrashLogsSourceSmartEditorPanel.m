@@ -247,10 +247,6 @@
         _source.predicate=_predicatorEditor.objectValue;
     }
     
-    /*NSData *data = [_predicatorEditor performSelector:@selector(_generateFormattingDictionaryStringsFile)];
-    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF16StringEncoding];
-    NSLog(@"%@", str);*/
-    
     [NSApp endSheet:self.window returnCode:sender.tag];
 }
 

@@ -21,7 +21,7 @@
 
 #import "CUIThreadsListViewController.h"
 #import "CUIThreadsColumnViewController.h"
-#import "CUILightTableViewController.h"
+//import "CUILightTableViewController.h"
 
 #import "CUICenteredLabelViewController.h"
 
@@ -430,10 +430,10 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
             _threadsViewController=[CUIThreadsColumnViewController new];
             break;
             
-        case CUIThreadsModeViewLightTable:
+        /*case CUIThreadsModeViewLightTable:
      
             _threadsViewController=[CUILightTableViewController new];
-            break;
+            break;*/
             
         default:
             
@@ -713,33 +713,6 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         
         _bottomView.frame=tBottomFrame;
     }
-    
-    /*CGFloat tBottomHeight=([inSplitView isSubviewCollapsed:_bottomView]==NO) ? inBottomViewHeight : 0.0;
-    
-    tMiddleFrame.size.height=NSHeight(tSplitViewFrame)-tBottomHeight-inSplitView.dividerThickness;
-    
-    if (tMiddleFrame.size.height<CUIThreadsViewMinimumHeight)
-    {
-        tMiddleFrame.size.height=CUIThreadsViewMinimumHeight;
-        
-        tBottomHeight=NSHeight(tSplitViewFrame)-CUIThreadsViewMinimumHeight-inSplitView.dividerThickness;
-    }
-    
-    tMiddleFrame.origin.y=0;
-    tMiddleFrame.origin.x=0;
-    tMiddleFrame.size.width=NSWidth(tSplitViewFrame);
-    
-    _middleView.frame=tMiddleFrame;
-    
-    if ([inSplitView isSubviewCollapsed:_bottomView]==NO)
-    {
-        tBottomFrame.origin.y=NSHeight(tSplitViewFrame)-tBottomHeight;
-        tBottomFrame.size.height=tBottomHeight;
-        tBottomFrame.origin.x=0;
-        tBottomFrame.size.width=NSWidth(tSplitViewFrame);
-        
-        _bottomView.frame=tBottomFrame;
-    }*/
 }
 
 - (void)splitView:(NSSplitView *)inSplitView resizeSubviewsWithOldSize:(NSSize)oldSize

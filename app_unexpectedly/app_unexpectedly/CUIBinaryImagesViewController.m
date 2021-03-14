@@ -169,8 +169,6 @@
     
     [_sortedAndFilteredBinaryImagesArray sortUsingDescriptors: _tableView.sortDescriptors];
     
-    //[_tableView deselectAll:self];
-    
     [_tableView reloadData];
     
     NSMutableIndexSet * tNewSelectionIndexSet=[NSMutableIndexSet indexSet];

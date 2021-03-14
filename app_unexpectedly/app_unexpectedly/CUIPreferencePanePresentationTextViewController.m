@@ -135,13 +135,9 @@
 - (void)_setSection:(CUIDocumentSections)inSection visible:(BOOL)inVisible
 {
     if (inVisible==YES)
-    {
         _displaySettings.visibleSections|=inSection;
-    }
     else
-    {
         _displaySettings.visibleSections&=~inSection;
-    }
     
     _applicationPreferences.defaultTextModeDisplaySettings=_displaySettings;
 }
@@ -149,13 +145,9 @@
 - (void)_setStackFrameComponent:(CUIStackFrameComponents)inComponent visible:(BOOL)inVisible
 {
     if (inVisible==YES)
-    {
         _displaySettings.visibleStackFrameComponents|=inComponent;
-    }
     else
-    {
         _displaySettings.visibleStackFrameComponents&=~inComponent;
-    }
     
     _applicationPreferences.defaultTextModeDisplaySettings=_displaySettings;
 }

@@ -85,11 +85,9 @@ NSString * const CUIRegisterItemViewAsValueDidChangeNotification=@"CUIRegisterIt
     }
     
     _registerNameLabel.stringValue=[NSString stringWithFormat:NSLocalizedString(@"%@:",@""),tRegister.name];
-    
     _registerNameLabel.toolTip=[self toolTipForRegisterName:tRegister.name];
     
     _registerValueLabel.delegate=self;
-    
     _registerValueLabel.registerValue=tRegister.value;
     
     CUIRegisterViewValueAsType tType=CUIRegisterViewValueAsHex;

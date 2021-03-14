@@ -285,7 +285,6 @@
         _reserved4=[tHeader.executablePath copy];
     }
     
-    
     return YES;
 }
 

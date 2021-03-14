@@ -80,27 +80,24 @@
         case LC_LOAD_WEAK_DYLIB:
         case LC_REEXPORT_DYLIB:
             
-            /*self=[[MTBCDynamicLinkedSharedLibraryLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
             break;
             
         case LC_LOAD_DYLINKER:
             
-            /*self=[[MTBCDynamicLinkerLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
             break;
             
         case LC_PREBOUND_DYLIB:
             
-            /*self=[[MTBCPreboundDynamicLibraryCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
             break;
             
         case LC_UUID:
             
             self=[[MCHUUIDLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];
+            
             break;
         
         case LC_RPATH:
             
-            /*self=[[MTBCRpathLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
             break;
             
         case LC_CODE_SIGNATURE:
@@ -110,40 +107,31 @@
         case LC_DYLIB_CODE_SIGN_DRS:
         case LC_LINKER_OPTIMIZATION_HINT:
             
-            /*self=[[MTBCLinkEditDataLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
             break;
             
         case LC_VERSION_MIN_MACOSX:
         case LC_VERSION_MIN_IPHONEOS:
             
-            /*self=[[MTBCMinimumVersionLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
             break;
         
         case LC_SOURCE_VERSION:
             
-            /*self=[[MTBCSourceVersionLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:inArchitecture objectFile:inObjectFile];*/
             break;
             
         case LC_ENCRYPTION_INFO:
             
-            /*self=[[MTBCEncryptionLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:MTBCArchitecture32 objectFile:inObjectFile];*/
             break;
             
         case LC_ENCRYPTION_INFO_64:
             
-            /*self=[[MTBCEncryptionLoadCommand alloc] initWithBytes:inBytes length:tCommandSize swap:inSwap architecture:MTBCArchitecture32 objectFile:inObjectFile];*/
             break;
         
         case LC_DYLD_INFO:
         case LC_DYLD_INFO_ONLY:
             
-            // A COMPLETER
-            
             break;
         
         case LC_BUILD_VERSION:
-            
-            // A COMPLETER
             
             break;
             

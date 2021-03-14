@@ -87,13 +87,9 @@
 - (void)_setStackFrameComponent:(CUIStackFrameComponents)inComponent visible:(BOOL)inVisible
 {
     if (inVisible==YES)
-    {
         _displaySettings.visibleStackFrameComponents|=inComponent;
-    }
     else
-    {
         _displaySettings.visibleStackFrameComponents&=~inComponent;
-    }
     
     _applicationPreferences.defaultOutlineModeDisplaySettings=_displaySettings;
 }

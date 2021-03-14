@@ -28,17 +28,6 @@
 	return sDefaultProvider;
 }
 
-- (instancetype)init
-{
-	self=[super init];
-	
-	if (self!=nil)
-	{
-	}
-	
-	return self;
-}
-
 #pragma mark -
 
 - (NSArray *)currentUserCrashLogs

@@ -125,23 +125,12 @@
 
 - (NSRect)windowWillUseStandardFrame:(NSWindow *)window defaultFrame:(NSRect)newFrame
 {
-    NSUInteger tNewColumnCount;
-    
-    if (_columnsCount==REGISTERS_LAYOUT_4_COLUMNS)
-    {
-        tNewColumnCount=REGISTERS_LAYOUT_1_COLUMN;
-    }
-    else
-    {
-        tNewColumnCount=REGISTERS_LAYOUT_4_COLUMNS;
-    }
+    NSUInteger tNewColumnCount=(_columnsCount==REGISTERS_LAYOUT_4_COLUMNS) ? REGISTERS_LAYOUT_1_COLUMN : REGISTERS_LAYOUT_4_COLUMNS;
     
     NSRect tWindowFrame=[self windowFrameForNumberOfColumns:tNewColumnCount];
     
     if (NSIsEmptyRect(tWindowFrame)==YES)
-    {
         return self.window.frame;
-    }
     
     _columnsCount=tNewColumnCount;
     

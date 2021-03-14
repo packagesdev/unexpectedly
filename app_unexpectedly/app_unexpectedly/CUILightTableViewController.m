@@ -180,9 +180,6 @@
     //NSShowAnimationEffect(NSAnimationEffectDisappearingItemDefault, NSMakePoint(300,300), NSZeroSize,nil,nil,NULL);
     
     [_visiblethreadsCollectionView.animator insertItemsAtIndexPaths:[NSSet setWithObject:[NSIndexPath indexPathForItem:tInsertionIndex inSection:0]]];
-
-    
-
 }
 
 #pragma mark - NSCollectionViewDataSource

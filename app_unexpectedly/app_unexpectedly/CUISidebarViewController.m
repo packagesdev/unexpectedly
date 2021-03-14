@@ -72,14 +72,10 @@ NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
 - (id)forwardingTargetForSelector:(SEL)aSelector
 {
     if ([_sourcesViewController respondsToSelector:aSelector]==YES)
-    {
         return _sourcesViewController;
-    }
     
     if ([_listViewController respondsToSelector:aSelector]==YES)
-    {
         return _listViewController;
-    }
     
     return nil;
 }
@@ -169,14 +165,10 @@ NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
     SEL tAction=inMenuItem.action;
     
     if ([_sourcesViewController respondsToSelector:tAction]==YES)
-    {
         return [_sourcesViewController validateMenuItem:inMenuItem];
-    }
     
     if ([_listViewController respondsToSelector:tAction]==YES)
-    {
         return [_listViewController validateMenuItem:inMenuItem];
-    }
     
     if ([self respondsToSelector:tAction]==NO)
         return [self.parentViewController validateMenuItem:inMenuItem];
@@ -255,9 +247,7 @@ NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
 - (CGFloat)splitView:(NSSplitView *)inSplitView constrainMaxCoordinate:(CGFloat)proposedMin ofSubviewAt:(NSInteger)inDividerIndex
 {
     if (inDividerIndex==0)
-    {
         return (NSHeight(inSplitView.frame)-(inSplitView.dividerThickness+CUICrashLogsListMinimumHeight));
-    }
     
     return 0;
 }
@@ -265,9 +255,7 @@ NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
 - (NSRect)splitView:(NSSplitView *)inSplitView effectiveRect:(NSRect)proposedEffectiveRect forDrawnRect:(NSRect)drawnRect ofDividerAtIndex:(NSInteger)inDividerIndex
 {
     if (inDividerIndex==0)
-    {
         return _sourcesViewController.effectiveBottonBarRect;
-    }
     
     return NSZeroRect;
 }

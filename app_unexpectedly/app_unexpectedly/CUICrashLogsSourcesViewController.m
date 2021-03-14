@@ -166,9 +166,6 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 {
     SEL tAction=inMenuItem.action;
     
-    /*if ([self respondsToSelector:tAction]==NO)
-        return [self.parentViewController validateMenuItem:inMenuItem];*/
-    
     NSIndexSet * tSelectedRows=[_tableView WB_selectedOrClickedRowIndexes];
     
     if (tAction==@selector(editSmartSource:))

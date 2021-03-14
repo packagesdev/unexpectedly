@@ -122,6 +122,7 @@
 
 - (IBAction)switchExportedContents:(id)sender
 {
+    // Not used at this time
 }
 
 @end

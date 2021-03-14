@@ -210,8 +210,6 @@
             break;
     }
     
-    //[_tableView deselectAll:self];
-    
     NSArray * tSaveSelectionCrashLogs=nil;
     
     CUICrashLogsSelection * tSelection=[CUICrashLogsSelection sharedSelection];
@@ -520,8 +518,6 @@
         
         
         tTableCellView.exceptionTypeLabel.toolTip=[tExceptionInformation displayedExceptionType];
-        
-        
     }
     
     // Voice Over
@@ -677,7 +673,6 @@
     _sortType=[CUIApplicationPreferences sharedPreferences].crashLogsSortType;
     
     [self refreshList];
-    
 }
 
 @end

@@ -69,12 +69,7 @@
             
             if (tComponents.count==2)
             {
-                /*NSArray * tDispatchQueueComponents=[tComponents[1] componentsSeparatedByString:@":"];
-                
-                if (tDispatchQueueComponents.count==2)
-                {*/
-                    _name=[tComponents[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                //}
+                _name=[tComponents[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             }
             else
             {

@@ -28,7 +28,6 @@ NSString * const CUIBinaryImageGroupUserCode=@"User Code";
 NSString * const CUIBinaryImageGroupWebInternet=@"Web/Internet";
 
 
-
 @implementation CUIBinaryImage (UI)
 
 + (NSString *)binaryImageGroupForIdentifier:(NSString *)inIdentifier

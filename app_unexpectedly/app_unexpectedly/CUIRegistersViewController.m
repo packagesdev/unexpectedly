@@ -58,19 +58,6 @@
     // Register for notifications
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerItemValueAsDidChange:) name:CUIRegisterItemViewAsValueDidChangeNotification object:nil];
-    
-    /*NSMutableArray * tMutableArray=[NSMutableArray array];
-    
-    for(NSUInteger tIndex=0;tIndex<15;tIndex++)
-    {
-        CUIRegister * tRegister=[CUIRegister new];
-        tRegister.name=[NSString stringWithFormat:@"r%lu:",tIndex];
-        tRegister.value=tIndex;
-        
-        [tMutableArray addObject:tRegister];
-    }*/
-    
-    //[_collectionView.collectionViewLayout registerClass:[CUICOloredView class] forDecorationViewOfKind:@"toto"];
 }
 
 #pragma mark -
@@ -111,9 +98,7 @@
     NSUInteger tNumberOfItems=0;
     
     for(NSUInteger tSectionIndex=0;tSectionIndex<tNumberOfSections;tSectionIndex++)
-    {
         tNumberOfItems+=[self collectionView:_collectionView numberOfItemsInSection:tSectionIndex];
-    }
     
     NSUInteger tNumberOfRows=(tNumberOfItems/inColumnsNumber)+(((tNumberOfItems%inColumnsNumber)==0) ? 0 : 1);
     
@@ -150,8 +135,6 @@
     {
         CUICollectionViewRegisterItem * tCollectionViewItem=(CUICollectionViewRegisterItem *)[inCollectionView makeItemWithIdentifier:@"register" forIndexPath:inIndexPath];
         
-       
-        
         CUIRegister * tRegister=_threadState.registers[inIndexPath.item];
         
         NSMutableDictionary * tRepresentedObject=[NSMutableDictionary dictionaryWithObject:tRegister forKey:@"register"];
@@ -159,9 +142,7 @@
         NSNumber * tNumber=self.browsingState.registersViewValues[tRegister.name];
         
         if (tNumber!=nil)
-        {
             tRepresentedObject[@"viewAs"]=tNumber;
-        }
         
         tCollectionViewItem.representedObject=tRepresentedObject;
         
@@ -181,6 +162,5 @@
     
     self.browsingState.registersViewValues[tRegister.name]=tViewAsValueNumber;
 }
-
 
 @end
