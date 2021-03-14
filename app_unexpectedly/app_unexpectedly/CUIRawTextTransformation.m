@@ -81,23 +81,23 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 - (void)updatesCachedAttributes;
 
-- (NSArray *)processedHeaderSectionLines:(NSArray *)inLines error:(NSString **)outError;
+- (NSArray *)processedHeaderSectionLines:(NSArray *)inLines error:(NSError **)outError;
 
-- (NSArray *)processedExceptionInformationSectionLines:(NSArray *)inLines error:(NSString **)outError;
+- (NSArray *)processedExceptionInformationSectionLines:(NSArray *)inLines error:(NSError **)outError;
 
-- (NSArray *)processedDiagnosticMessagesSectionLines:(NSArray *)inLines error:(NSString **)outError;
+- (NSArray *)processedDiagnosticMessagesSectionLines:(NSArray *)inLines error:(NSError **)outError;
 
-- (NSArray *)processedBacktracesSectionLines:(NSArray *)inLines error:(NSString **)outError;
+- (NSArray *)processedBacktracesSectionLines:(NSArray *)inLines error:(NSError **)outError;
 
-- (NSArray *)processedThreadStateSectionLines:(NSArray *)inLines error:(NSString **)outError;
+- (NSArray *)processedThreadStateSectionLines:(NSArray *)inLines error:(NSError **)outError;
 
-- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines error:(NSString **)outError;
+- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines error:(NSError **)outError;
 
 - (NSAttributedString *)joinLines:(NSArray *)inLines withString:(NSString *)inNewLineFeed;
 
 - (id)processedStackFrameLine:(NSString *)inLine stackFrame:(CUIStackFrame *)inStackFrame;
 
-- (NSArray *)processedThreadBacktraceLines:(NSArray *)inLines error:(NSString **)outError;
+- (NSArray *)processedThreadBacktraceLines:(NSArray *)inLines error:(NSError **)outError;
 
 - (id)processedBinaryImageLine:(NSString *)inLine;
 
@@ -354,10 +354,9 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     return [self joinLines:tMutableArray withString:@"\n"];
 }
 
-
 #pragma mark - Header
 
-- (NSArray *)processedHeaderSectionLines:(NSArray *)inLines error:(NSString **)outError
+- (NSArray *)processedHeaderSectionLines:(NSArray *)inLines error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
@@ -441,7 +440,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 #pragma mark - Exception Information
 
-- (NSArray *)processedExceptionInformationSectionLines:(NSArray *)inLines error:(NSString **)outError
+- (NSArray *)processedExceptionInformationSectionLines:(NSArray *)inLines error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
@@ -581,7 +580,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 #pragma mark - Diagnostic Messages
 
-- (NSArray *)processedDiagnosticMessagesSectionLines:(NSArray *)inLines error:(NSString **)outError
+- (NSArray *)processedDiagnosticMessagesSectionLines:(NSArray *)inLines error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
@@ -644,7 +643,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 #pragma mark - Backtraces
 
-- (NSArray *)processedBacktracesSectionLines:(NSArray *)inLines error:(NSString **)outError
+- (NSArray *)processedBacktracesSectionLines:(NSArray *)inLines error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
@@ -665,7 +664,9 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         
         NSRange tThreadRange=NSMakeRange(tThreadEntityLineStart, tThreadEntityLineEnd-tThreadEntityLineStart+1);
         
-        NSArray * tFilteredThreadLines=[self processedThreadBacktraceLines:[inLines subarrayWithRange:tThreadRange] error:outError];
+        NSError * tError;
+        
+        NSArray * tFilteredThreadLines=[self processedThreadBacktraceLines:[inLines subarrayWithRange:tThreadRange] error:&tError];
         
         [tProcessedLines addObjectsFromArray:tFilteredThreadLines];
         
@@ -684,12 +685,10 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     return tProcessedLines;
 }
 
-- (NSArray *)processedThreadBacktraceLines:(NSArray *)inLines error:(NSString **)outError
+- (NSArray *)processedThreadBacktraceLines:(NSArray *)inLines error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
-    
-    
     
     NSString * tHeaderLine=inLines.firstObject;
     BOOL tCrashedThread=NO;
@@ -1131,7 +1130,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 #pragma mark - Thread State
 
-- (NSArray *)processedThreadStateSectionLines:(NSArray *)inLines error:(NSString **)outError
+- (NSArray *)processedThreadStateSectionLines:(NSArray *)inLines error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
@@ -1146,7 +1145,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     NSMutableAttributedString * tAttributedString=[[NSMutableAttributedString alloc] initWithString:inLines.firstObject attributes:tJumpAnchorAttributes];
     
-    NSDictionary * tFirstLineAttributes=/*(self.displaySettings.highlightSyntax==YES) ?*/ _cachedKeyAttributes /*: _cachedPlainTextAttributes*/;
+    NSDictionary * tFirstLineAttributes=_cachedKeyAttributes;
     
     [tAttributedString addAttributes:tFirstLineAttributes range:NSMakeRange(0,tAttributedString.length)];
     
@@ -1278,7 +1277,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 #pragma mark - Binary Images
 
-- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines error:(NSString **)outError
+- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
@@ -1293,7 +1292,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     NSMutableAttributedString * tAttributedString=[[NSMutableAttributedString alloc] initWithString:inLines.firstObject attributes:tJumpAnchorAttributes];
 
-    NSDictionary * tFirstLineAttributes=/*(self.displaySettings.highlightSyntax==YES) ?*/ _cachedKeyAttributes /*: _cachedPlainTextAttributes*/;
+    NSDictionary * tFirstLineAttributes=_cachedKeyAttributes;
     
     if (tFirstLineAttributes!=nil)
         [tAttributedString addAttributes:tFirstLineAttributes range:NSMakeRange(0,tAttributedString.length)];
@@ -1304,37 +1303,30 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     NSRange tOtherLinesRange=NSMakeRange(1,inLines.count-1);
     
-    /*if (self.displaySettings.highlightSyntax==NO && self.displaySettings.hyperlinks==NO)
-    {
-        [tProcessedLines addObjectsFromArray:[inLines subarrayWithRange:tOtherLinesRange]];
-    }
-    else*/
-    {
-        [inLines enumerateObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:tOtherLinesRange]
-                                   options:0
-                                usingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL *bOutStop) {
+    [inLines enumerateObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:tOtherLinesRange]
+                               options:0
+                            usingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL *bOutStop) {
+                                
+                                   if (bLine.length==0)
+                                   {
+                                       [tProcessedLines addObjectsFromArray:[inLines subarrayWithRange:NSMakeRange(bLineNumber,inLines.count-1-bLineNumber+1)]];
                                        
-                                       if (bLine.length==0)
-                                       {
-                                           [tProcessedLines addObjectsFromArray:[inLines subarrayWithRange:NSMakeRange(bLineNumber,inLines.count-1-bLineNumber+1)]];
-                                           
-                                           *bOutStop=YES;
-                                           
-                                           return;
-                                       }
+                                       *bOutStop=YES;
                                        
-                                       id tProcessedLine=[self processedBinaryImageLine:bLine];
+                                       return;
+                                   }
+                                
+                                   id tProcessedLine=[self processedBinaryImageLine:bLine];
+                                
+                                   if (tProcessedLine==nil)
+                                   {
+                                       tProcessedLine=[[NSAttributedString alloc] initWithString:bLine attributes:self->_cachedParsingErrorAttributes];
                                        
-                                       if (tProcessedLine==nil)
-                                       {
-                                           tProcessedLine=[[NSAttributedString alloc] initWithString:bLine attributes:self->_cachedParsingErrorAttributes];
-                                           
-                                           NSLog(@"Error transforming line: %@",bLine);
-                                       }
-                                       
-                                       [tProcessedLines addObject:tProcessedLine];
-                                   }];
-    }
+                                       NSLog(@"Error transforming line: %@",bLine);
+                                   }
+                                
+                                   [tProcessedLines addObject:tProcessedLine];
+                               }];
     
     return tProcessedLines;
 }
