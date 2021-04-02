@@ -102,7 +102,6 @@
 		F4577BEA2592848D009B2AD2 /* CUIPreferencePanePresentationOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4577BE82592848D009B2AD2 /* CUIPreferencePanePresentationOutlineViewController.m */; };
 		F45854FA25C76591007A3A79 /* Unexpectedly_License.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F45854F825C76590007A3A79 /* Unexpectedly_License.pdf */; };
 		F45854FB25C76591007A3A79 /* Unexpectedly_Acknowledgments.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F45854F925C76591007A3A79 /* Unexpectedly_Acknowledgments.pdf */; };
-		F45854FD25C765D3007A3A79 /* AlertCautionIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F45854FC25C765D3007A3A79 /* AlertCautionIcon.icns */; };
 		F45A2D5D25EC5CA00007D50E /* CUIPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45A2D5F25EC5CA00007D50E /* CUIPreferencesWindowController.xib */; };
 		F45A2D6125EC5D130007D50E /* CUIPreferencePaneFontscolorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45A2D6325EC5D130007D50E /* CUIPreferencePaneFontscolorsViewController.xib */; };
 		F45A2D6525EC5F850007D50E /* CUIAboutBoxWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45A2D6725EC5F850007D50E /* CUIAboutBoxWindowController.xib */; };
@@ -443,7 +442,6 @@
 		F4577BE82592848D009B2AD2 /* CUIPreferencePanePresentationOutlineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIPreferencePanePresentationOutlineViewController.m; sourceTree = "<group>"; };
 		F45854F825C76590007A3A79 /* Unexpectedly_License.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Unexpectedly_License.pdf; path = "../../Documents Pages/Unexpectedly_License.pdf"; sourceTree = "<group>"; };
 		F45854F925C76591007A3A79 /* Unexpectedly_Acknowledgments.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Unexpectedly_Acknowledgments.pdf; path = "../../Documents Pages/Unexpectedly_Acknowledgments.pdf"; sourceTree = "<group>"; };
-		F45854FC25C765D3007A3A79 /* AlertCautionIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AlertCautionIcon.icns; path = "/Volumes/Beta OS/Users/stephane/Desktop/unexpected/app_unexpectedly/app_unexpectedly/../../../../../../../../System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertCautionIcon.icns"; sourceTree = "<absolute>"; };
 		F45A2D5525EC50960007D50E /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F45A2D5625EC50960007D50E /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Predicates.strings; sourceTree = "<group>"; };
 		F45A2D5725EC50960007D50E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -1337,7 +1335,6 @@
 		F4CC570224A79EDA00150EC4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F45854FC25C765D3007A3A79 /* AlertCautionIcon.icns */,
 				F493DB1A24F1CF2F001AA8C0 /* Localizable.strings */,
 				F46D2A2824C33FA200652D50 /* Predicates.strings */,
 				F4CC570B24A79EDA00150EC4 /* MainMenu.xib */,
@@ -1647,7 +1644,6 @@
 				F495AEBC25F029C2000D92E1 /* CUIPreferencePanePresentationTextViewController.xib in Resources */,
 				F416687024B0AEE800C2AB89 /* CUIContentsViewController.xib in Resources */,
 				F495AED025F034C0000D92E1 /* EXC_BREAKPOINT_SIGTRAP.html in Resources */,
-				F45854FD25C765D3007A3A79 /* AlertCautionIcon.icns in Resources */,
 				F45015CE25FAD279000C4B8D /* EXC_CRASH_SIGQUIT.html in Resources */,
 				F45A2D6D25EC60920007D50E /* CUICrashLogsSourcesViewController.xib in Resources */,
 				F48CF5FF24A96992002AD214 /* MainMenu.xib in Resources */,
@@ -2381,7 +2377,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application: Stephane Sudre (NL5M9E394P)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2402,7 +2398,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application: Stephane Sudre (NL5M9E394P)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;
