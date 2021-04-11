@@ -1,12 +1,12 @@
 //
-//  CUIIconWorkshopView.m
+//  CUIApplicationIconView.m
 //  IconCreator
 //
 //  Created by stephane on 17/03/2021.
 //  Copyright © 2021 Acme, inc. All rights reserved.
 //
 
-#import "CUIIconWorkshopView.h"
+#import "CUIApplicationIconView.h"
 
 #import "CUIWatchGear.h"
 #import "CUIWatchBridge.h"
@@ -47,7 +47,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
 }
 @end
 
-@interface CUIIconWorkshopView ()
+@interface CUIApplicationIconView ()
 {
     CGFloat _ratio;
     
@@ -60,7 +60,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
 
 @end
 
-@implementation CUIIconWorkshopView
+@implementation CUIApplicationIconView
 
 - (void)awakeFromNib
 {
@@ -672,7 +672,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         
     }];
     
-    self.renderingMode=CUIWatchRenderingModeWireframe;
+    //self.renderingMode=CUIWatchRenderingModeWireframe;
     
 }
 
@@ -873,7 +873,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     tBezierPath=[NSBezierPath bezierPath];
     
-    [tBezierPath moveToPoint:NSMakePoint(tCenter.x-_ratio*31,tCenter.y+_ratio*80)];
+    [tBezierPath moveToPoint:NSMakePoint(tCenter.x-_ratio*29,tCenter.y+_ratio*83)];
     [tBezierPath lineToPoint:NSMakePoint(tCenter.x-_ratio*15,tCenter.y-_ratio*21)];
     [tBezierPath appendBezierPathWithArcWithCenter:NSMakePoint(tCenter.x,tCenter.y-_ratio*20)
                                             radius:_ratio*15
@@ -881,7 +881,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
                                           endAngle:348
                                          clockwise:NO];
     
-    [tBezierPath lineToPoint:NSMakePoint(tCenter.x+_ratio*31,tCenter.y+_ratio*80)];
+    [tBezierPath lineToPoint:NSMakePoint(tCenter.x+_ratio*31,tCenter.y+_ratio*101)];
     
     [tBezierPath closePath];
     
@@ -1058,15 +1058,15 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         shadow = [NSShadow new];
         shadow.shadowOffset = NSMakeSize(0, -8*_ratio);
         shadow.shadowBlurRadius =_ratio*10;
-        shadow.shadowColor = [NSColor colorWithDeviceWhite:0.2 alpha:0.75];
+        shadow.shadowColor = [NSColor colorWithDeviceWhite:0.3 alpha:0.65];
         
         [NSGraphicsContext saveGraphicsState];
         
         [shadow set];
         
-        [[NSColor lightGrayColor] set];
+        [[NSColor colorWithDeviceWhite:0.5 alpha:1.0] set];
         
-        [tHandlePath stroke];
+        [tHandlePath fill];
         
         [NSGraphicsContext restoreGraphicsState];
         
@@ -1076,16 +1076,108 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
                    [NSColor colorWithDeviceWhite:0.6 alpha:1.0],0.55,
                    [NSColor colorWithDeviceWhite:0.75 alpha:1.0],1.0,nil];
         
+        tHandlePath.lineWidth=1.0;
+        [[NSColor colorWithDeviceWhite:0.40 alpha:1.0] set];
         
-         [[NSColor colorWithDeviceWhite:0.6 alpha:1.0] setFill];
-        
-         [tHandlePath fill];
+        [tHandlePath stroke];
         
         
+         //[[NSColor colorWithDeviceWhite:0.4 alpha:1.0] setFill];
         
-        [tGradient drawInBezierPath:tHandlePath angle:286.5];
+         //[tHandlePath fill];
+        
+        
+        
+        //[tGradient drawInBezierPath:tHandlePath angle:286.5];
     }
     
+        // Metal effect
+    
+    [NSGraphicsContext saveGraphicsState];
+    
+    [tHandlePath addClip];
+    
+    NSBezierPath * tWhiteGlare=[NSBezierPath bezierPath];
+    
+    [tWhiteGlare moveToPoint:NSMakePoint(2, 10)];
+    [tWhiteGlare lineToPoint:NSMakePoint(711,10)];
+    [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(711, 0)
+                                            radius:10
+                                        startAngle:90 endAngle:0 clockwise:YES];
+    
+    [tWhiteGlare lineToPoint:NSMakePoint(721,-125)];
+    
+    [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(731, -125)
+                                            radius:10
+                                        startAngle:180 endAngle:270 clockwise:NO];
+    
+    [tWhiteGlare lineToPoint:NSMakePoint(791,-135)];
+    
+    [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(791, -125)
+                                            radius:10
+                                        startAngle:270 endAngle:0 clockwise:NO];
+    
+    [tWhiteGlare lineToPoint:NSMakePoint(801,140)];
+    
+    [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(791, 140)
+                                            radius:10
+                                        startAngle:0 endAngle:90 clockwise:NO];
+    
+    [tWhiteGlare lineToPoint:NSMakePoint(731,150)];
+    
+    [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(731, 140)
+                                            radius:10
+                                        startAngle:90 endAngle:180 clockwise:NO];
+    
+    
+    [tWhiteGlare lineToPoint:NSMakePoint(721,25)];
+    
+    
+    [tWhiteGlare transformUsingAffineTransform:tAffineTransform];
+    
+    [tWhiteGlare setLineWidth:18*_ratio];
+    
+    [[NSColor colorWithDeviceWhite:0.56 alpha:1.0] set];
+    
+    [tWhiteGlare stroke];
+    
+    [tWhiteGlare setLineWidth:16*_ratio];
+    
+    [[NSColor colorWithDeviceWhite:0.60 alpha:1.0] set];
+    
+    [tWhiteGlare stroke];
+    
+    [tWhiteGlare setLineWidth:14*_ratio];
+    
+    [[NSColor colorWithDeviceWhite:0.65 alpha:1.0] set];
+    
+    [tWhiteGlare stroke];
+    
+    [tWhiteGlare setLineWidth:11*_ratio];
+    
+    [[NSColor colorWithDeviceWhite:0.72 alpha:1.0] set];
+    
+    [tWhiteGlare stroke];
+    
+    [tWhiteGlare setLineWidth:5*_ratio];
+    
+    [[NSColor colorWithDeviceWhite:0.81 alpha:1.0] set];
+    
+    [tWhiteGlare stroke];
+    
+    [tWhiteGlare setLineWidth:3*_ratio];
+    
+    [[NSColor colorWithDeviceWhite:0.9 alpha:1.0] set];
+    
+    [tWhiteGlare stroke];
+    
+    [tWhiteGlare setLineWidth:1];
+    
+    [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] set];
+    
+    [tWhiteGlare stroke];
+    
+    [NSGraphicsContext restoreGraphicsState];
     
         // Encoche
     

@@ -292,16 +292,7 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
                 tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tAlternateIdentifier];
         }
         
-        NSUInteger tAddress=0;
-        
-        if (bCall.machineInstructionAddress>0x7fff00000000)
-        {
-            tAddress=bCall.machineInstructionAddress-tBinaryImage.addressesRange.loadAddress;
-        }
-        else
-        {
-            tAddress=bCall.machineInstructionAddress-(tBinaryImage.addressesRange.loadAddress-0x100000000);
-        }
+        NSUInteger tAddress=bCall.machineInstructionAddress-tBinaryImage.binaryImageOffset;
         
         NSString * tLine=[NSString stringWithFormat:@"0x%lx",tAddress];
         
@@ -336,16 +327,7 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
                 tBinaryImage=[self.crashLog.binaryImages binaryImageWithIdentifier:tAlternateIdentifier];
         }
         
-        NSUInteger tAddress=0;
-        
-        if (bCall.machineInstructionAddress>0x7fff00000000)
-        {
-            tAddress=bCall.machineInstructionAddress-tBinaryImage.addressesRange.loadAddress;
-        }
-        else
-        {
-            tAddress=bCall.machineInstructionAddress-(tBinaryImage.addressesRange.loadAddress-0x100000000);
-        }
+        NSUInteger tAddress=bCall.machineInstructionAddress-tBinaryImage.binaryImageOffset;
         
         [[CUIHopperDisassemblerManager sharedManager] openBinaryImage:[self.crashLog stringByResolvingUSERInPath:tBinaryImage.path]
                                             withApplicationAttributes:tApplicationItemAttributes

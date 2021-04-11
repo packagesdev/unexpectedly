@@ -960,8 +960,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         {
             // Default values
          
-            NSUInteger tAddress=tMachineInstructionAddress-(tBinaryImage.addressesRange.loadAddress-0x100000000);
-         
+            NSUInteger tAddress=tMachineInstructionAddress-tBinaryImage.binaryImageOffset;
          
             [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tAddress
                                                                                                             binaryUUID:tBinaryImage.UUID

@@ -202,4 +202,16 @@
     return self;
 }
 
+#pragma mark -
+
+- (NSUInteger)binaryImageOffset
+{
+    NSUInteger tLoadAddress=self.addressesRange.loadAddress;
+    
+    if (tLoadAddress>0x7fff00000000 || self.mainImage==NO)
+        return tLoadAddress;
+    
+    return (tLoadAddress-0x100000000);
+}
+
 @end

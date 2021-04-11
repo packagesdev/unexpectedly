@@ -8,14 +8,23 @@
 
 #import "CUIAboutBoxWindowController.h"
 
+#import "CUIAboutBoxWindow.h"
+#import "CUIApplicationIconView.h"
+
 @interface CUIAboutBoxWindowController ()
 {
+    IBOutlet CUIApplicationIconView * _applicationIconView;
+
     IBOutlet NSTextField * _versionLabel;
 }
 
 - (IBAction)showLicenseAgreement:(id)sender;
 
 - (IBAction)showAcknowledgments:(id)sender;
+
+// Notifications
+
+- (void)optionKeyStateDidChange:(NSNotification *)inNotification;
 
 @end
 
@@ -34,6 +43,11 @@
     [sAbouxBoxWindowController showWindow:nil];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark -
 
 - (NSString *)windowNibName
@@ -48,6 +62,10 @@
     NSDictionary * tDictionary=[NSBundle mainBundle].infoDictionary;
     
     _versionLabel.stringValue=[NSString stringWithFormat:NSLocalizedString(@"version %@ (%@)",@""),tDictionary[@"CFBundleShortVersionString"],tDictionary[@"CFBundleVersion"]];
+    
+    // Register for notifications
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(optionKeyStateDidChange:) name:CUIOptionKeyStateDidChangeNotification object:self.window];
     
     [self.window center];
 }
@@ -78,6 +96,15 @@
     }
     
     [[NSWorkspace sharedWorkspace] openFile:tPath];
+}
+
+#pragma mark - Notifications
+
+- (void)optionKeyStateDidChange:(NSNotification *)inNotification
+{
+    BOOL tPressed=[inNotification.userInfo[CUIOptionKeyState] boolValue];
+    
+    _applicationIconView.renderingMode=(tPressed==YES) ? CUIWatchRenderingModeWireframe : CUIWatchRenderingModeFull; 
 }
 
 @end

@@ -97,6 +97,9 @@
             return;
         }
         
+        if (bLineNumber==0)
+            tBinaryImage.mainImage=YES;
+        
         [self->_binaryImages addObject:tBinaryImage];
         
         self->_binaryImagesRegistry[tBinaryImage.identifier]=tBinaryImage;

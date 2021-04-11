@@ -176,6 +176,13 @@
 		F49A6D7E25474F6E00466D15 /* CUIInactiveButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A6D7D25474F6E00466D15 /* CUIInactiveButton.m */; };
 		F49A6D8125476F7B00466D15 /* CUISymbolicationDataFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F49A6D8025476F7B00466D15 /* CUISymbolicationDataFormatter.m */; };
 		F49C47CA24E9B48B003FC65C /* CUIThemesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C47C924E9B48B003FC65C /* CUIThemesManager.m */; };
+		F4A0BEF1261BC39700BADEED /* CUIWatchGear.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A0BEE2261BC39600BADEED /* CUIWatchGear.m */; };
+		F4A0BEF2261BC39700BADEED /* CUIWatchJewel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A0BEE3261BC39600BADEED /* CUIWatchJewel.m */; };
+		F4A0BEF3261BC39700BADEED /* brushed-alum.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A0BEE5261BC39600BADEED /* brushed-alum.png */; };
+		F4A0BEF4261BC39700BADEED /* CUIWatchAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A0BEE6261BC39600BADEED /* CUIWatchAxis.m */; };
+		F4A0BEF6261BC39700BADEED /* CUIWatchPart.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A0BEEB261BC39700BADEED /* CUIWatchPart.m */; };
+		F4A0BEF7261BC39700BADEED /* CUIWatchBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A0BEED261BC39700BADEED /* CUIWatchBridge.m */; };
+		F4A0BEF8261BC39700BADEED /* CUIWatchScrew.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A0BEEF261BC39700BADEED /* CUIWatchScrew.m */; };
 		F4A3A6DF25ED7F450018053E /* CUICrashLogsSourceSmartEditorWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A3A6E125ED7F450018053E /* CUICrashLogsSourceSmartEditorWindowController.xib */; };
 		F4A3A6E325ED81260018053E /* CUIPreferencePaneGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A3A6E525ED81260018053E /* CUIPreferencePaneGeneralViewController.xib */; };
 		F4A3A6E725ED817E0018053E /* CUIPreferencePaneCrashreporterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A3A6E925ED817E0018053E /* CUIPreferencePaneCrashreporterViewController.xib */; };
@@ -185,6 +192,7 @@
 		F4A7696A2555D9DE00F9D9D3 /* CUIRawCrashLog+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A769692555D9DD00F9D9D3 /* CUIRawCrashLog+UI.m */; };
 		F4AA22B72561A233001A1315 /* CUIAboutBoxWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA22B52561A233001A1315 /* CUIAboutBoxWindowController.m */; };
 		F4AC864A2558A03B004F2637 /* CUIExportAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AC86482558A03B004F2637 /* CUIExportAccessoryViewController.m */; };
+		F4B018372620FEC7009727F1 /* CUIApplicationIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B018352620FEC7009727F1 /* CUIApplicationIconView.m */; };
 		F4B138572522948700D9DE2F /* NSBundle+dSYM.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B138562522948700D9DE2F /* NSBundle+dSYM.m */; };
 		F4B52E212548B8B4007593FD /* CUIdSYMBundle+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B52E202548B8B4007593FD /* CUIdSYMBundle+UI.m */; };
 		F4B57C0C24AF5607000851FF /* CUICrashLogsSourceToday.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B57C0B24AF5607000851FF /* CUICrashLogsSourceToday.m */; };
@@ -227,6 +235,7 @@
 		F4D5C77C2571AF900029B051 /* CUIRegisterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D5C77B2571AF900029B051 /* CUIRegisterLabel.m */; };
 		F4D7F15B25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F15D25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib */; };
 		F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F16125F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib */; };
+		F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E0BD24262078220048647C /* CUIAboutBoxWindow.m */; };
 		F4E1C11424C22CF5000F5C0F /* CUILightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1C11224C22CF5000F5C0F /* CUILightTableViewController.m */; };
 		F4E1C11524C22CF5000F5C0F /* CUILightTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E1C11324C22CF5000F5C0F /* CUILightTableViewController.xib */; };
 		F4E1C11824C22F02000F5C0F /* CUICollectionViewVisibleThreadsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1C11724C22F02000F5C0F /* CUICollectionViewVisibleThreadsLayout.m */; };
@@ -590,6 +599,20 @@
 		F49A6D8025476F7B00466D15 /* CUISymbolicationDataFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUISymbolicationDataFormatter.m; sourceTree = "<group>"; };
 		F49C47C824E9B48B003FC65C /* CUIThemesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThemesManager.h; sourceTree = "<group>"; };
 		F49C47C924E9B48B003FC65C /* CUIThemesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThemesManager.m; sourceTree = "<group>"; };
+		F4A0BEE1261BC39600BADEED /* CUIWatchScrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIWatchScrew.h; path = clock/CUIWatchScrew.h; sourceTree = "<group>"; };
+		F4A0BEE2261BC39600BADEED /* CUIWatchGear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIWatchGear.m; path = clock/CUIWatchGear.m; sourceTree = "<group>"; };
+		F4A0BEE3261BC39600BADEED /* CUIWatchJewel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIWatchJewel.m; path = clock/CUIWatchJewel.m; sourceTree = "<group>"; };
+		F4A0BEE4261BC39600BADEED /* CUIWatchGear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIWatchGear.h; path = clock/CUIWatchGear.h; sourceTree = "<group>"; };
+		F4A0BEE5261BC39600BADEED /* brushed-alum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brushed-alum.png"; path = "clock/brushed-alum.png"; sourceTree = "<group>"; };
+		F4A0BEE6261BC39600BADEED /* CUIWatchAxis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIWatchAxis.m; path = clock/CUIWatchAxis.m; sourceTree = "<group>"; };
+		F4A0BEE8261BC39600BADEED /* CUIWatchPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIWatchPart.h; path = clock/CUIWatchPart.h; sourceTree = "<group>"; };
+		F4A0BEE9261BC39700BADEED /* CUIWatchDrawablePart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIWatchDrawablePart.h; path = clock/CUIWatchDrawablePart.h; sourceTree = "<group>"; };
+		F4A0BEEB261BC39700BADEED /* CUIWatchPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIWatchPart.m; path = clock/CUIWatchPart.m; sourceTree = "<group>"; };
+		F4A0BEEC261BC39700BADEED /* CUIWatchAxis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIWatchAxis.h; path = clock/CUIWatchAxis.h; sourceTree = "<group>"; };
+		F4A0BEED261BC39700BADEED /* CUIWatchBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIWatchBridge.m; path = clock/CUIWatchBridge.m; sourceTree = "<group>"; };
+		F4A0BEEE261BC39700BADEED /* CUIWatchBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIWatchBridge.h; path = clock/CUIWatchBridge.h; sourceTree = "<group>"; };
+		F4A0BEEF261BC39700BADEED /* CUIWatchScrew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIWatchScrew.m; path = clock/CUIWatchScrew.m; sourceTree = "<group>"; };
+		F4A0BEF0261BC39700BADEED /* CUIWatchJewel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIWatchJewel.h; path = clock/CUIWatchJewel.h; sourceTree = "<group>"; };
 		F4A3A6E025ED7F450018053E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUICrashLogsSourceSmartEditorWindowController.xib; sourceTree = "<group>"; };
 		F4A3A6E225ED7F460018053E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUICrashLogsSourceSmartEditorWindowController.xib; sourceTree = "<group>"; };
 		F4A3A6E425ED81260018053E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUIPreferencePaneGeneralViewController.xib; sourceTree = "<group>"; };
@@ -608,6 +631,8 @@
 		F4AA22B52561A233001A1315 /* CUIAboutBoxWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIAboutBoxWindowController.m; sourceTree = "<group>"; };
 		F4AC86472558A03B004F2637 /* CUIExportAccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIExportAccessoryViewController.h; sourceTree = "<group>"; };
 		F4AC86482558A03B004F2637 /* CUIExportAccessoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIExportAccessoryViewController.m; sourceTree = "<group>"; };
+		F4B018352620FEC7009727F1 /* CUIApplicationIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIApplicationIconView.m; path = clock/CUIApplicationIconView.m; sourceTree = "<group>"; };
+		F4B018362620FEC7009727F1 /* CUIApplicationIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIApplicationIconView.h; path = clock/CUIApplicationIconView.h; sourceTree = "<group>"; };
 		F4B138552522948700D9DE2F /* NSBundle+dSYM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+dSYM.h"; sourceTree = "<group>"; };
 		F4B138562522948700D9DE2F /* NSBundle+dSYM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+dSYM.m"; sourceTree = "<group>"; };
 		F4B52E1F2548B8B4007593FD /* CUIdSYMBundle+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CUIdSYMBundle+UI.h"; path = "dSYM/CUIdSYMBundle+UI.h"; sourceTree = "<group>"; };
@@ -689,6 +714,8 @@
 		F4D7F15E25F04A630024E9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUISymbolsFilesLibraryViewController.xib; sourceTree = "<group>"; };
 		F4D7F16025F04A9D0024E9A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUIPreferencePaneSymbolicationViewController.xib; sourceTree = "<group>"; };
 		F4D7F16225F04A9E0024E9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUIPreferencePaneSymbolicationViewController.xib; sourceTree = "<group>"; };
+		F4E0BD23262078220048647C /* CUIAboutBoxWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIAboutBoxWindow.h; sourceTree = "<group>"; };
+		F4E0BD24262078220048647C /* CUIAboutBoxWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIAboutBoxWindow.m; sourceTree = "<group>"; };
 		F4E1C11124C22CF5000F5C0F /* CUILightTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUILightTableViewController.h; sourceTree = "<group>"; };
 		F4E1C11224C22CF5000F5C0F /* CUILightTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUILightTableViewController.m; sourceTree = "<group>"; };
 		F4E1C11324C22CF5000F5C0F /* CUILightTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CUILightTableViewController.xib; sourceTree = "<group>"; };
@@ -1176,6 +1203,29 @@
 			name = Panel;
 			sourceTree = "<group>";
 		};
+		F4A0BEE0261BC38800BADEED /* clock */ = {
+			isa = PBXGroup;
+			children = (
+				F4B018362620FEC7009727F1 /* CUIApplicationIconView.h */,
+				F4B018352620FEC7009727F1 /* CUIApplicationIconView.m */,
+				F4A0BEEC261BC39700BADEED /* CUIWatchAxis.h */,
+				F4A0BEE6261BC39600BADEED /* CUIWatchAxis.m */,
+				F4A0BEEE261BC39700BADEED /* CUIWatchBridge.h */,
+				F4A0BEED261BC39700BADEED /* CUIWatchBridge.m */,
+				F4A0BEE9261BC39700BADEED /* CUIWatchDrawablePart.h */,
+				F4A0BEE4261BC39600BADEED /* CUIWatchGear.h */,
+				F4A0BEE2261BC39600BADEED /* CUIWatchGear.m */,
+				F4A0BEF0261BC39700BADEED /* CUIWatchJewel.h */,
+				F4A0BEE3261BC39600BADEED /* CUIWatchJewel.m */,
+				F4A0BEE8261BC39600BADEED /* CUIWatchPart.h */,
+				F4A0BEEB261BC39700BADEED /* CUIWatchPart.m */,
+				F4A0BEE1261BC39600BADEED /* CUIWatchScrew.h */,
+				F4A0BEEF261BC39700BADEED /* CUIWatchScrew.m */,
+				F4B018342620FEBB009727F1 /* Resources */,
+			);
+			name = clock;
+			sourceTree = "<group>";
+		};
 		F4A43E80257ECE81005D076C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1189,6 +1239,8 @@
 		F4A43E81257ECE8A005D076C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4E0BD23262078220048647C /* CUIAboutBoxWindow.h */,
+				F4E0BD24262078220048647C /* CUIAboutBoxWindow.m */,
 				F476EEC025686EC000F40F87 /* CUIContentBox.h */,
 				F476EEBF25686EC000F40F87 /* CUIContentBox.m */,
 				F476EEBC25686DEF00F40F87 /* CUIAboutBoxFooterView.h */,
@@ -1200,12 +1252,21 @@
 		F4AA22B32561A206001A1315 /* About Box */ = {
 			isa = PBXGroup;
 			children = (
+				F4A0BEE0261BC38800BADEED /* clock */,
 				F4A43E81257ECE8A005D076C /* Views */,
 				F4AA22B42561A233001A1315 /* CUIAboutBoxWindowController.h */,
 				F4AA22B52561A233001A1315 /* CUIAboutBoxWindowController.m */,
 				F4A43E80257ECE81005D076C /* Resources */,
 			);
 			name = "About Box";
+			sourceTree = "<group>";
+		};
+		F4B018342620FEBB009727F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4A0BEE5261BC39600BADEED /* brushed-alum.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		F4B138542522945E00D9DE2F /* dSYM */ = {
@@ -1679,6 +1740,7 @@
 				F45015CA25FABE00000C4B8D /* EXC_BAD_INSTRUCTION_SIGILL.html in Resources */,
 				F46D77A725ED8E3B00039663 /* CUIInspectorProcessesViewController.xib in Resources */,
 				F495AECC25F033CC000D92E1 /* EXC_CRASH_SIGKILL.html in Resources */,
+				F4A0BEF3261BC39700BADEED /* brushed-alum.png in Resources */,
 				F4E1C11524C22CF5000F5C0F /* CUILightTableViewController.xib in Resources */,
 				F46D2A2624C33FA200652D50 /* Predicates.strings in Resources */,
 				F44A5F3124CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.xib in Resources */,
@@ -1746,6 +1808,7 @@
 				F405A96D255015D800AD2F24 /* CUICXXDemangler.mm in Sources */,
 				F4FC77A924E1F6AB001F82CA /* CUIRawTextTransformation.m in Sources */,
 				F497AD5524B8FE88008517B7 /* CUICrashLogsSourceSmartEditorPanel.m in Sources */,
+				F4A0BEF8261BC39700BADEED /* CUIWatchScrew.m in Sources */,
 				F416686F24B0AEE800C2AB89 /* CUIContentsViewController.m in Sources */,
 				F40ED76724E72A6E00557BB8 /* CUICategoriesClipView.m in Sources */,
 				F4B9AD3825319A410083FA6C /* MCHMachBinary.m in Sources */,
@@ -1753,6 +1816,7 @@
 				F40ACE30255697CE006855E5 /* CUICrashLogBrowsingStateRegistry.m in Sources */,
 				F49C47CA24E9B48B003FC65C /* CUIThemesManager.m in Sources */,
 				F416688224B0BBFC00C2AB89 /* CUICrashLogPresentationViewController.m in Sources */,
+				F4A0BEF4261BC39700BADEED /* CUIWatchAxis.m in Sources */,
 				F4EFE75224BA48F500DB97AC /* CUIMainWindow.m in Sources */,
 				F43C828C24D8A39B0096F27B /* CUITextModeDisplaySettings.m in Sources */,
 				F414D08E24BFB57700A7095C /* CUICrashLogDianosticMessages.m in Sources */,
@@ -1769,12 +1833,14 @@
 				F476EEBE25686DEF00F40F87 /* CUIAboutBoxFooterView.m in Sources */,
 				F4E1C12324C22FEE000F5C0F /* CUILightTableVisibleInterGapView.m in Sources */,
 				F420C9C4254F5F4C00D24249 /* CUIdSYMHunter.m in Sources */,
+				F4A0BEF1261BC39700BADEED /* CUIWatchGear.m in Sources */,
 				F4E91ADD256A98050017C3EE /* CUIFontBoxView.m in Sources */,
 				F4B9AD3B25319D7C0083FA6C /* MCHSegmentLoadCommand.m in Sources */,
 				F4F5821C256FC7B90032FC53 /* DWRFSection_debug_str_offsets.m in Sources */,
 				F4559F3724AF232800B8EF41 /* CUICrashLogHeader.m in Sources */,
 				F4545C3C256C1AF900F62A39 /* CUIRegistersWindowController.m in Sources */,
 				F44A5F3E24CCE2D6006B59B8 /* CUILightTableThreadView.m in Sources */,
+				F4A0BEF6261BC39700BADEED /* CUIWatchPart.m in Sources */,
 				F4B649D724EDD09A00008C47 /* CUIInspectorStackableViewController.m in Sources */,
 				F4CC572D24A7A5F000150EC4 /* CUICrashLog+Transform.m in Sources */,
 				F4627F1225704557007E5CD0 /* CUICollectionViewRegisterItem.m in Sources */,
@@ -1787,6 +1853,7 @@
 				F440A3E624AA31B500C23DA1 /* CUICrashLogsSourceFile.m in Sources */,
 				F472CC972550631A003F6338 /* CUISwiftDemangler.m in Sources */,
 				F4040A7924F5BC230072BF65 /* CUINavigationView.m in Sources */,
+				F4B018372620FEC7009727F1 /* CUIApplicationIconView.m in Sources */,
 				F4BC577124DF426200063545 /* CUIAATextFieldCell.m in Sources */,
 				F40B0D8824D3569800663282 /* NSResponder+Appearance.m in Sources */,
 				F43A9A832591260C005AB2AA /* CUIOutlineModeDisplaySettings.m in Sources */,
@@ -1804,6 +1871,7 @@
 				F4871E0D25437A6A00580562 /* CUISymbolicationDataCache.m in Sources */,
 				F440A3E924AA35AC00C23DA1 /* CUICrashLogsSourceDirectory.m in Sources */,
 				F414D09124BFBC3A00A7095C /* CUICrashLogBacktraces.m in Sources */,
+				F4A0BEF7261BC39700BADEED /* CUIWatchBridge.m in Sources */,
 				F440A3E324AA315800C23DA1 /* CUICrashLogsSourceStandardDirectory.m in Sources */,
 				F43AF0D1256FE2AE0066CA1B /* DWRFSection_debug_addr.m in Sources */,
 				F4871E0525435AF400580562 /* DWRFSection_debug_line.m in Sources */,
@@ -1823,6 +1891,7 @@
 				F4B9AD3625319A410083FA6C /* MCHLoadCommand.m in Sources */,
 				F480692E24AF7D83009665F2 /* CUICrashLogsListViewController.m in Sources */,
 				F4ED18A324EC77A300ED7EF2 /* NSArray+UniqueName.m in Sources */,
+				F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */,
 				F4E1C11C24C22F54000F5C0F /* CUICollectionViewVisibleThreadItem.m in Sources */,
 				F4C269CD2503BCC100C8F3B3 /* CUISymbolicationManager.m in Sources */,
 				F462DD3124ADC5F900044AB1 /* CUICrashLogsSourceSmart.m in Sources */,
@@ -1915,6 +1984,7 @@
 				F48906AE25D2BA0C002D79A9 /* CUISelectedWhiteTextFieldCell.m in Sources */,
 				F43D8FF724A7FAD2008147F9 /* CUIMainWindowController.m in Sources */,
 				F40B77DA24AF1426001A8131 /* CUICrashLogsSourceAll+UI.m in Sources */,
+				F4A0BEF2261BC39700BADEED /* CUIWatchJewel.m in Sources */,
 				F46BAF59250162C900991970 /* CUIPreferencesWindow.m in Sources */,
 				F4871E0A25435AF400580562 /* DWRFSection_debug_aranges.m in Sources */,
 				F40BEAFC24E9FEF8007A3F60 /* NSDictionary+WBExtensions.m in Sources */,

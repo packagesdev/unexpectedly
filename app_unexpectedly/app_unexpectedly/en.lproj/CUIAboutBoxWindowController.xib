@@ -8,13 +8,14 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CUIAboutBoxWindowController">
             <connections>
+                <outlet property="_applicationIconView" destination="tcA-WF-uA0" id="MLS-Td-B8a"/>
                 <outlet property="_versionLabel" destination="ttD-QV-oac" id="Dvu-Z7-kin"/>
                 <outlet property="window" destination="Bdk-2N-UfM" id="lij-6E-9Ij"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Bdk-2N-UfM" userLabel="About Window">
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Bdk-2N-UfM" userLabel="About Window" customClass="CUIAboutBoxWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="1076" y="858" width="580" height="340"/>
@@ -40,11 +41,6 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <imageView id="rrj-Mz-fnU">
-                                    <rect key="frame" x="20" y="64" width="256" height="256"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="NSApplicationIcon" id="BOd-4I-0Zo"/>
-                                </imageView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ttD-QV-oac">
                                     <rect key="frame" x="302" y="216" width="163" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -91,6 +87,10 @@
                                         </button>
                                     </subviews>
                                 </customView>
+                                <customView id="tcA-WF-uA0" customClass="CUIApplicationIconView">
+                                    <rect key="frame" x="20" y="64" width="256" height="256"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                </customView>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -101,7 +101,4 @@
             <point key="canvasLocation" x="71" y="93"/>
         </window>
     </objects>
-    <resources>
-        <image name="NSApplicationIcon" width="32" height="32"/>
-    </resources>
 </document>

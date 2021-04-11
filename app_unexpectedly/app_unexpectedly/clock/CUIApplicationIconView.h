@@ -1,5 +1,5 @@
 //
-//  CUIIconWorkshopView.h
+//  CUIApplicationIconView.h
 //  IconCreator
 //
 //  Created by stephane on 17/03/2021.
@@ -10,7 +10,7 @@
 
 #import "CUIWatchPart.h"
 
-@interface CUIIconWorkshopView : NSView
+@interface CUIApplicationIconView : NSView
 
 @property (nonatomic) CUIWatchRenderingMode renderingMode;
 

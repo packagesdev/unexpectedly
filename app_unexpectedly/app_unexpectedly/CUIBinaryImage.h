@@ -30,19 +30,25 @@
 
 @interface CUIBinaryImage : NSObject
 
+    @property (getter=isMainImage) BOOL mainImage;
+
     @property (readonly,getter=isUserCode) BOOL userCode;
 
 	@property (readonly,copy) NSString * identifier;
 
-	@property (readonly,copy) NSString * version;
+    @property (readonly) cpu_type_t architecture;       // Future (iOS only)
 
-	@property (readonly,copy) NSString * buildNumber;
+    @property (readonly,copy) NSString * version;       // macOS only
 
-    @property (readonly,copy) NSString * UUID;  // can be nil
+	@property (readonly,copy) NSString * buildNumber;   // macOS only
+
+    @property (readonly,copy) NSString * UUID;          // can be nil
 
 	@property (readonly,copy) NSString * path;
 
 	@property (readonly) CUIAddressesRange * addressesRange;
+
+    @property (nonatomic,readonly) NSUInteger binaryImageOffset;
 
 - (instancetype)initWithString:(NSString *)inString error:(NSError **)outError;
 

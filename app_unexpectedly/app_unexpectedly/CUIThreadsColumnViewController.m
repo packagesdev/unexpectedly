@@ -429,8 +429,7 @@
                 
                 if (tSymbolicateAutomatically==YES)
                 {
-                    NSUInteger tAddress=tCall.machineInstructionAddress-(tBinaryImage.addressesRange.loadAddress-0x100000000);
-                    
+                    NSUInteger tAddress=tCall.machineInstructionAddress-tBinaryImage.binaryImageOffset;
                     
                     [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tAddress
                                                                                                                    binaryUUID:tBinaryImage.UUID
@@ -653,8 +652,7 @@
             
             if (tSymbolicateAutomatically==YES)
             {
-                NSUInteger tAddress=tCall.machineInstructionAddress-(tBinaryImage.addressesRange.loadAddress-0x100000000);
-                
+                NSUInteger tAddress=tCall.machineInstructionAddress-tBinaryImage.binaryImageOffset;
                 
                 [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tAddress
                                                                                                                binaryUUID:tBinaryImage.UUID

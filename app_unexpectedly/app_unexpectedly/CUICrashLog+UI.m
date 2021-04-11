@@ -13,6 +13,8 @@
 
 #import "CUICrashLog+UI.h"
 
+#import "CUIRawCrashLog+Path.h"
+
 @implementation CUICrashLog (UI)
 
 - (NSImage *)processIcon
@@ -26,7 +28,7 @@
         
     });
     
-	NSString * tPath=self.header.executablePath;
+    NSString * tPath=[self stringByResolvingUSERInPath:self.header.executablePath];
 	
 	NSString * tMacOSDirectoryPath=tPath.stringByDeletingLastPathComponent;
 	
