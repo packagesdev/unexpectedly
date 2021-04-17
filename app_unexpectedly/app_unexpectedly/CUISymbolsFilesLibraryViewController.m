@@ -401,7 +401,7 @@
     {
         // We were provided invalid data
         
-        // A COMPLETER
+        NSLog(@"Unable to validate drop. Unexpected type of data");
         
         return NSDragOperationNone;
     }

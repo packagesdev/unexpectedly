@@ -81,12 +81,6 @@
 		F442FCF124AB8A8B00E87B69 /* CUIBinaryImage+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F442FCF024AB8A8B00E87B69 /* CUIBinaryImage+UI.m */; };
 		F44356F324A8A113001D3D35 /* CUICrashLogPresentationOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44356F124A8A113001D3D35 /* CUICrashLogPresentationOutlineViewController.m */; };
 		F44356FF24A8A8B5001D3D35 /* CUIThreadNamedTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = F44356FE24A8A8B5001D3D35 /* CUIThreadNamedTableCellView.m */; };
-		F44A5F3024CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F44A5F2E24CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.m */; };
-		F44A5F3124CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44A5F2F24CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.xib */; };
-		F44A5F3424CCDD00006B59B8 /* CUICollectionViewThreadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F44A5F3324CCDD00006B59B8 /* CUICollectionViewThreadItem.m */; };
-		F44A5F3724CCDFD9006B59B8 /* CUICollectionViewDockedThreadsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F44A5F3624CCDFD9006B59B8 /* CUICollectionViewDockedThreadsLayout.m */; };
-		F44A5F3B24CCE2B6006B59B8 /* CUILightTableDockedThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F44A5F3A24CCE2B6006B59B8 /* CUILightTableDockedThreadView.m */; };
-		F44A5F3E24CCE2D6006B59B8 /* CUILightTableThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F44A5F3D24CCE2D6006B59B8 /* CUILightTableThreadView.m */; };
 		F44E7B7F255C83D500025C04 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E7B7C255C83D500025C04 /* NoodleLineNumberView.m */; };
 		F44E7B80255C83D500025C04 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E7B7D255C83D500025C04 /* NoodleLineNumberMarker.m */; };
 		F45015C625FABCAC000C4B8D /* EXC_BAD_ACCESS_SIGSEGV.html in Resources */ = {isa = PBXBuildFile; fileRef = F45015C825FABCAC000C4B8D /* EXC_BAD_ACCESS_SIGSEGV.html */; };
@@ -236,13 +230,6 @@
 		F4D7F15B25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F15D25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib */; };
 		F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F16125F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib */; };
 		F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E0BD24262078220048647C /* CUIAboutBoxWindow.m */; };
-		F4E1C11424C22CF5000F5C0F /* CUILightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1C11224C22CF5000F5C0F /* CUILightTableViewController.m */; };
-		F4E1C11524C22CF5000F5C0F /* CUILightTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E1C11324C22CF5000F5C0F /* CUILightTableViewController.xib */; };
-		F4E1C11824C22F02000F5C0F /* CUICollectionViewVisibleThreadsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1C11724C22F02000F5C0F /* CUICollectionViewVisibleThreadsLayout.m */; };
-		F4E1C11C24C22F54000F5C0F /* CUICollectionViewVisibleThreadItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1C11A24C22F54000F5C0F /* CUICollectionViewVisibleThreadItem.m */; };
-		F4E1C11D24C22F54000F5C0F /* CUICollectionViewVisibleThreadItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E1C11B24C22F54000F5C0F /* CUICollectionViewVisibleThreadItem.xib */; };
-		F4E1C12024C22FB5000F5C0F /* CUILightTableVisibleThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1C11F24C22FB5000F5C0F /* CUILightTableVisibleThreadView.m */; };
-		F4E1C12324C22FEE000F5C0F /* CUILightTableVisibleInterGapView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E1C12224C22FEE000F5C0F /* CUILightTableVisibleInterGapView.m */; };
 		F4E861BA255496310061E203 /* CUIRawCrashLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E861B9255496310061E203 /* CUIRawCrashLog.m */; };
 		F4E91ADD256A98050017C3EE /* CUIFontBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E91ADC256A98050017C3EE /* CUIFontBoxView.m */; };
 		F4EAFA2C24FA6CD100C0B729 /* CUICrashLogTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EAFA2B24FA6CD100C0B729 /* CUICrashLogTextView.m */; };
@@ -1711,7 +1698,6 @@
 				F483845324EB11F700FAEF5D /* default_themes.plist in Resources */,
 				F4CE83DE2554B97400A8BD87 /* CUICenteredLabelViewController.xib in Resources */,
 				F4C7498F24F84689004F38C0 /* CUIExceptionTypePopUpViewController.xib in Resources */,
-				F4E1C11D24C22F54000F5C0F /* CUICollectionViewVisibleThreadItem.xib in Resources */,
 				F4F8D26A24F29624007661D6 /* CUIPresentationTextNavigationViewController.xib in Resources */,
 				F45854FB25C76591007A3A79 /* Unexpectedly_Acknowledgments.pdf in Resources */,
 				F495AED425F03820000D92E1 /* EXC_CRASH_Code Signature Invalid.html in Resources */,
@@ -1741,9 +1727,7 @@
 				F46D77A725ED8E3B00039663 /* CUIInspectorProcessesViewController.xib in Resources */,
 				F495AECC25F033CC000D92E1 /* EXC_CRASH_SIGKILL.html in Resources */,
 				F4A0BEF3261BC39700BADEED /* brushed-alum.png in Resources */,
-				F4E1C11524C22CF5000F5C0F /* CUILightTableViewController.xib in Resources */,
 				F46D2A2624C33FA200652D50 /* Predicates.strings in Resources */,
-				F44A5F3124CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.xib in Resources */,
 				F45A2D6525EC5F850007D50E /* CUIAboutBoxWindowController.xib in Resources */,
 				F49282C325696BF900D255D8 /* known_exceptions.css in Resources */,
 				F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */,
@@ -1793,7 +1777,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44A5F3024CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.m in Sources */,
 				F483845924EB26DF00FAEF5D /* CUIThemeItemsGroup+UI.m in Sources */,
 				F4871E0625435AF400580562 /* DWRFSection_debug_abbrev.m in Sources */,
 				F43C828824D892620096F27B /* CUIPreferencePanePresentationTextViewController.m in Sources */,
@@ -1831,7 +1814,6 @@
 				F476EEC125686EC000F40F87 /* CUIContentBox.m in Sources */,
 				F4CC572724A7A2B200150EC4 /* CUICrashLog.m in Sources */,
 				F476EEBE25686DEF00F40F87 /* CUIAboutBoxFooterView.m in Sources */,
-				F4E1C12324C22FEE000F5C0F /* CUILightTableVisibleInterGapView.m in Sources */,
 				F420C9C4254F5F4C00D24249 /* CUIdSYMHunter.m in Sources */,
 				F4A0BEF1261BC39700BADEED /* CUIWatchGear.m in Sources */,
 				F4E91ADD256A98050017C3EE /* CUIFontBoxView.m in Sources */,
@@ -1839,7 +1821,6 @@
 				F4F5821C256FC7B90032FC53 /* DWRFSection_debug_str_offsets.m in Sources */,
 				F4559F3724AF232800B8EF41 /* CUICrashLogHeader.m in Sources */,
 				F4545C3C256C1AF900F62A39 /* CUIRegistersWindowController.m in Sources */,
-				F44A5F3E24CCE2D6006B59B8 /* CUILightTableThreadView.m in Sources */,
 				F4A0BEF6261BC39700BADEED /* CUIWatchPart.m in Sources */,
 				F4B649D724EDD09A00008C47 /* CUIInspectorStackableViewController.m in Sources */,
 				F4CC572D24A7A5F000150EC4 /* CUICrashLog+Transform.m in Sources */,
@@ -1864,7 +1845,6 @@
 				F4775479255B0054006BA662 /* CUIThemesTableView.m in Sources */,
 				F4F892FD2575A70800BE4CE0 /* CUIRegistersMainViewController.m in Sources */,
 				F461CE8A25F6DD75007CFDE7 /* CUIApplicationItemAttributes.m in Sources */,
-				F44A5F3B24CCE2B6006B59B8 /* CUILightTableDockedThreadView.m in Sources */,
 				F40ACE2D255697A3006855E5 /* CUICrashLogBrowsingState.m in Sources */,
 				F4871E0925435AF400580562 /* DWRFObject.m in Sources */,
 				F4214CB524B6534400852DDE /* CUICrashLogsSourcesManager.m in Sources */,
@@ -1879,7 +1859,6 @@
 				F4B138572522948700D9DE2F /* NSBundle+dSYM.m in Sources */,
 				F49A6D8125476F7B00466D15 /* CUISymbolicationDataFormatter.m in Sources */,
 				F416687E24B0BBA300C2AB89 /* CUICrashLogPresentationTextViewController.m in Sources */,
-				F4E1C11424C22CF5000F5C0F /* CUILightTableViewController.m in Sources */,
 				F4EBADB724A8F10000DF4271 /* CUICrashLogTableCellView.m in Sources */,
 				F45B518C24AFA04000E97B87 /* CUICrashLogsSelection.m in Sources */,
 				F4BBAC5D24AA7D37000511BE /* CUIBinaryImage.m in Sources */,
@@ -1892,7 +1871,6 @@
 				F480692E24AF7D83009665F2 /* CUICrashLogsListViewController.m in Sources */,
 				F4ED18A324EC77A300ED7EF2 /* NSArray+UniqueName.m in Sources */,
 				F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */,
-				F4E1C11C24C22F54000F5C0F /* CUICollectionViewVisibleThreadItem.m in Sources */,
 				F4C269CD2503BCC100C8F3B3 /* CUISymbolicationManager.m in Sources */,
 				F462DD3124ADC5F900044AB1 /* CUICrashLogsSourceSmart.m in Sources */,
 				F483845624EB1BEB00FAEF5D /* CUIApplicationPreferences+Themes.m in Sources */,
@@ -1948,7 +1926,6 @@
 				F40B124924E89BBE005E82DD /* CUIPreferencesWindowController+Convenience.m in Sources */,
 				F4132C8F24AA19F70086B99C /* CUICrashLogsSource.m in Sources */,
 				F4CCCC6524AE810E0031BC27 /* CUICrashLogsSourcesSelection.m in Sources */,
-				F4E1C12024C22FB5000F5C0F /* CUILightTableVisibleThreadView.m in Sources */,
 				F432ACCC24A9502A000A3E7A /* CUIThreadsViewController.m in Sources */,
 				F40B0D8E24D356A200663282 /* NSIndexSet+Analysis.m in Sources */,
 				F4B9AD3225319A410083FA6C /* MCHMemoryBufferWrapper.m in Sources */,
@@ -1958,7 +1935,6 @@
 				F46198EE24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m in Sources */,
 				F4F9BAF224EF060E00D08FBD /* CUIInspectorUserViewController.m in Sources */,
 				F4CC570824A79EDA00150EC4 /* main.m in Sources */,
-				F44A5F3724CCDFD9006B59B8 /* CUICollectionViewDockedThreadsLayout.m in Sources */,
 				F420C9B9254F30A100D24249 /* CUIFileDeadDropView.m in Sources */,
 				F42B57E224ABEF6E00F77ED5 /* CUICallsSelection.m in Sources */,
 				F44E7B7F255C83D500025C04 /* NoodleLineNumberView.m in Sources */,
@@ -1967,7 +1943,6 @@
 				F4D5C77C2571AF900029B051 /* CUIRegisterLabel.m in Sources */,
 				F45F2F5B2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m in Sources */,
 				F4B67838258F702E0047369E /* CUIPreferencePaneCrashreporterViewController.m in Sources */,
-				F4E1C11824C22F02000F5C0F /* CUICollectionViewVisibleThreadsLayout.m in Sources */,
 				F4F2A9D324BB809200F912D4 /* CUICrashLogsSourceTableCellView.m in Sources */,
 				F4577BEA2592848D009B2AD2 /* CUIPreferencePanePresentationOutlineViewController.m in Sources */,
 				F4B9AD3525319A410083FA6C /* MCHUUIDLoadCommand.m in Sources */,
@@ -1980,7 +1955,6 @@
 				F4871DC02543566E00580562 /* CUIdSYMBundle.m in Sources */,
 				F4A7696A2555D9DE00F9D9D3 /* CUIRawCrashLog+UI.m in Sources */,
 				F4871E0425435AF400580562 /* DWRFSection_debug_str.m in Sources */,
-				F44A5F3424CCDD00006B59B8 /* CUICollectionViewThreadItem.m in Sources */,
 				F48906AE25D2BA0C002D79A9 /* CUISelectedWhiteTextFieldCell.m in Sources */,
 				F43D8FF724A7FAD2008147F9 /* CUIMainWindowController.m in Sources */,
 				F40B77DA24AF1426001A8131 /* CUICrashLogsSourceAll+UI.m in Sources */,
@@ -2447,7 +2421,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application: Stephane Sudre (NL5M9E394P)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 37;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2468,7 +2442,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application: Stephane Sudre (NL5M9E394P)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 37;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;

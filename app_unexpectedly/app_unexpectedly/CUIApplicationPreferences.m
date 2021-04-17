@@ -194,7 +194,6 @@ NSString * const CUIPreferencesCrashLogsSortTypeDidChangeNotification=@"CUIPrefe
         
         _crashLogsSortType=[_defaults integerForKey:CUIPreferencesCrashLogsSortTypeKey];
         
-        // A COMPLETER
     }
     
     return self;

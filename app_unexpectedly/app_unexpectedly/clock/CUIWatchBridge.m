@@ -64,8 +64,6 @@
     
     [tImage drawAtPoint:tBezierPath.bounds.origin fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
     
-    //[tImage drawInRect:tBezierPath.bounds];
-    
     [NSGraphicsContext restoreGraphicsState];
     
     
@@ -74,15 +72,6 @@
     [[NSColor colorWithDeviceWhite:0.0 alpha:0.3] setStroke];
     
     [tBezierPath stroke];
-    
-    return;
-    
-    if (self.borderColor!=nil)
-    {
-        [self.borderColor setStroke];
-        
-        [tBezierPath stroke];
-    }
 }
 
 @end

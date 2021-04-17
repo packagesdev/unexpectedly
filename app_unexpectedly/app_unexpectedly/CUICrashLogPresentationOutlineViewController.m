@@ -21,7 +21,6 @@
 
 #import "CUIThreadsListViewController.h"
 #import "CUIThreadsColumnViewController.h"
-//import "CUILightTableViewController.h"
 
 #import "CUICenteredLabelViewController.h"
 
@@ -430,11 +429,6 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
             _threadsViewController=[CUIThreadsColumnViewController new];
             break;
             
-        /*case CUIThreadsModeViewLightTable:
-     
-            _threadsViewController=[CUILightTableViewController new];
-            break;*/
-            
         default:
             
             break;
@@ -553,8 +547,6 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     tExceptionTypeLookUpPopOver.contentViewController=tPopUpViewController;
     
     NSView * tTrick=tPopUpViewController.view;  // This is used to trigger the viewDidLoad method of the contentViewController.
-    
-    
 }
 
 - (IBAction)showInFinder:(id)sender

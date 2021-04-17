@@ -1,4 +1,4 @@
-// Shared Configuration Settings for Packages Xcode Projects
+// Shared Configuration Settings for Unexpectedly Xcode Projects
 
 #include "CodeSigningConfigurationSettings.xcconfig"
 

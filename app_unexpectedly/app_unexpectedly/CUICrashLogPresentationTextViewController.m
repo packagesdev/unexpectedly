@@ -150,6 +150,11 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark -
 
 - (NSString *)nibName
@@ -197,6 +202,12 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     [self showsLineNumbers:[CUIApplicationPreferences sharedPreferences].showsLineNumbers];
     
     [self setWrapText:[CUIApplicationPreferences sharedPreferences].lineWrapping];
+    
+    // Register for notifications
+    
+    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    
+    [tNotificationCenter addObserver:self selector:@selector(currentThemeDidChange:) name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
 }
 
 - (void)viewDidAppear
@@ -207,7 +218,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     [tNotificationCenter addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
 
-    [tNotificationCenter addObserver:self selector:@selector(currentThemeDidChange:) name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+    
     
     [tNotificationCenter addObserver:self selector:@selector(jumpToSection:) name:@"jumpToSectionNotification" object:nil];
     
@@ -241,7 +252,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     [tNotificationCenter removeObserver:self name:CUIThemeItemAttributesDidChangeNotification object:nil];
     
-    [tNotificationCenter removeObserver:self name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+    //[tNotificationCenter removeObserver:self name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
     
     [tNotificationCenter removeObserver:self name:@"jumpToSectionNotification" object:nil];
     

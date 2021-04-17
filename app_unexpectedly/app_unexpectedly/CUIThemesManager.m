@@ -101,7 +101,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
         
         if (_themes==nil)
         {
-            // A COMPLETER
+            NSLog(@"Error when retrieving the list of themes");
             
             return nil;
         }
@@ -276,7 +276,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
     
     if (_themes==nil)
     {
-        // A COMPLETER
+        NSLog(@"Error when retrieving the list of themes");
         
         return;
     }

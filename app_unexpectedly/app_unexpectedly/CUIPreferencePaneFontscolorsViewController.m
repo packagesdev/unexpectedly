@@ -332,7 +332,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
     
     if (tSuccess==NO)
     {
-        // A COMPLETER
+        NSLog(@"Error when trying to rename theme %@ to name %@",_sharedThemeManager.currentTheme,tNewName);
     }
 }
 

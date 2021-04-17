@@ -363,7 +363,7 @@
     
     if (tSelectedCrashLogs.count!=1)
     {
-        // A COMPLETER
+        NSLog(@"Multiple selection of crash logs is not supported");
     }
     else
     {
@@ -371,7 +371,7 @@
         
         if (tIndex==-1)
         {
-            // A COMPLETER
+            NSLog(@"Menu index not found for item: %@",tSelectedCrashLogs.firstObject);
         }
         else
         {
@@ -412,7 +412,7 @@
     
     if (tSelectedCrashLogs.count!=1)
     {
-        // A COMPLETER
+        NSLog(@"Multiple selection of crash logs is not supported");
         
         return;
     }
@@ -950,8 +950,6 @@
 - (void)sourcesManagerSourcesDidChange:(NSNotification *)inNotification
 {
     [self refreshSourcesMenu];
-    
-    // A COMPLETER
 }
 
 - (void)sourceDidUpdateSource:(NSNotification *)inNotification
@@ -966,11 +964,7 @@
     CUICrashLogsSource * tCrashLogsSource=[tSet anyObject];
     
     if (tCrashLogsSource==nil)
-    {
-        // A COMPLETER
-        
         return;
-    }
     
     switch(tCrashLogsSource.type)
     {
@@ -990,7 +984,7 @@
     
     if (tIndex==-1)
     {
-        // A COMPLETER
+        NSLog(@"Menu index not found for source %@",tCrashLogsSource);
         
         return;
     }
@@ -1014,7 +1008,7 @@
     
     if (tSelectedCrashLogs.count!=1)
     {
-        // A COMPLETER
+        NSLog(@"Multiple selection of crash logs is not supported");
     }
     else
     {
