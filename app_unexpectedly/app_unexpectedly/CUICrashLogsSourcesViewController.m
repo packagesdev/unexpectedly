@@ -168,6 +168,36 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     NSIndexSet * tSelectedRows=[_tableView WB_selectedOrClickedRowIndexes];
     
+    if (tAction==@selector(delete:))
+    {
+        if (tSelectedRows.count==0)
+            return NO;
+        
+        __block BOOL tSourcesCanBeDeleted=YES;
+        
+        NSArray * tSelectedSources=[_sourcesManager.allSources objectsAtIndexes:tSelectedRows];
+        
+        [tSelectedSources enumerateObjectsUsingBlock:^(CUICrashLogsSource * bSource, NSUInteger bIndex, BOOL * bOutStop) {
+            
+            switch(bSource.type)
+            {
+                case CUICrashLogsSourceTypeAll:
+                case CUICrashLogsSourceTypeStandardDirectory:
+                case CUICrashLogsSourceTypeToday:
+                    
+                    tSourcesCanBeDeleted=NO;
+                    
+                    break;
+                    
+                default:
+                    
+                    break;
+            }
+        }];
+        
+        return tSourcesCanBeDeleted;
+    }
+    
     if (tAction==@selector(editSmartSource:))
     {
         __block BOOL tCanEdit=YES;
@@ -184,7 +214,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         
         return tCanEdit;
     }
-    else if (tAction==@selector(CUI_MENUACTION_exportSmartSource:))
+    
+    if (tAction==@selector(CUI_MENUACTION_exportSmartSource:))
     {
         __block BOOL tCanExport=YES;
         
@@ -200,7 +231,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         
         return tCanExport;
     }
-    else if (tAction==@selector(showInFinder:))
+    
+    if (tAction==@selector(showInFinder:))
     {
         __block BOOL tCanShowInFinder=YES;
         
@@ -218,6 +250,11 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     }
     
     return YES;
+}
+
+- (IBAction)delete:(id)sender
+{
+    [self removeSources:sender];
 }
 
 - (IBAction)tableViewDoubleAction:(id)sender
@@ -295,6 +332,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     tOpenPanel.canChooseFiles=YES;
     tOpenPanel.canChooseDirectories=YES;
     tOpenPanel.allowsMultipleSelection=NO;
+    tOpenPanel.prompt=NSLocalizedString(@"Add", @"");
     //tOpenPanel.allowedFileTypes=@[@".crash"];
     
     tOpenPanel.delegate=self;
@@ -866,11 +904,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     if (inURL.isFileURL==NO)
         return NO;
     
-    //hasDirectoryPath
-    
-    if (inURL.hasDirectoryPath==YES)
-    {
-    }
+    if (inURL.hasDirectoryPath==NO)
+        return ([inURL.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame);
     
     /*NSString * tPath=inURL.path;
     
@@ -881,10 +916,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
             if ([tSource.path isEqualToString:tPath]==YES)
                 return NO;
         }
-    }
-    
-    if (inURL.hasDirectoryPath==NO && [tPath.pathExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame)
-        return NO;*/
+    }*/
     
     return YES;
 }

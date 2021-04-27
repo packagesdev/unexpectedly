@@ -73,13 +73,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Fichier" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Nouvelle source intelligente" keyEquivalent="N" id="Was-JA-tGl">
+                            <menuItem title="Nouvelle source intelligente…" keyEquivalent="N" id="Was-JA-tGl">
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSmartSource:" target="-1" id="bHg-uP-Kty"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="Mx6-UK-5B4"/>
-                            <menuItem title="Ajouter un fichier ou un dossier" keyEquivalent="a" id="3wG-3v-uZk">
+                            <menuItem title="Ajouter un fichier ou un dossier…" keyEquivalent="a" id="3wG-3v-uZk">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSource:" target="-1" id="b1Q-ed-4lm"/>

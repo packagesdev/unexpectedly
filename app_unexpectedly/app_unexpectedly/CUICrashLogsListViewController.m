@@ -174,7 +174,9 @@
             if ([bCrashLog isKindOfClass:[CUICrashLog class]]==NO)
                 return;
             
-            if ([bCrashLog.header.responsibleProcessName rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound)
+            NSString * tResponsibleProcessName=bCrashLog.header.responsibleProcessName;
+            
+            if (tResponsibleProcessName!=nil && [tResponsibleProcessName rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound)
             {
                 [self->_filteredAndSortedCrashLogsArray addObject:bCrashLog];
                 

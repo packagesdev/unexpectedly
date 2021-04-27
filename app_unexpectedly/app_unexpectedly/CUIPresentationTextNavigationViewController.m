@@ -1008,7 +1008,8 @@
     
     if (tSelectedCrashLogs.count!=1)
     {
-        NSLog(@"Multiple selection of crash logs is not supported");
+        if (tSelectedCrashLogs.count>0)
+            NSLog(@"Multiple selection of crash logs is not supported");
     }
     else
     {
