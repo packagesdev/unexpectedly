@@ -4,144 +4,6 @@
 <array>
 	<dict>
 		<key>UUID</key>
-		<string>UUID1</string>
-		<key>groups</key>
-		<array>
-			<dict>
-				<key>attributes</key>
-				<dict>
-					<key>OSCode</key>
-					<dict>
-						<key>color</key>
-						<string>0.300000|0.300000|0.300000</string>
-						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
-					</dict>
-					<key>background</key>
-					<dict>
-						<key>color</key>
-						<string>1.000000|1.000000|1.000000</string>
-						<key>font</key>
-						<string>.AppleSystemUIFont::11.0</string>
-					</dict>
-					<key>crashedThreadLabel</key>
-					<dict>
-						<key>color</key>
-						<string>0.957716|0.059633|0.075242</string>
-						<key>font</key>
-						<string>Menlo-Bold::11.0</string>
-					</dict>
-					<key>executableCode</key>
-					<dict>
-						<key>color</key>
-						<string>0.000000|0.000000|0.000000</string>
-						<key>font</key>
-						<string>Menlo-Bold::11.0</string>
-					</dict>
-					<key>key</key>
-					<dict>
-						<key>color</key>
-						<string>0.157741|0.157741|0.157741</string>
-						<key>font</key>
-						<string>Menlo-Italic::11.0</string>
-					</dict>
-					<key>lineNumber</key>
-					<dict>
-						<key>color</key>
-						<string>0.42|0.42|0.42</string>
-						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
-					</dict>
-					<key>memoryAddress</key>
-					<dict>
-						<key>color</key>
-						<string>0.137678|0.193874|0.694335</string>
-						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
-					</dict>
-					<key>path</key>
-					<dict>
-						<key>color</key>
-						<string>0.595377|0.057079|0.998607</string>
-						<key>font</key>
-						<string>Menlo-Italic::11.0</string>
-					</dict>
-					<key>plaintext</key>
-					<dict>
-						<key>color</key>
-						<string>0.000000|0.000000|0.000000</string>
-						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
-					</dict>
-					<key>registerValue</key>
-					<dict>
-						<key>color</key>
-						<string>0.000000|0.000000|0.000000</string>
-						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
-					</dict>
-					<key>selection-background</key>
-					<dict>
-						<key>color</key>
-						<string>0.817178|0.979453|0.999665</string>
-						<key>font</key>
-						<string>.AppleSystemUIFont::11.0</string>
-					</dict>
-					<key>selection-text</key>
-					<dict>
-						<key>color</key>
-						<string>0.000000|0.000000|0.000000</string>
-						<key>font</key>
-						<string>.AppleSystemUIFont::11.0</string>
-					</dict>
-					<key>threadLabel</key>
-					<dict>
-						<key>color</key>
-						<string>0.000000|0.000000|0.000000</string>
-						<key>font</key>
-						<string>Menlo-Bold::11.0</string>
-					</dict>
-					<key>uuid</key>
-					<dict>
-						<key>color</key>
-						<string>0.500000|0.500000|0.500000</string>
-						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
-					</dict>
-					<key>version</key>
-					<dict>
-						<key>color</key>
-						<string>0.756722|0.413476|0.180156</string>
-						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
-					</dict>
-				</dict>
-				<key>identifier</key>
-				<string>Text</string>
-				<key>items</key>
-				<array>
-					<string>background</string>
-					<string>selection-background</string>
-					<string>selection-text</string>
-					<string>plaintext</string>
-					<string>key</string>
-					<string>threadLabel</string>
-					<string>crashedThreadLabel</string>
-					<string>executableCode</string>
-					<string>OSCode</string>
-					<string>memoryAddress</string>
-					<string>registerValue</string>
-					<string>path</string>
-					<string>version</string>
-					<string>uuid</string>
-				</array>
-			</dict>
-		</array>
-		<key>name</key>
-		<string>Default (Light)</string>
-	</dict>
-	<dict>
-		<key>UUID</key>
 		<string>UUID2</string>
 		<key>groups</key>
 		<array>
@@ -280,7 +142,7 @@
 	</dict>
 	<dict>
 		<key>UUID</key>
-		<string>DEA1A282-4860-4CBD-85F5-70CAC95742CB</string>
+		<string>UUID1</string>
 		<key>groups</key>
 		<array>
 			<dict>
@@ -289,37 +151,37 @@
 					<key>OSCode</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.300000|0.300000|0.300000</string>
 						<key>font</key>
 						<string>Menlo-Regular::11.0</string>
 					</dict>
 					<key>background</key>
 					<dict>
 						<key>color</key>
-						<string>0.994426|0.994426|0.994426</string>
+						<string>1.000000|1.000000|1.000000</string>
 						<key>font</key>
 						<string>.AppleSystemUIFont::11.0</string>
 					</dict>
 					<key>crashedThreadLabel</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.957716|0.059633|0.075242</string>
 						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
+						<string>Menlo-Bold::11.0</string>
 					</dict>
 					<key>executableCode</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.000000|0.000000|0.000000</string>
 						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
+						<string>Menlo-Bold::11.0</string>
 					</dict>
 					<key>key</key>
 					<dict>
 						<key>color</key>
-						<string>0.047095|0.047095|0.047095</string>
+						<string>0.157741|0.157741|0.157741</string>
 						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
+						<string>Menlo-Italic::11.0</string>
 					</dict>
 					<key>lineNumber</key>
 					<dict>
@@ -331,35 +193,35 @@
 					<key>memoryAddress</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.137678|0.193874|0.694335</string>
 						<key>font</key>
 						<string>Menlo-Regular::11.0</string>
 					</dict>
 					<key>path</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.595377|0.057079|0.998607</string>
 						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
+						<string>Menlo-Italic::11.0</string>
 					</dict>
 					<key>plaintext</key>
 					<dict>
 						<key>color</key>
-						<string>0.054302|0.054302|0.054302</string>
+						<string>0.000000|0.000000|0.000000</string>
 						<key>font</key>
 						<string>Menlo-Regular::11.0</string>
 					</dict>
 					<key>registerValue</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.000000|0.000000|0.000000</string>
 						<key>font</key>
 						<string>Menlo-Regular::11.0</string>
 					</dict>
 					<key>selection-background</key>
 					<dict>
 						<key>color</key>
-						<string>0.884986|0.884986|0.884986</string>
+						<string>0.817178|0.979453|0.999665</string>
 						<key>font</key>
 						<string>.AppleSystemUIFont::11.0</string>
 					</dict>
@@ -373,21 +235,21 @@
 					<key>threadLabel</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.000000|0.000000|0.000000</string>
 						<key>font</key>
-						<string>Menlo-Regular::11.0</string>
+						<string>Menlo-Bold::11.0</string>
 					</dict>
 					<key>uuid</key>
 					<dict>
 						<key>color</key>
-						<string>1.000000|1.000000|1.000000</string>
+						<string>0.500000|0.500000|0.500000</string>
 						<key>font</key>
 						<string>Menlo-Regular::11.0</string>
 					</dict>
 					<key>version</key>
 					<dict>
 						<key>color</key>
-						<string>0.048801|0.048801|0.048801</string>
+						<string>0.756722|0.413476|0.180156</string>
 						<key>font</key>
 						<string>Menlo-Regular::11.0</string>
 					</dict>
@@ -413,10 +275,8 @@
 				</array>
 			</dict>
 		</array>
-		<key>monochrome</key>
-		<true/>
 		<key>name</key>
-		<string>Monochrome (Light)</string>
+		<string>Default (Light)</string>
 	</dict>
 	<dict>
 		<key>UUID</key>
@@ -557,6 +417,146 @@
 		<string>Monochrome (Dark)</string>
 		<key>monochrome</key>
 		<true/>
+	</dict>
+	<dict>
+		<key>UUID</key>
+		<string>DEA1A282-4860-4CBD-85F5-70CAC95742CB</string>
+		<key>groups</key>
+		<array>
+			<dict>
+				<key>attributes</key>
+				<dict>
+					<key>OSCode</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>background</key>
+					<dict>
+						<key>color</key>
+						<string>0.994426|0.994426|0.994426</string>
+						<key>font</key>
+						<string>.AppleSystemUIFont::11.0</string>
+					</dict>
+					<key>crashedThreadLabel</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>executableCode</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>key</key>
+					<dict>
+						<key>color</key>
+						<string>0.047095|0.047095|0.047095</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>lineNumber</key>
+					<dict>
+						<key>color</key>
+						<string>0.42|0.42|0.42</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>memoryAddress</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>path</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>plaintext</key>
+					<dict>
+						<key>color</key>
+						<string>0.054302|0.054302|0.054302</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>registerValue</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>selection-background</key>
+					<dict>
+						<key>color</key>
+						<string>0.884986|0.884986|0.884986</string>
+						<key>font</key>
+						<string>.AppleSystemUIFont::11.0</string>
+					</dict>
+					<key>selection-text</key>
+					<dict>
+						<key>color</key>
+						<string>0.000000|0.000000|0.000000</string>
+						<key>font</key>
+						<string>.AppleSystemUIFont::11.0</string>
+					</dict>
+					<key>threadLabel</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>uuid</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+					<key>version</key>
+					<dict>
+						<key>color</key>
+						<string>0.048801|0.048801|0.048801</string>
+						<key>font</key>
+						<string>Menlo-Regular::11.0</string>
+					</dict>
+				</dict>
+				<key>identifier</key>
+				<string>Text</string>
+				<key>items</key>
+				<array>
+					<string>background</string>
+					<string>selection-background</string>
+					<string>selection-text</string>
+					<string>plaintext</string>
+					<string>key</string>
+					<string>threadLabel</string>
+					<string>crashedThreadLabel</string>
+					<string>executableCode</string>
+					<string>OSCode</string>
+					<string>memoryAddress</string>
+					<string>registerValue</string>
+					<string>path</string>
+					<string>version</string>
+					<string>uuid</string>
+				</array>
+			</dict>
+		</array>
+		<key>monochrome</key>
+		<true/>
+		<key>name</key>
+		<string>Monochrome (Light)</string>
 	</dict>
 	<dict>
 		<key>UUID</key>
