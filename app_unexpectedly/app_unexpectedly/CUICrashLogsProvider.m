@@ -57,13 +57,32 @@
     if ([inPath.pathExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame)
         return nil;
     
-    id tCrashLog=[[CUICrashLog alloc] initWithContentsOfFile:inPath error:outError];
+    NSError * tError=nil;
+    
+    id tCrashLog=[[CUICrashLog alloc] initWithContentsOfFile:inPath error:&tError];
     
     if (tCrashLog==nil)
     {
+        if ([tError.domain isEqualToString:NSCocoaErrorDomain]==YES)
+        {
+            switch(tError.code)
+            {
+                case NSFileReadNoSuchFileError: // File is missing, no point in trying to read it
+                    
+                    return nil;
+                    
+                default:
+                    
+                    break;
+            }
+        }
+        
         NSLog(@"Error when parsing report file \"%@\", will try to parse it as raw report",inPath);
         
-        tCrashLog=[[CUIRawCrashLog alloc] initWithContentsOfFile:inPath error:outError];
+        tCrashLog=[[CUIRawCrashLog alloc] initWithContentsOfFile:inPath error:&tError];
+        
+        if (outError!=nil)
+            *outError=tError;
     }
     
 	return tCrashLog;

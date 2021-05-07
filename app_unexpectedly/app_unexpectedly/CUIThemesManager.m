@@ -285,6 +285,8 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
     
     [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
     
+     [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];

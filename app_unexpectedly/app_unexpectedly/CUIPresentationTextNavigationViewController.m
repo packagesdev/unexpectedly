@@ -361,7 +361,11 @@
     
     NSArray * tSelectedCrashLogs=_crashLogsSelection.crashLogs;
     
-    if (tSelectedCrashLogs.count!=1)
+    if (tSelectedCrashLogs.count==0)
+    {
+        // A VOIR (Maybe add a - menu item)
+    }
+    else if (tSelectedCrashLogs.count!=1)
     {
         NSLog(@"Multiple selection of crash logs is not supported");
     }

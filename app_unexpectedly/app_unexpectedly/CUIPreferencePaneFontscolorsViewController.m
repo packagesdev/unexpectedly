@@ -229,6 +229,11 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
     _cachedBackgroundColor=[[_selectedThemeItemsGroup attributesForItem:CUIThemeItemBackground] color];
     
     
+    if (floor(NSAppKitVersionNumber)<=NSAppKitVersionNumber10_13)
+    {
+        _categoriesTableView.backgroundColor=_cachedBackgroundColor;
+    }
+    
     _categoriesClipView.themeBackgroundColor=_cachedBackgroundColor;
     
     NSInteger tSelectedRow=_categoriesTableView.selectedRow;
