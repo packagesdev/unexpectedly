@@ -284,8 +284,7 @@
     
     CUIBinaryImage * tBinaryImage=_sortedAndFilteredBinaryImagesArray[inRow];
     
-    if (_highlightedBinaryImagesSet.count>0)
-        tTableCellView.textField.textColor=[NSColor secondaryLabelColor];
+    tTableCellView.textField.textColor=(_highlightedBinaryImagesSet.count>0) ? [NSColor secondaryLabelColor] : [NSColor labelColor];
     
     if ([_highlightedBinaryImagesSet containsObject:tBinaryImage.identifier]==YES)
     {
@@ -366,7 +365,8 @@
         }
     }];
     
-    [_tableView reloadData];
+    [_tableView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _sortedAndFilteredBinaryImagesArray.count)]
+                          columnIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 4)]];
     
     if (tMutableIndexSet.count>0)
         [_tableView scrollRectToVisible:[_tableView rectOfRow:tMutableIndexSet.firstIndex]];
