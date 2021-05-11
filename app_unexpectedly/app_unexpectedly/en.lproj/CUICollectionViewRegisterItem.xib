@@ -38,7 +38,7 @@
                         <popUpButton id="fAd-pL-hD3">
                             <rect key="frame" x="130" y="1" width="16" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <popUpButtonCell key="cell" type="bevel" title="Boolean" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" tag="1" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="VoA-fE-sxQ" id="jsY-zd-eaC">
+                            <popUpButtonCell key="cell" type="bevel" title="Binary" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Ql8-Yj-GNF" id="jsY-zd-eaC">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                                 <menu key="menu" id="W6L-9s-vAV">
@@ -47,8 +47,8 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="Boolean" state="on" tag="1" id="VoA-fE-sxQ"/>
-                                        <menuItem title="Float" tag="2" id="2IG-5I-rJY"/>
                                         <menuItem title="Decimal" tag="3" id="Hab-wq-jWg"/>
+                                        <menuItem title="Float" tag="2" id="2IG-5I-rJY"/>
                                         <menuItem title="Hex" tag="4" id="SoX-XB-pNK"/>
                                         <menuItem title="Octal" tag="5" id="5Ci-Jw-A07"/>
                                         <menuItem title="Unsigned Decimal" tag="6" id="QOY-jj-Mna"/>
@@ -66,7 +66,7 @@
                     </connections>
                 </customView>
             </subviews>
-            <point key="canvasLocation" x="-518.5" y="-306.5"/>
+            <point key="canvasLocation" x="-21" y="-184"/>
         </customView>
         <collectionViewItem id="faJ-j9-dhQ" customClass="CUICollectionViewRegisterItem">
             <connections>
