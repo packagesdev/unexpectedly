@@ -87,7 +87,7 @@
 
 - (IBAction)showAcknowledgments:(id)sender
 {
-    NSString * tPath=[[NSBundle mainBundle] pathForResource:@"Unexpectedly_Acknowledgments" ofType:@"pdf"];
+    NSString * tPath=[[NSBundle mainBundle] pathForResource:@"Unexpectedly_Acknowledgements" ofType:@"pdf"];
     
     if (tPath==nil)
     {
