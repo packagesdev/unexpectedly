@@ -8,7 +8,9 @@ ABSOLUTE_BUILD_PATH="$ABSOLUTE_FOLDER_PATH"/distribution/build
 
 echo "$ABSOLUTE_FOLDER_PATH"
 
-## Create the build folder if needed
+## Clean and create the build folder
+
+/bin/rm -rf distribution/build
 
 /bin/mkdir -p distribution/build
 

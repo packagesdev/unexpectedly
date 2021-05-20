@@ -387,7 +387,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 {
     CUICrashLogsSourceSmartEditorPanel * tEditorPanel=[CUICrashLogsSourceSmartEditorPanel crashLogsSourceSmartEditorPanel];
     
-    tEditorPanel.source=[CUICrashLogsSourceSmart new];;
+    tEditorPanel.source=[CUICrashLogsSourceSmart new];
     
     tEditorPanel.prompt=NSLocalizedString(@"Add",@"");
     

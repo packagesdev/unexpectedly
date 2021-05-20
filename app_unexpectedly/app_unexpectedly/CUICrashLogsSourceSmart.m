@@ -79,7 +79,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
         if ([tString isKindOfClass:[NSString class]]==NO)
             return nil;
         
-        _predicate=[NSPredicate predicateWithFormat:tString];
+        self.predicate=[NSPredicate predicateWithFormat:tString];
     }
     
     return self;
