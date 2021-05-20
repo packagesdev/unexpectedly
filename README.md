@@ -10,7 +10,7 @@ Unexpectedly is a macOS utility to browse and inspect crash reports of Mac appli
 
 The macOS system utility Console.app is pretty limited and confusing when it comes to browsing crash reports. 
 
-Minimum OS requirement is macOS 10.14 at this time.
+Minimum OS requirement is macOS 10.13 at this time.
 
 ## Development Environment
 
