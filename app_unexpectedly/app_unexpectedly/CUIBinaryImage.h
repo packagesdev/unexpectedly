@@ -50,6 +50,6 @@
 
     @property (nonatomic,readonly) NSUInteger binaryImageOffset;
 
-- (instancetype)initWithString:(NSString *)inString error:(NSError **)outError;
+- (instancetype)initWithString:(NSString *)inString reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
 
 @end

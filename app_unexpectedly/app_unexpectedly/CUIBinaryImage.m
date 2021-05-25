@@ -104,7 +104,7 @@
 
 @implementation CUIBinaryImage
 
-- (instancetype)initWithString:(NSString *)inString error:(NSError **)outError
+- (instancetype)initWithString:(NSString *)inString reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError
 {
     if ([inString isKindOfClass:[NSString class]]==NO)
     {
@@ -139,9 +139,32 @@
         _addressesRange=[CUIAddressesRange addressesRangeWithLocation:tAddressRangeStart length:tAddressRangeEnd-tAddressRangeStart+1];
         
         NSString * tString;
+        NSString * tOriginalString;
         
-        if ([tScanner scanUpToString:@"(" intoString:&tString]==NO)
+        if ([tScanner scanUpToString:@"(" intoString:&tOriginalString]==NO)
             return nil;
+        
+        if (inReportVersion==6)
+        {
+            // Remove the version
+            
+            NSUInteger tLength=tOriginalString.length;
+            
+            NSRange tRange=[tOriginalString rangeOfCharacterFromSet:tWhitespaceCharacterSet options:NSBackwardsSearch range:NSMakeRange(0,tLength-1)];
+            
+            if (tRange.location==NSNotFound)
+            {
+                NSLog(@"Unable to find version for binary image");
+                
+                return nil;
+            }
+            
+            tString=[tOriginalString substringToIndex:tRange.location];
+        }
+        else
+        {
+            tString=tOriginalString;
+        }
         
         if ([tString hasPrefix:@"+"]==YES && tString.length>1)
         {
@@ -157,24 +180,42 @@
         if (tScanner.scanLocation>=inString.length)
             return nil;
         
-        tScanner.scanLocation+=1;
-        
-        if ([tScanner scanUpToString:@")" intoString:&tString]==NO)
-            return nil;
-        
-        NSArray * tVersions=[tString componentsSeparatedByString:@" - "];
-        
-        switch(tVersions.count)
+        if (inReportVersion==6)
         {
-            case 2:
-                
-                _buildNumber=[tVersions[1] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
-                
-            case 1:
-                
-                _version=[tVersions.firstObject stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
-                
-                break;
+            NSUInteger tLength=tOriginalString.length;
+            
+            NSRange tRange=[tOriginalString rangeOfCharacterFromSet:tWhitespaceCharacterSet options:NSBackwardsSearch range:NSMakeRange(0,tLength-1)];
+            
+            _version=[[tOriginalString substringFromIndex:tRange.location] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+            
+            tScanner.scanLocation+=1;
+            
+            if ([tScanner scanUpToString:@")" intoString:&tString]==NO)
+                return nil;
+            
+            _buildNumber=[tString stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+        }
+        else
+        {
+            tScanner.scanLocation+=1;
+            
+            if ([tScanner scanUpToString:@")" intoString:&tString]==NO)
+                return nil;
+            
+            NSArray * tVersions=[tString componentsSeparatedByString:@" - "];
+            
+            switch(tVersions.count)
+            {
+                case 2:
+                    
+                    _buildNumber=[tVersions[1] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+                    
+                case 1:
+                    
+                    _version=[tVersions.firstObject stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+                    
+                    break;
+            }
         }
         
         // UUID

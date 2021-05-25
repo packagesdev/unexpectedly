@@ -111,6 +111,9 @@
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
+                    <connections>
+                        <outlet property="nextKeyView" destination="kV4-Gy-Y5g" id="1ku-o3-h60"/>
+                    </connections>
                 </scrollView>
                 <popUpButton id="vD3-8d-OAL">
                     <rect key="frame" x="207" y="4" width="29" height="18"/>
@@ -132,10 +135,10 @@
                         <action selector="switchSortType:" target="-2" id="18O-p9-B0u"/>
                     </connections>
                 </popUpButton>
-                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" id="kV4-Gy-Y5g">
+                <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="kV4-Gy-Y5g">
                     <rect key="frame" x="5" y="2" width="201" height="19"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="vf8-7z-IX2">
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="vf8-7z-IX2">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

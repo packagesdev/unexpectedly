@@ -264,12 +264,12 @@ NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
 
 - (NSView *)firstKeyView
 {
-    return [_sourcesViewController firstKeyView];
+    return _sourcesViewController.firstKeyView;
 }
 
 - (NSView *)lastKeyView
 {
-    return [_listViewController lastKeyView];
+    return _listViewController.lastKeyView;
 }
 
 @end

@@ -26,7 +26,7 @@
     NSMutableDictionary * _binaryNameToIdentifierRosettaStone;
 }
 
-- (BOOL)parseTextualRepresentation:(NSArray *)inLines outError:(NSError **)outError;
+- (BOOL)parseTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion outError:(NSError **)outError;
 
 @end
 
@@ -55,7 +55,7 @@
         
         _binaryNameToIdentifierRosettaStone=[NSMutableDictionary dictionary];
         
-        if ([self parseTextualRepresentation:inLines outError:outError]==NO)
+        if ([self parseTextualRepresentation:inLines reportVersion:inReportVersion outError:outError]==NO)
         {
             return nil;
         }
@@ -66,7 +66,7 @@
 
 #pragma mark -
 
-- (BOOL)parseTextualRepresentation:(NSArray *)inLines outError:(NSError **)outError
+- (BOOL)parseTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion outError:(NSError **)outError
 {
     if ([inLines.firstObject isEqualToString:@"Binary images description not available"]==YES)
         return YES;
@@ -86,7 +86,7 @@
             return;
         }
         
-        CUIBinaryImage * tBinaryImage=[[CUIBinaryImage alloc] initWithString:bLine error:&tError];
+        CUIBinaryImage * tBinaryImage=[[CUIBinaryImage alloc] initWithString:bLine reportVersion:inReportVersion error:&tError];
         
         if (tBinaryImage==nil)
         {

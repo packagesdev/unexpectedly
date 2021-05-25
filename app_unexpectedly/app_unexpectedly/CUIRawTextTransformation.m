@@ -91,7 +91,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 - (NSArray *)processedThreadStateSectionLines:(NSArray *)inLines error:(NSError **)outError;
 
-- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines error:(NSError **)outError;
+- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
 
 - (NSAttributedString *)joinLines:(NSArray *)inLines withString:(NSString *)inNewLineFeed;
 
@@ -99,7 +99,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 - (NSArray *)processedThreadBacktraceLines:(NSArray *)inLines error:(NSError **)outError;
 
-- (id)processedBinaryImageLine:(NSString *)inLine;
+- (id)processedBinaryImageLine:(NSString *)inLine reportVersion:(NSUInteger)inReportVersion;
 
 @end
 
@@ -250,7 +250,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         {
             NSArray * tBacktracesLines=[inLines subarrayWithRange:inCrashLog.binaryImagesRange];
             
-            NSArray * tFilteredLines=[self processedBinaryImagesSectionLines:tBacktracesLines error:NULL];
+            NSArray * tFilteredLines=[self processedBinaryImagesSectionLines:tBacktracesLines reportVersion:inCrashLog.reportVersion error:NULL];
             
             [tMutableArray removeObjectsInRange:inCrashLog.binaryImagesRange];
             
@@ -1276,7 +1276,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
 
 #pragma mark - Binary Images
 
-- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines error:(NSError **)outError
+- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError
 {
     if (inLines.count==0)
         return inLines;
@@ -1315,7 +1315,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                                        return;
                                    }
                                 
-                                   id tProcessedLine=[self processedBinaryImageLine:bLine];
+                                   id tProcessedLine=[self processedBinaryImageLine:bLine reportVersion:inReportVersion];
                                 
                                    if (tProcessedLine==nil)
                                    {
@@ -1330,7 +1330,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     return tProcessedLines;
 }
 
-- (id)processedBinaryImageLine:(NSString *)inLine
+- (id)processedBinaryImageLine:(NSString *)inLine reportVersion:(NSUInteger)inReportVersion
 {
     NSScanner * tScanner=[NSScanner scannerWithString:inLine];
     
@@ -1363,9 +1363,28 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     NSUInteger tIdentifierStart=tScanner.scanLocation;
     
     NSString * tIdentifier=nil;
+    NSString * tOriginalString;
     
-    if ([tScanner scanUpToCharactersFromSet:_whitespaceCharacterSet intoString:&tIdentifier]==NO)
+    if ([tScanner scanUpToString:@"(" intoString:&tOriginalString]==NO)
         return nil;
+    
+    if (inReportVersion==6)
+    {
+        // Remove the version
+        
+        NSUInteger tLength=tOriginalString.length;
+        
+        NSRange tRange=[tOriginalString rangeOfCharacterFromSet:_whitespaceCharacterSet options:NSBackwardsSearch range:NSMakeRange(0,tLength-1)];
+        
+        if (tRange.location==NSNotFound)
+            return nil;
+        
+        tIdentifier=[tOriginalString substringToIndex:tRange.location];
+    }
+    else
+    {
+        tIdentifier=tOriginalString;
+    }
     
     BOOL tIsUserCode=NO;
     
@@ -1377,6 +1396,8 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         
         tIdentifier=[tIdentifier substringFromIndex:1];
     }
+    
+    tIdentifier=[tIdentifier stringByTrimmingCharactersInSet:_whitespaceCharacterSet];
     
     NSMutableAttributedString * tNewLine=[[NSMutableAttributedString alloc] initWithString:inLine attributes:_cachedPlainTextAttributes];
     
@@ -1403,12 +1424,19 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
             break;
     }
     
-    NSUInteger tIdentifierEnd=tScanner.scanLocation;
+    tScanner.scanLocation=tIdentifierStart+tIdentifier.length;
     
-    NSRange tIdentifierRange=NSMakeRange(tIdentifierStart, tIdentifierEnd-tIdentifierStart+1);
+    NSRange tIdentifierRange=NSMakeRange(tIdentifierStart, tIdentifier.length);
     
-    if ([tScanner scanUpToString:@"(" intoString:NULL]==NO)
-        return nil;
+    if (inReportVersion==6)
+    {
+        tScanner.scanLocation+=1;
+    }
+    else
+    {
+        if ([tScanner scanUpToString:@"(" intoString:NULL]==NO)
+            return nil;
+    }
     
     NSUInteger tVersionStart=tScanner.scanLocation;
     

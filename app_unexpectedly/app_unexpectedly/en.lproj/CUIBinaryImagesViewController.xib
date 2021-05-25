@@ -20,10 +20,10 @@
             <rect key="frame" x="0.0" y="0.0" width="824" height="127"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" id="JbX-mT-2UH">
+                <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="JbX-mT-2UH">
                     <rect key="frame" x="638" y="2" width="180" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="CXs-CW-3At">
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="CXs-CW-3At">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -206,6 +206,11 @@
     return self.header.dateTime;
 }
 
+- (NSUInteger)reportVersion
+{
+    return self.header.reportVersion;
+}
+
 - (NSNumber *)numberOfHoursSinceCrash
 {
     NSDate * tDate=[NSDate date];
@@ -406,7 +411,7 @@
     
     if (self.binaryImagesRange.location!=NSNotFound)
     {
-        _binaryImages=[[CUICrashLogBinaryImages alloc] initWithTextualRepresentation:[tLines subarrayWithRange:self.binaryImagesRange] reportVersion:_header.reportVersion error:&tError];
+        _binaryImages=[[CUICrashLogBinaryImages alloc] initWithTextualRepresentation:[tLines subarrayWithRange:self.binaryImagesRange] reportVersion:self.reportVersion error:&tError];
         
         if (_binaryImages==nil)
         {

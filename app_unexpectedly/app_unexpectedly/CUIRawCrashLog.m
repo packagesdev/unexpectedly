@@ -194,6 +194,11 @@
     return (_reserved2!=nil) ? _reserved2 : nil;
 }
 
+- (NSUInteger)reportVersion
+{
+    return NSNotFound;
+}
+
 - (NSNumber *)numberOfHoursSinceCrash
 {
     if (_reserved2==nil)

@@ -44,7 +44,10 @@
     
     _parentProcessNameValue.stringValue=[NSString stringWithFormat:@"%@ (%u)",tParentProcessName,tHeader.parentProcessIdentifier];
     
-    _responsibleProcessNameValue.stringValue=[NSString stringWithFormat:@"%@ (%u)",tHeader.responsibleProcessName,tHeader.responsibleProcessIdentifier];
+    if (tHeader.responsibleProcessName==nil && tHeader.responsibleProcessIdentifier==0)
+        _responsibleProcessNameValue.stringValue=@"-";
+    else
+        _responsibleProcessNameValue.stringValue=[NSString stringWithFormat:@"%@ (%u)",tHeader.responsibleProcessName,tHeader.responsibleProcessIdentifier];
 }
 
 @end

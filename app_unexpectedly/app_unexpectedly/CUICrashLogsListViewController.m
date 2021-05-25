@@ -579,7 +579,7 @@
 
 - (NSView *)lastKeyView
 {
-    return _tableView;
+    return _filterField;
 }
 
 #pragma mark - Notifications

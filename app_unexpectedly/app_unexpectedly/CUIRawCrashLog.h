@@ -38,6 +38,8 @@ typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
     @property (nonatomic,readonly) NSDate * dateTime;
 
 
+    @property (nonatomic,readonly) NSUInteger reportVersion;
+
     @property (nonatomic,readonly) NSNumber * numberOfHoursSinceCrash;
 
     // Extended Attributes
