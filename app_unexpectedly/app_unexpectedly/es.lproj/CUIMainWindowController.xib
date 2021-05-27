@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUIMainWindowController">
+            <connections>
+                <outlet property="_mainLayoutSegmentedControl" destination="WIY-fY-uf6" id="gGf-x3-UnW"/>
+                <outlet property="_presentationModeSegmentedControl" destination="FpB-c3-RI5" id="7TU-rc-fDv"/>
+                <outlet property="_registersWindowButton" destination="tOu-D2-Ept" id="pD9-s6-b6U"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Unexpectedly" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="window.main" animationBehavior="default" tabbingMode="disallowed" titleVisibility="hidden" id="F0z-JX-Cv5" customClass="CUIMainWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES"/>
+            <rect key="contentRect" x="701" y="761" width="1210" height="576"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1577"/>
+            <value key="minSize" type="size" width="1210" height="576"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="1210" height="576"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="E5E3FE75-B923-4050-8328-E8DBF77270DA" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="qok-Nh-ZqX">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="4BB16A90-DFB3-4B72-BC1E-0501635805D9" label="Registers" paletteLabel="Registers" toolTip="Ocultar o mostrar la ventana de registros" id="odd-p2-xXV">
+                        <size key="minSize" width="29" height="23"/>
+                        <size key="maxSize" width="29" height="23"/>
+                        <button key="view" verticalHuggingPriority="750" id="tOu-D2-Ept">
+                            <rect key="frame" x="14" y="14" width="29" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="R" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="pn6-k3-IBk">
+                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="systemBold"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="CUIMENUACTION_showHideRegisters:" target="-2" id="zOP-ux-zx8"/>
+                            </connections>
+                        </button>
+                        <connections>
+                            <action selector="showRegisters:" target="-1" id="Q3j-xK-Hru"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="FE3CBB7D-3C62-4B2B-84C4-A0F949E6FC9B" label="Symbolicate" paletteLabel="Symbolicate" toolTip="Simbolizar " id="NBt-t6-6de">
+                        <size key="minSize" width="29" height="23"/>
+                        <size key="maxSize" width="29" height="23"/>
+                        <button key="view" verticalHuggingPriority="750" id="zGe-P2-PLz">
+                            <rect key="frame" x="22" y="14" width="29" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="✭" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="bkf-LP-EE1">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <connections>
+                            <action selector="CUI_MENUACTION_champollion:" target="-1" id="YYP-Ms-rO2"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="CEEABC9B-6A22-4363-9CEF-97F246735D7F" explicitItemIdentifier="presentation.mode" label="Presentation Mode" paletteLabel="Presentation Mode" sizingBehavior="auto" id="lTL-ew-HB0">
+                        <nil key="toolTip"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="FpB-c3-RI5">
+                            <rect key="frame" x="18" y="14" width="71" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="esc-Se-3Gu">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment toolTip="Text" image="presentation_text_Template" width="32"/>
+                                    <segment toolTip="Outline" image="presentation_structured_Template" width="32" selected="YES" tag="1"/>
+                                </segments>
+                            </segmentedCell>
+                        </segmentedControl>
+                        <connections>
+                            <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="8Dc-fR-ko8"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="651A8C40-7DF7-49AE-B98F-F204C20338E7" label="Areas" paletteLabel="Areas" sizingBehavior="auto" id="dDG-Jy-kkI">
+                        <nil key="toolTip"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="WIY-fY-uf6">
+                            <rect key="frame" x="0.0" y="14" width="104" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectAny" id="IFc-bQ-yuq">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment toolTip="Ocultar o mostrar la barra lateral" image="left_switch_Template" width="32" selected="YES"/>
+                                    <segment toolTip="Hide or show the binary images" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
+                                    <segment toolTip="Hide or show the inspector" image="right_switch_Template" width="32" selected="YES"/>
+                                </segments>
+                            </segmentedCell>
+                        </segmentedControl>
+                        <connections>
+                            <action selector="showHideViews:" target="-1" id="q9p-Cx-Zfc"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Ll5-CG-7p5"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="5Ai-UD-BMY"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="OVf-DI-Wek"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="1s5-E7-9Hl"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="QhD-Oy-cTl"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="QhD-Oy-cTl"/>
+                    <toolbarItem reference="odd-p2-xXV"/>
+                    <toolbarItem reference="1s5-E7-9Hl"/>
+                    <toolbarItem reference="lTL-ew-HB0"/>
+                    <toolbarItem reference="dDG-Jy-kkI"/>
+                </defaultToolbarItems>
+            </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+                <outlet property="initialFirstResponder" destination="se5-gp-TjO" id="Ndk-U6-g06"/>
+            </connections>
+            <point key="canvasLocation" x="279" y="-1395"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="left_switch_Template" width="18" height="16"/>
+        <image name="middle_switch_Template" width="18" height="16"/>
+        <image name="presentation_structured_Template" width="16" height="16"/>
+        <image name="presentation_text_Template" width="16" height="16"/>
+        <image name="right_switch_Template" width="18" height="16"/>
+    </resources>
+</document>
