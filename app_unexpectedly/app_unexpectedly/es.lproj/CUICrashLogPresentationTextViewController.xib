@@ -34,13 +34,13 @@
                                 <menuItem state="on" image="quote_Template" hidden="YES" id="ggI-rC-fEt">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Header" id="zdn-EI-sae">
+                                <menuItem title="Encabezado" id="zdn-EI-sae">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchHeaderVisibility:" target="-2" id="QIM-JJ-4Lh"/>
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="fZC-QV-uXY"/>
-                                <menuItem title="Exception Information" id="LpK-Zx-Gla">
+                                <menuItem title="Información de excepción" id="LpK-Zx-Gla">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-2" id="2VZ-w6-6FZ"/>
                                     </connections>
@@ -56,12 +56,12 @@
                                         <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-2" id="B8j-HN-qA3"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Thread State" id="d7k-xL-Hbq">
+                                <menuItem title="Estado del thread" id="d7k-xL-Hbq">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-2" id="c9g-bt-Ect"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Binary Images" id="FHu-OU-dEn">
+                                <menuItem title="Imagenes de los binarios" id="FHu-OU-dEn">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchBinaryImagesVisibility:" target="-2" id="E7Q-0s-gFI"/>
                                     </connections>
@@ -103,7 +103,7 @@
                         <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="muF-oq-Yyp"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show binary name" verticalHuggingPriority="750" id="Ytt-64-lj2">
+                <button toolTip="Ocultar o mostrar la imagen del binario" verticalHuggingPriority="750" id="Ytt-64-lj2">
                     <rect key="frame" x="603" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="feE-rv-jxh">

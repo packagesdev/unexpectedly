@@ -28,7 +28,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="peF-fl-SHq">
-                    <rect key="frame" x="7" y="15" width="77" height="14"/>
+                    <rect key="frame" x="18" y="15" width="77" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="ID de usuario:" id="qra-Pb-I2W">
                         <font key="font" metaFont="smallSystem"/>
@@ -37,7 +37,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bZr-jf-89d">
-                    <rect key="frame" x="88" y="15" width="277" height="14"/>
+                    <rect key="frame" x="99" y="15" width="266" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" selectable="YES" alignment="left" id="cqQ-PI-zPB">
                         <font key="font" metaFont="smallSystem"/>

@@ -232,13 +232,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" headerView="CBt-FS-rdj" viewBased="YES" id="RzM-ng-eMk" customClass="CUIThemesTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="167" height="371"/>
+                                <rect key="frame" x="0.0" y="0.0" width="165" height="371"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="164" minWidth="40" maxWidth="1000" id="8z8-zq-M80">
+                                    <tableColumn width="162" minWidth="40" maxWidth="1000" id="8z8-zq-M80">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Tema">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -252,11 +252,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="g8I-5G-l02">
-                                                <rect key="frame" x="1" y="1" width="164" height="26"/>
+                                                <rect key="frame" x="1" y="1" width="162" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="tDm-Ft-Jnv">
-                                                        <rect key="frame" x="0.0" y="6" width="164" height="14"/>
+                                                        <rect key="frame" x="0.0" y="6" width="162" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="tXJ-2u-YI1">
                                                             <font key="font" metaFont="smallSystem"/>
@@ -292,7 +292,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <tableHeaderView key="headerView" id="CBt-FS-rdj">
-                        <rect key="frame" x="0.0" y="0.0" width="167" height="25"/>
+                        <rect key="frame" x="0.0" y="0.0" width="165" height="25"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
@@ -319,9 +319,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="umy-j0-XLf">
-                    <rect key="frame" x="496" y="13" width="220" height="32"/>
+                    <rect key="frame" x="502" y="13" width="214" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="Restaurar valores por omisión" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CuZ-Pa-zjm">
+                    <buttonCell key="cell" type="push" title="Restaurar temas por omisión" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CuZ-Pa-zjm">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

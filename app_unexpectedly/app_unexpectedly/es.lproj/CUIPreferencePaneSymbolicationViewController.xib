@@ -21,9 +21,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E67-yJ-rtd">
-                    <rect key="frame" x="105" y="366" width="94" height="17"/>
+                    <rect key="frame" x="62" y="366" width="137" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Symbol Files:" id="kzW-xF-tfP">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Archivos de símbolos:" id="kzW-xF-tfP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -54,9 +54,9 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="Yst-no-gF6">
-                    <rect key="frame" x="203" y="365" width="246" height="18"/>
+                    <rect key="frame" x="203" y="365" width="304" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Look for symbols files automatically" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="M5T-BJ-hV4">
+                    <buttonCell key="cell" type="check" title="Buscar archivos de símbolos automáticamente" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="M5T-BJ-hV4">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

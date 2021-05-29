@@ -3,59 +3,59 @@
 "%[All]@ of the following are true" = "%1$[All]@ of the following are true";
 "%[Any]@ of the following are true" = "%1$[Any]@ of the following are true";
 
-"%[processName]@ %[is]@ %@" = "%1$[Process Name]@ %2$[is]@ %3$@";
-"%[processName]@ %[is not]@ %@" = "%1$[Process Name]@ %2$[is not]@ %3$@";
-"%[processName]@ %[begins with]@ %@" = "%1$[Process Name]@ %2$[begins with]@ %3$@";
-"%[processName]@ %[ends with]@ %@" = "%1$[Process Name]@ %2$[ends with]@ %3$@";
-"%[processName]@ %[contains]@ %@" = "%1$[Process Name]@ %2$[contains]@ %3$@";
+"%[processName]@ %[is]@ %@" = "%1$[Process Name]@ %2$[es]@ %3$@";
+"%[processName]@ %[is not]@ %@" = "%1$[Process Name]@ %2$[no es]@ %3$@";
+"%[processName]@ %[begins with]@ %@" = "%1$[Process Name]@ %2$[empieza por]@ %3$@";
+"%[processName]@ %[ends with]@ %@" = "%1$[Process Name]@ %2$[acaba en]@ %3$@";
+"%[processName]@ %[contains]@ %@" = "%1$[Process Name]@ %2$[contiene]@ %3$@";
 
-"%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[Identifier]@ %2$[is]@ %3$@";
-"%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[Identifier]@ %2$[is not]@ %3$@";
-"%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[Identifier]@ %2$[begins with]@ %3$@";
+"%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[Identifier]@ %2$[es]@ %3$@";
+"%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[Identifier]@ %2$[no es]@ %3$@";
+"%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[Identifier]@ %2$[empieza por]@ %3$@";
 "%[header.bundleIdentifier]@ %[ends with]@ %@" = "%1$[Identifier]@ %2$[ends with]@ %3$@";
-"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[Identifier]@ %2$[contains]@ %3$@";
+"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[Identifier]@ %2$[contiene]@ %3$@";
 
-"%[header.executablePath]@ %[is]@ %@" = "%1$[Executable Path]@ %2$[is]@ %3$@";
-"%[header.executablePath]@ %[is not]@ %@" = "%1$[Executable Path]@ %2$[is not]@ %3$@";
-"%[header.executablePath]@ %[begins with]@ %@" = "%1$[Executable Path]@ %2$[begins with]@ %3$@";
-"%[header.executablePath]@ %[ends with]@ %@" = "%1$[Executable Path]@ %2$[ends with]@ %3$@";
-"%[header.executablePath]@ %[contains]@ %@" = "%1$[Executable Path]@ %2$[contains]@ %3$@";
+"%[header.executablePath]@ %[is]@ %@" = "%1$[Executable Path]@ %2$[es]@ %3$@";
+"%[header.executablePath]@ %[is not]@ %@" = "%1$[Executable Path]@ %2$[no es]@ %3$@";
+"%[header.executablePath]@ %[begins with]@ %@" = "%1$[Executable Path]@ %2$[empieza por]@ %3$@";
+"%[header.executablePath]@ %[ends with]@ %@" = "%1$[Executable Path]@ %2$[acaba en]@ %3$@";
+"%[header.executablePath]@ %[contains]@ %@" = "%1$[Executable Path]@ %2$[contiene]@ %3$@";
 
-"%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[Crashed Thread Name]@ %2$[is]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[Crashed Thread Name]@ %2$[is not]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[Crashed Thread Name]@ %2$[begins with]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[Crashed Thread Name]@ %2$[ends with]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[Crashed Thread Name]@ %2$[contains]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[Crashed Thread Name]@ %2$[es]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[Crashed Thread Name]@ %2$[no es]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[Crashed Thread Name]@ %2$[empieza por]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[Crashed Thread Name]@ %2$[acaba en]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[Crashed Thread Name]@ %2$[contiene]@ %3$@";
 
-"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Date]@ %2$[is earlier than or equal to]@ %3$@";
-"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Date]@ %2$[is later than or equal to]@ %3$@";
+"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Fecha]@ %2$[es anterior a]@ %3$@";
+"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Fecha]@ %2$[es posterior a]@ %3$@";
 
-"%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "%1$[Exception Type]@ is %2$[EXC_ARITHMETIC]@";
-"%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "%1$[Exception Type]@ is %2$[EXC_BAD_ACCESS]@";
-"%[exceptionType]@ is %[EXC_BAD_INSTRUCTION]@" = "%1$[Exception Type]@ is %2$[EXC_BAD_INSTRUCTION]@";
-"%[exceptionType]@ is %[EXC_BREAKPOINT]@" = "%1$[Exception Type]@ is %2$[EXC_BREAKPOINT]@";
-"%[exceptionType]@ is %[EXC_CORPSE_NOTIFY]@" = "%1$[Exception Type]@ is %2$[EXC_CORPSE_NOTIFY]@";
-"%[exceptionType]@ is %[EXC_CRASH]@" = "%1$[Exception Type]@ is %2$[EXC_CRASH]@";
-"%[exceptionType]@ is %[EXC_EMULATION]@" = "%1$[Exception Type]@ is %2$[EXC_EMULATION]@";
-"%[exceptionType]@ is %[EXC_GUARD]@" = "%1$[Exception Type]@ is %2$[EXC_GUARD]@";
-"%[exceptionType]@ is %[EXC_MACH_SYSCALL]@" = "%1$[Exception Type]@ is %2$[EXC_MACH_SYSCALL]@";
-"%[exceptionType]@ is %[EXC_RESOURCE]@" = "%1$[Exception Type]@ is %2$[EXC_RESOURCE]@";
-"%[exceptionType]@ is %[EXC_RPC_ALERT]@" = "%1$[Exception Type]@ is %2$[EXC_RPC_ALERT]@";
-"%[exceptionType]@ is %[EXC_SOFTWARE]@" = "%1$[Exception Type]@ is %2$[EXC_SOFTWARE]@";
-"%[exceptionType]@ is %[EXC_SYSCALL]@" = "%1$[Exception Type]@ is %2$[EXC_SYSCALL]@";
+"%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "%1$[Tipo de excepción]@ es %2$[EXC_ARITHMETIC]@";
+"%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "%1$[Tipo de excepción]@ es %2$[EXC_BAD_ACCESS]@";
+"%[exceptionType]@ is %[EXC_BAD_INSTRUCTION]@" = "%1$[Tipo de excepción]@ es %2$[EXC_BAD_INSTRUCTION]@";
+"%[exceptionType]@ is %[EXC_BREAKPOINT]@" = "%1$[Tipo de excepción]@ es %2$[EXC_BREAKPOINT]@";
+"%[exceptionType]@ is %[EXC_CORPSE_NOTIFY]@" = "%1$[Tipo de excepción]@ es %2$[EXC_CORPSE_NOTIFY]@";
+"%[exceptionType]@ is %[EXC_CRASH]@" = "%1$[Tipo de excepción]@ es %2$[EXC_CRASH]@";
+"%[exceptionType]@ is %[EXC_EMULATION]@" = "%1$[Tipo de excepción]@ es %2$[EXC_EMULATION]@";
+"%[exceptionType]@ is %[EXC_GUARD]@" = "%1$[Tipo de excepción]@ es %2$[EXC_GUARD]@";
+"%[exceptionType]@ is %[EXC_MACH_SYSCALL]@" = "%1$[Tipo de excepción]@ es %2$[EXC_MACH_SYSCALL]@";
+"%[exceptionType]@ is %[EXC_RESOURCE]@" = "%1$[Tipo de excepción]@ is %2$[EXC_RESOURCE]@";
+"%[exceptionType]@ is %[EXC_RPC_ALERT]@" = "%1$[Tipo de excepción]@ es %2$[EXC_RPC_ALERT]@";
+"%[exceptionType]@ is %[EXC_SOFTWARE]@" = "%1$[Tipo de excepción]@ es %2$[EXC_SOFTWARE]@";
+"%[exceptionType]@ is %[EXC_SYSCALL]@" = "%1$[Tipo de excepción]@ es %2$[EXC_SYSCALL]@";
 
-"%[exceptionSignal]@ is %[SIGABRT]@" = "%1$[Exception Signal]@ is %2$[SIGABRT]@";
-"%[exceptionSignal]@ is %[SIGBUS]@" = "%1$[Exception Signal]@ is %2$[SIGBUS]@";
-"%[exceptionSignal]@ is %[SIGILL]@" = "%1$[Exception Signal]@ is %2$[SIGILL]@";
-"%[exceptionSignal]@ is %[SIGKILL]@" = "%1$[Exception Signal]@ is %2$[SIGKILL]@";
-"%[exceptionSignal]@ is %[SIGQUIT]@" = "%1$[Exception Signal]@ is %2$[SIGQUIT]@";
-"%[exceptionSignal]@ is %[SIGSEGV]@" = "%1$[Exception Signal]@ is %2$[SIGSEGV]@";
-"%[exceptionSignal]@ is %[SIGTRAP]@" = "%1$[Exception Signal]@ is %2$[SIGTRAP]@";
-"%[exceptionSignal]@ is %[Code Signature Invalid]@" = "%1$[Exception Signal]@ is %2$[Code Signature Invalid]@";
+"%[exceptionSignal]@ is %[SIGABRT]@" = "%1$[Exception Signal]@ es %2$[SIGABRT]@";
+"%[exceptionSignal]@ is %[SIGBUS]@" = "%1$[Exception Signal]@ es %2$[SIGBUS]@";
+"%[exceptionSignal]@ is %[SIGILL]@" = "%1$[Exception Signal]@ es %2$[SIGILL]@";
+"%[exceptionSignal]@ is %[SIGKILL]@" = "%1$[Exception Signal]@ es %2$[SIGKILL]@";
+"%[exceptionSignal]@ is %[SIGQUIT]@" = "%1$[Exception Signal]@ es %2$[SIGQUIT]@";
+"%[exceptionSignal]@ is %[SIGSEGV]@" = "%1$[Exception Signal]@ es %2$[SIGSEGV]@";
+"%[exceptionSignal]@ is %[SIGTRAP]@" = "%1$[Exception Signal]@ es %2$[SIGTRAP]@";
+"%[exceptionSignal]@ is %[Code Signature Invalid]@" = "%1$[Exception Signal]@ es %2$[Code Signature Invalid]@";
 
 
 
-"%[reportSourceTypeNumber]@ is %[0]@" = "%1$[Source]@ is %2$[System Reports]@";
-"%[reportSourceTypeNumber]@ is %[1]@" = "%1$[Source]@ is %2$[User Reports]@";
-"%[reportSourceTypeNumber]@ is %[2]@" = "%1$[Source]@ is %2$[Another Source]@";
+"%[reportSourceTypeNumber]@ is %[0]@" = "%1$[Fuente]@ es %2$[Informes del sistema]@";
+"%[reportSourceTypeNumber]@ is %[1]@" = "%1$[Fuente]@ es %2$[Informes del usuario]@";
+"%[reportSourceTypeNumber]@ is %[2]@" = "%1$[Fuente]@ es %2$[Another Source]@";
 

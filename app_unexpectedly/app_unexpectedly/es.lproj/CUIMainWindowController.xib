@@ -69,8 +69,8 @@
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="esc-Se-3Gu">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment toolTip="Text" image="presentation_text_Template" width="32"/>
-                                    <segment toolTip="Outline" image="presentation_structured_Template" width="32" selected="YES" tag="1"/>
+                                    <segment toolTip="Texto" image="presentation_text_Template" width="32"/>
+                                    <segment toolTip="Esquema" image="presentation_structured_Template" width="32" selected="YES" tag="1"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>
@@ -87,8 +87,8 @@
                                 <font key="font" metaFont="system"/>
                                 <segments>
                                     <segment toolTip="Ocultar o mostrar la barra lateral" image="left_switch_Template" width="32" selected="YES"/>
-                                    <segment toolTip="Hide or show the binary images" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
-                                    <segment toolTip="Hide or show the inspector" image="right_switch_Template" width="32" selected="YES"/>
+                                    <segment toolTip="Ocultar o mostrar las imagenes de los binarios" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
+                                    <segment toolTip="Ocultar o mostrar el inspector" image="right_switch_Template" width="32" selected="YES"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>

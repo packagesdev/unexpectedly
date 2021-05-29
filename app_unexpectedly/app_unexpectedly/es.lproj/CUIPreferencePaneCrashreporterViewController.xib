@@ -21,9 +21,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wjm-1k-GIP">
-                    <rect key="frame" x="209" y="76" width="116" height="17"/>
+                    <rect key="frame" x="190" y="76" width="135" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Notification Mode:" id="Ipc-sm-G5f">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Modo de notificación:" id="Ipc-sm-G5f">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -45,9 +45,9 @@
                             </connections>
                         </button>
                         <button toolTip="The Unexpectedly Quit dialog is never displayed." verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="i8F-ge-i9c">
-                            <rect key="frame" x="-1" y="-1" width="62" height="18"/>
+                            <rect key="frame" x="-1" y="-1" width="73" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="Server" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="l5e-xv-Kdo">
+                            <buttonCell key="cell" type="radio" title="Servidor" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="l5e-xv-Kdo">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -73,9 +73,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="AhZ-xe-s0x">
-                            <rect key="frame" x="-1" y="-1" width="139" height="18"/>
+                            <rect key="frame" x="-1" y="-1" width="167" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="System notification" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1LC-JU-zMZ">
+                            <buttonCell key="cell" type="radio" title="Notificación del sistema" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1LC-JU-zMZ">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -84,9 +84,9 @@
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMG-po-tCI">
-                            <rect key="frame" x="-1" y="21" width="92" height="18"/>
+                            <rect key="frame" x="-1" y="21" width="125" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="Alert dialog" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2af-hi-y4e">
+                            <buttonCell key="cell" type="radio" title="Diálogo de alerta" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2af-hi-y4e">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -119,7 +119,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3C8-jD-0F8">
                     <rect key="frame" x="-2" y="188" width="734" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" alignment="center" title="When an application quits unexpectedly on macOS, the crash report is generated by Apple's Crash Reporter service. " id="XPU-ts-yFW">
+                    <textFieldCell key="cell" controlSize="small" alignment="center" title="Cuando una aplicación se cierra inesperadamente en macOS, el servicio Crash Reporter de Apple genera el informe de fallas." id="XPU-ts-yFW">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

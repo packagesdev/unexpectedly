@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="4uB-ml-0Ol">
-                    <rect key="frame" x="12" y="15" width="72" height="14"/>
+                    <rect key="frame" x="23" y="15" width="72" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Responsible:" id="jqz-4F-VO7">
                         <font key="font" metaFont="smallSystem"/>
@@ -30,7 +30,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UYO-VY-Dyh">
-                    <rect key="frame" x="88" y="15" width="277" height="14"/>
+                    <rect key="frame" x="99" y="15" width="266" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingMiddle" title="-" id="pZF-sh-MrA">
                         <font key="font" metaFont="smallSystem"/>
@@ -39,7 +39,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hLm-Sv-QmR">
-                    <rect key="frame" x="0.0" y="37" width="84" height="14"/>
+                    <rect key="frame" x="11" y="37" width="84" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Proceso padre:" id="LQg-a2-eTx">
                         <font key="font" metaFont="smallSystem"/>
@@ -48,7 +48,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="S5n-dU-r4J">
-                    <rect key="frame" x="34" y="59" width="50" height="14"/>
+                    <rect key="frame" x="45" y="59" width="50" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Proceso:" id="cvR-Mj-EZK">
                         <font key="font" metaFont="smallSystem"/>
@@ -57,7 +57,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dWY-e9-8s7">
-                    <rect key="frame" x="88" y="59" width="277" height="14"/>
+                    <rect key="frame" x="99" y="59" width="266" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingMiddle" title="-" id="Oa8-vR-6jZ">
                         <font key="font" metaFont="smallSystem"/>
@@ -75,7 +75,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sdS-1T-5A6">
-                    <rect key="frame" x="88" y="37" width="277" height="14"/>
+                    <rect key="frame" x="99" y="37" width="266" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingMiddle" title="-" id="2qk-DS-kXk">
                         <font key="font" metaFont="smallSystem"/>

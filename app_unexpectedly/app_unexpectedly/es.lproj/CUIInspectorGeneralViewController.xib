@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="s8b-in-hjv">
-                    <rect key="frame" x="41" y="59" width="43" height="14"/>
+                    <rect key="frame" x="52" y="59" width="43" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Fecha:" id="f0C-O7-hfc">
                         <font key="font" metaFont="smallSystem"/>
@@ -31,7 +31,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="aeZ-E8-L6d">
-                    <rect key="frame" x="88" y="59" width="283" height="14"/>
+                    <rect key="frame" x="99" y="59" width="266" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" selectable="YES" alignment="left" id="4oA-j1-qqu">
                         <font key="font" metaFont="smallSystem"/>
@@ -43,7 +43,7 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SgG-rE-gjS">
-                    <rect key="frame" x="88" y="37" width="277" height="14"/>
+                    <rect key="frame" x="99" y="37" width="266" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" selectable="YES" alignment="left" id="IoO-4Y-BLi">
                         <font key="font" metaFont="smallSystem"/>
@@ -52,7 +52,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TdJ-MQ-6CN">
-                    <rect key="frame" x="23" y="37" width="61" height="14"/>
+                    <rect key="frame" x="34" y="37" width="61" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="macOS:" id="B2h-K8-1XC">
                         <font key="font" metaFont="smallSystem"/>
@@ -61,7 +61,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ai6-kr-ddH">
-                    <rect key="frame" x="23" y="15" width="61" height="14"/>
+                    <rect key="frame" x="34" y="15" width="61" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Bridge OS:" id="hKB-kb-Fu1">
                         <font key="font" metaFont="smallSystem"/>
@@ -79,7 +79,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BfS-1Q-avM">
-                    <rect key="frame" x="88" y="15" width="277" height="14"/>
+                    <rect key="frame" x="99" y="15" width="266" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" selectable="YES" alignment="left" title="-" id="JiY-vk-jYf">
                         <font key="font" metaFont="smallSystem"/>

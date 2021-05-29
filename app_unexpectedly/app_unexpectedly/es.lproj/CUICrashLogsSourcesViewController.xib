@@ -163,7 +163,7 @@
                                 <menuItem state="on" image="NSAddTemplate" hidden="YES" id="DJQ-Va-eqw">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="New Smart Source…" id="HSw-t4-mnl">
+                                <menuItem title="Nueva fuente inteligente…" id="HSw-t4-mnl">
                                     <connections>
                                         <action selector="CUI_MENUACTION_addSmartSource:" target="-2" id="mMA-Im-5Li"/>
                                     </connections>
