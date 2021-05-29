@@ -207,7 +207,7 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 {
     NSDictionary * tDictionary=[NSBundle mainBundle].infoDictionary;
     
-    NSString * tString=[NSString stringWithFormat:NSLocalizedString(@"mailto:dev.unexpetcedly@gmail.com?subject=[Unexpectedly%%20%@]%%20Feedback%%20(build%%20%@)",@"No comment"),tDictionary[@"CFBundleShortVersionString"],
+    NSString * tString=[NSString stringWithFormat:NSLocalizedString(@"mailto:dev.unexpectedly@gmail.com?subject=[Unexpectedly%%20%@]%%20Feedback%%20(build%%20%@)",@"No comment"),tDictionary[@"CFBundleShortVersionString"],
                         tDictionary[@"CFBundleVersion"]];
     NSURL * tURL=[NSURL URLWithString:tString];
     
