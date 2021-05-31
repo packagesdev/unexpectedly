@@ -25,11 +25,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="688" height="321"/>
+            <rect key="frame" x="0.0" y="0.0" width="716" height="321"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" id="Pvu-81-w7l">
-                    <rect key="frame" x="329" y="205" width="97" height="18"/>
+                    <rect key="frame" x="350" y="205" width="97" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Encabezado" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zEG-Wx-Nn2">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -40,7 +40,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="Qt3-ro-d2D">
-                    <rect key="frame" x="329" y="184" width="178" height="18"/>
+                    <rect key="frame" x="350" y="184" width="178" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Información de excepción" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="F76-W3-yAd">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -51,9 +51,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="iNz-Qb-2d2">
-                    <rect key="frame" x="329" y="163" width="154" height="18"/>
+                    <rect key="frame" x="350" y="163" width="172" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Diagnostic Messages" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EEv-JV-T5b">
+                    <buttonCell key="cell" type="check" title="Mensajes de diagnóstico" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EEv-JV-T5b">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -62,9 +62,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="vj7-9l-wu4">
-                    <rect key="frame" x="329" y="142" width="101" height="18"/>
+                    <rect key="frame" x="350" y="142" width="120" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Backtraces" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZOK-Ny-hlt">
+                    <buttonCell key="cell" type="check" title="Pila de llamadas" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZOK-Ny-hlt">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -73,7 +73,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="cir-zS-0pp">
-                    <rect key="frame" x="329" y="120" width="129" height="18"/>
+                    <rect key="frame" x="350" y="120" width="129" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Estado del thread" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ysb-qv-8M9">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -84,9 +84,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="ayi-wa-Elc">
-                    <rect key="frame" x="329" y="99" width="120" height="18"/>
+                    <rect key="frame" x="350" y="99" width="173" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Binary Images" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Kr8-SF-wcL">
+                    <buttonCell key="cell" type="check" title="Imagenes de los binarios" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Kr8-SF-wcL">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -95,16 +95,16 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MNF-5K-RaR">
-                    <rect key="frame" x="68" y="61" width="257" height="17"/>
+                    <rect key="frame" x="26" y="61" width="320" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default visible stack frame components:" id="2et-oL-bun">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Componentes de marco de pila visibles por omisión:" id="2et-oL-bun">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="rRX-kg-J1V">
-                    <rect key="frame" x="329" y="60" width="138" height="18"/>
+                    <rect key="frame" x="350" y="60" width="138" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Nombre del binario" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vWD-FK-a4a">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -115,9 +115,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="2LX-nh-3AM">
-                    <rect key="frame" x="329" y="39" width="203" height="18"/>
+                    <rect key="frame" x="350" y="39" width="271" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Machine instruction address" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XDv-jS-TfO">
+                    <buttonCell key="cell" type="check" title="Dirección de la instrucción de la máquina" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XDv-jS-TfO">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -126,9 +126,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="Kfz-pY-oUd">
-                    <rect key="frame" x="329" y="18" width="164" height="18"/>
+                    <rect key="frame" x="350" y="18" width="148" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Byte offset and source" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zE5-mb-UZb">
+                    <buttonCell key="cell" type="check" title="Byte offset y fuente" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zE5-mb-UZb">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -137,7 +137,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eDV-BF-Pu1">
-                    <rect key="frame" x="221" y="245" width="104" height="17"/>
+                    <rect key="frame" x="242" y="245" width="104" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Ajuste de líneas:" id="nm4-Se-bRD">
                         <font key="font" metaFont="system"/>
@@ -146,7 +146,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="ANa-W0-TnO">
-                    <rect key="frame" x="329" y="244" width="236" height="18"/>
+                    <rect key="frame" x="350" y="244" width="236" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Ajustar líneas a la anchura del visor" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1PO-2B-RhF">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -157,7 +157,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="1vN-WD-7S5">
-                    <rect key="frame" x="131" y="206" width="194" height="17"/>
+                    <rect key="frame" x="152" y="206" width="194" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Secciones visibles por omisión:" id="LKq-kF-sWQ">
                         <font key="font" metaFont="system"/>
@@ -166,7 +166,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9bL-sk-EjC">
-                    <rect key="frame" x="270" y="284" width="55" height="17"/>
+                    <rect key="frame" x="291" y="284" width="55" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Mostrar:" id="gBx-bb-vVK">
                         <font key="font" metaFont="system"/>
@@ -175,9 +175,9 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="n6c-lM-SZM">
-                    <rect key="frame" x="329" y="283" width="120" height="18"/>
+                    <rect key="frame" x="350" y="283" width="128" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Line numbers" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8bP-wa-KPh">
+                    <buttonCell key="cell" type="check" title="Números de línea" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8bP-wa-KPh">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -186,7 +186,7 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="-63" y="-1862.5"/>
+            <point key="canvasLocation" x="-49" y="-1862.5"/>
         </customView>
     </objects>
 </document>

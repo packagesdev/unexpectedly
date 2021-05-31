@@ -98,9 +98,9 @@
                                     </scroller>
                                 </scrollView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TL4-gi-udl">
-                                    <rect key="frame" x="13" y="2" width="68" height="16"/>
+                                    <rect key="frame" x="13" y="2" width="96" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Backtraces" id="Dtf-ev-i4n">
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pila de llamadas" id="Dtf-ev-i4n">
                                         <font key="font" metaFont="cellTitle"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -112,7 +112,7 @@
                             <rect key="frame" x="0.0" y="93" width="869" height="177"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button toolTip="Show backtraces in columns" verticalHuggingPriority="750" tag="2" id="0Gc-7g-Ass">
+                                <button toolTip="Mostrar la pila de llamadas como columnas" verticalHuggingPriority="750" tag="2" id="0Gc-7g-Ass">
                                     <rect key="frame" x="65" y="-1" width="24" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallColumn_Template" imagePosition="only" alignment="center" inset="2" id="X5W-Qe-nKe">
@@ -123,7 +123,7 @@
                                         <action selector="switchViewMode:" target="-2" id="e7v-G7-W7s"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Show only crashed thread" verticalHuggingPriority="750" id="QRs-W6-mBT">
+                                <button toolTip="Mostrar solo el thread fallado" verticalHuggingPriority="750" id="QRs-W6-mBT">
                                     <rect key="frame" x="751" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="con-zk-L9l">
@@ -134,7 +134,7 @@
                                         <action selector="CUI_MENUACTION_switchShowOnlyCrashedThread:" target="-2" id="fgj-Js-Ah7"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the machine instruction address" verticalHuggingPriority="750" id="2vU-ne-pQu">
+                                <button toolTip="Ocultar o mostrar la dirección de la instrucción de la máquina" verticalHuggingPriority="750" id="2vU-ne-pQu">
                                     <rect key="frame" x="809" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" title="0x" bezelStyle="texturedRounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="w28-Ax-j2K">
@@ -156,7 +156,7 @@
                                         <action selector="CUI_MENUACTION_switchShowBinaryImageIdentifier:" target="-2" id="sVI-Dr-72U"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the byte offset" verticalHuggingPriority="750" id="tXx-uN-2vh">
+                                <button toolTip="Ocultar o mostra byte offset" verticalHuggingPriority="750" id="tXx-uN-2vh">
                                     <rect key="frame" x="838" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="GRj-N7-F4j">
@@ -167,7 +167,7 @@
                                         <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="MdF-Tl-Xtk"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the binary images" verticalHuggingPriority="750" id="mXS-EH-zAu">
+                                <button toolTip="Ocultar o mostrar las imagenes de los binarios" verticalHuggingPriority="750" id="mXS-EH-zAu">
                                     <rect key="frame" x="1" y="-1" width="27" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="bottom_disclose_Template" imagePosition="only" alignment="center" alternateImage="bottom_hide_Template" inset="2" id="Awy-Hl-TgF">
@@ -178,7 +178,7 @@
                                         <action selector="showHideBottomView:" target="-2" id="udq-fk-pc4"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Show backtraces in a list " verticalHuggingPriority="750" tag="1" id="4H4-2A-3rH">
+                                <button toolTip="Mostrar la pila de llamadas como lista" verticalHuggingPriority="750" tag="1" id="4H4-2A-3rH">
                                     <rect key="frame" x="42" y="-1" width="24" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSListViewTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="i1d-5C-VGM">
@@ -221,7 +221,7 @@
                     </connections>
                 </splitView>
             </subviews>
-            <point key="canvasLocation" x="306.5" y="-139.5"/>
+            <point key="canvasLocation" x="122" y="-210"/>
         </customView>
     </objects>
     <resources>

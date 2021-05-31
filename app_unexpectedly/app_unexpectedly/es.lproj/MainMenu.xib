@@ -360,14 +360,14 @@ CA
                                                 <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-1" id="fLf-3S-OlT"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Diagnostic Messages" id="iKL-gn-vYN">
+                                        <menuItem title="Mensajes de diagnóstico" id="iKL-gn-vYN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchDiagnosticMessagesVisibility:" target="-1" id="N8e-k9-P27"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="z5a-l7-tQ4"/>
-                                        <menuItem title="Backtraces" id="DbA-sZ-kG6">
+                                        <menuItem title="Pila de llamadas" id="DbA-sZ-kG6">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-1" id="eUz-AU-LoI"/>
@@ -418,14 +418,14 @@ CA
                                                 <action selector="CUI_MENUACTION_jumpToExceptionInformation:" target="-1" id="079-pD-HEp"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Diagnostic Messages" id="Wiv-Qz-fMq">
+                                        <menuItem title="Mensajes de diagnóstico" id="Wiv-Qz-fMq">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToDiagnosticMessages:" target="-1" id="hTl-rJ-Q5a"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="Szz-TX-hIO"/>
-                                        <menuItem title="Backtraces" id="a2B-9S-c4g">
+                                        <menuItem title="Pila de llamadas" id="a2B-9S-c4g">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToBacktraces:" target="-1" id="Sfi-Ce-HQ0"/>
@@ -560,7 +560,7 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="isO-68-Tw7"/>
-                                        <menuItem title="Report uncaught exceptions" id="eLO-Pu-jRW">
+                                        <menuItem title="Informar excepciones no capturadas" id="eLO-Pu-jRW">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchReportUncaughtException:" target="Voe-Tx-rLC" id="3Tb-Lg-qE2"/>

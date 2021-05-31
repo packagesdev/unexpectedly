@@ -62,7 +62,7 @@
                 </button>
                 <box verticalHuggingPriority="750" boxType="separator" id="hi1-OF-uDj">
                     <rect key="frame" x="20" y="387" width="690" height="5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <customView id="vVc-MA-1G3">
                     <rect key="frame" x="20" y="20" width="690" height="349"/>

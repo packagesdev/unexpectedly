@@ -45,13 +45,13 @@
                                         <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-2" id="2VZ-w6-6FZ"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Diagnostic Messages" id="M4h-Oa-aq3">
+                                <menuItem title="Mensajes de diagnóstico" id="M4h-Oa-aq3">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchDiagnosticMessagesVisibility:" target="-2" id="hQt-R4-vLH"/>
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="3Wr-0I-wum"/>
-                                <menuItem title="Backtraces" id="kXZ-qs-DxU">
+                                <menuItem title="Pila de llamadas" id="kXZ-qs-DxU">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-2" id="B8j-HN-qA3"/>
                                     </connections>
@@ -70,7 +70,7 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
-                <button toolTip="Show only crashed thread" verticalHuggingPriority="750" id="hZe-Mo-RWl">
+                <button toolTip="Mostrar solo el thread fallado" verticalHuggingPriority="750" id="hZe-Mo-RWl">
                     <rect key="frame" x="574" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="cgk-bN-rIw">
@@ -81,7 +81,7 @@
                         <action selector="CUI_MENUACTION_switchShowOnlyCrashedThread:" target="-2" id="hSj-AL-N38"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show byte offset" verticalHuggingPriority="750" id="gHh-U9-6ts">
+                <button toolTip="Ocultar o mostra byte offset" verticalHuggingPriority="750" id="gHh-U9-6ts">
                     <rect key="frame" x="661" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="O1c-Fy-oRt">
@@ -92,7 +92,7 @@
                         <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="s9c-GQ-gYk"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show machine instruction address" verticalHuggingPriority="750" id="V1i-87-jZk">
+                <button toolTip="Ocultar o mostrar la dirección de la instrucción de la máquina" verticalHuggingPriority="750" id="V1i-87-jZk">
                     <rect key="frame" x="632" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="0x" bezelStyle="texturedRounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="N9g-4y-bag">
