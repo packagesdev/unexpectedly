@@ -33,7 +33,7 @@
                     <rect key="frame" x="372" y="107" width="189" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button toolTip="The Unexpectedly Quit dialog is displayed for all processes run by the user." verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="q4r-Gy-3Z5">
+                        <button toolTip="El diálogo &quot;Se ha cerrado inesperadamente&quot; se muestra para todos los procesos ejecutados por el usuario." verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="q4r-Gy-3Z5">
                             <rect key="frame" x="-1" y="21" width="104" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="Desarrollador" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Tjt-95-3Z2">
@@ -44,7 +44,7 @@
                                 <action selector="switchCrashReporterDialogType:" target="-2" id="hvp-pX-cgQ"/>
                             </connections>
                         </button>
-                        <button toolTip="The Unexpectedly Quit dialog is never displayed." verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="i8F-ge-i9c">
+                        <button toolTip="El diálogo &quot;Se ha cerrado inesperadamente&quot; nunca se muestra." verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="i8F-ge-i9c">
                             <rect key="frame" x="-1" y="-1" width="73" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="Servidor" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="l5e-xv-Kdo">
@@ -55,7 +55,7 @@
                                 <action selector="switchCrashReporterDialogType:" target="-2" id="eST-mh-Dhc"/>
                             </connections>
                         </button>
-                        <button toolTip="The Unexpectedly Quit dialog is only displayed for application crashes." verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDV-3D-Zmr">
+                        <button toolTip="El diálogo &quot;Se has cerrado inesperadamente&quot; solo se muestra cuando la aplicación se bloquea." verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDV-3D-Zmr">
                             <rect key="frame" x="-1" y="43" width="63" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="Básico" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8un-EB-HxH">
