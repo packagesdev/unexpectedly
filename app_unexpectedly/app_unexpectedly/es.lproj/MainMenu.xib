@@ -25,43 +25,43 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Unexpectedly" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="À propos de Unexpectedly" id="5kV-Vb-QxS">
+                            <menuItem title="Acerca de Unexpectedly" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="showAboutBox:" target="-1" id="8cM-F7-dKT"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Préférences…" keyEquivalent="," id="BOF-NM-1cW">
+                            <menuItem title="Preferencias…" keyEquivalent="," id="BOF-NM-1cW">
                                 <connections>
                                     <action selector="showPreferences:" target="-1" id="Jal-0e-r2i"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
-                            <menuItem title="Services" id="NMo-om-nkz">
+                            <menuItem title="Servicios" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                <menu key="submenu" title="Servicios" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Masquer Unexpectedly" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Ocultar Unexpectedly" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Masquer les autres" keyEquivalent="h" id="Vdr-fp-XzO">
+                            <menuItem title="Ocultar otros" keyEquivalent="h" id="Vdr-fp-XzO">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="hideOtherApplications:" target="-1" id="VT4-aY-XCT"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Tout afficher" id="Kd2-mp-pUS">
+                            <menuItem title="Mostrar todo" id="Kd2-mp-pUS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="unhideAllApplications:" target="-1" id="Dhg-Le-xox"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quitter Unexpectedly" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Salir de Unexpectedly" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -69,46 +69,46 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Fichier" id="dMs-cI-mzQ">
+                <menuItem title="Archivo" id="dMs-cI-mzQ">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Fichier" id="bib-Uj-vzu">
+                    <menu key="submenu" title="Archivo" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Nouvelle source intelligente…" keyEquivalent="N" id="Was-JA-tGl">
+                            <menuItem title="Nueva fuente inteligente…" keyEquivalent="N" id="Was-JA-tGl">
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSmartSource:" target="-1" id="bHg-uP-Kty"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="Mx6-UK-5B4"/>
-                            <menuItem title="Ajouter un fichier ou un dossier…" keyEquivalent="a" id="3wG-3v-uZk">
+                            <menuItem title="Añadir archivo o carpeta…" keyEquivalent="a" id="3wG-3v-uZk">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSource:" target="-1" id="b1Q-ed-4lm"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                            <menuItem title="Fermer" keyEquivalent="w" id="DVo-aG-piG">
+                            <menuItem title="Cerrar" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="HmO-Ls-i7Q"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="56E-C3-0cD"/>
-                            <menuItem title="Importer une source intelligente…" id="lvA-aa-UmE">
+                            <menuItem title="Importar fuente inteligente…" id="lvA-aa-UmE">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_importSmartSource:" target="-1" id="slK-ne-mc7"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Exporter" id="Pho-kH-aIP">
+                            <menuItem title="Exportar" id="Pho-kH-aIP">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Exporter" id="3tw-V4-ayi">
+                                <menu key="submenu" title="Exportar" id="3tw-V4-ayi">
                                     <items>
-                                        <menuItem title="Rapport…" id="9tt-1M-ra5">
+                                        <menuItem title="Informe…" id="9tt-1M-ra5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_exportCrashLog:" target="-1" id="yYt-Vu-UUP"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Source intelligente" id="tTJ-63-TIi">
+                                        <menuItem title="Fuente inteligente…" id="tTJ-63-TIi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_exportSmartSource:" target="-1" id="gbF-DM-FHr"/>
@@ -118,13 +118,13 @@
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                            <menuItem title="Afficher dans le Finder" id="OqK-Vd-hWC">
+                            <menuItem title="Mostrar en el Finder" id="OqK-Vd-hWC">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="showInFinder:" target="-1" id="0gW-ak-pFy"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Placer dans la corbeille" id="GVk-MU-gOy">
+                            <menuItem title="Trasladar a la Papelera" id="GVk-MU-gOy">
                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -142,13 +142,13 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="eeq-nE-Puw"/>
-                            <menuItem title="Format d'impression…" keyEquivalent="P" id="qIS-W8-SiK">
+                            <menuItem title="Ajustar página…" keyEquivalent="P" id="qIS-W8-SiK">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="runPageLayout:" target="-1" id="Din-rz-gC5"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Imprimer…" keyEquivalent="p" id="aTl-1u-JFS">
+                            <menuItem title="Imprimir…" keyEquivalent="p" id="aTl-1u-JFS">
                                 <connections>
                                     <action selector="CUI_MENUACTION_print:" target="-1" id="a83-u9-Pl5"/>
                                 </connections>
@@ -156,79 +156,79 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Édition" id="5QF-Oa-p0T">
+                <menuItem title="Edición" id="5QF-Oa-p0T">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Édition" id="W48-6f-4Dl">
+                    <menu key="submenu" title="Edición" id="W48-6f-4Dl">
                         <items>
-                            <menuItem title="Annuler" keyEquivalent="z" id="dRJ-4n-Yzg">
+                            <menuItem title="Deshacer" keyEquivalent="z" id="dRJ-4n-Yzg">
                                 <connections>
                                     <action selector="undo:" target="-1" id="M6e-cu-g7V"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Rétablir" keyEquivalent="Z" id="6dh-zS-Vam">
+                            <menuItem title="Rehacer" keyEquivalent="Z" id="6dh-zS-Vam">
                                 <connections>
                                     <action selector="redo:" target="-1" id="oIA-Rs-6OD"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="WRV-NI-Exz"/>
-                            <menuItem title="Couper" keyEquivalent="x" id="uRl-iY-unG">
+                            <menuItem title="Cortar" keyEquivalent="x" id="uRl-iY-unG">
                                 <connections>
                                     <action selector="cut:" target="-1" id="YJe-68-I9s"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Copier" keyEquivalent="c" id="x3v-GG-iWU">
+                            <menuItem title="Copiar" keyEquivalent="c" id="x3v-GG-iWU">
                                 <connections>
                                     <action selector="copy:" target="-1" id="G1f-GL-Joy"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Coller" keyEquivalent="v" id="gVA-U4-sdL">
+                            <menuItem title="Pegar" keyEquivalent="v" id="gVA-U4-sdL">
                                 <connections>
                                     <action selector="paste:" target="-1" id="UvS-8e-Qdg"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Coller et adapter le style" keyEquivalent="V" id="WeT-3V-zwk">
+                            <menuItem title="Pegar con el mismo estilo" keyEquivalent="V" id="WeT-3V-zwk">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="pasteAsPlainText:" target="-1" id="cEh-KX-wJQ"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Supprimer" id="pa3-QI-u2k">
+                            <menuItem title="Eliminar" id="pa3-QI-u2k">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="delete:" target="-1" id="0Mk-Ml-PaM"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Tout sélectionner" keyEquivalent="a" id="Ruw-6m-B2m">
+                            <menuItem title="Seleccionar todo" keyEquivalent="a" id="Ruw-6m-B2m">
                                 <connections>
                                     <action selector="selectAll:" target="-1" id="VNm-Mi-diN"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="uyl-h8-XO2"/>
-                            <menuItem title="Rechercher" id="4EN-yA-p0u">
+                            <menuItem title="Buscar" id="4EN-yA-p0u">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Rechercher" id="1b7-l0-nxx">
+                                <menu key="submenu" title="Buscar" id="1b7-l0-nxx">
                                     <items>
-                                        <menuItem title="Rechercher…" tag="1" keyEquivalent="f" id="Xz5-n4-O0W">
+                                        <menuItem title="Buscar…" tag="1" keyEquivalent="f" id="Xz5-n4-O0W">
                                             <connections>
                                                 <action selector="performTextFinderAction:" target="-1" id="QsK-9e-uGa"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Rechercher le suivant" tag="2" keyEquivalent="g" id="q09-fT-Sye">
+                                        <menuItem title="Buscar siguiente" tag="2" keyEquivalent="g" id="q09-fT-Sye">
                                             <connections>
                                                 <action selector="performTextFinderAction:" target="-1" id="49u-4Y-NRM"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Rechercher le précédent" tag="3" keyEquivalent="G" id="OwM-mh-QMV">
+                                        <menuItem title="Buscar anterior" tag="3" keyEquivalent="G" id="OwM-mh-QMV">
                                             <connections>
                                                 <action selector="performTextFinderAction:" target="-1" id="siD-LN-Db0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Rechercher la sélection" tag="7" keyEquivalent="e" id="buJ-ug-pKt">
+                                        <menuItem title="Usar selección para buscar" tag="7" keyEquivalent="e" id="buJ-ug-pKt">
                                             <connections>
                                                 <action selector="performTextFinderAction:" target="-1" id="M3c-NN-csD"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Aller à la sélection" keyEquivalent="j" id="S0p-oC-mLd">
+                                        <menuItem title="Ir a la selección" keyEquivalent="j" id="S0p-oC-mLd">
                                             <connections>
                                                 <action selector="centerSelectionInVisibleArea:" target="-1" id="IOG-6D-g5B"/>
                                             </connections>
@@ -236,17 +236,17 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Parole" id="xrE-MZ-jX0">
+                            <menuItem title="Habla" id="xrE-MZ-jX0">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Parole" id="3rS-ZA-NoH">
+                                <menu key="submenu" title="Habla" id="3rS-ZA-NoH">
                                     <items>
-                                        <menuItem title="Commencer la lecture" id="Ynk-f8-cLZ">
+                                        <menuItem title="Iniciar locución" id="Ynk-f8-cLZ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="startSpeaking:" target="-1" id="654-Ng-kyl"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Arrêter la lecture" id="Oyz-dy-DGm">
+                                        <menuItem title="Detener locución" id="Oyz-dy-DGm">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="stopSpeaking:" target="-1" id="dX8-6p-jy9"/>
@@ -258,40 +258,40 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Présentation" id="H8h-7b-M4v">
+                <menuItem title="Visualización" id="H8h-7b-M4v">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Présentation" id="HyV-fh-RgO">
+                    <menu key="submenu" title="Visualización" id="HyV-fh-RgO">
                         <items>
-                            <menuItem title="Afficher la barre latérale" keyEquivalent="1" id="fzY-Ht-27G">
+                            <menuItem title="Mostrar barra lateral" keyEquivalent="1" id="fzY-Ht-27G">
                                 <connections>
                                     <action selector="showHideViews:" target="-1" id="kra-FC-RZC"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Afficher les images des binaires" tag="1" keyEquivalent="2" id="2z5-3m-6dw">
+                            <menuItem title="Mostrar imagenes de los binarios" tag="1" keyEquivalent="2" id="2z5-3m-6dw">
                                 <connections>
                                     <action selector="showHideViews:" target="-1" id="s1k-G0-TLi"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Afficher l'inspecteur" tag="2" keyEquivalent="3" id="lQa-tq-Wi7">
+                            <menuItem title="Mostrar inspector" tag="2" keyEquivalent="3" id="lQa-tq-Wi7">
                                 <connections>
                                     <action selector="showHideViews:" target="-1" id="qR9-QJ-Q4R"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kEv-nO-mPM"/>
-                            <menuItem title="Texte" keyEquivalent="1" id="qIT-0d-e67">
+                            <menuItem title="Texto" keyEquivalent="1" id="qIT-0d-e67">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="eRM-Kc-O5r"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Schéma" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
+                            <menuItem title="Esquema" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="TDI-d2-Yku"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="tGi-CI-t3Z"/>
-                            <menuItem title="Afficher la barre d'outils" keyEquivalent="t" id="snW-S8-Cw5">
+                            <menuItem title="Mostrar barra de herramientas" keyEquivalent="t" id="snW-S8-Cw5">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="toggleToolbarShown:" target="-1" id="BXY-wc-z0C"/>
@@ -300,26 +300,26 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Visionneuse de rapports" id="Wlf-Q9-x4u">
+                <menuItem title="Visor del informe" id="Wlf-Q9-x4u">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Visionneuse de rapports" id="nLy-c6-ILM">
+                    <menu key="submenu" title="Visor del informe" id="nLy-c6-ILM">
                         <items>
-                            <menuItem title="Taille de la police" id="hLb-MS-G2f">
+                            <menuItem title="Tamaño de la letra" id="hLb-MS-G2f">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Taille de la police" id="TBb-40-aCS">
+                                <menu key="submenu" title="Tamaño de la letra" id="TBb-40-aCS">
                                     <items>
-                                        <menuItem title="Plus grand" keyEquivalent="+" id="EXj-Y3-9fM">
+                                        <menuItem title="Ampliar" keyEquivalent="+" id="EXj-Y3-9fM">
                                             <connections>
                                                 <action selector="CUI_MENUACTION_increaseFontSize:" target="-1" id="qW5-4J-akR"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Plus petit" keyEquivalent="-" id="7i3-Bb-CWM">
+                                        <menuItem title="Reducir" keyEquivalent="-" id="7i3-Bb-CWM">
                                             <connections>
                                                 <action selector="CUI_MENUACTION_decreaseFontSize:" target="-1" id="B2V-VK-bcD"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="P4p-p3-w1I"/>
-                                        <menuItem title="Réinitialiser" keyEquivalent="0" id="kfY-hu-eJP">
+                                        <menuItem title="Reinicializar" keyEquivalent="0" id="kfY-hu-eJP">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_resetFontSize:" target="-1" id="nz0-xy-rD7"/>
@@ -328,12 +328,12 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Thèmes" id="yjG-UV-U5C">
+                            <menuItem title="Temas" id="yjG-UV-U5C">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Thèmes" id="abx-GW-6TZ">
+                                <menu key="submenu" title="Temas" id="abx-GW-6TZ">
                                     <items>
                                         <menuItem isSeparatorItem="YES" id="NUX-KR-gxh"/>
-                                        <menuItem title="Éditer les thèmes…" id="csr-ry-NgM">
+                                        <menuItem title="Editar temas…" id="csr-ry-NgM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="editThemes:" target="-1" id="F5p-1i-EUu"/>
@@ -343,43 +343,43 @@ CA
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="2Cq-5I-dEU"/>
-                            <menuItem title="Sections visibles" id="wAR-FX-MEm">
+                            <menuItem title="Secciones visibles" id="wAR-FX-MEm">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Sections visibles" id="WFL-Rm-rhq">
+                                <menu key="submenu" title="Secciones visibles" id="WFL-Rm-rhq">
                                     <items>
-                                        <menuItem title="En tête" id="HIC-nM-hNN">
+                                        <menuItem title="Encabezado" id="HIC-nM-hNN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchHeaderVisibility:" target="-1" id="WUc-lV-ghf"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="1r5-yC-AUQ"/>
-                                        <menuItem title="Information sur l'exception" id="lvl-an-zWN">
+                                        <menuItem title="Información de excepción" id="lvl-an-zWN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-1" id="fLf-3S-OlT"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Messages de diagnostic" id="iKL-gn-vYN">
+                                        <menuItem title="Mensajes de diagnóstico" id="iKL-gn-vYN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchDiagnosticMessagesVisibility:" target="-1" id="N8e-k9-P27"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="z5a-l7-tQ4"/>
-                                        <menuItem title="Trace des appels" id="DbA-sZ-kG6">
+                                        <menuItem title="Pila de llamadas" id="DbA-sZ-kG6">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-1" id="eUz-AU-LoI"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="État du thread" id="RBY-FQ-bMy">
+                                        <menuItem title="Estado del thread" id="RBY-FQ-bMy">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-1" id="XYE-gq-GnF"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Images de binaires" id="rnV-QR-Tam">
+                                        <menuItem title="Imagenes de los binarios" id="rnV-QR-Tam">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchBinaryImagesVisibility:" target="-1" id="qnf-0L-mBO"/>
@@ -391,53 +391,53 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Navigation" id="aG2-MW-iKZ">
+                <menuItem title="Navegar" id="aG2-MW-iKZ">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Navigation" id="YUZ-OQ-Qfb">
+                    <menu key="submenu" title="Navegar" id="YUZ-OQ-Qfb">
                         <items>
-                            <menuItem title="Aller à la ligne…" keyEquivalent="l" id="JtL-ON-s7d">
+                            <menuItem title="Ir a la línea…" keyEquivalent="l" id="JtL-ON-s7d">
                                 <connections>
                                     <action selector="CUI_MENUACTION_jumpToLine:" target="-1" id="hAa-kF-BVg"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="qbu-Eo-jRw"/>
-                            <menuItem title="Aller à la section" id="2Ip-qq-DKf">
+                            <menuItem title="Ir a la sección" id="2Ip-qq-DKf">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Aller à la section" id="AcZ-wd-kkj">
+                                <menu key="submenu" title="Ir a la sección" id="AcZ-wd-kkj">
                                     <items>
-                                        <menuItem title="En-tête" id="Bmg-Jh-vql">
+                                        <menuItem title="Encabezado" id="Bmg-Jh-vql">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToHeader:" target="-1" id="0VQ-jO-VrD"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="ZwI-1h-pND"/>
-                                        <menuItem title="Information sur l'exception" id="SzQ-gm-Wkt">
+                                        <menuItem isSeparatorItem="YES" id="5Cd-ay-my5"/>
+                                        <menuItem title="Información de excepción" id="SzQ-gm-Wkt">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToExceptionInformation:" target="-1" id="079-pD-HEp"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Messages de diagnostic" id="Wiv-Qz-fMq">
+                                        <menuItem title="Mensajes de diagnóstico" id="Wiv-Qz-fMq">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToDiagnosticMessages:" target="-1" id="hTl-rJ-Q5a"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="ayq-Jo-qJv"/>
-                                        <menuItem title="Trace des appels" id="a2B-9S-c4g">
+                                        <menuItem isSeparatorItem="YES" id="Szz-TX-hIO"/>
+                                        <menuItem title="Pila de llamadas" id="a2B-9S-c4g">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToBacktraces:" target="-1" id="Sfi-Ce-HQ0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="État du thread" id="hfS-oi-1cT">
+                                        <menuItem title="Estado del thread" id="hfS-oi-1cT">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToThreadState:" target="-1" id="Lbe-gO-nw1"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Images des binaires" id="ON2-La-JSh">
+                                        <menuItem title="Imagenes de los binarios" id="ON2-La-JSh">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToBinaryImages:" target="-1" id="hF5-h4-Mqo"/>
@@ -446,7 +446,7 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Aller au thread planté" keyEquivalent="c" id="XPO-uf-5Ox">
+                            <menuItem title="Ir al thread fallado" keyEquivalent="c" id="XPO-uf-5Ox">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_jumpToCrashedThread:" target="-1" id="ymM-Im-3Fw"/>
@@ -455,30 +455,30 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Fenêtre" id="aUF-d1-5bR">
+                <menuItem title="Ventana" id="aUF-d1-5bR">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Fenêtre" systemMenu="window" id="Td7-aD-5lo">
+                    <menu key="submenu" title="Ventana" systemMenu="window" id="Td7-aD-5lo">
                         <items>
-                            <menuItem title="Placer dans le Dock" keyEquivalent="m" id="OY7-WF-poV">
+                            <menuItem title="Minimizar" keyEquivalent="m" id="OY7-WF-poV">
                                 <connections>
                                     <action selector="performMiniaturize:" target="-1" id="VwT-WD-YPe"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Réduire/agrandir" id="R4o-n2-Eq4">
+                            <menuItem title="Zoom" id="R4o-n2-Eq4">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="performZoom:" target="-1" id="DIl-cC-cCs"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="V2l-48-H4C"/>
-                            <menuItem title="Registres" keyEquivalent="r" id="e57-vP-OAA">
+                            <menuItem title="Registros" keyEquivalent="r" id="e57-vP-OAA">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUIMENUACTION_showHideRegisters:" target="-1" id="4GI-98-jKW"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
-                            <menuItem title="Tout ramener au premier plan" id="LE2-aR-0XJ">
+                            <menuItem title="Traer todo al frente" id="LE2-aR-0XJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="DRN-fu-gQh"/>
@@ -487,11 +487,11 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Aide" id="wpr-3q-Mcd">
+                <menuItem title="Ayuda" id="wpr-3q-Mcd">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Aide" systemMenu="help" id="F2S-fz-NVQ">
+                    <menu key="submenu" title="Ayuda" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="Aide Unexpectedly" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="Ayuda de Unexpectedly" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showUserGuide:" target="Voe-Tx-rLC" id="Xxx-bM-bpn"/>
                                 </connections>
@@ -499,13 +499,13 @@ CA
                             <menuItem isSeparatorItem="YES" id="NhV-yu-WbQ">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Émettre un commentaire" id="Agb-QS-hQl">
+                            <menuItem title="Enviar opinión" id="Agb-QS-hQl">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="sendFeedback:" target="Voe-Tx-rLC" id="GdC-FT-8s8"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Site web de Unexpectedly" id="FUb-BV-YgJ">
+                            <menuItem title="Unexpectedly en la red" id="FUb-BV-YgJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="showUnexpectedlyWebSite:" target="Voe-Tx-rLC" id="Zhd-rv-Pi9"/>
@@ -514,53 +514,53 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Débogage" hidden="YES" id="cNb-At-Imu">
+                <menuItem title="Depurar" hidden="YES" id="cNb-At-Imu">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Débogage" id="OCR-9P-Ipy">
+                    <menu key="submenu" title="Depurar" id="OCR-9P-Ipy">
                         <items>
                             <menuItem title="Crash Reporter" id="QbD-vw-FaL">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Crash Reporter" id="90M-1A-X88">
                                     <items>
-                                        <menuItem title="Mode opératoire" enabled="NO" id="rSJ-Ir-6Ad">
+                                        <menuItem title="Modo de operación" enabled="NO" id="rSJ-Ir-6Ad">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Basique" id="cZ2-Me-tJE">
+                                        <menuItem title="Básico" id="cZ2-Me-tJE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="1pr-Nb-cUn"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Développeur" tag="1" id="Taa-D1-VLv">
+                                        <menuItem title="Desarrollador" tag="1" id="Taa-D1-VLv">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="Sze-b6-Qb4"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Serveur" tag="2" id="oZt-M9-dpo">
+                                        <menuItem title="Servidor" tag="2" id="oZt-M9-dpo">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="t2d-3r-nsn"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="riH-1J-NUS"/>
-                                        <menuItem title="Mode de notification" enabled="NO" id="BLJ-R5-6HZ">
+                                        <menuItem title="Modo de notificación" enabled="NO" id="BLJ-R5-6HZ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Dialogue d'alerte" id="EDw-Kd-564">
+                                        <menuItem title="Diálogo de alerta" id="EDw-Kd-564">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterNotificationMode:" target="Voe-Tx-rLC" id="pfK-8S-sWf"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Notification système" tag="1" id="zLw-vY-Ttl">
+                                        <menuItem title="Notificación del sistema" tag="1" id="zLw-vY-Ttl">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterNotificationMode:" target="Voe-Tx-rLC" id="yUA-00-NUV"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="isO-68-Tw7"/>
-                                        <menuItem title="Rapporter les exceptions non interceptées" id="eLO-Pu-jRW">
+                                        <menuItem title="Informar excepciones no capturadas" id="eLO-Pu-jRW">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchReportUncaughtException:" target="Voe-Tx-rLC" id="3Tb-Lg-qE2"/>
@@ -573,7 +573,7 @@ CA
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-1534" y="-1437"/>
+            <point key="canvasLocation" x="-353" y="-1121"/>
         </menu>
     </objects>
 </document>

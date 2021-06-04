@@ -624,7 +624,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
 {
     NSAlert * tAlert=[NSAlert new];
     
-    tAlert.messageText=NSLocalizedString(@"Do you really want to restore the default Fonts & Colors settings", @"");
+    tAlert.messageText=NSLocalizedString(@"Do you really want to restore the default Fonts & Colors settings?", @"");
     tAlert.informativeText=NSLocalizedString(@"You will lose all the changes you made.", @"");
     
     [tAlert addButtonWithTitle:NSLocalizedString(@"Restore",@"")];

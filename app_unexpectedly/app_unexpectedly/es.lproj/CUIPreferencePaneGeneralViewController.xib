@@ -17,22 +17,22 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="730" height="152"/>
+            <rect key="frame" x="0.0" y="0.0" width="759" height="152"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Tow-sZ-5fR">
-                    <rect key="frame" x="186" y="79" width="143" height="17"/>
+                    <rect key="frame" x="185" y="79" width="182" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Open source files with:" id="v8S-NF-Ptc">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Abrir archivos de código con:" id="v8S-NF-Ptc">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="c18-Y4-l7a">
-                    <rect key="frame" x="333" y="116" width="165" height="18"/>
+                    <rect key="frame" x="371" y="116" width="211" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Show Registers window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7Qp-I2-soX">
+                    <buttonCell key="cell" type="check" title="Mostrar la ventana de registros" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7Qp-I2-soX">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <popUpButton verticalHuggingPriority="750" id="INA-cz-CFq">
-                    <rect key="frame" x="333" y="74" width="212" height="25"/>
+                    <rect key="frame" x="371" y="74" width="212" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Xah-p3-3bg" id="iEv-K7-faP">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -57,16 +57,16 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="aiR-yu-zGz">
-                    <rect key="frame" x="193" y="20" width="136" height="17"/>
+                    <rect key="frame" x="178" y="20" width="189" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default report viewer:" id="OlA-pr-NqK">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Visor de informes por omisión:" id="OlA-pr-NqK">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" id="Ytb-pg-OA0">
-                    <rect key="frame" x="333" y="15" width="212" height="25"/>
+                    <rect key="frame" x="371" y="15" width="212" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="jkl-MJ-epa" id="KXn-Rz-1qQ">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -82,20 +82,20 @@
                     </connections>
                 </popUpButton>
                 <box verticalHuggingPriority="750" boxType="separator" id="bWX-Os-IMd">
-                    <rect key="frame" x="20" y="55" width="690" height="4"/>
+                    <rect key="frame" x="20" y="55" width="719" height="4"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WI8-fU-dkC">
-                    <rect key="frame" x="264" y="117" width="65" height="17"/>
+                    <rect key="frame" x="253" y="117" width="114" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="At launch:" id="RtP-AJ-XN5">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="En el lanzamiento:" id="RtP-AJ-XN5">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="248" y="-36"/>
+            <point key="canvasLocation" x="262.5" y="-36"/>
         </customView>
     </objects>
 </document>

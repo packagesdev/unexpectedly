@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <button toolTip="Supprimer un fichier, un dossier ou une source intelligente" verticalHuggingPriority="750" id="FnB-m4-Sew">
+                <button toolTip="Eliminar archivo, carpeta o fuente inteligente" verticalHuggingPriority="750" id="FnB-m4-Sew">
                     <rect key="frame" x="26" y="-2" width="25" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ocB-wp-jcr">
@@ -137,13 +137,13 @@
                                 <menuItem state="on" image="NSActionTemplate" hidden="YES" id="MSJ-wy-0Je">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Éditer…" id="9dK-mu-DL0">
+                                <menuItem title="Editar…" id="9dK-mu-DL0">
                                     <connections>
                                         <action selector="editSmartSource:" target="-2" id="PmO-aB-nyF"/>
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="2ub-md-RCd"/>
-                                <menuItem title="Afficher dans le Finder" id="pSl-d5-liK">
+                                <menuItem title="Mostrar en el Finder" id="pSl-d5-liK">
                                     <connections>
                                         <action selector="showInFinder:" target="-2" id="wFv-E8-fC9"/>
                                     </connections>
@@ -152,7 +152,7 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
-                <popUpButton toolTip="Ajouter un fichier, un dossier ou une source intelligente" id="Fjw-36-xHZ">
+                <popUpButton toolTip="Añadir archivo, carpeta o fuente inteligente" id="Fjw-36-xHZ">
                     <rect key="frame" x="-4" y="-1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" selectedItem="DJQ-Va-eqw" id="w3m-zi-K88">
@@ -163,13 +163,13 @@
                                 <menuItem state="on" image="NSAddTemplate" hidden="YES" id="DJQ-Va-eqw">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Nouvelle source intelligente…" id="HSw-t4-mnl">
+                                <menuItem title="Nueva fuente inteligente…" id="HSw-t4-mnl">
                                     <connections>
                                         <action selector="CUI_MENUACTION_addSmartSource:" target="-2" id="mMA-Im-5Li"/>
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="FFc-YN-a1b"/>
-                                <menuItem title="Ajouter un fichier ou un dossier…" id="r1o-zR-BIu">
+                                <menuItem title="Añadir archivo or carpeta…" id="r1o-zR-BIu">
                                     <connections>
                                         <action selector="CUI_MENUACTION_addSource:" target="-2" id="1HN-pX-hYb"/>
                                     </connections>
@@ -179,25 +179,25 @@
                     </popUpButtonCell>
                 </popUpButton>
             </subviews>
-            <point key="canvasLocation" x="118" y="-406"/>
+            <point key="canvasLocation" x="-581" y="-963"/>
         </customView>
         <menu id="HyN-lT-5sn">
             <items>
-                <menuItem title="Éditer…" id="Twv-NI-xzw">
+                <menuItem title="Editar…" id="Twv-NI-xzw">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="editSmartSource:" target="-2" id="KCD-e6-KYn"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="qHD-mG-1OK"/>
-                <menuItem title="Exporter…" id="WOP-2L-vqA">
+                <menuItem title="Exportar…" id="WOP-2L-vqA">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="CUI_MENUACTION_exportSmartSource:" target="-2" id="VBk-ZW-3Ao"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="lae-j9-hK9"/>
-                <menuItem title="Afficher dans le Finder" id="teN-5F-Oei">
+                <menuItem title="Mostrar en el Finder" id="teN-5F-Oei">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showInFinder:" target="-2" id="Lf6-Pc-sdu"/>
