@@ -49,7 +49,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
 
 + (void)initialize
 {
-    NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"default_themes" withExtension:@"plist"]];
+    NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle bundleForClass:[CUIThemesManager class]] URLForResource:@"default_themes" withExtension:@"plist"]];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
                                                               CUIThemesListKey:tThemesArray,
