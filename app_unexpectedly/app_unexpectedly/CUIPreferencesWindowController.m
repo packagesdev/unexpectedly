@@ -89,18 +89,25 @@ NSString * const CUIPreferencesWindowSelectedPaneIdentifierKey=@"preferences.ui.
     
     NSToolbarItem * tFontsAndColorsToolbarItem=[self.window.toolbar PKG_toolBarItemWithIdentifier:@"toolbarItem.fontscolors"];
     
-    tFontsAndColorsToolbarItem.image=[NSImage imageWithSize:NSMakeSize(48, 48) flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
-        
-        NSImage * tColorsImage=[NSImage imageNamed:@"NSToolbarShowColorsItemImage"];
-        
-        [tColorsImage drawInRect:NSMakeRect(6,0,48,48) fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:0.6];
-        
-        NSImage * tFontsImage=[NSImage imageNamed:@"NSToolbarShowFontsItemImage"];
-        
-        [tFontsImage drawInRect:NSMakeRect(-6,0,48,48) fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
-        
-        return YES;
-    }];
+    NSImage * tFontsAndColorsIcon=[[NSImage alloc] initWithContentsOfFile:@"/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/ProfileFontAndColor.icns"];
+    
+    if (tFontsAndColorsIcon==nil)
+    {
+        tFontsAndColorsIcon=[NSImage imageWithSize:NSMakeSize(48, 48) flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
+            
+            NSImage * tColorsImage=[NSImage imageNamed:@"NSToolbarShowColorsItemImage"];
+            
+            [tColorsImage drawInRect:NSMakeRect(6,0,48,48) fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:0.6];
+            
+            NSImage * tFontsImage=[NSImage imageNamed:@"NSToolbarShowFontsItemImage"];
+            
+            [tFontsImage drawInRect:NSMakeRect(-6,0,48,48) fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+            
+            return YES;
+        }];
+    }
+    
+    tFontsAndColorsToolbarItem.image=tFontsAndColorsIcon;
     
     // Show the first pane if not found in defaults
     

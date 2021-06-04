@@ -15,6 +15,8 @@
 
 #import "CUIParsingErrors.h"
 
+#import "NSArray+WBExtensions.h"
+
 @interface CUICrashLogBinaryImages ()
 {
     NSMutableArray * _binaryImages;
