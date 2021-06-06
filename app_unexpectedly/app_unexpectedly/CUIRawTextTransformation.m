@@ -23,11 +23,13 @@
 #import "CUIThemesManager.h"
 #import "CUIThemeItemsGroup+UI.h"
 
+#ifndef __DISABLE_SYMBOLICATION_
 #import "CUIdSYMBundlesManager.h"
 
 #import "CUISymbolicationManager.h"
 
 #import "CUISymbolicationDataFormatter.h"
+#endif
 
 NSString * const CUIGenericAnchorAttributeName=@"CUIGenericAnchorAttributeName";
 
@@ -70,8 +72,9 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     NSCharacterSet * _whitespaceCharacterSet;
     
-    
+#ifndef __DISABLE_SYMBOLICATION_
     CUISymbolicationDataFormatter * _symbolicationDataFormatter;
+#endif
 }
 
     @property CUICrashLog * crashLog;
@@ -113,7 +116,9 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     {
         _hyperlinksStyle=CUIHyperlinksInternal;
         
+#ifndef __DISABLE_SYMBOLICATION_
         _symbolicationDataFormatter=[CUISymbolicationDataFormatter new];
+#endif
         
         _whitespaceCharacterSet=[NSCharacterSet whitespaceCharacterSet];
     }
@@ -929,6 +934,8 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         return [[NSAttributedString alloc] initWithString:tLine];
     
     __block NSUInteger tSavedScanLocation=tScanner.scanLocation;
+
+#ifndef __DISABLE_SYMBOLICATION_
     
     BOOL tSymbolicateAutomatically=[CUIApplicationPreferences sharedPreferences].symbolicateAutomatically;
     
@@ -1003,6 +1010,8 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                                                                                                      }];
         }
     }
+
+#endif
     
     NSMutableAttributedString * tProcessedLine=[[NSMutableAttributedString alloc] initWithString:tLine attributes:_cachedPlainTextAttributes];
     
@@ -1019,6 +1028,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     }
     else
     {
+#ifndef __DISABLE_SYMBOLICATION_
         if (tSymbolicationData!=nil)
         {
             NSString * tAbsolutePath=inStackFrame.symbolicationData.sourceFilePath;
@@ -1053,6 +1063,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                 }
             }
         }
+#endif
     }
     
     

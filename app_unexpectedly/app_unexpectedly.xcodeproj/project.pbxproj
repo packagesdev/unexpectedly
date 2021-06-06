@@ -104,6 +104,7 @@
 		F45A2D7125EC60D90007D50E /* CUICrashLogsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45A2D7325EC60D90007D50E /* CUICrashLogsListViewController.xib */; };
 		F45B518C24AFA04000E97B87 /* CUICrashLogsSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = F45B518B24AFA04000E97B87 /* CUICrashLogsSelection.m */; };
 		F45F2F5B2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F45F2F5A2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m */; };
+		F45F84DC266ABB7600F354F3 /* crashreport.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = F45F84D8266ABB5800F354F3 /* crashreport.qlgenerator */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F46198E924CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F46198E824CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m */; };
 		F46198EE24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = F46198ED24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m */; };
 		F461CE8A25F6DD75007CFDE7 /* CUIApplicationItemAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F461CE8925F6DD75007CFDE7 /* CUIApplicationItemAttributes.m */; };
@@ -255,6 +256,36 @@
 		F4FC77A924E1F6AB001F82CA /* CUIRawTextTransformation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FC77A824E1F6AA001F82CA /* CUIRawTextTransformation.m */; };
 		F4FE2DEA25615CA800C1774A /* CUICrashLogExceptionInformation+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE2DE925615CA800C1774A /* CUICrashLogExceptionInformation+UI.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F45F84D7266ABB5800F354F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F48DAE252661207800C93D40;
+			remoteInfo = crashreport;
+		};
+		F45F84D9266ABB6300F354F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F48DAE242661207700C93D40;
+			remoteInfo = crashreport;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F45F84DB266ABB7000F354F3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/QuickLook;
+			dstSubfolderSpec = 1;
+			files = (
+				F45F84DC266ABB7600F354F3 /* crashreport.qlgenerator in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F4040A7424F5B9CE0072BF65 /* CUINavigationChevronView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUINavigationChevronView.h; sourceTree = "<group>"; };
@@ -494,6 +525,7 @@
 		F45B518B24AFA04000E97B87 /* CUICrashLogsSelection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsSelection.m; sourceTree = "<group>"; };
 		F45F2F592538EF3F0030A402 /* NSFileManager+ExtendedAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+ExtendedAttributes.h"; path = "app_unexpectedly/NSFileManager+ExtendedAttributes.h"; sourceTree = "<group>"; };
 		F45F2F5A2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+ExtendedAttributes.m"; path = "app_unexpectedly/NSFileManager+ExtendedAttributes.m"; sourceTree = "<group>"; };
+		F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = crashreport.xcodeproj; path = ../plugin_quicklook/crashreport.xcodeproj; sourceTree = "<group>"; };
 		F46198E724CA390700FA9717 /* CUICrashLogBacktraces+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUICrashLogBacktraces+Utilities.h"; sourceTree = "<group>"; };
 		F46198E824CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogBacktraces+Utilities.m"; sourceTree = "<group>"; };
 		F46198EC24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIInspectorAlternateBackgroundView.h; sourceTree = "<group>"; };
@@ -1083,6 +1115,14 @@
 			name = "Registers Palette";
 			sourceTree = "<group>";
 		};
+		F45F84D4266ABB5800F354F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F45F84D8266ABB5800F354F3 /* crashreport.qlgenerator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F46198EA24CA41E900FA9717 /* Inspector */ = {
 			isa = PBXGroup;
 			children = (
@@ -1350,6 +1390,7 @@
 		F4CC56F624A79EDA00150EC4 = {
 			isa = PBXGroup;
 			children = (
+				F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */,
 				F43BA4E425F2674100D8D68A /* SharedConfigurationSettings.xcconfig */,
 				F43C828D24D8AD850096F27B /* CUIStackFrameComponents.h */,
 				F4B9AD23253199EE0083FA6C /* Mach-o */,
@@ -1677,10 +1718,12 @@
 				F4CC56FC24A79EDA00150EC4 /* Frameworks */,
 				F4CC56FD24A79EDA00150EC4 /* Resources */,
 				F42D0BC525514CCB0021A551 /* Rename template file */,
+				F45F84DB266ABB7000F354F3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F45F84DA266ABB6300F354F3 /* PBXTargetDependency */,
 			);
 			name = Unexpectedly;
 			productName = Unexpectedly;
@@ -1713,12 +1756,28 @@
 			mainGroup = F4CC56F624A79EDA00150EC4;
 			productRefGroup = F4CC570024A79EDA00150EC4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F45F84D4266ABB5800F354F3 /* Products */;
+					ProjectRef = F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F4CC56FE24A79EDA00150EC4 /* Unexpectedly */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F45F84D8266ABB5800F354F3 /* crashreport.qlgenerator */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = crashreport.qlgenerator;
+			remoteRef = F45F84D7266ABB5800F354F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F4CC56FD24A79EDA00150EC4 /* Resources */ = {
@@ -2007,6 +2066,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F45F84DA266ABB6300F354F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = crashreport;
+			targetProxy = F45F84D9266ABB6300F354F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F4055C8325EEE37400DC6CCA /* CUIMainWindowController.xib */ = {
