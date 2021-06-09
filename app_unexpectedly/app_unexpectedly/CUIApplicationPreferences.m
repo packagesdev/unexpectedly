@@ -129,8 +129,6 @@ NSString * const CUIPreferencesCrashLogsSortTypeDidChangeNotification=@"CUIPrefe
                                       CUIPreferencesTextModeLineWrappingKey:@(YES),
                                       
                                       CUIPreferencesTextModeDefaultDisplaySettings:@{
-                                              //CUITextModeDisplaySettingsHighlightSyntaxKey:@(YES),
-                                              //CUITextModeDisplaySettingsHyperlinksKey:@(YES),
                                               CUITextModeDisplaySettingsVisibleSectionKey:@(CUIDocumentAllSections),
                                               CUITextModeDisplaySettingsVisibleStackFrameComponentsKey:@(CUIStackFrameAllComponents)
                                               },
