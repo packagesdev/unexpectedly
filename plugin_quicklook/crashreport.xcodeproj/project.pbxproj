@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F40681CE2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.h in Headers */ = {isa = PBXBuildFile; fileRef = F40681CC2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.h */; };
-		F40681CF2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.m in Sources */ = {isa = PBXBuildFile; fileRef = F40681CD2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.m */; };
+		F40681CE2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F40681CC2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h */; };
+		F40681CF2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F40681CD2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m */; };
 		F4069C5726683CC7002B32F5 /* CUICrashLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C5226683CC6002B32F5 /* CUICrashLog.m */; };
 		F4069C5826683CC7002B32F5 /* CUICodeType.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C5326683CC6002B32F5 /* CUICodeType.h */; };
 		F4069C5926683CC7002B32F5 /* CUIRawCrashLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C5426683CC6002B32F5 /* CUIRawCrashLog.m */; };
@@ -85,11 +85,13 @@
 		F48DAE292661207800C93D40 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE282661207800C93D40 /* GenerateThumbnailForURL.m */; };
 		F48DAE2B2661207800C93D40 /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE2A2661207800C93D40 /* GeneratePreviewForURL.m */; };
 		F48DAE2D2661207800C93D40 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE2C2661207800C93D40 /* main.c */; };
+		F4ACF4BD266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */; };
+		F4ACF4BE266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F40681CC2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+NSUserDefaults_Unexpectedly.h"; sourceTree = "<group>"; };
-		F40681CD2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+NSUserDefaults_Unexpectedly.m"; sourceTree = "<group>"; };
+		F40681CC2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+UNXQuickLookGenerator.h"; sourceTree = "<group>"; };
+		F40681CD2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+UNXQuickLookGenerator.m"; sourceTree = "<group>"; };
 		F4069C5226683CC6002B32F5 /* CUICrashLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLog.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLog.m; sourceTree = "<group>"; };
 		F4069C5326683CC6002B32F5 /* CUICodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICodeType.h; path = ../../app_unexpectedly/app_unexpectedly/CUICodeType.h; sourceTree = "<group>"; };
 		F4069C5426683CC6002B32F5 /* CUIRawCrashLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIRawCrashLog.m; path = ../../app_unexpectedly/app_unexpectedly/CUIRawCrashLog.m; sourceTree = "<group>"; };
@@ -171,6 +173,8 @@
 		F48DAE2C2661207800C93D40 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		F48DAE2E2661207800C93D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F48DAE3B266123C300C93D40 /* SharedConfigurationSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SharedConfigurationSettings.xcconfig; path = ../Configs/SharedConfigurationSettings.xcconfig; sourceTree = "<group>"; };
+		F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUIThemesManager+QuickLookGenerator.h"; sourceTree = "<group>"; };
+		F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUIThemesManager+QuickLookGenerator.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +233,6 @@
 				F4069CB7266840E2002B32F5 /* NSDictionary+WBExtensions.m */,
 				F4069CDF266842E5002B32F5 /* NSFileManager+ExtendedAttributes.h */,
 				F4069CE0266842E5002B32F5 /* NSFileManager+ExtendedAttributes.m */,
-				F40681CC2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.h */,
-				F40681CD2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.m */,
 			);
 			name = "Foundation + Extensions";
 			sourceTree = "<group>";
@@ -280,6 +282,10 @@
 				F40681D0266982B200BE6BEE /* Preferences */,
 				F40681D1266982F600BE6BEE /* Themes */,
 				F4069CA426683F04002B32F5 /* Text */,
+				F40681CC2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h */,
+				F40681CD2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m */,
+				F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */,
+				F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */,
 				F48DAE282661207800C93D40 /* GenerateThumbnailForURL.m */,
 				F48DAE2A2661207800C93D40 /* GeneratePreviewForURL.m */,
 				F48DAE2C2661207800C93D40 /* main.c */,
@@ -349,6 +355,7 @@
 				F4069C9A26683DA0002B32F5 /* CUICrashLogSectionsDetector.h in Headers */,
 				F4069C9E26683DFF002B32F5 /* CUIOperatingSystemVersion.h in Headers */,
 				F4069C7726683CF9002B32F5 /* CUICrashLogThreadState.h in Headers */,
+				F4ACF4BD266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h in Headers */,
 				F41C5D64266988AB00DE5D3A /* CUIStackFrameComponents.h in Headers */,
 				F4069C7A26683CF9002B32F5 /* CUICrashLogBinaryImages.h in Headers */,
 				F4069C7E26683CF9002B32F5 /* CUICrashLogDianosticMessages.h in Headers */,
@@ -362,7 +369,7 @@
 				F4069CE726684382002B32F5 /* CUIBinaryImage+UI.h in Headers */,
 				F4069C7426683CF9002B32F5 /* CUICrashLogExceptionInformation+UI.h in Headers */,
 				F4069CD92668416B002B32F5 /* NSDictionary+MutableDeepCopy.h in Headers */,
-				F40681CE2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.h in Headers */,
+				F40681CE2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h in Headers */,
 				F4069CD32668415A002B32F5 /* CUIApplicationPreferences.h in Headers */,
 				F4069CD62668415A002B32F5 /* CUIApplicationPreferences+Themes.h in Headers */,
 				F4069CC926684136002B32F5 /* CUIThemesManager.h in Headers */,
@@ -455,11 +462,12 @@
 				F4069CC0266840FB002B32F5 /* CUITheme.m in Sources */,
 				F4069CC1266840FB002B32F5 /* CUIThemeItemAttributes.m in Sources */,
 				F4069C7926683CF9002B32F5 /* CUICrashLogThreadState+UI.m in Sources */,
-				F40681CF2669820700BE6BEE /* NSUserDefaults+NSUserDefaults_Unexpectedly.m in Sources */,
+				F40681CF2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m in Sources */,
 				F4069CD52668415A002B32F5 /* CUIApplicationPreferences+Themes.m in Sources */,
 				F4069C8226683CF9002B32F5 /* CUICrashLogThreadState.m in Sources */,
 				F4069C5926683CC7002B32F5 /* CUIRawCrashLog.m in Sources */,
 				F4069CD42668415A002B32F5 /* CUIApplicationPreferences.m in Sources */,
+				F4ACF4BE266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m in Sources */,
 				F4069CC62668411A002B32F5 /* NSColor+String.m in Sources */,
 				F4069CDD26684199002B32F5 /* CUIOutlineModeDisplaySettings.m in Sources */,
 				F4069C9726683D88002B32F5 /* CUIParsingErrors.m in Sources */,
@@ -611,6 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.whitebox.unexpectedly.qlgenerator.crashreport;
 				PRODUCT_MODULE_NAME = crashreport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Debug;
@@ -626,6 +635,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.whitebox.unexpectedly.qlgenerator.crashreport;
 				PRODUCT_MODULE_NAME = crashreport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Release;
