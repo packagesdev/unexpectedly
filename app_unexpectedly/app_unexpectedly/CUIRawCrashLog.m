@@ -124,7 +124,10 @@
         return nil;
     }
     
-    NSString * tString=[[NSString alloc] initWithData:inData encoding:NSASCIIStringEncoding];
+    NSString * tString=[[NSString alloc] initWithData:inData encoding:NSUTF8StringEncoding];
+    
+    if (tString==nil)
+        tString=[[NSString alloc] initWithData:inData encoding:NSASCIIStringEncoding];
     
     if (tString==nil)
     {
