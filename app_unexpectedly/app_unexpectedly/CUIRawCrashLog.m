@@ -145,13 +145,27 @@
     if ([inString isKindOfClass:[NSString class]]==NO)
     {
         if (outError!=NULL)
-            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+            *outError=[NSError errorWithDomain:NSCocoaErrorDomain code:EINVAL userInfo:@{}];
         
         return nil;
     }
     
     if ([inString hasPrefix:@"Process:"]==NO)
+    {
+        if (outError!=NULL)
+        {
+            if (inString.length==0)
+            {
+                *outError=[NSError errorWithDomain:CUICrashLogDomain code:CUICrashLogEmptyFileError userInfo:@{}];
+            }
+            else
+            {
+                *outError=[NSError errorWithDomain:CUICrashLogDomain code:CUICrashLogInvalidFormatFileError userInfo:@{}];
+            }
+        }
+        
         return nil;
+    }
     
     self=[super init];
     

@@ -49,6 +49,8 @@
 		F416688224B0BBFC00C2AB89 /* CUICrashLogPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F416688124B0BBFC00C2AB89 /* CUICrashLogPresentationViewController.m */; };
 		F416688624B0BF2000C2AB89 /* CUISidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F416688424B0BF2000C2AB89 /* CUISidebarViewController.m */; };
 		F416688724B0BF2000C2AB89 /* CUISidebarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F416688524B0BF2000C2AB89 /* CUISidebarViewController.xib */; };
+		F419376F2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F419376E2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m */; };
+		F41937722672B5BF00B796EB /* CUICrashLogsOpenErrorWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41937702672B5BF00B796EB /* CUICrashLogsOpenErrorWindowController.xib */; };
 		F41D66B025921F3400C0D491 /* CUIPreferencePanePresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41D66AE25921F3400C0D491 /* CUIPreferencePanePresentationViewController.m */; };
 		F41ECA5324AB689B00CE56C7 /* CUIInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41ECA5124AB689B00CE56C7 /* CUIInspectorViewController.m */; };
 		F41ECA5424AB689B00CE56C7 /* CUIInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41ECA5224AB689B00CE56C7 /* CUIInspectorViewController.xib */; };
@@ -129,6 +131,9 @@
 		F476EEC125686EC000F40F87 /* CUIContentBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F476EEBF25686EC000F40F87 /* CUIContentBox.m */; };
 		F4775479255B0054006BA662 /* CUIThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4775478255B0054006BA662 /* CUIThemesTableView.m */; };
 		F47AF8C0255DE61E0037E2D8 /* NSCrashLogTextScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AF8BF255DE61E0037E2D8 /* NSCrashLogTextScrollView.m */; };
+		F47F76622673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */; };
+		F47F76652673548600A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */; };
+		F47F7668267355EA00A74905 /* CUICrashLogErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F7667267355EA00A74905 /* CUICrashLogErrors.m */; };
 		F480692E24AF7D83009665F2 /* CUICrashLogsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F480692C24AF7D83009665F2 /* CUICrashLogsListViewController.m */; };
 		F483845124EB041B00FAEF5D /* CUIThemeItemsGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = F483845024EB041B00FAEF5D /* CUIThemeItemsGroup.m */; };
 		F483845324EB11F700FAEF5D /* default_themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F483845224EB11F700FAEF5D /* default_themes.plist */; };
@@ -406,6 +411,9 @@
 		F416688324B0BF2000C2AB89 /* CUISidebarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUISidebarViewController.h; sourceTree = "<group>"; };
 		F416688424B0BF2000C2AB89 /* CUISidebarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUISidebarViewController.m; sourceTree = "<group>"; };
 		F416688524B0BF2000C2AB89 /* CUISidebarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CUISidebarViewController.xib; sourceTree = "<group>"; };
+		F419376D2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsOpenErrorPanel.h; sourceTree = "<group>"; };
+		F419376E2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsOpenErrorPanel.m; sourceTree = "<group>"; };
+		F41937712672B5BF00B796EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUICrashLogsOpenErrorWindowController.xib; sourceTree = "<group>"; };
 		F41D66AD25921F3400C0D491 /* CUIPreferencePanePresentationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIPreferencePanePresentationViewController.h; sourceTree = "<group>"; };
 		F41D66AE25921F3400C0D491 /* CUIPreferencePanePresentationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIPreferencePanePresentationViewController.m; sourceTree = "<group>"; };
 		F41ECA5024AB689B00CE56C7 /* CUIInspectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIInspectorViewController.h; sourceTree = "<group>"; };
@@ -572,6 +580,12 @@
 		F4775478255B0054006BA662 /* CUIThemesTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThemesTableView.m; sourceTree = "<group>"; };
 		F47AF8BE255DE61E0037E2D8 /* NSCrashLogTextScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCrashLogTextScrollView.h; sourceTree = "<group>"; };
 		F47AF8BF255DE61E0037E2D8 /* NSCrashLogTextScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCrashLogTextScrollView.m; sourceTree = "<group>"; };
+		F47F76602673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUICrashLogsOpenErrorRecord+UI.h"; sourceTree = "<group>"; };
+		F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogsOpenErrorRecord+UI.m"; sourceTree = "<group>"; };
+		F47F76632673548600A74905 /* CUICrashLogsOpenErrorRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsOpenErrorRecord.h; sourceTree = "<group>"; };
+		F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsOpenErrorRecord.m; sourceTree = "<group>"; };
+		F47F7666267355EA00A74905 /* CUICrashLogErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogErrors.h; sourceTree = "<group>"; };
+		F47F7667267355EA00A74905 /* CUICrashLogErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogErrors.m; sourceTree = "<group>"; };
 		F480692B24AF7D83009665F2 /* CUICrashLogsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsListViewController.h; sourceTree = "<group>"; };
 		F480692C24AF7D83009665F2 /* CUICrashLogsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsListViewController.m; sourceTree = "<group>"; };
 		F483844F24EB041B00FAEF5D /* CUIThemeItemsGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThemeItemsGroup.h; sourceTree = "<group>"; };
@@ -946,6 +960,16 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		F423D8CA2673F5F200E2D31D /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				F419376D2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.h */,
+				F419376E2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m */,
+				F41937702672B5BF00B796EB /* CUICrashLogsOpenErrorWindowController.xib */,
+			);
+			name = Panels;
+			sourceTree = "<group>";
+		};
 		F4341C68258EB8B8001A5605 /* CrashReporterPreferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -958,6 +982,7 @@
 		F43D8FF224A7FA97008147F9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F423D8CA2673F5F200E2D31D /* Panels */,
 				F4040A7324F5B9B40072BF65 /* Views */,
 				F46198E724CA390700FA9717 /* CUICrashLogBacktraces+Utilities.h */,
 				F46198E824CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m */,
@@ -1073,6 +1098,12 @@
 				F4CC572C24A7A5F000150EC4 /* CUICrashLog+Transform.m */,
 				F4CC572224A7A1D100150EC4 /* CUICrashLogsProvider.h */,
 				F4CC572324A7A1D100150EC4 /* CUICrashLogsProvider.m */,
+				F47F7666267355EA00A74905 /* CUICrashLogErrors.h */,
+				F47F7667267355EA00A74905 /* CUICrashLogErrors.m */,
+				F47F76632673548600A74905 /* CUICrashLogsOpenErrorRecord.h */,
+				F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */,
+				F47F76602673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.h */,
+				F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1795,6 +1826,7 @@
 				F483845324EB11F700FAEF5D /* default_themes.plist in Resources */,
 				F4CE83DE2554B97400A8BD87 /* CUICenteredLabelViewController.xib in Resources */,
 				F4C7498F24F84689004F38C0 /* CUIExceptionTypePopUpViewController.xib in Resources */,
+				F41937722672B5BF00B796EB /* CUICrashLogsOpenErrorWindowController.xib in Resources */,
 				F4F8D26A24F29624007661D6 /* CUIPresentationTextNavigationViewController.xib in Resources */,
 				F45854FB25C76591007A3A79 /* Unexpectedly_Acknowledgements.pdf in Resources */,
 				F495AED425F03820000D92E1 /* EXC_CRASH_Code Signature Invalid.html in Resources */,
@@ -1905,6 +1937,7 @@
 				F4BD6A0025553E9000F98F3E /* CUICrashLogSectionsDetector.m in Sources */,
 				F4F8D26924F29624007661D6 /* CUIPresentationTextNavigationViewController.m in Sources */,
 				F469AB2524B3DDEA0053C824 /* CUICrashLogExceptionInformation.m in Sources */,
+				F419376F2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m in Sources */,
 				F4F5395924D21DB800D537BC /* CUIPreferencePaneGeneralViewController.m in Sources */,
 				F4B9AD3425319A410083FA6C /* MCHObjectFile.m in Sources */,
 				F4B649D324EDCD2300008C47 /* CUIInspectorExecutableViewController.m in Sources */,
@@ -1933,6 +1966,7 @@
 				F4040A7924F5BC230072BF65 /* CUINavigationView.m in Sources */,
 				F4B018372620FEC7009727F1 /* CUIApplicationIconView.m in Sources */,
 				F4BC577124DF426200063545 /* CUIAATextFieldCell.m in Sources */,
+				F47F76652673548600A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */,
 				F40B0D8824D3569800663282 /* NSResponder+Appearance.m in Sources */,
 				F43A9A832591260C005AB2AA /* CUIOutlineModeDisplaySettings.m in Sources */,
 				F4AC864A2558A03B004F2637 /* CUIExportAccessoryViewController.m in Sources */,
@@ -1969,6 +2003,7 @@
 				F4ED18A324EC77A300ED7EF2 /* NSArray+UniqueName.m in Sources */,
 				F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */,
 				F4C269CD2503BCC100C8F3B3 /* CUISymbolicationManager.m in Sources */,
+				F47F76622673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m in Sources */,
 				F462DD3124ADC5F900044AB1 /* CUICrashLogsSourceSmart.m in Sources */,
 				F483845624EB1BEB00FAEF5D /* CUIApplicationPreferences+Themes.m in Sources */,
 				F4306D592577E168007E667F /* CUICrashLogThreadState+UI.m in Sources */,
@@ -2030,6 +2065,7 @@
 				F464F21024ACFBA1007A3A96 /* CUIRegister.m in Sources */,
 				F4EBADB424A8F04F00DF4271 /* CUICrashLog+UI.m in Sources */,
 				F46198EE24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m in Sources */,
+				F47F7668267355EA00A74905 /* CUICrashLogErrors.m in Sources */,
 				F4F9BAF224EF060E00D08FBD /* CUIInspectorUserViewController.m in Sources */,
 				F4CC570824A79EDA00150EC4 /* main.m in Sources */,
 				F420C9B9254F30A100D24249 /* CUIFileDeadDropView.m in Sources */,
@@ -2095,6 +2131,14 @@
 			);
 			name = EXC_CRASH_SIGSEGV.html;
 			path = Help;
+			sourceTree = "<group>";
+		};
+		F41937702672B5BF00B796EB /* CUICrashLogsOpenErrorWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F41937712672B5BF00B796EB /* en */,
+			);
+			name = CUICrashLogsOpenErrorWindowController.xib;
 			sourceTree = "<group>";
 		};
 		F4301A6A25EF0DE000ACDA3F /* CUIPreferencePanePresentationViewController.xib */ = {

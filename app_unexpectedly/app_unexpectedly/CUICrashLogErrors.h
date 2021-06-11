@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2021, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -13,57 +13,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CUICrashLogErrors.h"
+extern NSString * const CUICrashLogDomain;
 
-typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
+NS_ERROR_ENUM(CUICrashLogDomain)
 {
-    CUICrashLogReportSourceTypeSystem=0,
-    CUICrashLogReportSourceTypeUser,
-    CUICrashLogReportSourceTypeOther
+    CUICrashLogEmptyFileError = 1,          // Empty file
+    CUICrashLogInvalidFormatFileError = 2,  // File with contents that do not match the supported formats
 };
-
-@interface CUIRawCrashLog : NSObject
-
-    @property (readonly) id resourceIdentifier;
-
-    @property (readonly,copy) NSString * rawText;
-
-    @property (readonly,copy) NSString * crashLogFilePath;
-
-    @property (nonatomic,readonly) CUICrashLogReportSourceType reportSourceType;
-
-    @property (nonatomic,readonly) BOOL isFullyParsed;
-
-
-    @property (nonatomic,readonly,copy) NSString * processName;
-
-    @property (nonatomic,readonly) NSDate * dateTime;
-
-
-    @property (nonatomic,readonly) NSUInteger reportVersion;
-
-    @property (nonatomic,readonly) NSNumber * numberOfHoursSinceCrash;
-
-    // Extended Attributes
-
-    @property (readonly,copy) NSString * reopenFilePath;
-
-    @property (readonly,copy) NSString * USERPathComponent;
-
-
-- (instancetype)initWithContentsOfURL:(NSURL *)inURL error:(NSError **)outError;
-
-- (instancetype)initWithContentsOfFile:(NSString *)inPath error:(NSError **)outError;
-
-- (instancetype)initWithData:(NSData *)inData error:(NSError **)outError;
-
-- (instancetype)initWithString:(NSString *)inString error:(NSError **)outError;
-
-- (BOOL)finalizeParsing;
-
-
-- (NSComparisonResult)compareProcessName:(CUIRawCrashLog *)otherCrashLog;
-
-- (NSComparisonResult)compareDateReverse:(CUIRawCrashLog *)otherCrashLog;
-
-@end

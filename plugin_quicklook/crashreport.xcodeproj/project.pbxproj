@@ -82,6 +82,10 @@
 		F4069CE726684382002B32F5 /* CUIBinaryImage+UI.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CE526684381002B32F5 /* CUIBinaryImage+UI.h */; };
 		F4069CE826684382002B32F5 /* CUIBinaryImage+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CE626684381002B32F5 /* CUIBinaryImage+UI.m */; };
 		F41C5D64266988AB00DE5D3A /* CUIStackFrameComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = F41C5D63266988AB00DE5D3A /* CUIStackFrameComponents.h */; };
+		F47F766D2673577C00A74905 /* CUICrashLogErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = F47F76692673577C00A74905 /* CUICrashLogErrors.h */; };
+		F47F766E2673577C00A74905 /* CUICrashLogErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F766A2673577C00A74905 /* CUICrashLogErrors.m */; };
+		F47F766F2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */; };
+		F47F76702673577C00A74905 /* CUICrashLogsOpenErrorRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = F47F766C2673577C00A74905 /* CUICrashLogsOpenErrorRecord.h */; };
 		F48DAE292661207800C93D40 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE282661207800C93D40 /* GenerateThumbnailForURL.m */; };
 		F48DAE2B2661207800C93D40 /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE2A2661207800C93D40 /* GeneratePreviewForURL.m */; };
 		F48DAE2D2661207800C93D40 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE2C2661207800C93D40 /* main.c */; };
@@ -167,6 +171,10 @@
 		F4069CE526684381002B32F5 /* CUIBinaryImage+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CUIBinaryImage+UI.h"; path = "../../app_unexpectedly/app_unexpectedly/CUIBinaryImage+UI.h"; sourceTree = "<group>"; };
 		F4069CE626684381002B32F5 /* CUIBinaryImage+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CUIBinaryImage+UI.m"; path = "../../app_unexpectedly/app_unexpectedly/CUIBinaryImage+UI.m"; sourceTree = "<group>"; };
 		F41C5D63266988AB00DE5D3A /* CUIStackFrameComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIStackFrameComponents.h; path = ../../app_unexpectedly/app_unexpectedly/CUIStackFrameComponents.h; sourceTree = "<group>"; };
+		F47F76692673577C00A74905 /* CUICrashLogErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogErrors.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogErrors.h; sourceTree = "<group>"; };
+		F47F766A2673577C00A74905 /* CUICrashLogErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogErrors.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogErrors.m; sourceTree = "<group>"; };
+		F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogsOpenErrorRecord.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogsOpenErrorRecord.m; sourceTree = "<group>"; };
+		F47F766C2673577C00A74905 /* CUICrashLogsOpenErrorRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogsOpenErrorRecord.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogsOpenErrorRecord.h; sourceTree = "<group>"; };
 		F48DAE252661207800C93D40 /* crashreport.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = crashreport.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48DAE282661207800C93D40 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
 		F48DAE2A2661207800C93D40 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
@@ -339,6 +347,10 @@
 				F4069C5226683CC6002B32F5 /* CUICrashLog.m */,
 				F4069CA126683E33002B32F5 /* CUICrashLogsProvider.h */,
 				F4069CA026683E33002B32F5 /* CUICrashLogsProvider.m */,
+				F47F76692673577C00A74905 /* CUICrashLogErrors.h */,
+				F47F766A2673577C00A74905 /* CUICrashLogErrors.m */,
+				F47F766C2673577C00A74905 /* CUICrashLogsOpenErrorRecord.h */,
+				F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -353,6 +365,7 @@
 				F4069C8126683CF9002B32F5 /* CUICrashLogBacktraces.h in Headers */,
 				F4069CB22668409E002B32F5 /* CUIThemeItemsGroup+UI.h in Headers */,
 				F4069C9A26683DA0002B32F5 /* CUICrashLogSectionsDetector.h in Headers */,
+				F47F766D2673577C00A74905 /* CUICrashLogErrors.h in Headers */,
 				F4069C9E26683DFF002B32F5 /* CUIOperatingSystemVersion.h in Headers */,
 				F4069C7726683CF9002B32F5 /* CUICrashLogThreadState.h in Headers */,
 				F4ACF4BD266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h in Headers */,
@@ -378,6 +391,7 @@
 				F4069C7226683CF9002B32F5 /* CUICrashLogExceptionInformation.h in Headers */,
 				F4069C8F26683D10002B32F5 /* CUIThread.h in Headers */,
 				F4069C8E26683D10002B32F5 /* CUIStackFrame.h in Headers */,
+				F47F76702673577C00A74905 /* CUICrashLogsOpenErrorRecord.h in Headers */,
 				F4069C7B26683CF9002B32F5 /* CUICrashLogHeader.h in Headers */,
 				F4069CB5266840D1002B32F5 /* CUIThemeItemsGroup.h in Headers */,
 				F4069CCD26684143002B32F5 /* NSArray+UniqueName.h in Headers */,
@@ -486,9 +500,11 @@
 				F4069C8C26683D10002B32F5 /* CUIThread.m in Sources */,
 				F4069C7326683CF9002B32F5 /* CUIBinaryImage.m in Sources */,
 				F4069CB12668409E002B32F5 /* CUIThemeItemsGroup+UI.m in Sources */,
+				F47F766E2673577C00A74905 /* CUICrashLogErrors.m in Sources */,
 				F4069C8026683CF9002B32F5 /* CUICrashLogDianosticMessages.m in Sources */,
 				F4069C9326683D2E002B32F5 /* NSArray+WBExtensions.m in Sources */,
 				F4069CB9266840E2002B32F5 /* NSDictionary+WBExtensions.m in Sources */,
+				F47F766F2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */,
 				F48DAE292661207800C93D40 /* GenerateThumbnailForURL.m in Sources */,
 				F4069CB6266840D1002B32F5 /* CUIThemeItemsGroup.m in Sources */,
 				F4069C7D26683CF9002B32F5 /* CUIRegister.m in Sources */,

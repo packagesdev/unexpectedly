@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2021, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -15,55 +15,10 @@
 
 #import "CUICrashLogErrors.h"
 
-typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
-{
-    CUICrashLogReportSourceTypeSystem=0,
-    CUICrashLogReportSourceTypeUser,
-    CUICrashLogReportSourceTypeOther
-};
+@interface CUICrashLogsOpenErrorRecord : NSObject
 
-@interface CUIRawCrashLog : NSObject
+    @property NSURL * sourceURL;
 
-    @property (readonly) id resourceIdentifier;
-
-    @property (readonly,copy) NSString * rawText;
-
-    @property (readonly,copy) NSString * crashLogFilePath;
-
-    @property (nonatomic,readonly) CUICrashLogReportSourceType reportSourceType;
-
-    @property (nonatomic,readonly) BOOL isFullyParsed;
-
-
-    @property (nonatomic,readonly,copy) NSString * processName;
-
-    @property (nonatomic,readonly) NSDate * dateTime;
-
-
-    @property (nonatomic,readonly) NSUInteger reportVersion;
-
-    @property (nonatomic,readonly) NSNumber * numberOfHoursSinceCrash;
-
-    // Extended Attributes
-
-    @property (readonly,copy) NSString * reopenFilePath;
-
-    @property (readonly,copy) NSString * USERPathComponent;
-
-
-- (instancetype)initWithContentsOfURL:(NSURL *)inURL error:(NSError **)outError;
-
-- (instancetype)initWithContentsOfFile:(NSString *)inPath error:(NSError **)outError;
-
-- (instancetype)initWithData:(NSData *)inData error:(NSError **)outError;
-
-- (instancetype)initWithString:(NSString *)inString error:(NSError **)outError;
-
-- (BOOL)finalizeParsing;
-
-
-- (NSComparisonResult)compareProcessName:(CUIRawCrashLog *)otherCrashLog;
-
-- (NSComparisonResult)compareDateReverse:(CUIRawCrashLog *)otherCrashLog;
+    @property (copy) NSError * openError;
 
 @end

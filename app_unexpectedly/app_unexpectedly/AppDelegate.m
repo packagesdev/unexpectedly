@@ -44,6 +44,10 @@
 
 #import "CUICrashReporterDefaults.h"
 
+#import "CUICrashLogsOpenErrorRecord.h"
+
+#import "CUICrashLogsOpenErrorPanel.h"
+
 NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 
 @interface AppDelegate () <NSApplicationDelegate>
@@ -247,6 +251,90 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 }
 
 #pragma mark - NSApplicationDelegate
+
+- (void)application:(NSApplication *)sender openFiles:(NSArray<NSString *> *)inFilePaths
+{
+    NSMutableArray<CUICrashLogsOpenErrorRecord *> * tOpenErrorsArray=[NSMutableArray array];
+    
+    for(NSString * tFilePath in inFilePaths)
+    {
+        BOOL tIsDirectory=NO;
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:tFilePath isDirectory:&tIsDirectory]==NO)
+        {
+            continue;
+        }
+        
+        if (tIsDirectory==NO)
+        {
+            CUICrashLogsSourcesManager * tSourcesManager=[CUICrashLogsSourcesManager sharedManager];
+            CUICrashLogsSourcesSelection * tSharedSourcesSelection=[CUICrashLogsSourcesSelection sharedSourcesSelection];
+            
+            CUICrashLogsSourceAll * tSourcesAll=[CUICrashLogsSourceAll crashLogsSourceAll];
+            
+            if ([tSourcesAll containsCrashLogForFileAtPath:tFilePath]==YES)
+            {
+                NSArray * tCrashLogSources=[tSourcesManager sourcesOfTypes:[NSSet setWithObjects:@(CUICrashLogsSourceTypeStandardDirectory),@(CUICrashLogsSourceTypeDirectory),@(CUICrashLogsSourceTypeFile),nil]];
+                
+                for(CUICrashLogsSource * tSource in tCrashLogSources)
+                {
+                    CUIRawCrashLog * tCrashLog=[tSource crashLogForFileAtPath:tFilePath];
+                    
+                    if (tCrashLog!=nil)
+                    {
+                        tSharedSourcesSelection.sources=[NSSet setWithObject:tSource];
+                        
+                        [[CUICrashLogsSelection sharedSelection] setSource:tSource crashLogs:@[tCrashLog]];
+                        
+                        break;
+                    }
+                }
+               
+                continue;
+            }
+            
+            NSError * tError;
+            
+            CUICrashLogsSourceFile * tSource=[[CUICrashLogsSourceFile alloc] initWithContentsOfFileSystemItemAtPath:tFilePath error:&tError];
+            
+            if (tSource==nil)
+            {
+                CUICrashLogsOpenErrorRecord * tRecord=[CUICrashLogsOpenErrorRecord new];
+                tRecord.sourceURL=[NSURL fileURLWithPath:tFilePath];
+                tRecord.openError=tError;
+                
+                [tOpenErrorsArray addObject:tRecord];
+                
+                continue;
+            }
+            
+            [tSourcesManager addSources:@[tSource]];
+            
+            tSharedSourcesSelection.sources=[NSSet setWithObject:tSource];
+            
+            [[CUICrashLogsSelection sharedSelection] setSource:tSource crashLogs:tSource.crashLogs];
+        }
+        else
+        {
+            CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithPath:tFilePath];
+        
+            if (tBundle.isDSYMBundle==NO)
+                continue;
+            
+            [[CUIdSYMBundlesManager sharedManager] addBundle:tBundle];
+        }
+    }
+    
+    if (tOpenErrorsArray.count>0)
+    {
+        CUICrashLogsOpenErrorPanel * tErrorPanel=[CUICrashLogsOpenErrorPanel crashLogsOpenErrorPanel];
+        
+        tErrorPanel.errors=tOpenErrorsArray;
+        
+        [tErrorPanel runModal];
+    }
+        
+}
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)inFilePath
 {
