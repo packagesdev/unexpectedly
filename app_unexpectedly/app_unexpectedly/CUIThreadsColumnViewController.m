@@ -485,8 +485,15 @@
         {
             NSString * tPath=tBinaryImage.path;
             
-            if ([tPath isEqualToString:self.crashLog.header.executablePath]==YES)
+            if (tBinaryImage.isMainImage==YES)
+            {
                 tIsUserCode=YES;
+            }
+            else
+            {
+                if ([tPath isEqualToString:self.crashLog.header.executablePath]==YES)
+                    tIsUserCode=YES;
+            }
         }
         
         if (tIsUserCode==NO)

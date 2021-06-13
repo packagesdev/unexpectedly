@@ -242,6 +242,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     self.processPath=inCrashLog.header.executablePath;
     
     
+    
     NSMutableArray * tMutableArray=[inLines mutableCopy];
     
     
@@ -919,8 +920,15 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     {
         NSString * tPath=tBinaryImage.path;
         
-        if ([tPath isEqualToString:self.processPath]==YES)
+        if (tBinaryImage.isMainImage==YES)
+        {
             tIsUserCode=YES;
+        }
+        else
+        {
+            if ([tPath isEqualToString:self.processPath]==YES)
+                tIsUserCode=YES;
+        }
     }
     
     if (tIsUserCode==NO)
@@ -1399,7 +1407,11 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     BOOL tIsUserCode=NO;
     
-    if ([tIdentifier hasPrefix:@"+"]==YES && tIdentifier.length>1)
+    tIdentifier=[tIdentifier stringByTrimmingCharactersInSet:_whitespaceCharacterSet];
+    
+    NSUInteger tIdentifierRealLength=tIdentifier.length;
+    
+    if ([tIdentifier hasPrefix:@"+"]==YES && tIdentifierRealLength>1)
     {
         // User Code
         
@@ -1407,8 +1419,6 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         
         tIdentifier=[tIdentifier substringFromIndex:1];
     }
-    
-    tIdentifier=[tIdentifier stringByTrimmingCharactersInSet:_whitespaceCharacterSet];
     
     NSMutableAttributedString * tNewLine=[[NSMutableAttributedString alloc] initWithString:inLine attributes:_cachedPlainTextAttributes];
     
@@ -1435,9 +1445,9 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
             break;
     }
     
-    tScanner.scanLocation=tIdentifierStart+tIdentifier.length;
+    tScanner.scanLocation=tIdentifierStart+tIdentifierRealLength;
     
-    NSRange tIdentifierRange=NSMakeRange(tIdentifierStart, tIdentifier.length);
+    NSRange tIdentifierRange=NSMakeRange(tIdentifierStart, tIdentifierRealLength);
     
     if (inReportVersion==6)
     {
