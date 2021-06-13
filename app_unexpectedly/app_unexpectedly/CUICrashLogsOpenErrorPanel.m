@@ -44,6 +44,22 @@
 {
     [super windowDidLoad];
     
+    NSRect tButtonFrame=_defaultButton.frame;
+    
+    _defaultButton.title=NSLocalizedString(@"OK",@"");
+    
+    [_defaultButton sizeToFit];
+    
+    CGFloat tWidth=NSWidth(_defaultButton.frame);
+    
+    if (tWidth<CUIAppkitMinimumPushButtonWidth)
+        tWidth=CUIAppkitMinimumPushButtonWidth;
+    
+    tButtonFrame.origin.x=NSMaxX(tButtonFrame)-tWidth;
+    tButtonFrame.size.width=tWidth;
+    
+    _defaultButton.frame=tButtonFrame;
+    
     [self updateUI];
 }
 
