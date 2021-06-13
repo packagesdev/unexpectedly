@@ -885,29 +885,32 @@
         return;
     }
     
-    if ([tRepresentedObject isKindOfClass:[CUICrashLog class]]==YES)
+    if ([tRepresentedObject isKindOfClass:[CUIRawCrashLog class]]==NO)
     {
-        id tCrashLog=tRepresentedObject;
+        NSLog(@"switchCrashLog: Represented object for the menu item is not a crash log object");
         
-        NSMenuItem * tParentMenuItem=sender.parentItem;
-        
-        id tParentRepresentedItem=tParentMenuItem.representedObject;
-        
-        if ([tParentRepresentedItem isKindOfClass:[CUICrashLogsSource class]]==NO)
-        {
-            
-            return;
-        }
-        
-        CUICrashLogsSource * tSource=(CUICrashLogsSource *)tParentRepresentedItem;
-        
-        if ([_sourcesSelection.sources containsObject:tSource]==NO)
-        {
-            _sourcesSelection.sources=[NSSet setWithObject:tSource];
-        }
-        
-        [_crashLogsSelection setSource:tSource crashLogs:@[tCrashLog]];
+        return;
     }
+    
+    id tCrashLog=tRepresentedObject;
+        
+    NSMenuItem * tParentMenuItem=sender.parentItem;
+    
+    id tParentRepresentedItem=tParentMenuItem.representedObject;
+    
+    if ([tParentRepresentedItem isKindOfClass:[CUICrashLogsSource class]]==NO)
+    {
+        return;
+    }
+    
+    CUICrashLogsSource * tSource=(CUICrashLogsSource *)tParentRepresentedItem;
+    
+    if ([_sourcesSelection.sources containsObject:tSource]==NO)
+    {
+        _sourcesSelection.sources=[NSSet setWithObject:tSource];
+    }
+    
+    [_crashLogsSelection setSource:tSource crashLogs:@[tCrashLog]];
     
     [self updateLayout];
 }
