@@ -4,7 +4,7 @@ Unexpectedly is a macOS utility to browse and inspect crash reports of Mac appli
 
 ## Screenshot
 
-[Alt text](http://s.sudre.free.fr/Software/Unexpectedly/images/about_top.png "Unexpectedly text mode")
+![Alt text](http://s.sudre.free.fr/Software/Unexpectedly/images/about_top.png "Unexpectedly text mode")
 
 ## Motivation
 
