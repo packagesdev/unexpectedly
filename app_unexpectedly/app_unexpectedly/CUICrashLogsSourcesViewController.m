@@ -333,7 +333,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     NSOpenPanel * tOpenPanel=[NSOpenPanel openPanel];
     tOpenPanel.canChooseFiles=YES;
     tOpenPanel.canChooseDirectories=YES;
-    tOpenPanel.allowsMultipleSelection=NO;
+    tOpenPanel.allowsMultipleSelection=YES;
     tOpenPanel.prompt=NSLocalizedString(@"Add", @"");
     //tOpenPanel.allowedFileTypes=@[@".crash"];
     
@@ -568,11 +568,36 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 {
     NSIndexSet * tSelectedRows=[_tableView WB_selectedOrClickedRowIndexes];
     
+    NSUInteger tSelectionLastIndex=tSelectedRows.lastIndex;
+    
+    CUICrashLogsSource * tNextSelectedSource=NULL;
+    
+    if ((tSelectionLastIndex+1)==_sourcesManager.allSources.count)
+    {
+        tSelectionLastIndex=NSNotFound;
+    }
+    else
+    {
+        tNextSelectedSource=_sourcesManager.allSources[tSelectionLastIndex+1];
+    }
+    
     NSArray * tArray=[_sourcesManager.allSources objectsAtIndexes:tSelectedRows];
     
     [_sourcesManager removeSources:tArray];
     
     [_tableView reloadData];
+    
+    // Select the row before the last selected one or select the last row
+    
+    NSUInteger tNewSelectedIndex=NSNotFound;
+    
+    if (tNextSelectedSource!=NULL)
+        tNewSelectedIndex=[_sourcesManager.allSources indexOfObject:tNextSelectedSource];
+    
+    if (tNewSelectedIndex==NSNotFound)
+        tNewSelectedIndex=_sourcesManager.allSources.count-1;
+    
+    [_tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:tNewSelectedIndex] byExtendingSelection:NO];
 }
 
 - (IBAction)showInFinder:(id)sender
