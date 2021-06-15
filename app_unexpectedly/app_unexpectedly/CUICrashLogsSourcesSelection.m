@@ -45,18 +45,18 @@ NSString * const CUICrashLogsSourcesSelectionDidChangeNotification=@"CUICrashLog
 
 - (NSArray *)crashLogs
 {
-    NSMutableArray * tMutableArray=[NSMutableArray array];
+    NSMutableOrderedSet * tMutableOrderedSet=[NSMutableOrderedSet orderedSet];
     
     [self.sources enumerateObjectsUsingBlock:^(CUICrashLogsSource * bSource, BOOL * bOutStop) {
         
         NSArray * tCrashLogs=bSource.crashLogs;
         
         if (tCrashLogs!=nil)
-            [tMutableArray addObjectsFromArray:tCrashLogs];
+            [tMutableOrderedSet addObjectsFromArray:tCrashLogs];
         
     }];
     
-    return tMutableArray;
+    return [tMutableOrderedSet array];
 }
 
 

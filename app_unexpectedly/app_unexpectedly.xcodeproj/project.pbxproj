@@ -49,6 +49,7 @@
 		F416688224B0BBFC00C2AB89 /* CUICrashLogPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F416688124B0BBFC00C2AB89 /* CUICrashLogPresentationViewController.m */; };
 		F416688624B0BF2000C2AB89 /* CUISidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F416688424B0BF2000C2AB89 /* CUISidebarViewController.m */; };
 		F416688724B0BF2000C2AB89 /* CUISidebarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F416688524B0BF2000C2AB89 /* CUISidebarViewController.xib */; };
+		F419376F2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F419376E2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m */; };
 		F41D66B025921F3400C0D491 /* CUIPreferencePanePresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41D66AE25921F3400C0D491 /* CUIPreferencePanePresentationViewController.m */; };
 		F41ECA5324AB689B00CE56C7 /* CUIInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F41ECA5124AB689B00CE56C7 /* CUIInspectorViewController.m */; };
 		F41ECA5424AB689B00CE56C7 /* CUIInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41ECA5224AB689B00CE56C7 /* CUIInspectorViewController.xib */; };
@@ -104,6 +105,7 @@
 		F45A2D7125EC60D90007D50E /* CUICrashLogsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45A2D7325EC60D90007D50E /* CUICrashLogsListViewController.xib */; };
 		F45B518C24AFA04000E97B87 /* CUICrashLogsSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = F45B518B24AFA04000E97B87 /* CUICrashLogsSelection.m */; };
 		F45F2F5B2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F45F2F5A2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m */; };
+		F45F84DC266ABB7600F354F3 /* crashreport.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = F45F84D8266ABB5800F354F3 /* crashreport.qlgenerator */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F46198E924CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F46198E824CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m */; };
 		F46198EE24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = F46198ED24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m */; };
 		F461CE8A25F6DD75007CFDE7 /* CUIApplicationItemAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F461CE8925F6DD75007CFDE7 /* CUIApplicationItemAttributes.m */; };
@@ -128,6 +130,9 @@
 		F476EEC125686EC000F40F87 /* CUIContentBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F476EEBF25686EC000F40F87 /* CUIContentBox.m */; };
 		F4775479255B0054006BA662 /* CUIThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4775478255B0054006BA662 /* CUIThemesTableView.m */; };
 		F47AF8C0255DE61E0037E2D8 /* NSCrashLogTextScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AF8BF255DE61E0037E2D8 /* NSCrashLogTextScrollView.m */; };
+		F47F76622673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */; };
+		F47F76652673548600A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */; };
+		F47F7668267355EA00A74905 /* CUICrashLogErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F7667267355EA00A74905 /* CUICrashLogErrors.m */; };
 		F480692E24AF7D83009665F2 /* CUICrashLogsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F480692C24AF7D83009665F2 /* CUICrashLogsListViewController.m */; };
 		F483845124EB041B00FAEF5D /* CUIThemeItemsGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = F483845024EB041B00FAEF5D /* CUIThemeItemsGroup.m */; };
 		F483845324EB11F700FAEF5D /* default_themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F483845224EB11F700FAEF5D /* default_themes.plist */; };
@@ -184,6 +189,7 @@
 		F4A58D1B24CA4B1500D98FDB /* CUICrashedThreadRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A58D1A24CA4B1500D98FDB /* CUICrashedThreadRowView.m */; };
 		F4A58D1E24CA4CDA00D98FDB /* CUICrashedThreadCallRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A58D1D24CA4CDA00D98FDB /* CUICrashedThreadCallRowView.m */; };
 		F4A7696A2555D9DE00F9D9D3 /* CUIRawCrashLog+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A769692555D9DD00F9D9D3 /* CUIRawCrashLog+UI.m */; };
+		F4A9967C2675078B0001B40E /* CUICrashLogsOpenErrorWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A9967B2675078A0001B40E /* CUICrashLogsOpenErrorWindowController.xib */; };
 		F4AA22B72561A233001A1315 /* CUIAboutBoxWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA22B52561A233001A1315 /* CUIAboutBoxWindowController.m */; };
 		F4AC864A2558A03B004F2637 /* CUIExportAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AC86482558A03B004F2637 /* CUIExportAccessoryViewController.m */; };
 		F4B018372620FEC7009727F1 /* CUIApplicationIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B018352620FEC7009727F1 /* CUIApplicationIconView.m */; };
@@ -255,6 +261,36 @@
 		F4FC77A924E1F6AB001F82CA /* CUIRawTextTransformation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FC77A824E1F6AA001F82CA /* CUIRawTextTransformation.m */; };
 		F4FE2DEA25615CA800C1774A /* CUICrashLogExceptionInformation+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE2DE925615CA800C1774A /* CUICrashLogExceptionInformation+UI.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F45F84D7266ABB5800F354F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F48DAE252661207800C93D40;
+			remoteInfo = crashreport;
+		};
+		F45F84D9266ABB6300F354F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F48DAE242661207700C93D40;
+			remoteInfo = crashreport;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F45F84DB266ABB7000F354F3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/QuickLook;
+			dstSubfolderSpec = 1;
+			files = (
+				F45F84DC266ABB7600F354F3 /* crashreport.qlgenerator in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F4040A7424F5B9CE0072BF65 /* CUINavigationChevronView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUINavigationChevronView.h; sourceTree = "<group>"; };
@@ -375,6 +411,8 @@
 		F416688324B0BF2000C2AB89 /* CUISidebarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUISidebarViewController.h; sourceTree = "<group>"; };
 		F416688424B0BF2000C2AB89 /* CUISidebarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUISidebarViewController.m; sourceTree = "<group>"; };
 		F416688524B0BF2000C2AB89 /* CUISidebarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CUISidebarViewController.xib; sourceTree = "<group>"; };
+		F419376D2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsOpenErrorPanel.h; sourceTree = "<group>"; };
+		F419376E2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsOpenErrorPanel.m; sourceTree = "<group>"; };
 		F41D66AD25921F3400C0D491 /* CUIPreferencePanePresentationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIPreferencePanePresentationViewController.h; sourceTree = "<group>"; };
 		F41D66AE25921F3400C0D491 /* CUIPreferencePanePresentationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIPreferencePanePresentationViewController.m; sourceTree = "<group>"; };
 		F41ECA5024AB689B00CE56C7 /* CUIInspectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIInspectorViewController.h; sourceTree = "<group>"; };
@@ -494,6 +532,7 @@
 		F45B518B24AFA04000E97B87 /* CUICrashLogsSelection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsSelection.m; sourceTree = "<group>"; };
 		F45F2F592538EF3F0030A402 /* NSFileManager+ExtendedAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+ExtendedAttributes.h"; path = "app_unexpectedly/NSFileManager+ExtendedAttributes.h"; sourceTree = "<group>"; };
 		F45F2F5A2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+ExtendedAttributes.m"; path = "app_unexpectedly/NSFileManager+ExtendedAttributes.m"; sourceTree = "<group>"; };
+		F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = crashreport.xcodeproj; path = ../plugin_quicklook/crashreport.xcodeproj; sourceTree = "<group>"; };
 		F46198E724CA390700FA9717 /* CUICrashLogBacktraces+Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUICrashLogBacktraces+Utilities.h"; sourceTree = "<group>"; };
 		F46198E824CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogBacktraces+Utilities.m"; sourceTree = "<group>"; };
 		F46198EC24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIInspectorAlternateBackgroundView.h; sourceTree = "<group>"; };
@@ -540,6 +579,12 @@
 		F4775478255B0054006BA662 /* CUIThemesTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThemesTableView.m; sourceTree = "<group>"; };
 		F47AF8BE255DE61E0037E2D8 /* NSCrashLogTextScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCrashLogTextScrollView.h; sourceTree = "<group>"; };
 		F47AF8BF255DE61E0037E2D8 /* NSCrashLogTextScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCrashLogTextScrollView.m; sourceTree = "<group>"; };
+		F47F76602673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUICrashLogsOpenErrorRecord+UI.h"; sourceTree = "<group>"; };
+		F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogsOpenErrorRecord+UI.m"; sourceTree = "<group>"; };
+		F47F76632673548600A74905 /* CUICrashLogsOpenErrorRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsOpenErrorRecord.h; sourceTree = "<group>"; };
+		F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsOpenErrorRecord.m; sourceTree = "<group>"; };
+		F47F7666267355EA00A74905 /* CUICrashLogErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogErrors.h; sourceTree = "<group>"; };
+		F47F7667267355EA00A74905 /* CUICrashLogErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogErrors.m; sourceTree = "<group>"; };
 		F480692B24AF7D83009665F2 /* CUICrashLogsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsListViewController.h; sourceTree = "<group>"; };
 		F480692C24AF7D83009665F2 /* CUICrashLogsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsListViewController.m; sourceTree = "<group>"; };
 		F483844F24EB041B00FAEF5D /* CUIThemeItemsGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThemeItemsGroup.h; sourceTree = "<group>"; };
@@ -651,6 +696,7 @@
 		F4A58D1D24CA4CDA00D98FDB /* CUICrashedThreadCallRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashedThreadCallRowView.m; sourceTree = "<group>"; };
 		F4A769682555D9DD00F9D9D3 /* CUIRawCrashLog+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUIRawCrashLog+UI.h"; sourceTree = "<group>"; };
 		F4A769692555D9DD00F9D9D3 /* CUIRawCrashLog+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUIRawCrashLog+UI.m"; sourceTree = "<group>"; };
+		F4A9967B2675078A0001B40E /* CUICrashLogsOpenErrorWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUICrashLogsOpenErrorWindowController.xib; sourceTree = "<group>"; };
 		F4AA22B42561A233001A1315 /* CUIAboutBoxWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIAboutBoxWindowController.h; sourceTree = "<group>"; };
 		F4AA22B52561A233001A1315 /* CUIAboutBoxWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIAboutBoxWindowController.m; sourceTree = "<group>"; };
 		F4AC86472558A03B004F2637 /* CUIExportAccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIExportAccessoryViewController.h; sourceTree = "<group>"; };
@@ -914,6 +960,16 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		F423D8CA2673F5F200E2D31D /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				F419376D2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.h */,
+				F419376E2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m */,
+				F4A9967B2675078A0001B40E /* CUICrashLogsOpenErrorWindowController.xib */,
+			);
+			name = Panels;
+			sourceTree = "<group>";
+		};
 		F4341C68258EB8B8001A5605 /* CrashReporterPreferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,6 +982,7 @@
 		F43D8FF224A7FA97008147F9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F423D8CA2673F5F200E2D31D /* Panels */,
 				F4040A7324F5B9B40072BF65 /* Views */,
 				F46198E724CA390700FA9717 /* CUICrashLogBacktraces+Utilities.h */,
 				F46198E824CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m */,
@@ -1041,6 +1098,12 @@
 				F4CC572C24A7A5F000150EC4 /* CUICrashLog+Transform.m */,
 				F4CC572224A7A1D100150EC4 /* CUICrashLogsProvider.h */,
 				F4CC572324A7A1D100150EC4 /* CUICrashLogsProvider.m */,
+				F47F7666267355EA00A74905 /* CUICrashLogErrors.h */,
+				F47F7667267355EA00A74905 /* CUICrashLogErrors.m */,
+				F47F76632673548600A74905 /* CUICrashLogsOpenErrorRecord.h */,
+				F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */,
+				F47F76602673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.h */,
+				F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1081,6 +1144,14 @@
 				F4F892FF2575A77000BE4CE0 /* Controllers */,
 			);
 			name = "Registers Palette";
+			sourceTree = "<group>";
+		};
+		F45F84D4266ABB5800F354F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F45F84D8266ABB5800F354F3 /* crashreport.qlgenerator */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F46198EA24CA41E900FA9717 /* Inspector */ = {
@@ -1350,6 +1421,7 @@
 		F4CC56F624A79EDA00150EC4 = {
 			isa = PBXGroup;
 			children = (
+				F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */,
 				F43BA4E425F2674100D8D68A /* SharedConfigurationSettings.xcconfig */,
 				F43C828D24D8AD850096F27B /* CUIStackFrameComponents.h */,
 				F4B9AD23253199EE0083FA6C /* Mach-o */,
@@ -1677,10 +1749,12 @@
 				F4CC56FC24A79EDA00150EC4 /* Frameworks */,
 				F4CC56FD24A79EDA00150EC4 /* Resources */,
 				F42D0BC525514CCB0021A551 /* Rename template file */,
+				F45F84DB266ABB7000F354F3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F45F84DA266ABB6300F354F3 /* PBXTargetDependency */,
 			);
 			name = Unexpectedly;
 			productName = Unexpectedly;
@@ -1713,12 +1787,28 @@
 			mainGroup = F4CC56F624A79EDA00150EC4;
 			productRefGroup = F4CC570024A79EDA00150EC4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F45F84D4266ABB5800F354F3 /* Products */;
+					ProjectRef = F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F4CC56FE24A79EDA00150EC4 /* Unexpectedly */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F45F84D8266ABB5800F354F3 /* crashreport.qlgenerator */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = crashreport.qlgenerator;
+			remoteRef = F45F84D7266ABB5800F354F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F4CC56FD24A79EDA00150EC4 /* Resources */ = {
@@ -1746,6 +1836,7 @@
 				F432ACC924A95014000A3E7A /* CUIThreadsListViewController.xib in Resources */,
 				F41ECA5424AB689B00CE56C7 /* CUIInspectorViewController.xib in Resources */,
 				F4A3A6EB25ED82F10018053E /* EXC_BAD_ACCESS_SIGBUS.html in Resources */,
+				F4A9967C2675078B0001B40E /* CUICrashLogsOpenErrorWindowController.xib in Resources */,
 				F4FB9EA62579BAF700692B2A /* CUILineJumperWindowController.xib in Resources */,
 				F416688724B0BF2000C2AB89 /* CUISidebarViewController.xib in Resources */,
 				F453AE4D25EE70E800B7BEF0 /* CUICrashLogPresentationTextViewController.xib in Resources */,
@@ -1846,6 +1937,7 @@
 				F4BD6A0025553E9000F98F3E /* CUICrashLogSectionsDetector.m in Sources */,
 				F4F8D26924F29624007661D6 /* CUIPresentationTextNavigationViewController.m in Sources */,
 				F469AB2524B3DDEA0053C824 /* CUICrashLogExceptionInformation.m in Sources */,
+				F419376F2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m in Sources */,
 				F4F5395924D21DB800D537BC /* CUIPreferencePaneGeneralViewController.m in Sources */,
 				F4B9AD3425319A410083FA6C /* MCHObjectFile.m in Sources */,
 				F4B649D324EDCD2300008C47 /* CUIInspectorExecutableViewController.m in Sources */,
@@ -1874,6 +1966,7 @@
 				F4040A7924F5BC230072BF65 /* CUINavigationView.m in Sources */,
 				F4B018372620FEC7009727F1 /* CUIApplicationIconView.m in Sources */,
 				F4BC577124DF426200063545 /* CUIAATextFieldCell.m in Sources */,
+				F47F76652673548600A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */,
 				F40B0D8824D3569800663282 /* NSResponder+Appearance.m in Sources */,
 				F43A9A832591260C005AB2AA /* CUIOutlineModeDisplaySettings.m in Sources */,
 				F4AC864A2558A03B004F2637 /* CUIExportAccessoryViewController.m in Sources */,
@@ -1910,6 +2003,7 @@
 				F4ED18A324EC77A300ED7EF2 /* NSArray+UniqueName.m in Sources */,
 				F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */,
 				F4C269CD2503BCC100C8F3B3 /* CUISymbolicationManager.m in Sources */,
+				F47F76622673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m in Sources */,
 				F462DD3124ADC5F900044AB1 /* CUICrashLogsSourceSmart.m in Sources */,
 				F483845624EB1BEB00FAEF5D /* CUIApplicationPreferences+Themes.m in Sources */,
 				F4306D592577E168007E667F /* CUICrashLogThreadState+UI.m in Sources */,
@@ -1971,6 +2065,7 @@
 				F464F21024ACFBA1007A3A96 /* CUIRegister.m in Sources */,
 				F4EBADB424A8F04F00DF4271 /* CUICrashLog+UI.m in Sources */,
 				F46198EE24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m in Sources */,
+				F47F7668267355EA00A74905 /* CUICrashLogErrors.m in Sources */,
 				F4F9BAF224EF060E00D08FBD /* CUIInspectorUserViewController.m in Sources */,
 				F4CC570824A79EDA00150EC4 /* main.m in Sources */,
 				F420C9B9254F30A100D24249 /* CUIFileDeadDropView.m in Sources */,
@@ -2007,6 +2102,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F45F84DA266ABB6300F354F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = crashreport;
+			targetProxy = F45F84D9266ABB6300F354F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F4055C8325EEE37400DC6CCA /* CUIMainWindowController.xib */ = {
@@ -2439,7 +2542,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -2485,7 +2587,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -2497,7 +2598,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2518,7 +2619,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 53;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;

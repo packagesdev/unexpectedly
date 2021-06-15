@@ -67,13 +67,34 @@
         {
             switch(tError.code)
             {
-                case NSFileReadNoSuchFileError: // File is missing, no point in trying to read it
+                case NSFileReadNoSuchFileError:     // File is missing, no point in trying to read it
+                case NSFileReadNoPermissionError:   // Not enough privileges to read file, no point in trying to read it
+                            
+                    if (outError!=nil)
+                        *outError=tError;
                     
                     return nil;
                     
                 default:
                     
                     break;
+            }
+        }
+        else if ([tError.domain isEqualToString:CUICrashLogDomain]==YES)
+        {
+            switch(tError.code)
+            {
+                case CUICrashLogEmptyFileError:
+                case CUICrashLogInvalidFormatFileError:
+                    
+                    // Not worth retrying as a raw file
+                    
+                    if (outError!=nil)
+                        *outError=tError;
+                    
+                    NSLog(@"Error when parsing report file \"%@\": Empty file or not a crash log report.",inPath);
+                    
+                    return nil;
             }
         }
         
@@ -113,7 +134,32 @@
 		
         if (tCrashLog==nil)
         {
-            // A COMPLETER
+            if ([tError.domain isEqualToString:NSCocoaErrorDomain]==YES)
+            {
+                switch(tError.code)
+                {
+                    case NSFileReadNoSuchFileError:     // File is missing, no point in trying to read it
+                    case NSFileReadNoPermissionError:   // Not enough privileges to read file, no point in trying to read it
+                        
+                        return nil;
+                        
+                    default:
+                        
+                        break;
+                }
+            }
+            else if ([tError.domain isEqualToString:CUICrashLogDomain]==YES)
+            {
+                switch(tError.code)
+                {
+                    case CUICrashLogEmptyFileError:
+                    case CUICrashLogInvalidFormatFileError:
+                        
+                        // Not worth retrying as a raw file
+                        
+                        return nil;
+                }
+            }
             
             tCrashLog=[[CUIRawCrashLog alloc] initWithContentsOfFile:tFilePath error:&tError];
         }

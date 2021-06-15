@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "CUICrashLogErrors.h"
+
 typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
 {
     CUICrashLogReportSourceTypeSystem=0,

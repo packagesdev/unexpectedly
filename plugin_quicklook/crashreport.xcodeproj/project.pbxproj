@@ -1,0 +1,683 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F40681CE2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F40681CC2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h */; };
+		F40681CF2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F40681CD2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m */; };
+		F4069C5726683CC7002B32F5 /* CUICrashLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C5226683CC6002B32F5 /* CUICrashLog.m */; };
+		F4069C5826683CC7002B32F5 /* CUICodeType.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C5326683CC6002B32F5 /* CUICodeType.h */; };
+		F4069C5926683CC7002B32F5 /* CUIRawCrashLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C5426683CC6002B32F5 /* CUIRawCrashLog.m */; };
+		F4069C5A26683CC7002B32F5 /* CUICrashLog.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C5526683CC7002B32F5 /* CUICrashLog.h */; };
+		F4069C5B26683CC7002B32F5 /* CUIRawCrashLog.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C5626683CC7002B32F5 /* CUIRawCrashLog.h */; };
+		F4069C7026683CF9002B32F5 /* CUICrashLogBacktraces.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C5C26683CF7002B32F5 /* CUICrashLogBacktraces.m */; };
+		F4069C7126683CF9002B32F5 /* CUIRegister.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C5D26683CF8002B32F5 /* CUIRegister.h */; };
+		F4069C7226683CF9002B32F5 /* CUICrashLogExceptionInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C5E26683CF8002B32F5 /* CUICrashLogExceptionInformation.h */; };
+		F4069C7326683CF9002B32F5 /* CUIBinaryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C5F26683CF8002B32F5 /* CUIBinaryImage.m */; };
+		F4069C7426683CF9002B32F5 /* CUICrashLogExceptionInformation+UI.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6026683CF8002B32F5 /* CUICrashLogExceptionInformation+UI.h */; };
+		F4069C7526683CF9002B32F5 /* CUICrashLogExceptionInformation+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6126683CF8002B32F5 /* CUICrashLogExceptionInformation+UI.m */; };
+		F4069C7626683CF9002B32F5 /* CUICrashLogHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6226683CF8002B32F5 /* CUICrashLogHeader.m */; };
+		F4069C7726683CF9002B32F5 /* CUICrashLogThreadState.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6326683CF8002B32F5 /* CUICrashLogThreadState.h */; };
+		F4069C7826683CF9002B32F5 /* CUICrashLogThreadState+UI.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6426683CF8002B32F5 /* CUICrashLogThreadState+UI.h */; };
+		F4069C7926683CF9002B32F5 /* CUICrashLogThreadState+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6526683CF8002B32F5 /* CUICrashLogThreadState+UI.m */; };
+		F4069C7A26683CF9002B32F5 /* CUICrashLogBinaryImages.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6626683CF8002B32F5 /* CUICrashLogBinaryImages.h */; };
+		F4069C7B26683CF9002B32F5 /* CUICrashLogHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6726683CF8002B32F5 /* CUICrashLogHeader.h */; };
+		F4069C7C26683CF9002B32F5 /* CUICrashLogExceptionInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6826683CF8002B32F5 /* CUICrashLogExceptionInformation.m */; };
+		F4069C7D26683CF9002B32F5 /* CUIRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6926683CF8002B32F5 /* CUIRegister.m */; };
+		F4069C7E26683CF9002B32F5 /* CUICrashLogDianosticMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6A26683CF9002B32F5 /* CUICrashLogDianosticMessages.h */; };
+		F4069C7F26683CF9002B32F5 /* CUICrashLogBinaryImages.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6B26683CF9002B32F5 /* CUICrashLogBinaryImages.m */; };
+		F4069C8026683CF9002B32F5 /* CUICrashLogDianosticMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6C26683CF9002B32F5 /* CUICrashLogDianosticMessages.m */; };
+		F4069C8126683CF9002B32F5 /* CUICrashLogBacktraces.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6D26683CF9002B32F5 /* CUICrashLogBacktraces.h */; };
+		F4069C8226683CF9002B32F5 /* CUICrashLogThreadState.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C6E26683CF9002B32F5 /* CUICrashLogThreadState.m */; };
+		F4069C8326683CF9002B32F5 /* CUIBinaryImage.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C6F26683CF9002B32F5 /* CUIBinaryImage.h */; };
+		F4069C8A26683D10002B32F5 /* CUICallStackBacktrace.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C8426683D10002B32F5 /* CUICallStackBacktrace.m */; };
+		F4069C8B26683D10002B32F5 /* CUIStackFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C8526683D10002B32F5 /* CUIStackFrame.m */; };
+		F4069C8C26683D10002B32F5 /* CUIThread.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C8626683D10002B32F5 /* CUIThread.m */; };
+		F4069C8D26683D10002B32F5 /* CUICallStackBacktrace.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C8726683D10002B32F5 /* CUICallStackBacktrace.h */; };
+		F4069C8E26683D10002B32F5 /* CUIStackFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C8826683D10002B32F5 /* CUIStackFrame.h */; };
+		F4069C8F26683D10002B32F5 /* CUIThread.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C8926683D10002B32F5 /* CUIThread.h */; };
+		F4069C9326683D2E002B32F5 /* NSArray+WBExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C9126683D2D002B32F5 /* NSArray+WBExtensions.m */; };
+		F4069C9426683D2E002B32F5 /* NSArray+WBExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C9226683D2D002B32F5 /* NSArray+WBExtensions.h */; };
+		F4069C9726683D88002B32F5 /* CUIParsingErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C9526683D88002B32F5 /* CUIParsingErrors.m */; };
+		F4069C9A26683DA0002B32F5 /* CUICrashLogSectionsDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C9826683DA0002B32F5 /* CUICrashLogSectionsDetector.h */; };
+		F4069C9B26683DA0002B32F5 /* CUICrashLogSectionsDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C9926683DA0002B32F5 /* CUICrashLogSectionsDetector.m */; };
+		F4069C9E26683DFF002B32F5 /* CUIOperatingSystemVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069C9C26683DFE002B32F5 /* CUIOperatingSystemVersion.h */; };
+		F4069C9F26683DFF002B32F5 /* CUIOperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069C9D26683DFF002B32F5 /* CUIOperatingSystemVersion.m */; };
+		F4069CA226683E33002B32F5 /* CUICrashLogsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CA026683E33002B32F5 /* CUICrashLogsProvider.m */; };
+		F4069CA326683E33002B32F5 /* CUICrashLogsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CA126683E33002B32F5 /* CUICrashLogsProvider.h */; };
+		F4069CA726683F10002B32F5 /* CUIRawTextTransformation.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CA526683F0F002B32F5 /* CUIRawTextTransformation.h */; };
+		F4069CA826683F10002B32F5 /* CUIRawTextTransformation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CA626683F0F002B32F5 /* CUIRawTextTransformation.m */; };
+		F4069CAB26683F49002B32F5 /* CUITextModeDisplaySettings.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CA926683F49002B32F5 /* CUITextModeDisplaySettings.h */; };
+		F4069CAC26683F49002B32F5 /* CUITextModeDisplaySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CAA26683F49002B32F5 /* CUITextModeDisplaySettings.m */; };
+		F4069CB12668409E002B32F5 /* CUIThemeItemsGroup+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CAF2668409D002B32F5 /* CUIThemeItemsGroup+UI.m */; };
+		F4069CB22668409E002B32F5 /* CUIThemeItemsGroup+UI.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CB02668409D002B32F5 /* CUIThemeItemsGroup+UI.h */; };
+		F4069CB5266840D1002B32F5 /* CUIThemeItemsGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CB3266840D1002B32F5 /* CUIThemeItemsGroup.h */; };
+		F4069CB6266840D1002B32F5 /* CUIThemeItemsGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CB4266840D1002B32F5 /* CUIThemeItemsGroup.m */; };
+		F4069CB9266840E2002B32F5 /* NSDictionary+WBExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CB7266840E2002B32F5 /* NSDictionary+WBExtensions.m */; };
+		F4069CBE266840FB002B32F5 /* CUITheme.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CBA266840FA002B32F5 /* CUITheme.h */; };
+		F4069CBF266840FB002B32F5 /* CUIThemeItemAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CBB266840FB002B32F5 /* CUIThemeItemAttributes.h */; };
+		F4069CC0266840FB002B32F5 /* CUITheme.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CBC266840FB002B32F5 /* CUITheme.m */; };
+		F4069CC1266840FB002B32F5 /* CUIThemeItemAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CBD266840FB002B32F5 /* CUIThemeItemAttributes.m */; };
+		F4069CC52668411A002B32F5 /* NSColor+String.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CC32668411A002B32F5 /* NSColor+String.h */; };
+		F4069CC62668411A002B32F5 /* NSColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CC42668411A002B32F5 /* NSColor+String.m */; };
+		F4069CC926684136002B32F5 /* CUIThemesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CC726684135002B32F5 /* CUIThemesManager.h */; };
+		F4069CCA26684136002B32F5 /* CUIThemesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CC826684135002B32F5 /* CUIThemesManager.m */; };
+		F4069CCD26684143002B32F5 /* NSArray+UniqueName.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CCB26684143002B32F5 /* NSArray+UniqueName.h */; };
+		F4069CCE26684143002B32F5 /* NSArray+UniqueName.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CCC26684143002B32F5 /* NSArray+UniqueName.m */; };
+		F4069CD32668415A002B32F5 /* CUIApplicationPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CCF2668415A002B32F5 /* CUIApplicationPreferences.h */; };
+		F4069CD42668415A002B32F5 /* CUIApplicationPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CD02668415A002B32F5 /* CUIApplicationPreferences.m */; };
+		F4069CD52668415A002B32F5 /* CUIApplicationPreferences+Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CD12668415A002B32F5 /* CUIApplicationPreferences+Themes.m */; };
+		F4069CD62668415A002B32F5 /* CUIApplicationPreferences+Themes.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CD22668415A002B32F5 /* CUIApplicationPreferences+Themes.h */; };
+		F4069CD92668416B002B32F5 /* NSDictionary+MutableDeepCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CD72668416B002B32F5 /* NSDictionary+MutableDeepCopy.h */; };
+		F4069CDA2668416B002B32F5 /* NSDictionary+MutableDeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CD82668416B002B32F5 /* NSDictionary+MutableDeepCopy.m */; };
+		F4069CDD26684199002B32F5 /* CUIOutlineModeDisplaySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CDB26684199002B32F5 /* CUIOutlineModeDisplaySettings.m */; };
+		F4069CDE26684199002B32F5 /* CUIOutlineModeDisplaySettings.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CDC26684199002B32F5 /* CUIOutlineModeDisplaySettings.h */; };
+		F4069CE1266842E5002B32F5 /* NSFileManager+ExtendedAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CDF266842E5002B32F5 /* NSFileManager+ExtendedAttributes.h */; };
+		F4069CE2266842E5002B32F5 /* NSFileManager+ExtendedAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CE0266842E5002B32F5 /* NSFileManager+ExtendedAttributes.m */; };
+		F4069CE42668430B002B32F5 /* default_themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4069CE32668430B002B32F5 /* default_themes.plist */; };
+		F4069CE726684382002B32F5 /* CUIBinaryImage+UI.h in Headers */ = {isa = PBXBuildFile; fileRef = F4069CE526684381002B32F5 /* CUIBinaryImage+UI.h */; };
+		F4069CE826684382002B32F5 /* CUIBinaryImage+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4069CE626684381002B32F5 /* CUIBinaryImage+UI.m */; };
+		F41C5D64266988AB00DE5D3A /* CUIStackFrameComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = F41C5D63266988AB00DE5D3A /* CUIStackFrameComponents.h */; };
+		F47F766D2673577C00A74905 /* CUICrashLogErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = F47F76692673577C00A74905 /* CUICrashLogErrors.h */; };
+		F47F766E2673577C00A74905 /* CUICrashLogErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F766A2673577C00A74905 /* CUICrashLogErrors.m */; };
+		F47F766F2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */; };
+		F47F76702673577C00A74905 /* CUICrashLogsOpenErrorRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = F47F766C2673577C00A74905 /* CUICrashLogsOpenErrorRecord.h */; };
+		F48DAE292661207800C93D40 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE282661207800C93D40 /* GenerateThumbnailForURL.m */; };
+		F48DAE2B2661207800C93D40 /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE2A2661207800C93D40 /* GeneratePreviewForURL.m */; };
+		F48DAE2D2661207800C93D40 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE2C2661207800C93D40 /* main.c */; };
+		F4ACF4BD266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */; };
+		F4ACF4BE266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F40681CC2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+UNXQuickLookGenerator.h"; sourceTree = "<group>"; };
+		F40681CD2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+UNXQuickLookGenerator.m"; sourceTree = "<group>"; };
+		F4069C5226683CC6002B32F5 /* CUICrashLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLog.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLog.m; sourceTree = "<group>"; };
+		F4069C5326683CC6002B32F5 /* CUICodeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICodeType.h; path = ../../app_unexpectedly/app_unexpectedly/CUICodeType.h; sourceTree = "<group>"; };
+		F4069C5426683CC6002B32F5 /* CUIRawCrashLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIRawCrashLog.m; path = ../../app_unexpectedly/app_unexpectedly/CUIRawCrashLog.m; sourceTree = "<group>"; };
+		F4069C5526683CC7002B32F5 /* CUICrashLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLog.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLog.h; sourceTree = "<group>"; };
+		F4069C5626683CC7002B32F5 /* CUIRawCrashLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIRawCrashLog.h; path = ../../app_unexpectedly/app_unexpectedly/CUIRawCrashLog.h; sourceTree = "<group>"; };
+		F4069C5C26683CF7002B32F5 /* CUICrashLogBacktraces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogBacktraces.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogBacktraces.m; sourceTree = "<group>"; };
+		F4069C5D26683CF8002B32F5 /* CUIRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIRegister.h; path = ../../app_unexpectedly/app_unexpectedly/CUIRegister.h; sourceTree = "<group>"; };
+		F4069C5E26683CF8002B32F5 /* CUICrashLogExceptionInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogExceptionInformation.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogExceptionInformation.h; sourceTree = "<group>"; };
+		F4069C5F26683CF8002B32F5 /* CUIBinaryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIBinaryImage.m; path = ../../app_unexpectedly/app_unexpectedly/CUIBinaryImage.m; sourceTree = "<group>"; };
+		F4069C6026683CF8002B32F5 /* CUICrashLogExceptionInformation+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CUICrashLogExceptionInformation+UI.h"; path = "../../app_unexpectedly/app_unexpectedly/CUICrashLogExceptionInformation+UI.h"; sourceTree = "<group>"; };
+		F4069C6126683CF8002B32F5 /* CUICrashLogExceptionInformation+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CUICrashLogExceptionInformation+UI.m"; path = "../../app_unexpectedly/app_unexpectedly/CUICrashLogExceptionInformation+UI.m"; sourceTree = "<group>"; };
+		F4069C6226683CF8002B32F5 /* CUICrashLogHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogHeader.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogHeader.m; sourceTree = "<group>"; };
+		F4069C6326683CF8002B32F5 /* CUICrashLogThreadState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogThreadState.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogThreadState.h; sourceTree = "<group>"; };
+		F4069C6426683CF8002B32F5 /* CUICrashLogThreadState+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CUICrashLogThreadState+UI.h"; path = "../../app_unexpectedly/app_unexpectedly/CUICrashLogThreadState+UI.h"; sourceTree = "<group>"; };
+		F4069C6526683CF8002B32F5 /* CUICrashLogThreadState+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CUICrashLogThreadState+UI.m"; path = "../../app_unexpectedly/app_unexpectedly/CUICrashLogThreadState+UI.m"; sourceTree = "<group>"; };
+		F4069C6626683CF8002B32F5 /* CUICrashLogBinaryImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogBinaryImages.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogBinaryImages.h; sourceTree = "<group>"; };
+		F4069C6726683CF8002B32F5 /* CUICrashLogHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogHeader.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogHeader.h; sourceTree = "<group>"; };
+		F4069C6826683CF8002B32F5 /* CUICrashLogExceptionInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogExceptionInformation.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogExceptionInformation.m; sourceTree = "<group>"; };
+		F4069C6926683CF8002B32F5 /* CUIRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIRegister.m; path = ../../app_unexpectedly/app_unexpectedly/CUIRegister.m; sourceTree = "<group>"; };
+		F4069C6A26683CF9002B32F5 /* CUICrashLogDianosticMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogDianosticMessages.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogDianosticMessages.h; sourceTree = "<group>"; };
+		F4069C6B26683CF9002B32F5 /* CUICrashLogBinaryImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogBinaryImages.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogBinaryImages.m; sourceTree = "<group>"; };
+		F4069C6C26683CF9002B32F5 /* CUICrashLogDianosticMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogDianosticMessages.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogDianosticMessages.m; sourceTree = "<group>"; };
+		F4069C6D26683CF9002B32F5 /* CUICrashLogBacktraces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogBacktraces.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogBacktraces.h; sourceTree = "<group>"; };
+		F4069C6E26683CF9002B32F5 /* CUICrashLogThreadState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogThreadState.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogThreadState.m; sourceTree = "<group>"; };
+		F4069C6F26683CF9002B32F5 /* CUIBinaryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIBinaryImage.h; path = ../../app_unexpectedly/app_unexpectedly/CUIBinaryImage.h; sourceTree = "<group>"; };
+		F4069C8426683D10002B32F5 /* CUICallStackBacktrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICallStackBacktrace.m; path = ../../app_unexpectedly/app_unexpectedly/CUICallStackBacktrace.m; sourceTree = "<group>"; };
+		F4069C8526683D10002B32F5 /* CUIStackFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIStackFrame.m; path = ../../app_unexpectedly/app_unexpectedly/CUIStackFrame.m; sourceTree = "<group>"; };
+		F4069C8626683D10002B32F5 /* CUIThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIThread.m; path = ../../app_unexpectedly/app_unexpectedly/CUIThread.m; sourceTree = "<group>"; };
+		F4069C8726683D10002B32F5 /* CUICallStackBacktrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICallStackBacktrace.h; path = ../../app_unexpectedly/app_unexpectedly/CUICallStackBacktrace.h; sourceTree = "<group>"; };
+		F4069C8826683D10002B32F5 /* CUIStackFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIStackFrame.h; path = ../../app_unexpectedly/app_unexpectedly/CUIStackFrame.h; sourceTree = "<group>"; };
+		F4069C8926683D10002B32F5 /* CUIThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIThread.h; path = ../../app_unexpectedly/app_unexpectedly/CUIThread.h; sourceTree = "<group>"; };
+		F4069C9126683D2D002B32F5 /* NSArray+WBExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+WBExtensions.m"; path = "../../app_unexpectedly/Foundation + Extensions/NSArray+WBExtensions.m"; sourceTree = "<group>"; };
+		F4069C9226683D2D002B32F5 /* NSArray+WBExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+WBExtensions.h"; path = "../../app_unexpectedly/Foundation + Extensions/NSArray+WBExtensions.h"; sourceTree = "<group>"; };
+		F4069C9526683D88002B32F5 /* CUIParsingErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CUIParsingErrors.m; path = ../../app_unexpectedly/app_unexpectedly/CUIParsingErrors.m; sourceTree = "<group>"; };
+		F4069C9626683D88002B32F5 /* CUIParsingErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CUIParsingErrors.h; path = ../../app_unexpectedly/app_unexpectedly/CUIParsingErrors.h; sourceTree = "<group>"; };
+		F4069C9826683DA0002B32F5 /* CUICrashLogSectionsDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogSectionsDetector.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogSectionsDetector.h; sourceTree = "<group>"; };
+		F4069C9926683DA0002B32F5 /* CUICrashLogSectionsDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogSectionsDetector.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogSectionsDetector.m; sourceTree = "<group>"; };
+		F4069C9C26683DFE002B32F5 /* CUIOperatingSystemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIOperatingSystemVersion.h; path = ../../app_unexpectedly/app_unexpectedly/CUIOperatingSystemVersion.h; sourceTree = "<group>"; };
+		F4069C9D26683DFF002B32F5 /* CUIOperatingSystemVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIOperatingSystemVersion.m; path = ../../app_unexpectedly/app_unexpectedly/CUIOperatingSystemVersion.m; sourceTree = "<group>"; };
+		F4069CA026683E33002B32F5 /* CUICrashLogsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogsProvider.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogsProvider.m; sourceTree = "<group>"; };
+		F4069CA126683E33002B32F5 /* CUICrashLogsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogsProvider.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogsProvider.h; sourceTree = "<group>"; };
+		F4069CA526683F0F002B32F5 /* CUIRawTextTransformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIRawTextTransformation.h; path = ../../app_unexpectedly/app_unexpectedly/CUIRawTextTransformation.h; sourceTree = "<group>"; };
+		F4069CA626683F0F002B32F5 /* CUIRawTextTransformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIRawTextTransformation.m; path = ../../app_unexpectedly/app_unexpectedly/CUIRawTextTransformation.m; sourceTree = "<group>"; };
+		F4069CA926683F49002B32F5 /* CUITextModeDisplaySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUITextModeDisplaySettings.h; path = ../../app_unexpectedly/app_unexpectedly/CUITextModeDisplaySettings.h; sourceTree = "<group>"; };
+		F4069CAA26683F49002B32F5 /* CUITextModeDisplaySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUITextModeDisplaySettings.m; path = ../../app_unexpectedly/app_unexpectedly/CUITextModeDisplaySettings.m; sourceTree = "<group>"; };
+		F4069CAF2668409D002B32F5 /* CUIThemeItemsGroup+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CUIThemeItemsGroup+UI.m"; path = "../../app_unexpectedly/app_unexpectedly/CUIThemeItemsGroup+UI.m"; sourceTree = "<group>"; };
+		F4069CB02668409D002B32F5 /* CUIThemeItemsGroup+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CUIThemeItemsGroup+UI.h"; path = "../../app_unexpectedly/app_unexpectedly/CUIThemeItemsGroup+UI.h"; sourceTree = "<group>"; };
+		F4069CB3266840D1002B32F5 /* CUIThemeItemsGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIThemeItemsGroup.h; path = ../../app_unexpectedly/app_unexpectedly/CUIThemeItemsGroup.h; sourceTree = "<group>"; };
+		F4069CB4266840D1002B32F5 /* CUIThemeItemsGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIThemeItemsGroup.m; path = ../../app_unexpectedly/app_unexpectedly/CUIThemeItemsGroup.m; sourceTree = "<group>"; };
+		F4069CB7266840E2002B32F5 /* NSDictionary+WBExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+WBExtensions.m"; path = "../../app_unexpectedly/Foundation + Extensions/NSDictionary+WBExtensions.m"; sourceTree = "<group>"; };
+		F4069CB8266840E2002B32F5 /* NSDictionary+WBExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+WBExtensions.h"; path = "../../app_unexpectedly/Foundation + Extensions/NSDictionary+WBExtensions.h"; sourceTree = "<group>"; };
+		F4069CBA266840FA002B32F5 /* CUITheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUITheme.h; path = ../../app_unexpectedly/app_unexpectedly/CUITheme.h; sourceTree = "<group>"; };
+		F4069CBB266840FB002B32F5 /* CUIThemeItemAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIThemeItemAttributes.h; path = ../../app_unexpectedly/app_unexpectedly/CUIThemeItemAttributes.h; sourceTree = "<group>"; };
+		F4069CBC266840FB002B32F5 /* CUITheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUITheme.m; path = ../../app_unexpectedly/app_unexpectedly/CUITheme.m; sourceTree = "<group>"; };
+		F4069CBD266840FB002B32F5 /* CUIThemeItemAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIThemeItemAttributes.m; path = ../../app_unexpectedly/app_unexpectedly/CUIThemeItemAttributes.m; sourceTree = "<group>"; };
+		F4069CC32668411A002B32F5 /* NSColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSColor+String.h"; path = "../../app_unexpectedly/AppKit + Extensions/NSColor+String.h"; sourceTree = "<group>"; };
+		F4069CC42668411A002B32F5 /* NSColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSColor+String.m"; path = "../../app_unexpectedly/AppKit + Extensions/NSColor+String.m"; sourceTree = "<group>"; };
+		F4069CC726684135002B32F5 /* CUIThemesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIThemesManager.h; path = ../../app_unexpectedly/app_unexpectedly/CUIThemesManager.h; sourceTree = "<group>"; };
+		F4069CC826684135002B32F5 /* CUIThemesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIThemesManager.m; path = ../../app_unexpectedly/app_unexpectedly/CUIThemesManager.m; sourceTree = "<group>"; };
+		F4069CCB26684143002B32F5 /* NSArray+UniqueName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+UniqueName.h"; path = "../../app_unexpectedly/Foundation + Extensions/NSArray+UniqueName.h"; sourceTree = "<group>"; };
+		F4069CCC26684143002B32F5 /* NSArray+UniqueName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+UniqueName.m"; path = "../../app_unexpectedly/Foundation + Extensions/NSArray+UniqueName.m"; sourceTree = "<group>"; };
+		F4069CCF2668415A002B32F5 /* CUIApplicationPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIApplicationPreferences.h; path = ../../app_unexpectedly/app_unexpectedly/CUIApplicationPreferences.h; sourceTree = "<group>"; };
+		F4069CD02668415A002B32F5 /* CUIApplicationPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIApplicationPreferences.m; path = ../../app_unexpectedly/app_unexpectedly/CUIApplicationPreferences.m; sourceTree = "<group>"; };
+		F4069CD12668415A002B32F5 /* CUIApplicationPreferences+Themes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CUIApplicationPreferences+Themes.m"; path = "../../app_unexpectedly/app_unexpectedly/CUIApplicationPreferences+Themes.m"; sourceTree = "<group>"; };
+		F4069CD22668415A002B32F5 /* CUIApplicationPreferences+Themes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CUIApplicationPreferences+Themes.h"; path = "../../app_unexpectedly/app_unexpectedly/CUIApplicationPreferences+Themes.h"; sourceTree = "<group>"; };
+		F4069CD72668416B002B32F5 /* NSDictionary+MutableDeepCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MutableDeepCopy.h"; path = "../../app_unexpectedly/Foundation + Extensions/NSDictionary+MutableDeepCopy.h"; sourceTree = "<group>"; };
+		F4069CD82668416B002B32F5 /* NSDictionary+MutableDeepCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MutableDeepCopy.m"; path = "../../app_unexpectedly/Foundation + Extensions/NSDictionary+MutableDeepCopy.m"; sourceTree = "<group>"; };
+		F4069CDB26684199002B32F5 /* CUIOutlineModeDisplaySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIOutlineModeDisplaySettings.m; path = ../../app_unexpectedly/app_unexpectedly/CUIOutlineModeDisplaySettings.m; sourceTree = "<group>"; };
+		F4069CDC26684199002B32F5 /* CUIOutlineModeDisplaySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIOutlineModeDisplaySettings.h; path = ../../app_unexpectedly/app_unexpectedly/CUIOutlineModeDisplaySettings.h; sourceTree = "<group>"; };
+		F4069CDF266842E5002B32F5 /* NSFileManager+ExtendedAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+ExtendedAttributes.h"; path = "../../app_unexpectedly/app_unexpectedly/NSFileManager+ExtendedAttributes.h"; sourceTree = "<group>"; };
+		F4069CE0266842E5002B32F5 /* NSFileManager+ExtendedAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+ExtendedAttributes.m"; path = "../../app_unexpectedly/app_unexpectedly/NSFileManager+ExtendedAttributes.m"; sourceTree = "<group>"; };
+		F4069CE32668430B002B32F5 /* default_themes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = default_themes.plist; path = ../../app_unexpectedly/app_unexpectedly/default_themes.plist; sourceTree = "<group>"; };
+		F4069CE526684381002B32F5 /* CUIBinaryImage+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CUIBinaryImage+UI.h"; path = "../../app_unexpectedly/app_unexpectedly/CUIBinaryImage+UI.h"; sourceTree = "<group>"; };
+		F4069CE626684381002B32F5 /* CUIBinaryImage+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CUIBinaryImage+UI.m"; path = "../../app_unexpectedly/app_unexpectedly/CUIBinaryImage+UI.m"; sourceTree = "<group>"; };
+		F41C5D63266988AB00DE5D3A /* CUIStackFrameComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIStackFrameComponents.h; path = ../../app_unexpectedly/app_unexpectedly/CUIStackFrameComponents.h; sourceTree = "<group>"; };
+		F47F76692673577C00A74905 /* CUICrashLogErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogErrors.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogErrors.h; sourceTree = "<group>"; };
+		F47F766A2673577C00A74905 /* CUICrashLogErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogErrors.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogErrors.m; sourceTree = "<group>"; };
+		F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogsOpenErrorRecord.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogsOpenErrorRecord.m; sourceTree = "<group>"; };
+		F47F766C2673577C00A74905 /* CUICrashLogsOpenErrorRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogsOpenErrorRecord.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogsOpenErrorRecord.h; sourceTree = "<group>"; };
+		F48DAE252661207800C93D40 /* crashreport.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = crashreport.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		F48DAE282661207800C93D40 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		F48DAE2A2661207800C93D40 /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
+		F48DAE2C2661207800C93D40 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		F48DAE2E2661207800C93D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F48DAE3B266123C300C93D40 /* SharedConfigurationSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SharedConfigurationSettings.xcconfig; path = ../Configs/SharedConfigurationSettings.xcconfig; sourceTree = "<group>"; };
+		F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUIThemesManager+QuickLookGenerator.h"; sourceTree = "<group>"; };
+		F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUIThemesManager+QuickLookGenerator.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F48DAE222661207700C93D40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F40681D0266982B200BE6BEE /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				F4069CCF2668415A002B32F5 /* CUIApplicationPreferences.h */,
+				F4069CD02668415A002B32F5 /* CUIApplicationPreferences.m */,
+				F4069CD22668415A002B32F5 /* CUIApplicationPreferences+Themes.h */,
+				F4069CD12668415A002B32F5 /* CUIApplicationPreferences+Themes.m */,
+				F4069CA926683F49002B32F5 /* CUITextModeDisplaySettings.h */,
+				F4069CAA26683F49002B32F5 /* CUITextModeDisplaySettings.m */,
+				F4069CDC26684199002B32F5 /* CUIOutlineModeDisplaySettings.h */,
+				F4069CDB26684199002B32F5 /* CUIOutlineModeDisplaySettings.m */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		F40681D1266982F600BE6BEE /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				F4069CBA266840FA002B32F5 /* CUITheme.h */,
+				F4069CBC266840FB002B32F5 /* CUITheme.m */,
+				F4069CBB266840FB002B32F5 /* CUIThemeItemAttributes.h */,
+				F4069CBD266840FB002B32F5 /* CUIThemeItemAttributes.m */,
+				F4069CB3266840D1002B32F5 /* CUIThemeItemsGroup.h */,
+				F4069CB4266840D1002B32F5 /* CUIThemeItemsGroup.m */,
+				F4069CB02668409D002B32F5 /* CUIThemeItemsGroup+UI.h */,
+				F4069CAF2668409D002B32F5 /* CUIThemeItemsGroup+UI.m */,
+				F4069CC726684135002B32F5 /* CUIThemesManager.h */,
+				F4069CC826684135002B32F5 /* CUIThemesManager.m */,
+			);
+			name = Themes;
+			sourceTree = "<group>";
+		};
+		F4069C9026683D1F002B32F5 /* Foundation + Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4069CCB26684143002B32F5 /* NSArray+UniqueName.h */,
+				F4069CCC26684143002B32F5 /* NSArray+UniqueName.m */,
+				F4069C9226683D2D002B32F5 /* NSArray+WBExtensions.h */,
+				F4069C9126683D2D002B32F5 /* NSArray+WBExtensions.m */,
+				F4069CD72668416B002B32F5 /* NSDictionary+MutableDeepCopy.h */,
+				F4069CD82668416B002B32F5 /* NSDictionary+MutableDeepCopy.m */,
+				F4069CB8266840E2002B32F5 /* NSDictionary+WBExtensions.h */,
+				F4069CB7266840E2002B32F5 /* NSDictionary+WBExtensions.m */,
+				F4069CDF266842E5002B32F5 /* NSFileManager+ExtendedAttributes.h */,
+				F4069CE0266842E5002B32F5 /* NSFileManager+ExtendedAttributes.m */,
+			);
+			name = "Foundation + Extensions";
+			sourceTree = "<group>";
+		};
+		F4069CA426683F04002B32F5 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				F4069CA526683F0F002B32F5 /* CUIRawTextTransformation.h */,
+				F4069CA626683F0F002B32F5 /* CUIRawTextTransformation.m */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
+		F4069CC22668410A002B32F5 /* AppKit + Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4069CC32668411A002B32F5 /* NSColor+String.h */,
+				F4069CC42668411A002B32F5 /* NSColor+String.m */,
+			);
+			name = "AppKit + Extensions";
+			sourceTree = "<group>";
+		};
+		F48DAE1B2661207700C93D40 = {
+			isa = PBXGroup;
+			children = (
+				F48DAE3B266123C300C93D40 /* SharedConfigurationSettings.xcconfig */,
+				F48DAE272661207800C93D40 /* crashreport */,
+				F48DAE262661207800C93D40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F48DAE262661207800C93D40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F48DAE252661207800C93D40 /* crashreport.qlgenerator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F48DAE272661207800C93D40 /* crashreport */ = {
+			isa = PBXGroup;
+			children = (
+				F41C5D63266988AB00DE5D3A /* CUIStackFrameComponents.h */,
+				F4069CC22668410A002B32F5 /* AppKit + Extensions */,
+				F4069C9026683D1F002B32F5 /* Foundation + Extensions */,
+				F48DAE342661223300C93D40 /* Model */,
+				F40681D0266982B200BE6BEE /* Preferences */,
+				F40681D1266982F600BE6BEE /* Themes */,
+				F4069CA426683F04002B32F5 /* Text */,
+				F40681CC2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h */,
+				F40681CD2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m */,
+				F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */,
+				F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */,
+				F48DAE282661207800C93D40 /* GenerateThumbnailForURL.m */,
+				F48DAE2A2661207800C93D40 /* GeneratePreviewForURL.m */,
+				F48DAE2C2661207800C93D40 /* main.c */,
+				F48DAE2E2661207800C93D40 /* Info.plist */,
+				F4069CE32668430B002B32F5 /* default_themes.plist */,
+			);
+			path = crashreport;
+			sourceTree = "<group>";
+		};
+		F48DAE342661223300C93D40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4069C9626683D88002B32F5 /* CUIParsingErrors.h */,
+				F4069C9526683D88002B32F5 /* CUIParsingErrors.m */,
+				F4069C9C26683DFE002B32F5 /* CUIOperatingSystemVersion.h */,
+				F4069C9D26683DFF002B32F5 /* CUIOperatingSystemVersion.m */,
+				F4069C8726683D10002B32F5 /* CUICallStackBacktrace.h */,
+				F4069C8426683D10002B32F5 /* CUICallStackBacktrace.m */,
+				F4069C8826683D10002B32F5 /* CUIStackFrame.h */,
+				F4069C8526683D10002B32F5 /* CUIStackFrame.m */,
+				F4069C8926683D10002B32F5 /* CUIThread.h */,
+				F4069C8626683D10002B32F5 /* CUIThread.m */,
+				F4069C6F26683CF9002B32F5 /* CUIBinaryImage.h */,
+				F4069C5F26683CF8002B32F5 /* CUIBinaryImage.m */,
+				F4069CE526684381002B32F5 /* CUIBinaryImage+UI.h */,
+				F4069CE626684381002B32F5 /* CUIBinaryImage+UI.m */,
+				F4069C6D26683CF9002B32F5 /* CUICrashLogBacktraces.h */,
+				F4069C5C26683CF7002B32F5 /* CUICrashLogBacktraces.m */,
+				F4069C6626683CF8002B32F5 /* CUICrashLogBinaryImages.h */,
+				F4069C6B26683CF9002B32F5 /* CUICrashLogBinaryImages.m */,
+				F4069C6A26683CF9002B32F5 /* CUICrashLogDianosticMessages.h */,
+				F4069C6C26683CF9002B32F5 /* CUICrashLogDianosticMessages.m */,
+				F4069C5E26683CF8002B32F5 /* CUICrashLogExceptionInformation.h */,
+				F4069C6826683CF8002B32F5 /* CUICrashLogExceptionInformation.m */,
+				F4069C6026683CF8002B32F5 /* CUICrashLogExceptionInformation+UI.h */,
+				F4069C6126683CF8002B32F5 /* CUICrashLogExceptionInformation+UI.m */,
+				F4069C6726683CF8002B32F5 /* CUICrashLogHeader.h */,
+				F4069C6226683CF8002B32F5 /* CUICrashLogHeader.m */,
+				F4069C6326683CF8002B32F5 /* CUICrashLogThreadState.h */,
+				F4069C6E26683CF9002B32F5 /* CUICrashLogThreadState.m */,
+				F4069C6426683CF8002B32F5 /* CUICrashLogThreadState+UI.h */,
+				F4069C6526683CF8002B32F5 /* CUICrashLogThreadState+UI.m */,
+				F4069C5D26683CF8002B32F5 /* CUIRegister.h */,
+				F4069C6926683CF8002B32F5 /* CUIRegister.m */,
+				F4069C9826683DA0002B32F5 /* CUICrashLogSectionsDetector.h */,
+				F4069C9926683DA0002B32F5 /* CUICrashLogSectionsDetector.m */,
+				F4069C5626683CC7002B32F5 /* CUIRawCrashLog.h */,
+				F4069C5426683CC6002B32F5 /* CUIRawCrashLog.m */,
+				F4069C5326683CC6002B32F5 /* CUICodeType.h */,
+				F4069C5526683CC7002B32F5 /* CUICrashLog.h */,
+				F4069C5226683CC6002B32F5 /* CUICrashLog.m */,
+				F4069CA126683E33002B32F5 /* CUICrashLogsProvider.h */,
+				F4069CA026683E33002B32F5 /* CUICrashLogsProvider.m */,
+				F47F76692673577C00A74905 /* CUICrashLogErrors.h */,
+				F47F766A2673577C00A74905 /* CUICrashLogErrors.m */,
+				F47F766C2673577C00A74905 /* CUICrashLogsOpenErrorRecord.h */,
+				F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F48DAE202661207700C93D40 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4069C8126683CF9002B32F5 /* CUICrashLogBacktraces.h in Headers */,
+				F4069CB22668409E002B32F5 /* CUIThemeItemsGroup+UI.h in Headers */,
+				F4069C9A26683DA0002B32F5 /* CUICrashLogSectionsDetector.h in Headers */,
+				F47F766D2673577C00A74905 /* CUICrashLogErrors.h in Headers */,
+				F4069C9E26683DFF002B32F5 /* CUIOperatingSystemVersion.h in Headers */,
+				F4069C7726683CF9002B32F5 /* CUICrashLogThreadState.h in Headers */,
+				F4ACF4BD266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h in Headers */,
+				F41C5D64266988AB00DE5D3A /* CUIStackFrameComponents.h in Headers */,
+				F4069C7A26683CF9002B32F5 /* CUICrashLogBinaryImages.h in Headers */,
+				F4069C7E26683CF9002B32F5 /* CUICrashLogDianosticMessages.h in Headers */,
+				F4069C9426683D2E002B32F5 /* NSArray+WBExtensions.h in Headers */,
+				F4069C8326683CF9002B32F5 /* CUIBinaryImage.h in Headers */,
+				F4069C5826683CC7002B32F5 /* CUICodeType.h in Headers */,
+				F4069C7126683CF9002B32F5 /* CUIRegister.h in Headers */,
+				F4069CBF266840FB002B32F5 /* CUIThemeItemAttributes.h in Headers */,
+				F4069CA326683E33002B32F5 /* CUICrashLogsProvider.h in Headers */,
+				F4069CDE26684199002B32F5 /* CUIOutlineModeDisplaySettings.h in Headers */,
+				F4069CE726684382002B32F5 /* CUIBinaryImage+UI.h in Headers */,
+				F4069C7426683CF9002B32F5 /* CUICrashLogExceptionInformation+UI.h in Headers */,
+				F4069CD92668416B002B32F5 /* NSDictionary+MutableDeepCopy.h in Headers */,
+				F40681CE2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.h in Headers */,
+				F4069CD32668415A002B32F5 /* CUIApplicationPreferences.h in Headers */,
+				F4069CD62668415A002B32F5 /* CUIApplicationPreferences+Themes.h in Headers */,
+				F4069CC926684136002B32F5 /* CUIThemesManager.h in Headers */,
+				F4069CA726683F10002B32F5 /* CUIRawTextTransformation.h in Headers */,
+				F4069C8D26683D10002B32F5 /* CUICallStackBacktrace.h in Headers */,
+				F4069C7226683CF9002B32F5 /* CUICrashLogExceptionInformation.h in Headers */,
+				F4069C8F26683D10002B32F5 /* CUIThread.h in Headers */,
+				F4069C8E26683D10002B32F5 /* CUIStackFrame.h in Headers */,
+				F47F76702673577C00A74905 /* CUICrashLogsOpenErrorRecord.h in Headers */,
+				F4069C7B26683CF9002B32F5 /* CUICrashLogHeader.h in Headers */,
+				F4069CB5266840D1002B32F5 /* CUIThemeItemsGroup.h in Headers */,
+				F4069CCD26684143002B32F5 /* NSArray+UniqueName.h in Headers */,
+				F4069C5B26683CC7002B32F5 /* CUIRawCrashLog.h in Headers */,
+				F4069CBE266840FB002B32F5 /* CUITheme.h in Headers */,
+				F4069CC52668411A002B32F5 /* NSColor+String.h in Headers */,
+				F4069C5A26683CC7002B32F5 /* CUICrashLog.h in Headers */,
+				F4069CAB26683F49002B32F5 /* CUITextModeDisplaySettings.h in Headers */,
+				F4069CE1266842E5002B32F5 /* NSFileManager+ExtendedAttributes.h in Headers */,
+				F4069C7826683CF9002B32F5 /* CUICrashLogThreadState+UI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F48DAE242661207700C93D40 /* crashreport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F48DAE312661207800C93D40 /* Build configuration list for PBXNativeTarget "crashreport" */;
+			buildPhases = (
+				F48DAE202661207700C93D40 /* Headers */,
+				F48DAE212661207700C93D40 /* Sources */,
+				F48DAE222661207700C93D40 /* Frameworks */,
+				F48DAE232661207700C93D40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = crashreport;
+			productName = crashreport;
+			productReference = F48DAE252661207800C93D40 /* crashreport.qlgenerator */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F48DAE1C2661207700C93D40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Whitebox;
+				TargetAttributes = {
+					F48DAE242661207700C93D40 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = F48DAE1F2661207700C93D40 /* Build configuration list for PBXProject "crashreport" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F48DAE1B2661207700C93D40;
+			productRefGroup = F48DAE262661207800C93D40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F48DAE242661207700C93D40 /* crashreport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F48DAE232661207700C93D40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4069CE42668430B002B32F5 /* default_themes.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F48DAE212661207700C93D40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4069CC0266840FB002B32F5 /* CUITheme.m in Sources */,
+				F4069CC1266840FB002B32F5 /* CUIThemeItemAttributes.m in Sources */,
+				F4069C7926683CF9002B32F5 /* CUICrashLogThreadState+UI.m in Sources */,
+				F40681CF2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m in Sources */,
+				F4069CD52668415A002B32F5 /* CUIApplicationPreferences+Themes.m in Sources */,
+				F4069C8226683CF9002B32F5 /* CUICrashLogThreadState.m in Sources */,
+				F4069C5926683CC7002B32F5 /* CUIRawCrashLog.m in Sources */,
+				F4069CD42668415A002B32F5 /* CUIApplicationPreferences.m in Sources */,
+				F4ACF4BE266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m in Sources */,
+				F4069CC62668411A002B32F5 /* NSColor+String.m in Sources */,
+				F4069CDD26684199002B32F5 /* CUIOutlineModeDisplaySettings.m in Sources */,
+				F4069C9726683D88002B32F5 /* CUIParsingErrors.m in Sources */,
+				F4069CA826683F10002B32F5 /* CUIRawTextTransformation.m in Sources */,
+				F4069CDA2668416B002B32F5 /* NSDictionary+MutableDeepCopy.m in Sources */,
+				F4069C9B26683DA0002B32F5 /* CUICrashLogSectionsDetector.m in Sources */,
+				F4069C8B26683D10002B32F5 /* CUIStackFrame.m in Sources */,
+				F4069CE2266842E5002B32F5 /* NSFileManager+ExtendedAttributes.m in Sources */,
+				F4069C7526683CF9002B32F5 /* CUICrashLogExceptionInformation+UI.m in Sources */,
+				F4069C5726683CC7002B32F5 /* CUICrashLog.m in Sources */,
+				F4069CAC26683F49002B32F5 /* CUITextModeDisplaySettings.m in Sources */,
+				F4069C8A26683D10002B32F5 /* CUICallStackBacktrace.m in Sources */,
+				F4069CA226683E33002B32F5 /* CUICrashLogsProvider.m in Sources */,
+				F4069CCA26684136002B32F5 /* CUIThemesManager.m in Sources */,
+				F4069CE826684382002B32F5 /* CUIBinaryImage+UI.m in Sources */,
+				F4069C8C26683D10002B32F5 /* CUIThread.m in Sources */,
+				F4069C7326683CF9002B32F5 /* CUIBinaryImage.m in Sources */,
+				F4069CB12668409E002B32F5 /* CUIThemeItemsGroup+UI.m in Sources */,
+				F47F766E2673577C00A74905 /* CUICrashLogErrors.m in Sources */,
+				F4069C8026683CF9002B32F5 /* CUICrashLogDianosticMessages.m in Sources */,
+				F4069C9326683D2E002B32F5 /* NSArray+WBExtensions.m in Sources */,
+				F4069CB9266840E2002B32F5 /* NSDictionary+WBExtensions.m in Sources */,
+				F47F766F2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */,
+				F48DAE292661207800C93D40 /* GenerateThumbnailForURL.m in Sources */,
+				F4069CB6266840D1002B32F5 /* CUIThemeItemsGroup.m in Sources */,
+				F4069C7D26683CF9002B32F5 /* CUIRegister.m in Sources */,
+				F4069C7026683CF9002B32F5 /* CUICrashLogBacktraces.m in Sources */,
+				F4069C7626683CF9002B32F5 /* CUICrashLogHeader.m in Sources */,
+				F4069CCE26684143002B32F5 /* NSArray+UniqueName.m in Sources */,
+				F4069C7C26683CF9002B32F5 /* CUICrashLogExceptionInformation.m in Sources */,
+				F48DAE2B2661207800C93D40 /* GeneratePreviewForURL.m in Sources */,
+				F4069C9F26683DFF002B32F5 /* CUIOperatingSystemVersion.m in Sources */,
+				F48DAE2D2661207800C93D40 /* main.c in Sources */,
+				F4069C7F26683CF9002B32F5 /* CUICrashLogBinaryImages.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F48DAE2F2661207800C93D40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+			};
+			name = Debug;
+		};
+		F48DAE302661207800C93D40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+			};
+			name = Release;
+		};
+		F48DAE322661207800C93D40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F48DAE3B266123C300C93D40 /* SharedConfigurationSettings.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = crashreport/Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				OTHER_CFLAGS = "-D__DISABLE_SYMBOLICATION_=1";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.whitebox.unexpectedly.qlgenerator.crashreport;
+				PRODUCT_MODULE_NAME = crashreport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Debug;
+		};
+		F48DAE332661207800C93D40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F48DAE3B266123C300C93D40 /* SharedConfigurationSettings.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = crashreport/Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				OTHER_CFLAGS = "-D__DISABLE_SYMBOLICATION_=1";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.whitebox.unexpectedly.qlgenerator.crashreport;
+				PRODUCT_MODULE_NAME = crashreport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F48DAE1F2661207700C93D40 /* Build configuration list for PBXProject "crashreport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F48DAE2F2661207800C93D40 /* Debug */,
+				F48DAE302661207800C93D40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F48DAE312661207800C93D40 /* Build configuration list for PBXNativeTarget "crashreport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F48DAE322661207800C93D40 /* Debug */,
+				F48DAE332661207800C93D40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F48DAE1C2661207700C93D40 /* Project object */;
+}

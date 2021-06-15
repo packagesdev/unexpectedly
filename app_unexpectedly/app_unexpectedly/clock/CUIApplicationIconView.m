@@ -1,10 +1,15 @@
-//
-//  CUIApplicationIconView.m
-//  IconCreator
-//
-//  Created by stephane on 17/03/2021.
-//  Copyright © 2021 Acme, inc. All rights reserved.
-//
+/*
+ Copyright (c) 2020-2021, Stephane Sudre
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ 
+ - Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ - Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ - Neither the name of the WhiteBox nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
 #import "CUIApplicationIconView.h"
 
@@ -949,10 +954,6 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         
         [tGradient drawInBezierPath:tBezierPath angle:270];
         
-        tDiskRadius-=_ratio*4.0;
-        
-        //tBezierPath=[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(tCenter.x-tDiskRadius,tCenter.y-tDiskRadius-_ratio*130,2*tDiskRadius,2*tDiskRadius)];
-        
         [[NSColor colorWithDeviceWhite:0.2 alpha:0.8] setFill];
         
         [tBezierPath fill];
@@ -1070,11 +1071,11 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         
         [NSGraphicsContext restoreGraphicsState];
         
-        tGradient=[[NSGradient alloc] initWithColorsAndLocations:[NSColor colorWithDeviceWhite:0.55 alpha:0.5],0.0,
+        /*tGradient=[[NSGradient alloc] initWithColorsAndLocations:[NSColor colorWithDeviceWhite:0.55 alpha:0.5],0.0,
                    [NSColor colorWithDeviceWhite:0.6 alpha:1.0],0.45,
                    [NSColor colorWithDeviceWhite:0.90 alpha:1.0],0.5,
                    [NSColor colorWithDeviceWhite:0.6 alpha:1.0],0.55,
-                   [NSColor colorWithDeviceWhite:0.75 alpha:1.0],1.0,nil];
+                   [NSColor colorWithDeviceWhite:0.75 alpha:1.0],1.0,nil];*/
         
         tHandlePath.lineWidth=1.0;
         [[NSColor colorWithDeviceWhite:0.40 alpha:1.0] set];
@@ -1193,8 +1194,6 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     [[NSColor colorWithDeviceWhite:0.0 alpha:0.55] setStroke];
     
-    //[[NSColor colorWithDeviceWhite:0.0 alpha:0.5] setStroke];
-    
     [tBezierPath stroke];
     
     // Curl
@@ -1209,7 +1208,6 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
                                           endAngle:30.5
                                          clockwise:YES];
     
-    //[tBezierPath lineToPoint:NSMakePoint(tCenter.x-_ratio*240,tCenter.y-_ratio*80)];
     [tBezierPath lineToPoint:NSMakePoint(tCenter.x+_ratio*240,tCenter.y+_ratio*65)];
     [tBezierPath lineToPoint:NSMakePoint(tCenter.x+_ratio*220,tCenter.y+_ratio*160)];
     [tBezierPath closePath];
@@ -1252,14 +1250,10 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         
         [[NSColor colorWithDeviceWhite:0.0 alpha:0.2] setStroke];
         
-        //[[NSColor redColor] set];
-        
         [tBezierPath stroke];
         
         
         [[NSColor colorWithDeviceWhite:0.2 alpha:0.08] setStroke];
-        
-        //[[NSColor redColor] setStroke];
     }
     
     tBezierPath=[NSBezierPath bezierPath];
@@ -1277,12 +1271,6 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     [NSBezierPath strokeLineFromPoint:NSMakePoint(tCenter.x+_ratio*28,tCenter.y+_ratio*101) toPoint:NSMakePoint(tCenter.x+_ratio*62,tCenter.y+_ratio*12)];
     
     [NSBezierPath strokeLineFromPoint:NSMakePoint(tCenter.x+_ratio*233,tCenter.y+_ratio*64) toPoint:NSMakePoint(tCenter.x+_ratio*215,tCenter.y+_ratio*157)];
-    
-    
-    //0.65*NSMaxY(tBounds))];
-    //[tClipPath lineToPoint:NSMakePoint(NSMinX(tBounds),0.35*NSMaxY(tBounds))];
-    
-    
 }
 
 - (NSData *)PNGData

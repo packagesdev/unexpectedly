@@ -37,6 +37,8 @@
 
 #import "NSArray+UniqueName.h"
 
+#import "CUICrashLogsOpenErrorPanel.h"
+
 NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedly.sources.internal.array";
 
 @interface CUICrashLogsSourcesViewController () <NSOpenSavePanelDelegate,NSTableViewDataSource,NSTableViewDelegate>
@@ -331,11 +333,13 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     NSOpenPanel * tOpenPanel=[NSOpenPanel openPanel];
     tOpenPanel.canChooseFiles=YES;
     tOpenPanel.canChooseDirectories=YES;
-    tOpenPanel.allowsMultipleSelection=NO;
+    tOpenPanel.allowsMultipleSelection=YES;
     tOpenPanel.prompt=NSLocalizedString(@"Add", @"");
     //tOpenPanel.allowedFileTypes=@[@".crash"];
     
     tOpenPanel.delegate=self;
+    
+    NSMutableArray<CUICrashLogsOpenErrorRecord *> * tOpenErrors=[NSMutableArray array];
     
     [tOpenPanel beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse bReturnCode) {
         
@@ -355,10 +359,11 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
                 continue;
             
             CUICrashLogsSource * tSource=nil;
+            NSError * tError=nil;
             
             if (tIsDirectory==NO)
             {
-                tSource=[[CUICrashLogsSourceFile alloc] initWithContentsOfFileSystemItemAtPath:tURL.path error:NULL];
+                tSource=[[CUICrashLogsSourceFile alloc] initWithContentsOfFileSystemItemAtPath:tURL.path error:&tError];
             }
             else
             {
@@ -367,6 +372,15 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
             
             if (tSource==nil)
             {
+                if (tIsDirectory==NO && tError!=nil)
+                {
+                    CUICrashLogsOpenErrorRecord * tRecord=[CUICrashLogsOpenErrorRecord new];
+                    tRecord.sourceURL=tURL;
+                    tRecord.openError=tError;
+                    
+                    [tOpenErrors addObject:tRecord];
+                }
+                
                 continue;
             }
             
@@ -380,6 +394,18 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         
         [self->_tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:self->_sourcesManager.allSources.count-1] byExtendingSelection:NO];
         
+        if (tOpenErrors.count>0)
+        {
+            NSBeep();
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                CUICrashLogsOpenErrorPanel * tErrorPanel=[CUICrashLogsOpenErrorPanel crashLogsOpenErrorPanel];
+                tErrorPanel.errors=tOpenErrors;
+                
+                [tErrorPanel runModal];
+            });
+        }
     }];
 }
 
@@ -542,11 +568,36 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 {
     NSIndexSet * tSelectedRows=[_tableView WB_selectedOrClickedRowIndexes];
     
+    NSUInteger tSelectionLastIndex=tSelectedRows.lastIndex;
+    
+    CUICrashLogsSource * tNextSelectedSource=NULL;
+    
+    if ((tSelectionLastIndex+1)==_sourcesManager.allSources.count)
+    {
+        tSelectionLastIndex=NSNotFound;
+    }
+    else
+    {
+        tNextSelectedSource=_sourcesManager.allSources[tSelectionLastIndex+1];
+    }
+    
     NSArray * tArray=[_sourcesManager.allSources objectsAtIndexes:tSelectedRows];
     
     [_sourcesManager removeSources:tArray];
     
     [_tableView reloadData];
+    
+    // Select the row before the last selected one or select the last row
+    
+    NSUInteger tNewSelectedIndex=NSNotFound;
+    
+    if (tNextSelectedSource!=NULL)
+        tNewSelectedIndex=[_sourcesManager.allSources indexOfObject:tNextSelectedSource];
+    
+    if (tNewSelectedIndex==NSNotFound)
+        tNewSelectedIndex=_sourcesManager.allSources.count-1;
+    
+    [_tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:tNewSelectedIndex] byExtendingSelection:NO];
 }
 
 - (IBAction)showInFinder:(id)sender
@@ -690,8 +741,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
             return NSDragOperationNone;
         }
         
-        if (tArray.count!=1)
-            return NSDragOperationNone;
+        /*if (tArray.count!=1)
+            return NSDragOperationNone;*/   // A VOIR (Check that multiple drop works)
         
         NSFileManager * tFileManager=[NSFileManager defaultManager];
         BOOL tIsDirectory;
@@ -809,6 +860,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         
         NSMutableArray * tDelayedSmartSources=[NSMutableArray array];
         
+        NSMutableArray<CUICrashLogsOpenErrorRecord *> * tOpenErrors=[NSMutableArray array];
+        
         NSArray * tNewSources=[tArray WB_arrayByMappingObjectsLenientlyUsingBlock:^id(NSString * bPath, NSUInteger bIndex) {
             
             CUICrashLogsSource * tSource=nil;
@@ -823,6 +876,15 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
                     if ([bPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame)
                     {
                         tSource=[[CUICrashLogsSourceFile alloc] initWithContentsOfFileSystemItemAtPath:bPath error:&tError];
+                        
+                        if (tSource==nil)
+                        {
+                            CUICrashLogsOpenErrorRecord * tRecord=[CUICrashLogsOpenErrorRecord new];
+                            tRecord.sourceURL=[NSURL fileURLWithPath:bPath];
+                            tRecord.openError=tError;
+                        
+                            [tOpenErrors addObject:tRecord];
+                        }
                     }
                     else if ([bPath.pathExtension caseInsensitiveCompare:@"smartsource"]==NSOrderedSame)
                     {
@@ -861,6 +923,19 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
             
             return tSource;
         }];
+        
+        if (tOpenErrors.count>0)
+        {
+            NSBeep();
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                CUICrashLogsOpenErrorPanel * tErrorPanel=[CUICrashLogsOpenErrorPanel crashLogsOpenErrorPanel];
+                tErrorPanel.errors=tOpenErrors;
+                
+                [tErrorPanel runModal];
+            });
+        }
         
         if (tNewSources.count==0 && tDelayedSmartSources.count==0)
             return NO;

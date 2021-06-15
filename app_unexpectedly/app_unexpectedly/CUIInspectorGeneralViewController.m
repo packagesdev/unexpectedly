@@ -138,26 +138,29 @@
     }
     else
     {
+        NSString * tDeviceOS=@"macOS";
+        
         if (tOSVersion.majorVersion>10)
         {
-            _operatingSystemVersionLabel.stringValue=@"macOS:";
+            tDeviceOS=@"macOS";
         }
         else
         {
             if (tOSVersion.minorVersion>10)
             {
-                _operatingSystemVersionLabel.stringValue=@"macOS:";
+                tDeviceOS=@"macOS";
             }
             else if (tOSVersion.minorVersion>7)
             {
-                _operatingSystemVersionLabel.stringValue=@"OS X:";
+                tDeviceOS=@"OS X";
             }
             else
             {
-                _operatingSystemVersionLabel.stringValue=@"Mac OS X:";
+                tDeviceOS=@"Mac OS X";
             }
         }
         
+        _operatingSystemVersionLabel.stringValue=[NSString stringWithFormat:NSLocalizedString(@"%@:", @""),tDeviceOS];
         
         _operatingSystemVersionValue.stringValue=tOSVersion.stringValue;
     }
