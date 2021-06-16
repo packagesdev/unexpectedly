@@ -384,6 +384,9 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     if (inFilenames==nil)
         return NO;
     
+    if ([self.crashLog isKindOfClass:[CUIRawCrashLog class]]==YES)
+        return NO;
+    
     NSFileManager * tFileManager=[NSFileManager defaultManager];
     
     CUIdSYMBundlesManager * tBundlesManager=[CUIdSYMBundlesManager sharedManager];
