@@ -56,6 +56,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     NSIndexSet * _internalDragData;
     
     NSSet * _openPanelExistingSingleFiles;
+    
+    NSSet * _openPanelExistingDirectories;
 }
 
 - (IBAction)tableViewDoubleAction:(id)sender;
@@ -343,16 +345,25 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     NSMutableArray<CUICrashLogsOpenErrorRecord *> * tOpenErrors=[NSMutableArray array];
     
-    _openPanelExistingSingleFiles=[NSSet setWithArray:[self->_sourcesManager.allSources WB_arrayByMappingObjectsLenientlyUsingBlock:^id(CUICrashLogsSourceFileSystemItem *bSource, NSUInteger bIndex) {
+    CUICrashLogsSourceAll * tSourcesAll=[CUICrashLogsSourceAll crashLogsSourceAll];
+    
+    _openPanelExistingSingleFiles=[NSSet setWithArray:[tSourcesAll.crashLogs WB_arrayByMappingObjectsLenientlyUsingBlock:^id(CUICrashLog *bCrashLog, NSUInteger bIndex) {
+    
+        return bCrashLog.crashLogFilePath;
+    }]];
+    
+    _openPanelExistingDirectories=[NSSet setWithArray:[self->_sourcesManager.allSources WB_arrayByMappingObjectsLenientlyUsingBlock:^id(CUICrashLogsSourceDirectory *bCrashSource, NSUInteger bIndex) {
         
-        if ([bSource isKindOfClass:[CUICrashLogsSourceFileSystemItem class]]==NO)
-            return nil;
+        if ([bCrashSource isKindOfClass:[CUICrashLogsSourceDirectory class]]==NO)
+             return nil;
         
-        return bSource.path;
-        
+        return bCrashSource.path;
     }]];
     
     [tOpenPanel beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse bReturnCode) {
+        
+        self->_openPanelExistingSingleFiles=nil;
+        self->_openPanelExistingDirectories=nil;
         
         if (bReturnCode==NSModalResponseCancel)
             return;
@@ -379,6 +390,10 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
             else
             {
                 tSource=[[CUICrashLogsSourceDirectory alloc] initWithContentsOfFileSystemItemAtPath:tURL.path error:NULL];
+                
+                // Check if the directory is not already a source
+                
+                // A COMPLETER
             }
             
             if (tSource==nil)
@@ -771,10 +786,6 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
                     if ([tPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame)
                     {
                         // Do not have the same file twice (as a single file source)
-
-#warning A COMPLETER (Check that file is not already listed as single source)
-                        
-                        // A COMPLETER
                     
                         for(CUIRawCrashLog * tCrashLog in tSourcesAll.crashLogs)
                         {
@@ -994,6 +1005,11 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
             return NO;
             
         if ([_openPanelExistingSingleFiles containsObject:inURL.path]==YES)
+            return NO;
+    }
+    else
+    {
+        if ([_openPanelExistingDirectories containsObject:inURL.path]==YES)
             return NO;
     }
     
