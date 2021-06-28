@@ -48,7 +48,11 @@
 
 #import "CUICrashLogsOpenErrorPanel.h"
 
+#import "WBRemoteVersionChecker.h"
+
 NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
+
+NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationShowDebugDidChangeNotification";
 
 @interface AppDelegate () <NSApplicationDelegate>
 {
@@ -77,6 +81,8 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 
 - (void)themesListDidChange:(NSNotification *)inNotification;
 
+- (void)showDebugMenuDidChange:(NSNotification *)inNotification;
+
 @end
 
 @implementation AppDelegate
@@ -102,6 +108,8 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
     NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
     
     [tNotificationCenter addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    
+    [tNotificationCenter addObserver:self selector:@selector(showDebugMenuDidChange:) name:CUIApplicationShowDebugDidChangeNotification object:nil];
 }
 
 #pragma mark -
@@ -404,6 +412,8 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [WBRemoteVersionChecker sharedChecker];
+    
     _mainWindowController=[CUIMainWindowController new];
     
     //NSLog(@"%@",_mainWindowController.window.frameAutosaveName);
@@ -421,6 +431,13 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 - (void)themesListDidChange:(NSNotification *)inNotification
 {
     [self refreshThemesMenu];
+}
+
+- (void)showDebugMenuDidChange:(NSNotification *)inNotification
+{
+    NSUserDefaults * tUserDefaults=[NSUserDefaults standardUserDefaults];
+    
+    _debugMenuBarItem.hidden=([tUserDefaults boolForKey:CUIApplicationShowDebugMenuKey]==NO);
 }
 
 @end

@@ -53,6 +53,13 @@
                             <action selector="showPane:" target="-2" id="HhP-9G-ZBT"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="25D1A26D-75F7-4BD1-998A-405AE7D65842" explicitItemIdentifier="toolbarItem.advanced" label="Advanced" paletteLabel="Advanced" image="NSAdvanced" selectable="YES" id="vqd-1P-vnH">
+                        <size key="minSize" width="32" height="32"/>
+                        <size key="maxSize" width="32" height="32"/>
+                        <connections>
+                            <action selector="showPane:" target="-2" id="bs9-H8-G59"/>
+                        </connections>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="UQU-Ps-228"/>
@@ -60,6 +67,7 @@
                     <toolbarItem reference="SAh-Qi-gC4"/>
                     <toolbarItem reference="Q5n-xT-GUE"/>
                     <toolbarItem reference="1VP-qg-tbw"/>
+                    <toolbarItem reference="vqd-1P-vnH"/>
                 </defaultToolbarItems>
                 <connections>
                     <outlet property="delegate" destination="-2" id="qsE-xQ-pGw"/>
@@ -72,6 +80,7 @@
         </window>
     </objects>
     <resources>
+        <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
         <image name="TextMode" width="32" height="32"/>
         <image name="crashreporter" width="32" height="32"/>

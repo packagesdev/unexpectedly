@@ -12,6 +12,7 @@
 		F4055C8125EEE37400DC6CCA /* CUIMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4055C8325EEE37400DC6CCA /* CUIMainWindowController.xib */; };
 		F405A96D255015D800AD2F24 /* CUICXXDemangler.mm in Sources */ = {isa = PBXBuildFile; fileRef = F405A96C255015D800AD2F24 /* CUICXXDemangler.mm */; };
 		F405A97025501A5F00AD2F24 /* CUIParsingErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F405A96F25501A5F00AD2F24 /* CUIParsingErrors.m */; };
+		F406B4992687AB1400B90C7B /* CUIPreferencePaneAdvancedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F406B49B2687AB1400B90C7B /* CUIPreferencePaneAdvancedViewController.xib */; };
 		F40ACE2D255697A3006855E5 /* CUICrashLogBrowsingState.m in Sources */ = {isa = PBXBuildFile; fileRef = F40ACE2C255697A3006855E5 /* CUICrashLogBrowsingState.m */; };
 		F40ACE30255697CE006855E5 /* CUICrashLogBrowsingStateRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = F40ACE2F255697CE006855E5 /* CUICrashLogBrowsingStateRegistry.m */; };
 		F40B0D7E24D3558800663282 /* CUIPreferencesTabBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F40B0D7824D3558700663282 /* CUIPreferencesTabBox.m */; };
@@ -58,6 +59,8 @@
 		F420C9C4254F5F4C00D24249 /* CUIdSYMHunter.m in Sources */ = {isa = PBXBuildFile; fileRef = F420C9C3254F5F4C00D24249 /* CUIdSYMHunter.m */; };
 		F420F35224E95E5F006C82CD /* CUITheme.m in Sources */ = {isa = PBXBuildFile; fileRef = F420F35124E95E5F006C82CD /* CUITheme.m */; };
 		F4214CB524B6534400852DDE /* CUICrashLogsSourcesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4214CB424B6534400852DDE /* CUICrashLogsSourcesManager.m */; };
+		F423818C267D1D4A003837AC /* CUIPreferencePaneAdvancedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F423818A267D1D4A003837AC /* CUIPreferencePaneAdvancedViewController.m */; };
+		F4238191267D3522003837AC /* WBRemoteVersionChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = F4238190267D3522003837AC /* WBRemoteVersionChecker.m */; };
 		F42B57E224ABEF6E00F77ED5 /* CUICallsSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = F42B57E124ABEF6E00F77ED5 /* CUICallsSelection.m */; };
 		F42D0BC425514B670021A551 /* template.source in Resources */ = {isa = PBXBuildFile; fileRef = F42D0BC225514B2E0021A551 /* template.source */; };
 		F4301A6825EF0DE000ACDA3F /* CUIPreferencePanePresentationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4301A6A25EF0DE000ACDA3F /* CUIPreferencePanePresentationViewController.xib */; };
@@ -233,6 +236,7 @@
 		F4CD32B6257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CD32B4257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.m */; };
 		F4CE83DE2554B97400A8BD87 /* CUICenteredLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CE83DD2554B97300A8BD87 /* CUICenteredLabelViewController.xib */; };
 		F4D5C77C2571AF900029B051 /* CUIRegisterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D5C77B2571AF900029B051 /* CUIRegisterLabel.m */; };
+		F4D6C56D2680028A00B78B3D /* RemoteCheck.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4D6C56B2680028A00B78B3D /* RemoteCheck.strings */; };
 		F4D7F15B25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F15D25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib */; };
 		F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F16125F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib */; };
 		F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E0BD24262078220048647C /* CUIAboutBoxWindow.m */; };
@@ -303,6 +307,9 @@
 		F405A96C255015D800AD2F24 /* CUICXXDemangler.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = CUICXXDemangler.mm; path = app_unexpectedly/Demangling/CUICXXDemangler.mm; sourceTree = "<group>"; };
 		F405A96E25501A5F00AD2F24 /* CUIParsingErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIParsingErrors.h; sourceTree = "<group>"; };
 		F405A96F25501A5F00AD2F24 /* CUIParsingErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIParsingErrors.m; sourceTree = "<group>"; };
+		F406B49A2687AB1400B90C7B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUIPreferencePaneAdvancedViewController.xib; sourceTree = "<group>"; };
+		F406B49C2687AB1800B90C7B /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUIPreferencePaneAdvancedViewController.xib; sourceTree = "<group>"; };
+		F406B49D2687AC1900B90C7B /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/CUIPreferencePaneAdvancedViewController.xib; sourceTree = "<group>"; };
 		F40ACE2B255697A3006855E5 /* CUICrashLogBrowsingState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogBrowsingState.h; sourceTree = "<group>"; };
 		F40ACE2C255697A3006855E5 /* CUICrashLogBrowsingState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogBrowsingState.m; sourceTree = "<group>"; };
 		F40ACE2E255697CE006855E5 /* CUICrashLogBrowsingStateRegistry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogBrowsingStateRegistry.h; sourceTree = "<group>"; };
@@ -428,6 +435,10 @@
 		F420F35124E95E5F006C82CD /* CUITheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUITheme.m; sourceTree = "<group>"; };
 		F4214CB324B6534400852DDE /* CUICrashLogsSourcesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsSourcesManager.h; sourceTree = "<group>"; };
 		F4214CB424B6534400852DDE /* CUICrashLogsSourcesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsSourcesManager.m; sourceTree = "<group>"; };
+		F4238189267D1D4A003837AC /* CUIPreferencePaneAdvancedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIPreferencePaneAdvancedViewController.h; sourceTree = "<group>"; };
+		F423818A267D1D4A003837AC /* CUIPreferencePaneAdvancedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIPreferencePaneAdvancedViewController.m; sourceTree = "<group>"; };
+		F423818F267D3521003837AC /* WBRemoteVersionChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBRemoteVersionChecker.h; sourceTree = "<group>"; };
+		F4238190267D3522003837AC /* WBRemoteVersionChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBRemoteVersionChecker.m; sourceTree = "<group>"; };
 		F42B57E024ABEF6E00F77ED5 /* CUICallsSelection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICallsSelection.h; sourceTree = "<group>"; };
 		F42B57E124ABEF6E00F77ED5 /* CUICallsSelection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICallsSelection.m; sourceTree = "<group>"; };
 		F42D0BC225514B2E0021A551 /* template.source */ = {isa = PBXFileReference; lastKnownFileType = text; path = template.source; sourceTree = "<group>"; };
@@ -780,6 +791,9 @@
 		F4CE83DD2554B97300A8BD87 /* CUICenteredLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUICenteredLabelViewController.xib; sourceTree = "<group>"; };
 		F4D5C77A2571AF900029B051 /* CUIRegisterLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIRegisterLabel.h; sourceTree = "<group>"; };
 		F4D5C77B2571AF900029B051 /* CUIRegisterLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIRegisterLabel.m; sourceTree = "<group>"; };
+		F4D6C56C2680028A00B78B3D /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RemoteCheck.strings; sourceTree = "<group>"; };
+		F4D6C56E268002DE00B78B3D /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/RemoteCheck.strings; sourceTree = "<group>"; };
+		F4D6C56F2680031E00B78B3D /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/RemoteCheck.strings; sourceTree = "<group>"; };
 		F4D7F15C25F04A620024E9A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUISymbolsFilesLibraryViewController.xib; sourceTree = "<group>"; };
 		F4D7F15E25F04A630024E9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUISymbolsFilesLibraryViewController.xib; sourceTree = "<group>"; };
 		F4D7F16025F04A9D0024E9A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUIPreferencePaneSymbolicationViewController.xib; sourceTree = "<group>"; };
@@ -958,6 +972,16 @@
 				F4F2A9D224BB809200F912D4 /* CUICrashLogsSourceTableCellView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		F423818E267D3511003837AC /* RemoteVersionChecker */ = {
+			isa = PBXGroup;
+			children = (
+				F423818F267D3521003837AC /* WBRemoteVersionChecker.h */,
+				F4238190267D3522003837AC /* WBRemoteVersionChecker.m */,
+				F4D6C56A2680028200B78B3D /* Resources */,
+			);
+			name = RemoteVersionChecker;
 			sourceTree = "<group>";
 		};
 		F423D8CA2673F5F200E2D31D /* Panels */ = {
@@ -1286,6 +1310,9 @@
 				F4B67835258F702E0047369E /* CUIPreferencePaneCrashreporterViewController.h */,
 				F4B67836258F702E0047369E /* CUIPreferencePaneCrashreporterViewController.m */,
 				F4A3A6E925ED817E0018053E /* CUIPreferencePaneCrashreporterViewController.xib */,
+				F4238189267D1D4A003837AC /* CUIPreferencePaneAdvancedViewController.h */,
+				F423818A267D1D4A003837AC /* CUIPreferencePaneAdvancedViewController.m */,
+				F406B49B2687AB1400B90C7B /* CUIPreferencePaneAdvancedViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1445,6 +1472,7 @@
 		F4CC570124A79EDA00150EC4 /* app_unexpectedly */ = {
 			isa = PBXGroup;
 			children = (
+				F423818E267D3511003837AC /* RemoteVersionChecker */,
 				F4341C68258EB8B8001A5605 /* CrashReporterPreferences */,
 				F4CDFB50257EE1BC002A73D0 /* Views */,
 				F4B138542522945E00D9DE2F /* dSYM */,
@@ -1585,6 +1613,14 @@
 				F4D5C77B2571AF900029B051 /* CUIRegisterLabel.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		F4D6C56A2680028200B78B3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4D6C56B2680028A00B78B3D /* RemoteCheck.strings */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		F4E1C10E24C22CA0000F5C0F /* Presentation Text */ = {
@@ -1862,6 +1898,7 @@
 				F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */,
 				F4754D7125F5678700B0D48F /* CUICrashLogPresentationOutlineViewController.xib in Resources */,
 				F4F892F92575A6DC00BE4CE0 /* CUIRegistersViewController.xib in Resources */,
+				F4D6C56D2680028A00B78B3D /* RemoteCheck.strings in Resources */,
 				F46D779F25ED8D3600039663 /* CUIInspectorUserViewController.xib in Resources */,
 				F464F20D24ACF9CF007A3A96 /* CUICrashLogsMainViewController.xib in Resources */,
 				F46D77AB25ED9EAE00039663 /* CUICollectionViewRegisterItem.xib in Resources */,
@@ -1870,6 +1907,7 @@
 				F4A3A6E325ED81260018053E /* CUIPreferencePaneGeneralViewController.xib in Resources */,
 				F4D7F15B25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib in Resources */,
 				F4F892FE2575A70800BE4CE0 /* CUIRegistersMainViewController.xib in Resources */,
+				F406B4992687AB1400B90C7B /* CUIPreferencePaneAdvancedViewController.xib in Resources */,
 				F45A2D6925EC602B0007D50E /* CUIBinaryImagesViewController.xib in Resources */,
 				F4A3A6E725ED817E0018053E /* CUIPreferencePaneCrashreporterViewController.xib in Resources */,
 				F416687A24B0BA5000C2AB89 /* CUICrashLogContentsViewController.xib in Resources */,
@@ -2011,6 +2049,7 @@
 				F414D09724BFBC6300A7095C /* CUICrashLogBinaryImages.m in Sources */,
 				F47AF8C0255DE61E0037E2D8 /* NSCrashLogTextScrollView.m in Sources */,
 				F40B0D8724D3569800663282 /* NSColor+LabelColor.m in Sources */,
+				F4238191267D3522003837AC /* WBRemoteVersionChecker.m in Sources */,
 				F48BAB3625D9D4140005F3E5 /* CUIThreadImageCell.m in Sources */,
 				F416687924B0BA5000C2AB89 /* CUICrashLogContentsViewController.m in Sources */,
 				F49673FE24D0CF6400716289 /* CUIPreferencesWindowController.m in Sources */,
@@ -2095,6 +2134,7 @@
 				F46BAF59250162C900991970 /* CUIPreferencesWindow.m in Sources */,
 				F4871E0A25435AF400580562 /* DWRFSection_debug_aranges.m in Sources */,
 				F40BEAFC24E9FEF8007A3F60 /* NSDictionary+WBExtensions.m in Sources */,
+				F423818C267D1D4A003837AC /* CUIPreferencePaneAdvancedViewController.m in Sources */,
 				F497303A25F796E6001D01FE /* CUIHopperDisassemblerManager.m in Sources */,
 				F4CC570624A79EDA00150EC4 /* AppDelegate.m in Sources */,
 				F4CC572424A7A1D100150EC4 /* CUICrashLogsProvider.m in Sources */,
@@ -2120,6 +2160,16 @@
 				F4111AE4265EE92600FD8950 /* es */,
 			);
 			name = CUIMainWindowController.xib;
+			sourceTree = "<group>";
+		};
+		F406B49B2687AB1400B90C7B /* CUIPreferencePaneAdvancedViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F406B49A2687AB1400B90C7B /* en */,
+				F406B49C2687AB1800B90C7B /* fr */,
+				F406B49D2687AC1900B90C7B /* es */,
+			);
+			name = CUIPreferencePaneAdvancedViewController.xib;
 			sourceTree = "<group>";
 		};
 		F40B832825FC0AEC0091D886 /* EXC_CRASH_SIGSEGV.html */ = {
@@ -2470,6 +2520,16 @@
 				F4111AE7265EE92600FD8950 /* es */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		F4D6C56B2680028A00B78B3D /* RemoteCheck.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4D6C56C2680028A00B78B3D /* en */,
+				F4D6C56E268002DE00B78B3D /* fr */,
+				F4D6C56F2680031E00B78B3D /* es */,
+			);
+			name = RemoteCheck.strings;
 			sourceTree = "<group>";
 		};
 		F4D7F15D25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib */ = {

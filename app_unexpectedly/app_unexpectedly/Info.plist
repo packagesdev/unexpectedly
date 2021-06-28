@@ -179,5 +179,18 @@
 			</dict>
 		</dict>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>s.sudre.free.fr</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>WBVersionCheckURL</key>
+	<string>http://s.sudre.free.fr/Software/Unexpectedly/RemoteVersion.plist</string>
 </dict>
 </plist>
