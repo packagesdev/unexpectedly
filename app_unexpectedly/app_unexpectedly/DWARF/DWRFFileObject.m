@@ -237,9 +237,17 @@
             // A AMELIORER (path absolu à trouver)
         }
         
+        NSString * tFilePath=tLocation.fileName;
         
+        if (tFilePath.length>0 && [tFilePath characterAtIndex:0]!='/')
+        {
+            NSString * tCompilationDirectory=tCompilationUnit.compilationDirectory;
+            
+            if (tCompilationDirectory.length>0)
+                tFilePath=[tCompilationDirectory stringByAppendingPathComponent:tFilePath];
+        }
         
-        tSymbolicationData.sourceFilePath=tLocation.fileName;
+        tSymbolicationData.sourceFilePath=tFilePath;
         
         tSymbolicationData.lineNumber=tLocation.lineNumber;
         tSymbolicationData.columnNumber=tLocation.columnNumber;

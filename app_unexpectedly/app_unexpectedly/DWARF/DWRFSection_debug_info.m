@@ -69,6 +69,29 @@
     return NO;
 }
 
+- (BOOL)iString
+{
+    switch(self.form)
+    {
+        case DW_FORM_strp:
+        case DW_FORM_strx1:
+        case DW_FORM_strx2:
+        case DW_FORM_strx3:
+        case DW_FORM_strx4:
+            
+        case DW_FORM_strx:
+            
+            return YES;
+            
+            
+        default:
+            
+            break;
+    }
+    
+    return NO;
+}
+
 - (NSString *)description
 {
     if (self.isAddress==YES)
@@ -1304,6 +1327,11 @@
 -(DW_LANG)language
 {
     return _compileUnitEntry.language;
+}
+
+-(NSString *)compilationDirectory
+{
+    return _compileUnitEntry.compilationDirectory;
 }
 
 - (DWRFDebuggingInformationEntry *)entryAtAddress:(uint8_t *)inAddress

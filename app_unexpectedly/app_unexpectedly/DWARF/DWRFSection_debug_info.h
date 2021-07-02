@@ -31,6 +31,8 @@
 
     @property (nonatomic,readonly) BOOL isConstant;
 
+@property (nonatomic,readonly) BOOL isString;
+
 @end
 
 @interface DWRFDebuggingInformationEntry : NSObject
@@ -96,6 +98,8 @@
     @property (nonatomic,readonly) DWRFLineNumberProgram * lineNumberProgram;
 
     @property (nonatomic,readonly) DW_LANG language;
+
+@property (nonatomic,readonly) NSString * compilationDirectory;
 
 - (DWRFDebuggingInformationEntry *)entryAtAddress:(uint8_t *)inAddress;
 
