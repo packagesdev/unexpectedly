@@ -189,6 +189,12 @@
     if ([inKeyPath isEqualToString:@"header.executablePath"]==YES)
         return self.header.executablePath;
     
+    if ([inKeyPath isEqualToString:@"header.executableVersion"]==YES)
+        return self.header.executableVersion;
+    
+    if ([inKeyPath isEqualToString:@"header.operatingSystemVersion.stringValue"]==YES)
+        return self.header.operatingSystemVersion.stringValue;
+    
     if ([inKeyPath isEqualToString:@"exceptionInformation.crashedThreadName"]==YES)
         return self.exceptionInformation.crashedThreadName;
     

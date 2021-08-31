@@ -62,6 +62,11 @@ typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
 - (BOOL)finalizeParsing;
 
 
+@property (nonatomic,readonly,copy) NSString * crashLogFileName;
+
+
+- (NSComparisonResult)compareCrashLogFileName:(CUIRawCrashLog *)otherCrashLog;
+
 - (NSComparisonResult)compareProcessName:(CUIRawCrashLog *)otherCrashLog;
 
 - (NSComparisonResult)compareDateReverse:(CUIRawCrashLog *)otherCrashLog;

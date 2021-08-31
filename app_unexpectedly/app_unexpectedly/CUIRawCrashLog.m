@@ -27,6 +27,8 @@
     id _reserved2;  // dateTime
     id _reserved3;  // header.bundleIdentifier
     id _reserved4;  // header.executablePath
+    id _reserved5;  // header.executableVersion
+    id _reserved6;  // header.operatingSystemVersion.stringValue
 }
 
     @property (copy) NSString * crashLogFilePath;
@@ -189,10 +191,26 @@
     if ([inKeyPath isEqualToString:@"header.executablePath"]==YES)
         return (_reserved4==nil) ? @"" : _reserved4;
     
+    if ([inKeyPath isEqualToString:@"header.executableVersion"]==YES)
+        return (_reserved5==nil) ? @"" : _reserved5;
+    
+    if ([inKeyPath isEqualToString:@"header.operatingSystemVersion.stringValue"]==YES)
+        return (_reserved6==nil) ? @"" : _reserved6;
+    
     if ([inKeyPath isEqualToString:@"exceptionInformation.crashedThreadName"]==YES)
         return @"";
     
-    return [super valueForKeyPath:inKeyPath];
+    id tValue=nil;
+    
+    @try
+    {
+        tValue=[super valueForKeyPath:inKeyPath];
+    }
+    
+    @catch(NSException * bException)
+    {
+        tValue=@"";
+    }
 }
 
 - (NSString *)processName
@@ -305,12 +323,28 @@
         _reserved3=[tHeader.bundleIdentifier copy];
         
         _reserved4=[tHeader.executablePath copy];
+        
+        _reserved5=[tHeader.executableVersion copy];
+        
+        _reserved6=[tHeader.operatingSystemVersion.stringValue copy];
     }
     
     return YES;
 }
 
 #pragma mark -
+
+- (NSString *)crashLogFileName
+{
+    return self.crashLogFilePath.lastPathComponent.stringByDeletingPathExtension;
+}
+
+#pragma mark -
+
+- (NSComparisonResult)compareCrashLogFileName:(CUIRawCrashLog *)otherCrashLog
+{
+    return [self.crashLogFileName compare:otherCrashLog.crashLogFileName options:NSNumericSearch|NSCaseInsensitiveSearch];
+}
 
 - (NSComparisonResult)compareProcessName:(CUIRawCrashLog *)otherCrashLog
 {
