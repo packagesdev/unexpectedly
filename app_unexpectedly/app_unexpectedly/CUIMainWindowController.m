@@ -205,7 +205,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     
     NSString * tCrashLogFilePath=tCrashLog.crashLogFilePath;
     
-    self.window.title=[tCrashLogFilePath lastPathComponent];
+    self.window.title=tCrashLogFilePath.lastPathComponent;
     
     self.window.representedFilename=tCrashLogFilePath;
 }

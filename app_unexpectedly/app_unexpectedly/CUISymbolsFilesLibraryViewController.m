@@ -122,6 +122,8 @@
 
 - (void)viewWillDisappear
 {
+    [super viewWillDisappear];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
