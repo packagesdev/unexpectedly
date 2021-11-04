@@ -21,11 +21,23 @@
 "%[header.executablePath]@ %[ends with]@ %@" = "%1$[Le chemin de l'exécutable]@ %2$[se termine par]@ %3$@";
 "%[header.executablePath]@ %[contains]@ %@" = "%1$[Le chemin de l'exécutable]@ %2$[contient]@ %3$@";
 
+"%[header.executableVersion]@ %[is]@ %@" = "%1$[La version de l'exécutable]@ %2$[est]@ %3$@";
+"%[header.executableVersion]@ %[is not]@ %@" = "%1$[La version de l'exécutable]@ %2$[n'est pas]@ %3$@";
+"%[header.executableVersion]@ %[begins with]@ %@" = "%1$[La version de l'exécutable]@ %2$[commence par]@ %3$@";
+"%[header.executableVersion]@ %[ends with]@ %@" = "%1$[La version de l'exécutable]@ %2$[se termine par]@ %3$@";
+"%[header.executableVersion]@ %[contains]@ %@" = "%1$[La version de l'exécutable]@ %2$[contient]@ %3$@";
+
 "%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[Le nom du thread planté]@ %2$[est]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[Le nom du thread planté]@ %2$[n'est pas]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[Le nom du thread planté]@ %2$[commence par]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[Le nom du thread planté]@ %2$[se termine par]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[Le nom du thread planté]@ %2$[contient]@ %3$@";
+
+"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[La version de l'OS]@ %2$[est]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[La version de l'OS]@ %2$[n'est pas]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[La version de l'OS]@ %2$[commence par]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[La version de l'OS]@ %2$[se termine par]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[La version de l'OS]@ %2$[contient]@ %3$@";
 
 "%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[La date]@ %2$[est antérieure ou égale à]@ %3$@";
 "%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[La date]@ %2$[est postérieure ou égale à]@ %3$@";
@@ -53,7 +65,11 @@
 "%[exceptionSignal]@ is %[SIGTRAP]@" = "%1$[Le signal de l'exception]@ est %2$[SIGTRAP]@";
 "%[exceptionSignal]@ is %[Code Signature Invalid]@" = "%1$[Le signal de l'exception]@ est %2$[Code Signature Invalid]@";
 
-
+"%[crashLogFileName]@ %[is]@ %@" = "%1$[Le nom du fichier du rapport]@ %2$[est]@ %3$@";
+"%[crashLogFileName]@ %[is not]@ %@" = "%1$[Le nom du fichier du rapport]@ %2$[n'est pas]@ %3$@";
+"%[crashLogFileName]@ %[begins with]@ %@" = "%1$[Le nom du fichier du rapport]@ %2$[commence par]@ %3$@";
+"%[crashLogFileName]@ %[ends with]@ %@" = "%1$[Le nom du fichier du rapport]@ %2$[se termine par]@ %3$@";
+"%[crashLogFileName]@ %[contains]@ %@" = "%1$[Le nom du fichier du rapport]@ %2$[contient]@ %3$@";
 
 "%[reportSourceTypeNumber]@ is %[0]@" = "%1$[La source]@ est %2$[les rapports système]@";
 "%[reportSourceTypeNumber]@ is %[1]@" = "%1$[La source]@ est %2$[les rapports utilisateurs]@";
