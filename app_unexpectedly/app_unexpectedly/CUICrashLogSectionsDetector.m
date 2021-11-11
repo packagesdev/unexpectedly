@@ -50,6 +50,7 @@
         
         if ([bLine hasPrefix:@"Application Specific Information:"]==YES ||
             [bLine hasPrefix:@"VM Regions Near"]==YES ||
+            [bLine hasPrefix:@"VM Region Info:"]==YES ||
             
             [bLine isEqualToString:@"Backtrace not available"]==YES ||
             
