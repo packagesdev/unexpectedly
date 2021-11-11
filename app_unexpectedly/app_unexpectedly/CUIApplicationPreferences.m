@@ -59,6 +59,8 @@ NSString * const CUIPreferencesSymbolicationSymbolicateAutomaticallyKey=@"symbol
 
 // Crash Logs List
 
+NSString * const CUIPreferencesCrashLogsShowFileNamesKey=@"showFileNames";
+
 NSString * const CUIPreferencesCrashLogsSortTypeKey=@"crashLogs.list.sort";
 
 // Notifications
@@ -74,7 +76,7 @@ NSString * const CUIPreferencesSymbolicationSymbolicateAutomaticallyDidChangeNot
 
 NSString * const CUIPreferencesCrashLogsSortTypeDidChangeNotification=@"CUIPreferencesCrashLogsSortTypeDidChangeNotification";
 
-
+NSString * const CUIPreferencesCrashLogsShowFileNamesDidChangeNotification=@"CUIPreferencesCrashLogsShowFileNamesDidChangeNotification";
 
 @interface CUIApplicationPreferences ()
 {
@@ -144,7 +146,8 @@ NSString * const CUIPreferencesCrashLogsSortTypeDidChangeNotification=@"CUIPrefe
                                       
                                       // Crash Logs
                                       
-                                      CUIPreferencesCrashLogsSortTypeKey:@(CUICrashLogsSortDateDescending)
+                                      CUIPreferencesCrashLogsSortTypeKey:@(CUICrashLogsSortDateDescending),
+                                      CUIPreferencesCrashLogsSortTypeKey:@(NO)
                                       
                                       }];
         
@@ -191,6 +194,8 @@ NSString * const CUIPreferencesCrashLogsSortTypeDidChangeNotification=@"CUIPrefe
         // Crash Logs
         
         _crashLogsSortType=[_defaults integerForKey:CUIPreferencesCrashLogsSortTypeKey];
+        
+        _crashLogsShowFileNames=[_defaults boolForKey:CUIPreferencesCrashLogsShowFileNamesKey];
         
     }
     
@@ -285,6 +290,18 @@ NSString * const CUIPreferencesCrashLogsSortTypeDidChangeNotification=@"CUIPrefe
     [_defaults setObject:@(_crashLogsSortType) forKey:CUIPreferencesCrashLogsSortTypeKey];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:CUIPreferencesCrashLogsSortTypeDidChangeNotification object:nil];
+}
+
+- (void)setCrashLogsShowFileNames:(BOOL)inCrashLogsShowFileNames
+{
+    if (_crashLogsShowFileNames==inCrashLogsShowFileNames)
+        return;
+    
+    _crashLogsShowFileNames=inCrashLogsShowFileNames;
+    
+    [_defaults setObject:@(_crashLogsShowFileNames) forKey:CUIPreferencesCrashLogsShowFileNamesKey];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:CUIPreferencesCrashLogsShowFileNamesDidChangeNotification object:nil];
 }
 
 @end

@@ -65,6 +65,8 @@ typedef NS_ENUM(NSUInteger, CUICrashLogsSortType)
 
     @property (nonatomic) CUICrashLogsSortType crashLogsSortType;
 
+    @property (nonatomic) BOOL crashLogsShowFileNames;
+
 
 + (CUIApplicationPreferences *)sharedPreferences;
 
@@ -79,3 +81,5 @@ extern NSString * const CUIPreferencesTextModeLineWrappingDidChangeNotification;
 extern NSString * const CUIPreferencesSymbolicationSymbolicateAutomaticallyDidChangeNotification;
 
 extern NSString * const CUIPreferencesCrashLogsSortTypeDidChangeNotification;
+
+extern NSString * const CUIPreferencesCrashLogsShowFileNamesDidChangeNotification;
