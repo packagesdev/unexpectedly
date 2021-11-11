@@ -178,6 +178,13 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
         inMenuItem.state=(tDefaults.reportUncaughtExceptions==YES) ? NSOnState : NSOffState;
     }
     
+    if (tAction==@selector(switchLogsListShowFileNames:))
+    {
+        CUIApplicationPreferences * tApplicationPreferences=[CUIApplicationPreferences sharedPreferences];
+        
+        inMenuItem.state=(tApplicationPreferences.crashLogsShowFileNames==YES) ? NSOnState : NSOffState;
+    }
+    
     
     return YES;
 }
