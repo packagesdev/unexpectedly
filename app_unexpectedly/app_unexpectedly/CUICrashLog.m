@@ -272,7 +272,8 @@
     NSString * tString=inLines[tFirstLine];
     
     if ([tString hasPrefix:@"Application Specific Information:"]==YES ||
-        [tString hasPrefix:@"VM Regions Near"]==YES)
+        [tString hasPrefix:@"VM Regions Near"]==YES ||
+        [tString hasPrefix:@"VM Region Info:"]==YES)
     {
         tRange=[CUICrashLogSectionsDetector detectDiagnosticMessageSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
         
