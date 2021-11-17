@@ -30,23 +30,6 @@
 
 @interface CUICrashLog : CUIRawCrashLog
 
-    // Sections ranges
-
-    @property (readonly) NSRange headerRange;
-
-    @property (readonly) NSRange exceptionInformationRange;
-    @property (readonly) NSRange diagnosticMessagesRange;
-
-    @property (readonly) NSRange backtracesRange;
-
-    @property (readonly) NSRange threadStateRange;
-
-    @property (readonly) NSRange binaryImagesRange;
-
-
-
-
-
     @property (readonly) CUICrashLogHeader * header;
 
     @property (readonly) CUICrashLogExceptionInformation * exceptionInformation;

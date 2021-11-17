@@ -15,15 +15,17 @@
 
 #import "CUIThread.h"
 
+#import "IPSIncident.h"
+
 @interface CUICrashLogBacktraces : NSObject
 
 @property (readonly) BOOL hasApplicationSpecificBacktrace;
 
-@property (readonly) NSUInteger relativeCrashedThreadLine;
-
 @property (nonatomic,readonly) NSArray<CUIThread *> * threads;
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError;
 
 - (CUIThread *)threadNamed:(NSString *)inName;
 

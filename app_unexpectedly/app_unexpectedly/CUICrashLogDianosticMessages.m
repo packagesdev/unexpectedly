@@ -45,6 +45,28 @@
     return self;
 }
 
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
+{
+    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        IPSIncidentDiagnosticMessage * tDiagnosticMessage=inIncident.diagnosticMessage;
+        
+        //_messages=;
+    }
+    
+    return self;
+}
+
 #pragma mark -
 
 - (BOOL)parseTextualRepresentation:(NSArray *)inLines outError:(NSError **)outError

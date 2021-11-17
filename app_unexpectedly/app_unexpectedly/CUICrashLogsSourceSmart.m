@@ -16,6 +16,10 @@
 #import "CUICrashLogsSourceAll.h"
 
 #define SMARTSOURCE_VERSION_1       1
+#define SMARTSOURCE_VERSION_2       2
+
+#define SMARTSOURCE_CURRENTVERSION  SMARTSOURCE_VERSION_2
+#define SMARTSOURCE_MAXIMUMSUPPORTEDVERSION  SMARTSOURCE_VERSION_2
 
 NSString * const CUICrashLogsSourcesSmartVersionKey=@"version";
 
@@ -44,7 +48,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
         
         self.name=NSLocalizedString(@"Untitled source", @"");
         
-        _version=SMARTSOURCE_VERSION_1;
+        _version=SMARTSOURCE_CURRENTVERSION;
         
         _predicate=[NSPredicate predicateWithFormat:@"processName = \"MyApplication\""];
     }
@@ -72,6 +76,13 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
         else
         {
             _version=SMARTSOURCE_VERSION_1;
+        }
+        
+        if (_version>SMARTSOURCE_MAXIMUMSUPPORTEDVERSION)
+        {
+            NSLog(@"Smart Source object version (%lu) is not supported by this version of Unexpectedly",(unsigned long)_version);
+            
+            return nil;
         }
         
         NSString * tString=inRepresentation[CUICrashLogsSourcesSmartPredicateKey];

@@ -13,6 +13,10 @@
 
 #import "CUIBinaryImage.h"
 
+#import "NSString+CPU.h"
+
+#import "IPSImage+UserCode.h"
+
 @interface CUIAddressesRange ()
 
 + (CUIAddressesRange *)addressesRangeWithLocation:(NSUInteger)inLocation length:(NSUInteger)inLength;
@@ -238,6 +242,42 @@
             return nil;
         
         _path=[[inString substringFromIndex:tScanner.scanLocation] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithImage:(IPSImage *)inImage error:(NSError **)outError
+{
+    if ([inImage isKindOfClass:[IPSImage class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        _userCode=inImage.isUserCode;
+
+        _identifier=[((inImage.bundleIdentifier!=nil) ? inImage.bundleIdentifier : inImage.name) copy];
+
+        _architecture=[inImage.architecture CUI_CPUType];
+
+        _version=[inImage.bundleShortVersionString copy];
+
+        _buildNumber=[inImage.bundleVersion copy];
+        
+        _UUID=[inImage.UUID.UUIDString copy];
+        
+        _path=[inImage.path copy];
+        
+        _addressesRange=[CUIAddressesRange new];
+        _addressesRange.loadAddress=inImage.loadAddress;
+        _addressesRange.length=inImage.size;
     }
     
     return self;

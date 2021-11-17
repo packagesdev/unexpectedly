@@ -20,4 +20,3 @@
     @property (readonly) NSTableView * tableView;
 
 @end
-

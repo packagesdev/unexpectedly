@@ -51,6 +51,8 @@
     CUICrashLogsSortType _sortType;
     
     NSDateFormatter * _crashLogDateFormatter;
+    
+    BOOL _showsFileNames;
 }
 
 - (IBAction)share:(id)sender;
@@ -63,6 +65,8 @@
 
 - (IBAction)takeFilterPatternFrom:(id)sender;
 
+- (IBAction)switchDisplayedName:(id)sender;
+
 - (IBAction)switchSortType:(id)sender;
 
 // Notification
@@ -72,6 +76,8 @@
 - (void)crashLogsSelectionDidChange:(NSNotification *)inNotification;
 
 - (void)crashLogsSortTypeDidChange:(NSNotification *)inNotification;
+
+- (void)showFileNamesDidChange:(NSNotification *)inNotification;
 
 @end
 
@@ -90,7 +96,11 @@
         _crashLogDateFormatter.dateStyle=NSDateFormatterMediumStyle;
         _crashLogDateFormatter.timeStyle=NSDateFormatterShortStyle;
         
-        _sortType=[CUIApplicationPreferences sharedPreferences].crashLogsSortType;
+        CUIApplicationPreferences * tApplicationPreferences=[CUIApplicationPreferences sharedPreferences];
+        
+        _sortType=tApplicationPreferences.crashLogsSortType;
+        
+        _showsFileNames=(tApplicationPreferences.crashLogsShowFileNames==YES);
     }
     
     return self;
@@ -147,6 +157,8 @@
     [tNotificationCenter addObserver:self selector:@selector(crashLogsSelectionDidChange:) name:CUICrashLogsSelectionDidChangeNotification object:[CUICrashLogsSelection sharedSelection]];
     
     [tNotificationCenter addObserver:self selector:@selector(crashLogsSortTypeDidChange:) name:CUIPreferencesCrashLogsSortTypeDidChangeNotification object:nil];
+    
+    [tNotificationCenter addObserver:self selector:@selector(showFileNamesDidChange:) name:CUIPreferencesCrashLogsShowFileNamesDidChangeNotification object:nil];
 }
 
 #pragma mark -
@@ -174,13 +186,27 @@
             if ([bCrashLog isKindOfClass:[CUICrashLog class]]==NO)
                 return;
             
-            NSString * tResponsibleProcessName=bCrashLog.header.responsibleProcessName;
-            
-            if (tResponsibleProcessName!=nil && [tResponsibleProcessName rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound)
+            if (self->_showsFileNames==NO)
             {
-                [self->_filteredAndSortedCrashLogsArray addObject:bCrashLog];
+                NSString * tResponsibleProcessName=bCrashLog.header.responsibleProcessName;
                 
-                return;
+                if (tResponsibleProcessName!=nil && [tResponsibleProcessName rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound)
+                {
+                    [self->_filteredAndSortedCrashLogsArray addObject:bCrashLog];
+                
+                    return;
+                }
+            }
+            else
+            {
+                NSString * tCrashLogFileName=bCrashLog.crashLogFilePath.lastPathComponent.stringByDeletingPathExtension;
+                
+                if (tCrashLogFileName!=nil && [tCrashLogFileName rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound)
+                {
+                    [self->_filteredAndSortedCrashLogsArray addObject:bCrashLog];
+                    
+                    return;
+                }
             }
             
             if ([bCrashLog.exceptionInformation.exceptionType rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound ||
@@ -207,8 +233,10 @@
             
         case CUICrashLogsSortProcessNameAscending:
             
-            [_filteredAndSortedCrashLogsArray sortUsingSelector:@selector(compareProcessName:)];
-            
+            if (_showsFileNames==NO)
+                [_filteredAndSortedCrashLogsArray sortUsingSelector:@selector(compareProcessName:)];
+            else
+                [_filteredAndSortedCrashLogsArray sortUsingSelector:@selector(compareCrashLogFileName:)];
             break;
     }
     
@@ -263,6 +291,9 @@
 
 - (BOOL)validateMenuItem:(NSMenuItem *)inMenuItem
 {
+    if (inMenuItem.tag==-1)
+        return NO;
+    
     SEL tAction=inMenuItem.action;
     
     if (tAction==@selector(showInFinder:) ||
@@ -319,12 +350,21 @@
         return YES;
     }
     
+    if (tAction==@selector(switchDisplayedName:))
+    {
+        inMenuItem.state=(inMenuItem.tag==_showsFileNames) ? NSOnState : NSOffState;
+        
+        return YES;
+    }
+    
     if (tAction==@selector(switchSortType:))
     {
         inMenuItem.state=(inMenuItem.tag==_sortType) ? NSOnState : NSOffState;
         
         return YES;
     }
+    
+    
     
     return YES;
 }
@@ -451,9 +491,19 @@
     [self refreshList];
 }
 
-- (IBAction)switchSortType:(NSPopUpButton *)sender
+- (IBAction)switchDisplayedName:(NSMenuItem *)sender
 {
-    NSInteger tTag=sender.selectedTag;
+    NSInteger tTag=sender.tag;
+    
+    if (tTag!=_showsFileNames)
+    {
+        [CUIApplicationPreferences sharedPreferences].crashLogsShowFileNames=tTag;
+    }
+}
+
+- (IBAction)switchSortType:(NSMenuItem *)sender
+{
+    NSInteger tTag=sender.tag;
     
     if (tTag!=_sortType)
     {
@@ -476,10 +526,27 @@
     
     CUIRawCrashLog * tCrashLog=_filteredAndSortedCrashLogsArray[inRow];
     
-    tTableCellView.imageView.image=((CUICrashLog *)tCrashLog).processIcon;
+    if (_showsFileNames==NO)
+    {
+        tTableCellView.imageView.image=((CUICrashLog *)tCrashLog).processIcon;
     
-    
-    tTableCellView.textField.stringValue=tCrashLog.processName;
+        tTableCellView.textField.stringValue=tCrashLog.processName;
+        tTableCellView.textField.lineBreakMode=NSLineBreakByTruncatingTail;
+    }
+    else
+    {
+        static NSImage * sCrashLogFileIcon=nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            
+            sCrashLogFileIcon=[[NSWorkspace sharedWorkspace] iconForFileType:@"com.apple.crashreport"];
+            
+        });
+        
+        tTableCellView.imageView.image=sCrashLogFileIcon;
+        tTableCellView.textField.stringValue=tCrashLog.crashLogFilePath.lastPathComponent.stringByDeletingPathExtension;
+        tTableCellView.textField.lineBreakMode=NSLineBreakByTruncatingMiddle;
+    }
     
     tTableCellView.dateLabel.formatter=_crashLogDateFormatter;
     tTableCellView.dateLabel.objectValue=tCrashLog.dateTime;
@@ -673,6 +740,13 @@
 - (void)crashLogsSortTypeDidChange:(NSNotification *)inNotification
 {
     _sortType=[CUIApplicationPreferences sharedPreferences].crashLogsSortType;
+    
+    [self refreshList];
+}
+
+- (void)showFileNamesDidChange:(NSNotification *)inNotification
+{
+    _showsFileNames=[CUIApplicationPreferences sharedPreferences].crashLogsShowFileNames;
     
     [self refreshList];
 }

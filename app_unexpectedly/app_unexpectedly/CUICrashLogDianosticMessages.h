@@ -13,10 +13,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "IPSIncident.h"
+
 @interface CUICrashLogDianosticMessages : NSObject
 
     @property (readonly,copy) NSString * messages;
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError;
 
 @end

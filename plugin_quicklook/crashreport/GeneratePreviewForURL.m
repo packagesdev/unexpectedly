@@ -18,7 +18,8 @@
 
 #import "CUICrashLogsProvider.h"
 
-#import "CUIRawTextTransformation.h"
+#import "CUIIPSTransform.h"
+#import "CUICrashDataTransform.h"
 
 #import "CUIThemesManager.h"
 
@@ -44,7 +45,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 {
     @autoreleasepool
     {
-        id tCrashLog=[[CUICrashLogsProvider defaultProvider] crashLogWithContentsOfFile:((__bridge NSURL *)url).path error:NULL];
+        CUIRawCrashLog * tCrashLog=[[CUICrashLogsProvider defaultProvider] crashLogWithContentsOfFile:((__bridge NSURL *)url).path error:NULL];
         
         if (tCrashLog==nil)
             return noErr;
@@ -56,13 +57,29 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
         tDisplaySettings.visibleSections=CUIDocumentAllSections;
         tDisplaySettings.visibleStackFrameComponents=CUIStackFrameAllComponents;
         
-        CUIRawTextTransformation * tRawTextTransformation=[CUIRawTextTransformation new];
+        CUIDataTransform * tDataTransform=nil;
         
-        tRawTextTransformation.displaySettings=tDisplaySettings;
-        tRawTextTransformation.fontSizeDelta=0;
-        tRawTextTransformation.hyperlinksStyle=CUIHyperlinksNone;
+        if (tCrashLog.ipsReport!=nil)
+        {
+            tDataTransform=[CUIIPSTransform new];
+            tDataTransform.input=tCrashLog.ipsReport;
+        }
+        else
+        {
+            tDataTransform=[CUICrashDataTransform new];
+            tDataTransform.input=tCrashLog;
+        }
         
-        NSAttributedString * tAttributedString=[tRawTextTransformation transformCrashLog:tCrashLog];
+        tDataTransform.displaySettings=tDisplaySettings;
+        tDataTransform.fontSizeDelta=0;
+        tDataTransform.hyperlinksStyle=CUIHyperlinksNone;
+        
+        if ([tDataTransform transform]==NO)
+        {
+            // A COMPLETER
+        }
+        
+        NSAttributedString * tAttributedString=tDataTransform.output;
         
         CUIThemeItemsGroup * tGroup=[[CUIThemesManager sharedManager].currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
         

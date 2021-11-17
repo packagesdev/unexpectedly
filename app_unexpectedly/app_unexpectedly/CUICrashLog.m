@@ -67,84 +67,81 @@
 	
 	if (self!=nil)
 	{
-        _headerRange.location=NSNotFound;
-        
-        _exceptionInformationRange.location=NSNotFound;
-        _diagnosticMessagesRange.location=NSNotFound;
-        
-        _backtracesRange.location=NSNotFound;
-        
-        _threadStateRange.location=NSNotFound;
-        
-        _binaryImagesRange.location=NSNotFound;
-        
         NSError * tError=nil;
         
-        NSMutableArray * tLines=[NSMutableArray array];
-        
-        [inString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
-            
-            [tLines addObject:bLine];
-        }];
-
-        @try
+        if (self.ipsReport!=nil)
         {
-            BOOL tResult=[self detectSectionsOfTextualRepresentation:tLines error:&tError];
+            IPSIncident * tIncident=self.ipsReport.incident;
             
-            if (tResult==NO)
-            {
-                NSLog(@"Error detecting section : %@",tError.userInfo[CUIParsingErrorSectionNameKey]);
-                
-                _parsingError=tError;
-                
-                // Raw Text Mode only
-                
-                // A COMPLETER
-                
-                return nil;
-            }
-            
-            _header=[[CUICrashLogHeader alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_headerRange] error:&tError];
+            _header=[[CUICrashLogHeader alloc] initWithIPSIncident:tIncident error:&tError];
             
             if (_header==nil)
             {
-                if (tError!=nil)
-                {
-                    NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
-                    
-                    NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
-                    
-                    _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
-                }
-                
                 // A COMPLETER
                 
                 return nil;
             }
             
-            _exceptionInformation=[[CUICrashLogExceptionInformation alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_exceptionInformationRange] reportVersion:_header.reportVersion error:&tError];
+            _exceptionInformation=[[CUICrashLogExceptionInformation alloc] initWithIPSIncident:tIncident error:&tError];
             
             if (_exceptionInformation==nil)
             {
-                if (tError!=nil)
-                {
-                    NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
-                    
-                    NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
-                    
-                    _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
-                }
-                
                 // A COMPLETER
                 
                 return nil;
             }
             
-            if (_diagnosticMessagesRange.location!=NSNotFound)
+            _diagnosticMessages=[[CUICrashLogDianosticMessages alloc] initWithIPSIncident:tIncident error:&tError];
+            
+            if (_diagnosticMessages==nil)
             {
-                _diagnosticMessages=[[CUICrashLogDianosticMessages alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_diagnosticMessagesRange] reportVersion:_header.reportVersion error:&tError];
+                // A COMPLETER
                 
-                if (_diagnosticMessages==nil)
+                return nil;
+            }
+        }
+        else
+        {
+            _headerRange.location=NSNotFound;
+            
+            _exceptionInformationRange.location=NSNotFound;
+            _diagnosticMessagesRange.location=NSNotFound;
+            
+            _backtracesRange.location=NSNotFound;
+            
+            _threadStateRange.location=NSNotFound;
+            
+            _binaryImagesRange.location=NSNotFound;
+            
+            
+            
+            NSMutableArray * tLines=[NSMutableArray array];
+            
+            [self.rawText enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
+                
+                [tLines addObject:bLine];
+            }];
+
+            @try
+            {
+                BOOL tResult=[self detectSectionsOfTextualRepresentation:tLines error:&tError];
+                
+                if (tResult==NO)
+                {
+                    NSLog(@"Error detecting section : %@",tError.userInfo[CUIParsingErrorSectionNameKey]);
+                    
+                    _parsingError=tError;
+                    
+                    // Raw Text Mode only
+                    
+                    // A COMPLETER
+                    
+                    return nil;
+                }
+                
+                _header=[[CUICrashLogHeader alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_headerRange] error:&tError];
+                
+                if (_header==nil)
                 {
                     if (tError!=nil)
                     {
@@ -159,20 +156,59 @@
                     
                     return nil;
                 }
+                
+                _exceptionInformation=[[CUICrashLogExceptionInformation alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_exceptionInformationRange] reportVersion:_header.reportVersion error:&tError];
+                
+                if (_exceptionInformation==nil)
+                {
+                    if (tError!=nil)
+                    {
+                        NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                        
+                        NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                        
+                        _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+                    }
+                    
+                    // A COMPLETER
+                    
+                    return nil;
+                }
+                
+                if (_diagnosticMessagesRange.location!=NSNotFound)
+                {
+                    _diagnosticMessages=[[CUICrashLogDianosticMessages alloc] initWithTextualRepresentation:[tLines subarrayWithRange:_diagnosticMessagesRange] reportVersion:_header.reportVersion error:&tError];
+                    
+                    if (_diagnosticMessages==nil)
+                    {
+                        if (tError!=nil)
+                        {
+                            NSUInteger tAbsoluteLineNumber=[tError.userInfo[CUIParsingErrorLineKey] unsignedIntegerValue]+_headerRange.location;
+                            
+                            NSLog(@"Error parsing line : %lu",tAbsoluteLineNumber);
+                            
+                            _parsingError=[NSError errorWithDomain:CUIParsingErrorDomain code:tError.code userInfo:@{CUIParsingErrorLineKey:@(tAbsoluteLineNumber)}];
+                        }
+                        
+                        // A COMPLETER
+                        
+                        return nil;
+                    }
+                }
+                
+                // The other sections will be parsed when the log is displayed for real
             }
             
-            // The other sections will be parsed when the log is displayed for real
-        }
-        
-        @catch (NSException *exception)
-        {
-            NSLog(@"Exception raised while parsing \"%@\"",self.rawText);
-                  
-            return nil;
-        }
-        
-        @finally
-        {
+            @catch (NSException *exception)
+            {
+                NSLog(@"Exception raised while parsing \"%@\"",self.rawText);
+                
+                return nil;
+            }
+            
+            @finally
+            {
+            }
         }
 	}
     
@@ -180,6 +216,54 @@
 }
 
 #pragma mark -
+
+- (BOOL)isHeaderAvailable
+{
+    if ([super isHeaderAvailable]==YES)
+        return YES;
+    
+    return (self.headerRange.location!=NSNotFound);
+}
+
+- (BOOL)isExceptionInformationAvailable
+{
+    if ([super isExceptionInformationAvailable]==YES)
+        return YES;
+    
+    return (self.exceptionInformationRange.location!=NSNotFound);
+}
+
+- (BOOL)isDiagnosticMessageAvailable
+{
+    if ([super isDiagnosticMessageAvailable]==YES)
+        return YES;
+    
+    return (self.diagnosticMessagesRange.location!=NSNotFound);
+}
+
+- (BOOL)isBacktracesAvailable
+{
+    if ([super isBacktracesAvailable]==YES)
+        return YES;
+    
+    return (self.backtracesRange.location!=NSNotFound);
+}
+
+- (BOOL)isThreadStateAvailable
+{
+    if ([super isThreadStateAvailable]==YES)
+        return YES;
+    
+    return (self.threadStateRange.location!=NSNotFound);
+}
+
+- (BOOL)isBinaryImagesAvailable
+{
+    if ([super isBinaryImagesAvailable]==YES)
+        return YES;
+    
+    return (self.binaryImagesRange.location!=NSNotFound);
+}
 
 - (id)valueForKeyPath:(NSString *)inKeyPath
 {
@@ -365,14 +449,57 @@
 
 - (BOOL)finalizeParsing
 {
+    NSError * tError;
+    IPSReport * tIPSReport=self.ipsReport;
+    
+    if (tIPSReport!=nil)
+    {
+        if (tIPSReport.incident.threads!=nil)
+        {
+            _backtraces=[[CUICrashLogBacktraces alloc] initWithIPSIncident:tIPSReport.incident error:&tError];
+        
+            if (_backtraces==nil)
+            {
+                // A COMPLETER
+                
+                return NO;
+            }
+        }
+        
+        {
+            _threadState=[[CUICrashLogThreadState alloc] initWithIPSIncident:tIPSReport.incident error:&tError];
+        
+            if (_threadState==nil)
+            {
+                // A COMPLETER
+            
+                return NO;
+            }
+        }
+        
+        if (tIPSReport.incident.binaryImages!=nil)
+        {
+            _binaryImages=[[CUICrashLogBinaryImages alloc] initWithIPSIncident:tIPSReport.incident error:&tError];
+            
+            if (_binaryImages==nil)
+            {
+                // A COMPLETER
+                
+                return NO;
+            }
+        }
+        
+        self.fullyParsed=YES;
+        
+        return YES;
+    }
+    
     NSMutableArray * tLines=[NSMutableArray array];
     
     [self.rawText enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
         
         [tLines addObject:bLine];
     }];
-    
-    NSError * tError;
     
     if (self.backtracesRange.location!=NSNotFound)
     {

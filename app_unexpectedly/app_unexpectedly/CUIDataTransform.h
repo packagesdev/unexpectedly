@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2021, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -13,26 +13,41 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CUICallStackBacktrace.h"
+#import "CUITextModeDisplaySettings.h"
 
-#import "IPSThread.h"
-#import "IPSImage.h"
+extern NSString * const CUIDataTransformErrorDomain;
 
-@interface CUIThread : NSObject
+extern NSString * const CUIGenericAnchorAttributeName;
 
-    @property (readonly,getter=isApplicationSpecificBacktrace) BOOL applicationSpecificBackTrace;
+extern NSString * const CUISectionAnchorAttributeName;
 
-    @property (readonly,getter=isCrashed) BOOL crashed;
+extern NSString * const CUIThreadAnchorAttributeName;
+
+extern NSString * const CUIBinaryAnchorAttributeName;
+
+typedef NS_ENUM(NSUInteger, CUIHyperlinksStyle)
+{
+    CUIHyperlinksNone,
+    CUIHyperlinksInternal,
+    CUIHyperlinksHTML
+};
+
+@interface CUIDataTransform : NSObject
+
+    @property (nonatomic) CUIHyperlinksStyle hyperlinksStyle;
+
+    @property (nonatomic) CUITextModeDisplaySettings * displaySettings;
+
+    @property (nonatomic) CGFloat fontSizeDelta;
 
 
-    @property (readonly) NSUInteger number;
+    @property (nonatomic) id input;
 
-    @property (readonly,copy) NSString * name;
+    @property (readonly) NSAttributedString * output;
 
-	@property (readonly) CUICallStackBacktrace * callStackBacktrace;
 
-- (instancetype)initWithTextualRepresentation:(NSArray *)inLines error:(NSError **)outError;
+    @property (readonly) NSError * error;
 
-- (instancetype)initWithIPSThread:(IPSThread *)inThread atIndex:(NSUInteger)inIndex binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError;
+- (BOOL)transform;
 
 @end

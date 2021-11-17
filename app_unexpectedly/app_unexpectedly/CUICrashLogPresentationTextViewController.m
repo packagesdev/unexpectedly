@@ -17,7 +17,7 @@
 
 
 
-#import "CUIBinaryImage+UI.h"
+#import "CUIBinaryImageUtility.h"
 
 #import "CUIApplicationPreferences.h"
 #import "CUIApplicationPreferences+Themes.h"
@@ -25,7 +25,8 @@
 #import "CUIThemesManager.h"
 #import "CUIThemeItemsGroup+UI.h"
 
-#import "CUIRawTextTransformation.h"
+#import "CUIIPSTransform.h"
+#import "CUICrashDataTransform.h"
 
 #import "CUIExceptionTypePopUpViewController.h"
 
@@ -60,20 +61,11 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     IBOutlet NSButton * _colorsSyntaxButton;
     
-    NSArray * _allLines;
-    
-    NSArray * _visibleLines;
-    
     BOOL _wrapText;
-    
-    
-    
     
     CGFloat _fontSizeDelta;
     
     //NSFont * _monospacedFont;
-    
-    CUIRawTextTransformation * _rawTextTranformation;
     
     CUIThemeItemsGroup * _textThemeItemsGroup;
     
@@ -141,8 +133,6 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         _wrapText=YES;
         
         _fontSizeDelta=[[NSUserDefaults standardUserDefaults] doubleForKey:CUICrashLogPresentationTextViewFontSizeDelta];
-        
-        _rawTextTranformation=[CUIRawTextTransformation new];
         
         _textThemeItemsGroup=[[CUIThemesManager sharedManager].currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
     }
@@ -216,27 +206,36 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
     
+    [tNotificationCenter removeObserver:self name:CUIThemeItemAttributesDidChangeNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
 
     
     
+    [tNotificationCenter removeObserver:self name:@"jumpToSectionNotification" object:nil];
     [tNotificationCenter addObserver:self selector:@selector(jumpToSection:) name:@"jumpToSectionNotification" object:nil];
     
+    [tNotificationCenter removeObserver:self name:NSViewBoundsDidChangeNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(boundsDidChange:) name:NSViewBoundsDidChangeNotification object:nil];
     
     
+    [tNotificationCenter removeObserver:self name:CUIPreferencesSymbolicationSymbolicateAutomaticallyDidChangeNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(symbolicateAutomaticallyDidChange:) name:CUIPreferencesSymbolicationSymbolicateAutomaticallyDidChangeNotification object:nil];
     
     
+    [tNotificationCenter removeObserver:self name:CUIPreferencesTextModeShowsLineNumbersDidChangeNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(showsLineNumbersDidChange:) name:CUIPreferencesTextModeShowsLineNumbersDidChangeNotification object:nil];
     
+    [tNotificationCenter removeObserver:self name:CUIPreferencesTextModeLineWrappingDidChangeNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(lineWrappingDidChange:) name:CUIPreferencesTextModeLineWrappingDidChangeNotification object:nil];
     
     
+    [tNotificationCenter removeObserver:self name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(dSYMBundlesManagerDidAddBundles:) name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
+    [tNotificationCenter removeObserver:self name:CUIStackFrameSymbolicationDidSucceedNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(stackFrameSymbolicationDidSucceed:) name:CUIStackFrameSymbolicationDidSucceedNotification object:nil];
     
+    [tNotificationCenter removeObserver:self name:@"windowDidNotHandleKeyEventNotification" object:nil];
     [tNotificationCenter addObserver:self selector:@selector(handleKeyDown:) name:@"windowDidNotHandleKeyEventNotification" object:self.view.window];
 }
 
@@ -368,15 +367,6 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         _showBinaryNameButton.state=(((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
     }
-    
-    NSMutableArray * tLines=[NSMutableArray array];
-    
-    [inCrashLog.rawText enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
-        
-        [tLines addObject:bLine];
-    }];
-    
-    _allLines=[tLines copy];
     
     if (tIsRawCrashLog==NO)
     {
@@ -581,12 +571,28 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     _lineNumberView.fontSizeDelta=_fontSizeDelta;
     
-    _rawTextTranformation.displaySettings=self.displaySettings;
+    CUIDataTransform * tDataTransform=nil;
     
-    _rawTextTranformation.fontSizeDelta=_fontSizeDelta;
+    if (tCrashLog.ipsReport!=nil)
+    {
+        tDataTransform=[CUIIPSTransform new];
+        tDataTransform.input=tCrashLog.ipsReport;
+    }
+    else
+    {
+        tDataTransform=[CUICrashDataTransform new];
+        tDataTransform.input=tCrashLog;
+    }
     
+    tDataTransform.displaySettings=self.displaySettings;
+    tDataTransform.fontSizeDelta=_fontSizeDelta;
     
-    NSAttributedString * tAttributedString=[_rawTextTranformation transformCrashLog:tCrashLog lines:_allLines];
+    if ([tDataTransform transform]==NO)
+    {
+        // A COMPLETER
+    }
+    
+    NSAttributedString * tAttributedString=tDataTransform.output;
     
     _textView.backgroundColor=[[_textThemeItemsGroup attributesForItem:CUIThemeItemBackground] color];
     
@@ -928,7 +934,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         if (tIsRawCrashLog==YES)
             return NO;
         
-        BOOL tEnabled=(tCrashLog.headerRange.location!=NSNotFound);
+        BOOL tEnabled=tCrashLog.isHeaderAvailable;
         
         inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentHeaderSection)==CUIDocumentHeaderSection) : NSOffState;
         
@@ -940,7 +946,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         if (tIsRawCrashLog==YES)
             return NO;
         
-        BOOL tEnabled=(tCrashLog.exceptionInformationRange.location!=NSNotFound);
+        BOOL tEnabled=tCrashLog.isExceptionInformationAvailable;
         
         inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentExceptionInformationSection)==CUIDocumentExceptionInformationSection) : NSOffState;
         
@@ -952,7 +958,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         if (tIsRawCrashLog==YES)
             return NO;
         
-        BOOL tEnabled=(tCrashLog.diagnosticMessagesRange.location!=NSNotFound);
+        BOOL tEnabled=tCrashLog.isDiagnosticMessageAvailable;
         
         inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentDiagnosticMessagesSection)==CUIDocumentDiagnosticMessagesSection) : NSOffState;
         
@@ -964,7 +970,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         if (tIsRawCrashLog==YES)
             return NO;
         
-        BOOL tEnabled=(tCrashLog.backtracesRange.location!=NSNotFound);
+        BOOL tEnabled=tCrashLog.isBacktracesAvailable;
         
         inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentBacktracesSection)==CUIDocumentBacktracesSection) : NSOffState;
         
@@ -976,7 +982,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         if (tIsRawCrashLog==YES)
             return NO;
         
-        BOOL tEnabled=(tCrashLog.threadStateRange.location!=NSNotFound);
+        BOOL tEnabled=tCrashLog.isThreadStateAvailable;
         
         inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentThreadStateSection)==CUIDocumentThreadStateSection) : NSOffState;
         
@@ -988,7 +994,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         if (tIsRawCrashLog==YES)
             return NO;
         
-        BOOL tEnabled=(tCrashLog.binaryImagesRange.location!=NSNotFound);
+        BOOL tEnabled=tCrashLog.isBinaryImagesAvailable;
         
         inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection) : NSOffState;
         
@@ -1115,33 +1121,44 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         CUICrashLogExportFormat tSelectedExportFormat=tAccessoryViewController.exportFormat;
         
-        CUIRawTextTransformation * tRawTextTransformation=[CUIRawTextTransformation new];
+        CUIDataTransform * tDataTransform=nil;
         
-        tRawTextTransformation.displaySettings=[tAccessoryViewController.displaySettings copy];
-        tRawTextTransformation.fontSizeDelta=0;
+        if (self.crashLog.ipsReport!=nil)
+        {
+            tDataTransform=[CUIIPSTransform new];
+            tDataTransform.input=self.crashLog.ipsReport;
+        }
+        else
+        {
+            tDataTransform=[CUICrashDataTransform new];
+            tDataTransform.input=self.crashLog;
+        }
+        
+        tDataTransform.displaySettings=[tAccessoryViewController.displaySettings copy];
+        tDataTransform.fontSizeDelta=0;
         
         switch(tSelectedExportFormat)
         {
             case CUICrashLogExportFormatHTML:
                 
-                tRawTextTransformation.hyperlinksStyle=CUIHyperlinksHTML;
+                tDataTransform.hyperlinksStyle=CUIHyperlinksHTML;
                 
                 break;
                 
             default:
                 
-                tRawTextTransformation.hyperlinksStyle=CUIHyperlinksNone;
+                tDataTransform.hyperlinksStyle=CUIHyperlinksNone;
                 
                 break;
         }
         
-        NSAttributedString * tAttributedString=[tRawTextTransformation transformCrashLog:self.crashLog];
-        
-        if (tAttributedString==nil)
+        if ([tDataTransform transform]==NO)
         {
             NSBeep();
             return;
         }
+        
+        NSAttributedString * tAttributedString=tDataTransform.output;
         
         // Extract the selection if needed
         

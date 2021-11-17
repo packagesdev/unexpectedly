@@ -15,10 +15,15 @@
 
 #import "CUIStackFrame.h"
 
+#import "IPSThreadFrame.h"
+#import "IPSImage.h"
+
 @interface CUICallStackBacktrace : NSObject
 
 	@property (readonly) NSArray<CUIStackFrame *> * stackFrames;
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines error:(NSError **)outError;
+
+- (instancetype)initWithFrames:(NSArray<IPSThreadFrame *> *)inFrames binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError;
 
 @end

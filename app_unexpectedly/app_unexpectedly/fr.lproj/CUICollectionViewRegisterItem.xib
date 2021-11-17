@@ -38,15 +38,15 @@
                         <popUpButton id="fAd-pL-hD3">
                             <rect key="frame" x="130" y="1" width="16" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <popUpButtonCell key="cell" type="bevel" title="Binaire" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Ql8-Yj-GNF" id="jsY-zd-eaC">
+                            <popUpButtonCell key="cell" type="bevel" title="Binaire" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Ql8-Yj-GNF" id="jsY-zd-eaC">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                                 <menu key="menu" id="W6L-9s-vAV">
                                     <items>
-                                        <menuItem title="Binaire" hidden="YES" id="Ql8-Yj-GNF">
+                                        <menuItem title="Binaire" state="on" hidden="YES" id="Ql8-Yj-GNF">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Booléen" state="on" tag="1" id="VoA-fE-sxQ"/>
+                                        <menuItem title="Booléen" tag="1" id="VoA-fE-sxQ"/>
                                         <menuItem title="Décimal" tag="3" id="Hab-wq-jWg"/>
                                         <menuItem title="Décimal non signé" tag="6" id="QOY-jj-Mna"/>
                                         <menuItem title="Flottant" tag="2" id="2IG-5I-rJY"/>
@@ -71,6 +71,7 @@
         <collectionViewItem id="faJ-j9-dhQ" customClass="CUICollectionViewRegisterItem">
             <connections>
                 <outlet property="_registerNameLabel" destination="49v-rz-P77" id="BR4-Vr-dVK"/>
+                <outlet property="_registerValueDisplayFormatPopUpButton" destination="fAd-pL-hD3" id="4vP-5v-fc2"/>
                 <outlet property="_registerValueLabel" destination="jaL-7X-k26" id="IU3-mu-U3V"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="6gV-UU-WJg"/>
             </connections>

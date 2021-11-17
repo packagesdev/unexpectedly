@@ -11,7 +11,7 @@
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CUIBinaryImage+UI.h"
+#import "CUIBinaryImageUtility.h"
 
 NSString * const CUIBinaryImageGroupAppKitUIKit=@"AppKit/UIKit";
 NSString * const CUIBinaryImageGroupAudioSpeech=@"Audio/Speech";
@@ -28,7 +28,7 @@ NSString * const CUIBinaryImageGroupUserCode=@"User Code";
 NSString * const CUIBinaryImageGroupWebInternet=@"Web/Internet";
 
 
-@implementation CUIBinaryImage (UI)
+@implementation CUIBinaryImageUtility
 
 + (NSString *)binaryImageGroupForIdentifier:(NSString *)inIdentifier
 {
@@ -273,9 +273,9 @@ NSString * const CUIBinaryImageGroupWebInternet=@"Web/Internet";
 
 + (NSImage *)iconForIdentifier:(NSString *)inIdentifier
 {
-    NSString * tBinaryImageGroup=[CUIBinaryImage binaryImageGroupForIdentifier:inIdentifier];
+    NSString * tBinaryImageGroup=[CUIBinaryImageUtility binaryImageGroupForIdentifier:inIdentifier];
     
-    return [CUIBinaryImage iconForBinaryImageGroup:tBinaryImageGroup];
+    return [CUIBinaryImageUtility iconForBinaryImageGroup:tBinaryImageGroup];
 }
 
 + (NSImage *)iconForPath:(NSString *)inPath
@@ -298,9 +298,9 @@ NSString * const CUIBinaryImageGroupWebInternet=@"Web/Internet";
 
 + (NSColor *)colorForIdentifier:(NSString *)inIdentifier
 {
-    NSString * tBinaryImageGroup=[CUIBinaryImage binaryImageGroupForIdentifier:inIdentifier];
+    NSString * tBinaryImageGroup=[CUIBinaryImageUtility binaryImageGroupForIdentifier:inIdentifier];
     
-    return [CUIBinaryImage colorForBinaryImageGroup:tBinaryImageGroup];
+    return [CUIBinaryImageUtility colorForBinaryImageGroup:tBinaryImageGroup];
 }
 
 @end

@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "IPSIncident.h"
+
 #import "CUIOperatingSystemVersion.h"
 
 #include "CUICodeType.h"
@@ -68,5 +70,7 @@
 
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines error:(NSError **)outError;
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError;
 
 @end

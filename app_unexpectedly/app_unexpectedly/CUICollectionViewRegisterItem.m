@@ -17,6 +17,8 @@
 
 #import "CUIRegisterLabel.h"
 
+#define MACOS_BIGSUR_WIDTH_INSET   3.0
+
 NSString * const CUIRegisterItemViewAsValueDidChangeNotification=@"CUIRegisterItemViewAsValueDidChangeNotification";
 
 @interface CUICollectionViewRegisterItem () <CUIRegisterLabelDelegate>
@@ -24,6 +26,8 @@ NSString * const CUIRegisterItemViewAsValueDidChangeNotification=@"CUIRegisterIt
     IBOutlet NSTextField * _registerNameLabel;
     
     IBOutlet CUIRegisterLabel * _registerValueLabel;
+    
+    IBOutlet NSPopUpButton* _registerValueDisplayFormatPopUpButton;
 }
 @end
 
@@ -32,6 +36,18 @@ NSString * const CUIRegisterItemViewAsValueDidChangeNotification=@"CUIRegisterIt
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (NSAppKitVersionNumber>0/*2022.00*/)  // A VERIFIER
+    {
+        // Deal with macOS Big Sur different UI metrics
+    
+        NSRect tFrame=_registerValueDisplayFormatPopUpButton.frame;
+    
+        tFrame.origin.x+=MACOS_BIGSUR_WIDTH_INSET;
+        tFrame.size.width-=MACOS_BIGSUR_WIDTH_INSET;
+        
+        _registerValueDisplayFormatPopUpButton.frame=tFrame;
+    }
 }
 
 #pragma mark -

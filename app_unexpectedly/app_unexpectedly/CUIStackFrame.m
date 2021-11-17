@@ -141,6 +141,47 @@ NSString * const CUIStackFrameSymbolicationDidSucceedNotification=@"CUIStackFram
     return self;
 }
 
+- (instancetype)initWithThreadFrame:(IPSThreadFrame *)inFrame atIndex:(NSUInteger)inIndex image:(IPSImage *)inImage error:(NSError **)outError
+{
+    if ([inFrame isKindOfClass:[IPSThreadFrame class]]==NO ||
+        [inImage isKindOfClass:[IPSImage class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        _index=inIndex;
+        
+        _binaryImageIdentifier=[(inImage.bundleIdentifier!=nil) ? inImage.bundleIdentifier : inImage.name copy];
+        
+        _machineInstructionAddress=inImage.loadAddress+inFrame.imageOffset;
+        
+        if (inFrame.symbol!=nil)
+        {
+            _symbol=[inFrame.symbol copy];
+            _byteOffset=inFrame.symbolLocation;
+        }
+        else
+        {
+            _symbol=[NSString stringWithFormat:@"0x%lx",(unsigned long)inImage.loadAddress];
+            
+            _byteOffset=_machineInstructionAddress-inImage.loadAddress;
+        }
+        
+        _sourceFile=[inFrame.sourceFile copy];
+        
+        _lineNumber=inFrame.sourceLine;
+    }
+    
+    return self;
+}
+
 #pragma mark -
 
 - (CUIStackFrame *)stackFrameCloneWithBinaryImageIdentifier:(NSString *)inBinaryImageIdentifier

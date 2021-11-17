@@ -71,6 +71,7 @@
         <collectionViewItem id="faJ-j9-dhQ" customClass="CUICollectionViewRegisterItem">
             <connections>
                 <outlet property="_registerNameLabel" destination="49v-rz-P77" id="BR4-Vr-dVK"/>
+                <outlet property="_registerValueDisplayFormatPopUpButton" destination="fAd-pL-hD3" id="UaJ-9Q-HVg"/>
                 <outlet property="_registerValueLabel" destination="jaL-7X-k26" id="IU3-mu-U3V"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="6gV-UU-WJg"/>
             </connections>

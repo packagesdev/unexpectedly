@@ -152,7 +152,34 @@
         return nil;
     }
     
-    if ([inString hasPrefix:@"Process:"]==NO)
+    if ([inString hasPrefix:@"Process:"]==YES)
+    {
+        self=[super init];
+        
+        if (self!=nil)
+        {
+            _rawText=[inString copy];
+            
+            _resourceIdentifier=[NSUUID UUID];
+        }
+    }
+    else if ([inString hasPrefix:@"{"]==YES)
+    {
+        self=[super init];
+        
+        if (self!=nil)
+        {
+            _ipsReport=[[IPSReport alloc] initWithString:inString error:NULL];
+            
+            if (_ipsReport==nil)
+                return nil;
+            
+            _rawText=nil;
+            
+            _resourceIdentifier=[NSUUID UUID];
+        }
+    }
+    else
     {
         if (outError!=NULL)
         {
@@ -169,19 +196,47 @@
         return nil;
     }
     
-    self=[super init];
-    
-    if (self!=nil)
-    {
-        _rawText=[inString copy];
-        
-        _resourceIdentifier=[NSUUID UUID];
-    }
-    
     return self;
 }
 
 #pragma mark -
+
+- (BOOL)isHeaderAvailable
+{
+    return (self.ipsReport.incident.header!=nil);
+}
+
+- (BOOL)isExceptionInformationAvailable
+{
+    return (self.ipsReport.incident.exceptionInformation!=nil);
+}
+
+- (BOOL)isDiagnosticMessageAvailable
+{
+    return (self.ipsReport.incident.diagnosticMessage!=nil);
+}
+
+- (BOOL)isBacktracesAvailable
+{
+    return (self.ipsReport.incident.threads!=nil);
+}
+
+- (BOOL)isThreadStateAvailable
+{
+    return (self.ipsReport.incident.threads[self.ipsReport.incident.exceptionInformation.faultingThread]!=nil);
+}
+
+- (BOOL)isBinaryImagesAvailable
+{
+    return (self.ipsReport.incident.binaryImages!=nil);
+}
+
+- (id)valueForUndefinedKey:(NSString *)inKey
+{
+    NSLog(@"Undefined key '%@'",inKey);
+    
+    return @"";
+}
 
 - (id)valueForKeyPath:(NSString *)inKeyPath
 {

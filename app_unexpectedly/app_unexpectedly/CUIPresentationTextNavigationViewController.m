@@ -440,21 +440,21 @@
     NSArray * tArray=@[
                        @{
                            @"title":NSLocalizedString(@"Header",@""),
-                           @"range":[NSValue valueWithRange:tCrashLog.headerRange],
+                           @"available":@(tCrashLog.isHeaderAvailable),
                            @"tag":@"section:Header",
                            @"visible":@(tDocumentSections&CUIDocumentHeaderSection),
                            @"icon":@"menuHeader",
                         },
                        @{
                            @"title":NSLocalizedString(@"Exception Information",@""),
-                           @"range":[NSValue valueWithRange:tCrashLog.exceptionInformationRange],
+                           @"available":@(tCrashLog.isExceptionInformationAvailable),
                            @"tag":@"section:Exception Information",
                            @"visible":@(tDocumentSections&CUIDocumentExceptionInformationSection),
                            @"icon":@"menuException",
                            },
                        @{
                            @"title":NSLocalizedString(@"Diagnostic Messages",@""),
-                           @"range":[NSValue valueWithRange:tCrashLog.diagnosticMessagesRange],
+                           @"available":@(tCrashLog.isDiagnosticMessageAvailable),
                            @"tag":@"section:Diagnostic Messages",
                            @"visible":@(tDocumentSections&CUIDocumentDiagnosticMessagesSection),
                            @"icon":@"menuDiagnostic",
@@ -468,10 +468,7 @@
         if (tVisibleFlag==0)
             continue;
         
-        NSValue * tValue=tDictionary[@"range"];
-        NSRange tRange=tValue.rangeValue;
-        
-        if (tRange.location!=NSNotFound)
+        if ([tDictionary[@"available"] boolValue]==YES)
         {
             tMenuItem=[[NSMenuItem alloc] initWithTitle:tDictionary[@"title"] action:@selector(switchSection:) keyEquivalent:@""];
             
@@ -564,14 +561,14 @@
     tArray=@[
              @{
                  @"title":NSLocalizedString(@"Thread State",@""),
-                 @"range":[NSValue valueWithRange:tCrashLog.threadStateRange],
+                 @"available":@(tCrashLog.isThreadStateAvailable),
                  @"tag":@"section:Thread State",
                  @"visible":@(tDocumentSections&CUIDocumentThreadStateSection),
                  @"icon":@"menuThreadState",
                  },
              @{
                  @"title":NSLocalizedString(@"Binary Images",@""),
-                 @"range":[NSValue valueWithRange:tCrashLog.binaryImagesRange],
+                 @"available":@(tCrashLog.isBinaryImagesAvailable),
                  @"tag":@"section:Binary Images",
                  @"visible":@(tDocumentSections&CUIDocumentBinaryImagesSection),
                  @"icon":@"menuBinaryImage",
@@ -585,10 +582,7 @@
         if (tVisibleFlag==0)
             continue;
         
-        NSValue * tValue=tDictionary[@"range"];
-        NSRange tRange=tValue.rangeValue;
-        
-        if (tRange.location!=NSNotFound)
+        if ([tDictionary[@"available"] boolValue]==YES)
         {
             tMenuItem=[[NSMenuItem alloc] initWithTitle:tDictionary[@"title"] action:@selector(switchSection:) keyEquivalent:@""];
             

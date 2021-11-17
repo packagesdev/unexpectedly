@@ -15,22 +15,20 @@
 
 #import "CUIParsingErrors.h"
 
+#import "NSArray+WBExtensions.h"
+
 @interface CUICrashLogBacktraces ()
 {
     NSMutableArray * _threads;
 }
 
-@property BOOL hasApplicationSpecificBacktrace;
-
-@property NSUInteger relativeCrashedThreadLine;
+@property (readwrite) BOOL hasApplicationSpecificBacktrace;
 
 - (BOOL)parseTextualRepresentation:(NSArray *)inLines outError:(NSError **)outError;
 
 @end
 
 @implementation CUICrashLogBacktraces
-
-
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError
 {
@@ -46,14 +44,53 @@
     
     if (self!=nil)
     {
-        _relativeCrashedThreadLine=NSNotFound;
-        
         _threads=[NSMutableArray array];
         
         if ([self parseTextualRepresentation:inLines outError:outError]==NO)
         {
             return nil;
         }
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
+{
+    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        NSArray * tThreads=inIncident.threads;
+        
+        if (tThreads==nil)
+        {
+            // A COMPLETER
+            
+            return nil;
+        }
+        
+        //_hasApplicationSpecificBacktrace=;
+        
+        _threads=[[tThreads WB_arrayByMappingObjectsUsingBlock:^CUIThread *(IPSThread * bThread, NSUInteger bIndex) {
+            
+            CUIThread * tThread=[[CUIThread alloc] initWithIPSThread:bThread atIndex:bIndex binaryImages:inIncident.binaryImages error:NULL];
+            
+            if (tThread==nil)
+            {
+                // A COMPLETER
+            }
+            
+            return tThread;
+        }] mutableCopy];
     }
     
     return self;
@@ -119,9 +156,6 @@
         
         if (tThread.isApplicationSpecificBacktrace==YES)
             self.hasApplicationSpecificBacktrace=YES;
-        
-        if (tThread.isCrashed==YES)
-            self.relativeCrashedThreadLine=tThreadEntityLineStart;
         
         [self->_threads addObject:tThread];
 

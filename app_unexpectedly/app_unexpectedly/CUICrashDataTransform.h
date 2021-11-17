@@ -11,28 +11,10 @@
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Foundation/Foundation.h>
+#import "CUIDataTransform.h"
 
-#import "CUICallStackBacktrace.h"
+#import "CUICrashLog.h"
 
-#import "IPSThread.h"
-#import "IPSImage.h"
-
-@interface CUIThread : NSObject
-
-    @property (readonly,getter=isApplicationSpecificBacktrace) BOOL applicationSpecificBackTrace;
-
-    @property (readonly,getter=isCrashed) BOOL crashed;
-
-
-    @property (readonly) NSUInteger number;
-
-    @property (readonly,copy) NSString * name;
-
-	@property (readonly) CUICallStackBacktrace * callStackBacktrace;
-
-- (instancetype)initWithTextualRepresentation:(NSArray *)inLines error:(NSError **)outError;
-
-- (instancetype)initWithIPSThread:(IPSThread *)inThread atIndex:(NSUInteger)inIndex binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError;
+@interface CUICrashDataTransform : CUIDataTransform
 
 @end

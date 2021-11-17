@@ -15,15 +15,19 @@
 
 #import "CUIBinaryImage.h"
 
+#import "IPSIncident.h"
+
 @interface CUICrashLogBinaryImages : NSObject
 
-    @property (nonatomic,readonly) NSArray<CUIBinaryImage *> * binaryImages;
+    @property (readonly) NSArray<CUIBinaryImage *> * binaryImages;
 
     @property (nonatomic,readonly) NSArray * allUUIDs;
 
     @property (nonatomic,readonly) NSArray * userCodeBinaryImages;
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError;
 
 - (CUIBinaryImage *)binaryImageWithIdentifier:(NSString *)inIdentifier;
 

@@ -15,6 +15,8 @@
 
 #import "CUICrashLogErrors.h"
 
+#import "IPSReport.h"
+
 typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
 {
     CUICrashLogReportSourceTypeSystem=0,
@@ -26,6 +28,8 @@ typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
 
     @property (readonly) id resourceIdentifier;
 
+    @property (readonly) IPSReport * ipsReport;
+
     @property (readonly,copy) NSString * rawText;
 
     @property (readonly,copy) NSString * crashLogFilePath;
@@ -33,6 +37,20 @@ typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
     @property (nonatomic,readonly) CUICrashLogReportSourceType reportSourceType;
 
     @property (nonatomic,readonly) BOOL isFullyParsed;
+
+
+    @property (nonatomic,readonly,getter=isHeaderAvailable) BOOL headerAvailable;
+
+    @property (nonatomic,readonly,getter=isExceptionInformationAvailable) BOOL exceptionInformationAvailable;
+
+    @property (nonatomic,readonly,getter=isDiagnosticMessageAvailable) BOOL diagnosticMessageAvailable;
+
+    @property (nonatomic,readonly,getter=isBacktracesAvailable) BOOL backtracesAvailable;
+
+    @property (nonatomic,readonly,getter=isThreadStateAvailable) BOOL threadStateAvailable;
+
+    @property (nonatomic,readonly,getter=isBinaryImagesAvailable) BOOL binaryImagesAvailable;
+
 
 
     @property (nonatomic,readonly,copy) NSString * processName;

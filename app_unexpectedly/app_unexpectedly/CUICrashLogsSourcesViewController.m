@@ -783,7 +783,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
                 {
                     // Should have .crash or .smartsource extension
                     
-                    if ([tPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame)
+                    if ([tPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame ||
+                        [tPath.pathExtension caseInsensitiveCompare:@"ips"]==NSOrderedSame)
                     {
                         // Do not have the same file twice (as a single file source)
                     
@@ -893,7 +894,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
                 
                 if (tIsDirectory==NO)
                 {
-                    if ([bPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame)
+                    if ([bPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame ||
+                        [bPath.pathExtension caseInsensitiveCompare:@"ips"]==NSOrderedSame)
                     {
                         tSource=[[CUICrashLogsSourceFile alloc] initWithContentsOfFileSystemItemAtPath:bPath error:&tError];
                         

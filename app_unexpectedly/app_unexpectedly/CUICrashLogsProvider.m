@@ -54,7 +54,10 @@
 		return nil;
 	}
 	
-    if ([inPath.pathExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame)
+    NSString * tExtension=inPath.pathExtension;
+    
+    if ([tExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame &&
+        [tExtension caseInsensitiveCompare:@"ips"]!=NSOrderedSame)
         return nil;
     
     NSError * tError=nil;
@@ -123,7 +126,10 @@
 	
 	NSArray * tCrashLogsArray=[tArray WB_arrayByMappingObjectsLenientlyUsingBlock:^id(NSString * bComponent, NSUInteger bIndex) {
 		
-		if ([bComponent.pathExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame)
+        NSString * tComponentExtension=bComponent.pathExtension;
+        
+		if ([tComponentExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame &&
+            [tComponentExtension caseInsensitiveCompare:@"ips"]!=NSOrderedSame)
 			return nil;
 		
 		NSString * tFilePath=[inDirectoryPath stringByAppendingPathComponent:bComponent];

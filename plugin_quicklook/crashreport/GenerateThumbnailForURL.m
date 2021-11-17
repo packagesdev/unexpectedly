@@ -24,7 +24,8 @@
 #import "CUIApplicationPreferences+Themes.h"
 #import "CUIThemeItemsGroup+UI.h"
 
-#import "CUIRawTextTransformation.h"
+#import "CUIIPSTransform.h"
+#import "CUICrashDataTransform.h"
 
 extern const CFStringRef kQLThumbnailPropertyIconFlavorKey;
 
@@ -39,7 +40,7 @@ void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbn
 
 OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize)
 {
-    id tCrashLog=[[CUICrashLogsProvider defaultProvider] crashLogWithContentsOfFile:((__bridge NSURL *)url).path error:NULL];
+    CUIRawCrashLog * tCrashLog=[[CUICrashLogsProvider defaultProvider] crashLogWithContentsOfFile:((__bridge NSURL *)url).path error:NULL];
     
     if (tCrashLog==nil)
         return noErr;
@@ -51,13 +52,30 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
     tDisplaySettings.visibleSections=CUIDocumentAllSections;
     tDisplaySettings.visibleStackFrameComponents=CUIStackFrameAllComponents;
     
-    CUIRawTextTransformation * tRawTextTransformation=[CUIRawTextTransformation new];
+    CUIDataTransform * tDataTransform=nil;
     
-    tRawTextTransformation.displaySettings=tDisplaySettings;
-    tRawTextTransformation.fontSizeDelta=0;
-    tRawTextTransformation.hyperlinksStyle=CUIHyperlinksNone;
+    if (tCrashLog.ipsReport!=nil)
+    {
+        tDataTransform=[CUIIPSTransform new];
+        tDataTransform.input=tCrashLog.ipsReport;
+    }
+    else
+    {
+        tDataTransform=[CUICrashDataTransform new];
+        tDataTransform.input=tCrashLog;
+    }
     
-    NSAttributedString * tAttributedString=[tRawTextTransformation transformCrashLog:tCrashLog];
+    tDataTransform.displaySettings=tDisplaySettings;
+    tDataTransform.fontSizeDelta=0;
+    tDataTransform.hyperlinksStyle=CUIHyperlinksNone;
+
+    
+    if ([tDataTransform transform]==NO)
+    {
+        // A COMPLETER
+    }
+    
+    NSAttributedString * tAttributedString=tDataTransform.output;
     
     CUIThemeItemsGroup * tGroup=[[CUIThemesManager sharedManager].currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
     

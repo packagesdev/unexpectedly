@@ -11,14 +11,14 @@
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CUIRawTextTransformation.h"
+#import "CUICrashDataTransform.h"
 
 #import "CUIApplicationPreferences.h"
 #import "CUIApplicationPreferences+Themes.h"
 
 #import "CUICrashLogBinaryImages.h"
 
-#import "CUIBinaryImage+UI.h"
+#import "CUIBinaryImageUtility.h"
 
 #import "CUIThemesManager.h"
 #import "CUIThemeItemsGroup+UI.h"
@@ -31,15 +31,30 @@
 #import "CUISymbolicationDataFormatter.h"
 #endif
 
-NSString * const CUIGenericAnchorAttributeName=@"CUIGenericAnchorAttributeName";
+@interface CUICrashLog (Private)
 
-NSString * const CUISectionAnchorAttributeName=@"CUISectionAnchorAttributeName";
+    // Sections ranges
 
-NSString * const CUIThreadAnchorAttributeName=@"CUIThreadAnchorAttributeName";
+    @property (readonly) NSRange headerRange;
 
-NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
+    @property (readonly) NSRange exceptionInformationRange;
+    @property (readonly) NSRange diagnosticMessagesRange;
 
-@interface CUIRawTextTransformation ()
+    @property (readonly) NSRange backtracesRange;
+
+    @property (readonly) NSRange threadStateRange;
+
+    @property (readonly) NSRange binaryImagesRange;
+
+@end
+
+@interface CUIDataTransform (Private)
+
+- (void)setOutput:(NSAttributedString *)inOutput;
+
+@end
+
+@interface CUICrashDataTransform ()
 {
     NSDictionary * _cachedPlainTextAttributes;
     
@@ -76,37 +91,13 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     CUISymbolicationDataFormatter * _symbolicationDataFormatter;
 #endif
 }
-
-    @property CUICrashLog * crashLog;
+    
 
     @property (copy) NSString * processPath;
 
-
-- (void)updatesCachedAttributes;
-
-- (NSArray *)processedHeaderSectionLines:(NSArray *)inLines error:(NSError **)outError;
-
-- (NSArray *)processedExceptionInformationSectionLines:(NSArray *)inLines error:(NSError **)outError;
-
-- (NSArray *)processedDiagnosticMessagesSectionLines:(NSArray *)inLines error:(NSError **)outError;
-
-- (NSArray *)processedBacktracesSectionLines:(NSArray *)inLines error:(NSError **)outError;
-
-- (NSArray *)processedThreadStateSectionLines:(NSArray *)inLines error:(NSError **)outError;
-
-- (NSArray *)processedBinaryImagesSectionLines:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
-
-- (NSAttributedString *)joinLines:(NSArray *)inLines withString:(NSString *)inNewLineFeed;
-
-- (id)processedStackFrameLine:(NSString *)inLine stackFrame:(CUIStackFrame *)inStackFrame;
-
-- (NSArray *)processedThreadBacktraceLines:(NSArray *)inLines error:(NSError **)outError;
-
-- (id)processedBinaryImageLine:(NSString *)inLine reportVersion:(NSUInteger)inReportVersion;
-
 @end
 
-@implementation CUIRawTextTransformation
+@implementation CUICrashDataTransform
 
 - (instancetype)init
 {
@@ -114,7 +105,6 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     if (self!=nil)
     {
-        _hyperlinksStyle=CUIHyperlinksInternal;
         
 #ifndef __DISABLE_SYMBOLICATION_
         _symbolicationDataFormatter=[CUISymbolicationDataFormatter new];
@@ -125,6 +115,8 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     return self;
 }
+
+#pragma mark -
 
 - (void)updatesCachedAttributes
 {
@@ -148,7 +140,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     tMutableParagraphStyle.tabStops=@[];
     
     [tMutableParagraphStyle setLineSpacing:2.0];
-
+    
     for (NSUInteger tIndex = 1; tIndex <= 20; tIndex++)
     {
         NSTextTab *tabStop = [[NSTextTab alloc] initWithType:NSLeftTabStopType location: 40 * (tIndex)];
@@ -203,161 +195,167 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     _cachedParsingErrorAttributes=[tParsingErrorDictionary copy];
 }
 
-- (NSAttributedString *)transformCrashLog:(CUICrashLog *)inCrashLog
-{
-    if (inCrashLog==nil)
-        return nil;
-    
-    if ([inCrashLog isMemberOfClass:[CUIRawCrashLog class]]==YES)
-        return [self transformCrashLog:inCrashLog lines:@[]];
-    
-    NSMutableArray * tLines=[NSMutableArray array];
-    
-    [inCrashLog.rawText enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
-        
-        [tLines addObject:bLine];
-    }];
-    
-    return [self transformCrashLog:inCrashLog lines:tLines];
-}
+#pragma mark -
 
-- (NSAttributedString *)transformCrashLog:(CUICrashLog *)inCrashLog lines:(NSArray *)inLines
+- (BOOL)transform
 {
-    if (inCrashLog==nil || inLines==nil)
-        return nil;
+    if ([super transform]==NO)
+        return NO;
+    
+    CUICrashLog * tCrashLog=self.input;
+    
+    if ([tCrashLog isKindOfClass:[CUIRawCrashLog class]]==NO)
+    {
+        // A COMPLETER
+        
+        return NO;
+    }
     
     [self updatesCachedAttributes];
     
-    
-    if ([inCrashLog isMemberOfClass:[CUIRawCrashLog class]]==YES)
+    if ([tCrashLog isMemberOfClass:[CUIRawCrashLog class]]==YES)
     {
-        NSAttributedString * tMutableAttributedString=[[NSAttributedString alloc] initWithString:inCrashLog.rawText
-                                                                                      attributes:_cachedPlainTextAttributes];
+        NSAttributedString * tAttributedString=[[NSAttributedString alloc] initWithString:tCrashLog.rawText
+                                                                               attributes:_cachedPlainTextAttributes];
         
-        return tMutableAttributedString;
+        self.output=tAttributedString;
+        
+        return YES;
     }
     
-    self.crashLog=inCrashLog;
-    
-    self.processPath=inCrashLog.header.executablePath;
-    
-    
-    
-    NSMutableArray * tMutableArray=[inLines mutableCopy];
-    
-    
-    if (inCrashLog.binaryImagesRange.location!=NSNotFound)
+    if ([tCrashLog isMemberOfClass:[CUICrashLog class]]==YES)
     {
-        if ((_displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==0)
+        self.processPath=tCrashLog.header.executablePath;
+        
+        NSMutableArray * tLines=[NSMutableArray array];
+        
+        [tCrashLog.rawText enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
+            
+            [tLines addObject:bLine];
+        }];
+        
+        NSMutableArray * tMutableArray=[tLines mutableCopy];
+        
+        
+        if (tCrashLog.binaryImagesRange.location!=NSNotFound)
         {
-            [tMutableArray removeObjectsInRange:inCrashLog.binaryImagesRange];
+            if ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==0)
+            {
+                [tMutableArray removeObjectsInRange:tCrashLog.binaryImagesRange];
+            }
+            else
+            {
+                NSArray * tBacktracesLines=[tLines subarrayWithRange:tCrashLog.binaryImagesRange];
+                
+                NSArray * tFilteredLines=[self processedBinaryImagesSectionLines:tBacktracesLines reportVersion:tCrashLog.reportVersion error:NULL];
+                
+                [tMutableArray removeObjectsInRange:tCrashLog.binaryImagesRange];
+                
+                [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tCrashLog.binaryImagesRange.location,tFilteredLines.count)]];
+            }
         }
-        else
+        
+        if (tCrashLog.threadStateRange.location!=NSNotFound)
         {
-            NSArray * tBacktracesLines=[inLines subarrayWithRange:inCrashLog.binaryImagesRange];
-            
-            NSArray * tFilteredLines=[self processedBinaryImagesSectionLines:tBacktracesLines reportVersion:inCrashLog.reportVersion error:NULL];
-            
-            [tMutableArray removeObjectsInRange:inCrashLog.binaryImagesRange];
-            
-            [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(inCrashLog.binaryImagesRange.location,tFilteredLines.count)]];
+            if ((self.displaySettings.visibleSections & CUIDocumentThreadStateSection)==0)
+            {
+                [tMutableArray removeObjectsInRange:tCrashLog.threadStateRange];
+            }
+            else
+            {
+                NSArray * tThreadStateLines=[tLines subarrayWithRange:tCrashLog.threadStateRange];
+                
+                NSArray * tFilteredLines=[self processedThreadStateSectionLines:tThreadStateLines error:NULL];
+                
+                [tMutableArray removeObjectsInRange:tCrashLog.threadStateRange];
+                
+                [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tCrashLog.threadStateRange.location,tFilteredLines.count)]];
+            }
         }
+        
+        if (tCrashLog.backtracesRange.location!=NSNotFound)
+        {
+            if ((self.displaySettings.visibleSections & CUIDocumentBacktracesSection)==0)
+            {
+                [tMutableArray removeObjectsInRange:tCrashLog.backtracesRange];
+            }
+            else
+            {
+                NSArray * tBacktracesLines=[tLines subarrayWithRange:tCrashLog.backtracesRange];
+                
+                NSArray * tFilteredLines=[self processedBacktracesSectionLines:tBacktracesLines error:NULL];
+                
+                [tMutableArray removeObjectsInRange:tCrashLog.backtracesRange];
+                
+                [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tCrashLog.backtracesRange.location,tFilteredLines.count)]];
+            }
+        }
+        
+        
+        if (tCrashLog.diagnosticMessagesRange.location!=NSNotFound)
+        {
+            if ((self.displaySettings.visibleSections & CUIDocumentDiagnosticMessagesSection)==0)
+            {
+                [tMutableArray removeObjectsInRange:tCrashLog.diagnosticMessagesRange];
+            }
+            else
+            {
+                NSArray * tDiagnosticMessagesLines=[tLines subarrayWithRange:tCrashLog.diagnosticMessagesRange];
+                
+                NSArray * tFilteredLines=[self processedDiagnosticMessagesSectionLines:tDiagnosticMessagesLines error:NULL];
+                
+                [tMutableArray removeObjectsInRange:tCrashLog.diagnosticMessagesRange];
+                
+                [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tCrashLog.diagnosticMessagesRange.location,tFilteredLines.count)]];
+            }
+        }
+        
+        
+        if (tCrashLog.exceptionInformationRange.location!=NSNotFound)
+        {
+            if ((self.displaySettings.visibleSections & CUIDocumentExceptionInformationSection)==0)
+            {
+                [tMutableArray removeObjectsInRange:tCrashLog.exceptionInformationRange];
+            }
+            else
+            {
+                NSArray * tExceptionInformationLines=[tLines subarrayWithRange:tCrashLog.exceptionInformationRange];
+                
+                NSArray * tFilteredLines=[self processedExceptionInformationSectionLines:tExceptionInformationLines error:NULL];
+                
+                [tMutableArray removeObjectsInRange:tCrashLog.exceptionInformationRange];
+                
+                [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tCrashLog.exceptionInformationRange.location,tFilteredLines.count)]];
+            }
+        }
+        
+        
+        if (tCrashLog.isHeaderAvailable==YES)
+        {
+            if ((self.displaySettings.visibleSections & CUIDocumentHeaderSection)==0)
+            {
+                [tMutableArray removeObjectsInRange:tCrashLog.headerRange];
+            }
+            else
+            {
+                NSArray * HeaderLines=[tLines subarrayWithRange:tCrashLog.headerRange];
+                
+                NSArray * tFilteredLines=[self processedHeaderSectionLines:HeaderLines error:NULL];
+                
+                [tMutableArray removeObjectsInRange:tCrashLog.headerRange];
+                
+                [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tCrashLog.headerRange.location,tFilteredLines.count)]];
+            }
+        }
+        
+        self.output=[self joinLines:tMutableArray withString:@"\n"];
+        
+        return YES;
     }
     
-    if (inCrashLog.threadStateRange.location!=NSNotFound)
-    {
-        if ((_displaySettings.visibleSections & CUIDocumentThreadStateSection)==0)
-        {
-            [tMutableArray removeObjectsInRange:inCrashLog.threadStateRange];
-        }
-        else
-        {
-            NSArray * tThreadStateLines=[inLines subarrayWithRange:inCrashLog.threadStateRange];
-            
-            NSArray * tFilteredLines=[self processedThreadStateSectionLines:tThreadStateLines error:NULL];
-            
-            [tMutableArray removeObjectsInRange:inCrashLog.threadStateRange];
-            
-            [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(inCrashLog.threadStateRange.location,tFilteredLines.count)]];
-        }
-    }
+    // A COMPLETER
     
-    if (inCrashLog.backtracesRange.location!=NSNotFound)
-    {
-        if ((_displaySettings.visibleSections & CUIDocumentBacktracesSection)==0)
-        {
-            [tMutableArray removeObjectsInRange:inCrashLog.backtracesRange];
-        }
-        else
-        {
-            NSArray * tBacktracesLines=[inLines subarrayWithRange:inCrashLog.backtracesRange];
-            
-            NSArray * tFilteredLines=[self processedBacktracesSectionLines:tBacktracesLines error:NULL];
-            
-            [tMutableArray removeObjectsInRange:inCrashLog.backtracesRange];
-            
-            [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(inCrashLog.backtracesRange.location,tFilteredLines.count)]];
-        }
-    }
-    
-    
-    if (inCrashLog.diagnosticMessagesRange.location!=NSNotFound)
-    {
-        if ((_displaySettings.visibleSections & CUIDocumentDiagnosticMessagesSection)==0)
-        {
-            [tMutableArray removeObjectsInRange:inCrashLog.diagnosticMessagesRange];
-        }
-        else
-        {
-            NSArray * tDiagnosticMessagesLines=[inLines subarrayWithRange:inCrashLog.diagnosticMessagesRange];
-            
-            NSArray * tFilteredLines=[self processedDiagnosticMessagesSectionLines:tDiagnosticMessagesLines error:NULL];
-            
-            [tMutableArray removeObjectsInRange:inCrashLog.diagnosticMessagesRange];
-            
-            [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(inCrashLog.diagnosticMessagesRange.location,tFilteredLines.count)]];
-        }
-    }
-    
-    
-    if (inCrashLog.exceptionInformationRange.location!=NSNotFound)
-    {
-        if ((_displaySettings.visibleSections & CUIDocumentExceptionInformationSection)==0)
-        {
-            [tMutableArray removeObjectsInRange:inCrashLog.exceptionInformationRange];
-        }
-        else
-        {
-            NSArray * tExceptionInformationLines=[inLines subarrayWithRange:inCrashLog.exceptionInformationRange];
-            
-            NSArray * tFilteredLines=[self processedExceptionInformationSectionLines:tExceptionInformationLines error:NULL];
-            
-            [tMutableArray removeObjectsInRange:inCrashLog.exceptionInformationRange];
-            
-            [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(inCrashLog.exceptionInformationRange.location,tFilteredLines.count)]];
-        }
-    }
-    
-    
-    if (inCrashLog.headerRange.location!=NSNotFound)
-    {
-        if ((_displaySettings.visibleSections & CUIDocumentHeaderSection)==0)
-        {
-            [tMutableArray removeObjectsInRange:inCrashLog.headerRange];
-        }
-        else
-        {
-            NSArray * tExceptionInformationLines=[inLines subarrayWithRange:inCrashLog.headerRange];
-            
-            NSArray * tFilteredLines=[self processedHeaderSectionLines:tExceptionInformationLines error:NULL];
-            
-            [tMutableArray removeObjectsInRange:inCrashLog.headerRange];
-            
-            [tMutableArray insertObjects:tFilteredLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(inCrashLog.headerRange.location,tFilteredLines.count)]];
-        }
-    }
-    
-    return [self joinLines:tMutableArray withString:@"\n"];
+    return NO;
 }
 
 #pragma mark - Header
@@ -407,7 +405,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         
         
         NSMutableAttributedString * tProcessedLine=[[NSMutableAttributedString alloc] initWithString:bLine attributes:self->_cachedPlainTextAttributes];
-
+        
         if (bLineNumber==0)
         {
             NSDictionary * tJumpAnchorAttributes=@{
@@ -417,25 +415,23 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
             [tProcessedLine addAttributes:tJumpAnchorAttributes range:NSMakeRange(0,bLine.length)];
         }
         
-        //if (self.displaySettings.highlightSyntax==YES)
-        {
-            [tProcessedLine addAttributes:self->_cachedKeyAttributes range:tKeyRange];
         
-            
-            if ([tKey isEqualToString:@"Path"]==YES)
-            {
-               [tProcessedLine addAttributes:self->_cachedPathAttributes range:tValueRange];
-            }
-            else if ([tKey isEqualToString:@"Version"]==YES ||
-                     [tKey isEqualToString:@"OS Version"]==YES)
-            {
-                [tProcessedLine addAttributes:self->_cachedVersionAttributes range:tValueRange];
-            }
-            else if ([tKey isEqualToString:@"Anonymous UUID"]==YES ||
-                     [tKey isEqualToString:@"Sleep/Wake UUID"]==YES)
-            {
-                [tProcessedLine addAttributes:self->_cachedUUIDAttributes range:tValueRange];
-            }
+        [tProcessedLine addAttributes:self->_cachedKeyAttributes range:tKeyRange];
+        
+        
+        if ([tKey isEqualToString:@"Path"]==YES)
+        {
+            [tProcessedLine addAttributes:self->_cachedPathAttributes range:tValueRange];
+        }
+        else if ([tKey isEqualToString:@"Version"]==YES ||
+                 [tKey isEqualToString:@"OS Version"]==YES)
+        {
+            [tProcessedLine addAttributes:self->_cachedVersionAttributes range:tValueRange];
+        }
+        else if ([tKey isEqualToString:@"Anonymous UUID"]==YES ||
+                 [tKey isEqualToString:@"Sleep/Wake UUID"]==YES)
+        {
+            [tProcessedLine addAttributes:self->_cachedUUIDAttributes range:tValueRange];
         }
         
         [tProcessedLines addObject:tProcessedLine];
@@ -475,12 +471,12 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
             tScanner.scanLocation==tLineLength)
         {
             [tProcessedLines addObject:bLine];
-
+            
             return;
         }
         
         NSRange tKeyRange=NSMakeRange(0,tScanner.scanLocation+1);
-
+        
         
         tScanner.scanLocation=tScanner.scanLocation+1;
         
@@ -498,10 +494,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         
         NSMutableAttributedString * tProcessedLine=[[NSMutableAttributedString alloc] initWithString:bLine attributes:self->_cachedPlainTextAttributes];
         
-        //if (self.displaySettings.highlightSyntax==YES)
-        {
-            [tProcessedLine addAttributes:self->_cachedKeyAttributes range:tKeyRange];
-        }
+        [tProcessedLine addAttributes:self->_cachedKeyAttributes range:tKeyRange];
         
         if (bLineNumber==0)
         {
@@ -519,13 +512,13 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                 case CUIHyperlinksInternal:
                     
                     //if (self.displaySettings.highlightSyntax==YES)
-                    {
-                        [tProcessedLine addAttributes:@{
-                                                        NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle|NSUnderlineStylePatternDash)
-                                                        }
-                         
-                                                range:tValueRange];
-                    }
+                {
+                    [tProcessedLine addAttributes:@{
+                                                    NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle|NSUnderlineStylePatternDash)
+                                                    }
+                     
+                                            range:tValueRange];
+                }
                     
                     [tProcessedLine addAttributes:@{
                                                     NSLinkAttributeName:[NSURL URLWithString:@"a://exception_type"]
@@ -533,7 +526,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                                             range:tValueRange];
                     
                     break;
-                
+                    
                 default:
                     
                     break;
@@ -543,7 +536,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         if ([tKey isEqualToString:@"Crashed Thread"]==YES)
         {
             if ((self.displaySettings.visibleSections & CUIDocumentBacktracesSection)==CUIDocumentBacktracesSection &&
-                self.crashLog.backtraces.threads.count>0)
+                ((CUICrashLog *)self.input).backtraces.threads.count>0)
             {
                 switch(self.hyperlinksStyle)
                 {
@@ -571,10 +564,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                 }
             }
             
-            //if (self.displaySettings.highlightSyntax==YES)
-            {
-                [tProcessedLine addAttributes:self->_cachedCrashedThreadLabelAttributes range:tValueRange];
-            }
+            [tProcessedLine addAttributes:self->_cachedCrashedThreadLabelAttributes range:tValueRange];
         }
         
         [tProcessedLines addObject:tProcessedLine];
@@ -655,12 +645,12 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         return inLines;
     
     NSMutableArray * tProcessedLines=[NSMutableArray array];
-        
+    
     __block NSInteger tThreadEntityLineStart=0;
     __block NSInteger tThreadEntityLineEnd=0;
     
     [inLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL *bOutStop) {
-            
+        
         // Retrieve thread number, crashed status and dispatch queue name
         
         if (bLine.length!=0)
@@ -680,7 +670,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     }];
     
     NSMutableAttributedString * tMutableAttributedString=tProcessedLines.firstObject;
-        
+    
     NSDictionary * tJumpAnchorAttributes=@{
                                            CUISectionAnchorAttributeName:@"section:Backtraces"
                                            };
@@ -718,7 +708,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         return [tProcessedLines copy];
     }
     
-    CUICrashLogBacktraces * tBacktraces=self.crashLog.backtraces;
+    CUICrashLogBacktraces * tBacktraces=((CUICrashLog *)self.input).backtraces;
     
     CUIThread * tThread=nil;
     
@@ -812,15 +802,11 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                 break;
         }
     }
-
-    //if (self.displaySettings.highlightSyntax==YES)
-    {
-        NSDictionary * tAttributes=(tCrashedThread==YES) ? _cachedCrashedThreadLabelAttributes : _cachedThreadLabelAttributes;
-        
-        [tMutableAttributedString addAttributes:tAttributes
-                                          range:tStringRange];
-    }
     
+    NSDictionary * tAttributes=(tCrashedThread==YES) ? _cachedCrashedThreadLabelAttributes : _cachedThreadLabelAttributes;
+    
+    [tMutableAttributedString addAttributes:tAttributes
+                                      range:tStringRange];
     
     NSMutableArray * tProcessedLines=[NSMutableArray arrayWithObject:tMutableAttributedString];
     
@@ -912,7 +898,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     BOOL tIsUserCode=NO;
     
-    CUICrashLogBinaryImages * tBinaryImages=self.crashLog.binaryImages;
+    CUICrashLogBinaryImages * tBinaryImages=((CUICrashLog *)self.input).binaryImages;
     
     CUIBinaryImage * tBinaryImage=[tBinaryImages binaryImageWithIdentifierOrName:tBinaryImageIdentifier identifier:&tBinaryImageIdentifier];
     
@@ -942,7 +928,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         return [[NSAttributedString alloc] initWithString:tLine];
     
     __block NSUInteger tSavedScanLocation=tScanner.scanLocation;
-
+    
 #ifndef __DISABLE_SYMBOLICATION_
     
     BOOL tSymbolicateAutomatically=[CUIApplicationPreferences sharedPreferences].symbolicateAutomatically;
@@ -974,59 +960,59 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
         if (tSymbolicateAutomatically==YES)
         {
             // Default values
-         
+            
             NSUInteger tAddress=tMachineInstructionAddress-tBinaryImage.binaryImageOffset;
-         
+            
             [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tAddress
-                                                                                                            binaryUUID:tBinaryImage.UUID
-                                                                                                     completionHandler:^(CUISymbolicationDataLookUpResult bLookUpResult, CUISymbolicationData *bSymbolicationData) {
-         
-                                                                                                         switch(bLookUpResult)
-                                                                                                         {
-                                                                                                             case CUISymbolicationDataLookUpResultError:
-                                                                                                             case CUISymbolicationDataLookUpResultNotFound:
-         
-                                                                                                                 break;
-         
-                                                                                                             case CUISymbolicationDataLookUpResultFound:
-                                                                                                             {
-                                                                                                                 inStackFrame.symbolicationData=bSymbolicationData;
-         
-                                                                                                                 [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                     object:self.crashLog];
-                                                                                                                 
-                                                                                                                 break;
-                                                                                                             }
-         
-                                                                                                             case CUISymbolicationDataLookUpResultFoundInCache:
-                                                                                                             {
-                                                                                                                 inStackFrame.symbolicationData=bSymbolicationData;
-         
-                                                                                                                 NSMutableString * tTemporaryLine=[[tLine substringToIndex:tScanner.scanLocation-tSymbol.length] mutableCopy];
-                                                                                                                 
-                                                                                                                 tSavedScanLocation+=(bSymbolicationData.stackFrameSymbol.length-tSymbol.length);
-                                                                                                                 
-                                                                                                                 [tTemporaryLine appendString:[self->_symbolicationDataFormatter stringForObjectValue:bSymbolicationData]];
-                                                                                                                 
-                                                                                                                 tLine=[tTemporaryLine copy];
-         
-                                                                                                                 break;
-                                                                                                             }
-         
-                                                                                                         }
-                                                                                                         
-                                                                                                     }];
+                                                                                                           binaryUUID:tBinaryImage.UUID
+                                                                                                    completionHandler:^(CUISymbolicationDataLookUpResult bLookUpResult, CUISymbolicationData *bSymbolicationData) {
+                                                                                                        
+                                                                                                        switch(bLookUpResult)
+                                                                                                        {
+                                                                                                            case CUISymbolicationDataLookUpResultError:
+                                                                                                            case CUISymbolicationDataLookUpResultNotFound:
+                                                                                                                
+                                                                                                                break;
+                                                                                                                
+                                                                                                            case CUISymbolicationDataLookUpResultFound:
+                                                                                                            {
+                                                                                                                inStackFrame.symbolicationData=bSymbolicationData;
+                                                                                                                
+                                                                                                                [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                                                                    object:self.input];
+                                                                                                                
+                                                                                                                break;
+                                                                                                            }
+                                                                                                                
+                                                                                                            case CUISymbolicationDataLookUpResultFoundInCache:
+                                                                                                            {
+                                                                                                                inStackFrame.symbolicationData=bSymbolicationData;
+                                                                                                                
+                                                                                                                NSMutableString * tTemporaryLine=[[tLine substringToIndex:tScanner.scanLocation-tSymbol.length] mutableCopy];
+                                                                                                                
+                                                                                                                tSavedScanLocation+=(bSymbolicationData.stackFrameSymbol.length-tSymbol.length);
+                                                                                                                
+                                                                                                                [tTemporaryLine appendString:[self->_symbolicationDataFormatter stringForObjectValue:bSymbolicationData]];
+                                                                                                                
+                                                                                                                tLine=[tTemporaryLine copy];
+                                                                                                                
+                                                                                                                break;
+                                                                                                            }
+                                                                                                                
+                                                                                                        }
+                                                                                                        
+                                                                                                    }];
         }
     }
-
+    
 #endif
     
     NSMutableAttributedString * tProcessedLine=[[NSMutableAttributedString alloc] initWithString:tLine attributes:_cachedPlainTextAttributes];
     
     NSRange tRange=NSMakeRange(0,tLine.length);
-        
+    
     NSDictionary * tDictionary=(tIsUserCode==YES) ? _cachedExecutableCodeAttributes : _cachedOSCodeAttributes;
-        
+    
     [tProcessedLine addAttributes:tDictionary range:tRange];
     
     
@@ -1055,7 +1041,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                         tURLComponents.path=tAbsolutePath;
                         
                         NSURL * tURL=tURLComponents.URL;
-                    
+                        
                         if (tURL!=nil)
                         {
                             [tProcessedLine addAttributes:@{
@@ -1081,10 +1067,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     }
     else
     {
-        //if (self.displaySettings.highlightSyntax==YES)
-        {
-            [tProcessedLine addAttributes:_cachedMemoryAddressAttributes range:tMemoryAddressRange];
-        }
+        [tProcessedLine addAttributes:_cachedMemoryAddressAttributes range:tMemoryAddressRange];
     }
     
     if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==0)
@@ -1093,9 +1076,9 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     }
     else
     {
-        if (self.hyperlinksStyle!=CUIHyperlinksNone && ((_displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection))
+        if (self.hyperlinksStyle!=CUIHyperlinksNone && ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection))
         {
-            NSString * tCleanedUpIdenftifier=[tBinaryImageIdentifier stringByTrimmingCharactersInSet:_whitespaceCharacterSet];
+            NSString * tCleanedUpIdentifier=[tBinaryImageIdentifier stringByTrimmingCharactersInSet:_whitespaceCharacterSet];
             
             CUIBinaryImage * tBinaryImage=[tBinaryImages binaryImageWithIdentifier:tBinaryImageIdentifier];
             
@@ -1120,7 +1103,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                 switch(self.hyperlinksStyle)
                 {
                     case CUIHyperlinksInternal:
-                    
+                        
                         tURL=[NSURL URLWithString:[NSString stringWithFormat:@"bin://%@",tBinaryImageIdentifier]];
                         
                         break;
@@ -1137,8 +1120,8 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                 }
                 
                 if (tURL!=nil)
-                    [tProcessedLine addAttributes:@{NSLinkAttributeName:tURL} range:NSMakeRange(tBinaryImageIdentifierRange.location,tCleanedUpIdenftifier.length)];
-                    
+                    [tProcessedLine addAttributes:@{NSLinkAttributeName:tURL} range:NSMakeRange(tBinaryImageIdentifierRange.location,tCleanedUpIdentifier.length)];
+                
             }
         }
     }
@@ -1179,58 +1162,58 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     
     [inLines enumerateObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:tOtherLinesRange]
-                                                                      options:0
-                                                                   usingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
-        
-        NSMutableAttributedString * tMutableAttributedString=[[NSMutableAttributedString alloc] initWithString:bLine attributes:self->_cachedKeyAttributes];
-        
-        if (bLine.length<4)
-        {
-            tLastLine=bLineNumber+1;
-            
-            [tProcessedLines addObject:tMutableAttributedString];
-            
-            *bOutStop=YES;
-            return;
-        }
-        
-        NSScanner * tRegistersScanner=[NSScanner scannerWithString:bLine];
-        
-        tRegistersScanner.charactersToBeSkipped=self->_whitespaceCharacterSet;
-        
-        while (tRegistersScanner.isAtEnd==NO)
-        {
-            tRegistersScanner.charactersToBeSkipped=nil;
-            
-            [tRegistersScanner scanCharactersFromSet:self->_whitespaceCharacterSet intoString:nil];
-            
-            NSString * tRegisterName;
-            
-            tRegistersScanner.charactersToBeSkipped=self->_whitespaceCharacterSet;
-            
-            if ([tRegistersScanner scanUpToString:@":" intoString:&tRegisterName]==NO)
-                return;
-            
-            if ([tRegistersScanner scanString:@": " intoString:NULL]==NO)
-                return;
-            
-            NSRange tValueRange=NSMakeRange(tRegistersScanner.scanLocation, 0);
-            
-            if ([tRegistersScanner scanHexLongLong:NULL]==NO)
-                return;
-            
-            tValueRange.length=tRegistersScanner.scanLocation-1-tValueRange.location+1;
-            
-            tRegistersScanner.charactersToBeSkipped=nil;
-            
-            [tRegistersScanner scanCharactersFromSet:self->_whitespaceCharacterSet intoString:nil];
-            
-            [tMutableAttributedString addAttributes:self->_cachedRegisterValueAttributes range:tValueRange];
-        }
-        
-        [tProcessedLines addObject:tMutableAttributedString];
-        
-    }];
+                               options:0
+                            usingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
+                                
+                                NSMutableAttributedString * tMutableAttributedString=[[NSMutableAttributedString alloc] initWithString:bLine attributes:self->_cachedKeyAttributes];
+                                
+                                if (bLine.length<4)
+                                {
+                                    tLastLine=bLineNumber+1;
+                                    
+                                    [tProcessedLines addObject:tMutableAttributedString];
+                                    
+                                    *bOutStop=YES;
+                                    return;
+                                }
+                                
+                                NSScanner * tRegistersScanner=[NSScanner scannerWithString:bLine];
+                                
+                                tRegistersScanner.charactersToBeSkipped=self->_whitespaceCharacterSet;
+                                
+                                while (tRegistersScanner.isAtEnd==NO)
+                                {
+                                    tRegistersScanner.charactersToBeSkipped=nil;
+                                    
+                                    [tRegistersScanner scanCharactersFromSet:self->_whitespaceCharacterSet intoString:nil];
+                                    
+                                    NSString * tRegisterName;
+                                    
+                                    tRegistersScanner.charactersToBeSkipped=self->_whitespaceCharacterSet;
+                                    
+                                    if ([tRegistersScanner scanUpToString:@":" intoString:&tRegisterName]==NO)
+                                        return;
+                                    
+                                    if ([tRegistersScanner scanString:@": " intoString:NULL]==NO)
+                                        return;
+                                    
+                                    NSRange tValueRange=NSMakeRange(tRegistersScanner.scanLocation, 0);
+                                    
+                                    if ([tRegistersScanner scanHexLongLong:NULL]==NO)
+                                        return;
+                                    
+                                    tValueRange.length=tRegistersScanner.scanLocation-1-tValueRange.location+1;
+                                    
+                                    tRegistersScanner.charactersToBeSkipped=nil;
+                                    
+                                    [tRegistersScanner scanCharactersFromSet:self->_whitespaceCharacterSet intoString:nil];
+                                    
+                                    [tMutableAttributedString addAttributes:self->_cachedRegisterValueAttributes range:tValueRange];
+                                }
+                                
+                                [tProcessedLines addObject:tMutableAttributedString];
+                                
+                            }];
     
     // Remaining lines
     
@@ -1309,7 +1292,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                                            };
     
     NSMutableAttributedString * tAttributedString=[[NSMutableAttributedString alloc] initWithString:inLines.firstObject attributes:tJumpAnchorAttributes];
-
+    
     NSDictionary * tFirstLineAttributes=_cachedKeyAttributes;
     
     if (tFirstLineAttributes!=nil)
@@ -1325,26 +1308,26 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
                                options:0
                             usingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL *bOutStop) {
                                 
-                                   if (bLine.length==0)
-                                   {
-                                       [tProcessedLines addObjectsFromArray:[inLines subarrayWithRange:NSMakeRange(bLineNumber,inLines.count-1-bLineNumber+1)]];
-                                       
-                                       *bOutStop=YES;
-                                       
-                                       return;
-                                   }
+                                if (bLine.length==0)
+                                {
+                                    [tProcessedLines addObjectsFromArray:[inLines subarrayWithRange:NSMakeRange(bLineNumber,inLines.count-1-bLineNumber+1)]];
+                                    
+                                    *bOutStop=YES;
+                                    
+                                    return;
+                                }
                                 
-                                   id tProcessedLine=[self processedBinaryImageLine:bLine reportVersion:inReportVersion];
+                                id tProcessedLine=[self processedBinaryImageLine:bLine reportVersion:inReportVersion];
                                 
-                                   if (tProcessedLine==nil)
-                                   {
-                                       tProcessedLine=[[NSAttributedString alloc] initWithString:bLine attributes:self->_cachedParsingErrorAttributes];
-                                       
-                                       NSLog(@"Error transforming line: %@",bLine);
-                                   }
+                                if (tProcessedLine==nil)
+                                {
+                                    tProcessedLine=[[NSAttributedString alloc] initWithString:bLine attributes:self->_cachedParsingErrorAttributes];
+                                    
+                                    NSLog(@"Error transforming line: %@",bLine);
+                                }
                                 
-                                   [tProcessedLines addObject:tProcessedLine];
-                               }];
+                                [tProcessedLines addObject:tProcessedLine];
+                            }];
     
     return tProcessedLines;
 }
@@ -1497,7 +1480,7 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     if ([CUIThemesManager sharedManager].currentTheme.isMonochrome==NO)
     {
         tIdentifierAttributes=@{
-                                NSForegroundColorAttributeName:(tIsUserCode==YES) ? [CUIBinaryImage colorForUserCode]: [CUIBinaryImage colorForIdentifier:tIdentifier]
+                                NSForegroundColorAttributeName:(tIsUserCode==YES) ? [CUIBinaryImageUtility colorForUserCode]: [CUIBinaryImageUtility colorForIdentifier:tIdentifier]
                                 };
     }
     

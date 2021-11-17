@@ -28,7 +28,7 @@
                         <rect key="frame" x="1" y="1" width="240" height="331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="36" rowSizeStyle="automatic" viewBased="YES" id="up6-IV-9dX">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="36" rowSizeStyle="automatic" viewBased="YES" id="up6-IV-9dX" customClass="CUITableViewNoSpace">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="331"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -126,14 +126,46 @@
                                 <menuItem image="NSActionTemplate" tag="-1" hidden="YES" id="29W-Zg-HYo">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Sort by Date" id="JK6-HP-t2c"/>
-                                <menuItem title="Sort by Name" tag="1" id="ONn-2g-Z6J"/>
+                                <menuItem title="Show" tag="-1" enabled="NO" id="JK6-HP-t2c">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="switchDisplayedName:" target="-2" id="83X-bU-gU8"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Process Name" id="Knq-mU-Xyu">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="switchDisplayedName:" target="-2" id="4jX-xR-Vde"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Report File Name" tag="1" id="ymb-51-zC8">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="switchDisplayedName:" target="-2" id="9Yt-ZP-CXj"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="W3g-2P-JBj"/>
+                                <menuItem title="Sort by" tag="-1" enabled="NO" id="Rfq-Kx-kub">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="switchSortType:" target="-2" id="xWq-oW-cf1"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Date" id="Vew-KO-SYM">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="switchSortType:" target="-2" id="PWf-yF-FXe"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="Name" tag="1" id="ONn-2g-Z6J">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                    <connections>
+                                        <action selector="switchSortType:" target="-2" id="NP0-Rw-xCJ"/>
+                                    </connections>
+                                </menuItem>
                             </items>
                         </menu>
                     </popUpButtonCell>
-                    <connections>
-                        <action selector="switchSortType:" target="-2" id="18O-p9-B0u"/>
-                    </connections>
                 </popUpButton>
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="kV4-Gy-Y5g">
                     <rect key="frame" x="5" y="2" width="201" height="19"/>

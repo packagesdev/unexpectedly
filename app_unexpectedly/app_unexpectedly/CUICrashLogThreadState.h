@@ -15,6 +15,8 @@
 
 #import "CUIRegister.h"
 
+#import "IPSIncident.h"
+
 @interface CUICrashLogThreadState : NSObject
 
     @property (readonly) NSUInteger threadIndex;
@@ -32,5 +34,7 @@
 
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError;
 
 @end

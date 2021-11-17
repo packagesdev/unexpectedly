@@ -15,6 +15,10 @@
 
 #import "CUISymbolicationData.h"
 
+#import "IPSThreadFrame.h"
+
+#import "IPSImage.h"
+
 extern NSString * const CUIStackFrameSymbolicationDidSucceedNotification;
 
 @interface CUIStackFrame : NSObject <NSCopying>
@@ -37,6 +41,8 @@ extern NSString * const CUIStackFrameSymbolicationDidSucceedNotification;
     @property CUISymbolicationData * symbolicationData;
 
 - (instancetype)initWithString:(NSString *)inString error:(NSError **)outError;
+
+- (instancetype)initWithThreadFrame:(IPSThreadFrame *)inFrame atIndex:(NSUInteger)inIndex image:(IPSImage *)inImage error:(NSError **)outError;
 
 - (CUIStackFrame *)stackFrameCloneWithBinaryImageIdentifier:(NSString *)inBinaryImageIdentifier;
 

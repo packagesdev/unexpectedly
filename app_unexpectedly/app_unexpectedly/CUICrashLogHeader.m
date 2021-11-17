@@ -191,6 +191,73 @@
     return self;
 }
 
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
+{
+    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        IPSIncidentHeader * tIPSHeader=inIncident.header;
+        
+        _reportVersion=12;
+        
+        _dateTime=tIPSHeader.captureTime;
+        
+        _operatingSystemVersion=[[CUIOperatingSystemVersion alloc] initWithString:tIPSHeader.operatingSystemVersion.train];
+        
+        _systemIntegrityProtectionEnabled=tIPSHeader.systemIntegrityProtectionEnable;
+        
+        _bridgeOSVersion=nil;
+        
+        
+        _anonymousUUID=tIPSHeader.crashReporterKey.UUIDString;
+        
+        
+        _codeType=CUICodeTypeARM_64;
+        
+        if ([tIPSHeader.cpuType isEqualToString:@"X86-64"]==YES)
+        {
+            _codeType=CUICodeTypeX86_64;
+        }
+        else if ([tIPSHeader.cpuType isEqualToString:@"ARM-64"]==YES)
+        {
+            _codeType=CUICodeTypeARM_64;
+        }
+        
+        /*_native=;*/
+        
+        
+        _executablePath=tIPSHeader.processPath;
+        
+        _bundleIdentifier=tIPSHeader.bundleInfo.bundleIdentifier;
+        
+        _executableVersion=tIPSHeader.bundleInfo.bundleShortVersionString;
+        
+        
+        _responsibleProcessName=tIPSHeader.responsibleProcessName;
+        _responsibleProcessIdentifier=tIPSHeader.responsibleProcessID;
+        
+        _processName=tIPSHeader.processName;
+        _processIdentifier=tIPSHeader.processID;
+        
+        _parentProcessName=tIPSHeader.parentProcessName;
+        _parentProcessIdentifier=tIPSHeader.parentProcessID;
+        
+        
+        _userIdentifier=tIPSHeader.userID;
+    }
+    
+    return self;
+}
+
 #pragma mark -
 
 - (BOOL)parseTextualRepresentation:(NSArray *)inLines outError:(NSError **)outError

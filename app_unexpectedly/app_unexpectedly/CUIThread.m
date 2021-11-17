@@ -106,6 +106,40 @@
 	return self;
 }
 
+- (instancetype)initWithIPSThread:(IPSThread *)inThread atIndex:(NSUInteger)inIndex binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError
+{
+    if ([inThread isKindOfClass:[IPSThread class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        //_applicationSpecificBackTrace=;
+        
+        _crashed=inThread.triggered;
+        
+        _number=inIndex;
+        
+        if (inThread.queue!=nil)
+            _name=[NSString stringWithFormat:@"Dispatch queue: %@",inThread.queue];
+        
+        _callStackBacktrace=[[CUICallStackBacktrace alloc] initWithFrames:inThread.frames binaryImages:inImages error:NULL];
+        
+        if (_callStackBacktrace==nil)
+        {
+            // A COMPLETER
+        }
+    }
+    
+    return self;
+}
+
 #pragma mark -
 
 - (NSString *)description

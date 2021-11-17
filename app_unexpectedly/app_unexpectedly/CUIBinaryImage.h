@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "IPSImage.h"
+
 @interface CUIAddressesRange : NSObject
 
     @property NSUInteger loadAddress;
@@ -51,5 +53,7 @@
     @property (nonatomic,readonly) NSUInteger binaryImageOffset;
 
 - (instancetype)initWithString:(NSString *)inString reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
+
+- (instancetype)initWithImage:(IPSImage *)inImage error:(NSError **)outError;
 
 @end

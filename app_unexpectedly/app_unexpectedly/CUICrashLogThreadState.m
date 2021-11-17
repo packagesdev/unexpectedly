@@ -15,6 +15,12 @@
 
 #import "CUIParsingErrors.h"
 
+#import "IPSThreadState+RegisterDisplayName.h"
+
+#import "NSArray+WBExtensions.h"
+
+#import "NSString+CPU.h"
+
 @interface CUICrashLogThreadState ()
 
     @property NSUInteger threadIndex;
@@ -55,6 +61,90 @@
         {
             return nil;
         }
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
+{
+    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        IPSThreadState * tThreadState=inIncident.threadState;
+        
+        if (tThreadState==nil)
+        {
+            // A COMPLETER
+            
+            return nil;
+        }
+        
+        _threadIndex=inIncident.exceptionInformation.faultingThread;
+        
+        IPSIncidentHeader * tHeader=inIncident.header;
+        
+        _CPUType=[tHeader.cpuType CUI_CPUType];
+        
+        NSArray * tRegistersOrder=@[];
+        
+        if ([tThreadState.flavor isEqualToString:@"x86_THREAD_STATE"]==YES)
+        {
+            tRegistersOrder=@[@"rax",@"rbx",@"rcx",@"rdx",
+                              @"rdi",@"rsi",@"rbp",@"rsp",
+                              @"r8",@"r9",@"r10",@"r11",
+                              @"r12",@"r13",@"r14",@"r15",
+                              @"rip",@"rflags",@"cr2"
+                              ];
+        }
+        else
+        {
+            tRegistersOrder=@[@"x0",@"x1",@"x2",@"x3",
+                              @"x4",@"x5",@"x6",@"x7",
+                              @"x8",@"x9",@"x10",@"x11",
+                              @"x12",@"x13",@"x14",@"x15",
+                              @"x16",@"x17",@"x18",@"x19",
+                              @"x20",@"x21",@"x22",@"x23",
+                              @"x24",@"x25",@"x26",@"x27",
+                              @"x28",@"fp",@"lr",@".",
+                              @"sp",@"pc",@"cpsr",
+                              @"far",@"esr"
+                              ];
+        }
+        
+        _registers=[tRegistersOrder WB_arrayByMappingObjectsUsingBlock:^id(NSString * bRegisterName, NSUInteger bIndex) {
+            
+            IPSRegisterState * tRegisterState=tThreadState.registersStates[bRegisterName];
+            
+            if (tRegisterState!=nil)
+            {
+                CUIRegister * tRegister=[CUIRegister new];
+                tRegister.name=[IPSThreadState displayNameForRegisterName:bRegisterName];
+                tRegister.value=tRegisterState.value;
+                
+                return tRegister;
+            }
+            
+            return nil;
+            
+        }];
+        
+        // A COMPLETER
+        
+        /*_logicalCPU=;
+        
+        _errorCode=;
+        
+        _trapNumber=;*/
     }
     
     return self;

@@ -65,6 +65,40 @@
 	return self;
 }
 
+- (instancetype)initWithFrames:(NSArray<IPSThreadFrame *> *)inFrames binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError
+{
+    if ([inFrames isKindOfClass:[NSArray class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        _stackFrames=[inFrames WB_arrayByMappingObjectsUsingBlock:^CUIStackFrame *(IPSThreadFrame * bFrame, NSUInteger bIndex) {
+            
+            CUIStackFrame * tStackFrame=[[CUIStackFrame alloc] initWithThreadFrame:bFrame
+                                                                           atIndex:bIndex
+                                                                             image:inImages[bFrame.imageIndex]
+                                                                             error:NULL];
+            
+            if (tStackFrame==nil)
+            {
+                return nil;
+            }
+            
+            return tStackFrame;
+            
+        }];
+    }
+    
+    return self;
+}
+
 #pragma mark -
 
 - (NSString *)description

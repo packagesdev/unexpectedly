@@ -15,7 +15,7 @@
 
 #import "CUIBinaryImage.h"
 
-#import "CUIBinaryImage+UI.h"
+#import "CUIBinaryImageUtility.h"
 
 #import "CUICallsSelection.h"
 
@@ -304,26 +304,16 @@
         tTableCellView.textField.stringValue=tBinaryImage.identifier;
         
         if (tBinaryImage.isUserCode==YES)
-        {
             tTableCellView.imageView.image=[NSImage imageNamed:@"call-usercode"];
-        }
         else
-        {
-            tTableCellView.imageView.image=[CUIBinaryImage iconForIdentifier:tBinaryImage.identifier];
-        }
-        
-        
+            tTableCellView.imageView.image=[CUIBinaryImageUtility iconForIdentifier:tBinaryImage.identifier];
     }
     else if ([tTableColumnIdentifier isEqualToString:@"version"]==YES)
     {
         if (tBinaryImage.buildNumber==nil)
-        {
-            tTableCellView.textField.stringValue=tBinaryImage.version;
-        }
+            tTableCellView.textField.stringValue=(tBinaryImage.version!=nil) ? tBinaryImage.version : @"-";
         else
-        {
             tTableCellView.textField.stringValue=[NSString stringWithFormat:@"%@ (%@)",tBinaryImage.version,tBinaryImage.buildNumber];
-        }
     }
     else if ([tTableColumnIdentifier isEqualToString:@"addresses"]==YES)
     {

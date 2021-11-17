@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2021, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -12,62 +12,15 @@
  */
 
 
+#import "CUIDataTransform.h"
 
-/*
- 
- JIRA formatting
- 
- {{monospaced text}}
- 
- {color:#d04437}colored text{color}
- 
- _Italic_
- 
- *bold*
- 
- +underline+
-
- ------------------------------------
- 
- */
-
-
-#import <Foundation/Foundation.h>
-
-#import "CUITextModeDisplaySettings.h"
+#import "IPSReport.h"
 
 #import "CUICrashLog.h"
 
+@interface CUIIPSTransform : CUIDataTransform
 
-
-extern NSString * const CUIGenericAnchorAttributeName;
-
-extern NSString * const CUISectionAnchorAttributeName;
-
-extern NSString * const CUIThreadAnchorAttributeName;
-
-extern NSString * const CUIBinaryAnchorAttributeName;
-
-
-typedef NS_ENUM(NSUInteger, CUIHyperlinksStyle)
-{
-    CUIHyperlinksNone,
-    CUIHyperlinksInternal,
-    CUIHyperlinksHTML
-};
-
-
-
-@interface CUIRawTextTransformation : NSObject
-
-    @property CUIHyperlinksStyle hyperlinksStyle;
-
-    @property CUITextModeDisplaySettings * displaySettings;
-
-    @property CGFloat fontSizeDelta;
-
-- (NSAttributedString *)transformCrashLog:(CUICrashLog *)inCrashLog;
-
-- (NSAttributedString *)transformCrashLog:(CUICrashLog *)inCrashLog lines:(NSArray *)inLines;
+@property (nonatomic) CUICrashLog * crashlog;
 
 @end
+

@@ -172,11 +172,13 @@
     }
     
     if (_currentController!=tNewController)
+    {
         [_currentController.view removeFromSuperview];
     
-    tNewController.view.frame=_contentsView.bounds;
+        tNewController.view.frame=_contentsView.bounds;
     
-    [_contentsView addSubview:tNewController.view];
+        [_contentsView addSubview:tNewController.view];
+    }
     
     _currentController=tNewController;
     

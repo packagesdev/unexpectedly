@@ -15,6 +15,8 @@
 
 #import "CUIParsingErrors.h"
 
+#import "NSArray+WBExtensions.h"
+
 @interface CUICrashLogExceptionInformation ()
 
     @property NSInteger crashedThreadIndex;     // -1 -> Unknown
@@ -151,6 +153,44 @@
         {
             return nil;
         }
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
+{
+    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        IPSIncidentExceptionInformation * tExceptionInformation=inIncident.exceptionInformation;
+        
+        _crashedThreadIndex=tExceptionInformation.faultingThread;
+        
+        if (tExceptionInformation.legacyInfo.threadTriggered.queue!=nil)
+            _crashedThreadName=[NSString stringWithFormat:@"Dispatch queue: %@",tExceptionInformation.legacyInfo.threadTriggered.queue];
+        
+        _exceptionType=tExceptionInformation.exception.type;
+        
+        _exceptionSignal=tExceptionInformation.exception.signal;
+        
+        _exceptionSubtype=tExceptionInformation.exception.codes;
+        
+        _exceptionCodes=[tExceptionInformation.exception.rawCodes WB_arrayByMappingObjectsUsingBlock:^NSString *(NSNumber * bNumber, NSUInteger bIndex) {
+            
+            return @"A COMPLETER";
+        }];
+        
+        _exceptionNote=(tExceptionInformation.isCorpse==YES) ? @"EXC_CORPSE_NOTIFY" : nil;
     }
     
     return self;

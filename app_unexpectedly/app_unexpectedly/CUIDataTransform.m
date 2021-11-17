@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2021, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -11,33 +11,85 @@
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "CUIStackFrame+UI.h"
+#import "CUIDataTransform.h"
 
-#import "CUIBinaryImageUtility.h"
+NSString * const CUIDataTransformErrorDomain=@"fr.whitebox.data-tranform.error";
 
-@implementation CUIStackFrame (UI)
 
-- (NSImage *)binaryImageIcon
+NSString * const CUIGenericAnchorAttributeName=@"CUIGenericAnchorAttributeName";
+
+NSString * const CUISectionAnchorAttributeName=@"CUISectionAnchorAttributeName";
+
+NSString * const CUIThreadAnchorAttributeName=@"CUIThreadAnchorAttributeName";
+
+NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
+
+@interface CUIDataTransform ()
+
+    @property (nonatomic,readwrite) NSAttributedString * output;
+
+    @property (readwrite) NSError * error;
+
+- (void)setOutput:(NSAttributedString *)inOutput;
+
+@end
+
+@implementation CUIDataTransform
+
+- (instancetype)init
 {
-    return [CUIBinaryImageUtility iconForIdentifier:self.binaryImageIdentifier];
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        _hyperlinksStyle=CUIHyperlinksInternal;
+    }
+    
+    return self;
 }
 
-- (NSString *)pasteboardRepresentationWithComponents:(CUIStackFrameComponents)inComponents
+#pragma mark -
+
+- (void)setHyperlinksStyle:(CUIHyperlinksStyle)inHyperlinksStyle
 {
-    NSMutableString * tMutableString=[NSMutableString stringWithFormat:@"%lu ",self.index];
+    _output=nil;
     
-    if ((inComponents & CUIStackFrameBinaryNameComponent)!=0)
-        [tMutableString appendFormat:@"%@ ",self.binaryImageIdentifier];
+    _hyperlinksStyle=inHyperlinksStyle;
+}
+
+- (void)setDisplaySettings:(CUITextModeDisplaySettings *)inDisplaySettings
+{
+    _output=nil;
     
-    if ((inComponents & CUIStackFrameMachineInstructionAddressComponent)!=0)
-        [tMutableString appendFormat:@"0x%lx ",self.machineInstructionAddress];
+    _displaySettings=inDisplaySettings;
+}
+
+- (void)setFontSizeDelta:(CGFloat)inFontSizeDelta
+{
+    _output=nil;
     
-    [tMutableString appendString:self.symbol];
+    _fontSizeDelta=inFontSizeDelta;
+}
+
+- (void)setInput:(id)inInput
+{
+    _output=nil;
     
-    if ((inComponents & CUIStackFrameByteOffsetComponent)!=0)
-        [tMutableString appendFormat:@" + %lu",self.byteOffset];
+    _input=inInput;
+}
+
+- (void)setOutput:(NSAttributedString *)inOutput
+{
+    _output=inOutput;
+}
+
+#pragma mark -
+
+- (BOOL)transform
+{
+    self.output=nil;
     
-    return [tMutableString copy];
+    return YES;
 }
 
 @end

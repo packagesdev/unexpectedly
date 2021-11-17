@@ -52,7 +52,9 @@
     NSArray *keyPaths = @[[NSExpression expressionForKeyPath:@"processName"],
                           [NSExpression expressionForKeyPath:@"header.bundleIdentifier"],
                           [NSExpression expressionForKeyPath:@"header.executablePath"],
-                          [NSExpression expressionForKeyPath:@"exceptionInformation.crashedThreadName"]];
+                          [NSExpression expressionForKeyPath:@"header.executableVersion"],
+                          [NSExpression expressionForKeyPath:@"exceptionInformation.crashedThreadName"],
+                          [NSExpression expressionForKeyPath:@"header.operatingSystemVersion.stringValue"]];
     
     NSPredicateEditorRowTemplate * tRowTemplate1 = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:keyPaths
                                                                                     rightExpressionAttributeType:NSStringAttributeType
@@ -97,6 +99,8 @@
                                                                                                          options:(NSCaseInsensitivePredicateOption |
                                                                                                                   NSDiacriticInsensitivePredicateOption)];
     
+    // Row Template 4
+    
     NSPredicateEditorRowTemplate * tRowTemplate4 = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:@[[NSExpression expressionForKeyPath:@"exceptionSignal"]]
                                                                                                 rightExpressions:@[[NSExpression expressionForConstantValue:@"SIGABRT"],
                                                                                                                    [NSExpression expressionForConstantValue:@"SIGBUS"],
@@ -112,9 +116,24 @@
                                                                                                          options:(NSCaseInsensitivePredicateOption |
                                                                                                                   NSDiacriticInsensitivePredicateOption)];
     
-    // Row Template 4
+    // Row Template 5
     
-    NSPredicateEditorRowTemplate * tRowTemplate5 = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:@[[NSExpression expressionForKeyPath:@"reportSourceTypeNumber"]]
+    keyPaths = @[[NSExpression expressionForKeyPath:@"crashLogFileName"]];
+    
+    NSPredicateEditorRowTemplate * tRowTemplate5 = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:keyPaths
+                                                                                    rightExpressionAttributeType:NSStringAttributeType
+                                                                                                        modifier:NSDirectPredicateModifier
+                                                                                                       operators:@[@(NSEqualToPredicateOperatorType),
+                                                                                                                   @(NSNotEqualToPredicateOperatorType),
+                                                                                                                   @(NSBeginsWithPredicateOperatorType),
+                                                                                                                   @(NSEndsWithPredicateOperatorType),
+                                                                                                                   @(NSContainsPredicateOperatorType)]
+                                                                                                         options:(NSCaseInsensitivePredicateOption |
+                                                                                                                  NSDiacriticInsensitivePredicateOption)];
+    
+    // Row Template 6
+    
+    NSPredicateEditorRowTemplate * tRowTemplate6 = [[NSPredicateEditorRowTemplate alloc] initWithLeftExpressions:@[[NSExpression expressionForKeyPath:@"reportSourceTypeNumber"]]
                                                                                                 rightExpressions:@[[NSExpression expressionForConstantValue:@(CUICrashLogReportSourceTypeUser)],
                                                                                                                    [NSExpression expressionForConstantValue:@(CUICrashLogReportSourceTypeSystem)],
                                                                                                                    [NSExpression expressionForConstantValue:@(CUICrashLogReportSourceTypeOther)]]
@@ -124,12 +143,14 @@
                                                                                                                   NSDiacriticInsensitivePredicateOption)];
     
     
+    
+    
     NSArray *compoundTypes = @[@(NSAndPredicateType),
                                @(NSOrPredicateType)];
     
     NSPredicateEditorRowTemplate * tRowTemplateCompound = [[NSPredicateEditorRowTemplate alloc] initWithCompoundTypes:compoundTypes];
     
-    _predicatorEditor.rowTemplates=@[tRowTemplate1, tRowTemplate2,tRowTemplate3,tRowTemplate4,tRowTemplate5,tRowTemplateCompound];
+    _predicatorEditor.rowTemplates=@[tRowTemplate1, tRowTemplate2,tRowTemplate3,tRowTemplate4,tRowTemplate5,tRowTemplate6,tRowTemplateCompound];
     
     
     // Default button

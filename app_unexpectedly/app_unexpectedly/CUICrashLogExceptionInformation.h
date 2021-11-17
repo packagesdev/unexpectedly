@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "IPSIncident.h"
+
 @interface CUICrashLogExceptionInformation : NSObject
 
     @property (readonly) NSInteger crashedThreadIndex;  // -1 -> Unknown
@@ -30,6 +32,8 @@
     @property (readonly,copy) NSString * exceptionNote;     // Can be nil
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
+
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError;
 
 - (NSString *)displayedExceptionType;
 

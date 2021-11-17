@@ -19,14 +19,14 @@
 
 @interface CUICrashLogBinaryImages ()
 {
-    NSMutableArray * _binaryImages;
-    
     NSMutableDictionary * _binaryImagesRegistry;
     
     NSMutableDictionary * _binaryNamesRegistry;
     
     NSMutableDictionary * _binaryNameToIdentifierRosettaStone;
 }
+
+@property (readwrite) NSArray<CUIBinaryImage *> * binaryImages;
 
 - (BOOL)parseTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion outError:(NSError **)outError;
 
@@ -49,7 +49,7 @@
     
     if (self!=nil)
     {
-        _binaryImages=[NSMutableArray array];
+        _binaryImages=[NSArray array];
         
         _binaryImagesRegistry=[NSMutableDictionary dictionary];
         
@@ -66,6 +66,44 @@
     return self;
 }
 
+- (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
+{
+    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        _binaryImages=(NSArray<CUIBinaryImage *> *)[inIncident.binaryImages WB_arrayByMappingObjectsUsingBlock:^CUIBinaryImage *(IPSImage * bImage, NSUInteger bIndex) {
+            
+            CUIBinaryImage * tBinaryImage=[[CUIBinaryImage alloc] initWithImage:bImage error:NULL];
+            
+            if (tBinaryImage==nil)
+            {
+                // A COMPLETER
+            }
+            else
+            {
+                if (bIndex==0)
+                    tBinaryImage.mainImage=YES;
+            }
+            
+            return tBinaryImage;
+            
+        }];
+        
+        // A COMPLETER
+    }
+    
+    return self;
+}
+
 #pragma mark -
 
 - (BOOL)parseTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion outError:(NSError **)outError
@@ -76,6 +114,8 @@
     __block NSError * tError=nil;
     
     NSArray * tImagesLines=[inLines subarrayWithRange:NSMakeRange(1, inLines.count-1)];
+    
+    NSMutableArray * tBinaryImages=[NSMutableArray array];
     
     [tImagesLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL *bOutStop) {
         
@@ -102,7 +142,7 @@
         if (bLineNumber==0)
             tBinaryImage.mainImage=YES;
         
-        [self->_binaryImages addObject:tBinaryImage];
+        [tBinaryImages addObject:tBinaryImage];
         
         self->_binaryImagesRegistry[tBinaryImage.identifier]=tBinaryImage;
         
@@ -113,6 +153,8 @@
         self->_binaryNameToIdentifierRosettaStone[tBinartName]=tBinaryImage.identifier;
         
     }];
+    
+    _binaryImages=[tBinaryImages copy];
     
     if (outError!=NULL && tError!=nil)
         *outError=tError;
