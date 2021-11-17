@@ -1,3 +1,3 @@
-[submodule "ips2crash"]
-	path = ips2crash
+[submodule "submodules/ips2crash"]
+	path = submodules/ips2crash
 	url = https://github.com/packagesdev/ips2crash
