@@ -232,7 +232,7 @@
             _codeType=CUICodeTypeARM_64;
         }
         
-        /*_native=;*/
+        _native=(tIPSHeader.translated==NO);
         
         
         _executablePath=tIPSHeader.processPath;

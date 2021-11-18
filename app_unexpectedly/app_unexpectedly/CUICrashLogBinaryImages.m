@@ -80,10 +80,13 @@
     
     if (self!=nil)
     {
-        _binaryImages=(NSArray<CUIBinaryImage *> *)[inIncident.binaryImages WB_arrayByMappingObjectsUsingBlock:^CUIBinaryImage *(IPSImage * bImage, NSUInteger bIndex) {
+        _binaryImages=(NSArray<CUIBinaryImage *> *)[inIncident.binaryImages WB_arrayByMappingObjectsLenientlyUsingBlock:^CUIBinaryImage *(IPSImage * bImage, NSUInteger bIndex) {
+            
+            if ([bImage.source isEqualToString:@"A"]==YES)
+                return nil;
             
             CUIBinaryImage * tBinaryImage=[[CUIBinaryImage alloc] initWithImage:bImage error:NULL];
-            
+        
             if (tBinaryImage==nil)
             {
                 // A COMPLETER

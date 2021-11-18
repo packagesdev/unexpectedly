@@ -461,7 +461,7 @@
     
     
     tMutableAttributedString=[[self attributedStringForKey:@"Code Type:"] mutableCopy];
-    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@"             %@",tHeader.cpuType]];
+    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@"             %@ (%@)",tHeader.cpuType,(tHeader.translated==NO) ? @"Native" : @"Translated"]];
     
     [tMutableArray addObject:tMutableAttributedString];
     
@@ -641,20 +641,23 @@
     
     IPSTermination * tTermination=tExceptionInformation.termination;
     
-    tMutableAttributedString=[[self attributedStringForKey:@"Termination Reason:"] mutableCopy];
-    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@"    Namespace %@, Code 0x%lx",tTermination.namespace,(unsigned long)tTermination.code]];
-    
-    [tMutableArray addObject:tMutableAttributedString];
-    
-    if (tTermination.byProc!=nil)
+    if (tTermination!=nil)
     {
-        tMutableAttributedString=[[self attributedStringForKey:@"Terminating Process:"] mutableCopy];
-        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@"   %@ [%d]",tTermination.byProc,tTermination.byPid]];
-    
+        tMutableAttributedString=[[self attributedStringForKey:@"Termination Reason:"] mutableCopy];
+        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@"    Namespace %@, Code 0x%lx",tTermination.namespace,(unsigned long)tTermination.code]];
+        
         [tMutableArray addObject:tMutableAttributedString];
-    }
     
-    [tMutableArray addObject:@""];
+        if (tTermination.byProc!=nil)
+        {
+            tMutableAttributedString=[[self attributedStringForKey:@"Terminating Process:"] mutableCopy];
+            [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@"   %@ [%d]",tTermination.byProc,tTermination.byPid]];
+        
+            [tMutableArray addObject:tMutableAttributedString];
+        }
+        
+        [tMutableArray addObject:@""];
+    }
     
     return tMutableArray;
 }
@@ -812,6 +815,9 @@
             if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)
             {
                 NSString * tBinaryImageIdentifier=(tBinaryImage.bundleIdentifier!=nil) ? tBinaryImage.bundleIdentifier : tBinaryImage.name;
+                
+                if (tBinaryImageIdentifier==nil)
+                    tBinaryImageIdentifier=@"???";
                 
                 NSUInteger tImageNameLength=tBinaryImageIdentifier.length;
                 
@@ -1044,27 +1050,31 @@
         
         [tRegistersOrder enumerateObjectsUsingBlock:^(NSString * bRegisterName, NSUInteger bIndex, BOOL * bOutStop) {
             
-            IPSRegisterState * tRegisterState=tCrashedThreadState.registersStates[bRegisterName];
             
-            if (tRegisterState!=nil)
+            if ([bRegisterName isEqualToString:@"."]==NO)
             {
-                NSMutableString * tMutableString=[NSMutableString string];
-                
-                NSString * tTranslatedName=[IPSThreadState displayNameForRegisterName:bRegisterName];
-                
-                if (tTranslatedName.length<5)
-                    for(NSUInteger tWhitespace=0;tWhitespace<(5-tTranslatedName.length);tWhitespace++)
-                        [tMutableString appendString:@" "];
-                
-                [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:tMutableString]];
-                
                 IPSRegisterState * tRegisterState=tCrashedThreadState.registersStates[bRegisterName];
                 
                 if (tRegisterState!=nil)
                 {
-                    [tMutableAttributedString appendAttributedString:[self attributedStringForKey:tTranslatedName]];
-                    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@" "]];
-                    [tMutableAttributedString appendAttributedString:[self attributedStringForRegisterValueWithFormat:@"0x%016lx",tRegisterState.value]];
+                    NSMutableString * tMutableString=[NSMutableString string];
+                    
+                    NSString * tTranslatedName=[IPSThreadState displayNameForRegisterName:bRegisterName];
+                    
+                    if (tTranslatedName.length<5)
+                        for(NSUInteger tWhitespace=0;tWhitespace<(5-tTranslatedName.length);tWhitespace++)
+                            [tMutableString appendString:@" "];
+                    
+                    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:tMutableString]];
+                    
+                    IPSRegisterState * tRegisterState=tCrashedThreadState.registersStates[bRegisterName];
+                    
+                    if (tRegisterState!=nil)
+                    {
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForKey:tTranslatedName]];
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@" "]];
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForRegisterValueWithFormat:@"0x%016lx",tRegisterState.value]];
+                    }
                 }
             }
             
@@ -1194,6 +1204,9 @@
         
         NSString * tBinaryImageIdentifier=(bImage.bundleIdentifier!=nil) ? bImage.bundleIdentifier : bImage.name;
         
+        if (tBinaryImageIdentifier==nil)
+            tBinaryImageIdentifier=@"???";
+        
         if (tIsMonochromeTheme==YES)
         {
             if (bImage.isUserCode==YES)
@@ -1228,8 +1241,8 @@
         [tMutableAttributedString appendAttributedString:[self attributedStringForUUIDWithFormat:@"<%@>",tUUIDString]];
         
         [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@" "]];
-        
-        [tMutableAttributedString appendAttributedString:[self attributedStringForPath:bImage.path]];
+
+        [tMutableAttributedString appendAttributedString:[self attributedStringForPath:(bImage.path!=nil) ? bImage.path : @"???"]];
         
         switch(self.hyperlinksStyle)
         {
