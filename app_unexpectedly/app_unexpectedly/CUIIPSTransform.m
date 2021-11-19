@@ -997,7 +997,7 @@
     {
         NSDictionary * tCPUFamiliesRegistry=@{
                                               @"X86-64":@"X86",
-                                              @"arm64":@"ARM"
+                                              @"ARM-64":@"ARM"
                                               };
         
         NSString * tCPUFamily=tCPUFamiliesRegistry[tHeader.cpuType];
@@ -1007,7 +1007,7 @@
         
         NSDictionary * tCPUSizeRegistry=@{
                                           @"X86-64":@"64-bit",
-                                          @"arm64":@"64-bit"
+                                          @"ARM-64":@"64-bit"
                                           };
         
         NSString * tCPUSize=tCPUSizeRegistry[tHeader.cpuType];
