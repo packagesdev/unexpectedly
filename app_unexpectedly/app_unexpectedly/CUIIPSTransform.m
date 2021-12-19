@@ -1024,25 +1024,25 @@
         
         if ([tCrashedThreadState.flavor isEqualToString:@"x86_THREAD_STATE"]==YES)
         {
-            tRegistersOrder=@[@"rax",@"rbx",@"rcx",@"rdx",
-                              @"rdi",@"rsi",@"rbp",@"rsp",
-                              @"r8",@"r9",@"r10",@"r11",
-                              @"r12",@"r13",@"r14",@"r15",
-                              @"rip",@"rflags",@"cr2"
+            tRegistersOrder=@[@"rax",@"rbx",@"rcx",@"rdx",@"\n",
+                              @"rdi",@"rsi",@"rbp",@"rsp",@"\n",
+                              @"r8",@"r9",@"r10",@"r11",@"\n",
+                              @"r12",@"r13",@"r14",@"r15",@"\n",
+                              @"rip",@"rflags",@"cr2",@"\n"
                               ];
         }
         else
         {
-            tRegistersOrder=@[@"x0",@"x1",@"x2",@"x3",
-                              @"x4",@"x5",@"x6",@"x7",
-                              @"x8",@"x9",@"x10",@"x11",
-                              @"x12",@"x13",@"x14",@"x15",
-                              @"x16",@"x17",@"x18",@"x19",
-                              @"x20",@"x21",@"x22",@"x23",
-                              @"x24",@"x25",@"x26",@"x27",
-                              @"x28",@"fp",@"lr",@".",
-                              @"sp",@"pc",@"cpsr",
-                              @"far",@"esr"
+            tRegistersOrder=@[@"x0",@"x1",@"x2",@"x3",@"\n",
+                              @"x4",@"x5",@"x6",@"x7",@"\n",
+                              @"x8",@"x9",@"x10",@"x11",@"\n",
+                              @"x12",@"x13",@"x14",@"x15",@"\n",
+                              @"x16",@"x17",@"x18",@"x19",@"\n",
+                              @"x20",@"x21",@"x22",@"x23",@"\n",
+                              @"x24",@"x25",@"x26",@"x27",@"\n",
+                              @"x28",@"fp",@"lr",@"\n",
+                              @"sp",@"pc",@"cpsr",@"\n",
+                              @"far",@"esr",@"\n"
                               ];
         }
         
@@ -1050,39 +1050,35 @@
         
         [tRegistersOrder enumerateObjectsUsingBlock:^(NSString * bRegisterName, NSUInteger bIndex, BOOL * bOutStop) {
             
-            
-            if ([bRegisterName isEqualToString:@"."]==NO)
-            {
-                IPSRegisterState * tRegisterState=tCrashedThreadState.registersStates[bRegisterName];
-                
-                if (tRegisterState!=nil)
-                {
-                    NSMutableString * tMutableString=[NSMutableString string];
-                    
-                    NSString * tTranslatedName=[IPSThreadState displayNameForRegisterName:bRegisterName];
-                    
-                    if (tTranslatedName.length<5)
-                        for(NSUInteger tWhitespace=0;tWhitespace<(5-tTranslatedName.length);tWhitespace++)
-                            [tMutableString appendString:@" "];
-                    
-                    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:tMutableString]];
-                    
-                    IPSRegisterState * tRegisterState=tCrashedThreadState.registersStates[bRegisterName];
-                    
-                    if (tRegisterState!=nil)
-                    {
-                        [tMutableAttributedString appendAttributedString:[self attributedStringForKey:tTranslatedName]];
-                        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@" "]];
-                        [tMutableAttributedString appendAttributedString:[self attributedStringForRegisterValueWithFormat:@"0x%016lx",tRegisterState.value]];
-                    }
-                }
-            }
-            
-            if ((bIndex%4)==3)
+            if ([bRegisterName isEqualToString:@"\n"]==YES)
             {
                 [tMutableArray addObject:tMutableAttributedString];
                 
                 tMutableAttributedString=[[NSMutableAttributedString alloc] initWithString:@""];
+            }
+            
+            IPSRegisterState * tRegisterState=tCrashedThreadState.registersStates[bRegisterName];
+            
+            if (tRegisterState!=nil)
+            {
+                NSMutableString * tMutableString=[NSMutableString string];
+                
+                NSString * tTranslatedName=[IPSThreadState displayNameForRegisterName:bRegisterName];
+                
+                if (tTranslatedName.length<5)
+                    for(NSUInteger tWhitespace=0;tWhitespace<(5-tTranslatedName.length);tWhitespace++)
+                        [tMutableString appendString:@" "];
+                
+                [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:tMutableString]];
+                
+                IPSRegisterState * tRegisterState=tCrashedThreadState.registersStates[bRegisterName];
+                
+                if (tRegisterState!=nil)
+                {
+                    [tMutableAttributedString appendAttributedString:[self attributedStringForKey:tTranslatedName]];
+                    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@": "]];
+                    [tMutableAttributedString appendAttributedString:[self attributedStringForRegisterValueWithFormat:@"0x%016lx",tRegisterState.value]];
+                }
             }
         }];
         
