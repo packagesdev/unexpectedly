@@ -577,6 +577,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     {
         tDataTransform=[CUIIPSTransform new];
         tDataTransform.input=tCrashLog.ipsReport;
+        ((CUIIPSTransform *)tDataTransform).crashlog=tCrashLog;
     }
     else
     {
