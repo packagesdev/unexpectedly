@@ -67,6 +67,17 @@
 	
 	if (self!=nil)
 	{
+        _headerRange.location=NSNotFound;
+        
+        _exceptionInformationRange.location=NSNotFound;
+        _diagnosticMessagesRange.location=NSNotFound;
+        
+        _backtracesRange.location=NSNotFound;
+        
+        _threadStateRange.location=NSNotFound;
+        
+        _binaryImagesRange.location=NSNotFound;
+        
         NSError * tError=nil;
         
         if (self.ipsReport!=nil)
@@ -102,19 +113,6 @@
         }
         else
         {
-            _headerRange.location=NSNotFound;
-            
-            _exceptionInformationRange.location=NSNotFound;
-            _diagnosticMessagesRange.location=NSNotFound;
-            
-            _backtracesRange.location=NSNotFound;
-            
-            _threadStateRange.location=NSNotFound;
-            
-            _binaryImagesRange.location=NSNotFound;
-            
-            
-            
             NSMutableArray * tLines=[NSMutableArray array];
             
             [self.rawText enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
@@ -449,7 +447,7 @@
 
 - (BOOL)finalizeParsing
 {
-    NSError * tError;
+    NSError * tError=nil;
     IPSReport * tIPSReport=self.ipsReport;
     
     if (tIPSReport!=nil)
@@ -469,7 +467,7 @@
         {
             _threadState=[[CUICrashLogThreadState alloc] initWithIPSIncident:tIPSReport.incident error:&tError];
         
-            if (_threadState==nil)
+            if (_threadState==nil && tError!=nil)
             {
                 // A COMPLETER
             

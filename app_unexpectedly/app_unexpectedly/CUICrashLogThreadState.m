@@ -84,7 +84,8 @@
         
         if (tThreadState==nil)
         {
-            // A COMPLETER
+            if (outError!=NULL)
+                *outError=nil;
             
             return nil;
         }
