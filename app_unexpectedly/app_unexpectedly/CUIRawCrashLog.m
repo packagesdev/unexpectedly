@@ -223,7 +223,16 @@
 
 - (BOOL)isThreadStateAvailable
 {
-    return (self.ipsReport.incident.threads[self.ipsReport.incident.exceptionInformation.faultingThread]!=nil);
+    NSUInteger tFaultingThreadIndex=self.ipsReport.incident.exceptionInformation.faultingThread;
+    
+    NSArray<IPSThread *> * tThreadsArray=self.ipsReport.incident.threads;
+    
+    if (tFaultingThreadIndex>=tThreadsArray.count)
+        return NO;
+    
+    IPSThread * tThread=tThreadsArray[tFaultingThreadIndex];
+    
+    return (tThread.threadState!=nil);
 }
 
 - (BOOL)isBinaryImagesAvailable
