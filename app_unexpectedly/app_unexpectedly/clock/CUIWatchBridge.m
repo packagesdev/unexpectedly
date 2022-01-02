@@ -36,7 +36,7 @@
     
     if (self.renderingMode==CUIWatchRenderingModeWireframe)
     {
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         
         [tBezierPath stroke];
         

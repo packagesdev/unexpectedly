@@ -774,7 +774,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     if (self.renderingMode==CUIWatchRenderingModeWireframe)
     {
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         [tBezierPath stroke];
     }
     else
@@ -807,7 +807,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     if (self.renderingMode==CUIWatchRenderingModeWireframe)
     {
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         [tBezierPath stroke];
     }
     else
@@ -879,13 +879,13 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         
         tBezierPath.lineWidth=_ratio*12.0;
         
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         
         [tBezierPath stroke];
         
         tBezierPath.lineWidth=_ratio*1.0;
         
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         
         [tBezierPath stroke];
     }
@@ -931,7 +931,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     if (self.renderingMode==CUIWatchRenderingModeWireframe)
     {
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         
         [tBezierPath stroke];
     }
@@ -971,7 +971,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     if (self.renderingMode==CUIWatchRenderingModeWireframe)
     {
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         
         [tBezierPath stroke];
     }
@@ -1090,7 +1090,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         
         if (self.renderingMode==CUIWatchRenderingModeWireframe)
         {
-            [[NSColor blackColor] set];
+            [[NSColor textColor] set];
             
             [tHandlePath stroke];
         }
@@ -1135,107 +1135,110 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
         
             // Metal effect
         
-        [NSGraphicsContext saveGraphicsState];
-        
-        [tHandlePath addClip];
-        
-        NSBezierPath * tWhiteGlare=[NSBezierPath bezierPath];
-        
-        [tWhiteGlare moveToPoint:NSMakePoint(2, 10)];
-        [tWhiteGlare lineToPoint:NSMakePoint(711,10)];
-        [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(711, 0)
-                                                radius:10
-                                            startAngle:90 endAngle:0 clockwise:YES];
-        
-        [tWhiteGlare lineToPoint:NSMakePoint(721,-125)];
-        
-        [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(731, -125)
-                                                radius:10
-                                            startAngle:180 endAngle:270 clockwise:NO];
-        
-        [tWhiteGlare lineToPoint:NSMakePoint(791,-135)];
-        
-        [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(791, -125)
-                                                radius:10
-                                            startAngle:270 endAngle:0 clockwise:NO];
-        
-        [tWhiteGlare lineToPoint:NSMakePoint(801,140)];
-        
-        [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(791, 140)
-                                                radius:10
-                                            startAngle:0 endAngle:90 clockwise:NO];
-        
-        [tWhiteGlare lineToPoint:NSMakePoint(731,150)];
-        
-        [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(731, 140)
-                                                radius:10
-                                            startAngle:90 endAngle:180 clockwise:NO];
-        
-        
-        [tWhiteGlare lineToPoint:NSMakePoint(721,25)];
-        
-        
-        [tWhiteGlare transformUsingAffineTransform:tAffineTransform];
-        
-        [tWhiteGlare setLineWidth:18*_ratio];
-        
-        [[NSColor colorWithDeviceWhite:0.56 alpha:1.0] set];
-        
-        [tWhiteGlare stroke];
-        
-        [tWhiteGlare setLineWidth:16*_ratio];
-        
-        [[NSColor colorWithDeviceWhite:0.60 alpha:1.0] set];
-        
-        [tWhiteGlare stroke];
-        
-        [tWhiteGlare setLineWidth:14*_ratio];
-        
-        [[NSColor colorWithDeviceWhite:0.65 alpha:1.0] set];
-        
-        [tWhiteGlare stroke];
-        
-        [tWhiteGlare setLineWidth:11*_ratio];
-        
-        [[NSColor colorWithDeviceWhite:0.72 alpha:1.0] set];
-        
-        [tWhiteGlare stroke];
-        
-        [tWhiteGlare setLineWidth:5*_ratio];
-        
-        [[NSColor colorWithDeviceWhite:0.81 alpha:1.0] set];
-        
-        [tWhiteGlare stroke];
-        
-        [tWhiteGlare setLineWidth:3*_ratio];
-        
-        [[NSColor colorWithDeviceWhite:0.9 alpha:1.0] set];
-        
-        [tWhiteGlare stroke];
-        
-        [tWhiteGlare setLineWidth:1];
-        
-        [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] set];
-        
-        [tWhiteGlare stroke];
-        
-        [NSGraphicsContext restoreGraphicsState];
-        
-            // Encoche
-        
-        tBezierPath=[NSBezierPath bezierPath];
-        
-        [tBezierPath moveToPoint:NSMakePoint(0+_ratio*590,10)];
-        
-        [tBezierPath lineToPoint:NSMakePoint(0+_ratio*605,10)];
-        
-        [tBezierPath transformUsingAffineTransform:tAffineTransform];
-        
-        tBezierPath.lineWidth=4.0*_ratio;
-        
-        [[NSColor colorWithDeviceWhite:0.0 alpha:0.55] setStroke];
-        
-        [tBezierPath stroke];
+        if (self.renderingMode!=CUIWatchRenderingModeWireframe)
+        {
+            [NSGraphicsContext saveGraphicsState];
+            
+            [tHandlePath addClip];
+            
+            NSBezierPath * tWhiteGlare=[NSBezierPath bezierPath];
+            
+            [tWhiteGlare moveToPoint:NSMakePoint(2, 10)];
+            [tWhiteGlare lineToPoint:NSMakePoint(711,10)];
+            [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(711, 0)
+                                                    radius:10
+                                                startAngle:90 endAngle:0 clockwise:YES];
+            
+            [tWhiteGlare lineToPoint:NSMakePoint(721,-125)];
+            
+            [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(731, -125)
+                                                    radius:10
+                                                startAngle:180 endAngle:270 clockwise:NO];
+            
+            [tWhiteGlare lineToPoint:NSMakePoint(791,-135)];
+            
+            [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(791, -125)
+                                                    radius:10
+                                                startAngle:270 endAngle:0 clockwise:NO];
+            
+            [tWhiteGlare lineToPoint:NSMakePoint(801,140)];
+            
+            [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(791, 140)
+                                                    radius:10
+                                                startAngle:0 endAngle:90 clockwise:NO];
+            
+            [tWhiteGlare lineToPoint:NSMakePoint(731,150)];
+            
+            [tWhiteGlare appendBezierPathWithArcWithCenter:NSMakePoint(731, 140)
+                                                    radius:10
+                                                startAngle:90 endAngle:180 clockwise:NO];
+            
+            
+            [tWhiteGlare lineToPoint:NSMakePoint(721,25)];
+            
+            
+            [tWhiteGlare transformUsingAffineTransform:tAffineTransform];
+            
+            [tWhiteGlare setLineWidth:18*_ratio];
+            
+            [[NSColor colorWithDeviceWhite:0.56 alpha:1.0] set];
+            
+            [tWhiteGlare stroke];
+            
+            [tWhiteGlare setLineWidth:16*_ratio];
+            
+            [[NSColor colorWithDeviceWhite:0.60 alpha:1.0] set];
+            
+            [tWhiteGlare stroke];
+            
+            [tWhiteGlare setLineWidth:14*_ratio];
+            
+            [[NSColor colorWithDeviceWhite:0.65 alpha:1.0] set];
+            
+            [tWhiteGlare stroke];
+            
+            [tWhiteGlare setLineWidth:11*_ratio];
+            
+            [[NSColor colorWithDeviceWhite:0.72 alpha:1.0] set];
+            
+            [tWhiteGlare stroke];
+            
+            [tWhiteGlare setLineWidth:5*_ratio];
+            
+            [[NSColor colorWithDeviceWhite:0.81 alpha:1.0] set];
+            
+            [tWhiteGlare stroke];
+            
+            [tWhiteGlare setLineWidth:3*_ratio];
+            
+            [[NSColor colorWithDeviceWhite:0.9 alpha:1.0] set];
+            
+            [tWhiteGlare stroke];
+            
+            [tWhiteGlare setLineWidth:1];
+            
+            [[NSColor colorWithDeviceWhite:1.0 alpha:1.0] set];
+            
+            [tWhiteGlare stroke];
+            
+            [NSGraphicsContext restoreGraphicsState];
+            
+                // Encoche
+            
+            tBezierPath=[NSBezierPath bezierPath];
+            
+            [tBezierPath moveToPoint:NSMakePoint(0+_ratio*590,10)];
+            
+            [tBezierPath lineToPoint:NSMakePoint(0+_ratio*605,10)];
+            
+            [tBezierPath transformUsingAffineTransform:tAffineTransform];
+            
+            tBezierPath.lineWidth=4.0*_ratio;
+            
+            [[NSColor colorWithDeviceWhite:0.0 alpha:0.55] setStroke];
+            
+            [tBezierPath stroke];
+        }
             
     }
     
@@ -1257,7 +1260,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     if (self.renderingMode==CUIWatchRenderingModeWireframe)
     {
-        [[NSColor blackColor] setStroke];
+        [[NSColor textColor] setStroke];
         [tBezierPath stroke];
     }
     else
