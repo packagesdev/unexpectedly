@@ -529,10 +529,12 @@
             {
                 // Default values
                 
+                NSTextField * tLabel=tTableCellView.textField;
+                
                 if (tCall.sourceFile==nil)
-                    tTableCellView.textField.stringValue=@"-";
+                    tLabel.stringValue=@"-";
                 else
-                    tTableCellView.textField.stringValue=[NSString stringWithFormat:@"%@ - line %lu",tCall.sourceFile,tCall.lineNumber];
+                    tLabel.stringValue=[NSString stringWithFormat:@"%@ - line %lu",tCall.sourceFile,tCall.lineNumber];
                 
                 tTableCellView.openButton.hidden=YES;
                 
@@ -560,9 +562,15 @@
                                                                                                                 {
                                                                                                                     case CUISymbolicationDataLookUpResultError:
                                                                                                                     case CUISymbolicationDataLookUpResultNotFound:
+                                                                                                                    {
+                                                                                                                        NSRect tFrame=tLabel.frame;
+                                                                                                                        
+                                                                                                                        tFrame.size.width=NSMaxX(tTableCellView.frame)-NSMinX(tFrame)-4;
+                                                                                                                        
+                                                                                                                        tLabel.frame=tFrame;
                                                                                                                         
                                                                                                                         break;
-                                                                                                                        
+                                                                                                                    }
                                                                                                                     case CUISymbolicationDataLookUpResultFound:
                                                                                                                         
                                                                                                                         tCall.symbolicationData=bSymbolicationData;
@@ -582,6 +590,14 @@
                                                                                                                     }
                                                                                                                 }
                     }];
+                }
+                else
+                {
+                    NSRect tFrame=tLabel.frame;
+                    
+                    tFrame.size.width=NSMaxX(tTableCellView.frame)-NSMinX(tFrame)-4;
+                        
+                    tLabel.frame=tFrame;
                 }
             }
             
