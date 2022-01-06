@@ -159,7 +159,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>63</string>
+	<string>64</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
