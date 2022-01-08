@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -80,6 +80,12 @@
     
     if (self!=nil)
     {
+        NSMutableDictionary * tBinaryImagesRegistry=[NSMutableDictionary dictionary];
+        
+        NSMutableDictionary * tBinaryNamesRegistry=[NSMutableDictionary dictionary];
+        
+        NSMutableDictionary * tBinaryNameToIdentifierRosettaStone=[NSMutableDictionary dictionary];
+        
         _binaryImages=(NSArray<CUIBinaryImage *> *)[inIncident.binaryImages WB_arrayByMappingObjectsLenientlyUsingBlock:^CUIBinaryImage *(IPSImage * bImage, NSUInteger bIndex) {
             
             if ([bImage.source isEqualToString:@"A"]==YES)
@@ -95,13 +101,25 @@
             {
                 if (bIndex==0)
                     tBinaryImage.mainImage=YES;
+                
+                tBinaryImagesRegistry[tBinaryImage.identifier]=tBinaryImage;
+                
+                NSString * tBinartName=tBinaryImage.path.lastPathComponent;
+                
+                tBinaryNamesRegistry[tBinartName]=tBinaryImage;
+                
+                tBinaryNameToIdentifierRosettaStone[tBinartName]=tBinaryImage.identifier;
             }
             
             return tBinaryImage;
             
         }];
         
-        // A COMPLETER
+        _binaryImagesRegistry=tBinaryImagesRegistry;
+        
+        _binaryNamesRegistry=tBinaryNamesRegistry;
+        
+        _binaryNameToIdentifierRosettaStone=tBinaryNameToIdentifierRosettaStone;
     }
     
     return self;
