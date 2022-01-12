@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUIPreferencesWindowController">
+            <connections>
+                <outlet property="_toolBar" destination="6zI-aR-fpa" id="CHz-Ac-uHu"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="F0z-JX-Cv5" customClass="CUIPreferencesWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenDisallowsTiling="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="730" height="400"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <value key="minSize" type="size" width="730" height="350"/>
+            <value key="maxSize" type="size" width="730" height="800"/>
+            <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="730" height="400"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="D61E4849-961C-442A-8B58-7CA007F20812" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="6zI-aR-fpa">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="05DB9B5F-BC7F-4CCA-BF32-731C932EA360" explicitItemIdentifier="toolbarItem.general" label="General" paletteLabel="General" image="NSPreferencesGeneral" selectable="YES" id="UQU-Ps-228">
+                        <connections>
+                            <action selector="showPane:" target="-2" id="JfQ-pF-Hff"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="4277C753-007B-43DA-A729-FE8AC69931C5" explicitItemIdentifier="toolbarItem.fontscolors" label="Fonts &amp; Colors" paletteLabel="Fonts &amp; Colors" selectable="YES" id="SAh-Qi-gC4">
+                        <connections>
+                            <action selector="showPane:" target="-2" id="JJk-NZ-vjn"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="FB786CBB-BCFC-44B7-8C12-288ADA8E21C6" explicitItemIdentifier="toolbarItem.presentation" label="Presentation" paletteLabel="Presentation" image="TextMode" selectable="YES" id="eCa-Vk-UOp">
+                        <connections>
+                            <action selector="showPane:" target="-2" id="4IV-xn-tOM"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="633F5F14-F73C-4AF6-8F67-BED9A917A783" explicitItemIdentifier="toolbarItem.symbolication" label="Symbolication" paletteLabel="Symbolication" image="symbolication_Template" selectable="YES" id="Q5n-xT-GUE">
+                        <connections>
+                            <action selector="showPane:" target="-2" id="w6D-Ku-xhR"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="791DB978-2878-4D73-AAA6-621004CCA3A6" explicitItemIdentifier="toolbarItem.crashReporter" label="Crash Reporter" paletteLabel="Crash Reporter" image="crashreporter" selectable="YES" id="1VP-qg-tbw">
+                        <connections>
+                            <action selector="showPane:" target="-2" id="HhP-9G-ZBT"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="25D1A26D-75F7-4BD1-998A-405AE7D65842" explicitItemIdentifier="toolbarItem.advanced" label="Advanced" paletteLabel="Advanced" image="NSAdvanced" selectable="YES" id="vqd-1P-vnH">
+                        <size key="minSize" width="32" height="32"/>
+                        <size key="maxSize" width="32" height="32"/>
+                        <connections>
+                            <action selector="showPane:" target="-2" id="bs9-H8-G59"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="UQU-Ps-228"/>
+                    <toolbarItem reference="eCa-Vk-UOp"/>
+                    <toolbarItem reference="SAh-Qi-gC4"/>
+                    <toolbarItem reference="Q5n-xT-GUE"/>
+                    <toolbarItem reference="1VP-qg-tbw"/>
+                    <toolbarItem reference="vqd-1P-vnH"/>
+                </defaultToolbarItems>
+                <connections>
+                    <outlet property="delegate" destination="-2" id="qsE-xQ-pGw"/>
+                </connections>
+            </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="-2" y="-706"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="NSAdvanced" width="32" height="32"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
+        <image name="TextMode" width="32" height="32"/>
+        <image name="crashreporter" width="32" height="32"/>
+        <image name="symbolication_Template" width="32" height="32"/>
+    </resources>
+</document>
