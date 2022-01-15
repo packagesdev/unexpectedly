@@ -56,11 +56,11 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="oyw-Du-OMN">
-                    <rect key="frame" x="747" y="412" width="108" height="32"/>
+                    <rect key="frame" x="743" y="412" width="112" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="More Info…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Upz-9K-gHp">
+                    <buttonCell key="cell" type="push" title="詳しい情報..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Upz-9K-gHp">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                     </buttonCell>
                     <connections>
                         <action selector="showMoreExceptionInfo:" target="-2" id="A1K-iE-4RQ"/>
@@ -221,7 +221,7 @@
                     </connections>
                 </splitView>
             </subviews>
-            <point key="canvasLocation" x="306.5" y="-139.5"/>
+            <point key="canvasLocation" x="146" y="104"/>
         </customView>
     </objects>
     <resources>

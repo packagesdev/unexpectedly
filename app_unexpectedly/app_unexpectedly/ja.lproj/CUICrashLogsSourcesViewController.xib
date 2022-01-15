@@ -137,7 +137,7 @@
                                 <menuItem state="on" image="NSActionTemplate" hidden="YES" id="MSJ-wy-0Je">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Edit…" id="9dK-mu-DL0">
+                                <menuItem title="編集..." id="9dK-mu-DL0">
                                     <connections>
                                         <action selector="editSmartSource:" target="-2" id="PmO-aB-nyF"/>
                                     </connections>
@@ -183,7 +183,7 @@
         </customView>
         <menu id="HyN-lT-5sn">
             <items>
-                <menuItem title="Edit…" id="Twv-NI-xzw">
+                <menuItem title="編集..." id="Twv-NI-xzw">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="editSmartSource:" target="-2" id="KCD-e6-KYn"/>

@@ -7,37 +7,37 @@
 "%[processName]@ %[is not]@ %@" = "%1$[Process Name]@ %2$[is not]@ %3$@";
 "%[processName]@ %[begins with]@ %@" = "%1$[Process Name]@ %2$[begins with]@ %3$@";
 "%[processName]@ %[ends with]@ %@" = "%1$[Process Name]@ %2$[ends with]@ %3$@";
-"%[processName]@ %[contains]@ %@" = "%1$[Process Name]@ %2$[contains]@ %3$@";
+"%[processName]@ %[contains]@ %@" = "%1$[Process Name]@ %2$[含む]@ %3$@";
 
 "%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[Identifier]@ %2$[is]@ %3$@";
 "%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[Identifier]@ %2$[is not]@ %3$@";
 "%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[Identifier]@ %2$[begins with]@ %3$@";
 "%[header.bundleIdentifier]@ %[ends with]@ %@" = "%1$[Identifier]@ %2$[ends with]@ %3$@";
-"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[Identifier]@ %2$[contains]@ %3$@";
+"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[Identifier]@ %2$[含む]@ %3$@";
 
 "%[header.executablePath]@ %[is]@ %@" = "%1$[Executable Path]@ %2$[is]@ %3$@";
 "%[header.executablePath]@ %[is not]@ %@" = "%1$[Executable Path]@ %2$[is not]@ %3$@";
 "%[header.executablePath]@ %[begins with]@ %@" = "%1$[Executable Path]@ %2$[begins with]@ %3$@";
 "%[header.executablePath]@ %[ends with]@ %@" = "%1$[Executable Path]@ %2$[ends with]@ %3$@";
-"%[header.executablePath]@ %[contains]@ %@" = "%1$[Executable Path]@ %2$[contains]@ %3$@";
+"%[header.executablePath]@ %[contains]@ %@" = "%1$[Executable Path]@ %2$[含む]@ %3$@";
 
 "%[header.executableVersion]@ %[is]@ %@" = "%1$[Executable Version]@ %2$[is]@ %3$@";
 "%[header.executableVersion]@ %[is not]@ %@" = "%1$[Executable Version]@ %2$[is not]@ %3$@";
 "%[header.executableVersion]@ %[begins with]@ %@" = "%1$[Executable Version]@ %2$[begins with]@ %3$@";
 "%[header.executableVersion]@ %[ends with]@ %@" = "%1$[Executable Version]@ %2$[ends with]@ %3$@";
-"%[header.executableVersion]@ %[contains]@ %@" = "%1$[Executable Version]@ %2$[contains]@ %3$@";
+"%[header.executableVersion]@ %[contains]@ %@" = "%1$[Executable Version]@ %2$[含む]@ %3$@";
 
 "%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[Crashed Thread Name]@ %2$[is]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[Crashed Thread Name]@ %2$[is not]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[Crashed Thread Name]@ %2$[begins with]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[Crashed Thread Name]@ %2$[ends with]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[Crashed Thread Name]@ %2$[contains]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[Crashed Thread Name]@ %2$[含む]@ %3$@";
 
 "%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[Operating System Version]@ %2$[is]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[Operating System Version]@ %2$[is not]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[Operating System Version]@ %2$[begins with]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[Operating System Version]@ %2$[ends with]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[Operating System Version]@ %2$[contains]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[Operating System Version]@ %2$[含む]@ %3$@";
 
 "%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Date]@ %2$[is earlier than or equal to]@ %3$@";
 "%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Date]@ %2$[is later than or equal to]@ %3$@";
@@ -69,7 +69,7 @@
 "%[crashLogFileName]@ %[is not]@ %@" = "%1$[Report File Name]@ %2$[is not]@ %3$@";
 "%[crashLogFileName]@ %[begins with]@ %@" = "%1$[Report File Name]@ %2$[begins with]@ %3$@";
 "%[crashLogFileName]@ %[ends with]@ %@" = "%1$[Report File Name]@ %2$[ends with]@ %3$@";
-"%[crashLogFileName]@ %[contains]@ %@" = "%1$[Report File Name]@ %2$[contains]@ %3$@";
+"%[crashLogFileName]@ %[contains]@ %@" = "%1$[Report File Name]@ %2$[含む]@ %3$@";
 
 "%[reportSourceTypeNumber]@ is %[0]@" = "%1$[Source]@ is %2$[System Reports]@";
 "%[reportSourceTypeNumber]@ is %[1]@" = "%1$[Source]@ is %2$[User Reports]@";

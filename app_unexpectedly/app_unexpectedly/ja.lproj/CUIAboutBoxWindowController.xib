@@ -44,8 +44,8 @@
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ttD-QV-oac">
                                     <rect key="frame" x="302" y="216" width="163" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="version xxx (xxxx)" id="zzd-sb-nLW">
-                                        <font key="font" metaFont="system"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="バージョン xxx (xxxx)" id="zzd-sb-nLW">
+                                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -64,22 +64,22 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" id="BFt-hQ-gMS">
-                                            <rect key="frame" x="411" y="11" width="150" height="25"/>
+                                            <rect key="frame" x="454" y="11" width="107" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="squareTextured" title="License Agreement" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="Pec-zi-7OB">
+                                            <buttonCell key="cell" type="squareTextured" title="使用許諾契約" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="Pec-zi-7OB">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="showLicenseAgreement:" target="-2" id="a9e-i5-Dsu"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="GUS-e1-oXY">
-                                            <rect key="frame" x="253" y="11" width="150" height="25"/>
+                                            <rect key="frame" x="339" y="11" width="107" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="squareTextured" title="Acknowledgments" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="tds-hN-Zey">
+                                            <buttonCell key="cell" type="squareTextured" title="謝辞" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="tds-hN-Zey">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="showAcknowledgments:" target="-2" id="vyh-yi-H1N"/>

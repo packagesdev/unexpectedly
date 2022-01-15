@@ -151,7 +151,7 @@
                                         <action selector="switchSortType:" target="-2" id="xWq-oW-cf1"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Date" id="Vew-KO-SYM">
+                                <menuItem title="日付" id="Vew-KO-SYM">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
                                         <action selector="switchSortType:" target="-2" id="PWf-yF-FXe"/>
@@ -170,7 +170,7 @@
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="kV4-Gy-Y5g">
                     <rect key="frame" x="5" y="2" width="201" height="19"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="vf8-7z-IX2">
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="フィルタ" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="vf8-7z-IX2">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -196,7 +196,7 @@
                     </menu>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="77W-Wm-C8z"/>
-                <menuItem title="Finderで表示" id="1tQ-M6-BhY">
+                <menuItem title="Finderで表示" state="on" id="1tQ-M6-BhY">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showInFinder:" target="-2" id="VM3-SG-pFL"/>
@@ -216,7 +216,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="265" y="167"/>
+            <point key="canvasLocation" x="391" y="200"/>
         </menu>
     </objects>
     <resources>

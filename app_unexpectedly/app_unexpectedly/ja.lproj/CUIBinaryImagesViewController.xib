@@ -23,7 +23,7 @@
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="JbX-mT-2UH">
                     <rect key="frame" x="638" y="2" width="180" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="CXs-CW-3At">
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="フィルタ" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="CXs-CW-3At">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -86,8 +86,8 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn identifier="version" editable="NO" width="120" minWidth="10" maxWidth="3.4028234663852886e+38" id="JQI-XJ-VTL">
-                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Version">
+                                    <tableColumn identifier="version" editable="NO" width="122" minWidth="10" maxWidth="3.4028234663852886e+38" id="JQI-XJ-VTL">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="バージョン">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,11 +101,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="8FH-01-0os">
-                                                <rect key="frame" x="247" y="1" width="120" height="16"/>
+                                                <rect key="frame" x="247" y="1" width="122" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="plL-Vk-xaA">
-                                                        <rect key="frame" x="0.0" y="1" width="120" height="14"/>
+                                                        <rect key="frame" x="0.0" y="1" width="122" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="obt-PL-Lbo" customClass="CUISelectedWhiteTextFieldCell">
                                                             <font key="font" metaFont="smallSystem"/>
@@ -135,7 +135,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="g9U-vA-jTF">
-                                                <rect key="frame" x="370" y="1" width="212" height="16"/>
+                                                <rect key="frame" x="372" y="1" width="212" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="3kh-At-cKc">
@@ -154,8 +154,8 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn identifier="path" editable="NO" width="230" minWidth="10" maxWidth="3.4028234663852886e+38" id="HcW-EK-wr3">
-                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Path">
+                                    <tableColumn identifier="path" editable="NO" width="232" minWidth="10" maxWidth="3.4028234663852886e+38" id="HcW-EK-wr3">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="パス">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,11 +169,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="sf0-hA-RmY">
-                                                <rect key="frame" x="585" y="1" width="230" height="16"/>
+                                                <rect key="frame" x="587" y="1" width="232" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="lmB-oe-CyW">
-                                                        <rect key="frame" x="0.0" y="1" width="230" height="14"/>
+                                                        <rect key="frame" x="0.0" y="1" width="232" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="qWc-Kx-SEP" customClass="CUISelectedWhiteTextFieldCell">
                                                             <font key="font" metaFont="smallSystem"/>
@@ -215,15 +215,14 @@
         </customView>
         <menu id="lWX-qP-xpp">
             <items>
-                <menuItem title="Show in Finder" id="taY-h1-kV9">
+                <menuItem title="Finderで表示" id="taY-h1-kV9">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showInFinder:" target="-2" id="C8h-FR-DuE"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Open With" id="YLm-YP-LL9">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Open With" id="SGI-Dm-tOB">
+                <menuItem title="このアプリケーションで開" id="YLm-YP-LL9">
+                    <menu key="submenu" title="このアプリケーションで開" id="SGI-Dm-tOB">
                         <items>
                             <menuItem title="-" id="9Ch-Xx-Yu3">
                                 <modifierMask key="keyEquivalentModifierMask"/>

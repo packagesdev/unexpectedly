@@ -24,8 +24,8 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="s8b-in-hjv">
                     <rect key="frame" x="41" y="59" width="43" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Date:" id="f0C-O7-hfc">
-                        <font key="font" metaFont="smallSystem"/>
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="日付:" id="f0C-O7-hfc">
+                        <font key="font" size="11" name=".HiraKakuInterface-W3"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

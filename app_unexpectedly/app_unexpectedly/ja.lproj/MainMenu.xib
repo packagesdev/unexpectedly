@@ -102,7 +102,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="書き出す" id="3tw-V4-ayi">
                                     <items>
-                                        <menuItem title="Report…" id="9tt-1M-ra5">
+                                        <menuItem title="レポート..." id="9tt-1M-ra5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_exportCrashLog:" target="-1" id="yYt-Vu-UUP"/>
@@ -258,9 +258,9 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="View" id="H8h-7b-M4v">
+                <menuItem title="表示" id="H8h-7b-M4v">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="View" id="HyV-fh-RgO">
+                    <menu key="submenu" title="表示" id="HyV-fh-RgO">
                         <items>
                             <menuItem title="サイドバーを表示" keyEquivalent="1" id="fzY-Ht-27G">
                                 <connections>
@@ -308,18 +308,18 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="フォントサイズ" id="TBb-40-aCS">
                                     <items>
-                                        <menuItem title="Increase" keyEquivalent="+" id="EXj-Y3-9fM">
+                                        <menuItem title="増やす" keyEquivalent="+" id="EXj-Y3-9fM">
                                             <connections>
                                                 <action selector="CUI_MENUACTION_increaseFontSize:" target="-1" id="qW5-4J-akR"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Decrease" keyEquivalent="-" id="7i3-Bb-CWM">
+                                        <menuItem title="減らす" keyEquivalent="-" id="7i3-Bb-CWM">
                                             <connections>
                                                 <action selector="CUI_MENUACTION_decreaseFontSize:" target="-1" id="B2V-VK-bcD"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="P4p-p3-w1I"/>
-                                        <menuItem title="Reset" keyEquivalent="0" id="kfY-hu-eJP">
+                                        <menuItem title="リセット" keyEquivalent="0" id="kfY-hu-eJP">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_resetFontSize:" target="-1" id="nz0-xy-rD7"/>
@@ -328,9 +328,9 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Themes" id="yjG-UV-U5C">
+                            <menuItem title="テーマ" id="yjG-UV-U5C">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Themes" id="abx-GW-6TZ">
+                                <menu key="submenu" title="テーマ" id="abx-GW-6TZ">
                                     <items>
                                         <menuItem isSeparatorItem="YES" id="NUX-KR-gxh"/>
                                         <menuItem title="Edit Themes…" id="csr-ry-NgM">
@@ -347,7 +347,7 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Visible Sections" id="WFL-Rm-rhq">
                                     <items>
-                                        <menuItem title="Header" id="HIC-nM-hNN">
+                                        <menuItem title="ヘッダ" id="HIC-nM-hNN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchHeaderVisibility:" target="-1" id="WUc-lV-ghf"/>
@@ -391,9 +391,9 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Navigate" id="aG2-MW-iKZ">
+                <menuItem title="移動" id="aG2-MW-iKZ">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Navigate" id="YUZ-OQ-Qfb">
+                    <menu key="submenu" title="移動" id="YUZ-OQ-Qfb">
                         <items>
                             <menuItem title="Jump to Line…" keyEquivalent="l" id="JtL-ON-s7d">
                                 <connections>
@@ -405,7 +405,7 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Jump to Section" id="AcZ-wd-kkj">
                                     <items>
-                                        <menuItem title="Header" id="Bmg-Jh-vql">
+                                        <menuItem title="ヘッダ" id="Bmg-Jh-vql">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToHeader:" target="-1" id="0VQ-jO-VrD"/>
@@ -471,7 +471,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="V2l-48-H4C"/>
-                            <menuItem title="Registers" keyEquivalent="r" id="e57-vP-OAA">
+                            <menuItem title="レジスタ" keyEquivalent="r" id="e57-vP-OAA">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUIMENUACTION_showHideRegisters:" target="-1" id="4GI-98-jKW"/>
@@ -491,7 +491,7 @@ CA
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="ヘルプ" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="Unexpectedly Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="Unexpectedlyヘルプ" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showUserGuide:" target="Voe-Tx-rLC" id="Xxx-bM-bpn"/>
                                 </connections>
@@ -514,9 +514,9 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Debug" hidden="YES" id="cNb-At-Imu">
+                <menuItem title="デバッグ" hidden="YES" id="cNb-At-Imu">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Debug" id="OCR-9P-Ipy">
+                    <menu key="submenu" title="デバッグ" id="OCR-9P-Ipy">
                         <items>
                             <menuItem title="Crash Reporter" id="QbD-vw-FaL">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -573,7 +573,7 @@ CA
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-549" y="-1322"/>
+            <point key="canvasLocation" x="-377" y="-1336"/>
         </menu>
     </objects>
 </document>

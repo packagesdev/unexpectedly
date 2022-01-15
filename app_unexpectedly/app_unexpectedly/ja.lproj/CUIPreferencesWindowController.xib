@@ -28,7 +28,7 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="D61E4849-961C-442A-8B58-7CA007F20812" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="6zI-aR-fpa">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="05DB9B5F-BC7F-4CCA-BF32-731C932EA360" explicitItemIdentifier="toolbarItem.general" label="General" paletteLabel="General" image="NSPreferencesGeneral" selectable="YES" id="UQU-Ps-228">
+                    <toolbarItem implicitItemIdentifier="05DB9B5F-BC7F-4CCA-BF32-731C932EA360" explicitItemIdentifier="toolbarItem.general" label="一般" paletteLabel="一般" image="NSPreferencesGeneral" selectable="YES" id="UQU-Ps-228">
                         <connections>
                             <action selector="showPane:" target="-2" id="JfQ-pF-Hff"/>
                         </connections>
@@ -53,7 +53,7 @@
                             <action selector="showPane:" target="-2" id="HhP-9G-ZBT"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="25D1A26D-75F7-4BD1-998A-405AE7D65842" explicitItemIdentifier="toolbarItem.advanced" label="Advanced" paletteLabel="Advanced" image="NSAdvanced" selectable="YES" id="vqd-1P-vnH">
+                    <toolbarItem implicitItemIdentifier="25D1A26D-75F7-4BD1-998A-405AE7D65842" explicitItemIdentifier="toolbarItem.advanced" label="詳細" paletteLabel="詳細" image="NSAdvanced" selectable="YES" id="vqd-1P-vnH">
                         <size key="minSize" width="32" height="32"/>
                         <size key="maxSize" width="32" height="32"/>
                         <connections>

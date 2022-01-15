@@ -73,19 +73,19 @@
                                 </connections>
                             </colorWell>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0qd-wx-JZe">
-                                <rect key="frame" x="18" y="16" width="81" height="17"/>
+                                <rect key="frame" x="67" y="16" width="32" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Background:" id="tXe-F9-mz7">
-                                    <font key="font" metaFont="system"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="背景:" id="tXe-F9-mz7">
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="x6u-0C-glq">
-                                <rect key="frame" x="195" y="16" width="65" height="17"/>
+                                <rect key="frame" x="204" y="16" width="56" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Selection:" id="5b7-64-CqX">
-                                    <font key="font" metaFont="system"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="選択部分:" id="5b7-64-CqX">
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -232,14 +232,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" headerView="CBt-FS-rdj" viewBased="YES" id="RzM-ng-eMk" customClass="CUIThemesTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="165" height="371"/>
+                                <rect key="frame" x="0.0" y="0.0" width="167" height="371"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="162" minWidth="40" maxWidth="1000" id="8z8-zq-M80">
-                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Theme">
+                                    <tableColumn width="164" minWidth="40" maxWidth="1000" id="8z8-zq-M80">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="テーマ">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -252,11 +252,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="g8I-5G-l02">
-                                                <rect key="frame" x="1" y="1" width="162" height="26"/>
+                                                <rect key="frame" x="1" y="1" width="164" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="tDm-Ft-Jnv">
-                                                        <rect key="frame" x="0.0" y="6" width="162" height="14"/>
+                                                        <rect key="frame" x="0.0" y="6" width="164" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="tXJ-2u-YI1">
                                                             <font key="font" metaFont="smallSystem"/>
@@ -292,16 +292,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <tableHeaderView key="headerView" id="CBt-FS-rdj">
-                        <rect key="frame" x="0.0" y="0.0" width="165" height="25"/>
+                        <rect key="frame" x="0.0" y="0.0" width="167" height="25"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
                 <button verticalHuggingPriority="750" id="wrW-a0-5bb">
                     <rect key="frame" x="20" y="52" width="78" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" title="Duplicate" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qIb-6V-bKQ">
+                    <buttonCell key="cell" type="smallSquare" title="複製" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qIb-6V-bKQ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="smallSystem"/>
+                        <font key="font" size="11" name=".HiraKakuInterface-W3"/>
                     </buttonCell>
                     <connections>
                         <action selector="duplicate:" target="-2" id="Xri-vW-CH4"/>
@@ -319,11 +319,11 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="umy-j0-XLf">
-                    <rect key="frame" x="575" y="13" width="141" height="32"/>
+                    <rect key="frame" x="577" y="13" width="137" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="Restore Defaults" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CuZ-Pa-zjm">
+                    <buttonCell key="cell" type="push" title="デフォルトに戻す" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CuZ-Pa-zjm">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                     </buttonCell>
                     <connections>
                         <action selector="restoreDefaults:" target="-2" id="Gab-8f-vLB"/>
@@ -342,13 +342,13 @@
         </customView>
         <menu id="eAx-eb-TeX">
             <items>
-                <menuItem title="Duplicate" id="RpP-Yq-5CH">
+                <menuItem title="複製" id="RpP-Yq-5CH">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="duplicate:" target="-2" id="Afi-lx-Njn"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Delete…" id="pgM-Ek-dMO">
+                <menuItem title="削除..." id="pgM-Ek-dMO">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="delete:" target="-2" id="Rjs-es-rtG"/>
