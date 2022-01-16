@@ -34,10 +34,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gdJ-dt-1kl">
-                    <rect key="frame" x="13" y="421" width="101" height="17"/>
+                    <rect key="frame" x="13" y="422" width="67" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Exception Type:" id="ayc-kQ-Slx">
-                        <font key="font" metaFont="system"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="例外の種類:" id="ayc-kQ-Slx">
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -47,7 +47,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UjR-qo-T8o">
-                    <rect key="frame" x="118" y="421" width="361" height="17"/>
+                    <rect key="frame" x="84" y="421" width="395" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="s2X-DC-xIe">
                         <font key="font" metaFont="system"/>
@@ -221,7 +221,7 @@
                     </connections>
                 </splitView>
             </subviews>
-            <point key="canvasLocation" x="146" y="104"/>
+            <point key="canvasLocation" x="145.5" y="103.5"/>
         </customView>
     </objects>
     <resources>

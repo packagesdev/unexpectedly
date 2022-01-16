@@ -43,9 +43,9 @@
                                     <button id="UoY-kV-fnd" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="210" y="1" width="93" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Text" bezelStyle="regularSquare" alignment="center" inset="2" id="yUb-rK-XWX">
+                                        <buttonCell key="cell" type="radio" title="テキスト" bezelStyle="regularSquare" alignment="center" inset="2" id="yUb-rK-XWX">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" size="12" name=".HiraKakuInterface-W3"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="switchSelectedPresentationMode:" target="-2" id="tKJ-wP-cns"/>
@@ -65,7 +65,7 @@
                                 </subviews>
                             </customView>
                             <colorWell id="ojb-CW-adm">
-                                <rect key="frame" x="105" y="12" width="44" height="23"/>
+                                <rect key="frame" x="99" y="12" width="44" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -73,7 +73,7 @@
                                 </connections>
                             </colorWell>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0qd-wx-JZe">
-                                <rect key="frame" x="67" y="16" width="32" height="17"/>
+                                <rect key="frame" x="56" y="17" width="37" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="背景:" id="tXe-F9-mz7">
                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -82,7 +82,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="x6u-0C-glq">
-                                <rect key="frame" x="204" y="16" width="56" height="17"/>
+                                <rect key="frame" x="191" y="17" width="64" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="選択部分:" id="5b7-64-CqX">
                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -131,7 +131,7 @@
                                 </subviews>
                             </customView>
                             <colorWell id="tI7-g9-Ub1">
-                                <rect key="frame" x="266" y="12" width="44" height="23"/>
+                                <rect key="frame" x="261" y="12" width="44" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -204,10 +204,10 @@
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E3D-RK-YW7">
-                                <rect key="frame" x="332" y="16" width="90" height="17"/>
+                                <rect key="frame" x="319" y="17" width="103" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Selected Text:" id="hlx-fO-U4G">
-                                    <font key="font" metaFont="system"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="選択したテキスト:" id="hlx-fO-U4G">
+                                    <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>

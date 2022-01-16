@@ -46,10 +46,10 @@
                                         <menuItem title="Binary" state="on" hidden="YES" id="Ql8-Yj-GNF">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Boolean" tag="1" id="VoA-fE-sxQ"/>
-                                        <menuItem title="Decimal" tag="3" id="Hab-wq-jWg"/>
+                                        <menuItem title="ブール値" tag="1" id="VoA-fE-sxQ"/>
+                                        <menuItem title="10進数" tag="3" id="Hab-wq-jWg"/>
                                         <menuItem title="Float" tag="2" id="2IG-5I-rJY"/>
-                                        <menuItem title="Hex" tag="4" id="SoX-XB-pNK"/>
+                                        <menuItem title="16進数" tag="4" id="SoX-XB-pNK"/>
                                         <menuItem title="Octal" tag="5" id="5Ci-Jw-A07"/>
                                         <menuItem title="Unsigned Decimal" tag="6" id="QOY-jj-Mna"/>
                                     </items>

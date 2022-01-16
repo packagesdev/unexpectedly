@@ -48,11 +48,11 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQT-bg-eZT">
-                    <rect key="frame" x="259" y="40" width="131" height="18"/>
+                    <rect key="frame" x="259" y="40" width="118" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Full report" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="pba-yN-6P5">
+                    <buttonCell key="cell" type="radio" title="完全なレポート" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="pba-yN-6P5">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                     </buttonCell>
                     <connections>
                         <action selector="switchExportedContents:" target="-2" id="uaB-9C-u9X"/>

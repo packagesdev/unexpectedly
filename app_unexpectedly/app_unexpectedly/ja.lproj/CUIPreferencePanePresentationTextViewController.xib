@@ -40,11 +40,11 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="Qt3-ro-d2D">
-                    <rect key="frame" x="329" y="184" width="164" height="18"/>
+                    <rect key="frame" x="329" y="184" width="77" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Exception Information" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="F76-W3-yAd">
+                    <buttonCell key="cell" type="check" title="例外情報" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="F76-W3-yAd">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                     </buttonCell>
                     <connections>
                         <action selector="switchShowExceptionInformation:" target="-2" id="cUe-nn-bRr"/>

@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E67-yJ-rtd">
-                    <rect key="frame" x="105" y="366" width="94" height="17"/>
+                    <rect key="frame" x="82" y="367" width="117" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Symbol Files:" id="kzW-xF-tfP">
-                        <font key="font" metaFont="system"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="シンボル ファイル:" id="kzW-xF-tfP">
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

@@ -26,12 +26,12 @@
                 <popUpButton toolTip="Filter visible sections" id="o3T-bg-7a6">
                     <rect key="frame" x="0.0" y="1" width="31" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" id="hR3-DY-z5t">
+                    <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="mixed" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" id="hR3-DY-z5t">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" id="e8c-hg-WG7">
                             <items>
-                                <menuItem state="on" image="quote_Template" hidden="YES" id="ggI-rC-fEt">
+                                <menuItem state="mixed" image="quote_Template" hidden="YES" id="ggI-rC-fEt">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
                                 <menuItem title="ヘッダ" id="zdn-EI-sae">
@@ -40,7 +40,7 @@
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="fZC-QV-uXY"/>
-                                <menuItem title="Exception Information" id="LpK-Zx-Gla">
+                                <menuItem title="例外情報" id="LpK-Zx-Gla">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-2" id="2VZ-w6-6FZ"/>
                                     </connections>

@@ -31,11 +31,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <button id="OdN-hf-Q5a" customClass="CUIPreferencesTabButton">
-                                        <rect key="frame" x="280" y="1" width="48" height="23"/>
+                                        <rect key="frame" x="270" y="1" width="59" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Text" bezelStyle="regularSquare" alignment="center" inset="2" id="ARO-B4-zFG">
+                                        <buttonCell key="cell" type="radio" title="テキスト" bezelStyle="regularSquare" alignment="center" inset="2" id="ARO-B4-zFG">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" size="12" name=".HiraKakuInterface-W3"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPresentationOptions:" target="-2" id="ClQ-Fr-Q9W"/>

@@ -163,13 +163,13 @@
                                 <menuItem state="on" image="NSAddTemplate" hidden="YES" id="DJQ-Va-eqw">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="New Smart Source…" id="HSw-t4-mnl">
+                                <menuItem title="新しいスマートソース..." id="HSw-t4-mnl">
                                     <connections>
                                         <action selector="CUI_MENUACTION_addSmartSource:" target="-2" id="mMA-Im-5Li"/>
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="FFc-YN-a1b"/>
-                                <menuItem title="Add File or Folder…" id="r1o-zR-BIu">
+                                <menuItem title="ファイルまたはフォルダを追加,,," id="r1o-zR-BIu">
                                     <connections>
                                         <action selector="CUI_MENUACTION_addSource:" target="-2" id="1HN-pX-hYb"/>
                                     </connections>

@@ -73,13 +73,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="ファイル" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="New Smart Source…" keyEquivalent="N" id="Was-JA-tGl">
+                            <menuItem title="新しいスマートソース..." keyEquivalent="N" id="Was-JA-tGl">
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSmartSource:" target="-1" id="bHg-uP-Kty"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="Mx6-UK-5B4"/>
-                            <menuItem title="Add File or Folder…" keyEquivalent="a" id="3wG-3v-uZk">
+                            <menuItem title="ファイルまたはフォルダを追加..." keyEquivalent="a" id="3wG-3v-uZk">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSource:" target="-1" id="b1Q-ed-4lm"/>
@@ -92,7 +92,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="56E-C3-0cD"/>
-                            <menuItem title="Import Smart Source…" id="lvA-aa-UmE">
+                            <menuItem title="スマートソースのインポート..." id="lvA-aa-UmE">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_importSmartSource:" target="-1" id="slK-ne-mc7"/>
@@ -278,7 +278,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kEv-nO-mPM"/>
-                            <menuItem title="Text" keyEquivalent="1" id="qIT-0d-e67">
+                            <menuItem title="テキスト" keyEquivalent="1" id="qIT-0d-e67">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="eRM-Kc-O5r"/>
@@ -354,7 +354,7 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="1r5-yC-AUQ"/>
-                                        <menuItem title="Exception Information" id="lvl-an-zWN">
+                                        <menuItem title="例外情報" id="lvl-an-zWN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-1" id="fLf-3S-OlT"/>
@@ -412,7 +412,7 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="5Cd-ay-my5"/>
-                                        <menuItem title="Exception Information" id="SzQ-gm-Wkt">
+                                        <menuItem title="例外情報" id="SzQ-gm-Wkt">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToExceptionInformation:" target="-1" id="079-pD-HEp"/>
@@ -499,7 +499,7 @@ CA
                             <menuItem isSeparatorItem="YES" id="NhV-yu-WbQ">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Send Feedback" id="Agb-QS-hQl">
+                            <menuItem title="フィードバックを送信する" id="Agb-QS-hQl">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="sendFeedback:" target="Voe-Tx-rLC" id="GdC-FT-8s8"/>

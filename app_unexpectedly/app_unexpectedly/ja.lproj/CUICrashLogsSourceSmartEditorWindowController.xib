@@ -54,7 +54,7 @@
                         </connections>
                     </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="l74-1V-jTB">
-                        <rect key="frame" x="18" y="386" width="78" height="17"/>
+                        <rect key="frame" x="44" y="387" width="52" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="名前:" id="reH-vX-GUc">
                             <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -75,10 +75,10 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="scv-qL-eIO">
-                        <rect key="frame" x="11" y="356" width="85" height="17"/>
+                        <rect key="frame" x="50" y="357" width="46" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Description:" id="zQj-c9-rhZ">
-                            <font key="font" metaFont="system"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="説明:" id="zQj-c9-rhZ">
+                            <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -134,7 +134,7 @@ Gw
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="101" y="-846"/>
+            <point key="canvasLocation" x="101" y="-846.5"/>
         </window>
     </objects>
 </document>
