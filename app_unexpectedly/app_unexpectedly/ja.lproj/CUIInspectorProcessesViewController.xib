@@ -39,7 +39,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hLm-Sv-QmR">
-                    <rect key="frame" x="15" y="37" width="69" height="14"/>
+                    <rect key="frame" x="16" y="38" width="68" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="上位プロセス:" id="LQg-a2-eTx">
                         <font key="font" size="11" name=".HiraKakuInterface-W3"/>
@@ -48,7 +48,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="S5n-dU-r4J">
-                    <rect key="frame" x="29" y="59" width="55" height="14"/>
+                    <rect key="frame" x="36" y="60" width="48" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="プロセス:" id="cvR-Mj-EZK">
                         <font key="font" size="11" name=".HiraKakuInterface-W3"/>
@@ -66,7 +66,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hD5-0s-riR">
-                    <rect key="frame" x="4" y="83" width="44" height="14"/>
+                    <rect key="frame" x="4" y="83" width="44" height="11"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="プロセス" id="Peb-bL-MXn">
                         <font key="font" size="11" name=".HiraKakuInterface-W6"/>

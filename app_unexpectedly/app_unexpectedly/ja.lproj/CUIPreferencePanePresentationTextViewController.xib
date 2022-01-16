@@ -62,11 +62,11 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="vj7-9l-wu4">
-                    <rect key="frame" x="329" y="142" width="101" height="18"/>
+                    <rect key="frame" x="329" y="142" width="114" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Backtraces" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZOK-Ny-hlt">
+                    <buttonCell key="cell" type="check" title="バックトレース" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZOK-Ny-hlt">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                     </buttonCell>
                     <connections>
                         <action selector="switchShowBacktraces:" target="-2" id="M7z-KY-6jd"/>
@@ -137,10 +137,10 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eDV-BF-Pu1">
-                    <rect key="frame" x="226" y="245" width="99" height="17"/>
+                    <rect key="frame" x="237" y="246" width="88" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Line wrapping:" id="nm4-Se-bRD">
-                        <font key="font" metaFont="system"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="行の折り返し:" id="nm4-Se-bRD">
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -165,8 +165,19 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" id="n6c-lM-SZM">
+                    <rect key="frame" x="329" y="283" width="59" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="行番号" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8bP-wa-KPh">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="switchShowsLineNumbers:" target="-2" id="evn-zL-ZnP"/>
+                    </connections>
+                </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9bL-sk-EjC">
-                    <rect key="frame" x="261" y="284" width="64" height="13"/>
+                    <rect key="frame" x="261" y="285" width="64" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="時間表示:" id="gBx-bb-vVK">
                         <font key="font" size="13" name=".HiraKakuInterface-W3"/>
@@ -174,17 +185,6 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" id="n6c-lM-SZM">
-                    <rect key="frame" x="329" y="283" width="120" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Line numbers" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8bP-wa-KPh">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="switchShowsLineNumbers:" target="-2" id="evn-zL-ZnP"/>
-                    </connections>
-                </button>
             </subviews>
             <point key="canvasLocation" x="-63" y="-1862.5"/>
         </customView>

@@ -126,13 +126,13 @@
                                 <menuItem image="NSActionTemplate" tag="-1" hidden="YES" id="29W-Zg-HYo">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Show" tag="-1" enabled="NO" id="JK6-HP-t2c">
+                                <menuItem title="表示" tag="-1" enabled="NO" id="JK6-HP-t2c">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
                                         <action selector="switchDisplayedName:" target="-2" id="83X-bU-gU8"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Process Name" id="Knq-mU-Xyu">
+                                <menuItem title="プロセス名" id="Knq-mU-Xyu">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
                                         <action selector="switchDisplayedName:" target="-2" id="4jX-xR-Vde"/>

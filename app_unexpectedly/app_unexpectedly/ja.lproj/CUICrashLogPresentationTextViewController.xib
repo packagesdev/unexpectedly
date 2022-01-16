@@ -51,7 +51,7 @@
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="3Wr-0I-wum"/>
-                                <menuItem title="Backtraces" id="kXZ-qs-DxU">
+                                <menuItem title="バックトレース" id="kXZ-qs-DxU">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-2" id="B8j-HN-qA3"/>
                                     </connections>
