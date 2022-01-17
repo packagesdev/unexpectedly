@@ -54,9 +54,9 @@
                                     <button hidden="YES" tag="1" id="PFb-pf-cDg" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="273" y="1" width="93" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Outline" bezelStyle="regularSquare" alignment="center" enabled="NO" tag="1" inset="2" id="0bp-JB-hgi">
+                                        <buttonCell key="cell" type="radio" title="概要" bezelStyle="regularSquare" alignment="center" enabled="NO" tag="1" inset="2" id="0bp-JB-hgi">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" size="12" name=".HiraKakuInterface-W3"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="switchSelectedPresentationMode:" target="-2" id="CaH-UR-hXI"/>
@@ -355,13 +355,13 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="Zf1-4a-jgB"/>
-                <menuItem title="Import Theme…" id="5HI-nQ-F9G">
+                <menuItem title="テーマのインポート..." id="5HI-nQ-F9G">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="importTheme:" target="-2" id="cy6-qV-ueG"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Export Theme…" id="9mp-BZ-63A">
+                <menuItem title="テーマのエクスポート..." id="9mp-BZ-63A">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="exportTheme:" target="-2" id="6h3-pb-u8c"/>

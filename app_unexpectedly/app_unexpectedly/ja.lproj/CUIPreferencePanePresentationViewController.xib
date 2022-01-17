@@ -44,9 +44,9 @@
                                     <button tag="1" id="mm7-bt-sqK" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="344" y="1" width="65" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Outline" bezelStyle="regularSquare" alignment="center" tag="1" inset="2" id="K3H-7g-Y6W">
+                                        <buttonCell key="cell" type="radio" title="概要" bezelStyle="regularSquare" alignment="center" tag="1" inset="2" id="K3H-7g-Y6W">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" size="12" name=".HiraKakuInterface-W3"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPresentationOptions:" target="-2" id="9nl-0S-hxW"/>

@@ -34,11 +34,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <button toolTip="The Unexpectedly Quit dialog is displayed for all processes run by the user." verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="q4r-Gy-3Z5">
-                            <rect key="frame" x="-1" y="21" width="84" height="18"/>
+                            <rect key="frame" x="-1" y="21" width="59" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="Developer" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Tjt-95-3Z2">
+                            <buttonCell key="cell" type="radio" title="開発者" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Tjt-95-3Z2">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                             </buttonCell>
                             <connections>
                                 <action selector="switchCrashReporterDialogType:" target="-2" id="hvp-pX-cgQ"/>
@@ -84,11 +84,11 @@
                             </connections>
                         </button>
                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMG-po-tCI">
-                            <rect key="frame" x="-1" y="21" width="92" height="18"/>
+                            <rect key="frame" x="-1" y="21" width="107" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="Alert dialog" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2af-hi-y4e">
+                            <buttonCell key="cell" type="radio" title="警告ダイアログ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2af-hi-y4e">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                             </buttonCell>
                             <connections>
                                 <action selector="switchCrashReporterNotificationMode:" target="-2" id="M91-HQ-GhJ"/>
