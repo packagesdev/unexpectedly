@@ -373,7 +373,7 @@ CA
                                                 <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-1" id="eUz-AU-LoI"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Thread State" id="RBY-FQ-bMy">
+                                        <menuItem title="スレッドの状態" id="RBY-FQ-bMy">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-1" id="XYE-gq-GnF"/>
@@ -431,7 +431,7 @@ CA
                                                 <action selector="CUI_MENUACTION_jumpToBacktraces:" target="-1" id="Sfi-Ce-HQ0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Thread State" id="hfS-oi-1cT">
+                                        <menuItem title="スレッドの状態" id="hfS-oi-1cT">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToThreadState:" target="-1" id="Lbe-gO-nw1"/>
