@@ -51,11 +51,11 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="iNz-Qb-2d2">
-                    <rect key="frame" x="329" y="163" width="154" height="18"/>
+                    <rect key="frame" x="329" y="163" width="114" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Diagnostic Messages" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EEv-JV-T5b">
+                    <buttonCell key="cell" type="check" title="診断メッセージ" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EEv-JV-T5b">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                     </buttonCell>
                     <connections>
                         <action selector="switchShowDiagnosticMessages:" target="-2" id="wy4-KN-LXQ"/>
@@ -73,7 +73,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="cir-zS-0pp">
-                    <rect key="frame" x="329" y="120" width="108" height="18"/>
+                    <rect key="frame" x="329" y="120" width="114" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="スレッドの状態" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ysb-qv-8M9">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -157,10 +157,10 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="1vN-WD-7S5">
-                    <rect key="frame" x="171" y="206" width="154" height="17"/>
+                    <rect key="frame" x="119" y="207" width="206" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default visible sections:" id="LKq-kF-sWQ">
-                        <font key="font" metaFont="system"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="デフォルトで表示されるセクション:" id="LKq-kF-sWQ">
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

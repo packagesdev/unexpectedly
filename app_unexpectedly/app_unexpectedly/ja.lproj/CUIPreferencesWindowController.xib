@@ -33,12 +33,12 @@
                             <action selector="showPane:" target="-2" id="JfQ-pF-Hff"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="4277C753-007B-43DA-A729-FE8AC69931C5" explicitItemIdentifier="toolbarItem.fontscolors" label="フォントと色" paletteLabel="フォントと色" selectable="YES" id="SAh-Qi-gC4">
+                    <toolbarItem implicitItemIdentifier="4277C753-007B-43DA-A729-FE8AC69931C5" explicitItemIdentifier="toolbarItem.fontscolors" label="フォントとカラー" paletteLabel="フォントとカラー" selectable="YES" id="SAh-Qi-gC4">
                         <connections>
                             <action selector="showPane:" target="-2" id="JJk-NZ-vjn"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="FB786CBB-BCFC-44B7-8C12-288ADA8E21C6" explicitItemIdentifier="toolbarItem.presentation" label="Presentation" paletteLabel="Presentation" image="TextMode" selectable="YES" id="eCa-Vk-UOp">
+                    <toolbarItem implicitItemIdentifier="FB786CBB-BCFC-44B7-8C12-288ADA8E21C6" explicitItemIdentifier="toolbarItem.presentation" label="プレゼンテーション" paletteLabel="プレゼンテーション" image="TextMode" selectable="YES" id="eCa-Vk-UOp">
                         <connections>
                             <action selector="showPane:" target="-2" id="4IV-xn-tOM"/>
                         </connections>

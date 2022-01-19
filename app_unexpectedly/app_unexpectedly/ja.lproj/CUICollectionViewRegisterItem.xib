@@ -51,7 +51,7 @@
                                         <menuItem title="Float" tag="2" id="2IG-5I-rJY"/>
                                         <menuItem title="16進数" tag="4" id="SoX-XB-pNK"/>
                                         <menuItem title="Octal" tag="5" id="5Ci-Jw-A07"/>
-                                        <menuItem title="Unsigned Decimal" tag="6" id="QOY-jj-Mna"/>
+                                        <menuItem title="符号なし小数" tag="6" id="QOY-jj-Mna"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>

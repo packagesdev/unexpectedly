@@ -45,7 +45,7 @@
                                         <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-2" id="2VZ-w6-6FZ"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Diagnostic Messages" id="M4h-Oa-aq3">
+                                <menuItem title="診断メッセージ" id="M4h-Oa-aq3">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchDiagnosticMessagesVisibility:" target="-2" id="hQt-R4-vLH"/>
                                     </connections>
@@ -56,7 +56,7 @@
                                         <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-2" id="B8j-HN-qA3"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Thread State" id="d7k-xL-Hbq">
+                                <menuItem title="スレッドの状態" id="d7k-xL-Hbq">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-2" id="c9g-bt-Ect"/>
                                     </connections>

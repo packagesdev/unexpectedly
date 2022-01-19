@@ -343,9 +343,9 @@ CA
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="2Cq-5I-dEU"/>
-                            <menuItem title="Visible Sections" id="wAR-FX-MEm">
+                            <menuItem title="目に見えるセクション" id="wAR-FX-MEm">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Visible Sections" id="WFL-Rm-rhq">
+                                <menu key="submenu" title="目に見えるセクション" id="WFL-Rm-rhq">
                                     <items>
                                         <menuItem title="ヘッダ" id="HIC-nM-hNN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -360,7 +360,7 @@ CA
                                                 <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-1" id="fLf-3S-OlT"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Diagnostic Messages" id="iKL-gn-vYN">
+                                        <menuItem title="診断メッセージ" id="iKL-gn-vYN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchDiagnosticMessagesVisibility:" target="-1" id="N8e-k9-P27"/>
@@ -418,7 +418,7 @@ CA
                                                 <action selector="CUI_MENUACTION_jumpToExceptionInformation:" target="-1" id="079-pD-HEp"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Diagnostic Messages" id="Wiv-Qz-fMq">
+                                        <menuItem title="診断メッセージ" id="Wiv-Qz-fMq">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToDiagnosticMessages:" target="-1" id="hTl-rJ-Q5a"/>

@@ -123,7 +123,7 @@
                                         <action selector="switchViewMode:" target="-2" id="e7v-G7-W7s"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Show only crashed thread" verticalHuggingPriority="750" id="QRs-W6-mBT">
+                                <button toolTip="クラッシュしたスレッドのみを表示する" verticalHuggingPriority="750" id="QRs-W6-mBT">
                                     <rect key="frame" x="751" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="con-zk-L9l">
