@@ -300,9 +300,9 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Report Viewer" id="Wlf-Q9-x4u">
+                <menuItem title="レポートビューア" id="Wlf-Q9-x4u">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Report Viewer" id="nLy-c6-ILM">
+                    <menu key="submenu" title="レポートビューア" id="nLy-c6-ILM">
                         <items>
                             <menuItem title="フォントサイズ" id="hLb-MS-G2f">
                                 <modifierMask key="keyEquivalentModifierMask"/>
