@@ -45,7 +45,7 @@
                                     <rect key="frame" x="302" y="216" width="163" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="バージョン xxx (xxxx)" id="zzd-sb-nLW">
-                                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                        <font key="font" metaFont="system"/>
                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -68,7 +68,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="squareTextured" title="使用許諾契約" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="Pec-zi-7OB">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="showLicenseAgreement:" target="-2" id="a9e-i5-Dsu"/>
@@ -79,7 +79,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="squareTextured" title="謝辞" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="tds-hN-Zey">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                                <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="showAcknowledgments:" target="-2" id="vyh-yi-H1N"/>

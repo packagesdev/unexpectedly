@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="730" height="222"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wjm-1k-GIP">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wjm-1k-GIP">
                     <rect key="frame" x="209" y="76" width="116" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Notification Mode:" id="Ipc-sm-G5f">
@@ -29,25 +29,25 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G3J-O5-TdF">
+                <customView id="G3J-O5-TdF">
                     <rect key="frame" x="329" y="107" width="189" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button toolTip="The Unexpectedly Quit dialog is displayed for all processes run by the user." verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="q4r-Gy-3Z5">
-                            <rect key="frame" x="-1" y="21" width="59" height="18"/>
+                        <button toolTip="The Unexpectedly Quit dialog is displayed for all processes run by the user." verticalHuggingPriority="750" tag="1" id="q4r-Gy-3Z5">
+                            <rect key="frame" x="-1" y="21" width="67" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="開発者" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Tjt-95-3Z2">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
                                 <action selector="switchCrashReporterDialogType:" target="-2" id="hvp-pX-cgQ"/>
                             </connections>
                         </button>
-                        <button toolTip="The Unexpectedly Quit dialog is never displayed." verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="i8F-ge-i9c">
-                            <rect key="frame" x="-1" y="-1" width="62" height="18"/>
+                        <button toolTip="The Unexpectedly Quit dialog is never displayed." verticalHuggingPriority="750" tag="2" id="i8F-ge-i9c">
+                            <rect key="frame" x="-1" y="-1" width="67" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="Server" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="l5e-xv-Kdo">
+                            <buttonCell key="cell" type="radio" title="サーバ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="l5e-xv-Kdo">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -55,7 +55,7 @@
                                 <action selector="switchCrashReporterDialogType:" target="-2" id="eST-mh-Dhc"/>
                             </connections>
                         </button>
-                        <button toolTip="The Unexpectedly Quit dialog is only displayed for application crashes." verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDV-3D-Zmr">
+                        <button toolTip="The Unexpectedly Quit dialog is only displayed for application crashes." verticalHuggingPriority="750" id="KDV-3D-Zmr">
                             <rect key="frame" x="-1" y="43" width="55" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="Basic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8un-EB-HxH">
@@ -68,14 +68,14 @@
                         </button>
                     </subviews>
                 </customView>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ak-aK-Hz3">
+                <customView id="7ak-aK-Hz3">
                     <rect key="frame" x="329" y="54" width="189" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="AhZ-xe-s0x">
-                            <rect key="frame" x="-1" y="-1" width="139" height="18"/>
+                        <button verticalHuggingPriority="750" tag="1" id="AhZ-xe-s0x">
+                            <rect key="frame" x="-1" y="-1" width="107" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="System notification" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1LC-JU-zMZ">
+                            <buttonCell key="cell" type="radio" title="システム通知" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1LC-JU-zMZ">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -83,12 +83,12 @@
                                 <action selector="switchCrashReporterNotificationMode:" target="-2" id="Zpu-SM-Vup"/>
                             </connections>
                         </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMG-po-tCI">
-                            <rect key="frame" x="-1" y="21" width="107" height="18"/>
+                        <button verticalHuggingPriority="750" id="nMG-po-tCI">
+                            <rect key="frame" x="-1" y="21" width="115" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="警告ダイアログ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2af-hi-y4e">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                                <font key="font" metaFont="system"/>
                             </buttonCell>
                             <connections>
                                 <action selector="switchCrashReporterNotificationMode:" target="-2" id="M91-HQ-GhJ"/>
@@ -96,7 +96,7 @@
                         </button>
                     </subviews>
                 </customView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-Jp-SYV">
+                <button verticalHuggingPriority="750" id="k0s-Jp-SYV">
                     <rect key="frame" x="327" y="18" width="193" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Report uncaught exceptions" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="b1K-o7-rhS">
@@ -107,7 +107,7 @@
                         <action selector="switchReportUncaughtException:" target="-2" id="eNP-mM-U1S"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5h-y9-eMQ">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="X5h-y9-eMQ">
                     <rect key="frame" x="219" y="151" width="106" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Operation Mode:" id="NM5-WZ-kg0">
@@ -116,7 +116,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3C8-jD-0F8">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="3C8-jD-0F8">
                     <rect key="frame" x="-2" y="188" width="734" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" alignment="center" title="When an application quits unexpectedly on macOS, the crash report is generated by Apple's Crash Reporter service. " id="XPU-ts-yFW">

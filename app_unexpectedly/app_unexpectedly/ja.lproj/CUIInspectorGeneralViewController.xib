@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="s8b-in-hjv">
-                    <rect key="frame" x="57" y="60" width="27" height="11"/>
+                    <rect key="frame" x="50" y="59" width="34" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="日付:" id="f0C-O7-hfc">
-                        <font key="font" size="11" name=".HiraKakuInterface-W3"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -52,7 +52,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TdJ-MQ-6CN">
-                    <rect key="frame" x="23" y="37" width="61" height="14"/>
+                    <rect key="frame" x="32" y="37" width="52" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="macOS:" id="B2h-K8-1XC">
                         <font key="font" metaFont="smallSystem"/>
@@ -61,7 +61,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ai6-kr-ddH">
-                    <rect key="frame" x="23" y="15" width="61" height="14"/>
+                    <rect key="frame" x="18" y="15" width="66" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="Bridge OS:" id="hKB-kb-Fu1">
                         <font key="font" metaFont="smallSystem"/>
@@ -70,10 +70,10 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Eku-en-ffA">
-                    <rect key="frame" x="4" y="83" width="24" height="11"/>
+                    <rect key="frame" x="4" y="83" width="34" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="一般" id="Slr-R1-4oS">
-                        <font key="font" size="11" name=".HiraKakuInterface-W6"/>
+                        <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

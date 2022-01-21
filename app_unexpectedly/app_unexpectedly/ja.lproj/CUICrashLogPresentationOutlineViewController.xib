@@ -34,10 +34,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gdJ-dt-1kl">
-                    <rect key="frame" x="13" y="422" width="67" height="13"/>
+                    <rect key="frame" x="13" y="421" width="68" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="例外の種類:" id="ayc-kQ-Slx">
-                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -60,7 +60,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="詳しい情報..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Upz-9K-gHp">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                        <font key="font" usesAppearanceFont="YES"/>
                     </buttonCell>
                     <connections>
                         <action selector="showMoreExceptionInfo:" target="-2" id="A1K-iE-4RQ"/>
@@ -98,10 +98,10 @@
                                     </scroller>
                                 </scrollView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TL4-gi-udl">
-                                    <rect key="frame" x="13" y="3" width="82" height="12"/>
+                                    <rect key="frame" x="13" y="3" width="82" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="バックトレース" id="Dtf-ev-i4n">
-                                        <font key="font" size="12" name=".HiraKakuInterface-W3"/>
+                                        <font key="font" metaFont="system" size="12"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>

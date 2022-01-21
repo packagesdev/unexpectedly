@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E67-yJ-rtd">
-                    <rect key="frame" x="82" y="367" width="117" height="13"/>
+                    <rect key="frame" x="81" y="365" width="118" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="シンボル ファイル:" id="kzW-xF-tfP">
-                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -58,7 +58,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="シンボルファイルを自動的に探す" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="M5T-BJ-hV4">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                        <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="switchSearchForSymbolFiles:" target="-2" id="G2h-en-QtA"/>

@@ -35,7 +35,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="radio" title="テキスト" bezelStyle="regularSquare" alignment="center" inset="2" id="ARO-B4-zFG">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" size="12" name=".HiraKakuInterface-W3"/>
+                                            <font key="font" metaFont="system" size="12"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPresentationOptions:" target="-2" id="ClQ-Fr-Q9W"/>
@@ -46,7 +46,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="radio" title="概要" bezelStyle="regularSquare" alignment="center" tag="1" inset="2" id="K3H-7g-Y6W">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" size="12" name=".HiraKakuInterface-W3"/>
+                                            <font key="font" metaFont="system" size="12"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPresentationOptions:" target="-2" id="9nl-0S-hxW"/>

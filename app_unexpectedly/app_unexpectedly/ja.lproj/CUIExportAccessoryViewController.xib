@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="518" height="116"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-74-6Q1">
+                <popUpButton verticalHuggingPriority="750" id="1u4-74-6Q1">
                     <rect key="frame" x="259" y="72" width="81" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="HTML" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lK1-XA-eFw" id="3tZ-5v-KqQ">
@@ -38,8 +38,8 @@
                         <action selector="switchExportFormat:" target="-2" id="J2A-b6-fHB"/>
                     </connections>
                 </popUpButton>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ra9-fZ-6EK">
-                    <rect key="frame" x="167" y="77" width="88" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ra9-fZ-6EK">
+                    <rect key="frame" x="175" y="77" width="80" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="フォーマット:" id="kgo-g3-HQW">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -47,33 +47,33 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQT-bg-eZT">
+                <button verticalHuggingPriority="750" id="lQT-bg-eZT">
                     <rect key="frame" x="259" y="40" width="118" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="完全なレポート" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="pba-yN-6P5">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                        <font key="font" usesAppearanceFont="YES"/>
                     </buttonCell>
                     <connections>
                         <action selector="switchExportedContents:" target="-2" id="uaB-9C-u9X"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCi-24-cSg">
-                    <rect key="frame" x="259" y="19" width="131" height="18"/>
+                <button verticalHuggingPriority="750" id="yCi-24-cSg">
+                    <rect key="frame" x="259" y="19" width="153" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Selected text only" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="kfb-cJ-elR">
+                    <buttonCell key="cell" type="radio" title="選択したテキストのみ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="kfb-cJ-elR">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" usesAppearanceFont="YES"/>
                     </buttonCell>
                     <connections>
                         <action selector="switchExportedContents:" target="-2" id="GTa-iX-bQ5"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJJ-vN-i8N">
-                    <rect key="frame" x="133" y="41" width="122" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cJJ-vN-i8N">
+                    <rect key="frame" x="79" y="40" width="176" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Exported Contents:" id="buk-Aw-yVe">
-                        <font key="font" usesAppearanceFont="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="エクスポートされたコンテンツ:" id="buk-Aw-yVe">
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
