@@ -61,7 +61,33 @@
     {
         IPSIncidentDiagnosticMessage * tDiagnosticMessage=inIncident.diagnosticMessage;
         
-        //_messages=;
+        if (tDiagnosticMessage!=nil)
+        {
+            NSMutableString * tMessages=[NSMutableString string];
+            
+            if (tDiagnosticMessage.vmregioninfo!=nil)
+            {
+                [tMessages appendFormat:@"VM Region Info: %@\n",tDiagnosticMessage.vmregioninfo];
+            }
+            
+            if (tDiagnosticMessage.asi!=nil)
+            {
+                [tMessages appendString:@"Application Specific Information:\n"];
+                
+                [tDiagnosticMessage.asi.applicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
+                    
+                    [bInformation enumerateObjectsUsingBlock:^(NSString * bInformation, NSUInteger bIndex, BOOL * bOutStop2) {
+                        
+                        [tMessages appendFormat:@"%@\n",bInformation];
+                    }];
+                    
+                }];
+                
+                [tMessages appendString:@"\n"];
+            }
+            
+             _messages=[tMessages copy];
+        }
     }
     
     return self;
