@@ -395,7 +395,7 @@ CA
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="移動" id="YUZ-OQ-Qfb">
                         <items>
-                            <menuItem title="Jump to Line…" keyEquivalent="l" id="JtL-ON-s7d">
+                            <menuItem title="指定の行に移動..." keyEquivalent="l" id="JtL-ON-s7d">
                                 <connections>
                                     <action selector="CUI_MENUACTION_jumpToLine:" target="-1" id="hAa-kF-BVg"/>
                                 </connections>
@@ -525,7 +525,7 @@ CA
                                         <menuItem title="Operation Mode" enabled="NO" id="rSJ-Ir-6Ad">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Basic" id="cZ2-Me-tJE">
+                                        <menuItem title="基本" id="cZ2-Me-tJE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="1pr-Nb-cUn"/>
@@ -537,7 +537,7 @@ CA
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="Sze-b6-Qb4"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Server" tag="2" id="oZt-M9-dpo">
+                                        <menuItem title="サーバ" tag="2" id="oZt-M9-dpo">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="t2d-3r-nsn"/>
@@ -553,14 +553,14 @@ CA
                                                 <action selector="switchCrashReporterNotificationMode:" target="Voe-Tx-rLC" id="pfK-8S-sWf"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="System notification" tag="1" id="zLw-vY-Ttl">
+                                        <menuItem title="システム通知" tag="1" id="zLw-vY-Ttl">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterNotificationMode:" target="Voe-Tx-rLC" id="yUA-00-NUV"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="isO-68-Tw7"/>
-                                        <menuItem title="Report uncaught exceptions" id="eLO-Pu-jRW">
+                                        <menuItem title="キャッチされなかった例外を報告する" id="eLO-Pu-jRW">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchReportUncaughtException:" target="Voe-Tx-rLC" id="3Tb-Lg-qE2"/>
@@ -573,7 +573,7 @@ CA
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-377" y="-1336"/>
+            <point key="canvasLocation" x="-698" y="-1279"/>
         </menu>
     </objects>
 </document>

@@ -196,7 +196,7 @@
                     </menu>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="77W-Wm-C8z"/>
-                <menuItem title="Finderで表示" state="on" id="1tQ-M6-BhY">
+                <menuItem title="Finderで表示" id="1tQ-M6-BhY">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showInFinder:" target="-2" id="VM3-SG-pFL"/>

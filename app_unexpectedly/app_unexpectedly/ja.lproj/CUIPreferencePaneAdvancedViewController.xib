@@ -20,9 +20,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" id="90R-sA-w2P">
-                    <rect key="frame" x="333" y="78" width="218" height="18"/>
+                    <rect key="frame" x="333" y="78" width="193" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Check automatically for updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xZp-NR-s8v">
+                    <buttonCell key="cell" type="check" title="自動的にアップデートを確認" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xZp-NR-s8v">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -31,9 +31,9 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cfR-UU-mmm">
-                    <rect key="frame" x="212" y="79" width="117" height="17"/>
+                    <rect key="frame" x="154" y="79" width="175" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Software Updates:" id="gEo-19-sz4">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="ソフトウェア・アップデート:" id="gEo-19-sz4">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -44,9 +44,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <button verticalHuggingPriority="750" id="ysx-uw-uYe">
-                    <rect key="frame" x="333" y="18" width="211" height="18"/>
+                    <rect key="frame" x="333" y="18" width="262" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Show Debug menu in menu bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7Aq-aa-8q1">
+                    <buttonCell key="cell" type="check" title="メニューバーに“デバッグ”メニューを表示" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7Aq-aa-8q1">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

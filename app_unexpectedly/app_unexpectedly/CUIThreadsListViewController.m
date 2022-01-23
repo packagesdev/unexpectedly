@@ -316,7 +316,20 @@
 
 - (NSUInteger)numberOfSelectedStackFrames
 {
-    return [_outlineView WB_selectedOrClickedRowIndexes].count;
+    NSIndexSet * tSelectedRows=[_outlineView WB_selectedOrClickedRowIndexes];
+    
+    __block BOOL tContainsThreadRows=NO;
+    
+    [tSelectedRows enumerateIndexesUsingBlock:^(NSUInteger bIndex, BOOL * bOutStop) {
+       
+        if ([[self->_outlineView itemAtRow:bIndex] class]==[CUIThread class])
+        {
+            tContainsThreadRows=YES;
+            *bOutStop=YES;
+        }
+    }];
+    
+    return (tContainsThreadRows==NO) ? [_outlineView WB_selectedOrClickedRowIndexes].count : 0;
 }
 
 - (NSArray<CUIStackFrame *> *)selectedStackFrames

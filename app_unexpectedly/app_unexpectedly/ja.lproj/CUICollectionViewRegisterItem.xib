@@ -38,20 +38,20 @@
                         <popUpButton id="fAd-pL-hD3">
                             <rect key="frame" x="130" y="1" width="16" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <popUpButtonCell key="cell" type="bevel" title="Binary" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Ql8-Yj-GNF" id="jsY-zd-eaC">
+                            <popUpButtonCell key="cell" type="bevel" title="2 進" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Ql8-Yj-GNF" id="jsY-zd-eaC">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="smallSystem"/>
                                 <menu key="menu" id="W6L-9s-vAV">
                                     <items>
-                                        <menuItem title="Binary" state="on" hidden="YES" id="Ql8-Yj-GNF">
+                                        <menuItem title="2 進" state="on" hidden="YES" id="Ql8-Yj-GNF">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="ブール値" tag="1" id="VoA-fE-sxQ"/>
-                                        <menuItem title="10進数" tag="3" id="Hab-wq-jWg"/>
+                                        <menuItem title="10 進" tag="3" id="Hab-wq-jWg"/>
                                         <menuItem title="浮動小数点数" tag="2" id="2IG-5I-rJY"/>
-                                        <menuItem title="16進数" tag="4" id="SoX-XB-pNK"/>
-                                        <menuItem title="8進数" tag="5" id="5Ci-Jw-A07"/>
-                                        <menuItem title="符号なし小数" tag="6" id="QOY-jj-Mna"/>
+                                        <menuItem title="16 進" tag="4" id="SoX-XB-pNK"/>
+                                        <menuItem title="8 進" tag="5" id="5Ci-Jw-A07"/>
+                                        <menuItem title="符号なし 10 進" tag="6" id="QOY-jj-Mna"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>

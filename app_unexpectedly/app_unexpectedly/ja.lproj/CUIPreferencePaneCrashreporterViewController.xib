@@ -56,9 +56,9 @@
                             </connections>
                         </button>
                         <button toolTip="The Unexpectedly Quit dialog is only displayed for application crashes." verticalHuggingPriority="750" id="KDV-3D-Zmr">
-                            <rect key="frame" x="-1" y="43" width="55" height="18"/>
+                            <rect key="frame" x="-1" y="43" width="67" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="radio" title="Basic" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8un-EB-HxH">
+                            <buttonCell key="cell" type="radio" title="基本" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8un-EB-HxH">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -73,7 +73,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <button verticalHuggingPriority="750" tag="1" id="AhZ-xe-s0x">
-                            <rect key="frame" x="-1" y="-1" width="107" height="18"/>
+                            <rect key="frame" x="-1" y="-1" width="115" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="システム通知" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1LC-JU-zMZ">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -97,9 +97,9 @@
                     </subviews>
                 </customView>
                 <button verticalHuggingPriority="750" id="k0s-Jp-SYV">
-                    <rect key="frame" x="327" y="18" width="193" height="18"/>
+                    <rect key="frame" x="327" y="18" width="235" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Report uncaught exceptions" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="b1K-o7-rhS">
+                    <buttonCell key="cell" type="check" title="キャッチされなかった例外を報告する" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="b1K-o7-rhS">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
