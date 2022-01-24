@@ -21,18 +21,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Tow-sZ-5fR">
-                    <rect key="frame" x="186" y="79" width="143" height="17"/>
+                    <rect key="frame" x="181" y="79" width="148" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Open source files with:" id="v8S-NF-Ptc">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="でソースファイルを開く:" id="v8S-NF-Ptc">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="c18-Y4-l7a">
-                    <rect key="frame" x="333" y="116" width="165" height="18"/>
+                    <rect key="frame" x="333" y="116" width="211" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Show Registers window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7Qp-I2-soX">
+                    <buttonCell key="cell" type="check" title="レジスタウインドウを表示します" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7Qp-I2-soX">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -57,9 +57,9 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="aiR-yu-zGz">
-                    <rect key="frame" x="193" y="20" width="136" height="17"/>
+                    <rect key="frame" x="142" y="20" width="187" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default report viewer:" id="OlA-pr-NqK">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="デフォルトのレポートビューア:" id="OlA-pr-NqK">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
