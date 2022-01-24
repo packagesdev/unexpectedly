@@ -70,11 +70,13 @@
                 [tMessages appendFormat:@"VM Region Info: %@\n",tDiagnosticMessage.vmregioninfo];
             }
             
-            if (tDiagnosticMessage.asi!=nil)
+            IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
+            
+            if (tApplicationSpecificInformation!=nil)
             {
                 [tMessages appendString:@"Application Specific Information:\n"];
                 
-                [tDiagnosticMessage.asi.applicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
+                [tApplicationSpecificInformation.applicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
                     
                     [bInformation enumerateObjectsUsingBlock:^(NSString * bInformation, NSUInteger bIndex, BOOL * bOutStop2) {
                         
@@ -83,7 +85,29 @@
                     
                 }];
                 
-                [tMessages appendString:@"\n"];
+                if (tApplicationSpecificInformation.signatures!=nil)
+                {
+                    [tMessages appendString:@"\n"];
+                    
+                    [tMessages appendString:@"Application Specific Signatures:\n"];
+                    
+                    [tApplicationSpecificInformation.signatures enumerateObjectsUsingBlock:^(NSString * bSignature, NSUInteger bIndex, BOOL * bOutStop) {
+                        
+                        [tMessages appendFormat:@"%@\n",bSignature];
+                    }];
+                }
+                
+                if (tApplicationSpecificInformation.backtraces!=nil)
+                {
+                    [tMessages appendString:@"\n"];
+                    
+                    [tApplicationSpecificInformation.backtraces enumerateObjectsUsingBlock:^(NSString * bBacktrace, NSUInteger bIndex, BOOL * bOutStop) {
+                        
+                        [tMessages appendFormat:@"Application Specific Backtrace %lu:\n",bIndex+1];
+                        
+                        [tMessages appendFormat:@"%@\n",bBacktrace];
+                    }];
+                }
             }
             
              _messages=[tMessages copy];

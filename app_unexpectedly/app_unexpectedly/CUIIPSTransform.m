@@ -680,23 +680,53 @@
             [tMutableArray addObject:@""];
         }
         
-        if (tDiagnosticMessage.asi!=nil)
+        IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
+        
+        if (tApplicationSpecificInformation!=nil)
         {
-            NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Information:"] mutableCopy];
+            NSDictionary * tApplicationsInformation=tApplicationSpecificInformation.applicationsInformation;
             
-            [tMutableArray addObject:tMutableAttributedString];
-            
-
-            [tDiagnosticMessage.asi.applicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
+            if (tApplicationsInformation!=nil)
+            {
+                NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Information:"] mutableCopy];
                 
-                [bInformation enumerateObjectsUsingBlock:^(NSString * bInformation, NSUInteger bIndex, BOOL * bOutStop2) {
+                [tMutableArray addObject:tMutableAttributedString];
+                
+                
+                [tApplicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
                     
-                    [tMutableArray addObject:[self attributedStringForPlainText:bInformation]];
+                    [bInformation enumerateObjectsUsingBlock:^(NSString * bInformation, NSUInteger bIndex, BOOL * bOutStop2) {
+                        
+                        [tMutableArray addObject:[self attributedStringForPlainText:bInformation]];
+                    }];
+                    
                 }];
                 
-            }];
+                [tMutableArray addObject:@""];
+            }
             
-            [tMutableArray addObject:@""];
+            NSArray * tSignatures=tApplicationSpecificInformation.signatures;
+            
+            if (tSignatures!=nil)
+            {
+                NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Signatures:"] mutableCopy];
+                
+                [tMutableArray addObject:tMutableAttributedString];
+                
+                [tSignatures enumerateObjectsUsingBlock:^(NSString * bSignature, NSUInteger bIndex, BOOL * bOutStop) {
+                    
+                    [tMutableArray addObject:[self attributedStringForPlainText:bSignature]];
+                }];
+                
+                [tMutableArray addObject:@""];
+            }
+            
+            NSArray * tBacktraces=tApplicationSpecificInformation.backtraces;
+            
+            if (tBacktraces!=nil)
+            {
+                // A COMPLETER
+            }
         }
         
         NSMutableAttributedString * tMutableAttributedString=tMutableArray.firstObject;
