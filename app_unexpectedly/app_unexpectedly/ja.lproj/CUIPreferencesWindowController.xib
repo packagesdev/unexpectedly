@@ -48,7 +48,7 @@
                             <action selector="showPane:" target="-2" id="w6D-Ku-xhR"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="791DB978-2878-4D73-AAA6-621004CCA3A6" explicitItemIdentifier="toolbarItem.crashReporter" label="Crash Reporter" paletteLabel="Crash Reporter" image="crashreporter" selectable="YES" id="1VP-qg-tbw">
+                    <toolbarItem implicitItemIdentifier="791DB978-2878-4D73-AAA6-621004CCA3A6" explicitItemIdentifier="toolbarItem.crashReporter" label="クラッシュレポーター" paletteLabel="クラッシュレポーター" image="crashreporter" selectable="YES" id="1VP-qg-tbw">
                         <connections>
                             <action selector="showPane:" target="-2" id="HhP-9G-ZBT"/>
                         </connections>

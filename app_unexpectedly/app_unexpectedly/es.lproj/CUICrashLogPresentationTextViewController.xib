@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="692" height="612"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <popUpButton toolTip="Filter visible sections" id="o3T-bg-7a6">
+                <popUpButton toolTip="Filtrar las secciones visibles" id="o3T-bg-7a6">
                     <rect key="frame" x="0.0" y="1" width="31" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" id="hR3-DY-z5t">

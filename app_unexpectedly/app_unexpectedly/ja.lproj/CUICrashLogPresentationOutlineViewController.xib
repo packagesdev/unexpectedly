@@ -101,7 +101,7 @@
                                     <rect key="frame" x="13" y="3" width="82" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="バックトレース" id="Dtf-ev-i4n">
-                                        <font key="font" metaFont="system" size="12"/>
+                                        <font key="font" metaFont="cellTitle"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -145,7 +145,7 @@
                                         <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="gJR-EI-GwW"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the binary name" verticalHuggingPriority="750" id="STs-S6-lOY">
+                                <button toolTip="バイナリ名を非表示または表示" verticalHuggingPriority="750" id="STs-S6-lOY">
                                     <rect key="frame" x="780" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Aan-op-skH">
@@ -156,7 +156,7 @@
                                         <action selector="CUI_MENUACTION_switchShowBinaryImageIdentifier:" target="-2" id="sVI-Dr-72U"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the byte offset" verticalHuggingPriority="750" id="tXx-uN-2vh">
+                                <button toolTip="バイトオフセットを非表示または表示" verticalHuggingPriority="750" id="tXx-uN-2vh">
                                     <rect key="frame" x="838" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="GRj-N7-F4j">

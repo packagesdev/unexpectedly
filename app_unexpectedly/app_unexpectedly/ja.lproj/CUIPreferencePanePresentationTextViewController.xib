@@ -104,9 +104,9 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="rRX-kg-J1V">
-                    <rect key="frame" x="329" y="60" width="108" height="18"/>
+                    <rect key="frame" x="329" y="60" width="114" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Binary name" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vWD-FK-a4a">
+                    <buttonCell key="cell" type="check" title="バイナリの名前" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vWD-FK-a4a">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -126,9 +126,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="Kfz-pY-oUd">
-                    <rect key="frame" x="329" y="18" width="164" height="18"/>
+                    <rect key="frame" x="329" y="18" width="172" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Byte offset and source" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zE5-mb-UZb">
+                    <buttonCell key="cell" type="check" title="バイトオフセットとソース" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zE5-mb-UZb">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

@@ -81,7 +81,7 @@
                         <action selector="CUI_MENUACTION_switchShowOnlyCrashedThread:" target="-2" id="hSj-AL-N38"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show byte offset" verticalHuggingPriority="750" id="gHh-U9-6ts">
+                <button toolTip="バイトオフセットを非表示または表示" verticalHuggingPriority="750" id="gHh-U9-6ts">
                     <rect key="frame" x="661" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="O1c-Fy-oRt">
@@ -103,7 +103,7 @@
                         <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="muF-oq-Yyp"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show binary name" verticalHuggingPriority="750" id="Ytt-64-lj2">
+                <button toolTip="バイナリ名を非表示または表示" verticalHuggingPriority="750" id="Ytt-64-lj2">
                     <rect key="frame" x="603" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="feE-rv-jxh">

@@ -333,7 +333,7 @@ CA
                                 <menu key="submenu" title="テーマ" id="abx-GW-6TZ">
                                     <items>
                                         <menuItem isSeparatorItem="YES" id="NUX-KR-gxh"/>
-                                        <menuItem title="Edit Themes…" id="csr-ry-NgM">
+                                        <menuItem title="テーマを編集..." id="csr-ry-NgM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="editThemes:" target="-1" id="F5p-1i-EUu"/>
@@ -518,11 +518,11 @@ CA
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="デバッグ" id="OCR-9P-Ipy">
                         <items>
-                            <menuItem title="Crash Reporter" id="QbD-vw-FaL">
+                            <menuItem title="クラッシュレポーター" id="QbD-vw-FaL">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Crash Reporter" id="90M-1A-X88">
+                                <menu key="submenu" title="クラッシュレポーター" id="90M-1A-X88">
                                     <items>
-                                        <menuItem title="Operation Mode" enabled="NO" id="rSJ-Ir-6Ad">
+                                        <menuItem title="動作モード" enabled="NO" id="rSJ-Ir-6Ad">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="基本" id="cZ2-Me-tJE">
@@ -544,7 +544,7 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="riH-1J-NUS"/>
-                                        <menuItem title="Notification Mode" enabled="NO" id="BLJ-R5-6HZ">
+                                        <menuItem title="通知モード" enabled="NO" id="BLJ-R5-6HZ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="警告ダイアログ" id="EDw-Kd-564">
@@ -573,7 +573,7 @@ CA
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-698" y="-1279"/>
+            <point key="canvasLocation" x="-391" y="-1289"/>
         </menu>
     </objects>
 </document>
