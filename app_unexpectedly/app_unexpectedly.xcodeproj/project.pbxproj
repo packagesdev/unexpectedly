@@ -180,6 +180,7 @@
 		F4871E10254384E100580562 /* CUIdSYMBundlesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4871E0F254384E100580562 /* CUIdSYMBundlesManager.m */; };
 		F48906AE25D2BA0C002D79A9 /* CUISelectedWhiteTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F48906AD25D2BA0C002D79A9 /* CUISelectedWhiteTextFieldCell.m */; };
 		F48944222545836F00E3E360 /* CUISymbolsFilesLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48944202545836F00E3E360 /* CUISymbolsFilesLibraryViewController.m */; };
+		F4895F5727A72D1000D75369 /* CUILineJumperWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4895F5927A72D1000D75369 /* CUILineJumperWindowController.xib */; };
 		F48BAB3625D9D4140005F3E5 /* CUIThreadImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F48BAB3525D9D4140005F3E5 /* CUIThreadImageCell.m */; };
 		F48CF5FF24A96992002AD214 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CC570B24A79EDA00150EC4 /* MainMenu.xib */; };
 		F49227C824A8D45000772411 /* CUIStackFrame+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F49227C724A8D45000772411 /* CUIStackFrame+UI.m */; };
@@ -292,7 +293,6 @@
 		F4F9BAF724EF06BC00D08FBD /* CUIInspectorGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9BAF524EF06BC00D08FBD /* CUIInspectorGeneralViewController.m */; };
 		F4F9D3362556C7DB00D28E6E /* CUILineJumperWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9D3342556C7DB00D28E6E /* CUILineJumperWindowController.m */; };
 		F4FA4323273EF2F30068EDB8 /* NSString+CPU.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FA4322273EF2F30068EDB8 /* NSString+CPU.m */; };
-		F4FB9EA62579BAF700692B2A /* CUILineJumperWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4FB9EA52579BAF700692B2A /* CUILineJumperWindowController.xib */; };
 		F4FE2DEA25615CA800C1774A /* CUICrashLogExceptionInformation+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE2DE925615CA800C1774A /* CUICrashLogExceptionInformation+UI.m */; };
 /* End PBXBuildFile section */
 
@@ -715,6 +715,10 @@
 		F48906AD25D2BA0C002D79A9 /* CUISelectedWhiteTextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUISelectedWhiteTextFieldCell.m; sourceTree = "<group>"; };
 		F489441F2545836F00E3E360 /* CUISymbolsFilesLibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUISymbolsFilesLibraryViewController.h; sourceTree = "<group>"; };
 		F48944202545836F00E3E360 /* CUISymbolsFilesLibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUISymbolsFilesLibraryViewController.m; sourceTree = "<group>"; };
+		F4895F5827A72D1000D75369 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUILineJumperWindowController.xib; sourceTree = "<group>"; };
+		F4895F5A27A72D1300D75369 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUILineJumperWindowController.xib; sourceTree = "<group>"; };
+		F4895F5B27A72D3300D75369 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/CUILineJumperWindowController.xib; sourceTree = "<group>"; };
+		F4895F5C27A72D6300D75369 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CUILineJumperWindowController.xib; sourceTree = "<group>"; };
 		F48BAB3425D9D4140005F3E5 /* CUIThreadImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThreadImageCell.h; sourceTree = "<group>"; };
 		F48BAB3525D9D4140005F3E5 /* CUIThreadImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThreadImageCell.m; sourceTree = "<group>"; };
 		F48CF60024A969B5002AD214 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -944,7 +948,6 @@
 		F4F9D3342556C7DB00D28E6E /* CUILineJumperWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUILineJumperWindowController.m; sourceTree = "<group>"; };
 		F4FA4321273EF2F30068EDB8 /* NSString+CPU.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSString+CPU.h"; path = "Foundation + Extensions/NSString+CPU.h"; sourceTree = "<group>"; };
 		F4FA4322273EF2F30068EDB8 /* NSString+CPU.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+CPU.m"; path = "Foundation + Extensions/NSString+CPU.m"; sourceTree = "<group>"; };
-		F4FB9EA52579BAF700692B2A /* CUILineJumperWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CUILineJumperWindowController.xib; sourceTree = "<group>"; };
 		F4FC3629278F914200669B32 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/RemoteCheck.strings; sourceTree = "<group>"; };
 		F4FC362A278F914200669B32 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CUIAboutBoxWindowController.xib; sourceTree = "<group>"; };
 		F4FC362B278F914200669B32 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CUIPreferencePaneGeneralViewController.xib; sourceTree = "<group>"; };
@@ -1838,7 +1841,7 @@
 				F4DAFBED2736B7B200FB50A6 /* CUIIPSTransform.m */,
 				F4F9D3332556C7DB00D28E6E /* CUILineJumperWindowController.h */,
 				F4F9D3342556C7DB00D28E6E /* CUILineJumperWindowController.m */,
-				F4FB9EA52579BAF700692B2A /* CUILineJumperWindowController.xib */,
+				F4895F5927A72D1000D75369 /* CUILineJumperWindowController.xib */,
 				F4AC86472558A03B004F2637 /* CUIExportAccessoryViewController.h */,
 				F4AC86482558A03B004F2637 /* CUIExportAccessoryViewController.m */,
 				F453AE4B25EE706F00B7BEF0 /* CUIExportAccessoryViewController.xib */,
@@ -2081,7 +2084,7 @@
 				F41ECA5424AB689B00CE56C7 /* CUIInspectorViewController.xib in Resources */,
 				F4A3A6EB25ED82F10018053E /* EXC_BAD_ACCESS_SIGBUS.html in Resources */,
 				F4A9967C2675078B0001B40E /* CUICrashLogsOpenErrorWindowController.xib in Resources */,
-				F4FB9EA62579BAF700692B2A /* CUILineJumperWindowController.xib in Resources */,
+				F4895F5727A72D1000D75369 /* CUILineJumperWindowController.xib in Resources */,
 				F416688724B0BF2000C2AB89 /* CUISidebarViewController.xib in Resources */,
 				F453AE4D25EE70E800B7BEF0 /* CUICrashLogPresentationTextViewController.xib in Resources */,
 				F4545C3D256C1AF900F62A39 /* CUIRegistersWindowController.xib in Resources */,
@@ -2634,6 +2637,17 @@
 				F4FC3648278F914500669B32 /* ja */,
 			);
 			name = CUICrashLogPresentationOutlineViewController.xib;
+			sourceTree = "<group>";
+		};
+		F4895F5927A72D1000D75369 /* CUILineJumperWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4895F5827A72D1000D75369 /* en */,
+				F4895F5A27A72D1300D75369 /* fr */,
+				F4895F5B27A72D3300D75369 /* es */,
+				F4895F5C27A72D6300D75369 /* ja */,
+			);
+			name = CUILineJumperWindowController.xib;
 			sourceTree = "<group>";
 		};
 		F493DB1A24F1CF2F001AA8C0 /* Localizable.strings */ = {

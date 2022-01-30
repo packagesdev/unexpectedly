@@ -61,7 +61,7 @@
                                         <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-2" id="c9g-bt-Ect"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Binary Images" id="FHu-OU-dEn">
+                                <menuItem title="バイナリのイメージ" id="FHu-OU-dEn">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchBinaryImagesVisibility:" target="-2" id="E7Q-0s-gFI"/>
                                     </connections>
@@ -81,7 +81,7 @@
                         <action selector="CUI_MENUACTION_switchShowOnlyCrashedThread:" target="-2" id="hSj-AL-N38"/>
                     </connections>
                 </button>
-                <button toolTip="バイトオフセットを非表示または表示" verticalHuggingPriority="750" id="gHh-U9-6ts">
+                <button toolTip="バイトオフセットを表示または非表示にします" verticalHuggingPriority="750" id="gHh-U9-6ts">
                     <rect key="frame" x="661" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="O1c-Fy-oRt">
@@ -92,7 +92,7 @@
                         <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="s9c-GQ-gYk"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show machine instruction address" verticalHuggingPriority="750" id="V1i-87-jZk">
+                <button toolTip="機械命令アドレスを表示または非表示にします" verticalHuggingPriority="750" id="V1i-87-jZk">
                     <rect key="frame" x="632" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="0x" bezelStyle="texturedRounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="N9g-4y-bag">
@@ -103,7 +103,7 @@
                         <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="muF-oq-Yyp"/>
                     </connections>
                 </button>
-                <button toolTip="バイナリ名を非表示または表示" verticalHuggingPriority="750" id="Ytt-64-lj2">
+                <button toolTip="バイナリ名を表示または非表示にします" verticalHuggingPriority="750" id="Ytt-64-lj2">
                     <rect key="frame" x="603" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="feE-rv-jxh">

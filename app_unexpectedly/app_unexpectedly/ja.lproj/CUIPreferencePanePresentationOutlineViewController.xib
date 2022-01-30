@@ -21,18 +21,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="98p-UU-gFL">
-                    <rect key="frame" x="68" y="284" width="257" height="17"/>
+                    <rect key="frame" x="23" y="284" width="302" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default visible stack frame components:" id="9hi-bS-vgU">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="スタックフレームのデフォルトの表示コンポーネント:" id="9hi-bS-vgU">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="ZYd-5r-yQv">
-                    <rect key="frame" x="329" y="283" width="115" height="18"/>
+                    <rect key="frame" x="329" y="283" width="101" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="バイナリの名前" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Gp3-2V-rzt">
+                    <buttonCell key="cell" type="check" title="バイナリの名" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Gp3-2V-rzt">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

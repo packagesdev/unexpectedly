@@ -112,7 +112,7 @@
                             <rect key="frame" x="0.0" y="93" width="869" height="177"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button toolTip="Show backtraces in columns" verticalHuggingPriority="750" tag="2" id="0Gc-7g-Ass">
+                                <button toolTip="列にバックトレースを表示する" verticalHuggingPriority="750" tag="2" id="0Gc-7g-Ass">
                                     <rect key="frame" x="65" y="-1" width="24" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallColumn_Template" imagePosition="only" alignment="center" inset="2" id="X5W-Qe-nKe">
@@ -134,7 +134,7 @@
                                         <action selector="CUI_MENUACTION_switchShowOnlyCrashedThread:" target="-2" id="fgj-Js-Ah7"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the machine instruction address" verticalHuggingPriority="750" id="2vU-ne-pQu">
+                                <button toolTip="機械命令アドレスを表示または非表示にします" verticalHuggingPriority="750" id="2vU-ne-pQu">
                                     <rect key="frame" x="809" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" title="0x" bezelStyle="texturedRounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="w28-Ax-j2K">
@@ -145,7 +145,7 @@
                                         <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="gJR-EI-GwW"/>
                                     </connections>
                                 </button>
-                                <button toolTip="バイナリ名を非表示または表示" verticalHuggingPriority="750" id="STs-S6-lOY">
+                                <button toolTip="バイナリ名を表示または非表示にします" verticalHuggingPriority="750" id="STs-S6-lOY">
                                     <rect key="frame" x="780" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Aan-op-skH">
@@ -156,7 +156,7 @@
                                         <action selector="CUI_MENUACTION_switchShowBinaryImageIdentifier:" target="-2" id="sVI-Dr-72U"/>
                                     </connections>
                                 </button>
-                                <button toolTip="バイトオフセットを非表示または表示" verticalHuggingPriority="750" id="tXx-uN-2vh">
+                                <button toolTip="バイトオフセットを表示または非表示にします" verticalHuggingPriority="750" id="tXx-uN-2vh">
                                     <rect key="frame" x="838" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="GRj-N7-F4j">
@@ -167,7 +167,7 @@
                                         <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="MdF-Tl-Xtk"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the binary images" verticalHuggingPriority="750" id="mXS-EH-zAu">
+                                <button toolTip="バイナリのイメージを表示または非表示にする" verticalHuggingPriority="750" id="mXS-EH-zAu">
                                     <rect key="frame" x="1" y="-1" width="27" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="bottom_disclose_Template" imagePosition="only" alignment="center" alternateImage="bottom_hide_Template" inset="2" id="Awy-Hl-TgF">
@@ -178,7 +178,7 @@
                                         <action selector="showHideBottomView:" target="-2" id="udq-fk-pc4"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Show backtraces in a list " verticalHuggingPriority="750" tag="1" id="4H4-2A-3rH">
+                                <button toolTip="バックトレースをリストに表示します" verticalHuggingPriority="750" tag="1" id="4H4-2A-3rH">
                                     <rect key="frame" x="42" y="-1" width="24" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSListViewTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="i1d-5C-VGM">

@@ -505,7 +505,7 @@ CA
                                     <action selector="sendFeedback:" target="Voe-Tx-rLC" id="GdC-FT-8s8"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Site web de Unexpectedly" id="FUb-BV-YgJ">
+                            <menuItem title="Unexpectedly sur le Web" id="FUb-BV-YgJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="showUnexpectedlyWebSite:" target="Voe-Tx-rLC" id="Zhd-rv-Pi9"/>

@@ -138,7 +138,7 @@
                                         <action selector="switchDisplayedName:" target="-2" id="4jX-xR-Vde"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Report File Name" tag="1" id="ymb-51-zC8">
+                                <menuItem title="レポートのファイル名" tag="1" id="ymb-51-zC8">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
                                         <action selector="switchDisplayedName:" target="-2" id="9Yt-ZP-CXj"/>

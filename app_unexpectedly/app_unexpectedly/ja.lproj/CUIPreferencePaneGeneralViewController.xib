@@ -86,9 +86,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="WI8-fU-dkC">
-                    <rect key="frame" x="264" y="117" width="65" height="17"/>
+                    <rect key="frame" x="169" y="117" width="160" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="At launch:" id="RtP-AJ-XN5">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="アプリケーションの開始時:" id="RtP-AJ-XN5">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

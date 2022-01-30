@@ -267,7 +267,7 @@ CA
                                     <action selector="showHideViews:" target="-1" id="kra-FC-RZC"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show Binary Images" tag="1" keyEquivalent="2" id="2z5-3m-6dw">
+                            <menuItem title="バイナリのイメージを表示" tag="1" keyEquivalent="2" id="2z5-3m-6dw">
                                 <connections>
                                     <action selector="showHideViews:" target="-1" id="s1k-G0-TLi"/>
                                 </connections>
@@ -379,7 +379,7 @@ CA
                                                 <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-1" id="XYE-gq-GnF"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Binary Images" id="rnV-QR-Tam">
+                                        <menuItem title="バイナリのイメージ" id="rnV-QR-Tam">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchBinaryImagesVisibility:" target="-1" id="qnf-0L-mBO"/>
@@ -401,9 +401,9 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="qbu-Eo-jRw"/>
-                            <menuItem title="Jump to Section" id="2Ip-qq-DKf">
+                            <menuItem title="セクションへジャンプ" id="2Ip-qq-DKf">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Jump to Section" id="AcZ-wd-kkj">
+                                <menu key="submenu" title="セクションへジャンプ" id="AcZ-wd-kkj">
                                     <items>
                                         <menuItem title="ヘッダ" id="Bmg-Jh-vql">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -437,7 +437,7 @@ CA
                                                 <action selector="CUI_MENUACTION_jumpToThreadState:" target="-1" id="Lbe-gO-nw1"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Binary Images" id="ON2-La-JSh">
+                                        <menuItem title="バイナリのイメージ" id="ON2-La-JSh">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToBinaryImages:" target="-1" id="hF5-h4-Mqo"/>
@@ -446,7 +446,7 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Jump to Crashed Thread" keyEquivalent="c" id="XPO-uf-5Ox">
+                            <menuItem title="クラッシュしたスレッドへジャンプ" keyEquivalent="c" id="XPO-uf-5Ox">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_jumpToCrashedThread:" target="-1" id="ymM-Im-3Fw"/>
@@ -505,7 +505,7 @@ CA
                                     <action selector="sendFeedback:" target="Voe-Tx-rLC" id="GdC-FT-8s8"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Unexpectedly on the web" id="FUb-BV-YgJ">
+                            <menuItem title="Unexpectedly の Web ページ" id="FUb-BV-YgJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="showUnexpectedlyWebSite:" target="Voe-Tx-rLC" id="Zhd-rv-Pi9"/>

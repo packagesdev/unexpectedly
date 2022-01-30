@@ -84,9 +84,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="ayi-wa-Elc">
-                    <rect key="frame" x="329" y="99" width="120" height="18"/>
+                    <rect key="frame" x="329" y="99" width="138" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Binary Images" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Kr8-SF-wcL">
+                    <buttonCell key="cell" type="check" title="バイナリのイメージ" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Kr8-SF-wcL">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -95,18 +95,18 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MNF-5K-RaR">
-                    <rect key="frame" x="68" y="61" width="257" height="17"/>
+                    <rect key="frame" x="24" y="61" width="301" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default visible stack frame components:" id="2et-oL-bun">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="スタックフレームのデフォルトの表示コンポーネント:" id="2et-oL-bun">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="rRX-kg-J1V">
-                    <rect key="frame" x="329" y="60" width="114" height="18"/>
+                    <rect key="frame" x="329" y="60" width="103" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="バイナリの名前" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vWD-FK-a4a">
+                    <buttonCell key="cell" type="check" title="バイナリの名" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vWD-FK-a4a">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
