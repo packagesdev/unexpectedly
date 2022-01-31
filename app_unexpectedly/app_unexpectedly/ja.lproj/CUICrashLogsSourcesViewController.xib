@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <button toolTip="Remove file, folder or smart source" verticalHuggingPriority="750" id="FnB-m4-Sew">
+                <button toolTip="ファイル、フォルダー、またはスマートソースを追加します" verticalHuggingPriority="750" id="FnB-m4-Sew">
                     <rect key="frame" x="26" y="-2" width="25" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ocB-wp-jcr">
@@ -152,7 +152,7 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
-                <popUpButton toolTip="Add file, folder or smart source" id="Fjw-36-xHZ">
+                <popUpButton toolTip="ファイル、フォルダー、またはスマートソースを追加します" id="Fjw-36-xHZ">
                     <rect key="frame" x="-4" y="-1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" selectedItem="DJQ-Va-eqw" id="w3m-zi-K88">

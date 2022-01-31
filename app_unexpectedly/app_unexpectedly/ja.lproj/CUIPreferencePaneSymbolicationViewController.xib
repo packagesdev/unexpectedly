@@ -30,9 +30,9 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="Tdl-XE-pSN">
-                    <rect key="frame" x="203" y="396" width="427" height="18"/>
+                    <rect key="frame" x="203" y="396" width="356" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Convert machine instruction addresses to symbols when possible" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="mnW-sM-t65">
+                    <buttonCell key="cell" type="check" title="可能であれば、マシン命令アドレスをシンボルに変換します" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="mnW-sM-t65">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -45,9 +45,9 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Vva-gy-N3U">
-                    <rect key="frame" x="100" y="397" width="99" height="17"/>
+                    <rect key="frame" x="105" y="397" width="94" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Symbolication:" id="oNL-xZ-Za8">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="シンボル解決:" id="oNL-xZ-Za8">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

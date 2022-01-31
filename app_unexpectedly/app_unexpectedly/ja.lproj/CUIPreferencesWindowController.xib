@@ -43,7 +43,7 @@
                             <action selector="showPane:" target="-2" id="4IV-xn-tOM"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="633F5F14-F73C-4AF6-8F67-BED9A917A783" explicitItemIdentifier="toolbarItem.symbolication" label="Symbolication" paletteLabel="Symbolication" image="symbolication_Template" selectable="YES" id="Q5n-xT-GUE">
+                    <toolbarItem implicitItemIdentifier="633F5F14-F73C-4AF6-8F67-BED9A917A783" explicitItemIdentifier="toolbarItem.symbolication" label="シンボル解決" paletteLabel="シンボル解決" image="symbolication_Template" selectable="YES" id="Q5n-xT-GUE">
                         <connections>
                             <action selector="showPane:" target="-2" id="w6D-Ku-xhR"/>
                         </connections>

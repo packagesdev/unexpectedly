@@ -3,75 +3,75 @@
 "%[All]@ of the following are true" = "以下の条件の%1$[すべてを満たす]@";
 "%[Any]@ of the following are true" = "以下の条件の%1$[いずれかを満たす]@";
 
-"%[processName]@ %[is]@ %@" = "%1$[プロセス名]@ %2$[が]@ %3$@";
-"%[processName]@ %[is not]@ %@" = "%1$[プロセス名]@ %2$[is not]@ %3$@";
-"%[processName]@ %[begins with]@ %@" = "%1$[プロセス名]@ %2$[begins with]@ %3$@";
-"%[processName]@ %[ends with]@ %@" = "%1$[プロセス名]@ %2$[ends with]@ %3$@";
-"%[processName]@ %[contains]@ %@" = "%1$[プロセス名]@ %2$[含む]@ %3$@";
+"%[processName]@ %[is]@ %@" = "%1$[プロセス名]@が%3$@%2$[である]@";
+"%[processName]@ %[is not]@ %@" = "%1$[プロセス名]@が%3$@%2$[ではない]@";
+"%[processName]@ %[begins with]@ %@" = "%1$[プロセス名]@が%3$@%2$[で始まる]@";
+"%[processName]@ %[ends with]@ %@" = "%1$[プロセス名]@@が%3$@%2$[で終わる]@";
+"%[processName]@ %[contains]@ %@" = "%1$[プロセス名]@が%3$@%2$[を含む]@";
 
-"%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[Identifier]@ %2$[が]@ %3$@";
-"%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[Identifier]@ %2$[is not]@ %3$@";
-"%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[Identifier]@ %2$[begins with]@ %3$@";
-"%[header.bundleIdentifier]@ %[ends with]@ %@" = "%1$[Identifier]@ %2$[ends with]@ %3$@";
-"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[Identifier]@ %2$[含む]@ %3$@";
+"%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[Identifier]@が%3$@%2$[である]@";
+"%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[Identifier]@が%3$@%2$[ではない]@";
+"%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[Identifier]@が%3$@%2$[で始まる]@";
+"%[header.bundleIdentifier]@ %[ends with]@ %@" = "%1$[Identifier]@@が%3$@%2$[で終わる]@";
+"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[Identifier]@が%3$@%2$[を含む]@";
 
-"%[header.executablePath]@ %[is]@ %@" = "%1$[Executable Path]@ %2$[が]@ %3$@";
-"%[header.executablePath]@ %[is not]@ %@" = "%1$[Executable Path]@ %2$[is not]@ %3$@";
-"%[header.executablePath]@ %[begins with]@ %@" = "%1$[Executable Path]@ %2$[begins with]@ %3$@";
-"%[header.executablePath]@ %[ends with]@ %@" = "%1$[Executable Path]@ %2$[ends with]@ %3$@";
-"%[header.executablePath]@ %[contains]@ %@" = "%1$[Executable Path]@ %2$[含む]@ %3$@";
+"%[header.executablePath]@ %[is]@ %@" = "%1$[Executable Path]@が%3$@%2$[である]@";
+"%[header.executablePath]@ %[is not]@ %@" = "%1$[Executable Path]@が%3$@%2$[ではない]@";
+"%[header.executablePath]@ %[begins with]@ %@" = "%1$[Executable Path]@が%3$@%2$[で始まる]@";
+"%[header.executablePath]@ %[ends with]@ %@" = "%1$[Executable Path]@@が%3$@%2$[で終わる]@";
+"%[header.executablePath]@ %[contains]@ %@" = "%1$[Executable Path]@が%3$@%2$[を含む]@";
 
-"%[header.executableVersion]@ %[is]@ %@" = "%1$[Executable Version]@ %2$[が]@ %3$@";
-"%[header.executableVersion]@ %[is not]@ %@" = "%1$[Executable Version]@ %2$[is not]@ %3$@";
-"%[header.executableVersion]@ %[begins with]@ %@" = "%1$[Executable Version]@ %2$[begins with]@ %3$@";
-"%[header.executableVersion]@ %[ends with]@ %@" = "%1$[Executable Version]@ %2$[ends with]@ %3$@";
-"%[header.executableVersion]@ %[contains]@ %@" = "%1$[Executable Version]@ %2$[含む]@ %3$@";
+"%[header.executableVersion]@ %[is]@ %@" = "%1$[Executable Version]@が%3$@%2$[である]@";
+"%[header.executableVersion]@ %[is not]@ %@" = "%1$[Executable Version]@が%3$@%2$[ではない]@";
+"%[header.executableVersion]@ %[begins with]@ %@" = "%1$[Executable Version]@が%3$@%2$[で始まる]@";
+"%[header.executableVersion]@ %[ends with]@ %@" = "%1$[Executable Version]@@が%3$@%2$[で終わる]@";
+"%[header.executableVersion]@ %[contains]@ %@" = "%1$[Executable Version]@が%3$@%2$[を含む]@";
 
-"%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[Crashed Thread Name]@ %2$[が]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[Crashed Thread Name]@ %2$[is not]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[Crashed Thread Name]@ %2$[begins with]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[Crashed Thread Name]@ %2$[ends with]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[Crashed Thread Name]@ %2$[含む]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[クラッシュしたスレッド名]@が%3$@%2$[である]@";
+"%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[クラッシュしたスレッド名]@が%3$@%2$[ではない]@";
+"%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[クラッシュしたスレッド名]@が%3$@%2$[で始まる]@";
+"%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[クラッシュしたスレッド名]@@が%3$@%2$[で終わる]@";
+"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[クラッシュしたスレッド名]@が%3$@%2$[を含む]@";
 
-"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[Operating System Version]@ %2$[が]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[Operating System Version]@ %2$[is not]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[Operating System Version]@ %2$[begins with]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[Operating System Version]@ %2$[ends with]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[Operating System Version]@ %2$[含む]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[オペレーティング・システムのバージョン]@が%3$@%2$[である]@";
+"%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[オペレーティング・システムのバージョン]@が%3$@%2$[ではない]@";
+"%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[オペレーティング・システムのバージョン]@が%3$@%2$[で始まる]@";
+"%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[オペレーティング・システムのバージョン]@@が%3$@%2$[で終わる]@";
+"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[オペレーティング・システムのバージョン]@が%3$@%2$[を含む]@";
 
-"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[日付]@ %2$[is earlier than or equal to]@ %3$@";
-"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[日付]@ %2$[is later than or equal to]@ %3$@";
+"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[日付]@が%3$@%2$[より前]@";
+"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[日付]@が%3$@%2$[より後]@";
 
-"%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "%1$[Exception Type]@ が %2$[EXC_ARITHMETIC]@";
-"%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "%1$[Exception Type]@ が %2$[EXC_BAD_ACCESS]@";
-"%[exceptionType]@ is %[EXC_BAD_INSTRUCTION]@" = "%1$[Exception Type]@ が %2$[EXC_BAD_INSTRUCTION]@";
-"%[exceptionType]@ is %[EXC_BREAKPOINT]@" = "%1$[Exception Type]@ が %2$[EXC_BREAKPOINT]@";
-"%[exceptionType]@ is %[EXC_CORPSE_NOTIFY]@" = "%1$[Exception Type]@ が %2$[EXC_CORPSE_NOTIFY]@";
-"%[exceptionType]@ is %[EXC_CRASH]@" = "%1$[Exception Type]@ が %2$[EXC_CRASH]@";
-"%[exceptionType]@ is %[EXC_EMULATION]@" = "%1$[Exception Type]@ が %2$[EXC_EMULATION]@";
-"%[exceptionType]@ is %[EXC_GUARD]@" = "%1$[Exception Type]@ が %2$[EXC_GUARD]@";
-"%[exceptionType]@ is %[EXC_MACH_SYSCALL]@" = "%1$[Exception Type]@ が %2$[EXC_MACH_SYSCALL]@";
-"%[exceptionType]@ is %[EXC_RESOURCE]@" = "%1$[Exception Type]@ が %2$[EXC_RESOURCE]@";
-"%[exceptionType]@ is %[EXC_RPC_ALERT]@" = "%1$[Exception Type]@ が %2$[EXC_RPC_ALERT]@";
-"%[exceptionType]@ is %[EXC_SOFTWARE]@" = "%1$[Exception Type]@ が %2$[EXC_SOFTWARE]@";
-"%[exceptionType]@ is %[EXC_SYSCALL]@" = "%1$[Exception Type]@ が %2$[EXC_SYSCALL]@";
+"%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "%1$[例外の種類]@%2$[EXC_ARITHMETIC]@である";
+"%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "%1$[例外の種類]@%2$[EXC_BAD_ACCESS]@である";
+"%[exceptionType]@ is %[EXC_BAD_INSTRUCTION]@" = "%1$[例外の種類]@%2$[EXC_BAD_INSTRUCTION]@である";
+"%[exceptionType]@ is %[EXC_BREAKPOINT]@" = "%1$[例外の種類]@%2$[EXC_BREAKPOINT]@である";
+"%[exceptionType]@ is %[EXC_CORPSE_NOTIFY]@" = "%1$[例外の種類]@%2$[EXC_CORPSE_NOTIFY]@である";
+"%[exceptionType]@ is %[EXC_CRASH]@" = "%1$[例外の種類]@%2$[EXC_CRASH]@である";
+"%[exceptionType]@ is %[EXC_EMULATION]@" = "%1$[例外の種類]@%2$[EXC_EMULATION]@である";
+"%[exceptionType]@ is %[EXC_GUARD]@" = "%1$[例外の種類]@%2$[EXC_GUARD]@である";
+"%[exceptionType]@ is %[EXC_MACH_SYSCALL]@" = "%1$[例外の種類]@%2$[EXC_MACH_SYSCALL]@である";
+"%[exceptionType]@ is %[EXC_RESOURCE]@" = "%1$[例外の種類]@%2$[EXC_RESOURCE]@である";
+"%[exceptionType]@ is %[EXC_RPC_ALERT]@" = "%1$[例外の種類]@%2$[EXC_RPC_ALERT]@である";
+"%[exceptionType]@ is %[EXC_SOFTWARE]@" = "%1$[例外の種類]@%2$[EXC_SOFTWARE]@である";
+"%[exceptionType]@ is %[EXC_SYSCALL]@" = "%1$[例外の種類]@%2$[EXC_SYSCALL]@である";
 
-"%[exceptionSignal]@ is %[SIGABRT]@" = "%1$[Exception Signal]@ が %2$[SIGABRT]@";
-"%[exceptionSignal]@ is %[SIGBUS]@" = "%1$[Exception Signal]@ が %2$[SIGBUS]@";
-"%[exceptionSignal]@ is %[SIGILL]@" = "%1$[Exception Signal]@ が %2$[SIGILL]@";
-"%[exceptionSignal]@ is %[SIGKILL]@" = "%1$[Exception Signal]@ が %2$[SIGKILL]@";
-"%[exceptionSignal]@ is %[SIGQUIT]@" = "%1$[Exception Signal]@ が %2$[SIGQUIT]@";
-"%[exceptionSignal]@ is %[SIGSEGV]@" = "%1$[Exception Signal]@ が %2$[SIGSEGV]@";
-"%[exceptionSignal]@ is %[SIGTRAP]@" = "%1$[Exception Signal]@ が %2$[SIGTRAP]@";
-"%[exceptionSignal]@ is %[Code Signature Invalid]@" = "%1$[Exception Signal]@ が %2$[Code Signature Invalid]@";
+"%[exceptionSignal]@ is %[SIGABRT]@" = "%1$[Exception Signal]@%2$[SIGABRT]@である";
+"%[exceptionSignal]@ is %[SIGBUS]@" = "%1$[Exception Signal]@%2$[SIGBUS]@である";
+"%[exceptionSignal]@ is %[SIGILL]@" = "%1$[Exception Signal]@%2$[SIGILL]@である";
+"%[exceptionSignal]@ is %[SIGKILL]@" = "%1$[Exception Signal]@%2$[SIGKILL]@である";
+"%[exceptionSignal]@ is %[SIGQUIT]@" = "%1$[Exception Signal]@%2$[SIGQUIT]@である";
+"%[exceptionSignal]@ is %[SIGSEGV]@" = "%1$[Exception Signal]@%2$[SIGSEGV]@である";
+"%[exceptionSignal]@ is %[SIGTRAP]@" = "%1$[Exception Signal]@%2$[SIGTRAP]@である";
+"%[exceptionSignal]@ is %[Code Signature Invalid]@" = "%1$[Exception Signal]@%2$[Code Signature Invalid]@である";
 
-"%[crashLogFileName]@ %[is]@ %@" = "%1$[Report File Name]@ %2$[が]@ %3$@";
-"%[crashLogFileName]@ %[is not]@ %@" = "%1$[Report File Name]@ %2$[is not]@ %3$@";
-"%[crashLogFileName]@ %[begins with]@ %@" = "%1$[Report File Name]@ %2$[begins with]@ %3$@";
-"%[crashLogFileName]@ %[ends with]@ %@" = "%1$[Report File Name]@ %2$[ends with]@ %3$@";
-"%[crashLogFileName]@ %[contains]@ %@" = "%1$[Report File Name]@ %2$[含む]@ %3$@";
+"%[crashLogFileName]@ %[is]@ %@" = "%1$[レポートのファイル名]@が%3$@%2$[である]@";
+"%[crashLogFileName]@ %[is not]@ %@" = "%1$[レポートのファイル名]@が%3$@%2$[ではない]@";
+"%[crashLogFileName]@ %[begins with]@ %@" = "%1$[レポートのファイル名]@が%3$@%2$[で始まる]@";
+"%[crashLogFileName]@ %[ends with]@ %@" = "%1$[レポートのファイル名]@@が%3$@%2$[で終わる]@";
+"%[crashLogFileName]@ %[contains]@ %@" = "%1$[レポートのファイル名]@が%3$@%2$[を含む]@";
 
-"%[reportSourceTypeNumber]@ is %[0]@" = "%1$[ソース]@ は %2$[システムレポート]@";
-"%[reportSourceTypeNumber]@ is %[1]@" = "%1$[ソース]@ は %2$[ユーザレポート]@";
-"%[reportSourceTypeNumber]@ is %[2]@" = "%1$[ソース]@ は %2$[Another Source]@";
+"%[reportSourceTypeNumber]@ is %[0]@" = "%1$[ソース]@%2$[システムレポート]@である";
+"%[reportSourceTypeNumber]@ is %[1]@" = "%1$[ソース]@%2$[ユーザレポート]@である";
+"%[reportSourceTypeNumber]@ is %[2]@" = "%1$[ソース]@%2$[別の情報源]@である";
 
