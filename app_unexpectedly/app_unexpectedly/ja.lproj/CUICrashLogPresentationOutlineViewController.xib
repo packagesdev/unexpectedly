@@ -34,9 +34,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gdJ-dt-1kl">
-                    <rect key="frame" x="13" y="421" width="68" height="17"/>
+                    <rect key="frame" x="6" y="421" width="75" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="例外の種類:" id="ayc-kQ-Slx">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="例外の種類:" id="ayc-kQ-Slx">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -98,7 +98,7 @@
                                     </scroller>
                                 </scrollView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TL4-gi-udl">
-                                    <rect key="frame" x="13" y="3" width="82" height="16"/>
+                                    <rect key="frame" x="13" y="3" width="89" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="バックトレース" id="Dtf-ev-i4n">
                                         <font key="font" metaFont="cellTitle"/>
@@ -112,7 +112,7 @@
                             <rect key="frame" x="0.0" y="93" width="869" height="177"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <button toolTip="列にバックトレースを表示する" verticalHuggingPriority="750" tag="2" id="0Gc-7g-Ass">
+                                <button toolTip="列にバックトレースを表示す" verticalHuggingPriority="750" tag="2" id="0Gc-7g-Ass">
                                     <rect key="frame" x="65" y="-1" width="24" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallColumn_Template" imagePosition="only" alignment="center" inset="2" id="X5W-Qe-nKe">
@@ -123,7 +123,7 @@
                                         <action selector="switchViewMode:" target="-2" id="e7v-G7-W7s"/>
                                     </connections>
                                 </button>
-                                <button toolTip="クラッシュしたスレッドのみを表示する" verticalHuggingPriority="750" id="QRs-W6-mBT">
+                                <button toolTip="クラッシュしたスレッドのみを表示す" verticalHuggingPriority="750" id="QRs-W6-mBT">
                                     <rect key="frame" x="751" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="con-zk-L9l">
@@ -167,7 +167,7 @@
                                         <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="MdF-Tl-Xtk"/>
                                     </connections>
                                 </button>
-                                <button toolTip="バイナリのイメージを表示または非表示にする" verticalHuggingPriority="750" id="mXS-EH-zAu">
+                                <button toolTip="バイナリのイメージを表示または非表示にす" verticalHuggingPriority="750" id="mXS-EH-zAu">
                                     <rect key="frame" x="1" y="-1" width="27" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="bottom_disclose_Template" imagePosition="only" alignment="center" alternateImage="bottom_hide_Template" inset="2" id="Awy-Hl-TgF">

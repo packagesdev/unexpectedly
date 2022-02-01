@@ -70,7 +70,7 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
-                <button toolTip="クラッシュしたスレッドのみを表示する" verticalHuggingPriority="750" id="hZe-Mo-RWl">
+                <button toolTip="クラッシュしたスレッドのみを表示す" verticalHuggingPriority="750" id="hZe-Mo-RWl">
                     <rect key="frame" x="574" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="cgk-bN-rIw">

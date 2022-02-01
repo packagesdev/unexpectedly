@@ -87,8 +87,8 @@
                                 <font key="font" metaFont="system"/>
                                 <segments>
                                     <segment toolTip="サイドバーを表示または非表示にします" image="left_switch_Template" width="32" selected="YES"/>
-                                    <segment toolTip="バイナリのイメージを表示または非表示にする" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
-                                    <segment toolTip="インスペクターを表示または非表示にする" image="right_switch_Template" width="32" selected="YES"/>
+                                    <segment toolTip="バイナリのイメージを表示または非表示にす" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
+                                    <segment toolTip="インスペクターを表示または非表示にす" image="right_switch_Template" width="32" selected="YES"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>

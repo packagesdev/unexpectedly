@@ -54,7 +54,7 @@
                         </connections>
                     </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="l74-1V-jTB">
-                        <rect key="frame" x="52" y="386" width="44" height="17"/>
+                        <rect key="frame" x="18" y="386" width="44" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="名前:" id="reH-vX-GUc">
                             <font key="font" metaFont="system"/>
@@ -63,7 +63,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="xBE-Xe-jfR">
-                        <rect key="frame" x="102" y="383" width="648" height="22"/>
+                        <rect key="frame" x="68" y="383" width="682" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="vms-yZ-h6X">
                             <font key="font" metaFont="system"/>
@@ -75,7 +75,7 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="scv-qL-eIO">
-                        <rect key="frame" x="52" y="357" width="44" height="17"/>
+                        <rect key="frame" x="18" y="357" width="44" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="説明:" id="zQj-c9-rhZ">
                             <font key="font" metaFont="system"/>
@@ -84,16 +84,16 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gZy-Gi-lVS">
-                        <rect key="frame" x="18" y="322" width="154" height="17"/>
+                        <rect key="frame" x="18" y="322" width="255" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="List all reports matching:" id="yeg-vI-i3G">
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="一致するすべてのレポートを一覧表示します:" id="yeg-vI-i3G">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="ZDo-yP-EKy">
-                        <rect key="frame" x="102" y="354" width="648" height="22"/>
+                        <rect key="frame" x="68" y="354" width="682" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="NHO-Tg-DVY">
                             <font key="font" metaFont="system"/>
