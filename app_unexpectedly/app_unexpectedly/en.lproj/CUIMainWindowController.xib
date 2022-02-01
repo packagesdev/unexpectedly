@@ -28,7 +28,7 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="E5E3FE75-B923-4050-8328-E8DBF77270DA" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="qok-Nh-ZqX">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="4BB16A90-DFB3-4B72-BC1E-0501635805D9" label="Registers" paletteLabel="Registers" toolTip="Hide or show registers window" id="odd-p2-xXV">
+                    <toolbarItem implicitItemIdentifier="4BB16A90-DFB3-4B72-BC1E-0501635805D9" label="Registers" paletteLabel="Registers" toolTip="Show or hide registers window" id="odd-p2-xXV">
                         <size key="minSize" width="29" height="23"/>
                         <size key="maxSize" width="29" height="23"/>
                         <button key="view" verticalHuggingPriority="750" id="tOu-D2-Ept">

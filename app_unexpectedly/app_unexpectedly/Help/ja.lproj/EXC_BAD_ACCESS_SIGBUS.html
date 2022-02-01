@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./known_exceptions.css">
+    </head>
+    
+<body>
+<b>要旨</b>
+<p>The EXC_BAD_ACCESS (SIGBUS) type indicates a process uses memory in an unexpected way.</p>
+
+<b>討論</b>
+<p>The exception can happen when the process tries to access unmapped memory (KERN_INVALID_ADDRESS), misaligned memory (EXC_ARM_DA_ALIGN) or unavailable memory (KERN_MEMORY_ERROR). This can also happen when the process tries to write on read-only or protected memory (KERN_PROTECTION_FAILURE).</p>
+
+<div class="external_link">
+<a href="https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs/identifying_the_cause_of_common_crashes/investigating_memory_access_crashes?language=objc" target="_blank">Appleの開発者サイトで開く</a>
+</div>
+</body>
+</html>

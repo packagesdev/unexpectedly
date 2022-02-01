@@ -28,7 +28,7 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="E5E3FE75-B923-4050-8328-E8DBF77270DA" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="qok-Nh-ZqX">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="4BB16A90-DFB3-4B72-BC1E-0501635805D9" label="Registers" paletteLabel="Registers" toolTip="Afficher ou masquer la fenêtre des registres" id="odd-p2-xXV">
+                    <toolbarItem implicitItemIdentifier="4BB16A90-DFB3-4B72-BC1E-0501635805D9" label="Registers" paletteLabel="Registers" toolTip="レジスタウィンドウを表示と非表示を切り替える" id="odd-p2-xXV">
                         <size key="minSize" width="29" height="23"/>
                         <size key="maxSize" width="29" height="23"/>
                         <button key="view" verticalHuggingPriority="750" id="tOu-D2-Ept">
@@ -69,8 +69,8 @@
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="esc-Se-3Gu">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment toolTip="Texte" image="presentation_text_Template" width="32"/>
-                                    <segment toolTip="Schéma" image="presentation_structured_Template" width="32" selected="YES" tag="1"/>
+                                    <segment toolTip="テキスト" image="presentation_text_Template" width="32"/>
+                                    <segment toolTip="概要" image="presentation_structured_Template" width="32" selected="YES" tag="1"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>
@@ -86,9 +86,9 @@
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectAny" id="IFc-bQ-yuq">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment toolTip="Masquer ou afficher la barre latérale" image="left_switch_Template" width="32" selected="YES"/>
-                                    <segment toolTip="Masquer ou afficher les images des binaires" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
-                                    <segment toolTip="Masquer ou afficher l'inspecteur" image="right_switch_Template" width="32" selected="YES"/>
+                                    <segment toolTip="サイドバーを表示または非表示にします" image="left_switch_Template" width="32" selected="YES"/>
+                                    <segment toolTip="バイナリのイメージを表示または非表示にす" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
+                                    <segment toolTip="インスペクターを表示または非表示にす" image="right_switch_Template" width="32" selected="YES"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>
@@ -96,6 +96,9 @@
                             <action selector="showHideViews:" target="-1" id="q9p-Cx-Zfc"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Ll5-CG-7p5"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="5Ai-UD-BMY"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="OVf-DI-Wek"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="1s5-E7-9Hl"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="QhD-Oy-cTl"/>
                 </allowedToolbarItems>
@@ -111,7 +114,7 @@
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
                 <outlet property="initialFirstResponder" destination="se5-gp-TjO" id="Ndk-U6-g06"/>
             </connections>
-            <point key="canvasLocation" x="59" y="-1332"/>
+            <point key="canvasLocation" x="279" y="-1395"/>
         </window>
     </objects>
     <resources>

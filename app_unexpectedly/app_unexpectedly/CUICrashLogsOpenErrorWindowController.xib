@@ -154,7 +154,7 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="HPg-sp-Enx">
                         <rect key="frame" x="104" y="227" width="678" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" selectable="YES" title="An error occurred when opening the file." id="RHC-gI-0j7">
+                        <textFieldCell key="cell" selectable="YES" title="An error occurred while opening the file." id="RHC-gI-0j7">
                             <font key="font" metaFont="systemBold"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

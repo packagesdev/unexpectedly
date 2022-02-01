@@ -367,7 +367,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
     NSAlert * tAlert=[NSAlert new];
     
     tAlert.messageText=[NSString stringWithFormat:NSLocalizedString(@"Do you really want to remove the \"%@\" theme?", @""),tTheme.name];
-    tAlert.informativeText=NSLocalizedString(@"This cannot be undone", @"");
+    tAlert.informativeText=NSLocalizedString(@"This cannot be undone.", @"");
     
     [tAlert addButtonWithTitle:NSLocalizedString(@"Remove",@"")];
     [tAlert addButtonWithTitle:NSLocalizedString(@"Cancel",@"")];

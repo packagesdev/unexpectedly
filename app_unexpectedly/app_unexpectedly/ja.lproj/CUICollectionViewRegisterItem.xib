@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSView"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="23"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="49v-rz-P77">
+                    <rect key="frame" x="0.0" y="5" width="28" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="r15:" id="moe-Uv-cgf">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView id="jaL-7X-k26" customClass="CUIRegisterLabel">
+                    <rect key="frame" x="30" y="1" width="149" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qEF-At-YGV">
+                            <rect key="frame" x="4" y="3" width="127" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" alignment="right" title="0x0000000000000000" id="3Ws-AL-pDW">
+                                <font key="font" size="11" name="Menlo-Regular"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.051054180475006906" colorSpace="custom" customColorSpace="sRGB"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton id="fAd-pL-hD3">
+                            <rect key="frame" x="130" y="1" width="16" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <popUpButtonCell key="cell" type="bevel" title="2 進" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Ql8-Yj-GNF" id="jsY-zd-eaC">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="smallSystem"/>
+                                <menu key="menu" id="W6L-9s-vAV">
+                                    <items>
+                                        <menuItem title="2 進" state="on" hidden="YES" id="Ql8-Yj-GNF">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="ブール値" tag="1" id="VoA-fE-sxQ"/>
+                                        <menuItem title="10 進" tag="3" id="Hab-wq-jWg"/>
+                                        <menuItem title="浮動小数点数" tag="2" id="2IG-5I-rJY"/>
+                                        <menuItem title="16 進" tag="4" id="SoX-XB-pNK"/>
+                                        <menuItem title="8 進" tag="5" id="5Ci-Jw-A07"/>
+                                        <menuItem title="符号なし 10 進" tag="6" id="QOY-jj-Mna"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                            <connections>
+                                <action selector="switchDisplayFormat:" target="jaL-7X-k26" id="VTy-Z7-Jxf"/>
+                            </connections>
+                        </popUpButton>
+                    </subviews>
+                    <connections>
+                        <outlet property="_popUpButton" destination="fAd-pL-hD3" id="tc3-Wy-sGM"/>
+                        <outlet property="_textField" destination="qEF-At-YGV" id="dOS-N9-mnK"/>
+                    </connections>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="-21" y="-184"/>
+        </customView>
+        <collectionViewItem id="faJ-j9-dhQ" customClass="CUICollectionViewRegisterItem">
+            <connections>
+                <outlet property="_registerNameLabel" destination="49v-rz-P77" id="BR4-Vr-dVK"/>
+                <outlet property="_registerValueDisplayFormatPopUpButton" destination="fAd-pL-hD3" id="9NM-Ax-cVM"/>
+                <outlet property="_registerValueLabel" destination="jaL-7X-k26" id="IU3-mu-U3V"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="6gV-UU-WJg"/>
+            </connections>
+        </collectionViewItem>
+    </objects>
+</document>

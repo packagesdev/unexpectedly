@@ -44,6 +44,12 @@
 {
     [super windowDidLoad];
     
+    NSTableColumn * tTableColumn=[_tableView tableColumnWithIdentifier:@"file"];
+    tTableColumn.headerCell.title=NSLocalizedString(@"Name",@"");
+    
+    tTableColumn=[_tableView tableColumnWithIdentifier:@"reason"];
+    tTableColumn.headerCell.title=NSLocalizedString(@"Reason",@"");
+    
     NSRect tButtonFrame=_defaultButton.frame;
     
     _defaultButton.title=NSLocalizedString(@"OK",@"");
@@ -91,14 +97,14 @@
             
         case 1:
             
-            tMessageString=NSLocalizedString(@"An error occurred when opening the file.", @"");
+            tMessageString=NSLocalizedString(@"An error occurred while opening the file.", @"");
             tInformativeString=NSLocalizedString(@"The file can't be opened for the following reason:", @"");
             
             break;
             
         default:
             
-            tMessageString=NSLocalizedString(@"An error occurred when opening some files.", @"");
+            tMessageString=NSLocalizedString(@"An error occurred while opening some files.", @"");
             tInformativeString=NSLocalizedString(@"These files can't be opened for the following reasons:", @"");
             
             break;
@@ -152,7 +158,6 @@
 - (NSView *)tableView:(NSTableView *)inTableView viewForTableColumn:(NSTableColumn *)inTableColumn row:(NSInteger)inRow
 {
     CUICrashLogsOpenErrorRecord * tRecord=_errors[inRow];
-    
     
     NSString * tTableColumnIdentifier=inTableColumn.identifier;
     NSTableCellView * tTableCellView=[inTableView makeViewWithIdentifier:tTableColumnIdentifier owner:self];
