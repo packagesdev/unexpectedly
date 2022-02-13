@@ -33,7 +33,7 @@
                     <rect key="frame" x="329" y="107" width="189" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button toolTip="The Unexpectedly Quit dialog is displayed for all processes run by the user." verticalHuggingPriority="750" tag="1" id="q4r-Gy-3Z5">
+                        <button toolTip="「予期せず終了」ダイアログは、ユーザーが実行するすべてのプロセスに対して表示されます。" verticalHuggingPriority="750" tag="1" id="q4r-Gy-3Z5">
                             <rect key="frame" x="-1" y="21" width="67" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="開発者" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Tjt-95-3Z2">
@@ -44,7 +44,7 @@
                                 <action selector="switchCrashReporterDialogType:" target="-2" id="hvp-pX-cgQ"/>
                             </connections>
                         </button>
-                        <button toolTip="The Unexpectedly Quit dialog is never displayed." verticalHuggingPriority="750" tag="2" id="i8F-ge-i9c">
+                        <button toolTip="「予期せず終了」ダイアログが表示されることはありません。" verticalHuggingPriority="750" tag="2" id="i8F-ge-i9c">
                             <rect key="frame" x="-1" y="-1" width="67" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="サーバ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="l5e-xv-Kdo">
@@ -55,7 +55,7 @@
                                 <action selector="switchCrashReporterDialogType:" target="-2" id="eST-mh-Dhc"/>
                             </connections>
                         </button>
-                        <button toolTip="The Unexpectedly Quit dialog is only displayed for application crashes." verticalHuggingPriority="750" id="KDV-3D-Zmr">
+                        <button toolTip="「予期せず終了」ダイアログは、アプリケーションがクラッシュした場合にのみ表示されます。" verticalHuggingPriority="750" id="KDV-3D-Zmr">
                             <rect key="frame" x="-1" y="43" width="67" height="18"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="radio" title="基本" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8un-EB-HxH">
