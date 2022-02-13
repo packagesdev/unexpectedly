@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -100,7 +100,67 @@
 				
 				break;
 			}
-				
+            
+            case FAT_MAGIC_64:
+                
+                tSwap=NO;
+                
+            case FAT_CIGAM_64:        // FAT
+            {
+                tFutureBufferOffset+=sizeof(uint32_t);
+                
+                if (tFutureBufferOffset>=self.bufferSize)
+                {
+                    // A COMPLETER
+                    
+                    goto init_bail;
+                }
+                
+                _objectFilesArray=[NSMutableArray array];
+                
+                struct fat_header * tFatHeaderPtr=(struct fat_header *)self.buffer;
+                uint32_t tArchitecturesCount=tFatHeaderPtr->nfat_arch;
+                
+                if (tSwap==YES)
+                    tArchitecturesCount=OSSwapBigToHostInt32(tArchitecturesCount);
+                
+                const char * tReadBuffer=self.buffer+tFutureBufferOffset;
+                
+                for(uint32_t tIndex=0;tIndex<tArchitecturesCount;tIndex++)
+                {
+                    tFutureBufferOffset+=sizeof(struct fat_arch_64);
+                    
+                    if (tFutureBufferOffset>=self.bufferSize)
+                    {
+                        // A COMPLETER
+                        
+                        goto init_bail;
+                    }
+                    
+                    struct fat_arch_64 * tFatArchPtr=(struct fat_arch_64 *)tReadBuffer;
+                    
+                    MCHObjectFile * tObjectFile;
+                    
+                    if (tSwap==YES)
+                        tObjectFile=[[MCHObjectFile alloc] initWithBytes:self.buffer+OSSwapBigToHostInt64(tFatArchPtr->offset)
+                                                                  length:OSSwapBigToHostInt64(tFatArchPtr->size)];
+                    else
+                        tObjectFile=[[MCHObjectFile alloc] initWithBytes:self.buffer+tFatArchPtr->offset
+                                                                  length:tFatArchPtr->size];
+                    
+                    if (tObjectFile==nil)
+                    {
+                        goto init_bail;
+                    }
+                    
+                    [_objectFilesArray addObject:tObjectFile];
+                    
+                    tReadBuffer+=sizeof(struct fat_arch_64);
+                }
+                
+                break;
+            }
+                
 			case FAT_MAGIC:
 				
 				tSwap=NO;

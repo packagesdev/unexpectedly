@@ -99,7 +99,7 @@
             }
             else
             {
-                if (bIndex==0)
+                if (bIndex==0 && tBinaryImage.isUserCode==YES)
                     tBinaryImage.mainImage=YES;
                 
                 tBinaryImagesRegistry[tBinaryImage.identifier]=tBinaryImage;
