@@ -188,6 +188,15 @@
             
             if (self->_showsFileNames==NO)
             {
+                NSString * tProcessName=bCrashLog.header.processName;
+                
+                if (tProcessName!=nil && [tProcessName rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound)
+                {
+                    [self->_filteredAndSortedCrashLogsArray addObject:bCrashLog];
+                    
+                    return;
+                }
+                
                 NSString * tResponsibleProcessName=bCrashLog.header.responsibleProcessName;
                 
                 if (tResponsibleProcessName!=nil && [tResponsibleProcessName rangeOfString:self->_filterPattern options:NSCaseInsensitiveSearch].location!=NSNotFound)
