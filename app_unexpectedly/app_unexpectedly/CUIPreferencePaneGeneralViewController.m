@@ -230,6 +230,13 @@
     {
         // A VOIR (report error if we can figure out which error values this method can return)
     }
+    
+    tResult=LSSetDefaultRoleHandlerForContentType(CFSTR("com.apple.ips"),kLSRolesViewer,(__bridge CFStringRef) tAttributes.bundleIdentifier);
+    
+    if (tResult != noErr)
+    {
+        // A VOIR (report error if we can figure out which error values this method can return)
+    }
 }
 
 @end
