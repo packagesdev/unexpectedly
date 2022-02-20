@@ -96,18 +96,6 @@
                         [tMessages appendFormat:@"%@\n",bSignature];
                     }];
                 }
-                
-                if (tApplicationSpecificInformation.backtraces!=nil)
-                {
-                    [tMessages appendString:@"\n"];
-                    
-                    [tApplicationSpecificInformation.backtraces enumerateObjectsUsingBlock:^(NSString * bBacktrace, NSUInteger bIndex, BOOL * bOutStop) {
-                        
-                        [tMessages appendFormat:@"Application Specific Backtrace %lu:\n",bIndex+1];
-                        
-                        [tMessages appendFormat:@"%@\n",bBacktrace];
-                    }];
-                }
             }
             
              _messages=[tMessages copy];
