@@ -14,6 +14,8 @@
 
 #import "CUIIPSTransform.h"
 
+#import "IPSReport.h"
+
 #import "IPSDateFormatter.h"
 
 #import "IPSThreadState+RegisterDisplayName.h"
@@ -33,8 +35,6 @@
 #import "CUIdSYMBundlesManager.h"
 
 #import "CUISymbolicationManager.h"
-
-#import "CUISymbolicationDataFormatter.h"
 #endif
 
 #import "CUIStackFrame.h"
@@ -42,48 +42,6 @@
 @interface CUIDataTransform (Private)
 
 - (void)setOutput:(NSAttributedString *)inOutput;
-
-@end
-
-@interface CUIIPSTransform ()
-{
-    NSDictionary * _cachedPlainTextAttributes;
-    
-    NSDictionary * _cachedKeyAttributes;
-    
-    NSDictionary * _cachedVersionAttributes;
-    
-    NSDictionary * _cachedPathAttributes;
-    
-    NSDictionary * _cachedUUIDAttributes;
-    
-    NSDictionary * _cachedCrashedThreadLabelAttributes;
-    
-    NSDictionary * _cachedThreadLabelAttributes;
-    
-    NSDictionary * _cachedExecutableCodeAttributes;
-    
-    NSDictionary * _cachedOSCodeAttributes;
-    
-    NSDictionary * _cachedMemoryAddressAttributes;
-    
-    
-    NSDictionary * _cachedRegisterValueAttributes;
-    
-    
-    NSDictionary * _cachedParsingErrorAttributes;
-    
-    NSColor * _cachedUnderlineColor;
-    
-    
-    NSCharacterSet * _whitespaceCharacterSet;
-    
-#ifndef __DISABLE_SYMBOLICATION_
-    CUISymbolicationDataFormatter * _symbolicationDataFormatter;
-#endif
-}
-
-- (void)updatesCachedAttributes;
 
 @end
 
@@ -100,102 +58,6 @@
     return [[tSpaceString substringFromIndex:tLength] stringByAppendingString:tString];
 }
 
-- (instancetype)init
-{
-    self=[super init];
-    
-    if (self!=nil)
-    {
-        
-#ifndef __DISABLE_SYMBOLICATION_
-        _symbolicationDataFormatter=[CUISymbolicationDataFormatter new];
-#endif
-        
-        _whitespaceCharacterSet=[NSCharacterSet whitespaceCharacterSet];
-    }
-    
-    return self;
-}
-
-#pragma mark -
-
-- (void)updatesCachedAttributes
-{
-    NSFontManager * tFontManager = [NSFontManager sharedFontManager];
-    
-    CUIThemesManager * tThemesManager=[CUIThemesManager sharedManager];
-    
-    CUIThemeItemsGroup * tItemsGroup=[tThemesManager.currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
-    
-    NSMutableArray * tItemsNames=[tItemsGroup.itemsNames mutableCopy];
-    
-    [tItemsNames removeObject:CUIThemeItemBackground];
-    [tItemsNames removeObject:CUIThemeItemLineNumber];
-    [tItemsNames removeObject:CUIThemeItemSelectionBackground];
-    [tItemsNames removeObject:CUIThemeItemSelectionText];
-    
-    // TabStops settings
-    
-    NSMutableParagraphStyle * tMutableParagraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    
-    tMutableParagraphStyle.tabStops=@[];
-    
-    [tMutableParagraphStyle setLineSpacing:2.0];
-    
-    for (NSUInteger tIndex = 1; tIndex <= 20; tIndex++)
-    {
-        NSTextTab *tabStop = [[NSTextTab alloc] initWithType:NSLeftTabStopType location: 40 * (tIndex)];
-        [tMutableParagraphStyle addTabStop:tabStop];
-    }
-    
-    NSMutableDictionary * tMutableDictionary=[NSMutableDictionary dictionary];
-    
-    for(NSString * tItemName in tItemsNames)
-    {
-        CUIThemeItemAttributes * tItemAttributes=[tItemsGroup attributesForItem:tItemName];
-        
-        NSFont * tFont=tItemAttributes.font;
-        
-        NSFont * tAdjustedFont=nil;
-        
-        tAdjustedFont=[tFontManager convertFont:tFont toSize:tFont.pointSize + self.fontSizeDelta];
-        
-        if (tAdjustedFont==nil)
-            tAdjustedFont=tFont;
-        
-        tMutableDictionary[tItemName]=@{
-                                        NSFontAttributeName:tAdjustedFont,
-                                        NSForegroundColorAttributeName:tItemAttributes.color,
-                                        NSParagraphStyleAttributeName:tMutableParagraphStyle
-                                        };
-    }
-    
-    _cachedPlainTextAttributes=tMutableDictionary[CUIThemeItemPlainText];
-    
-    NSColor * tForegroundColor=_cachedPlainTextAttributes[NSForegroundColorAttributeName];
-    _cachedUnderlineColor=[tForegroundColor colorWithAlphaComponent:0.35];
-    
-    _cachedKeyAttributes=tMutableDictionary[CUIThemeItemKey];
-    _cachedThreadLabelAttributes=tMutableDictionary[CUIThemeItemThreadLabel];
-    _cachedCrashedThreadLabelAttributes=tMutableDictionary[CUIThemeItemCrashedThreadLabel];
-    
-    _cachedExecutableCodeAttributes=tMutableDictionary[CUIThemeItemExecutableCode];
-    _cachedOSCodeAttributes=tMutableDictionary[CUIThemeItemOSCode];
-    
-    _cachedVersionAttributes=tMutableDictionary[CUIThemeItemVersion];
-    _cachedMemoryAddressAttributes=tMutableDictionary[CUIThemeItemMemoryAddress];
-    _cachedPathAttributes=tMutableDictionary[CUIThemeItemPath];
-    _cachedUUIDAttributes=tMutableDictionary[CUIThemeItemUUID];
-    _cachedRegisterValueAttributes=tMutableDictionary[CUIThemeItemRegisterValue];
-    
-    
-    NSMutableDictionary * tParsingErrorDictionary=[_cachedPlainTextAttributes mutableCopy];
-    
-    tParsingErrorDictionary[NSForegroundColorAttributeName]=[NSColor redColor];
-    
-    _cachedParsingErrorAttributes=[tParsingErrorDictionary copy];
-}
-
 #pragma mark -
 
 - (NSAttributedString *)attributedStringForKey:(NSString *)inString
@@ -203,7 +65,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedKeyAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.keyAttributes];
 }
 
 - (NSAttributedString *)attributedStringForKeyWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -216,7 +78,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedKeyAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.keyAttributes];
 }
 
 
@@ -225,7 +87,7 @@
     if (inString==nil)
         return nil;
         
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedPlainTextAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.plainTextAttributes];
 }
 
 - (NSAttributedString *)attributedStringForPlainTextWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -238,7 +100,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedPlainTextAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.plainTextAttributes];
 }
 
 - (NSAttributedString *)attributedStringForPath:(NSString *)inString
@@ -246,7 +108,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedPathAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.pathAttributes];
 }
 
 - (NSAttributedString *)attributedStringForPathWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -259,7 +121,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedPathAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.pathAttributes];
 }
 
 - (NSAttributedString *)attributedStringForVersion:(NSString *)inString
@@ -267,7 +129,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedVersionAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.versionAttributes];
 }
 
 - (NSAttributedString *)attributedStringForVersionWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -280,7 +142,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedVersionAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.versionAttributes];
 }
 
 - (NSAttributedString *)attributedStringForUUID:(NSString *)inString
@@ -288,7 +150,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedUUIDAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.UUIDAttributes];
 }
 
 - (NSAttributedString *)attributedStringForUUIDWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -301,7 +163,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedUUIDAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.UUIDAttributes];
 }
 
 - (NSAttributedString *)attributedStringForThreadLabel:(NSString *)inString
@@ -309,7 +171,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedThreadLabelAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.threadLabelAttributes];
 }
 
 - (NSAttributedString *)attributedStringForThreadLabelWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -322,7 +184,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedThreadLabelAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.threadLabelAttributes];
 }
 
 - (NSAttributedString *)attributedStringForCrashedThreadLabel:(NSString *)inString
@@ -330,7 +192,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedCrashedThreadLabelAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.crashedThreadLabelAttributes];
 }
 
 - (NSAttributedString *)attributedStringForCrashedThreadLabelWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -343,7 +205,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedCrashedThreadLabelAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.crashedThreadLabelAttributes];
 }
 
 - (NSAttributedString *)attributedStringForMemoryAddress:(NSString *)inString
@@ -351,7 +213,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:_cachedMemoryAddressAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:self.memoryAddressAttributes];
 }
 
 - (NSAttributedString *)attributedStringForMemoryAddressWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -364,7 +226,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedMemoryAddressAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.memoryAddressAttributes];
 }
 
 - (NSAttributedString *)attributedStringForUser:(BOOL)inUserCode code:(NSString *)inString
@@ -372,7 +234,7 @@
     if (inString==nil)
         return nil;
     
-    return [[NSAttributedString alloc] initWithString:inString attributes:(inUserCode==YES) ? _cachedExecutableCodeAttributes : _cachedOSCodeAttributes];
+    return [[NSAttributedString alloc] initWithString:inString attributes:(inUserCode==YES) ? self.executableCodeAttributes : self.OSCodeAttributes];
 }
 
 - (NSAttributedString *)attributedStringForUser:(BOOL)inUserCode codeWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(2,3)
@@ -385,7 +247,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:(inUserCode==YES) ? _cachedExecutableCodeAttributes : _cachedOSCodeAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:(inUserCode==YES) ? self.executableCodeAttributes : self.OSCodeAttributes];
 }
 
 - (NSAttributedString *)attributedStringForRegisterValueWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2)
@@ -398,7 +260,7 @@
     NSString * tString=[[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
     
-    return [[NSAttributedString alloc] initWithString:tString attributes:_cachedRegisterValueAttributes];
+    return [[NSAttributedString alloc] initWithString:tString attributes:self.registerValueAttributes];
 }
 
 - (NSAttributedString *)attributedStringForUser:(BOOL)inUserCode binaryImageIdentifier:(NSString *)inIdentifier
@@ -406,7 +268,7 @@
     if (inIdentifier==nil)
         return nil;
     
-    NSMutableDictionary * tMutableDictionary=[_cachedPlainTextAttributes mutableCopy];
+    NSMutableDictionary * tMutableDictionary=[self.plainTextAttributes mutableCopy];
     tMutableDictionary[NSForegroundColorAttributeName]=(inUserCode==YES) ? [CUIBinaryImageUtility colorForUserCode]: [CUIBinaryImageUtility colorForIdentifier:inIdentifier];
     
     return [[NSAttributedString alloc] initWithString:(inUserCode==NO) ? inIdentifier : [NSString stringWithFormat:@"+%@",inIdentifier]
@@ -749,8 +611,73 @@
     #define BINARYIMAGENAME_AND_SPACE_MAXLEN    34
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
+    CUICrashLogBacktraces * tBacktraces=self.crashlog.backtraces;
+    NSInteger tThreadIndexOffset=0;
+    
+    if (tBacktraces.hasApplicationSpecificBacktrace==YES)
+    {
+        tThreadIndexOffset=1;
+        
+        NSMutableAttributedString * tMutableAttributedString=nil;
+        
+        tMutableAttributedString=[[self attributedStringForThreadLabelWithFormat:@"Application Specific Backtrace %lu\n",(unsigned long)1] mutableCopy];
+    
+        [tMutableAttributedString addAttributes:@{
+                                                  CUIThreadAnchorAttributeName:@"thread:Application Specific Backtrace"
+                                                  }
+                                          range:NSMakeRange(0, tMutableAttributedString.length)];
+        
+        [tMutableArray addObject:tMutableAttributedString];
+        
+        IPSIncidentDiagnosticMessage * tDiagnosticMesage=inIncident.diagnosticMessage;
+        
+        IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMesage.asi;
+        
+        NSArray * tBacktraces=tApplicationSpecificInformation.backtraces;
+        
+        [tBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
+        
+            CUIThread * tThread=self.crashlog.backtraces.threads.firstObject;
+            
+            NSMutableArray * tLines=[NSMutableArray array];
+            
+            [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * _Nonnull stop) {
+                
+                [tLines addObject:bLine];
+            }];
+            
+            __block NSUInteger tStackFrameIndex=0;
+            
+            [tLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
+                
+                if (bLine.length==0)
+                {
+                    [tMutableArray addObject:@""];
+                    return;
+                }
+                
+                NSString * tProcessedStackFrameLine=[self processedStackFrameLine:bLine stackFrame:tThread.callStackBacktrace.stackFrames[tStackFrameIndex]];
+                
+                if (tProcessedStackFrameLine!=nil)
+                {
+                    [tMutableArray addObject:tProcessedStackFrameLine];
+                }
+                else
+                {
+                    NSLog(@"Error transforming line: %@",bLine);
+                    
+                    [tMutableArray addObject:[[NSAttributedString alloc] initWithString:bLine]];
+                }
+                
+                tStackFrameIndex+=1;
+            }];
+        }];
+        
+        [tMutableArray addObject:@""];
+    }
+    
 #ifndef __DISABLE_SYMBOLICATION_
-    NSArray * tBacktracesThreads=self.crashlog.backtraces.threads;
+    NSArray * tBacktracesThreads=tBacktraces.threads;
 #endif
     
     NSString * tProcessPath=inIncident.header.processPath;
@@ -760,15 +687,29 @@
     [inIncident.threads enumerateObjectsUsingBlock:^(IPSThread * bThread, NSUInteger bThreadIndex, BOOL * bOutStop) {
 
 #ifndef __DISABLE_SYMBOLICATION_
-        CUIThread * tBacktraceThread=tBacktracesThreads[bThreadIndex];
+        CUIThread * tBacktraceThread=tBacktracesThreads[bThreadIndex + tThreadIndexOffset];
 #endif
-        NSString * tDispatchQueueString=(bThread.queue!=nil) ? [NSString stringWithFormat:@": Dispatch queue: %@",bThread.queue] : @"";
+        
+        NSString * tCrashedString=(bThread.triggered==YES) ? @" Crashed":@"";
+        
+        NSMutableString * tThreadLabel=[NSMutableString stringWithFormat:@"Thread %lu%@:",(unsigned long)bThreadIndex,tCrashedString];
+        
+        if (bThread.name!=nil || bThread.queue!=nil)
+        {
+            [tThreadLabel appendString:@": "];
+            
+            if (bThread.name!=nil)
+                [tThreadLabel appendString:bThread.name];
+            
+            if (bThread.queue!=nil)
+                [tThreadLabel appendFormat:@"%@Dispatch queue: %@",(bThread.name!=nil) ? @"  ": @"",bThread.queue];
+        }
         
         NSMutableAttributedString * tMutableAttributedString=nil;
         
         if (bThread.triggered==YES)
         {
-            tMutableAttributedString=[[self attributedStringForCrashedThreadLabelWithFormat:@"Thread %lu Crashed:%@\n",(unsigned long)bThreadIndex,tDispatchQueueString] mutableCopy];
+            tMutableAttributedString=[[self attributedStringForCrashedThreadLabel:tThreadLabel] mutableCopy];
             
             switch(self.hyperlinksStyle)
             {
@@ -801,7 +742,7 @@
             if ((self.displaySettings.visibleSections & CUIDocumentBacktraceCrashedThreadSubSection)!=0)
                 return;
             
-            tMutableAttributedString=[[self attributedStringForThreadLabelWithFormat:@"Thread %lu:%@\n",(unsigned long)bThreadIndex,tDispatchQueueString] mutableCopy];
+            tMutableAttributedString=[[self attributedStringForThreadLabel:tThreadLabel] mutableCopy];
         }
         
         [tMutableAttributedString addAttributes:@{
@@ -917,7 +858,7 @@
                 if (tSymbolicationData.stackFrameSymbol==nil)
                     NSLog(@"Missing stackFrameSymbol");
 
-                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:[self->_symbolicationDataFormatter stringForObjectValue:tSymbolicationData]]];
+                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:tSymbolicationData]]];
             }
             else
             {
@@ -970,7 +911,7 @@
                                                                                                                     {
                                                                                                                         tStackFrame.symbolicationData=bSymbolicationData;
                                                                                                                         
-                                                                                                                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:[self->_symbolicationDataFormatter stringForObjectValue:bSymbolicationData]]];
+                                                                                                                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:bSymbolicationData]]];
                                                                                                                         
                                                                                                                         break;
                                                                                                                     }
@@ -978,6 +919,26 @@
                                                                                                                 }
                                                                                                                 
                                                                                                             }];
+                }
+                else
+                {
+                    if (bFrame.symbol!=nil)
+                    {
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
+                        
+                        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.symbolLocation]];
+                    }
+                    else
+                    {
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
+                        
+                        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)(tAddress-tBinaryImage.loadAddress)]];
+                    }
+                    
+                    if (bFrame.sourceFile!=nil)
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" (%@:%lu)",bFrame.sourceFile,(unsigned long)bFrame.sourceLine]];
                 }
             }
             
@@ -1395,10 +1356,11 @@
         return NO;
     }
     
+    [self updatesCachedAttributes];
+    
     IPSIncident * tIncident=tReport.incident;
     
-    
-    [self updatesCachedAttributes];
+    //self.processPath=tCrashLog.header.executablePath;
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
     
@@ -1490,12 +1452,12 @@
         if ([bLine isKindOfClass:[NSString class]]==YES)
         {
             NSAttributedString * tAttributedString=[[NSAttributedString alloc] initWithString:bLine
-                                                                                   attributes:self->_cachedPlainTextAttributes];
+                                                                                   attributes:self.plainTextAttributes];
             
             [tMutableAttributedString appendAttributedString:tAttributedString];
             
             if (bLineNumber<inLines.count)
-                [tMutableAttributedString appendAttributedString:[[NSAttributedString alloc] initWithString:inNewLineFeed attributes:self->_cachedPlainTextAttributes]];
+                [tMutableAttributedString appendAttributedString:[[NSAttributedString alloc] initWithString:inNewLineFeed attributes:self.plainTextAttributes]];
             
             return;
         }
@@ -1505,7 +1467,7 @@
             [tMutableAttributedString appendAttributedString:bLine];
             
             if (bLineNumber<inLines.count)
-                [tMutableAttributedString appendAttributedString:[[NSAttributedString alloc] initWithString:inNewLineFeed attributes:self->_cachedPlainTextAttributes]];
+                [tMutableAttributedString appendAttributedString:[[NSAttributedString alloc] initWithString:inNewLineFeed attributes:self.plainTextAttributes]];
         }
     }];
     

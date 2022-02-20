@@ -15,7 +15,7 @@
 
 @interface CUIThread ()
 
-    @property BOOL applicationSpecificBackTrace;
+    //@property BOOL applicationSpecificBackTrace;
 
     @property BOOL crashed;
 
@@ -104,6 +104,20 @@
 	}
 	
 	return self;
+}
+
+- (instancetype)initApplicationSpecificBacktraceAtIndex:(NSUInteger)inIndex withTextualRepresentation:(NSArray *)inLines error:(NSError **)outError
+{
+    self=[self initWithTextualRepresentation:inLines error:outError];
+    
+    if (self!=nil)
+    {
+        _applicationSpecificBackTrace=YES;
+        
+        _name=@"Application Specific Backtrace";
+    }
+    
+    return self;
 }
 
 - (instancetype)initWithIPSThread:(IPSThread *)inThread atIndex:(NSUInteger)inIndex binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError

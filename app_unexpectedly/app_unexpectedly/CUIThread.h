@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -32,6 +32,8 @@
 	@property (readonly) CUICallStackBacktrace * callStackBacktrace;
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines error:(NSError **)outError;
+
+- (instancetype)initApplicationSpecificBacktraceAtIndex:(NSUInteger)inIndex withTextualRepresentation:(NSArray *)inLines error:(NSError **)outError;
 
 - (instancetype)initWithIPSThread:(IPSThread *)inThread atIndex:(NSUInteger)inIndex binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError;
 

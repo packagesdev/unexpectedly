@@ -293,6 +293,7 @@
 		F4F9BAF724EF06BC00D08FBD /* CUIInspectorGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9BAF524EF06BC00D08FBD /* CUIInspectorGeneralViewController.m */; };
 		F4F9D3362556C7DB00D28E6E /* CUILineJumperWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9D3342556C7DB00D28E6E /* CUILineJumperWindowController.m */; };
 		F4FA4323273EF2F30068EDB8 /* NSString+CPU.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FA4322273EF2F30068EDB8 /* NSString+CPU.m */; };
+		F4FC8EA727C1A6EE00291875 /* CUIReportThemedTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FC8EA627C1A6EE00291875 /* CUIReportThemedTransform.m */; };
 		F4FE2DEA25615CA800C1774A /* CUICrashLogExceptionInformation+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FE2DE925615CA800C1774A /* CUICrashLogExceptionInformation+UI.m */; };
 /* End PBXBuildFile section */
 
@@ -987,6 +988,8 @@
 		F4FC364D278F914500669B32 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Predicates.strings; sourceTree = "<group>"; };
 		F4FC364E278F914500669B32 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F4FC364F278F914500669B32 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F4FC8EA527C1A6EE00291875 /* CUIReportThemedTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIReportThemedTransform.h; sourceTree = "<group>"; };
+		F4FC8EA627C1A6EE00291875 /* CUIReportThemedTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIReportThemedTransform.m; sourceTree = "<group>"; };
 		F4FE2DE525613B5400C1774A /* CUIKeyViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIKeyViews.h; sourceTree = "<group>"; };
 		F4FE2DE825615CA800C1774A /* CUICrashLogExceptionInformation+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUICrashLogExceptionInformation+UI.h"; sourceTree = "<group>"; };
 		F4FE2DE925615CA800C1774A /* CUICrashLogExceptionInformation+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogExceptionInformation+UI.m"; sourceTree = "<group>"; };
@@ -1835,6 +1838,8 @@
 				F4BC576E24DF423C00063545 /* Views */,
 				F4DAFBEF2736B7D500FB50A6 /* CUIDataTransform.h */,
 				F4DAFBF02736B7D500FB50A6 /* CUIDataTransform.m */,
+				F4FC8EA527C1A6EE00291875 /* CUIReportThemedTransform.h */,
+				F4FC8EA627C1A6EE00291875 /* CUIReportThemedTransform.m */,
 				F42E4FFF2724B7550092181A /* CUICrashDataTransform.h */,
 				F42E50002724B7550092181A /* CUICrashDataTransform.m */,
 				F4DAFBEC2736B7B200FB50A6 /* CUIIPSTransform.h */,
@@ -2335,6 +2340,7 @@
 				F4CCCC6524AE810E0031BC27 /* CUICrashLogsSourcesSelection.m in Sources */,
 				F432ACCC24A9502A000A3E7A /* CUIThreadsViewController.m in Sources */,
 				F40B0D8E24D356A200663282 /* NSIndexSet+Analysis.m in Sources */,
+				F4FC8EA727C1A6EE00291875 /* CUIReportThemedTransform.m in Sources */,
 				F4DAFBF12736B7D500FB50A6 /* CUIDataTransform.m in Sources */,
 				F4B9AD3225319A410083FA6C /* MCHMemoryBufferWrapper.m in Sources */,
 				F40B0D8024D3558800663282 /* CUIPreferencesTabButton.m in Sources */,
@@ -2949,7 +2955,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 66;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2970,7 +2976,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 66;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;

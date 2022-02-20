@@ -150,6 +150,8 @@
 		F4E112B12735E6170072D40B /* CUICrashDataTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E112AF2735E6170072D40B /* CUICrashDataTransform.m */; };
 		F4FA4326273EF3FE0068EDB8 /* NSString+CPU.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FA4324273EF3FD0068EDB8 /* NSString+CPU.m */; };
 		F4FA4327273EF3FE0068EDB8 /* NSString+CPU.h in Headers */ = {isa = PBXBuildFile; fileRef = F4FA4325273EF3FE0068EDB8 /* NSString+CPU.h */; };
+		F4FC8EAB27C1AA6700291875 /* CUIReportThemedTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F4FC8EA927C1AA6700291875 /* CUIReportThemedTransform.m */; };
+		F4FC8EAD27C1AA7C00291875 /* CUIReportThemedTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = F4FC8EAC27C1AA7C00291875 /* CUIReportThemedTransform.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -301,6 +303,8 @@
 		F4E112AF2735E6170072D40B /* CUICrashDataTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashDataTransform.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashDataTransform.m; sourceTree = "<group>"; };
 		F4FA4324273EF3FD0068EDB8 /* NSString+CPU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CPU.m"; path = "../../app_unexpectedly/Foundation + Extensions/NSString+CPU.m"; sourceTree = "<group>"; };
 		F4FA4325273EF3FE0068EDB8 /* NSString+CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CPU.h"; path = "../../app_unexpectedly/Foundation + Extensions/NSString+CPU.h"; sourceTree = "<group>"; };
+		F4FC8EA927C1AA6700291875 /* CUIReportThemedTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIReportThemedTransform.m; path = ../../app_unexpectedly/app_unexpectedly/CUIReportThemedTransform.m; sourceTree = "<group>"; };
+		F4FC8EAC27C1AA7C00291875 /* CUIReportThemedTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIReportThemedTransform.h; path = ../../app_unexpectedly/app_unexpectedly/CUIReportThemedTransform.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +374,8 @@
 			children = (
 				F4DAFBF22736BA2000FB50A6 /* CUIDataTransform.h */,
 				F4DAFBF32736BA2100FB50A6 /* CUIDataTransform.m */,
+				F4FC8EAC27C1AA7C00291875 /* CUIReportThemedTransform.h */,
+				F4FC8EA927C1AA6700291875 /* CUIReportThemedTransform.m */,
 				F4DAFBF72736BA3100FB50A6 /* CUIIPSTransform.h */,
 				F4DAFBF62736BA3100FB50A6 /* CUIIPSTransform.m */,
 				F4E112AE2735E6160072D40B /* CUICrashDataTransform.h */,
@@ -612,6 +618,7 @@
 				F4069C7B26683CF9002B32F5 /* CUICrashLogHeader.h in Headers */,
 				F4069CB5266840D1002B32F5 /* CUIThemeItemsGroup.h in Headers */,
 				F4069CCD26684143002B32F5 /* NSArray+UniqueName.h in Headers */,
+				F4FC8EAD27C1AA7C00291875 /* CUIReportThemedTransform.h in Headers */,
 				F4069C5B26683CC7002B32F5 /* CUIRawCrashLog.h in Headers */,
 				F4DAFBF92736BA3100FB50A6 /* CUIIPSTransform.h in Headers */,
 				F4069CBE266840FB002B32F5 /* CUITheme.h in Headers */,
@@ -737,6 +744,7 @@
 				F4069C8A26683D10002B32F5 /* CUICallStackBacktrace.m in Sources */,
 				F4069CA226683E33002B32F5 /* CUICrashLogsProvider.m in Sources */,
 				F4069CCA26684136002B32F5 /* CUIThemesManager.m in Sources */,
+				F4FC8EAB27C1AA6700291875 /* CUIReportThemedTransform.m in Sources */,
 				F428C0CA27245D0800FB8CAC /* IPSApplicationSpecificInformation.m in Sources */,
 				F4069C8C26683D10002B32F5 /* CUIThread.m in Sources */,
 				F428C0CB27245D0800FB8CAC /* IPSSummary.m in Sources */,

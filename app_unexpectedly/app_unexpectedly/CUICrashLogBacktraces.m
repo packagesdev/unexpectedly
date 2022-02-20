@@ -69,6 +69,52 @@
     
     if (self!=nil)
     {
+        _hasApplicationSpecificBacktrace=NO;
+        
+        IPSIncidentDiagnosticMessage * tDiagnosticMessage=inIncident.diagnosticMessage;
+        
+        NSMutableArray * tApplicationBacktracesThreads=[NSMutableArray array];
+        
+        if (tDiagnosticMessage!=nil)
+        {
+            IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
+            
+            if (tApplicationSpecificInformation.backtraces.count>0)
+            {
+                NSArray * tApplicationSpecificBacktraces=tApplicationSpecificInformation.backtraces;
+                
+                [tApplicationSpecificBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
+                   
+                    NSMutableArray * tLines=[NSMutableArray arrayWithObject:@"Application Specific Bakctrace 1"];
+                    
+                    [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
+                        
+                        [tLines addObject:bLine];
+                    }];
+                    
+                    NSError * tError;
+                    
+                    CUIThread * tThread=[[CUIThread alloc] initApplicationSpecificBacktraceAtIndex:bIndex
+                                                                         withTextualRepresentation:tLines
+                                                                                             error:&tError];
+                    
+                    if (tThread==nil)
+                    {
+                        *bOutStop=YES;
+                        
+                        return;
+                    }
+                    
+                    [tApplicationBacktracesThreads addObject:tThread];
+                    
+                }];
+                
+                // A COMPLETER
+                
+                _hasApplicationSpecificBacktrace=YES;
+            }
+        }
+        
         NSArray * tThreads=inIncident.threads;
         
         if (tThreads==nil)
@@ -77,9 +123,7 @@
             
             return nil;
         }
-        
-        //_hasApplicationSpecificBacktrace=;
-        
+            
         _threads=[[tThreads WB_arrayByMappingObjectsUsingBlock:^CUIThread *(IPSThread * bThread, NSUInteger bIndex) {
             
             CUIThread * tThread=[[CUIThread alloc] initWithIPSThread:bThread atIndex:bIndex binaryImages:inIncident.binaryImages error:NULL];
@@ -91,6 +135,11 @@
             
             return tThread;
         }] mutableCopy];
+        
+        if (tApplicationBacktracesThreads.count>0)
+        {
+            [_threads insertObjects:tApplicationBacktracesThreads atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,tApplicationBacktracesThreads.count)]];
+        }
     }
     
     return self;
