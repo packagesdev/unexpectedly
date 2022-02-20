@@ -84,7 +84,6 @@
 		F428C0842724592D00FB8CAC /* IPSThreadState.m in Sources */ = {isa = PBXBuildFile; fileRef = F428C0622724592B00FB8CAC /* IPSThreadState.m */; };
 		F428C0852724592D00FB8CAC /* IPSLegacyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F428C0682724592C00FB8CAC /* IPSLegacyInfo.m */; };
 		F428C0862724592D00FB8CAC /* IPSIncident.m in Sources */ = {isa = PBXBuildFile; fileRef = F428C06A2724592C00FB8CAC /* IPSIncident.m */; };
-		F428C08A27245BD100FB8CAC /* IPSReport+CrashRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = F428C08927245BD100FB8CAC /* IPSReport+CrashRepresentation.m */; };
 		F42B57E224ABEF6E00F77ED5 /* CUICallsSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = F42B57E124ABEF6E00F77ED5 /* CUICallsSelection.m */; };
 		F42D0BC425514B670021A551 /* template.source in Resources */ = {isa = PBXBuildFile; fileRef = F42D0BC225514B2E0021A551 /* template.source */; };
 		F42E50012724B7550092181A /* CUICrashDataTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F42E50002724B7550092181A /* CUICrashDataTransform.m */; };
@@ -517,8 +516,6 @@
 		F428C06D2724592C00FB8CAC /* IPSIncidentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSIncidentHeader.h; path = ../submodules/ips2crash/Model/IPSIncidentHeader.h; sourceTree = "<group>"; };
 		F428C06E2724592D00FB8CAC /* IPSOperatingSystemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSOperatingSystemVersion.h; path = ../submodules/ips2crash/Model/IPSOperatingSystemVersion.h; sourceTree = "<group>"; };
 		F428C06F2724592D00FB8CAC /* IPSException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSException.h; path = ../submodules/ips2crash/Model/IPSException.h; sourceTree = "<group>"; };
-		F428C08827245BD100FB8CAC /* IPSReport+CrashRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSReport+CrashRepresentation.h"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSReport+CrashRepresentation.h"; sourceTree = "<group>"; };
-		F428C08927245BD100FB8CAC /* IPSReport+CrashRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSReport+CrashRepresentation.m"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSReport+CrashRepresentation.m"; sourceTree = "<group>"; };
 		F42B57E024ABEF6E00F77ED5 /* CUICallsSelection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICallsSelection.h; sourceTree = "<group>"; };
 		F42B57E124ABEF6E00F77ED5 /* CUICallsSelection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICallsSelection.m; sourceTree = "<group>"; };
 		F42D0BC225514B2E0021A551 /* template.source */ = {isa = PBXFileReference; lastKnownFileType = text; path = template.source; sourceTree = "<group>"; };
@@ -1193,8 +1190,6 @@
 				F4D0EE93273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.m */,
 				F4D14D672745C0A9003698AD /* IPSImage+UserCode.h */,
 				F4D14D662745C0A9003698AD /* IPSImage+UserCode.m */,
-				F428C08827245BD100FB8CAC /* IPSReport+CrashRepresentation.h */,
-				F428C08927245BD100FB8CAC /* IPSReport+CrashRepresentation.m */,
 			);
 			name = "ips model + Extensions";
 			sourceTree = "<group>";
@@ -2186,7 +2181,6 @@
 				F49C47CA24E9B48B003FC65C /* CUIThemesManager.m in Sources */,
 				F416688224B0BBFC00C2AB89 /* CUICrashLogPresentationViewController.m in Sources */,
 				F428C0802724592D00FB8CAC /* IPSThread.m in Sources */,
-				F428C08A27245BD100FB8CAC /* IPSReport+CrashRepresentation.m in Sources */,
 				F4A0BEF4261BC39700BADEED /* CUIWatchAxis.m in Sources */,
 				F4EFE75224BA48F500DB97AC /* CUIMainWindow.m in Sources */,
 				F43C828C24D8A39B0096F27B /* CUITextModeDisplaySettings.m in Sources */,
@@ -2955,7 +2949,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2976,7 +2970,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 66;
+				CURRENT_PROJECT_VERSION = 67;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;
