@@ -211,7 +211,23 @@
         
         _dateTime=tIPSHeader.captureTime;
         
-        _operatingSystemVersion=[[CUIOperatingSystemVersion alloc] initWithString:tIPSHeader.operatingSystemVersion.train];
+        NSString * tSystemVersionTrain=tIPSHeader.operatingSystemVersion.train;
+        
+        NSString * tPrefix=@"Mac OS X ";
+        
+        // A COMPLETER (Think iOS)
+        
+        if ([tSystemVersionTrain hasPrefix:tPrefix]==NO)
+        {
+            tPrefix=@"macOS ";
+            
+            if ([tSystemVersionTrain hasPrefix:tPrefix]==NO)
+            {
+                tPrefix=@"";
+            }
+        }
+        
+        _operatingSystemVersion=[[CUIOperatingSystemVersion alloc] initWithString:[tSystemVersionTrain substringFromIndex:tPrefix.length]];
         
         _systemIntegrityProtectionEnabled=tIPSHeader.systemIntegrityProtectionEnable;
         
