@@ -391,18 +391,11 @@
             if (tBinaryImage==nil)
             {
                 tBinaryImage=[tBinaryImages binaryImageWithIdentifier:tBinaryImageIdentifier];
-                
-                if (tBinaryImage==nil)
-                {
-                    tBinaryImageIdentifier=[tBinaryImages binaryImageIdentifierForName:tBinaryImageIdentifier];
-                }
-                else
-                {
-                    tBinaryImageIdentifier=nil;
-                }
             }
             
-            if (tBinaryImageIdentifier!=nil)
+            NSString * tBinaryImageUUID=tBinaryImage.UUID;
+            
+            if (tBinaryImageUUID!=nil)
             {
                 NSURL * tURL=nil;
                 
@@ -410,13 +403,13 @@
                 {
                     case CUIHyperlinksInternal:
                         
-                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"bin://%@",tBinaryImageIdentifier]];
+                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"bin://%@",tBinaryImageUUID]];
                         
                         break;
                         
                     case CUIHyperlinksHTML:
                         
-                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"sharp://%@",tBinaryImageIdentifier]];
+                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"sharp://%@",tBinaryImageUUID]];
                         
                         break;
                         

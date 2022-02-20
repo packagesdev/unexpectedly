@@ -710,291 +710,6 @@
     return tProcessedLines;
 }
 
-- (id)processedStackFrameLine:(NSString *)inLine stackFrame:(CUIStackFrame *)inStackFrame
-{
-    NSScanner * tScanner=[NSScanner scannerWithString:inLine];
-    
-    if ([tScanner scanInteger:NULL]==NO)
-        return nil;
-    
-    __block NSString * tLine=inLine;
-    
-    tScanner.charactersToBeSkipped=nil;
-    
-    [tScanner scanCharactersFromSet:self.whitespaceCharacterSet intoString:NULL];
-    
-    tScanner.charactersToBeSkipped=self.whitespaceCharacterSet;
-    
-    NSUInteger tBinaryImageIdentifierStart=tScanner.scanLocation;
-    
-    if ([tScanner scanUpToString:@"0x" intoString:nil]==NO)
-        return nil;
-    
-    NSRange tBinaryImageIdentifierRange;
-    
-    if (tScanner.scanLocation==tLine.length)
-    {
-        // try to find a \t
-        
-        tScanner.scanLocation=tBinaryImageIdentifierStart;
-        
-        if ([tScanner scanUpToString:@"\t" intoString:NULL]==NO)
-            return [[NSAttributedString alloc] initWithString:tLine attributes:self.parsingErrorAttributes];
-        
-        if (tScanner.scanLocation==tLine.length)
-            return [[NSAttributedString alloc] initWithString:tLine attributes:self.parsingErrorAttributes];
-        
-        tBinaryImageIdentifierRange=NSMakeRange(tBinaryImageIdentifierStart,tScanner.scanLocation-tBinaryImageIdentifierStart+1);
-    }
-    else
-    {
-        tBinaryImageIdentifierRange=NSMakeRange(tBinaryImageIdentifierStart,tScanner.scanLocation-1-tBinaryImageIdentifierStart+1);
-    }
-    
-    NSRange tBinEndRange=[[tLine substringWithRange:tBinaryImageIdentifierRange] rangeOfCharacterFromSet:self.whitespaceCharacterSet.invertedSet options:NSBackwardsSearch];
-    
-    NSString * tBinaryImageIdentifier=[tLine substringWithRange:NSMakeRange(tBinaryImageIdentifierRange.location, tBinEndRange.location+1)];
-    
-    tScanner.charactersToBeSkipped=self.whitespaceCharacterSet;
-    
-    unsigned long long tMachineInstructionAddress=0;
-    
-    if ([tScanner scanHexLongLong:&tMachineInstructionAddress]==NO)
-        return [[NSAttributedString alloc] initWithString:tLine];
-    
-    BOOL tIsUserCode=NO;
-    
-    CUICrashLogBinaryImages * tBinaryImages=((CUICrashLog *)self.input).binaryImages;
-    
-    CUIBinaryImage * tBinaryImage=[tBinaryImages binaryImageWithIdentifierOrName:tBinaryImageIdentifier identifier:&tBinaryImageIdentifier];
-    
-    if (tBinaryImage!=nil)
-    {
-        NSString * tPath=tBinaryImage.path;
-        
-        if (tBinaryImage.isMainImage==YES)
-        {
-            tIsUserCode=YES;
-        }
-        else
-        {
-            if ([tPath isEqualToString:self.processPath]==YES)
-                tIsUserCode=YES;
-        }
-    }
-    
-    if (tIsUserCode==NO)
-        tIsUserCode=[tBinaryImages isUserCodeAtMemoryAddress:tMachineInstructionAddress inBinaryImage:tBinaryImageIdentifier];
-    
-    NSRange tMemoryAddressRange=NSMakeRange(tBinaryImageIdentifierRange.location+tBinaryImageIdentifierRange.length,tScanner.scanLocation-(tBinaryImageIdentifierRange.location+tBinaryImageIdentifierRange.length)+1);
-    
-    NSString * tSymbol=nil;
-    
-    if ([tScanner scanUpToString:@" +" intoString:&tSymbol]==NO)
-        return [[NSAttributedString alloc] initWithString:tLine];
-    
-    __block NSUInteger tSavedScanLocation=tScanner.scanLocation;
-    
-#ifndef __DISABLE_SYMBOLICATION_
-    
-    BOOL tSymbolicateAutomatically=[CUIApplicationPreferences sharedPreferences].symbolicateAutomatically;
-    
-    CUISymbolicationData * tSymbolicationData=nil;
-    
-    if (tSymbolicateAutomatically==YES)
-    {
-        tSymbolicationData=inStackFrame.symbolicationData;
-    }
-    
-    if (tSymbolicationData!=nil)
-    {
-        NSMutableString * tTemporaryLine=[[tLine substringToIndex:tScanner.scanLocation-tSymbol.length] mutableCopy];
-        
-        if (tSymbolicationData.stackFrameSymbol==nil)
-        {
-            NSLog(@"Missing stackFrameSymbol");
-        }
-        
-        tSavedScanLocation+=(tSymbolicationData.stackFrameSymbol.length-tSymbol.length);
-        
-        [tTemporaryLine appendString:[self.symbolicationDataFormatter stringForObjectValue:tSymbolicationData]];
-        
-        tLine=[tTemporaryLine copy];
-    }
-    else
-    {
-        if (tSymbolicateAutomatically==YES)
-        {
-            // Default values
-            
-            NSUInteger tAddress=tMachineInstructionAddress-tBinaryImage.binaryImageOffset;
-            
-            [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tAddress
-                                                                                                           binaryUUID:tBinaryImage.UUID
-                                                                                                    completionHandler:^(CUISymbolicationDataLookUpResult bLookUpResult, CUISymbolicationData *bSymbolicationData) {
-                                                                                                        
-                                                                                                        switch(bLookUpResult)
-                                                                                                        {
-                                                                                                            case CUISymbolicationDataLookUpResultError:
-                                                                                                            case CUISymbolicationDataLookUpResultNotFound:
-                                                                                                                
-                                                                                                                break;
-                                                                                                                
-                                                                                                            case CUISymbolicationDataLookUpResultFound:
-                                                                                                            {
-                                                                                                                inStackFrame.symbolicationData=bSymbolicationData;
-                                                                                                                
-                                                                                                                [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                    object:self.input];
-                                                                                                                
-                                                                                                                break;
-                                                                                                            }
-                                                                                                                
-                                                                                                            case CUISymbolicationDataLookUpResultFoundInCache:
-                                                                                                            {
-                                                                                                                inStackFrame.symbolicationData=bSymbolicationData;
-                                                                                                                
-                                                                                                                NSMutableString * tTemporaryLine=[[tLine substringToIndex:tScanner.scanLocation-tSymbol.length] mutableCopy];
-                                                                                                                
-                                                                                                                tSavedScanLocation+=(bSymbolicationData.stackFrameSymbol.length-tSymbol.length);
-                                                                                                                
-                                                                                                                [tTemporaryLine appendString:[self.symbolicationDataFormatter stringForObjectValue:bSymbolicationData]];
-                                                                                                                
-                                                                                                                tLine=[tTemporaryLine copy];
-                                                                                                                
-                                                                                                                break;
-                                                                                                            }
-                                                                                                                
-                                                                                                        }
-                                                                                                        
-                                                                                                    }];
-        }
-    }
-    
-#endif
-    
-    NSMutableAttributedString * tProcessedLine=[[NSMutableAttributedString alloc] initWithString:tLine attributes:self.plainTextAttributes];
-    
-    NSRange tRange=NSMakeRange(0,tLine.length);
-    
-    NSDictionary * tDictionary=(tIsUserCode==YES) ? self.executableCodeAttributes : self.OSCodeAttributes;
-    
-    [tProcessedLine addAttributes:tDictionary range:tRange];
-    
-    
-    if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==0)
-    {
-        [tProcessedLine deleteCharactersInRange:NSMakeRange(tSavedScanLocation, tLine.length-1-tSavedScanLocation+1)];
-    }
-    else
-    {
-#ifndef __DISABLE_SYMBOLICATION_
-        if (tSymbolicationData!=nil)
-        {
-            NSString * tAbsolutePath=inStackFrame.symbolicationData.sourceFilePath;
-            NSString * tLastPathComponent=tAbsolutePath.lastPathComponent;
-            
-            if (tLastPathComponent!=nil)
-            {
-                NSRange tRange=[tLine rangeOfString:tLastPathComponent];
-                
-                if (tRange.location!=0)
-                {
-                    if ([[NSFileManager defaultManager] fileExistsAtPath:tAbsolutePath]==YES)
-                    {
-                        NSURLComponents * tURLComponents=[NSURLComponents new];
-                        tURLComponents.scheme=[NSString stringWithFormat:@"sourcecode-%lu",inStackFrame.symbolicationData.lineNumber];
-                        tURLComponents.path=tAbsolutePath;
-                        
-                        NSURL * tURL=tURLComponents.URL;
-                        
-                        if (tURL!=nil)
-                        {
-                            [tProcessedLine addAttributes:@{
-                                                            NSLinkAttributeName:tURL,
-                                                            NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),
-                                                            NSUnderlineColorAttributeName:self.underlineColor
-                                                            }
-                                                    range:tRange];
-                            
-                            
-                        }
-                    }
-                }
-            }
-        }
-#endif
-    }
-    
-    
-    if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==0)
-    {
-        [tProcessedLine deleteCharactersInRange:tMemoryAddressRange];
-    }
-    else
-    {
-        [tProcessedLine addAttributes:self.memoryAddressAttributes range:tMemoryAddressRange];
-    }
-    
-    if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==0)
-    {
-        [tProcessedLine deleteCharactersInRange:tBinaryImageIdentifierRange];
-    }
-    else
-    {
-        if (self.hyperlinksStyle!=CUIHyperlinksNone && ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection))
-        {
-            NSString * tCleanedUpIdentifier=[tBinaryImageIdentifier stringByTrimmingCharactersInSet:self.whitespaceCharacterSet];
-            
-            CUIBinaryImage * tBinaryImage=[tBinaryImages binaryImageWithIdentifier:tBinaryImageIdentifier];
-            
-            if (tBinaryImage==nil)
-            {
-                tBinaryImage=[tBinaryImages binaryImageWithIdentifier:tBinaryImageIdentifier];
-                
-                if (tBinaryImage==nil)
-                {
-                    tBinaryImageIdentifier=[tBinaryImages binaryImageIdentifierForName:tBinaryImageIdentifier];
-                }
-                else
-                {
-                    tBinaryImageIdentifier=nil;
-                }
-            }
-            
-            if (tBinaryImageIdentifier!=nil)
-            {
-                NSURL * tURL=nil;
-                
-                switch(self.hyperlinksStyle)
-                {
-                    case CUIHyperlinksInternal:
-                        
-                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"bin://%@",tBinaryImageIdentifier]];
-                        
-                        break;
-                        
-                    case CUIHyperlinksHTML:
-                        
-                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"sharp://%@",tBinaryImageIdentifier]];
-                        
-                        break;
-                        
-                    default:
-                        
-                        break;
-                }
-                
-                if (tURL!=nil)
-                    [tProcessedLine addAttributes:@{NSLinkAttributeName:tURL} range:NSMakeRange(tBinaryImageIdentifierRange.location,tCleanedUpIdentifier.length)];
-                
-            }
-        }
-    }
-    
-    return tProcessedLine;
-}
-
 #pragma mark - Thread State
 
 - (NSArray *)processedThreadStateSectionLines:(NSArray *)inLines error:(NSError **)outError
@@ -1265,34 +980,9 @@
         // User Code
         
         tIsUserCode=YES;
-        
-        tIdentifier=[tIdentifier substringFromIndex:1];
     }
     
     NSMutableAttributedString * tNewLine=[[NSMutableAttributedString alloc] initWithString:inLine attributes:self.plainTextAttributes];
-    
-    switch(self.hyperlinksStyle)
-    {
-        case CUIHyperlinksHTML:
-        {
-            NSURL * tURL=[NSURL URLWithString:[NSString stringWithFormat:@"anchor://%@",tIdentifier]];
-            
-            if (tURL!=nil)
-                [tNewLine addAttributes:@{NSLinkAttributeName:tURL}
-                                  range:NSMakeRange(0, tNewLine.length)];
-            
-            break;
-        }
-            
-        default:
-            
-            [tNewLine addAttributes:@{
-                                      CUIBinaryAnchorAttributeName:[NSString stringWithFormat:@"bin:%@",tIdentifier]
-                                      }
-                              range:NSMakeRange(0, tNewLine.length)];
-            
-            break;
-    }
     
     tScanner.scanLocation=tIdentifierStart+tIdentifierRealLength;
     
@@ -1338,6 +1028,34 @@
     
     if ([tScanner scanUpToString:@"/" intoString:NULL]==NO)
         return nil;
+    
+    if (tUUIDEnd!=NSNotFound)
+    {
+        NSString * tBinaryImageUUID=[inLine substringWithRange:NSMakeRange(tUUIDStart+1, tUUIDEnd-tUUIDStart-1)];
+        
+        switch(self.hyperlinksStyle)
+        {
+            case CUIHyperlinksHTML:
+            {
+                NSURL * tURL=[NSURL URLWithString:[NSString stringWithFormat:@"anchor://%@",tBinaryImageUUID]];
+                
+                if (tURL!=nil)
+                    [tNewLine addAttributes:@{NSLinkAttributeName:tURL}
+                                      range:NSMakeRange(0, tNewLine.length)];
+                
+                break;
+            }
+                
+            default:
+                
+                [tNewLine addAttributes:@{
+                                          CUIBinaryAnchorAttributeName:[NSString stringWithFormat:@"bin:%@",tBinaryImageUUID]
+                                          }
+                                  range:NSMakeRange(0, tNewLine.length)];
+                
+                break;
+        }
+    }
     
     NSRange tPathRange=NSMakeRange(tScanner.scanLocation,inLine.length-1-tScanner.scanLocation+1);
     
