@@ -52,7 +52,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TdJ-MQ-6CN">
-                    <rect key="frame" x="34" y="37" width="61" height="14"/>
+                    <rect key="frame" x="24" y="37" width="71" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="macOS:" id="B2h-K8-1XC">
                         <font key="font" metaFont="smallSystem"/>
