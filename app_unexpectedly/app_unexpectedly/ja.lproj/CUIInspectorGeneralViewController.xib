@@ -70,10 +70,10 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Eku-en-ffA">
-                    <rect key="frame" x="4" y="83" width="34" height="17"/>
+                    <rect key="frame" x="4" y="83" width="31" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="一般" id="Slr-R1-4oS">
-                        <font key="font" metaFont="systemBold"/>
+                        <font key="font" metaFont="systemBold" size="11"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

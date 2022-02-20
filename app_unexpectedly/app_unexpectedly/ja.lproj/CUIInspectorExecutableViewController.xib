@@ -94,10 +94,10 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JP3-16-pwL">
-                    <rect key="frame" x="4" y="160" width="57" height="17"/>
+                    <rect key="frame" x="4" y="160" width="51" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="実行可能" id="hb6-Qr-SQw">
-                        <font key="font" metaFont="systemBold"/>
+                        <font key="font" metaFont="systemBold" size="11"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
