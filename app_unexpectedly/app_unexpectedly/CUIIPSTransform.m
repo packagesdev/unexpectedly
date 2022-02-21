@@ -868,6 +868,8 @@
                     
                     NSUInteger tImageOffset=bFrame.imageOffset;
                     
+                    __block NSAttributedString * tCachedResultedAttributedString=nil;
+                    
                     [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tImageOffset
                                                                                                                    binaryUUID:tBinaryImage.UUID.UUIDString
                                                                                                             completionHandler:^(CUISymbolicationDataLookUpResult bLookUpResult, CUISymbolicationData *bSymbolicationData) {
@@ -876,24 +878,6 @@
                                                                                                                 {
                                                                                                                     case CUISymbolicationDataLookUpResultError:
                                                                                                                     case CUISymbolicationDataLookUpResultNotFound:
-                                                                                                                        
-                                                                                                                        if (bFrame.symbol!=nil)
-                                                                                                                        {
-                                                                                                                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
-                                                                                                                            
-                                                                                                                            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                                                                                                                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.symbolLocation]];
-                                                                                                                        }
-                                                                                                                        else
-                                                                                                                        {
-                                                                                                                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
-                                                                                                                            
-                                                                                                                            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                                                                                                                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)(tAddress-tBinaryImage.loadAddress)]];
-                                                                                                                        }
-                                                                                                                        
-                                                                                                                        if (bFrame.sourceFile!=nil)
-                                                                                                                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" (%@:%lu)",bFrame.sourceFile,(unsigned long)bFrame.sourceLine]];
                                                                                                                         
                                                                                                                         break;
                                                                                                                         
@@ -911,7 +895,7 @@
                                                                                                                     {
                                                                                                                         tStackFrame.symbolicationData=bSymbolicationData;
                                                                                                                         
-                                                                                                                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:bSymbolicationData]]];
+                                                                                                                        tCachedResultedAttributedString=[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:bSymbolicationData]];
                                                                                                                         
                                                                                                                         break;
                                                                                                                     }
@@ -919,6 +903,31 @@
                                                                                                                 }
                                                                                                                 
                                                                                                             }];
+                    
+                    if (tCachedResultedAttributedString==nil)
+                    {
+                        if (bFrame.symbol!=nil)
+                        {
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
+
+                            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.symbolLocation]];
+                        }
+                        else
+                        {
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
+
+                            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)(tAddress-tBinaryImage.loadAddress)]];
+                        }
+
+                        if (bFrame.sourceFile!=nil)
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" (%@:%lu)",bFrame.sourceFile,(unsigned long)bFrame.sourceLine]];
+                    }
+                    else
+                    {
+                        [tMutableAttributedString appendAttributedString:tCachedResultedAttributedString];
+                    }
                 }
                 else
                 {
@@ -1360,7 +1369,7 @@
     
     IPSIncident * tIncident=tReport.incident;
     
-    //self.processPath=tCrashLog.header.executablePath;
+    self.processPath=tIncident.header.processPath;
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
     
