@@ -109,8 +109,8 @@
     
     [inLines enumerateObjectsAtIndexes:inIndexes options:0 usingBlock:^(NSString * bLine , NSUInteger bLineNumber, BOOL * bOutStop) {
         
-        if ((([bLine hasPrefix:@"Thread"]==YES || [bLine hasPrefix:@"Unknown"]==YES) && [bLine rangeOfString:@"crashed with"].location !=NSNotFound) ||
-            
+        if ((([bLine hasPrefix:@"Thread"]==YES || [bLine hasPrefix:@"Unknown"]==YES) && [bLine rangeOfString:@"crashed with"].location!=NSNotFound) ||
+            [bLine rangeOfString:@"Thread State" options:NSCaseInsensitiveSearch].location==0 ||
             [bLine rangeOfString:@"Binary Images" options:NSCaseInsensitiveSearch].location==0
             )
         {
