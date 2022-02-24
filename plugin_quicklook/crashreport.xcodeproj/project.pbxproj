@@ -142,6 +142,8 @@
 		F4D0EE99273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.h in Headers */ = {isa = PBXBuildFile; fileRef = F4D0EE97273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.h */; };
 		F4D14D642745BFBC003698AD /* IPSImage+UserCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D14D622745BFBB003698AD /* IPSImage+UserCode.m */; };
 		F4D14D652745BFBC003698AD /* IPSImage+UserCode.h in Headers */ = {isa = PBXBuildFile; fileRef = F4D14D632745BFBC003698AD /* IPSImage+UserCode.h */; };
+		F4DAF0AF27C448E600256EA4 /* IPSImage+Offset.h in Headers */ = {isa = PBXBuildFile; fileRef = F4DAF0AD27C448E600256EA4 /* IPSImage+Offset.h */; };
+		F4DAF0B027C448E600256EA4 /* IPSImage+Offset.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DAF0AE27C448E600256EA4 /* IPSImage+Offset.m */; };
 		F4DAFBF42736BA2100FB50A6 /* CUIDataTransform.h in Headers */ = {isa = PBXBuildFile; fileRef = F4DAFBF22736BA2000FB50A6 /* CUIDataTransform.h */; };
 		F4DAFBF52736BA2100FB50A6 /* CUIDataTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DAFBF32736BA2100FB50A6 /* CUIDataTransform.m */; };
 		F4DAFBF82736BA3100FB50A6 /* CUIIPSTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DAFBF62736BA3100FB50A6 /* CUIIPSTransform.m */; };
@@ -295,6 +297,8 @@
 		F4D0EE97273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSThreadState+RegisterDisplayName.h"; path = "../../submodules/ips2crash/tool_ips2crash/ips2crash/IPSThreadState+RegisterDisplayName.h"; sourceTree = "<group>"; };
 		F4D14D622745BFBB003698AD /* IPSImage+UserCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSImage+UserCode.m"; path = "../../submodules/ips2crash/tool_ips2crash/ips2crash/IPSImage+UserCode.m"; sourceTree = "<group>"; };
 		F4D14D632745BFBC003698AD /* IPSImage+UserCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSImage+UserCode.h"; path = "../../submodules/ips2crash/tool_ips2crash/ips2crash/IPSImage+UserCode.h"; sourceTree = "<group>"; };
+		F4DAF0AD27C448E600256EA4 /* IPSImage+Offset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "IPSImage+Offset.h"; path = "../../app_unexpectedly/app_unexpectedly/ips + Extensions/IPSImage+Offset.h"; sourceTree = "<group>"; };
+		F4DAF0AE27C448E600256EA4 /* IPSImage+Offset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "IPSImage+Offset.m"; path = "../../app_unexpectedly/app_unexpectedly/ips + Extensions/IPSImage+Offset.m"; sourceTree = "<group>"; };
 		F4DAFBF22736BA2000FB50A6 /* CUIDataTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUIDataTransform.h; path = ../../app_unexpectedly/app_unexpectedly/CUIDataTransform.h; sourceTree = "<group>"; };
 		F4DAFBF32736BA2100FB50A6 /* CUIDataTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIDataTransform.m; path = ../../app_unexpectedly/app_unexpectedly/CUIDataTransform.m; sourceTree = "<group>"; };
 		F4DAFBF62736BA3100FB50A6 /* CUIIPSTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUIIPSTransform.m; path = ../../app_unexpectedly/app_unexpectedly/CUIIPSTransform.m; sourceTree = "<group>"; };
@@ -456,6 +460,8 @@
 				F4D14D622745BFBB003698AD /* IPSImage+UserCode.m */,
 				F428C08D27245CF400FB8CAC /* IPSReport+CrashRepresentation.h */,
 				F428C08E27245CF400FB8CAC /* IPSReport+CrashRepresentation.m */,
+				F4DAF0AD27C448E600256EA4 /* IPSImage+Offset.h */,
+				F4DAF0AE27C448E600256EA4 /* IPSImage+Offset.m */,
 			);
 			name = "ips model + Extensions";
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				F428C0ED27245D0800FB8CAC /* IPSOperatingSystemVersion.h in Headers */,
 				F4069C7B26683CF9002B32F5 /* CUICrashLogHeader.h in Headers */,
 				F4069CB5266840D1002B32F5 /* CUIThemeItemsGroup.h in Headers */,
+				F4DAF0AF27C448E600256EA4 /* IPSImage+Offset.h in Headers */,
 				F4069CCD26684143002B32F5 /* NSArray+UniqueName.h in Headers */,
 				F4FC8EAD27C1AA7C00291875 /* CUIReportThemedTransform.h in Headers */,
 				F4069C5B26683CC7002B32F5 /* CUIRawCrashLog.h in Headers */,
@@ -724,6 +731,7 @@
 				F428C0C827245D0800FB8CAC /* IPSRegisterState.m in Sources */,
 				F4FA4326273EF3FE0068EDB8 /* NSString+CPU.m in Sources */,
 				F4069C9726683D88002B32F5 /* CUIParsingErrors.m in Sources */,
+				F4DAF0B027C448E600256EA4 /* IPSImage+Offset.m in Sources */,
 				F4069CDA2668416B002B32F5 /* NSDictionary+MutableDeepCopy.m in Sources */,
 				F4069C9B26683DA0002B32F5 /* CUICrashLogSectionsDetector.m in Sources */,
 				F4069C8B26683D10002B32F5 /* CUIStackFrame.m in Sources */,

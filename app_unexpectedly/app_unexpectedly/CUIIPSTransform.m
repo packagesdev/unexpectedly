@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2021, Stephane Sudre
+ Copyright (c) 2021-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -20,6 +20,8 @@
 
 #import "IPSThreadState+RegisterDisplayName.h"
 #import "IPSImage+UserCode.h"
+
+#import "IPSImage+Offset.h"
 
 #import "CUIApplicationPreferences.h"
 #import "CUIApplicationPreferences+Themes.h"
@@ -835,11 +837,11 @@
                 }
             }
             
-            NSUInteger tAddress=tBinaryImage.loadAddress+bFrame.imageOffset;
+            NSUInteger tMachineInstructionAddress=tBinaryImage.loadAddress+bFrame.imageOffset;
             
             if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==CUIStackFrameMachineInstructionAddressComponent)
             {
-                [tMutableAttributedString appendAttributedString:[self attributedStringForMemoryAddressWithFormat:@"0x%016lx ",(unsigned long)tAddress]];
+                [tMutableAttributedString appendAttributedString:[self attributedStringForMemoryAddressWithFormat:@"0x%016lx ",(unsigned long)tMachineInstructionAddress]];
             }
             
 #ifndef __DISABLE_SYMBOLICATION_
@@ -866,11 +868,9 @@
                 {
                     // Default values
                     
-                    NSUInteger tImageOffset=bFrame.imageOffset;
-                    
                     __block NSAttributedString * tCachedResultedAttributedString=nil;
                     
-                    [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tImageOffset
+                    [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tMachineInstructionAddress-tBinaryImage.binaryImageOffset
                                                                                                                    binaryUUID:tBinaryImage.UUID.UUIDString
                                                                                                             completionHandler:^(CUISymbolicationDataLookUpResult bLookUpResult, CUISymbolicationData *bSymbolicationData) {
                                                                                                                 
@@ -918,7 +918,7 @@
                             [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
 
                             if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)(tAddress-tBinaryImage.loadAddress)]];
+                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.imageOffset]];
                         }
 
                         if (bFrame.sourceFile!=nil)
@@ -943,7 +943,7 @@
                         [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
                         
                         if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)(tAddress-tBinaryImage.loadAddress)]];
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.imageOffset]];
                     }
                     
                     if (bFrame.sourceFile!=nil)

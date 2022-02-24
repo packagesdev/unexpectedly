@@ -267,6 +267,7 @@
 		F4D6C56D2680028A00B78B3D /* RemoteCheck.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4D6C56B2680028A00B78B3D /* RemoteCheck.strings */; };
 		F4D7F15B25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F15D25F04A620024E9A5 /* CUISymbolsFilesLibraryViewController.xib */; };
 		F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D7F16125F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib */; };
+		F4DAF0B327C44AA800256EA4 /* IPSImage+Offset.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DAF0B227C44AA700256EA4 /* IPSImage+Offset.m */; };
 		F4DAFBEE2736B7B200FB50A6 /* CUIIPSTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DAFBED2736B7B200FB50A6 /* CUIIPSTransform.m */; };
 		F4DAFBF12736B7D500FB50A6 /* CUIDataTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DAFBF02736B7D500FB50A6 /* CUIDataTransform.m */; };
 		F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E0BD24262078220048647C /* CUIAboutBoxWindow.m */; };
@@ -887,6 +888,8 @@
 		F4D7F15E25F04A630024E9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUISymbolsFilesLibraryViewController.xib; sourceTree = "<group>"; };
 		F4D7F16025F04A9D0024E9A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUIPreferencePaneSymbolicationViewController.xib; sourceTree = "<group>"; };
 		F4D7F16225F04A9E0024E9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUIPreferencePaneSymbolicationViewController.xib; sourceTree = "<group>"; };
+		F4DAF0B127C44AA700256EA4 /* IPSImage+Offset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSImage+Offset.h"; path = "app_unexpectedly/ips + Extensions/IPSImage+Offset.h"; sourceTree = "<group>"; };
+		F4DAF0B227C44AA700256EA4 /* IPSImage+Offset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSImage+Offset.m"; path = "app_unexpectedly/ips + Extensions/IPSImage+Offset.m"; sourceTree = "<group>"; };
 		F4DAFBEC2736B7B200FB50A6 /* CUIIPSTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIIPSTransform.h; sourceTree = "<group>"; };
 		F4DAFBED2736B7B200FB50A6 /* CUIIPSTransform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIIPSTransform.m; sourceTree = "<group>"; };
 		F4DAFBEF2736B7D500FB50A6 /* CUIDataTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIDataTransform.h; sourceTree = "<group>"; };
@@ -1190,6 +1193,8 @@
 				F4D0EE93273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.m */,
 				F4D14D672745C0A9003698AD /* IPSImage+UserCode.h */,
 				F4D14D662745C0A9003698AD /* IPSImage+UserCode.m */,
+				F4DAF0B127C44AA700256EA4 /* IPSImage+Offset.h */,
+				F4DAF0B227C44AA700256EA4 /* IPSImage+Offset.m */,
 			);
 			name = "ips model + Extensions";
 			sourceTree = "<group>";
@@ -2331,6 +2336,7 @@
 				F414068B24D6014D0059FF21 /* CUIFontAndColorsFramedView.m in Sources */,
 				F40B124924E89BBE005E82DD /* CUIPreferencesWindowController+Convenience.m in Sources */,
 				F4132C8F24AA19F70086B99C /* CUICrashLogsSource.m in Sources */,
+				F4DAF0B327C44AA800256EA4 /* IPSImage+Offset.m in Sources */,
 				F4CCCC6524AE810E0031BC27 /* CUICrashLogsSourcesSelection.m in Sources */,
 				F432ACCC24A9502A000A3E7A /* CUIThreadsViewController.m in Sources */,
 				F40B0D8E24D356A200663282 /* NSIndexSet+Analysis.m in Sources */,
@@ -2949,7 +2955,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 68;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2970,7 +2976,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 68;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;
