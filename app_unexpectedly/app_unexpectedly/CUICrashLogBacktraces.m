@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -24,7 +24,7 @@
 
 @property (readwrite) BOOL hasApplicationSpecificBacktrace;
 
-- (BOOL)parseTextualRepresentation:(NSArray *)inLines outError:(NSError **)outError;
+- (BOOL)parseTextualRepresentation:(NSArray<NSString *> *)inLines outError:(NSError **)outError;
 
 @end
 
@@ -174,43 +174,43 @@
 
 #pragma mark -
 
-- (BOOL)parseTextualRepresentation:(NSArray *)inLines outError:(NSError **)outError
+- (BOOL)parseTextualRepresentation:(NSArray<NSString *> *)inLines outError:(NSError **)outError
 {
     if ([inLines.firstObject isEqualToString:@"Backtrace not available"]==YES)
         return YES;
     
     __block NSError * tError=nil;
     
-    __block NSInteger tThreadEntityLineStart=0;
-    __block NSInteger tThreadEntityLineEnd=0;
+    // Probably not as fast as block enumeration but the code is easier to follow.
+    NSUInteger tLinesCount=inLines.count;
+    NSUInteger tIndex=0;
     
-    [inLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL *bOutStop) {
+    while (tIndex<tLinesCount && inLines[tIndex].length==0)
+        tIndex++;
+    
+    while (tIndex<tLinesCount)
+    {
+        NSInteger tThreadEntityLineStart=tIndex;
         
-        // Retrieve thread number, crashed status and dispatch queue name
+        while (tIndex<tLinesCount && inLines[tIndex].length!=0)
+            tIndex++;
         
-        if (bLine.length!=0)
-            return;
-        
-        tThreadEntityLineEnd=bLineNumber-1;
+        NSInteger tThreadEntityLineEnd=tIndex-1;
         
         CUIThread * tThread=[[CUIThread alloc] initWithTextualRepresentation:[inLines subarrayWithRange:NSMakeRange(tThreadEntityLineStart, tThreadEntityLineEnd-tThreadEntityLineStart+1)]
                                                                        error:&tError];
         
         if (tThread==nil)
-        {
-            *bOutStop=YES;
-            
-            return;
-        }
+            break;
         
         if (tThread.isApplicationSpecificBacktrace==YES)
             self.hasApplicationSpecificBacktrace=YES;
         
-        [self->_threads addObject:tThread];
-
+        [_threads addObject:tThread];
         
-        tThreadEntityLineStart=bLineNumber+1;
-    }];
+        while (tIndex<tLinesCount && inLines[tIndex].length==0)
+            tIndex++;
+    }
     
     if (tError!=nil)
     {
