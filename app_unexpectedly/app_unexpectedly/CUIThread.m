@@ -41,6 +41,14 @@
 		return nil;
 	}
 	
+    if (inLines.count==0)
+    {
+        if (outError!=NULL)
+            *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
+        
+        return nil;
+    }
+    
 	self=[super init];
 	
 	if (self!=nil)
@@ -62,7 +70,18 @@
             {
                 // Uh oh
                 
-                // A COMPLETER
+                return nil;
+            }
+            
+            if (tComponents.count==1)
+            {
+                NSRange tRange=[tHeaderLine rangeOfString:@"Dispatch queue:"];
+                
+                if (tRange.location!=NSNotFound)
+                {
+                    tComponents=@[[tHeaderLine substringToIndex:tRange.location],
+                                  [tHeaderLine substringFromIndex:tRange.location]];
+                }
             }
             
             tLeftPart=tComponents.firstObject;
