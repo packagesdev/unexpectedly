@@ -399,7 +399,8 @@
     
     // Thread State
     
-    if (([tString hasPrefix:@"Thread"]==YES || [tString hasPrefix:@"Unknown thread"]==YES) && [tString rangeOfString:@"crashed with"].location!=NSNotFound)
+    if ((([tString hasPrefix:@"Thread"]==YES || [tString hasPrefix:@"Unknown thread"]==YES) && [tString rangeOfString:@"crashed with"].location!=NSNotFound) ||
+        ([tString rangeOfString:@"Thread State" options:NSCaseInsensitiveSearch].location==0))
     {
         tRange=[CUICrashLogSectionsDetector detectThreadStateSectionRangeInTextualRepresentation:inLines atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(tFirstLine,inLines.count-tFirstLine)]];
         
