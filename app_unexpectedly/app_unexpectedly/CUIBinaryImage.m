@@ -145,8 +145,30 @@
         NSString * tString;
         NSString * tOriginalString;
         
+        BOOL tIsMissingVersion=NO;
+        
+        NSUInteger tSavedScannerScanLocation=tScanner.scanLocation;
+        
         if ([tScanner scanUpToString:@"(" intoString:&tOriginalString]==NO)
+        {
             return nil;
+        }
+        else
+        {
+            // Maybe only the version is missing
+            
+            if (tScanner.scanLocation==inString.length)
+            {
+                tScanner.scanLocation=tSavedScannerScanLocation;
+                
+                if ([tScanner scanUpToString:@"<" intoString:&tOriginalString]==NO)
+                    return nil;
+                
+                tIsMissingVersion=YES;
+            }
+        }
+        
+        
         
         if (inReportVersion==6)
         {
@@ -184,47 +206,56 @@
         if (tScanner.scanLocation>=inString.length)
             return nil;
         
-        if (inReportVersion==6)
+        if (tIsMissingVersion==NO)
         {
-            NSUInteger tLength=tOriginalString.length;
+        
+            if (inReportVersion==6)
+            {
+                NSUInteger tLength=tOriginalString.length;
+                
+                NSRange tRange=[tOriginalString rangeOfCharacterFromSet:tWhitespaceCharacterSet options:NSBackwardsSearch range:NSMakeRange(0,tLength-1)];
+                
+                _version=[[tOriginalString substringFromIndex:tRange.location] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+                
+                tScanner.scanLocation+=1;
+                
+                if ([tScanner scanUpToString:@")" intoString:&tString]==NO)
+                    return nil;
+                
+                _buildNumber=[tString stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+            }
+            else
+            {
+                tScanner.scanLocation+=1;
+                
+                if ([tScanner scanUpToString:@")" intoString:&tString]==NO)
+                    return nil;
+                
+                NSArray * tVersions=[tString componentsSeparatedByString:@" - "];
+                
+                switch(tVersions.count)
+                {
+                    case 2:
+                        
+                        _buildNumber=[tVersions[1] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+                        
+                    case 1:
+                        
+                        _version=[tVersions.firstObject stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+                        
+                        break;
+                }
+            }
             
-            NSRange tRange=[tOriginalString rangeOfCharacterFromSet:tWhitespaceCharacterSet options:NSBackwardsSearch range:NSMakeRange(0,tLength-1)];
-            
-            _version=[[tOriginalString substringFromIndex:tRange.location] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
-            
-            tScanner.scanLocation+=1;
-            
-            if ([tScanner scanUpToString:@")" intoString:&tString]==NO)
-                return nil;
-            
-            _buildNumber=[tString stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+            tScanner.scanLocation+=2;
         }
         else
         {
-            tScanner.scanLocation+=1;
-            
-            if ([tScanner scanUpToString:@")" intoString:&tString]==NO)
-                return nil;
-            
-            NSArray * tVersions=[tString componentsSeparatedByString:@" - "];
-            
-            switch(tVersions.count)
-            {
-                case 2:
-                    
-                    _buildNumber=[tVersions[1] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
-                    
-                case 1:
-                    
-                    _version=[tVersions.firstObject stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
-                    
-                    break;
-            }
+            _version=@"???";
+            _buildNumber=@"???";
         }
         
         // UUID
-        
-        tScanner.scanLocation+=2;
         
         if ([inString characterAtIndex:tScanner.scanLocation]=='<')
         {

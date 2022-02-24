@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -607,7 +607,10 @@
         {
             // Uh oh
             
-            // A COMPLETER
+            if (outError!=NULL)
+                *outError=[NSError errorWithDomain:CUIDataTransformErrorDomain code:CUIDataTransformUnknownError userInfo:@{}];
+            
+            return nil;
         }
         
         tName=tThreadNumberComponents[1];   // <- it's actually the number
@@ -947,9 +950,26 @@
     
     NSString * tIdentifier=nil;
     NSString * tOriginalString;
+    BOOL tIsMissingVersion=NO;
     
     if ([tScanner scanUpToString:@"(" intoString:&tOriginalString]==NO)
+    {
         return nil;
+    }
+    else
+    {
+        // Maybe only the version is missing
+        
+        if (tScanner.scanLocation==inLine.length)
+        {
+            tScanner.scanLocation=tIdentifierStart;
+            
+            if ([tScanner scanUpToString:@"<" intoString:&tOriginalString]==NO)
+                return nil;
+            
+            tIsMissingVersion=YES;
+        }
+    }
     
     if (inReportVersion==6)
     {
@@ -994,20 +1014,39 @@
     }
     else
     {
-        if ([tScanner scanUpToString:@"(" intoString:NULL]==NO)
-            return nil;
+        if (tIsMissingVersion==NO)
+        {
+            if ([tScanner scanUpToString:@"(" intoString:NULL]==NO)
+                return nil;
+        }
+        else
+        {
+            if ([tScanner scanUpToString:@"<" intoString:NULL]==NO)
+                return nil;
+        }
     }
     
-    NSUInteger tVersionStart=tScanner.scanLocation;
+    // Version
     
-    if ([tScanner scanUpToString:@")" intoString:NULL]==NO)
-        return nil;
+    NSUInteger tVersionStart=NSNotFound;
+    NSUInteger tVersionEnd=NSNotFound;
     
-    NSUInteger tVersionEnd=tScanner.scanLocation;
+    if (tIsMissingVersion==NO)
+    {
+        tVersionStart=tScanner.scanLocation;
+        
+        if ([tScanner scanUpToString:@")" intoString:NULL]==NO)
+            return nil;
+        
+        tVersionEnd=tScanner.scanLocation;
+    }
     
     // UUID can be missing // A COMPLETER
     
-    tScanner.scanLocation+=2;
+    if (tIsMissingVersion==NO)
+    {
+        tScanner.scanLocation+=2;
+    }
     
     NSUInteger tUUIDStart=NSNotFound;
     NSUInteger tUUIDEnd=NSNotFound;
@@ -1083,8 +1122,11 @@
                           range:NSMakeRange(tUUIDStart,tUUIDEnd-tUUIDStart+1)];
     }
     
-    [tNewLine addAttributes:self.versionAttributes
-                      range:NSMakeRange(tVersionStart,tVersionEnd-tVersionStart+1)];
+    if (tVersionEnd!=NSNotFound && tVersionStart!=NSNotFound)
+    {
+        [tNewLine addAttributes:self.versionAttributes
+                          range:NSMakeRange(tVersionStart,tVersionEnd-tVersionStart+1)];
+    }
     
     [tNewLine addAttributes:self.pathAttributes
                       range:tPathRange];
