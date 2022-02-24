@@ -170,41 +170,50 @@
 
     NSInteger tInteger=-1;
 
-    if ([tScanner scanInteger:&tInteger]==NO)
-        return NO;
-
-    self.threadIndex=tInteger;
-
-    if ([tScanner scanString:@"crashed with " intoString:NULL]==NO)
-        return NO;
-
-    // Architecture
-
-    NSString * tString;
-
-    if ([tScanner scanUpToString:@"Thread State" intoString:&tString]==NO)
-        return NO;
-    
-    tString=[tString stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
-    
-    if ([tString isEqualToString:@"ARM"]==YES)
+    if ([tScanner scanInteger:&tInteger]==YES)
     {
-        self.CPUType=CPU_TYPE_ARM;
+        self.threadIndex=tInteger;
+    
+        if ([tScanner scanString:@"crashed with " intoString:NULL]==NO)
+            return NO;
+
+        // Architecture
+
+        NSString * tString;
+
+        if ([tScanner scanUpToString:@"Thread State" intoString:&tString]==NO)
+            return NO;
+        
+        tString=[tString stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+        
+        if ([tString isEqualToString:@"ARM"]==YES)
+        {
+            self.CPUType=CPU_TYPE_ARM;
+        }
+        else if ([tString isEqualToString:@"X86"]==YES)
+        {
+            self.CPUType=CPU_TYPE_X86;
+        }
+        
+        tScanner.scanLocation+=[@"Thread State" length];
+        
+        if ([tScanner scanUpToString:@":" intoString:&tString]==NO)
+            return NO;
+        
+        tString=[tString stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"()"]];
+        
+        if ([tString isEqualToString:@"64-bit"]==YES)
+            self.CPUType|=CPU_ARCH_ABI64;
     }
-    else if ([tString isEqualToString:@"X86"]==YES)
+    else
     {
-        self.CPUType=CPU_TYPE_X86;
+        if ([inLines.firstObject hasPrefix:@"Thread State"]==NO)
+            return NO;
+        
+        self.threadIndex=NSNotFound;
+        
+        self.CPUType=CPU_TYPE_ANY;
     }
-    
-    tScanner.scanLocation+=[@"Thread State" length];
-    
-    if ([tScanner scanUpToString:@":" intoString:&tString]==NO)
-        return NO;
-    
-    tString=[tString stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"()"]];
-    
-    if ([tString isEqualToString:@"64-bit"]==YES)
-        self.CPUType|=CPU_ARCH_ABI64;
     
     // Registers values
 
