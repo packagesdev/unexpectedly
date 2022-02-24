@@ -160,7 +160,7 @@
             return;
         }
         
-        if (bLineNumber==0)
+        if (bLineNumber==0 && tBinaryImage.isUserCode==YES)
             tBinaryImage.mainImage=YES;
         
         [tBinaryImages addObject:tBinaryImage];
