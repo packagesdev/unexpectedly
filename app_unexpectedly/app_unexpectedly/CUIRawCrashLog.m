@@ -169,10 +169,17 @@
         
         if (self!=nil)
         {
-            _ipsReport=[[IPSReport alloc] initWithString:inString error:NULL];
+            NSError * tError=nil;
+            
+            _ipsReport=[[IPSReport alloc] initWithString:inString error:&tError];
             
             if (_ipsReport==nil)
+            {
+                if (outError!=NULL)
+                    *outError=tError;
+                
                 return nil;
+            }
             
             _rawText=nil;
             

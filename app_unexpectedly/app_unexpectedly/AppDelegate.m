@@ -306,6 +306,21 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
             
             if (tSource==nil)
             {
+                if (tError!=nil)
+                {
+                    if ([tError.domain isEqualToString:IPSErrorDomain]==YES)
+                    {
+                        switch(tError.code)
+                        {
+                            case IPSUnsupportedBugTypeError:
+                                
+                                // A COMPLETER
+                                
+                                break;
+                        }
+                    }
+                }
+                
                 CUICrashLogsOpenErrorRecord * tRecord=[CUICrashLogsOpenErrorRecord new];
                 tRecord.sourceURL=[NSURL fileURLWithPath:tFilePath];
                 tRecord.openError=tError;

@@ -109,6 +109,8 @@
 		F442FCF124AB8A8B00E87B69 /* CUIBinaryImageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = F442FCF024AB8A8B00E87B69 /* CUIBinaryImageUtility.m */; };
 		F44356F324A8A113001D3D35 /* CUICrashLogPresentationOutlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44356F124A8A113001D3D35 /* CUICrashLogPresentationOutlineViewController.m */; };
 		F44356FF24A8A8B5001D3D35 /* CUIThreadNamedTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = F44356FE24A8A8B5001D3D35 /* CUIThreadNamedTableCellView.m */; };
+		F4440FE0282C4104003C810B /* IPSSummarySerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F4440FDC282C4103003C810B /* IPSSummarySerialization.m */; };
+		F4440FE1282C4104003C810B /* IPSCrashSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4440FDD282C4103003C810B /* IPSCrashSummary.m */; };
 		F44E7B7F255C83D500025C04 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E7B7C255C83D500025C04 /* NoodleLineNumberView.m */; };
 		F44E7B80255C83D500025C04 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = F44E7B7D255C83D500025C04 /* NoodleLineNumberMarker.m */; };
 		F45015C625FABCAC000C4B8D /* EXC_BAD_ACCESS_SIGSEGV.html in Resources */ = {isa = PBXBuildFile; fileRef = F45015C825FABCAC000C4B8D /* EXC_BAD_ACCESS_SIGSEGV.html */; };
@@ -566,6 +568,10 @@
 		F44356F124A8A113001D3D35 /* CUICrashLogPresentationOutlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogPresentationOutlineViewController.m; sourceTree = "<group>"; };
 		F44356FD24A8A8B5001D3D35 /* CUIThreadNamedTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIThreadNamedTableCellView.h; sourceTree = "<group>"; };
 		F44356FE24A8A8B5001D3D35 /* CUIThreadNamedTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIThreadNamedTableCellView.m; sourceTree = "<group>"; };
+		F4440FDC282C4103003C810B /* IPSSummarySerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPSSummarySerialization.m; path = ../submodules/ips2crash/Model/IPSSummarySerialization.m; sourceTree = "<group>"; };
+		F4440FDD282C4103003C810B /* IPSCrashSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPSCrashSummary.m; path = ../submodules/ips2crash/Model/IPSCrashSummary.m; sourceTree = "<group>"; };
+		F4440FDE282C4103003C810B /* IPSSummarySerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSSummarySerialization.h; path = ../submodules/ips2crash/Model/IPSSummarySerialization.h; sourceTree = "<group>"; };
+		F4440FDF282C4103003C810B /* IPSCrashSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSCrashSummary.h; path = ../submodules/ips2crash/Model/IPSCrashSummary.h; sourceTree = "<group>"; };
 		F44A5F2D24CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICollectionViewDockedThreadItem.h; sourceTree = "<group>"; };
 		F44A5F2E24CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICollectionViewDockedThreadItem.m; sourceTree = "<group>"; };
 		F44A5F2F24CCDCB1006B59B8 /* CUICollectionViewDockedThreadItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CUICollectionViewDockedThreadItem.xib; sourceTree = "<group>"; };
@@ -1170,6 +1176,10 @@
 				F428C0452724592900FB8CAC /* IPSReport.m */,
 				F428C0562724592A00FB8CAC /* IPSSummary.h */,
 				F428C04C2724592A00FB8CAC /* IPSSummary.m */,
+				F4440FDF282C4103003C810B /* IPSCrashSummary.h */,
+				F4440FDD282C4103003C810B /* IPSCrashSummary.m */,
+				F4440FDE282C4103003C810B /* IPSSummarySerialization.h */,
+				F4440FDC282C4103003C810B /* IPSSummarySerialization.m */,
 				F428C0522724592A00FB8CAC /* IPSTermination.h */,
 				F428C04D2724592A00FB8CAC /* IPSTermination.m */,
 				F428C0692724592C00FB8CAC /* IPSThread.h */,
@@ -2248,6 +2258,7 @@
 				F4871E0925435AF400580562 /* DWRFObject.m in Sources */,
 				F4214CB524B6534400852DDE /* CUICrashLogsSourcesManager.m in Sources */,
 				F4871E0D25437A6A00580562 /* CUISymbolicationDataCache.m in Sources */,
+				F4440FE0282C4104003C810B /* IPSSummarySerialization.m in Sources */,
 				F428C07B2724592D00FB8CAC /* IPSTermination.m in Sources */,
 				F440A3E924AA35AC00C23DA1 /* CUICrashLogsSourceDirectory.m in Sources */,
 				F414D09124BFBC3A00A7095C /* CUICrashLogBacktraces.m in Sources */,
@@ -2333,6 +2344,7 @@
 				F414D09424BFBC4A00A7095C /* CUICrashLogThreadState.m in Sources */,
 				F4B57C0F24AF5655000851FF /* CUICrashLogsSourceToday+UI.m in Sources */,
 				F4F9BAF724EF06BC00D08FBD /* CUIInspectorGeneralViewController.m in Sources */,
+				F4440FE1282C4104003C810B /* IPSCrashSummary.m in Sources */,
 				F414068B24D6014D0059FF21 /* CUIFontAndColorsFramedView.m in Sources */,
 				F40B124924E89BBE005E82DD /* CUIPreferencesWindowController+Convenience.m in Sources */,
 				F4132C8F24AA19F70086B99C /* CUICrashLogsSource.m in Sources */,
@@ -2955,7 +2967,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 68;
+				CURRENT_PROJECT_VERSION = 69;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2976,7 +2988,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 68;
+				CURRENT_PROJECT_VERSION = 69;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;
