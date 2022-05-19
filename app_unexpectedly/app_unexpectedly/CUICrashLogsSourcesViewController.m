@@ -78,6 +78,8 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 
 - (IBAction)showInFinder:(id)sender;
 
+- (IBAction)sortByName:(id)sender;
+
 // Notifications
 
 - (void)sourcesManagerSourcesDidChange:(NSNotification *)inNotification;
@@ -253,6 +255,35 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         }];
         
         return tCanShowInFinder;
+    }
+    
+    if (tAction==@selector(sortByName:))
+    {
+        if (tSelectedRows.count==0)
+            return NO;
+        
+        NSArray * tSelectedSources=[_sourcesManager.allSources objectsAtIndexes:tSelectedRows];
+        __block NSUInteger tNumberOfCustomSources=0;
+        
+        [tSelectedSources enumerateObjectsUsingBlock:^(CUICrashLogsSource * bSource, NSUInteger bIndex, BOOL * bOutStop) {
+            
+            switch(bSource.type)
+            {
+                case CUICrashLogsSourceTypeDirectory:
+                case CUICrashLogsSourceTypeFile:
+                case CUICrashLogsSourceTypeSmart:
+                    
+                    tNumberOfCustomSources++;
+                    
+                    break;
+                    
+                default:
+                    
+                    break;
+            }
+        }];
+        
+        return (tNumberOfCustomSources>=1);
     }
     
     return YES;
@@ -635,6 +666,11 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         [[NSWorkspace sharedWorkspace] selectFile:bSource.path inFileViewerRootedAtPath:@""];
     
     }];
+}
+
+- (IBAction)sortByName:(id)sender
+{
+    [_sourcesManager sortCustomSourcesByName];
 }
 
 #pragma mark - NSTableViewDataSource

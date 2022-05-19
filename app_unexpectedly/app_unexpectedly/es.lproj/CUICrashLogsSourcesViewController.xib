@@ -203,6 +203,13 @@
                         <action selector="showInFinder:" target="-2" id="Lf6-Pc-sdu"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="SL1-L3-taV"/>
+                <menuItem title="Ordenar por nombre" id="dmU-Jn-V8L">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="sortByName:" target="-2" id="Bij-2K-sHc"/>
+                    </connections>
+                </menuItem>
             </items>
             <point key="canvasLocation" x="-266" y="-716"/>
         </menu>

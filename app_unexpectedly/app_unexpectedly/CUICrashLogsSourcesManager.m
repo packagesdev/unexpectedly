@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -30,7 +30,7 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
 
 @interface CUICrashLogsSourcesManager ()
 {
-    NSMutableArray * _sources;
+    NSMutableArray<CUICrashLogsSource *> * _sources;
     
     NSUInteger _customSourcesCount;
 }
@@ -291,6 +291,28 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
         
         [self synchronizeDefaults];
     }
+}
+
+- (void)sortCustomSourcesByName
+{
+    NSRange tCustomSourcesRange=NSMakeRange(5, _customSourcesCount);
+    
+    NSMutableArray * tSortableArray=[[_sources objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:tCustomSourcesRange]] mutableCopy];
+    
+    [tSortableArray sortUsingComparator:^NSComparisonResult(CUICrashLogsSource * bSource1, CUICrashLogsSource * bSource2) {
+        
+        return [bSource1.name caseInsensitiveCompare:bSource2.name];
+    }];
+    
+    [_sources removeObjectsInRange:tCustomSourcesRange];
+    
+    [_sources addObjectsFromArray:tSortableArray];
+    
+    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    
+    [tNotificationCenter postNotificationName:CUICrashLogsSourcesManagerSourcesDidChangeNotification object:self];
+    
+    [self synchronizeDefaults];
 }
 
 @end
