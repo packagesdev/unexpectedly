@@ -314,7 +314,12 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
                         {
                             case IPSUnsupportedBugTypeError:
                                 
-                                // A COMPLETER
+                                // Open file in Console.app
+                                
+                                if ([[NSWorkspace sharedWorkspace] openFile:tFilePath withApplication:@"/Applications/Utilities/Console.app"]==YES)
+                                {
+                                    return;
+                                }
                                 
                                 break;
                         }
@@ -355,7 +360,8 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
         
         [tErrorPanel runModal];
     }
-        
+    
+    [NSApp replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)inFilePath

@@ -1039,7 +1039,10 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     if (inURL.hasDirectoryPath==NO)
     {
-        if ([inURL.pathExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame)
+        NSString * tPathExtension=inURL.pathExtension;
+        
+        if ([tPathExtension caseInsensitiveCompare:@"crash"]!=NSOrderedSame &&
+            [tPathExtension caseInsensitiveCompare:@"ips"]!=NSOrderedSame)
             return NO;
             
         if ([_openPanelExistingSingleFiles containsObject:inURL.path]==YES)

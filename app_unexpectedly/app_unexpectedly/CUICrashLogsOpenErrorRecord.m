@@ -12,6 +12,7 @@
  */
 
 #import "CUICrashLogsOpenErrorRecord.h"
+#import "IPSError.h"
 
 @implementation CUICrashLogsOpenErrorRecord
 
@@ -22,7 +23,20 @@
     if (tError==nil)
         return @"-";
     
-    if ([tError.domain isEqualToString:CUICrashLogDomain]==YES)
+    if ([tError.domain isEqualToString:IPSErrorDomain]==YES)
+    {
+        switch(tError.code)
+        {
+            case IPSUnsupportedBugTypeError:
+                
+                return @"The format of this file is invalid or unsupported.";
+                
+            default:
+                
+                break;
+        }
+    }
+    else if ([tError.domain isEqualToString:CUICrashLogDomain]==YES)
     {
         switch(tError.code)
         {

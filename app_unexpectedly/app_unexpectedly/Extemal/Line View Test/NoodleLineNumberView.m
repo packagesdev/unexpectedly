@@ -397,9 +397,9 @@
             NSUInteger rectCount;
             
             NSRectArray rects = [layoutManager rectArrayForCharacterRange:NSMakeRange(index, 0)
-                                 withinSelectedCharacterRange:nullRange
-                                              inTextContainer:container
-                                                    rectCount:&rectCount];
+                                             withinSelectedCharacterRange:nullRange
+                                                          inTextContainer:container
+                                                                rectCount:&rectCount];
             
             if (rectCount > 0)
             {
