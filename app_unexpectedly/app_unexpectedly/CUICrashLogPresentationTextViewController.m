@@ -29,6 +29,7 @@
 #import "CUICrashDataTransform.h"
 
 #import "CUIExceptionTypePopUpViewController.h"
+#import "CUITerminationReasonPopUpViewController.h"
 
 #import "CUICrashLogTextView.h"
 
@@ -51,7 +52,7 @@
 
 NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize.delta";
 
-@interface CUICrashLogPresentationTextViewController () <NSTextViewDelegate,CUIExceptionTypePopUpViewControllerDelegate>
+@interface CUICrashLogPresentationTextViewController () <NSTextViewDelegate,CUIQuickHelpPopUpViewControllerDelegate>
 {
     IBOutlet CUICrashLogTextView * _textView;
     
@@ -668,36 +669,13 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     _sectionsRanges=[tMutableDictionary copy];
 }
 
-#pragma mark - CUIExceptionTypePopUpViewControllerDelegate
+#pragma mark - CUIEQuickHelpPopUpViewControllerDelegate
 
-- (void)exceptionTypePopUpViewController:(CUIExceptionTypePopUpViewController *)inController didComputeSizeOfPopover:(NSPopover *)inPopover
+- (void)quickHelpPopUpViewController:(CUIQuickHelpPopUpViewController *)inController didComputeSizeOfPopover:(NSPopover *)inPopover
 {
-    __block NSRange tRange=NSMakeRange(NSNotFound,0);
-    
-    //:[NSURL URLWithString:@"a://exception_type"]
-    
-    
-    [_textView.textStorage enumerateAttribute:NSLinkAttributeName
-                                      inRange:NSMakeRange(0,_textView.textStorage.length)
-                                      options:0
-                                   usingBlock:^(NSURL * bValue, NSRange bRange, BOOL * bOutStop) {
-                                       
-                                       if ([bValue isKindOfClass:[NSURL class]]==NO)
-                                           return;
-                                       
-                                       if ([bValue.absoluteString isEqualToString:@"a://exception_type"]==YES)
-                                       {
-                                           tRange=bRange;
-                                           *bOutStop=YES;
-                                       }
-                                   }];
-    
-    if (tRange.location==NSNotFound)
-        return;
-    
     // Compute the coordinates for the popover
     
-    NSRect tRect=[_textView.layoutManager boundingRectForGlyphRange:tRange inTextContainer:_textView.textContainer];
+    NSRect tRect=[_textView.layoutManager boundingRectForGlyphRange:inController.textRange inTextContainer:_textView.textContainer];
     
     NSPoint containerOrigin = [_textView textContainerOrigin];
     
@@ -767,7 +745,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
                 CUIExceptionTypePopUpViewController * tPopUpViewController=[CUIExceptionTypePopUpViewController new];
                 tPopUpViewController.popover=tExceptionTypeLookUpPopOver;
                 tPopUpViewController.delegate=self;
-                
+                tPopUpViewController.textRange=tRange;
                 
                 [tPopUpViewController setExceptionType:self.crashLog.exceptionType signal:self.crashLog.exceptionSignal];
                 
@@ -775,6 +753,56 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
                 
                 NSView * tTrick=tPopUpViewController.view;  // This is used to trigger the viewDidLoad method of the contentViewController.
 
+                
+                
+                return YES;
+            }
+            else if ([tHost isEqualToString:@"termination_reason"]==YES)
+            {
+                __block NSRange tRange=NSMakeRange(NSNotFound,0);
+                
+                //:[NSURL URLWithString:@"a://termination_reason"]
+                
+                
+                [_textView.textStorage enumerateAttribute:NSLinkAttributeName
+                                                  inRange:NSMakeRange(0,_textView.textStorage.length)
+                                                  options:0
+                                               usingBlock:^(NSURL * bValue, NSRange bRange, BOOL * bOutStop) {
+                                                   
+                                                   if ([bValue isKindOfClass:[NSURL class]]==NO)
+                                                       return;
+                                                   
+                                                   if ([bValue.absoluteString isEqualToString:@"a://termination_reason"]==YES)
+                                                   {
+                                                       tRange=bRange;
+                                                       *bOutStop=YES;
+                                                   }
+                                               }];
+                
+                if (tRange.location==NSNotFound)
+                    return NO;
+                
+                
+                
+                NSPopover * tExceptionTypeLookUpPopOver = [NSPopover new];
+                tExceptionTypeLookUpPopOver.contentSize=NSMakeSize(500.0, 20.0);
+                tExceptionTypeLookUpPopOver.behavior=NSPopoverBehaviorTransient;
+                tExceptionTypeLookUpPopOver.animates=NO;
+                
+                CUITerminationReasonPopUpViewController * tPopUpViewController=[CUITerminationReasonPopUpViewController new];
+                tPopUpViewController.popover=tExceptionTypeLookUpPopOver;
+                tPopUpViewController.delegate=self;
+                tPopUpViewController.textRange=tRange;
+                
+                CUICrashLogExceptionInformation * tExceptionInformation=self.crashLog.exceptionInformation;
+                
+                [tPopUpViewController setNamespace:tExceptionInformation.terminationNamespace
+                                              code:tExceptionInformation.terminationCode];
+                
+                tExceptionTypeLookUpPopOver.contentViewController=tPopUpViewController;
+                
+                NSView * tTrick=tPopUpViewController.view;  // This is used to trigger the viewDidLoad method of the contentViewController.
+                
                 
                 
                 return YES;

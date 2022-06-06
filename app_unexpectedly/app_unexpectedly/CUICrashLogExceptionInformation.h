@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -30,6 +30,10 @@
     @property (readonly) NSArray * exceptionCodes;
 
     @property (readonly,copy) NSString * exceptionNote;     // Can be nil
+
+    @property (readonly,copy) NSString * terminationNamespace;  // Can be nil
+
+    @property (readonly) NSUInteger terminationCode;
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError;
 

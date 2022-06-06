@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -32,6 +32,10 @@
     @property NSArray * exceptionCodes;
 
     @property (copy) NSString * exceptionNote;
+
+    @property (copy) NSString * terminationNamespace;
+
+    @property NSUInteger terminationCode;
 
 + (BOOL)parseString:(NSString *)inString threadIndex:(NSInteger *)outThreadIndex threadName:(NSString **)outThreadName;
 
@@ -131,6 +135,53 @@
     return YES;
 }
 
++ (BOOL)parseString:(NSString *)inString terminationReasonNamespace:(NSString **)outNamespace code:(NSUInteger *)outCode
+{
+    NSScanner * tScanner=[NSScanner scannerWithString:inString];
+
+    BOOL tSimpleFormat=YES;
+    
+    if ([inString hasPrefix:@"Namespace "]==YES)
+    {
+        tSimpleFormat=NO;
+        tScanner.scanLocation+=@"Namespace ".length;
+    }
+    
+    NSString * tNamespace=nil;
+    
+    if (tSimpleFormat==YES)
+    {
+        if ([tScanner scanUpToString:@", [" intoString:&tNamespace]==NO)
+        {
+            return NO;
+        }
+        
+        tScanner.scanLocation+=@", [".length;
+    }
+    else
+    {
+        if ([tScanner scanUpToString:@", Code " intoString:&tNamespace]==NO)
+        {
+            return NO;
+        }
+        
+        tScanner.scanLocation+=@", Code ".length;
+    }
+    
+    if (outNamespace!=NULL)
+        *outNamespace=tNamespace;
+    
+    unsigned long long tHexValue;
+    
+    if ([tScanner scanHexLongLong:&tHexValue]==NO)
+        return NO;
+    
+    if (outCode!=NULL)
+        *outCode=tHexValue;
+        
+    return YES;
+}
+
 #pragma mark -
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError
@@ -191,6 +242,10 @@
         }];
         
         _exceptionNote=(tExceptionInformation.isCorpse==YES) ? @"EXC_CORPSE_NOTIFY" : nil;
+        
+        _terminationNamespace=[tExceptionInformation.termination.namespace copy];
+        
+        _terminationCode=tExceptionInformation.termination.code;
     }
     
     return self;
@@ -314,6 +369,26 @@
         if ([tKey isEqualToString:@"Exception Note"]==YES)
         {
             self.exceptionNote=tValue;
+            
+            return;
+        }
+        
+        if ([tKey isEqualToString:@"Termination Reason"]==YES)
+        {
+            NSString * tNamespace=nil;
+            NSUInteger tCode=0;
+            
+            if ([CUICrashLogExceptionInformation parseString:tValue terminationReasonNamespace:&tNamespace code:&tCode]==NO)
+            {
+                tError=[NSError errorWithDomain:CUIParsingErrorDomain code:CUIParsingUnknownError userInfo:@{CUIParsingErrorLineKey:@(bLineNumber)}];
+                
+                *bOutStop=YES;
+                
+                return;
+            }
+            
+            self.terminationNamespace=tNamespace;
+            self.terminationCode=tCode;
             
             return;
         }

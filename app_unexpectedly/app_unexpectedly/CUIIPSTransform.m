@@ -41,6 +41,8 @@
 
 #import "CUIStackFrame.h"
 
+#import "CUICrashLogExceptionInformation+QuickHelp.h"
+
 @interface CUIDataTransform (Private)
 
 - (void)setOutput:(NSAttributedString *)inOutput;
@@ -508,7 +510,26 @@
     if (tTermination!=nil)
     {
         tMutableAttributedString=[[self attributedStringForKey:@"Termination Reason:"] mutableCopy];
-        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@"    Namespace %@, Code 0x%lx",tTermination.namespace,(unsigned long)tTermination.code]];
+        
+        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@"    "]];
+        
+        tValueAttributedString=[[self attributedStringForPlainTextWithFormat:@"Namespace %@, Code 0x%lx",tTermination.namespace,(unsigned long)tTermination.code] mutableCopy];
+        
+        if (self.crashlog.exceptionInformation.isQuickHelpAvailableForTerminationReason==YES)
+        {
+            [tValueAttributedString addAttributes:@{
+                                                    NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle|NSUnderlineStylePatternDash)
+                                                    }
+             
+                                            range:NSMakeRange(0, tValueAttributedString.length)];
+            
+            [tValueAttributedString addAttributes:@{
+                                                    NSLinkAttributeName:[NSURL URLWithString:@"a://termination_reason"]
+                                                    }
+                                            range:NSMakeRange(0, tValueAttributedString.length)];
+        }
+        
+        [tMutableAttributedString appendAttributedString:tValueAttributedString];
         
         [tMutableArray addObject:tMutableAttributedString];
     

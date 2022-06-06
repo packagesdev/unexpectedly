@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CUIExceptionTypePopUpViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="CUIQuickHelpPopUpViewController">
             <connections>
                 <outlet property="_webView" destination="Xdw-xp-fLZ" id="AcE-F5-gZq"/>
                 <outlet property="view" destination="6TD-Ve-QYt" id="Vtr-Lw-Jy7"/>

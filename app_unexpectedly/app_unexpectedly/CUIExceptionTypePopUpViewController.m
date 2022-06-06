@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -13,150 +13,33 @@
 
 #import "CUIExceptionTypePopUpViewController.h"
 
-#import <WebKit/WebKit.h>
+@interface CUIExceptionTypePopUpViewController ()
 
-@interface CUINoScrollingWebView : WKWebView
+@property (copy) NSString * exceptionType;
 
-@end
-
-@implementation CUINoScrollingWebView
-
-- (void)scrollWheel:(NSEvent *)inEvent
-{
-    [self.nextResponder scrollWheel:inEvent];
-}
-
-@end
-
-@interface CUIExceptionTypePopUpViewController () <WKNavigationDelegate>/*<WebFrameLoadDelegate,WebPolicyDelegate>*/
-{
-    IBOutlet CUINoScrollingWebView * _webView;
-    
-    NSBundle * _mainBundle;
-    
-    NSURL * _contentsFileURL;
-}
-
-    @property (copy) NSString * exceptionType;
-
-    @property (copy) NSString * exceptionSignal;
+@property (copy) NSString * exceptionSignal;
 
 @end
 
 @implementation CUIExceptionTypePopUpViewController
 
-- (instancetype)init
-{
-    self=[super init];
-    
-    if (self!=nil)
-    {
-        _mainBundle=[NSBundle mainBundle];
-    }
-    
-    return self;
-}
-
-#pragma mark -
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    _webView.navigationDelegate=self;
-    
-    [_webView setValue:@(NO) forKey:@"drawsBackground"];
-    
-    NSError * tError=nil;
-    
-    NSString * tHTMLContents=[NSString stringWithContentsOfURL:_contentsFileURL encoding:NSUTF8StringEncoding error:&tError];
-    
-    if (tHTMLContents==nil)
-    {
-        NSLog(@"HTML data could not be loaded from file \"%@\".",_contentsFileURL);
-        
-        return;
-    }
-    
-    [_webView loadHTMLString:tHTMLContents baseURL:_mainBundle.resourceURL];
-}
-
-- (NSString *)nibName
-{
-    return @"CUIExceptionTypePopUpViewController";
-}
-
-#pragma mark -
-
-- (void)webView:(WKWebView *)inWebView decidePolicyForNavigationAction:(WKNavigationAction *)inNavigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
-{
-    if (inNavigationAction.navigationType==WKNavigationTypeLinkActivated)
-    {
-        decisionHandler(WKNavigationActionPolicyCancel);
-        
-        [[NSWorkspace sharedWorkspace] openURL:inNavigationAction.request.URL];
-    }
-    else
-    {
-        decisionHandler(WKNavigationActionPolicyAllow);
-    }
-}
-
-- (void)webView:(WKWebView *)inWebView didFinishNavigation:(WKNavigation *)inNavigation
-{
-    if (self.popover==nil)
-        return;
-    
-    __block NSSize tCurrentSize=self.popover.contentSize;
-    
-    [_webView evaluateJavaScript:@"document.body.scrollHeight;" completionHandler:^(NSString * bResult, NSError * bError) {
-        
-        tCurrentSize.height=[bResult integerValue];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            self.popover.contentSize=tCurrentSize;
-            
-            [self.delegate exceptionTypePopUpViewController:self didComputeSizeOfPopover:self.popover];
-        });
-    }];
-}
-
-#pragma mark -
-
 - (void)setExceptionType:(NSString *)inType signal:(NSString *)inSignal
 {
-    _contentsFileURL=nil;
+    NSURL * tURL=nil;
     
     if (inType!=nil && inSignal!=nil)
     {
-        _contentsFileURL=[_mainBundle URLForResource:[NSString stringWithFormat:@"%@_%@",inType,inSignal] withExtension:@"html"];
+        tURL=[self.bundle URLForResource:[NSString stringWithFormat:@"%@_%@",inType,inSignal] withExtension:@"html"];
     }
     
-    if (_contentsFileURL==nil)
+    if (tURL==nil)
     {
         // Use no documentation file
         
-        _contentsFileURL=[_mainBundle URLForResource:@"unknown_exception_type" withExtension:@"html"];
+        tURL=[self.bundle URLForResource:@"unknown_exception_type" withExtension:@"html"];
     }
     
-    if (_webView==nil)
-        return;
-    
-    NSError * tError=nil;
-    
-    NSString * tHTMLContents=[NSString stringWithContentsOfURL:_contentsFileURL encoding:NSUTF8StringEncoding error:&tError];
-    
-    if (tHTMLContents==nil)
-    {
-        NSLog(@"Missing HTML document at %@",_contentsFileURL.path);
-        
-        // A COMPLETER (Provide a basic HTML error report to display)
-        
-        return;
-    }
-    
-    [_webView loadHTMLString:tHTMLContents baseURL:_mainBundle.resourceURL];
+    self.contentsFileURL=tURL;
 }
 
 @end

@@ -31,6 +31,8 @@
 #import "CUISymbolicationDataFormatter.h"
 #endif
 
+#import "CUICrashLogExceptionInformation+QuickHelp.h"
+
 @interface CUICrashLog (Private)
 
     // Sections ranges
@@ -377,19 +379,44 @@
             {
                 case CUIHyperlinksInternal:
                     
-                    //if (self.displaySettings.highlightSyntax==YES)
-                {
                     [tProcessedLine addAttributes:@{
                                                     NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle|NSUnderlineStylePatternDash)
                                                     }
                      
                                             range:tValueRange];
-                }
                     
                     [tProcessedLine addAttributes:@{
                                                     NSLinkAttributeName:[NSURL URLWithString:@"a://exception_type"]
                                                     }
                                             range:tValueRange];
+                    
+                    break;
+                    
+                default:
+                    
+                    break;
+            }
+        }
+        
+        if ([tKey isEqualToString:@"Termination Reason"]==YES)
+        {
+            switch(self.hyperlinksStyle)
+            {
+                case CUIHyperlinksInternal:
+                    
+                    if (self.crashlog.exceptionInformation.isQuickHelpAvailableForTerminationReason==YES)
+                    {
+                        [tProcessedLine addAttributes:@{
+                                                        NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle|NSUnderlineStylePatternDash)
+                                                        }
+                         
+                                                range:tValueRange];
+                        
+                        [tProcessedLine addAttributes:@{
+                                                        NSLinkAttributeName:[NSURL URLWithString:@"a://termination_reason"]
+                                                        }
+                                                range:tValueRange];
+                    }
                     
                     break;
                     

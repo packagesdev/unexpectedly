@@ -127,6 +127,12 @@
 		F428C0EC27245D0800FB8CAC /* IPSIncidentHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = F428C0BD27245D0800FB8CAC /* IPSIncidentHeader.h */; };
 		F428C0ED27245D0800FB8CAC /* IPSOperatingSystemVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = F428C0BE27245D0800FB8CAC /* IPSOperatingSystemVersion.h */; };
 		F428C0EE27245D0800FB8CAC /* IPSException.h in Headers */ = {isa = PBXBuildFile; fileRef = F428C0BF27245D0800FB8CAC /* IPSException.h */; };
+		F4386B0B284953F600B83525 /* CUICrashLogExceptionInformation+QuickHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = F4386B09284953F500B83525 /* CUICrashLogExceptionInformation+QuickHelp.m */; };
+		F4386B0C284953F600B83525 /* CUICrashLogExceptionInformation+QuickHelp.h in Headers */ = {isa = PBXBuildFile; fileRef = F4386B0A284953F600B83525 /* CUICrashLogExceptionInformation+QuickHelp.h */; };
+		F4440FD8282C40F9003C810B /* IPSSummarySerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F4440FD4282C40F9003C810B /* IPSSummarySerialization.m */; };
+		F4440FD9282C40F9003C810B /* IPSCrashSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = F4440FD5282C40F9003C810B /* IPSCrashSummary.m */; };
+		F4440FDA282C40F9003C810B /* IPSSummarySerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = F4440FD6282C40F9003C810B /* IPSSummarySerialization.h */; };
+		F4440FDB282C40F9003C810B /* IPSCrashSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = F4440FD7282C40F9003C810B /* IPSCrashSummary.h */; };
 		F47F766D2673577C00A74905 /* CUICrashLogErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = F47F76692673577C00A74905 /* CUICrashLogErrors.h */; };
 		F47F766E2673577C00A74905 /* CUICrashLogErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F766A2673577C00A74905 /* CUICrashLogErrors.m */; };
 		F47F766F2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */; };
@@ -279,6 +285,12 @@
 		F428C0BD27245D0800FB8CAC /* IPSIncidentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSIncidentHeader.h; path = ../../submodules/ips2crash/Model/IPSIncidentHeader.h; sourceTree = "<group>"; };
 		F428C0BE27245D0800FB8CAC /* IPSOperatingSystemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSOperatingSystemVersion.h; path = ../../submodules/ips2crash/Model/IPSOperatingSystemVersion.h; sourceTree = "<group>"; };
 		F428C0BF27245D0800FB8CAC /* IPSException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSException.h; path = ../../submodules/ips2crash/Model/IPSException.h; sourceTree = "<group>"; };
+		F4386B09284953F500B83525 /* CUICrashLogExceptionInformation+QuickHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CUICrashLogExceptionInformation+QuickHelp.m"; path = "../../app_unexpectedly/app_unexpectedly/CUICrashLogExceptionInformation+QuickHelp.m"; sourceTree = "<group>"; };
+		F4386B0A284953F600B83525 /* CUICrashLogExceptionInformation+QuickHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CUICrashLogExceptionInformation+QuickHelp.h"; path = "../../app_unexpectedly/app_unexpectedly/CUICrashLogExceptionInformation+QuickHelp.h"; sourceTree = "<group>"; };
+		F4440FD4282C40F9003C810B /* IPSSummarySerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPSSummarySerialization.m; path = ../../submodules/ips2crash/Model/IPSSummarySerialization.m; sourceTree = "<group>"; };
+		F4440FD5282C40F9003C810B /* IPSCrashSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPSCrashSummary.m; path = ../../submodules/ips2crash/Model/IPSCrashSummary.m; sourceTree = "<group>"; };
+		F4440FD6282C40F9003C810B /* IPSSummarySerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSSummarySerialization.h; path = ../../submodules/ips2crash/Model/IPSSummarySerialization.h; sourceTree = "<group>"; };
+		F4440FD7282C40F9003C810B /* IPSCrashSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSCrashSummary.h; path = ../../submodules/ips2crash/Model/IPSCrashSummary.h; sourceTree = "<group>"; };
 		F47F76692673577C00A74905 /* CUICrashLogErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUICrashLogErrors.h; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogErrors.h; sourceTree = "<group>"; };
 		F47F766A2673577C00A74905 /* CUICrashLogErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogErrors.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogErrors.m; sourceTree = "<group>"; };
 		F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUICrashLogsOpenErrorRecord.m; path = ../../app_unexpectedly/app_unexpectedly/CUICrashLogsOpenErrorRecord.m; sourceTree = "<group>"; };
@@ -435,6 +447,10 @@
 				F428C09527245D0500FB8CAC /* IPSReport.m */,
 				F428C0A627245D0600FB8CAC /* IPSSummary.h */,
 				F428C09C27245D0600FB8CAC /* IPSSummary.m */,
+				F4440FD7282C40F9003C810B /* IPSCrashSummary.h */,
+				F4440FD5282C40F9003C810B /* IPSCrashSummary.m */,
+				F4440FD6282C40F9003C810B /* IPSSummarySerialization.h */,
+				F4440FD4282C40F9003C810B /* IPSSummarySerialization.m */,
 				F428C0A227245D0600FB8CAC /* IPSTermination.h */,
 				F428C09D27245D0600FB8CAC /* IPSTermination.m */,
 				F428C0B927245D0700FB8CAC /* IPSThread.h */,
@@ -556,6 +572,8 @@
 				F47F766A2673577C00A74905 /* CUICrashLogErrors.m */,
 				F47F766C2673577C00A74905 /* CUICrashLogsOpenErrorRecord.h */,
 				F47F766B2673577C00A74905 /* CUICrashLogsOpenErrorRecord.m */,
+				F4386B0A284953F600B83525 /* CUICrashLogExceptionInformation+QuickHelp.h */,
+				F4386B09284953F500B83525 /* CUICrashLogExceptionInformation+QuickHelp.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -595,6 +613,7 @@
 				F428C0D927245D0800FB8CAC /* IPSExternalModificationSummary.h in Headers */,
 				F4069C9426683D2E002B32F5 /* NSArray+WBExtensions.h in Headers */,
 				F4069C8326683CF9002B32F5 /* CUIBinaryImage.h in Headers */,
+				F4440FDB282C40F9003C810B /* IPSCrashSummary.h in Headers */,
 				F428C0D027245D0800FB8CAC /* IPSReport.h in Headers */,
 				F428C0C727245D0800FB8CAC /* IPSIncident.h in Headers */,
 				F4069C5826683CC7002B32F5 /* CUICodeType.h in Headers */,
@@ -612,6 +631,7 @@
 				F4069CD62668415A002B32F5 /* CUIApplicationPreferences+Themes.h in Headers */,
 				F4D14D652745BFBC003698AD /* IPSImage+UserCode.h in Headers */,
 				F4069CC926684136002B32F5 /* CUIThemesManager.h in Headers */,
+				F4440FDA282C40F9003C810B /* IPSSummarySerialization.h in Headers */,
 				F4069C8D26683D10002B32F5 /* CUICallStackBacktrace.h in Headers */,
 				F4069C7226683CF9002B32F5 /* CUICrashLogExceptionInformation.h in Headers */,
 				F4069C8F26683D10002B32F5 /* CUIThread.h in Headers */,
@@ -632,6 +652,7 @@
 				F428C0E427245D0800FB8CAC /* IPSApplicationSpecificInformation.h in Headers */,
 				F4069CC52668411A002B32F5 /* NSColor+String.h in Headers */,
 				F428C0D527245D0800FB8CAC /* IPSSummary.h in Headers */,
+				F4386B0C284953F600B83525 /* CUICrashLogExceptionInformation+QuickHelp.h in Headers */,
 				F4069C5A26683CC7002B32F5 /* CUICrashLog.h in Headers */,
 				F428C0DF27245D0800FB8CAC /* IPSThreadInstructionStream.h in Headers */,
 				F4069CAB26683F49002B32F5 /* CUITextModeDisplaySettings.h in Headers */,
@@ -713,6 +734,7 @@
 				F428C0D627245D0800FB8CAC /* IPSThread.m in Sources */,
 				F4069CC0266840FB002B32F5 /* CUITheme.m in Sources */,
 				F4069CC1266840FB002B32F5 /* CUIThemeItemAttributes.m in Sources */,
+				F4440FD9282C40F9003C810B /* IPSCrashSummary.m in Sources */,
 				F4069C7926683CF9002B32F5 /* CUICrashLogThreadState+UI.m in Sources */,
 				F480FF76273B01B600905974 /* CUIBinaryImageUtility.m in Sources */,
 				F40681CF2669820700BE6BEE /* NSUserDefaults+UNXQuickLookGenerator.m in Sources */,
@@ -734,6 +756,7 @@
 				F4DAF0B027C448E600256EA4 /* IPSImage+Offset.m in Sources */,
 				F4069CDA2668416B002B32F5 /* NSDictionary+MutableDeepCopy.m in Sources */,
 				F4069C9B26683DA0002B32F5 /* CUICrashLogSectionsDetector.m in Sources */,
+				F4386B0B284953F600B83525 /* CUICrashLogExceptionInformation+QuickHelp.m in Sources */,
 				F4069C8B26683D10002B32F5 /* CUIStackFrame.m in Sources */,
 				F4069CE2266842E5002B32F5 /* NSFileManager+ExtendedAttributes.m in Sources */,
 				F428C0E127245D0800FB8CAC /* IPSThreadState.m in Sources */,
@@ -783,6 +806,7 @@
 				F4069C7F26683CF9002B32F5 /* CUICrashLogBinaryImages.m in Sources */,
 				F4D0EE98273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.m in Sources */,
 				F428C0C427245D0800FB8CAC /* IPSReport.m in Sources */,
+				F4440FD8282C40F9003C810B /* IPSSummarySerialization.m in Sources */,
 				F428C0C527245D0800FB8CAC /* IPSThreadInstructionState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

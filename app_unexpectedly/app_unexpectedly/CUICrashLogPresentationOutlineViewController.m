@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 #define CUIThreadsViewMinimumHeight    200.0
 #define CUIBinaryImagesViewMinimumHeight    190.0
 
-@interface CUICrashLogPresentationOutlineViewController () <CUIExceptionTypePopUpViewControllerDelegate,NSOutlineViewDataSource,NSOutlineViewDelegate,NSSplitViewDelegate,NSPopoverDelegate>
+@interface CUICrashLogPresentationOutlineViewController () <CUIQuickHelpPopUpViewControllerDelegate,NSOutlineViewDataSource,NSOutlineViewDelegate,NSSplitViewDelegate,NSPopoverDelegate>
 {
 	IBOutlet NSTextField * _exceptionTypeValue;
 	
@@ -614,9 +614,9 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 	_threadsViewController.showOnlyCrashedThread=tShow;
 }
 
-#pragma mark - CUIExceptionTypePopUpViewControllerDelegate
+#pragma mark - CUIQuickHelpPopUpViewControllerDelegate
 
-- (void)exceptionTypePopUpViewController:(CUIExceptionTypePopUpViewController *)inController didComputeSizeOfPopover:(NSPopover *)inPopover
+- (void)quickHelpPopUpViewController:(CUIQuickHelpPopUpViewController *)inController didComputeSizeOfPopover:(NSPopover *)inPopover
 {
     // Compute the coordinates for the popover
     
