@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022 Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -28,6 +28,8 @@ void mycallback(
     NSArray * _crashLogs;
     
     FSEventStreamRef _eventStreamRef;
+    
+    BOOL _collectRetired;
 }
 
 - (void)handleFileSystemEventIDs:(const FSEventStreamEventId[])inEventIDs paths:(NSArray *)inEventsPaths flags:(const FSEventStreamEventFlags[])inFlags;
@@ -38,13 +40,23 @@ void mycallback(
 
 - (BOOL)initCommonWithError:(NSError **)outError
 {
-    NSArray * tCrashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path error:outError];
+    NSArray * tCrashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path options:(_collectRetired==YES) ? CUICrashLogsProviderCollectRetired : 0 error:outError];
     
     if (tCrashLogs==nil)
         return NO;
     
     _crashLogs=tCrashLogs;
     
+    NSArray * tMonitoredPaths=nil;
+    
+    if (_collectRetired == YES)
+    {
+        tMonitoredPaths=@[self.path, [self.path stringByAppendingPathComponent:CUIRetiredPathComponent]];
+    }
+    else
+    {
+        tMonitoredPaths=@[self.path];
+    }
     
     FSEventStreamContext context;
     context.info = (__bridge void *)self;     // !!!
@@ -56,7 +68,7 @@ void mycallback(
     CFAbsoluteTime latency = 3.0; /* Latency in seconds */
     
     /* Create the stream, passing in a callback */
-    _eventStreamRef = FSEventStreamCreate(kCFAllocatorDefault,&mycallback,&context,(__bridge CFArrayRef)@[self.path],kFSEventStreamEventIdSinceNow,latency,kFSEventStreamCreateFlagWatchRoot+kFSEventStreamCreateFlagUseCFTypes);
+    _eventStreamRef = FSEventStreamCreate(kCFAllocatorDefault,&mycallback,&context,(__bridge CFArrayRef)tMonitoredPaths,kFSEventStreamEventIdSinceNow,latency,kFSEventStreamCreateFlagWatchRoot+kFSEventStreamCreateFlagUseCFTypes);
     
     FSEventStreamScheduleWithRunLoop(_eventStreamRef, CFRunLoopGetCurrent(),kCFRunLoopDefaultMode);
     
@@ -78,12 +90,14 @@ void mycallback(
     return self;
 }
 
-- (instancetype)initWithContentsOfFileSystemItemAtPath:(NSString *)inPath error:(NSError **)outError
+- (instancetype)initWithContentsOfFileSystemItemAtPath:(NSString *)inPath collectRetired:(BOOL)inCollectRetired error:(NSError **)outError
 {
     self=[super initWithContentsOfFileSystemItemAtPath:inPath error:outError];
     
     if (self!=nil)
     {
+        _collectRetired=inCollectRetired;
+        
         if ([self initCommonWithError:outError]==NO)
             return nil;
     }
@@ -159,13 +173,13 @@ void mycallback(
          return;
          }*/
         
-        _crashLogs=nil;
+        _crashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path options:(_collectRetired==YES) ? CUICrashLogsProviderCollectRetired : 0 error:NULL];;
     }
     else
     {
         // Refresh the list of crash logs
     
-        NSArray * tCrashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path error:NULL];
+        NSArray * tCrashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path options:(_collectRetired==YES) ? CUICrashLogsProviderCollectRetired : 0 error:NULL];
         
         if (tCrashLogs==nil)
             return;

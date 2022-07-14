@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -15,6 +15,14 @@
 
 #import "CUICrashLog.h"
 
+extern NSString * const CUIRetiredPathComponent;
+
+typedef NS_ENUM(NSUInteger, CUICrashLogsProviderCollectOptions)
+{
+    CUICrashLogsProviderCollectRetired = 1
+};
+
+
 @interface CUICrashLogsProvider : NSObject
 
 + (CUICrashLogsProvider *)defaultProvider;
@@ -26,5 +34,7 @@
 - (id)crashLogWithContentsOfFile:(NSString *)inPath error:(NSError **)outError;
 
 - (NSArray *)crashLogsForDirectory:(NSString *)inDirectoryPath error:(NSError **)outError;
+
+- (NSArray *)crashLogsForDirectory:(NSString *)inDirectoryPath options:(CUICrashLogsProviderCollectOptions)inOptions error:(NSError **)outError;
 
 @end

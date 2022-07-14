@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2022, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -14,6 +14,14 @@
 #import "CUICrashLogsProvider.h"
 
 #import "NSArray+WBExtensions.h"
+
+NSString * const CUIRetiredPathComponent=@"Retired";
+
+@interface CUICrashLogsProvider ()
+
+- (NSArray *)crashLogsForDirectory:(NSString *)inDirectoryPath options:(CUICrashLogsProviderCollectOptions)options error:(NSError **)outError;
+
+@end
 
 @implementation CUICrashLogsProvider
 
@@ -34,14 +42,14 @@
 {
 	NSString * tDirectoryPath=[@"~/Library/Logs/DiagnosticReports/" stringByExpandingTildeInPath];
 	
-	return [self crashLogsForDirectory:tDirectoryPath error:NULL];
+    return [self crashLogsForDirectory:tDirectoryPath options:CUICrashLogsProviderCollectRetired error:NULL];
 }
 
 - (NSArray *)systemCrashLogs
 {
 	NSString * tDirectoryPath=@"/Library/Logs/DiagnosticReports/";
 	
-	return [self crashLogsForDirectory:tDirectoryPath error:NULL];
+	return [self crashLogsForDirectory:tDirectoryPath options:CUICrashLogsProviderCollectRetired error:NULL];
 }
 
 - (id)crashLogWithContentsOfFile:(NSString *)inPath error:(NSError **)outError
@@ -114,6 +122,11 @@
 
 - (NSArray *)crashLogsForDirectory:(NSString *)inDirectoryPath error:(NSError **)outError
 {
+    return [self crashLogsForDirectory:inDirectoryPath options:0 error:outError];
+}
+
+- (NSArray *)crashLogsForDirectory:(NSString *)inDirectoryPath options:(CUICrashLogsProviderCollectOptions)inOptions error:(NSError **)outError
+{
 	if ([inDirectoryPath isKindOfClass:[NSString class]]==NO)
 	{
 		if (outError!=NULL)
@@ -123,6 +136,14 @@
 	}
 	
 	NSArray * tArray=[[NSFileManager defaultManager] contentsOfDirectoryAtPath:inDirectoryPath error:outError];
+    
+    if ((inOptions & CUICrashLogsProviderCollectRetired) == CUICrashLogsProviderCollectRetired && [tArray containsObject:CUIRetiredPathComponent]==YES)
+    {
+        NSArray * tRetiredArray=[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[inDirectoryPath stringByAppendingPathComponent:CUIRetiredPathComponent] error:NULL];
+        
+        if (tRetiredArray.count>0)
+            tArray = [tArray arrayByAddingObjectsFromArray:tRetiredArray];
+    }
 	
 	NSArray * tCrashLogsArray=[tArray WB_arrayByMappingObjectsLenientlyUsingBlock:^id(NSString * bComponent, NSUInteger bIndex) {
 		
