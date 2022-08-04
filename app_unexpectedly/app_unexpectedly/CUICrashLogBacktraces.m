@@ -85,7 +85,7 @@
                 
                 [tApplicationSpecificBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
                    
-                    NSMutableArray * tLines=[NSMutableArray arrayWithObject:@"Application Specific Bakctrace 1"];
+                    NSMutableArray * tLines=[NSMutableArray arrayWithObject:@"Application Specific Backtrace 1"];
                     
                     [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
                         
