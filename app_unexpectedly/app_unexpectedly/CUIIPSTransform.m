@@ -643,7 +643,7 @@
         
         NSMutableAttributedString * tMutableAttributedString=nil;
         
-        tMutableAttributedString=[[self attributedStringForThreadLabelWithFormat:@"Application Specific Backtrace %lu\n",(unsigned long)1] mutableCopy];
+        tMutableAttributedString=[[self attributedStringForThreadLabelWithFormat:@"Application Specific Backtrace %lu",(unsigned long)1] mutableCopy];
     
         [tMutableAttributedString addAttributes:@{
                                                   CUIThreadAnchorAttributeName:@"thread:Application Specific Backtrace"
