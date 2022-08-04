@@ -37,7 +37,15 @@ typedef NS_ENUM(NSUInteger, CUIHyperlinksStyle)
     CUIHyperlinksHTML
 };
 
+typedef NS_ENUM(NSUInteger, CUISymbolicationMode)
+{
+    CUISymbolicationModeNone,
+    CUISymbolicationModeSymbolicate
+};
+
 @interface CUIDataTransform : NSObject
+
+    @property CUISymbolicationMode symbolicationMode;
 
     @property (nonatomic) CUIHyperlinksStyle hyperlinksStyle;
 

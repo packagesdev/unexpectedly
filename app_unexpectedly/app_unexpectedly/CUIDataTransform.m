@@ -42,6 +42,8 @@ NSString * const CUIBinaryAnchorAttributeName=@"CUIBinaryAnchorAttributeName";
     
     if (self!=nil)
     {
+        _symbolicationMode=CUISymbolicationModeSymbolicate;
+        
         _hyperlinksStyle=CUIHyperlinksInternal;
     }
     
