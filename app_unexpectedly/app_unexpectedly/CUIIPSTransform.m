@@ -868,6 +868,10 @@
 #ifndef __DISABLE_SYMBOLICATION_
             
             BOOL tSymbolicateAutomatically=[CUIApplicationPreferences sharedPreferences].symbolicateAutomatically;
+            
+            if (self.symbolicationMode==CUISymbolicationModeNone)
+                tSymbolicateAutomatically=NO;
+            
             CUIStackFrame * tStackFrame=tStackFrames[bFrameIndex];
             CUISymbolicationData * tSymbolicationData=nil;
             
@@ -952,7 +956,7 @@
                 }
                 else
                 {
-                    if (bFrame.symbol!=nil)
+                    if (bFrame.symbol!=nil && (tIsUserCode==NO || self.symbolicationMode==CUISymbolicationModeSymbolicate))
                     {
                         [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
                         

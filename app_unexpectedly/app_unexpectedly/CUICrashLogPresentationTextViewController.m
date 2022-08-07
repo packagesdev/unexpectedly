@@ -41,6 +41,11 @@
 
 #import "CUIExportAccessoryViewController.h"
 
+// Obfuscation
+
+#import "IPSObfuscator.h"
+#import "IPSReport+Obfuscating.h"
+
 // Noodle
 
 #import "NoodleLineNumberView.h"
@@ -1139,6 +1144,9 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     tAccessoryViewController.canSelectExportedContents=(tSelectionRange.length>0); // A COMPLETER (minimum length?)
     
+    IPSReport * tIPSReport=self.crashLog.ipsReport;
+    
+    tAccessoryViewController.canObfuscateContents=(tIPSReport!=nil);
     
     tExportPanel.accessoryView=tAccessoryViewController.view;
     
@@ -1152,10 +1160,23 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         CUIDataTransform * tDataTransform=nil;
         
-        if (self.crashLog.ipsReport!=nil)
+        if (tIPSReport!=nil)
         {
+            IPSReport * tFinalIPSReport=tIPSReport;
+            
             tDataTransform=[CUIIPSTransform new];
-            tDataTransform.input=self.crashLog.ipsReport;
+            
+            if (tAccessoryViewController.obfuscateContents==YES)
+            {
+                IPSObfuscator * tObfuscator=[IPSObfuscator new];
+                
+                tFinalIPSReport=[tIPSReport obfuscateWithObfuscator:tObfuscator];
+                
+                tDataTransform.symbolicationMode=CUISymbolicationModeNone;
+            }
+            
+            tDataTransform.input=tFinalIPSReport;
+            ((CUIReportThemedTransform *)tDataTransform).crashlog=self.crashLog;
         }
         else
         {
@@ -1235,7 +1256,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
             
             if (tAccessoryViewController.exportedContents==CUICrashLogExportedContentsSelection)
             {
-                NSRange tGlyphRange = [self->_textView.layoutManager glyphRangeForCharacterRange:tSelectionRange actualCharacterRange:NULL];
+                NSRange tGlyphRange=[self->_textView.layoutManager glyphRangeForCharacterRange:tSelectionRange actualCharacterRange:NULL];
                 
                 NSRect tBoundingRect=[self->_textView.layoutManager boundingRectForGlyphRange:tGlyphRange inTextContainer:self->_textView.textContainer];
                 
@@ -1277,12 +1298,19 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         }
         else
         {
-            NSDictionary * tDocumentAttributes=@{
-                                                 NSDocumentTypeDocumentAttribute:tDocumenType,
-                                                 NSBackgroundColorDocumentAttribute:self->_textView.backgroundColor
-                                                 };
-            
-            tData=[tAttributedString dataFromRange:NSMakeRange(0,tAttributedString.length) documentAttributes:tDocumentAttributes error:&tError];
+            if (tSelectedExportFormat==CUICrashLogExportFormatText)
+            {
+                tData=[tAttributedString.string dataUsingEncoding:NSUTF8StringEncoding];
+            }
+            else
+            {
+                NSDictionary * tDocumentAttributes=@{
+                                                     NSDocumentTypeDocumentAttribute:tDocumenType,
+                                                     NSBackgroundColorDocumentAttribute:self->_textView.backgroundColor
+                                                     };
+                
+                tData=[tAttributedString dataFromRange:NSMakeRange(0,tAttributedString.length) documentAttributes:tDocumentAttributes error:&tError];
+            }
         }
         
         if (tData==nil)

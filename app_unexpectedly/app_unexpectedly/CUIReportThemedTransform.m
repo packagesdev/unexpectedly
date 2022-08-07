@@ -239,6 +239,9 @@
     
     BOOL tSymbolicateAutomatically=[CUIApplicationPreferences sharedPreferences].symbolicateAutomatically;
     
+    if (self.symbolicationMode==CUISymbolicationModeNone)
+        tSymbolicateAutomatically=NO;
+    
     CUISymbolicationData * tSymbolicationData=nil;
     
     if (tSymbolicateAutomatically==YES)

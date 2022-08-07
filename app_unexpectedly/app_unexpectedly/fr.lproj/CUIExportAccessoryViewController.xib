@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="_allContentsRadioButton" destination="lQT-bg-eZT" id="Mpw-Xc-7kK"/>
                 <outlet property="_formatPopUpButton" destination="1u4-74-6Q1" id="Nog-Ao-3bb"/>
+                <outlet property="_obfuscateContentsRadioButton" destination="43t-jz-ydI" id="SJe-F4-VSs"/>
                 <outlet property="_selectionOnlyRadioButton" destination="yCi-24-cSg" id="hjW-mF-lCx"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -17,11 +18,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="518" height="116"/>
+            <rect key="frame" x="0.0" y="0.0" width="608" height="188"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-74-6Q1">
-                    <rect key="frame" x="259" y="72" width="81" height="25"/>
+                    <rect key="frame" x="306" y="144" width="81" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="HTML" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lK1-XA-eFw" id="3tZ-5v-KqQ">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -39,7 +40,7 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ra9-fZ-6EK">
-                    <rect key="frame" x="200" y="77" width="55" height="17"/>
+                    <rect key="frame" x="247" y="149" width="55" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Format :" id="kgo-g3-HQW">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -48,7 +49,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQT-bg-eZT">
-                    <rect key="frame" x="259" y="40" width="119" height="18"/>
+                    <rect key="frame" x="306" y="112" width="127" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="Rapport complé" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="pba-yN-6P5">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -59,7 +60,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCi-24-cSg">
-                    <rect key="frame" x="259" y="19" width="204" height="18"/>
+                    <rect key="frame" x="306" y="91" width="213" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="Texte sélectionné uniquement" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="kfb-cJ-elR">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -70,7 +71,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJJ-vN-i8N">
-                    <rect key="frame" x="142" y="41" width="113" height="17"/>
+                    <rect key="frame" x="189" y="113" width="113" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Contenu exporté :" id="buk-Aw-yVe">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -78,8 +79,28 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43t-jz-ydI">
+                    <rect key="frame" x="305" y="56" width="148" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Brouiller le contenu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="44Z-hW-e4b">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="switchObfuscateContents:" target="-2" id="Pmy-lZ-93R"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-B4-V9P">
+                    <rect key="frame" x="324" y="20" width="270" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" alignment="left" title="Les noms, chemins et symboles de l'exécutable et des images binaires utilisarteurs seront brouillés." id="Th9-RR-Qav">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
-            <point key="canvasLocation" x="-67" y="-184"/>
+            <point key="canvasLocation" x="-22" y="-148"/>
         </customView>
     </objects>
 </document>

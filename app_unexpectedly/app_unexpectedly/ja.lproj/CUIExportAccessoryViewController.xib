@@ -17,11 +17,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="518" height="116"/>
+            <rect key="frame" x="0.0" y="0.0" width="608" height="188"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <popUpButton verticalHuggingPriority="750" id="1u4-74-6Q1">
-                    <rect key="frame" x="259" y="72" width="81" height="25"/>
+                    <rect key="frame" x="306" y="144" width="81" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="HTML" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lK1-XA-eFw" id="3tZ-5v-KqQ">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -39,7 +39,7 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ra9-fZ-6EK">
-                    <rect key="frame" x="175" y="77" width="80" height="17"/>
+                    <rect key="frame" x="222" y="149" width="80" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="フォーマット:" id="kgo-g3-HQW">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -48,7 +48,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="lQT-bg-eZT">
-                    <rect key="frame" x="259" y="40" width="118" height="18"/>
+                    <rect key="frame" x="306" y="112" width="118" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="完全なレポート" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="pba-yN-6P5">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -59,7 +59,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="yCi-24-cSg">
-                    <rect key="frame" x="259" y="19" width="153" height="18"/>
+                    <rect key="frame" x="306" y="91" width="153" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="選択したテキストのみ" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="kfb-cJ-elR">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -70,7 +70,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cJJ-vN-i8N">
-                    <rect key="frame" x="79" y="40" width="176" height="17"/>
+                    <rect key="frame" x="126" y="112" width="176" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="エクスポートされたコンテンツ:" id="buk-Aw-yVe">
                         <font key="font" metaFont="system"/>
@@ -78,8 +78,25 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" id="zqB-NN-lWr">
+                    <rect key="frame" x="306" y="56" width="128" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="内容を難読化" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0GA-Z9-IuK">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" size="13" name=".HiraKakuInterface-W3"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hB6-Pk-5P0">
+                    <rect key="frame" x="325" y="20" width="272" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" alignment="left" title="実行可能ファイルと非システムバイナリイメージの名前、パス、およびシンボルは難読化されます。" id="oMg-qJ-dsJ">
+                        <font key="font" size="11" name=".HiraKakuInterface-W3"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
-            <point key="canvasLocation" x="-67" y="-184"/>
+            <point key="canvasLocation" x="-35" y="-24"/>
         </customView>
     </objects>
 </document>

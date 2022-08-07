@@ -25,7 +25,15 @@
     IBOutlet NSButton * _allContentsRadioButton;
     
     IBOutlet NSButton * _selectionOnlyRadioButton;
+    
+    // Obfuscate Contents
+    
+    IBOutlet NSButton * _obfuscateContentsRadioButton;
+    
+    IBOutlet NSTextField * _obfuscateDescriptionLabel;
 }
+
+@property (readwrite) BOOL obfuscateContents;
 
 - (IBAction)switchExportFormat:(id)sender;
 
@@ -34,6 +42,20 @@
 @end
 
 @implementation CUIExportAccessoryViewController
+
+- (instancetype)init
+{
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        _obfuscateContents=NO;
+    }
+    
+    return self;
+}
+
+#pragma mark -
 
 - (NSString *)nibName
 {
@@ -56,6 +78,15 @@
     _allContentsRadioButton.enabled=tRadioButtonEnabled;
     
     _allContentsRadioButton.state=NSOnState;
+    
+    // Obfuscate Contents
+    
+    tRadioButtonEnabled=(self.canObfuscateContents==YES);
+    
+    _obfuscateContentsRadioButton.enabled=tRadioButtonEnabled;
+    _obfuscateContentsRadioButton.state=NSOffState;
+    
+    _obfuscateDescriptionLabel.textColor=(tRadioButtonEnabled==YES) ? [NSColor labelColor] : [NSColor disabledControlTextColor];
 }
 
 #pragma mark -
@@ -92,6 +123,21 @@
     return CUICrashLogExportedContentsSelection;
 }
 
+- (void)setCanObfuscateContents:(BOOL)inCanObfuscateContents
+{
+    _canObfuscateContents=inCanObfuscateContents;
+    
+    if (_canObfuscateContents==YES)
+    {
+        _obfuscateContentsRadioButton.enabled=YES;
+    }
+    else
+    {
+        _obfuscateContentsRadioButton.enabled=NO;
+        _obfuscateContentsRadioButton.state=NSOffState;
+    }
+}
+
 #pragma mark -
 
 - (IBAction)switchExportFormat:(NSPopUpButton *)sender
@@ -117,12 +163,36 @@
             self.savePanel.allowedFileTypes=@[@"pdf"];
             
             break;
+            
+        case CUICrashLogExportFormatText:
+            
+            self.savePanel.allowedFileTypes=@[@"crash"];
+            
+            break;
     }
 }
 
 - (IBAction)switchExportedContents:(id)sender
 {
     // Not used at this time
+}
+
+- (IBAction)switchObfuscateContents:(NSButton *)sender
+{
+    BOOL tObfuscateContents=(sender.state==NSOnState);
+    
+    if (tObfuscateContents==_obfuscateContents)
+        return;
+    
+    _obfuscateContents=tObfuscateContents;
+    
+    if (self.canSelectExportedContents==YES)
+    {
+        _selectionOnlyRadioButton.enabled=(_obfuscateContents==NO);
+        
+        if (_obfuscateContents==YES)
+            _allContentsRadioButton.state=NSOnState;
+    }
 }
 
 @end

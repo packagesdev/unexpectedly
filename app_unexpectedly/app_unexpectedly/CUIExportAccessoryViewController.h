@@ -19,7 +19,8 @@ typedef NS_ENUM(NSUInteger, CUICrashLogExportFormat)
 {
     CUICrashLogExportFormatHTML=0,
     CUICrashLogExportFormatRTF,
-    CUICrashLogExportFormatPDF
+    CUICrashLogExportFormatPDF,
+    CUICrashLogExportFormatText
 };
 
 typedef NS_ENUM(NSUInteger, CUICrashLogExportedContentsType)
@@ -29,8 +30,7 @@ typedef NS_ENUM(NSUInteger, CUICrashLogExportedContentsType)
 };
 
 @interface CUIExportAccessoryViewController : NSViewController
-{
-}
+
     @property NSSavePanel * savePanel;
 
     @property (nonatomic) CUICrashLogExportFormat exportFormat;
@@ -38,6 +38,10 @@ typedef NS_ENUM(NSUInteger, CUICrashLogExportedContentsType)
     @property (nonatomic) BOOL canSelectExportedContents;
 
     @property (nonatomic,readonly) CUICrashLogExportedContentsType exportedContents;
+
+    @property (nonatomic) BOOL canObfuscateContents;
+
+    @property (readonly) BOOL obfuscateContents;
 
     @property (nonatomic) CUITextModeDisplaySettings * displaySettings;
 
