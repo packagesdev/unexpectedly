@@ -189,6 +189,7 @@
     if (self.canSelectExportedContents==YES)
     {
         _selectionOnlyRadioButton.enabled=(_obfuscateContents==NO);
+        _allContentsRadioButton.enabled=(_obfuscateContents==NO);
         
         if (_obfuscateContents==YES)
             _allContentsRadioButton.state=NSOnState;
