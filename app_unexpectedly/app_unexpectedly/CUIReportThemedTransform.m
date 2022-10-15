@@ -210,17 +210,10 @@
     
     if (tBinaryImage!=nil)
     {
-        NSString * tPath=tBinaryImage.path;
+        tIsUserCode = tBinaryImage.isUserCode;
         
-        if (tBinaryImage.isMainImage==YES)
-        {
+        if (tIsUserCode==NO && [tBinaryImage.path isEqualToString:self.processPath]==YES)
             tIsUserCode=YES;
-        }
-        else
-        {
-            if ([tPath isEqualToString:self.processPath]==YES)
-                tIsUserCode=YES;
-        }
     }
     
     if (tIsUserCode==NO)

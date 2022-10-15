@@ -72,6 +72,11 @@
     
     switch(tHeader.codeType)
     {
+        case CUICodeTypeX86:
+            
+            tArchitectureValue=@"i386";
+            break;
+            
         case CUICodeTypeX86_64:
             
             tArchitectureValue=@"x86-64";

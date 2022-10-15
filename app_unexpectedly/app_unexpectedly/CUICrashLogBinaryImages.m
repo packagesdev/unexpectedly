@@ -99,9 +99,6 @@
             }
             else
             {
-                if (bIndex==0 && tBinaryImage.isUserCode==YES)
-                    tBinaryImage.mainImage=YES;
-                
                 tBinaryImagesRegistry[tBinaryImage.identifier]=tBinaryImage;
                 
                 NSString * tBinartName=tBinaryImage.path.lastPathComponent;
@@ -159,9 +156,6 @@
             
             return;
         }
-        
-        if (bLineNumber==0 && tBinaryImage.isUserCode==YES)
-            tBinaryImage.mainImage=YES;
         
         [tBinaryImages addObject:tBinaryImage];
         

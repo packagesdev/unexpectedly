@@ -101,6 +101,8 @@
 
     @property CUIAddressesRange * addressesRange;
 
+- (BOOL)_isUserCode;
+
 @end
 
 // Line example:
@@ -168,8 +170,6 @@
             }
         }
         
-        
-        
         if (inReportVersion==6)
         {
             // Remove the version
@@ -192,7 +192,7 @@
             tString=tOriginalString;
         }
         
-        if ([tString hasPrefix:@"+"]==YES && tString.length>1)
+        if ([tString hasPrefix:@"+"]==YES && tString.length>1)  // Cheap way to find that a binary image is user code.
         {
             _userCode=YES;
             
@@ -273,6 +273,10 @@
             return nil;
         
         _path=[[inString substringFromIndex:tScanner.scanLocation] stringByTrimmingCharactersInSet:tWhitespaceCharacterSet];
+        
+        // User Code
+        
+        _userCode = (_userCode == YES) ? YES : [self _isUserCode];
     }
     
     return self;
@@ -320,10 +324,61 @@
 {
     NSUInteger tLoadAddress=self.addressesRange.loadAddress;
     
-    if (tLoadAddress>0x7fff00000000 || self.mainImage==NO)
+    if (tLoadAddress>0x7fff00000000)    // Won't happen with ARM-64.
         return tLoadAddress;
     
-    return (tLoadAddress-0x100000000);
+    if (tLoadAddress>=0x100000000)
+        return (tLoadAddress-0x100000000);
+    
+    return tLoadAddress;    // 32-bit
+}
+
+- (BOOL)_isUserCode
+{
+    NSString * tIdentifier=self.identifier;
+    
+    if (tIdentifier!=nil)
+    {
+        if ([tIdentifier hasPrefix:@"com.apple."]==YES)
+            return NO;
+    }
+    
+    NSString * tPath=self.path;
+    
+    if (tPath!=nil)
+    {
+        if ([tPath hasPrefix:@"/System/"]==YES)
+            return NO;
+        
+        if ([tPath hasPrefix:@"/usr/"]==YES)
+        {
+            if ([tPath hasPrefix:@"/usr/bin"]==YES)
+                return NO;
+            
+            if ([tPath hasPrefix:@"/usr/sbin"]==YES)
+                return NO;
+            
+            if ([tPath hasPrefix:@"/usr/lib"]==YES)
+                return NO;
+            
+            if ([tPath hasPrefix:@"/usr/libexec"]==YES)
+                return NO;
+            
+            if ([tPath hasPrefix:@"/usr/share"]==YES)
+                return NO;
+        }
+        
+        if ([tPath hasPrefix:@"/bin/"]==YES)
+            return NO;
+        
+        if ([tPath hasPrefix:@"/sbin/"]==YES)
+            return NO;
+        
+        if ([tPath hasPrefix:@"/Library/Apple"]==YES)
+            return NO;
+    }
+    
+    return YES;
 }
 
 @end
