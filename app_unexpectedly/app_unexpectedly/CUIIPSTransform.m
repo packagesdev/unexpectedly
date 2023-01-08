@@ -462,7 +462,14 @@
     tMutableAttributedString=[[self attributedStringForKey:@"Exception Type:"] mutableCopy];
     [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@"        "]];
     
-    NSMutableAttributedString * tValueAttributedString=[[self attributedStringForPlainTextWithFormat:@"%@ (%@)",tException.type,tException.signal] mutableCopy];
+    NSAttributedString * tAttributedString;
+    
+    if (tException.signal!=nil)
+        tAttributedString=[self attributedStringForPlainTextWithFormat:@"%@ (%@)",tException.type,tException.signal];
+    else
+        tAttributedString=[self attributedStringForPlainTextWithFormat:@"%@",tException.type];
+    
+    NSMutableAttributedString * tValueAttributedString=[tAttributedString mutableCopy];
     
     switch(self.hyperlinksStyle)
     {
