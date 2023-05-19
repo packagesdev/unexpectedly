@@ -146,11 +146,13 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     [tNotificationCenter addObserver:self selector:@selector(sourceDidUpdateSource:) name:CUICrashLogsSourceDidUpdateSourceNotification object:nil];
     
     [tNotificationCenter addObserver:self selector:@selector(sourcesSelectionDidChange:) name:CUICrashLogsSourcesSelectionDidChangeNotification object:_sourcesSelection];
+    
+    [self tableViewSelectionDidChange:[NSNotification notificationWithName:NSTableViewSelectionDidChangeNotification object:_tableView userInfo:nil]];
 }
 
 - (void)viewDidAppear
 {
-    [self tableViewSelectionDidChange:[NSNotification notificationWithName:NSTableViewSelectionDidChangeNotification object:_tableView userInfo:nil]];
+    [super viewDidAppear];
 }
 
 #pragma mark -
@@ -159,11 +161,22 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 {
     NSRect tEffectiveRect;
     
-    tEffectiveRect.origin.x=NSMaxX(_removeButton.frame);
-    tEffectiveRect.size.width=NSMinX(_actionPopUpButton.frame)-tEffectiveRect.origin.x;
+    if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+    {
+        tEffectiveRect.origin.x=NSMaxX(_removeButton.frame);
+        tEffectiveRect.size.width=NSMinX(_actionPopUpButton.frame)-tEffectiveRect.origin.x;
     
-    tEffectiveRect.origin.y=NSHeight(_tableView.enclosingScrollView.frame);
-    tEffectiveRect.size.height=NSMinY(_tableView.enclosingScrollView.frame);
+        tEffectiveRect.origin.y=NSHeight(_tableView.enclosingScrollView.frame);
+        tEffectiveRect.size.height=NSMinY(_tableView.enclosingScrollView.frame);
+    }
+    else
+    {
+        tEffectiveRect.origin.x=NSMaxX(_actionPopUpButton.frame);
+        tEffectiveRect.size.width=NSMinX(_removeButton.frame)-tEffectiveRect.origin.x;
+        
+        tEffectiveRect.origin.y=NSHeight(_tableView.enclosingScrollView.frame);
+        tEffectiveRect.size.height=NSMinY(_tableView.enclosingScrollView.frame);
+    }
     
     return tEffectiveRect;
 }

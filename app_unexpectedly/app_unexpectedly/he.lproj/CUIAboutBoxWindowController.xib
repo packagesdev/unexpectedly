@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUIAboutBoxWindowController">
+            <connections>
+                <outlet property="_applicationIconView" destination="tcA-WF-uA0" id="MLS-Td-B8a"/>
+                <outlet property="_versionLabel" destination="ttD-QV-oac" id="Dvu-Z7-kin"/>
+                <outlet property="window" destination="Bdk-2N-UfM" id="lij-6E-9Ij"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Bdk-2N-UfM" userLabel="About Window" customClass="CUIAboutBoxWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="1076" y="858" width="580" height="340"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <value key="minSize" type="size" width="213" height="107"/>
+            <view key="contentView" id="M7a-oa-Rve">
+                <rect key="frame" x="0.0" y="0.0" width="580" height="340"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box autoresizesSubviews="NO" boxType="custom" borderType="none" title="Box" id="oOh-j5-H4F" customClass="CUIContentBox">
+                        <rect key="frame" x="0.0" y="0.0" width="580" height="340"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <view key="contentView" id="wo7-V5-OLy">
+                            <rect key="frame" x="0.0" y="0.0" width="580" height="340"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" id="99t-xE-l89">
+                                    <rect key="frame" x="39" y="237" width="244" height="33"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Unexpectedly" id="T3S-Ay-pmi">
+                                        <font key="font" metaFont="systemBold" size="27"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ttD-QV-oac">
+                                    <rect key="frame" x="44" y="216" width="234" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="version xxx (xxxx)" id="zzd-sb-nLW">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="1i6-Ud-XKB">
+                                    <rect key="frame" x="18" y="121" width="265" height="13"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="© 2020–2023‏ Stéphane Sudre כל הזכויות שמורות." id="Xdh-fz-kMR">
+                                        <font key="font" metaFont="system" size="10"/>
+                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <customView id="ph8-bY-NfI" customClass="CUIAboutBoxFooterView">
+                                    <rect key="frame" x="0.0" y="0.0" width="581" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" id="BFt-hQ-gMS">
+                                            <rect key="frame" x="20" y="11" width="108" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="squareTextured" title="הסכם רישיון" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="Pec-zi-7OB">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" size="13" name=".ArialHebrewDeskInterface"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="showLicenseAgreement:" target="-2" id="a9e-i5-Dsu"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="GUS-e1-oXY">
+                                            <rect key="frame" x="134" y="11" width="108" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="squareTextured" title="תודות" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="tds-hN-Zey">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" size="13" name=".ArialHebrewDeskInterface"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="showAcknowledgments:" target="-2" id="vyh-yi-H1N"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </customView>
+                                <customView id="tcA-WF-uA0" customClass="CUIApplicationIconView">
+                                    <rect key="frame" x="304" y="64" width="256" height="256"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                </customView>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="71" y="93"/>
+        </window>
+    </objects>
+</document>

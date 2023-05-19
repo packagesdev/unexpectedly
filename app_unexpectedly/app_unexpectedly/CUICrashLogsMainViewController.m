@@ -29,9 +29,9 @@
 
 typedef NS_ENUM(NSUInteger, CUISplitViewSubViewTag)
 {
-    CUISplitViewLeftViewTag=0,
+    CUISplitViewSidebarViewTag=0,
     CUISplitViewMiddleViewTag=1,
-    CUISplitViewRightViewTag=2,
+    CUISplitViewInspectorViewTag=2,
 };
 
 
@@ -40,9 +40,9 @@ NSString * const CUIDefaultsSidebarWidthKey=@"sidebar.width";
 NSString * const CUIDefaultsSidebarCollapsedKey=@"sidebar.collapsed";
 
 
-NSString * const CUIDefaultsRightViewWidthKey=@"rightView.width";
+NSString * const CUIDefaultsInspectorViewWidthKey=@"rightView.width";
 
-NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
+NSString * const CUIDefaultsInspectorViewCollapsedKey=@"rightView.collapsed";
 
 
 @interface CUICrashLogsMainViewController () <NSSplitViewDelegate>
@@ -59,17 +59,17 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
     
     CUIContentsViewController * _contentsViewController;
     
-    CUIRightViewController * _rightViewController;
+    CUIRightViewController * _inspectorViewController;
     
 }
 
-- (void)updateNetKeyViews;
+- (void)updateNextKeyViews;
 
 - (IBAction)showHideViews:(id)sender;
 
 //- (IBAction)switchPresentationMode:(NSMenuItem *)sender;
 
-- (void)_splitView:(NSSplitView *)inSplitView resizeSubviewsWithSidebarWidth:(CGFloat)inSidebarWidth rightViewWidth:(CGFloat)inRightViewWidth;
+- (void)_splitView:(NSSplitView *)inSplitView resizeSubviewsWithSidebarWidth:(CGFloat)inSidebarWidth inspectorViewWidth:(CGFloat)inInspectorViewWidth;
 
 @end
 
@@ -85,13 +85,13 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
         
         _contentsViewController=[CUIContentsViewController new];
         
-        _rightViewController=[CUIRightViewController new];
+        _inspectorViewController=[CUIRightViewController new];
         
         [self addChildViewController:_sidebarViewController];
         
         [self addChildViewController:_contentsViewController];
         
-        [self addChildViewController:_rightViewController];
+        [self addChildViewController:_inspectorViewController];
     }
     
     return self;
@@ -150,19 +150,35 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
 {
     [super viewDidLoad];
     
-    _rightViewController.view.frame=_rightView.bounds;
+    BOOL tIsLeftToRightLayout=(_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight);
     
-    [_rightView addSubview:_rightViewController.view];
+    NSView *tSidebarView;
+    NSView *tInspectorView;
+    
+    if (tIsLeftToRightLayout==YES)
+    {
+        tSidebarView=_leftView;
+        tInspectorView=_rightView;
+    }
+    else
+    {
+        tSidebarView=_rightView;
+        tInspectorView=_leftView;
+    }
+    
+    _inspectorViewController.view.frame=tInspectorView.bounds;
+    
+    [tInspectorView addSubview:_inspectorViewController.view];
     
     _contentsViewController.view.frame=_middleView.bounds;
     
     [_middleView addSubview:_contentsViewController.view];
     
-    _sidebarViewController.view.frame=_leftView.bounds;
+    _sidebarViewController.view.frame=tSidebarView.bounds;
     
-    [_leftView addSubview:_sidebarViewController.view];
+    [tSidebarView addSubview:_sidebarViewController.view];
     
-    [self updateNetKeyViews];
+    [self updateNextKeyViews];
 }
 
 - (void)viewDidAppear
@@ -171,17 +187,28 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
     
     // Restore SplitView divider position
     
+    BOOL tIsLeftToRightLayout=(_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight);
     NSUserDefaults * tUserDefaults=[NSUserDefaults standardUserDefaults];
     
     NSNumber * tNumber=[tUserDefaults objectForKey:CUIDefaultsSidebarCollapsedKey];
     
     if ([tNumber boolValue]==YES)
-        [_splitView setPosition:[_splitView minPossiblePositionOfDividerAtIndex:0] ofDividerAtIndex:0];
+    {
+        if (tIsLeftToRightLayout==YES)
+            [_splitView setPosition:[_splitView minPossiblePositionOfDividerAtIndex:0] ofDividerAtIndex:0];
+        else
+             [_splitView setPosition:[_splitView maxPossiblePositionOfDividerAtIndex:1] ofDividerAtIndex:1];
+    }
     
-    tNumber=[tUserDefaults objectForKey:CUIDefaultsRightViewCollapsedKey];
+    tNumber=[tUserDefaults objectForKey:CUIDefaultsInspectorViewCollapsedKey];
     
     if ([tNumber boolValue]==YES)
-        [_splitView setPosition:[_splitView maxPossiblePositionOfDividerAtIndex:1] ofDividerAtIndex:1];
+    {
+        if (tIsLeftToRightLayout==NO)
+            [_splitView setPosition:[_splitView minPossiblePositionOfDividerAtIndex:0] ofDividerAtIndex:0];
+        else
+            [_splitView setPosition:[_splitView maxPossiblePositionOfDividerAtIndex:1] ofDividerAtIndex:1];
+    }
     
     CGFloat tSidebarWidth=CUISidebarMinimumWidth;
     
@@ -190,23 +217,33 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
     if (tNumber!=nil)
         tSidebarWidth=[tNumber doubleValue];
     
-    CGFloat tRightViewWidth=CUIInspectorMinimumWidth;
+    CGFloat tInspectorViewWidth=CUIInspectorMinimumWidth;
     
-    tNumber=[tUserDefaults objectForKey:CUIDefaultsRightViewWidthKey];
+    tNumber=[tUserDefaults objectForKey:CUIDefaultsInspectorViewWidthKey];
     
     if (tNumber!=nil)
-        tRightViewWidth=[tNumber doubleValue];
+        tInspectorViewWidth=[tNumber doubleValue];
     
-    [self _splitView:_splitView resizeSubviewsWithSidebarWidth:tSidebarWidth rightViewWidth:tRightViewWidth];
+    [self _splitView:_splitView resizeSubviewsWithSidebarWidth:tSidebarWidth inspectorViewWidth:tInspectorViewWidth];
 }
 
 - (void)viewWillDisappear
 {
     // Save SplitView divider position
     
-    NSArray * tSubviews=_splitView.subviews;
+    NSView * tSidebarView=nil;
+    NSView * tInspectorView=nil;
     
-    NSView * tSidebarView=tSubviews[0];
+    if (_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+    {
+        tSidebarView=_leftView;
+        tInspectorView=_rightView;
+    }
+    else
+    {
+        tSidebarView=_rightView;
+        tInspectorView=_leftView;
+    }
     
     NSUserDefaults * tUserDefaults=[NSUserDefaults standardUserDefaults];
     
@@ -214,16 +251,14 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
     
     [tUserDefaults setBool:[_splitView isSubviewCollapsed:tSidebarView] forKey:CUIDefaultsSidebarCollapsedKey];
     
-    NSView * tRightView=tSubviews[2];
+    [tUserDefaults setObject:@(NSWidth(tInspectorView.frame)) forKey:CUIDefaultsInspectorViewWidthKey];
     
-    [tUserDefaults setObject:@(NSWidth(tRightView.frame)) forKey:CUIDefaultsRightViewWidthKey];
-    
-    [tUserDefaults setBool:[_splitView isSubviewCollapsed:tRightView] forKey:CUIDefaultsRightViewCollapsedKey];
+    [tUserDefaults setBool:[_splitView isSubviewCollapsed:tInspectorView] forKey:CUIDefaultsInspectorViewCollapsedKey];
 }
 
 #pragma mark -
 
-- (void)updateNetKeyViews
+- (void)updateNextKeyViews
 {
     NSView * tContentsFirstKeyView=_contentsViewController.firstKeyView;
     
@@ -263,11 +298,25 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
     
     if (tAction==@selector(showHideViews:)==YES)
     {
+        NSView * sidebarView=nil;
+        NSView * inspectorView=nil;
+        
+        if (_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+        {
+            sidebarView=_leftView;
+            inspectorView=_rightView;
+        }
+        else
+        {
+            sidebarView=_rightView;
+            inspectorView=_leftView;
+        }
+        
         switch(inMenuItem.tag)
         {
-            case CUISplitViewLeftViewTag:
+            case CUISplitViewSidebarViewTag:
                 
-                inMenuItem.title=([_splitView isSubviewCollapsed:_leftView]==YES) ? NSLocalizedString(@"Show Sidebar", @"") : NSLocalizedString(@"Hide Sidebar", @"");
+                inMenuItem.title=([_splitView isSubviewCollapsed:sidebarView]==YES) ? NSLocalizedString(@"Show Sidebar", @"") : NSLocalizedString(@"Hide Sidebar", @"");
                 
                 break;
                 
@@ -283,9 +332,9 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
                 
                 break;
                 
-            case CUISplitViewRightViewTag:
+            case CUISplitViewInspectorViewTag:
                 
-                inMenuItem.title=([_splitView isSubviewCollapsed:_rightView]==YES) ? NSLocalizedString(@"Show Inspector", @"") : NSLocalizedString(@"Hide Inspector", @"");
+                inMenuItem.title=([_splitView isSubviewCollapsed:inspectorView]==YES) ? NSLocalizedString(@"Show Inspector", @"") : NSLocalizedString(@"Hide Inspector", @"");
                 
                 break;
         }
@@ -303,15 +352,15 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
     
     if ([sender isKindOfClass:[NSSegmentedControl class]]==YES)
     {
-        tSwitchTag=CUISplitViewMiddleViewTag;
+        tSwitchTag=1;
         
         NSSegmentedControl * tSegmentedControl=(NSSegmentedControl *)sender;
         
-        if ([tSegmentedControl isSelectedForSegment:CUISplitViewLeftViewTag]==tIsLeftViewCollapsed)
-            tSwitchTag=CUISplitViewLeftViewTag;
+        if ([tSegmentedControl isSelectedForSegment:0]==tIsLeftViewCollapsed)
+            tSwitchTag=0;
         
-        if ([tSegmentedControl isSelectedForSegment:CUISplitViewRightViewTag]==tIsRightViewCollapsed)
-            tSwitchTag=CUISplitViewRightViewTag;
+        if ([tSegmentedControl isSelectedForSegment:2]==tIsRightViewCollapsed)
+            tSwitchTag=2;
     }
     else if ([sender isKindOfClass:[NSMenuItem class]]==YES)
     {
@@ -322,7 +371,7 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
     
     switch(tSwitchTag)
     {
-        case CUISplitViewLeftViewTag:
+        case 0:
             
             if (tIsLeftViewCollapsed==NO)
             {
@@ -342,13 +391,13 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
             
             break;
         
-        case CUISplitViewMiddleViewTag:
+        case 1:
             
             [_contentsViewController showHideBottomView:self];
             
             break;
             
-        case CUISplitViewRightViewTag:
+        case 2:
             
             if (tIsRightViewCollapsed==NO)
             {
@@ -379,61 +428,109 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
 
 #pragma mark - NSSplitViewDelegate
 
-- (void)_splitView:(NSSplitView *)inSplitView resizeSubviewsWithSidebarWidth:(CGFloat)inSidebarWidth rightViewWidth:(CGFloat)inRightViewWidth
+- (void)_splitView:(NSSplitView *)inSplitView resizeSubviewsWithSidebarWidth:(CGFloat)inSidebarWidth inspectorViewWidth:(CGFloat)inInspectorViewWidth
 {
+    BOOL tIsLeftToRightLayout=(_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight);
+    
+    NSView * tSidebarView=nil;
+    NSView * tInspectorView=nil;
+    
+    if (tIsLeftToRightLayout==YES)
+    {
+        tSidebarView=_leftView;
+        tInspectorView=_rightView;
+    }
+    else
+    {
+        tSidebarView=_rightView;
+        tInspectorView=_leftView;
+    }
+    
     NSRect tSplitViewFrame=inSplitView.frame;
     
-    NSRect tLeftFrame=_leftView.frame;
+    NSRect tSidebarFrame=tSidebarView.frame;
     
-    tLeftFrame.size.width=inSidebarWidth;
+    tSidebarFrame.size.width=inSidebarWidth;
     
-    NSRect tMiddleFrame=_middleView.frame;
-    NSRect tRightFrame=_rightView.frame;
+    NSRect tContentsFrame=_middleView.frame;
+    NSRect tInspectorFrame=tInspectorView.frame;
     
-    tRightFrame.size.width=inRightViewWidth;
+    tInspectorFrame.size.width=inInspectorViewWidth;
     
-    CGFloat tLeftWidth=([inSplitView isSubviewCollapsed:_leftView]==NO) ? NSWidth(tLeftFrame) : 0.0;
-    CGFloat tRightWidth=([inSplitView isSubviewCollapsed:_rightView]==NO) ? NSWidth(tRightFrame) : 0.0;
     
-    tMiddleFrame.size.width=NSWidth(tSplitViewFrame)-tLeftWidth-tRightWidth-2*inSplitView.dividerThickness;
+    CGFloat tSidebarWidth=([inSplitView isSubviewCollapsed:tSidebarView]==NO) ? NSWidth(tSidebarFrame) : 0.0;
+    CGFloat tInspectorWidth=([inSplitView isSubviewCollapsed:tInspectorView]==NO) ? NSWidth(tInspectorFrame) : 0.0;
     
-    if (tMiddleFrame.size.width<CUIContentsMinimumWidth)
+    tContentsFrame.size.width=NSWidth(tSplitViewFrame)-tSidebarWidth-tInspectorWidth-2*inSplitView.dividerThickness;
+    
+    if (tContentsFrame.size.width<CUIContentsMinimumWidth)
     {
-        tMiddleFrame.size.width=CUIContentsMinimumWidth;
+        tContentsFrame.size.width=CUIContentsMinimumWidth;
         
-        tRightWidth=NSWidth(tSplitViewFrame)-CUIContentsMinimumWidth-tLeftWidth-2*inSplitView.dividerThickness;
+        tInspectorWidth=NSWidth(tSplitViewFrame)-CUIContentsMinimumWidth-tSidebarWidth-2*inSplitView.dividerThickness;
         
-        if (tRightWidth<CUIInspectorMinimumWidth)
+        if (tInspectorWidth<CUIInspectorMinimumWidth)
         {
-            tRightWidth=CUIInspectorMinimumWidth;
-            tLeftWidth=NSWidth(tSplitViewFrame)-CUIContentsMinimumWidth-CUIInspectorMinimumWidth-2*inSplitView.dividerThickness;
+            tInspectorWidth=CUIInspectorMinimumWidth;
+            tSidebarWidth=NSWidth(tSplitViewFrame)-CUIContentsMinimumWidth-CUIInspectorMinimumWidth-2*inSplitView.dividerThickness;
         }
     }
     
-    if ([inSplitView isSubviewCollapsed:_leftView]==NO)
+    if (inSplitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
     {
-        tLeftFrame.origin.x=0;
-        tLeftFrame.size.width=tLeftWidth;
-        tLeftFrame.origin.y=0;
-        tLeftFrame.size.height=NSHeight(tSplitViewFrame);
+        if ([inSplitView isSubviewCollapsed:tSidebarView]==NO)
+        {
+            tSidebarFrame.origin.x=0;
+            tSidebarFrame.size.width=tSidebarWidth;
+            tSidebarFrame.origin.y=0;
+            tSidebarFrame.size.height=NSHeight(tSplitViewFrame);
+            
+            tSidebarView.frame=tSidebarFrame;
+        }
         
-        _leftView.frame=tLeftFrame;
+        tContentsFrame.origin.x=tSidebarWidth+inSplitView.dividerThickness;
+        tContentsFrame.origin.y=0;
+        tContentsFrame.size.height=NSHeight(tSplitViewFrame);
+        
+        _middleView.frame=tContentsFrame;
+        
+        if ([inSplitView isSubviewCollapsed:tInspectorView]==NO)
+        {
+            tInspectorFrame.origin.x=NSWidth(tSplitViewFrame)-tInspectorWidth;
+            tInspectorFrame.size.width=tInspectorWidth;
+            tInspectorFrame.origin.y=0;
+            tInspectorFrame.size.height=NSHeight(tSplitViewFrame);
+            
+            tInspectorView.frame=tInspectorFrame;
+        }
     }
-    
-    tMiddleFrame.origin.x=tLeftWidth+inSplitView.dividerThickness;
-    tMiddleFrame.origin.y=0;
-    tMiddleFrame.size.height=NSHeight(tSplitViewFrame);
-    
-    _middleView.frame=tMiddleFrame;
-    
-    if ([inSplitView isSubviewCollapsed:_rightView]==NO)
+    else
     {
-        tRightFrame.origin.x=NSWidth(tSplitViewFrame)-tRightWidth;
-        tRightFrame.size.width=tRightWidth;
-        tRightFrame.origin.y=0;
-        tRightFrame.size.height=NSHeight(tSplitViewFrame);
+        if ([inSplitView isSubviewCollapsed:tSidebarView]==NO)
+        {
+            tSidebarFrame.origin.x=NSMaxX(tSplitViewFrame)-tSidebarWidth;
+            tSidebarFrame.size.width=tSidebarWidth;
+            tSidebarFrame.origin.y=0;
+            tSidebarFrame.size.height=NSHeight(tSplitViewFrame);
+            
+            tSidebarView.frame=tSidebarFrame;
+        }
         
-        _rightView.frame=tRightFrame;
+        tContentsFrame.origin.x=tInspectorWidth+inSplitView.dividerThickness;
+        tContentsFrame.origin.y=0;
+        tContentsFrame.size.height=NSHeight(tSplitViewFrame);
+        
+        _middleView.frame=tContentsFrame;
+        
+        if ([inSplitView isSubviewCollapsed:tInspectorView]==NO)
+        {
+            tInspectorFrame.origin.x=0;
+            tInspectorFrame.size.width=tInspectorWidth;
+            tInspectorFrame.origin.y=0;
+            tInspectorFrame.size.height=NSHeight(tSplitViewFrame);
+            
+            tInspectorView.frame=tInspectorFrame;
+        }
     }
 }
 
@@ -448,21 +545,39 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
 
 - (void)splitView:(NSSplitView *)inSplitView resizeSubviewsWithOldSize:(NSSize)oldSize
 {
-    NSArray * tSubviews=inSplitView.subviews;
+    BOOL tIsLeftToRightLayout=(_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight);
     
-    NSView *tSidebarView=tSubviews[0];
-    NSView *tRightView=tSubviews[2];
+    NSView * tSidebarView=nil;
+    NSView * tInspectorView=nil;
     
-    [self _splitView:(NSSplitView *)inSplitView resizeSubviewsWithSidebarWidth:NSWidth(tSidebarView.frame) rightViewWidth:NSWidth(tRightView.frame)];
+    if (tIsLeftToRightLayout==YES)
+    {
+        tSidebarView=_leftView;
+        tInspectorView=_rightView;
+    }
+    else
+    {
+        tSidebarView=_rightView;
+        tInspectorView=_leftView;
+    }
+    
+    [self _splitView:(NSSplitView *)inSplitView resizeSubviewsWithSidebarWidth:NSWidth(tSidebarView.frame) inspectorViewWidth:NSWidth(tInspectorView.frame)];
 }
 
 - (CGFloat)splitView:(NSSplitView *)inSplitView constrainMinCoordinate:(CGFloat)proposedMinimumPosition ofSubviewAt:(NSInteger)inDividerIndex
 {
+    BOOL tIsLeftToRightLayout=(_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight);
+    
     switch(inDividerIndex)
     {
         case 0:
             
-            return CUISidebarMinimumWidth;
+            if (tIsLeftToRightLayout==YES)
+                return CUISidebarMinimumWidth;
+            else
+                return CUIInspectorMinimumWidth;
+            
+            break;
             
         case 1:
         {
@@ -481,6 +596,15 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
 
 - (CGFloat)splitView:(NSSplitView *)inSplitView constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)inDividerIndex
 {
+    BOOL tIsLeftToRightLayout=(_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight);
+    
+    NSView *tInspectorView=nil;
+    
+    if (tIsLeftToRightLayout==YES)
+        tInspectorView=_rightView;
+    else
+        tInspectorView=_leftView;
+        
     switch(inDividerIndex)
     {
         case 0:
@@ -489,7 +613,10 @@ NSString * const CUIDefaultsRightViewCollapsedKey=@"rightView.collapsed";
             
         case 1:
             
-            return NSWidth(inSplitView.frame)-CUIInspectorMinimumWidth-inSplitView.dividerThickness;
+            if (tIsLeftToRightLayout==YES)
+                return NSWidth(inSplitView.frame)-CUIInspectorMinimumWidth-inSplitView.dividerThickness;
+            else
+                return NSWidth(inSplitView.frame)-CUISidebarMinimumWidth-inSplitView.dividerThickness;
             
         default:
             

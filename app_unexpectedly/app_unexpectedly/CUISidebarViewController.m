@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2023, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -147,9 +147,7 @@ NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
 {
     // Save SplitView divider position
     
-    NSArray * tSubviews=_splitView.subviews;
-    
-    NSView * tViewTop=tSubviews[0];
+    NSView * tViewTop=_splitView.subviews.firstObject;
     
     NSUserDefaults * tUserDefaults=[NSUserDefaults standardUserDefaults];
     

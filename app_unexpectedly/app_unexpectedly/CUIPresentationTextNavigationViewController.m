@@ -193,6 +193,8 @@
 
 - (void)refreshSourcesMenu
 {
+    NSString * tTitleFormatString=NSLocalizedString(@"%@ - %@", @"");
+    
     [_sourcesPopUpButton removeAllItems];
     
     _sourcesPopUpButton.action=@selector(switchSourceCrashLog:);
@@ -261,7 +263,7 @@
             
             for(CUIRawCrashLog * tCrashLog in tMutableCrashLogs)
             {
-                NSString * tTitle=[NSString stringWithFormat:@"%@ - %@",tCrashLog.processName,[self->_crashLogDateFormatter stringFromDate:tCrashLog.dateTime]];
+                NSString * tTitle=[NSString stringWithFormat:tTitleFormatString,[self->_crashLogDateFormatter stringFromDate:tCrashLog.dateTime],tCrashLog.processName];
                 
                 NSMenuItem * tSubMenuItem=[[NSMenuItem alloc] initWithTitle:tTitle action:@selector(switchSourceCrashLog:) keyEquivalent:@""];
                 
@@ -297,6 +299,8 @@
 
 - (void)refreshCrashLogsMenu
 {
+    NSString * tTitleFormatString=NSLocalizedString(@"%@ - %@", @"");
+    
     [_crashLogsPopUpButton removeAllItems];
     
     NSMutableArray * tMutableCrashLogs=[_sourcesSelection.crashLogs mutableCopy];
@@ -334,7 +338,7 @@
     
     for(CUIRawCrashLog * tCrashLog in tMutableCrashLogs)
     {
-        NSString * tTitle=[NSString stringWithFormat:@"%@ - %@",tCrashLog.processName,[_crashLogDateFormatter stringFromDate:tCrashLog.dateTime]];
+        NSString * tTitle=[NSString localizedStringWithFormat:tTitleFormatString,[_crashLogDateFormatter stringFromDate:tCrashLog.dateTime],tCrashLog.processName];
         
         NSMenuItem * tSubMenuItem=[[NSMenuItem alloc] initWithTitle:tTitle action:@selector(switchCrashLog:) keyEquivalent:@""];
         
