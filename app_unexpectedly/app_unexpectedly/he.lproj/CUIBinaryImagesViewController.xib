@@ -23,7 +23,7 @@
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="JbX-mT-2UH">
                     <rect key="frame" x="6" y="2" width="180" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="CXs-CW-3At">
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" userInterfaceLayoutDirection="rightToLeft" placeholderString="סנן" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="CXs-CW-3At">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -221,9 +221,9 @@
                         <action selector="showInFinder:" target="-2" id="C8h-FR-DuE"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Open With" id="YLm-YP-LL9">
+                <menuItem title="פתח באמצעות" id="YLm-YP-LL9">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Open With" id="SGI-Dm-tOB">
+                    <menu key="submenu" title="פתח באמצעות" id="SGI-Dm-tOB">
                         <items>
                             <menuItem title="-" id="9Ch-Xx-Yu3">
                                 <modifierMask key="keyEquivalentModifierMask"/>

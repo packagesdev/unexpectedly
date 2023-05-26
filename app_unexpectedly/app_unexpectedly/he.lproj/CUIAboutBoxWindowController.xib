@@ -68,7 +68,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="squareTextured" title="הסכם רישיון" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="Pec-zi-7OB">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" size="13" name=".ArialHebrewDeskInterface"/>
+                                                <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="showLicenseAgreement:" target="-2" id="a9e-i5-Dsu"/>
@@ -79,7 +79,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="squareTextured" title="תודות" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="tds-hN-Zey">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" size="13" name=".ArialHebrewDeskInterface"/>
+                                                <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="showAcknowledgments:" target="-2" id="vyh-yi-H1N"/>

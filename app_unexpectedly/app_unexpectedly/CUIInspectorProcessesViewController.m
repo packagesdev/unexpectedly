@@ -35,19 +35,21 @@
     
     // Processes
     
-    _processNameValue.stringValue=[NSString stringWithFormat:@"%@ (%u)",tHeader.processName,tHeader.processIdentifier];
+    NSString * tProcessFormatString=NSLocalizedString(@"%@ (%u)", @"");
+    
+    _processNameValue.stringValue=[NSString stringWithFormat:tProcessFormatString,tHeader.processName,tHeader.processIdentifier];
     
     NSString * tParentProcessName=tHeader.parentProcessName;
     
     if ([tParentProcessName isEqualToString:@"???"]==YES && tHeader.parentProcessIdentifier==1)
         tParentProcessName=@"launchd";
     
-    _parentProcessNameValue.stringValue=[NSString stringWithFormat:@"%@ (%u)",tParentProcessName,tHeader.parentProcessIdentifier];
+    _parentProcessNameValue.stringValue=[NSString stringWithFormat:tProcessFormatString,tParentProcessName,tHeader.parentProcessIdentifier];
     
     if (tHeader.responsibleProcessName==nil && tHeader.responsibleProcessIdentifier==0)
         _responsibleProcessNameValue.stringValue=@"-";
     else
-        _responsibleProcessNameValue.stringValue=[NSString stringWithFormat:@"%@ (%u)",tHeader.responsibleProcessName,tHeader.responsibleProcessIdentifier];
+        _responsibleProcessNameValue.stringValue=[NSString stringWithFormat:tProcessFormatString,tHeader.responsibleProcessName,tHeader.responsibleProcessIdentifier];
 }
 
 @end

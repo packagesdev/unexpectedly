@@ -29,9 +29,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" id="Pvu-81-w7l">
-                    <rect key="frame" x="282" y="205" width="77" height="18"/>
+                    <rect key="frame" x="298" y="204" width="60" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Header" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="zEG-Wx-Nn2">
+                    <buttonCell key="cell" type="check" title="כותרת" bezelStyle="regularSquare" imagePosition="trailing" state="on" inset="2" id="zEG-Wx-Nn2">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -70,17 +70,6 @@
                     </buttonCell>
                     <connections>
                         <action selector="switchShowBacktraces:" target="-2" id="M7z-KY-6jd"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" id="cir-zS-0pp">
-                    <rect key="frame" x="251" y="120" width="108" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Thread State" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="ysb-qv-8M9">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="switchShowThreadState:" target="-2" id="5aJ-mY-Zn1"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="ayi-wa-Elc">
@@ -166,9 +155,9 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="n6c-lM-SZM">
-                    <rect key="frame" x="239" y="283" width="120" height="18"/>
+                    <rect key="frame" x="251" y="283" width="107" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Line numbers" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="8bP-wa-KPh">
+                    <buttonCell key="cell" type="check" title="מספרי שורות" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="8bP-wa-KPh">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -177,14 +166,25 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9bL-sk-EjC">
-                    <rect key="frame" x="363" y="285" width="52" height="17"/>
+                    <rect key="frame" x="363" y="285" width="30" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Show:" id="gBx-bb-vVK">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="הצג:" id="gBx-bb-vVK">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" id="cir-zS-0pp">
+                    <rect key="frame" x="261" y="120" width="98" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="מצב השרשור" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="ysb-qv-8M9">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="switchShowThreadState:" target="-2" id="5aJ-mY-Zn1"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="-63" y="-1862.5"/>
         </customView>

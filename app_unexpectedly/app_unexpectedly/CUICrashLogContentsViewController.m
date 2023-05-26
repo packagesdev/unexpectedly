@@ -195,7 +195,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     {
         NSSegmentedControl * tSegmentedControl=(NSSegmentedControl *)sender;
         
-        tPresentationMode=tSegmentedControl.selectedSegment;
+        tPresentationMode=[tSegmentedControl tagForSegment:tSegmentedControl.selectedSegment];
     }
     else
     {

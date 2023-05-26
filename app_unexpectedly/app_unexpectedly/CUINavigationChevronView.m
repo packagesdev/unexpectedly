@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2023, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -24,9 +24,19 @@
     CGFloat tMidY=round(NSMidY(tBounds));
     
     NSBezierPath * tBezierPath=[NSBezierPath bezierPath];
-    [tBezierPath moveToPoint:NSMakePoint(NSMaxX(tBounds)-5,NSMaxY(tBounds))];
-    [tBezierPath lineToPoint:NSMakePoint(NSMaxX(tBounds)-1,tMidY)];
-    [tBezierPath lineToPoint:NSMakePoint(NSMaxX(tBounds)-5,NSMinY(tBounds))];
+    
+    if (self.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+    {
+        [tBezierPath moveToPoint:NSMakePoint(NSMaxX(tBounds)-5,NSMaxY(tBounds))];
+        [tBezierPath lineToPoint:NSMakePoint(NSMaxX(tBounds)-1,tMidY)];
+        [tBezierPath lineToPoint:NSMakePoint(NSMaxX(tBounds)-5,NSMinY(tBounds))];
+    }
+    else
+    {
+        [tBezierPath moveToPoint:NSMakePoint(NSMaxX(tBounds)-5,NSMaxY(tBounds))];
+        [tBezierPath lineToPoint:NSMakePoint(NSMaxX(tBounds)-9,tMidY)];
+        [tBezierPath lineToPoint:NSMakePoint(NSMaxX(tBounds)-5,NSMinY(tBounds))];
+    }
     
     [tBezierPath stroke];
 }

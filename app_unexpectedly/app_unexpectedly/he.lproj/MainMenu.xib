@@ -73,7 +73,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="קבוז" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="New Smart Source…" keyEquivalent="N" id="Was-JA-tGl">
+                            <menuItem title="מקור חכם חדש…" keyEquivalent="N" id="Was-JA-tGl">
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSmartSource:" target="-1" id="bHg-uP-Kty"/>
                                 </connections>
@@ -92,23 +92,23 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="56E-C3-0cD"/>
-                            <menuItem title="Import Smart Source…" id="lvA-aa-UmE">
+                            <menuItem title="ייבא מקור חכם…" id="lvA-aa-UmE">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_importSmartSource:" target="-1" id="slK-ne-mc7"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Export" id="Pho-kH-aIP">
+                            <menuItem title="ייצא" id="Pho-kH-aIP">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Export" id="3tw-V4-ayi">
+                                <menu key="submenu" title="ייצא" id="3tw-V4-ayi">
                                     <items>
-                                        <menuItem title="Report…" id="9tt-1M-ra5">
+                                        <menuItem title="דוח…" id="9tt-1M-ra5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_exportCrashLog:" target="-1" id="yYt-Vu-UUP"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Smart Source…" id="tTJ-63-TIi">
+                                        <menuItem title="מקור חכם…" id="tTJ-63-TIi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_exportSmartSource:" target="-1" id="gbF-DM-FHr"/>
@@ -118,7 +118,7 @@
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                            <menuItem title="Show in Finder" id="OqK-Vd-hWC">
+                            <menuItem title="הצג ב-Finder" id="OqK-Vd-hWC">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="showInFinder:" target="-1" id="0gW-ak-pFy"/>
@@ -142,7 +142,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="eeq-nE-Puw"/>
-                            <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
+                            <menuItem title="הגדרות דף…" keyEquivalent="P" id="qIS-W8-SiK">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="runPageLayout:" target="-1" id="Din-rz-gC5"/>
@@ -278,7 +278,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kEv-nO-mPM"/>
-                            <menuItem title="Text" keyEquivalent="1" id="qIT-0d-e67">
+                            <menuItem title="מלל" keyEquivalent="1" id="qIT-0d-e67">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="eRM-Kc-O5r"/>
@@ -304,22 +304,22 @@ CA
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Report Viewer" id="nLy-c6-ILM">
                         <items>
-                            <menuItem title="Font Size" id="hLb-MS-G2f">
+                            <menuItem title="גודל גופן" id="hLb-MS-G2f">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Font Size" id="TBb-40-aCS">
+                                <menu key="submenu" title="גודל גופן" id="TBb-40-aCS">
                                     <items>
-                                        <menuItem title="Increase" keyEquivalent="+" id="EXj-Y3-9fM">
+                                        <menuItem title="הגדל" keyEquivalent="+" id="EXj-Y3-9fM">
                                             <connections>
                                                 <action selector="CUI_MENUACTION_increaseFontSize:" target="-1" id="qW5-4J-akR"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Decrease" keyEquivalent="-" id="7i3-Bb-CWM">
+                                        <menuItem title="הקטן" keyEquivalent="-" id="7i3-Bb-CWM">
                                             <connections>
                                                 <action selector="CUI_MENUACTION_decreaseFontSize:" target="-1" id="B2V-VK-bcD"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="P4p-p3-w1I"/>
-                                        <menuItem title="Reset" keyEquivalent="0" id="kfY-hu-eJP">
+                                        <menuItem title="איפוס" keyEquivalent="0" id="kfY-hu-eJP">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_resetFontSize:" target="-1" id="nz0-xy-rD7"/>
@@ -328,12 +328,12 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Themes" id="yjG-UV-U5C">
+                            <menuItem title="ערכת נושא" id="yjG-UV-U5C">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Themes" id="abx-GW-6TZ">
+                                <menu key="submenu" title="ערכת נושא" id="abx-GW-6TZ">
                                     <items>
                                         <menuItem isSeparatorItem="YES" id="NUX-KR-gxh"/>
-                                        <menuItem title="Edit Themes…" id="csr-ry-NgM">
+                                        <menuItem title="ערוך ערכות נושא…" id="csr-ry-NgM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="editThemes:" target="-1" id="F5p-1i-EUu"/>
@@ -347,7 +347,7 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Visible Sections" id="WFL-Rm-rhq">
                                     <items>
-                                        <menuItem title="Header" id="HIC-nM-hNN">
+                                        <menuItem title="כותרת" id="HIC-nM-hNN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchHeaderVisibility:" target="-1" id="WUc-lV-ghf"/>
@@ -373,7 +373,7 @@ CA
                                                 <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-1" id="eUz-AU-LoI"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Thread State" id="RBY-FQ-bMy">
+                                        <menuItem title="מצב השרשור" id="RBY-FQ-bMy">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-1" id="XYE-gq-GnF"/>
@@ -405,7 +405,7 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Jump to Section" id="AcZ-wd-kkj">
                                     <items>
-                                        <menuItem title="Header" id="Bmg-Jh-vql">
+                                        <menuItem title="כותרת" id="Bmg-Jh-vql">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToHeader:" target="-1" id="0VQ-jO-VrD"/>
@@ -431,7 +431,7 @@ CA
                                                 <action selector="CUI_MENUACTION_jumpToBacktraces:" target="-1" id="Sfi-Ce-HQ0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Thread State" id="hfS-oi-1cT">
+                                        <menuItem title="מצב השרשור" id="hfS-oi-1cT">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToThreadState:" target="-1" id="Lbe-gO-nw1"/>
@@ -471,7 +471,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="V2l-48-H4C"/>
-                            <menuItem title="Registers" keyEquivalent="r" id="e57-vP-OAA">
+                            <menuItem title="אוגרים" keyEquivalent="r" id="e57-vP-OAA">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUIMENUACTION_showHideRegisters:" target="-1" id="4GI-98-jKW"/>
@@ -514,9 +514,9 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Debug" hidden="YES" id="cNb-At-Imu">
+                <menuItem title="לנפות" hidden="YES" id="cNb-At-Imu">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Debug" id="OCR-9P-Ipy">
+                    <menu key="submenu" title="לנפות" id="OCR-9P-Ipy">
                         <items>
                             <menuItem title="Crash Reporter" id="QbD-vw-FaL">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -525,19 +525,19 @@ CA
                                         <menuItem title="Operation Mode" enabled="NO" id="rSJ-Ir-6Ad">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Basic" id="cZ2-Me-tJE">
+                                        <menuItem title="בסיסי" id="cZ2-Me-tJE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="1pr-Nb-cUn"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Developer" tag="1" id="Taa-D1-VLv">
+                                        <menuItem title="מפתח" tag="1" id="Taa-D1-VLv">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="Sze-b6-Qb4"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Server" tag="2" id="oZt-M9-dpo">
+                                        <menuItem title="שרת" tag="2" id="oZt-M9-dpo">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterDialogType:" target="Voe-Tx-rLC" id="t2d-3r-nsn"/>

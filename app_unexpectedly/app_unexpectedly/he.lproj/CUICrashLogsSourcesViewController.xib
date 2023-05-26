@@ -137,7 +137,7 @@
                                 <menuItem state="on" image="NSActionTemplate" hidden="YES" id="MSJ-wy-0Je">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Edit…" id="9dK-mu-DL0">
+                                <menuItem title="ייצא…" id="9dK-mu-DL0">
                                     <connections>
                                         <action selector="editSmartSource:" target="-2" id="PmO-aB-nyF"/>
                                     </connections>
@@ -183,14 +183,14 @@
         </customView>
         <menu id="HyN-lT-5sn">
             <items>
-                <menuItem title="Edit…" id="Twv-NI-xzw">
+                <menuItem title="ערוך…" id="Twv-NI-xzw">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="editSmartSource:" target="-2" id="KCD-e6-KYn"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="qHD-mG-1OK"/>
-                <menuItem title="Export…" id="WOP-2L-vqA">
+                <menuItem title="ייצא…" id="WOP-2L-vqA">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="CUI_MENUACTION_exportSmartSource:" target="-2" id="VBk-ZW-3Ao"/>

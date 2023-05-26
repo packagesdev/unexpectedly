@@ -175,7 +175,7 @@
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="F9U-gJ-Z2L">
                     <rect key="frame" x="7" y="3" width="248" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="tN8-2f-IVZ">
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" userInterfaceLayoutDirection="rightToLeft" placeholderString="סנן" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="tN8-2f-IVZ">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -211,7 +211,7 @@
         </customView>
         <menu id="GF9-kL-5e2">
             <items>
-                <menuItem title="Show in Finder" id="mla-Lw-0ux">
+                <menuItem title="הצג ב-Finder" id="mla-Lw-0ux">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showInFinder:" target="-2" id="qpt-X3-Bo6"/>

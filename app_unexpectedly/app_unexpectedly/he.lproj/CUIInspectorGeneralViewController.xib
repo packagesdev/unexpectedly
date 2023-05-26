@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="s8b-in-hjv">
-                    <rect key="frame" x="299" y="59" width="66" height="17"/>
+                    <rect key="frame" x="299" y="59" width="38" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="תאריכ:" id="f0C-O7-hfc">
-                        <font key="font" size="11" name=".ArialHebrewDeskInterface"/>
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -70,7 +70,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Eku-en-ffA">
-                    <rect key="frame" x="331" y="83" width="48" height="14"/>
+                    <rect key="frame" x="345" y="83" width="34" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="כללי" id="Slr-R1-4oS">
                         <font key="font" metaFont="smallSystemBold"/>

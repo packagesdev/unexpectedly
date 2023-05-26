@@ -33,7 +33,7 @@
                             <action selector="showPane:" target="-2" id="JfQ-pF-Hff"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="4277C753-007B-43DA-A729-FE8AC69931C5" explicitItemIdentifier="toolbarItem.fontscolors" label="Fonts &amp; Colors" paletteLabel="Fonts &amp; Colors" selectable="YES" id="SAh-Qi-gC4">
+                    <toolbarItem implicitItemIdentifier="4277C753-007B-43DA-A729-FE8AC69931C5" explicitItemIdentifier="toolbarItem.fontscolors" label="גופנים וצבעים" paletteLabel="גופנים וצבעים" selectable="YES" id="SAh-Qi-gC4">
                         <connections>
                             <action selector="showPane:" target="-2" id="JJk-NZ-vjn"/>
                         </connections>

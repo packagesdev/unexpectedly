@@ -90,7 +90,8 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
 + (void)initialize
 {
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
-                                                              CUIApplicationShowDebugMenuKey:@(NO)
+                                                              CUIApplicationShowDebugMenuKey:@(NO),
+                                                              @"NSScrollViewShouldFlipRulerForRTL":@(NO)
                                                               }];
 }
 

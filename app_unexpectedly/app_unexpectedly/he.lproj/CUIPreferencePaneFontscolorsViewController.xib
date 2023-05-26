@@ -43,7 +43,7 @@
                                     <button id="UoY-kV-fnd" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="210" y="1" width="93" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Text" bezelStyle="regularSquare" alignment="center" inset="2" id="yUb-rK-XWX">
+                                        <buttonCell key="cell" type="radio" title="מלל" bezelStyle="regularSquare" alignment="center" inset="2" id="yUb-rK-XWX">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
                                         </buttonCell>
@@ -65,7 +65,7 @@
                                 </subviews>
                             </customView>
                             <colorWell id="ojb-CW-adm">
-                                <rect key="frame" x="105" y="12" width="44" height="23"/>
+                                <rect key="frame" x="412" y="12" width="44" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -73,18 +73,18 @@
                                 </connections>
                             </colorWell>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0qd-wx-JZe">
-                                <rect key="frame" x="18" y="16" width="81" height="17"/>
+                                <rect key="frame" x="461" y="16" width="32" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Background:" id="tXe-F9-mz7">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="רקע:" id="tXe-F9-mz7">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="x6u-0C-glq">
-                                <rect key="frame" x="195" y="16" width="65" height="17"/>
+                                <rect key="frame" x="267" y="16" width="45" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Selection:" id="5b7-64-CqX">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="בחירה:" id="5b7-64-CqX">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -95,19 +95,19 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <colorWell id="d1A-uU-J9j">
-                                        <rect key="frame" x="270" y="6" width="23" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="218" y="6" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="takeTextColor:" target="-2" id="gBS-3n-BGc"/>
                                         </connections>
                                     </colorWell>
                                     <customView id="cxK-bc-95I" customClass="CUIFontBoxView">
-                                        <rect key="frame" x="11" y="7" width="251" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="249" y="7" width="251" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Gpc-y1-LVL">
-                                                <rect key="frame" x="6" y="3" width="216" height="17"/>
+                                                <rect key="frame" x="29" y="3" width="216" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="NnJ-xy-baM">
                                                     <font key="font" metaFont="system"/>
@@ -116,8 +116,8 @@
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" id="VXB-fG-DZO">
-                                                <rect key="frame" x="228" y="2" width="18" height="18"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="5" y="2" width="18" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <buttonCell key="cell" type="bevel" title="Button" bezelStyle="rounded" image="FontPanelButton" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="PCX-V4-Ul7">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -130,14 +130,6 @@
                                     </customView>
                                 </subviews>
                             </customView>
-                            <colorWell id="tI7-g9-Ub1">
-                                <rect key="frame" x="266" y="12" width="44" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="takeTextSelectionBackgroundColor:" target="-2" id="3Lx-04-mDx"/>
-                                </connections>
-                            </colorWell>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="kKc-J1-3fa">
                                 <rect key="frame" x="-1" y="92" width="513" height="298"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,7 +196,7 @@
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E3D-RK-YW7">
-                                <rect key="frame" x="332" y="16" width="90" height="17"/>
+                                <rect key="frame" x="70" y="16" width="90" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Selected Text:" id="hlx-fO-U4G">
                                     <font key="font" metaFont="system"/>
@@ -213,11 +205,19 @@
                                 </textFieldCell>
                             </textField>
                             <colorWell id="smi-ou-IW9">
-                                <rect key="frame" x="428" y="12" width="44" height="23"/>
+                                <rect key="frame" x="20" y="12" width="44" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="takeSelectedTextColor:" target="-2" id="St4-Kf-cho"/>
+                                </connections>
+                            </colorWell>
+                            <colorWell id="tI7-g9-Ub1">
+                                <rect key="frame" x="217" y="12" width="44" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="takeTextSelectionBackgroundColor:" target="-2" id="3Lx-04-mDx"/>
                                 </connections>
                             </colorWell>
                         </subviews>
@@ -239,7 +239,7 @@
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
                                     <tableColumn width="162" minWidth="40" maxWidth="1000" id="8z8-zq-M80">
-                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Theme">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="ערכת נושא">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -308,9 +308,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="umy-j0-XLf">
-                    <rect key="frame" x="14" y="13" width="141" height="32"/>
+                    <rect key="frame" x="14" y="13" width="163" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="Restore Defaults" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CuZ-Pa-zjm">
+                    <buttonCell key="cell" type="push" title="שחזר ברירות-המחדל" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CuZ-Pa-zjm">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -331,7 +331,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="smallSquare" title="שכפל" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qIb-6V-bKQ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" size="11" name=".ArialHebrewDeskInterface"/>
+                        <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
                     <connections>
                         <action selector="duplicate:" target="-2" id="Xri-vW-CH4"/>
@@ -342,26 +342,26 @@
         </customView>
         <menu id="eAx-eb-TeX">
             <items>
-                <menuItem title="Duplicate" id="RpP-Yq-5CH">
+                <menuItem title="שכפל" id="RpP-Yq-5CH">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="duplicate:" target="-2" id="Afi-lx-Njn"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Delete…" id="pgM-Ek-dMO">
+                <menuItem title="מחק…" id="pgM-Ek-dMO">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="delete:" target="-2" id="Rjs-es-rtG"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="Zf1-4a-jgB"/>
-                <menuItem title="Import Theme…" id="5HI-nQ-F9G">
+                <menuItem title="ייבא ערכת נושא…" id="5HI-nQ-F9G">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="importTheme:" target="-2" id="cy6-qV-ueG"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Export Theme…" id="9mp-BZ-63A">
+                <menuItem title="ייצא ערכת נושא…" id="9mp-BZ-63A">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="exportTheme:" target="-2" id="6h3-pb-u8c"/>

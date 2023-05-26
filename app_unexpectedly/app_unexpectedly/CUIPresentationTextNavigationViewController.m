@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2023, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -126,6 +126,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Set the autoresizing masks based on the layout direction
+    
+    if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+    {
+        _sourcesPopUpButton.autoresizingMask=NSViewMaxXMargin|NSViewMinYMargin;
+        _sourcesPopUpButton.imagePosition=NSImageLeading;
+        
+        _sourcesChevronView.autoresizingMask=NSViewMaxXMargin|NSViewMinYMargin;
+        
+        _crashLogsPopUpButton.autoresizingMask=NSViewMaxXMargin|NSViewMinYMargin;
+        _crashLogsPopUpButton.imagePosition=NSImageLeading;
+        
+        _crashLogsChevronView.autoresizingMask=NSViewMaxXMargin|NSViewMinYMargin;
+        
+        _sectionsPopUpButton.autoresizingMask=NSViewMaxXMargin|NSViewMinYMargin;
+        _sectionsPopUpButton.imagePosition=NSImageLeading;
+    }
+    else
+    {
+        _sourcesPopUpButton.autoresizingMask=NSViewMinXMargin|NSViewMinYMargin;
+        _sourcesPopUpButton.imagePosition=NSImageTrailing;
+        
+        _sourcesChevronView.autoresizingMask=NSViewMinXMargin|NSViewMinYMargin;
+        
+        _crashLogsPopUpButton.autoresizingMask=NSViewMinXMargin|NSViewMinYMargin;
+        _crashLogsPopUpButton.imagePosition=NSImageTrailing;
+        
+        _crashLogsChevronView.autoresizingMask=NSViewMinXMargin|NSViewMinYMargin;
+        
+        _sectionsPopUpButton.autoresizingMask=NSViewMinXMargin|NSViewMinYMargin;
+        _sectionsPopUpButton.imagePosition=NSImageTrailing;
+    }
     
 }
 
@@ -263,7 +296,7 @@
             
             for(CUIRawCrashLog * tCrashLog in tMutableCrashLogs)
             {
-                NSString * tTitle=[NSString stringWithFormat:tTitleFormatString,[self->_crashLogDateFormatter stringFromDate:tCrashLog.dateTime],tCrashLog.processName];
+                NSString * tTitle=[NSString localizedStringWithFormat:tTitleFormatString,tCrashLog.processName,[self->_crashLogDateFormatter stringFromDate:tCrashLog.dateTime]];
                 
                 NSMenuItem * tSubMenuItem=[[NSMenuItem alloc] initWithTitle:tTitle action:@selector(switchSourceCrashLog:) keyEquivalent:@""];
                 
@@ -338,7 +371,7 @@
     
     for(CUIRawCrashLog * tCrashLog in tMutableCrashLogs)
     {
-        NSString * tTitle=[NSString localizedStringWithFormat:tTitleFormatString,[_crashLogDateFormatter stringFromDate:tCrashLog.dateTime],tCrashLog.processName];
+        NSString * tTitle=[NSString localizedStringWithFormat:tTitleFormatString,tCrashLog.processName,[_crashLogDateFormatter stringFromDate:tCrashLog.dateTime]];
         
         NSMenuItem * tSubMenuItem=[[NSMenuItem alloc] initWithTitle:tTitle action:@selector(switchCrashLog:) keyEquivalent:@""];
         
@@ -616,7 +649,9 @@
     
 #define MARGIN  0.0
 
-#define RIGHT_PADDING   10.0
+#define BEGIN_PADDING   3.0
+
+#define END_PADDING   10.0
     
     NSRect tBounds=self.view.bounds;
     
@@ -671,7 +706,8 @@
     
     NSRect tChevronFrame=_sourcesChevronView.frame;
     
-    tTotalWidth+=NSMinX(_sourcesPopUpButton.frame)+(tMutableArray.count-1)*(NSWidth(tChevronFrame)+2.0*MARGIN)+RIGHT_PADDING;
+    
+    tTotalWidth+=BEGIN_PADDING+(tMutableArray.count-1)*(NSWidth(tChevronFrame)+2.0*MARGIN)+END_PADDING;
     
     CGFloat tDifference=tTotalWidth-NSWidth(tBounds);
     
@@ -700,6 +736,11 @@
         
         tRect.size.width=tSize.width;
         
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft)
+        {
+            tRect.origin.x=NSMaxX(tBounds)-NSWidth(tRect)-BEGIN_PADDING;
+        }
+        
         _sourcesPopUpButton.frame=tRect;
         
         return;
@@ -727,19 +768,29 @@
         
         tRect.size.width=tSize.width;
         
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft)
+        {
+            tRect.origin.x=NSMaxX(tBounds)-NSWidth(tRect)-BEGIN_PADDING;
+        }
+        
         _sourcesPopUpButton.frame=tRect;
         
         
         NSRect tFrame=_sourcesChevronView.frame;
         
-        tFrame.origin.x=NSMaxX(tRect)+MARGIN;
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+        {
+            tFrame.origin.x=NSMaxX(tRect)+MARGIN;
+        }
+        else
+        {
+            tFrame.origin.x=NSMinX(tRect)-MARGIN-NSWidth(tFrame);
+        }
         
         _sourcesChevronView.frame=tFrame;
         
         
         tRect=_crashLogsPopUpButton.frame;
-        
-        tRect.origin.x=NSMaxX(_sourcesChevronView.frame)+MARGIN;
         
         tSize=[_crashLogsPopUpButton sizeThatFits:tRect.size];
         
@@ -748,9 +799,25 @@
             tSize.width+=GROSSE_CHIURE_EXTRA_WIDTH;
         }
         
-        if (tDifference>0.0)
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
         {
-            tSize.width=NSMaxX(tBounds)-NSMinX(tRect);
+            tRect.origin.x=NSMaxX(_sourcesChevronView.frame)+MARGIN;
+            
+            if (tDifference>0.0)
+            {
+                tSize.width=NSMaxX(tBounds)-NSMinX(tRect);
+            }
+        }
+        else
+        {
+            tRect.origin.x=NSMinX(_sourcesChevronView.frame)-MARGIN-tSize.width;
+            
+            if (tDifference>0.0)
+            {
+                tSize.width=NSMaxX(tRect)-NSMinX(tBounds);
+                
+                tRect.origin.x=NSMinX(tBounds);
+            }
         }
         
         tRect.size.width=tSize.width;
@@ -780,12 +847,24 @@
         
         tRect.size.width=tSize.width;
         
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft)
+        {
+            tRect.origin.x=NSMaxX(tBounds)-NSWidth(tRect)-BEGIN_PADDING;
+        }
+        
         _sourcesPopUpButton.frame=tRect;
         
         
         NSRect tFrame=_sourcesChevronView.frame;
         
-        tFrame.origin.x=NSMaxX(tRect)+MARGIN;
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+        {
+            tFrame.origin.x=NSMaxX(tRect)+MARGIN;
+        }
+        else
+        {
+            tFrame.origin.x=NSMinX(tRect)-MARGIN-NSWidth(tFrame);
+        }
         
         _sourcesChevronView.frame=tFrame;
         
@@ -801,37 +880,48 @@
             tSize.width+=GROSSE_CHIURE_EXTRA_WIDTH;
         }
         
-        if (tDifference>0.0)
+        if (tDifference>(tSize.width-MIN_WIDTH))
         {
-            if (tDifference>(tSize.width-MIN_WIDTH))
-            {
-                tDifference-=(tSize.width-MIN_WIDTH);
-                
-                tSize.width=MIN_WIDTH;
-            }
-            else
-            {
-                tSize.width-=tDifference;
-                
-                tDifference=0.0;
-            }
+            tDifference-=(tSize.width-MIN_WIDTH);
+            
+            tSize.width=MIN_WIDTH;
+        }
+        else
+        {
+            tSize.width-=tDifference;
+            
+            tDifference=0.0;
         }
         
         tRect.size.width=tSize.width;
+        
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+        {
+            tRect.origin.x=NSMaxX(_sourcesChevronView.frame)+MARGIN;
+        }
+        else
+        {
+            tRect.origin.x=NSMinX(_sourcesChevronView.frame)-MARGIN-tSize.width;
+        }
         
         _crashLogsPopUpButton.frame=tRect;
         
         
         tFrame=_crashLogsChevronView.frame;
         
-        tFrame.origin.x=NSMaxX(tRect)+MARGIN;
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+        {
+            tFrame.origin.x=NSMaxX(tRect)+MARGIN;
+        }
+        else
+        {
+            tFrame.origin.x=NSMinX(tRect)-MARGIN-NSWidth(tFrame);
+        }
         
         _crashLogsChevronView.frame=tFrame;
         
         
         tRect=_sectionsPopUpButton.frame;
-        
-        tRect.origin.x=NSMaxX(_crashLogsChevronView.frame)+MARGIN;
         
         tSize=[_sectionsPopUpButton sizeThatFits:tRect.size];
         
@@ -843,6 +933,15 @@
         if (tDifference>0.0)
         {
             tSize.width=NSMaxX(tBounds)-NSMinX(tRect);
+        }
+        
+        if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+        {
+            tRect.origin.x=NSMaxX(_crashLogsChevronView.frame)+MARGIN;
+        }
+        else
+        {
+            tRect.origin.x=NSMinX(_crashLogsChevronView.frame)-MARGIN-tSize.width;
         }
         
         tRect.size.width=tSize.width;

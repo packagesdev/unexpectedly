@@ -126,13 +126,13 @@
                                 <menuItem image="NSActionTemplate" tag="-1" hidden="YES" id="29W-Zg-HYo">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Show" tag="-1" enabled="NO" id="JK6-HP-t2c">
+                                <menuItem title="הצג" tag="-1" enabled="NO" id="JK6-HP-t2c">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
                                         <action selector="switchDisplayedName:" target="-2" id="83X-bU-gU8"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Process Name" id="Knq-mU-Xyu">
+                                <menuItem title="שם תהליך" id="Knq-mU-Xyu">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
                                         <action selector="switchDisplayedName:" target="-2" id="4jX-xR-Vde"/>
@@ -170,7 +170,7 @@
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" id="kV4-Gy-Y5g">
                     <rect key="frame" x="34" y="2" width="201" height="19"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" placeholderString="Filter" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="vf8-7z-IX2">
+                    <searchFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" userInterfaceLayoutDirection="rightToLeft" placeholderString="סנן" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="vf8-7z-IX2">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -181,7 +181,7 @@
                     </connections>
                 </searchField>
             </subviews>
-            <point key="canvasLocation" x="-70" y="-115"/>
+            <point key="canvasLocation" x="-55" y="-538"/>
         </customView>
         <menu id="K9J-Sc-Re6">
             <items>
