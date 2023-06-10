@@ -290,9 +290,21 @@
     if (tAdjustedFont==nil)
         tAdjustedFont=tFont;
     
+    static NSParagraphStyle * sLeftAlignedStyle=nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        NSMutableParagraphStyle *mutableStyle=[[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        mutableStyle.alignment=NSTextAlignmentLeft;
+        
+        sLeftAlignedStyle = [mutableStyle copy];
+    });
+    
     return @{
              NSFontAttributeName:tAdjustedFont,
-             NSForegroundColorAttributeName:self.textColor
+             NSForegroundColorAttributeName:self.textColor,
+             NSWritingDirectionAttributeName:@[@(NSWritingDirectionLeftToRight)],
+             NSParagraphStyleAttributeName:sLeftAlignedStyle
              };
 }
 
