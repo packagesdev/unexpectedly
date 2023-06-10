@@ -313,7 +313,7 @@
         if (tBinaryImage.buildNumber==nil)
             tTableCellView.textField.stringValue=(tBinaryImage.version!=nil) ? tBinaryImage.version : @"-";
         else
-            tTableCellView.textField.stringValue=[NSString stringWithFormat:@"%@ (%@)",tBinaryImage.version,tBinaryImage.buildNumber];
+            tTableCellView.textField.stringValue=[NSString stringWithFormat:NSLocalizedString(@"%@ (%@)",@""),tBinaryImage.version,tBinaryImage.buildNumber];
     }
     else if ([tTableColumnIdentifier isEqualToString:@"addresses"]==YES)
     {
