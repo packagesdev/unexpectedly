@@ -23,7 +23,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E67-yJ-rtd">
                     <rect key="frame" x="105" y="366" width="94" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Symbol Files:" id="kzW-xF-tfP">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Symbols Files:" id="kzW-xF-tfP">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
