@@ -75,6 +75,18 @@
             
             return @"macOS Big Sur";
             
+        case 12:
+            
+            return @"macOS Monterey";
+            
+        case 13:
+            
+            return @"macOS Ventura";
+            
+        case 14:
+            
+            return @"macOS Sonoma";
+            
         default:
             
             break;
