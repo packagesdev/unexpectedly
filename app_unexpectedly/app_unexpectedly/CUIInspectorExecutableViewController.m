@@ -43,6 +43,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (_executablePathShowButton.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+    {
+        // Mirror image.
+        NSImage * originalImage=_executablePathShowButton.image;
+        
+        NSImage * newTemplate=[NSImage imageWithSize:_executablePathShowButton.bounds.size
+                                             flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
+                                                 
+                                                 NSAffineTransform * transform = [NSAffineTransform transform];
+                                                 
+                                                 [transform translateXBy:NSWidth(self->_executablePathShowButton.bounds) yBy:0];
+                                                 [transform scaleXBy:-1.0 yBy:1.0];
+                                                 [transform concat];
+                                                 
+                                                 [originalImage drawInRect:dstRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+                                                 
+                                                 return YES;
+                                             }];
+        
+        newTemplate.template=YES;
+        
+        _executablePathShowButton.image=newTemplate;
+    }
 }
 
 #pragma mark -
