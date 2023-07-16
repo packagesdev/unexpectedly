@@ -24,8 +24,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <popUpButton toolTip="Filter visible sections" id="o3T-bg-7a6">
-                    <rect key="frame" x="0.0" y="1" width="31" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="661" y="1" width="31" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" id="hR3-DY-z5t">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -34,7 +34,7 @@
                                 <menuItem state="on" image="quote_Template" hidden="YES" id="ggI-rC-fEt">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                 </menuItem>
-                                <menuItem title="Header" id="zdn-EI-sae">
+                                <menuItem title="כותרת" id="zdn-EI-sae">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchHeaderVisibility:" target="-2" id="QIM-JJ-4Lh"/>
                                     </connections>
@@ -56,12 +56,12 @@
                                         <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-2" id="B8j-HN-qA3"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Thread State" id="d7k-xL-Hbq">
+                                <menuItem title="מצב השרשור" id="d7k-xL-Hbq">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-2" id="c9g-bt-Ect"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Binary Images" id="FHu-OU-dEn">
+                                <menuItem title="קבצים בינאריים" id="FHu-OU-dEn">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchBinaryImagesVisibility:" target="-2" id="E7Q-0s-gFI"/>
                                     </connections>
@@ -71,8 +71,8 @@
                     </popUpButtonCell>
                 </popUpButton>
                 <button toolTip="Show only crashed thread" verticalHuggingPriority="750" id="hZe-Mo-RWl">
-                    <rect key="frame" x="574" y="1" width="30" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="87" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="cgk-bN-rIw">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -82,8 +82,8 @@
                     </connections>
                 </button>
                 <button toolTip="Hide or show byte offset" verticalHuggingPriority="750" id="gHh-U9-6ts">
-                    <rect key="frame" x="661" y="1" width="30" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="0.0" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="O1c-Fy-oRt">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -92,9 +92,9 @@
                         <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="s9c-GQ-gYk"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show machine instruction address" verticalHuggingPriority="750" id="V1i-87-jZk">
-                    <rect key="frame" x="632" y="1" width="30" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                <button toolTip="הסתר או הצג את כתובת של פקודת מכונה" verticalHuggingPriority="750" id="V1i-87-jZk">
+                    <rect key="frame" x="29" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="0x" bezelStyle="texturedRounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="N9g-4y-bag">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" size="11" name="Monaco"/>
@@ -103,9 +103,9 @@
                         <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="muF-oq-Yyp"/>
                     </connections>
                 </button>
-                <button toolTip="Hide or show binary name" verticalHuggingPriority="750" id="Ytt-64-lj2">
-                    <rect key="frame" x="603" y="1" width="30" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                <button toolTip="הסתר או הצג את שם הבינארי" verticalHuggingPriority="750" id="Ytt-64-lj2">
+                    <rect key="frame" x="58" y="1" width="30" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="feE-rv-jxh">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -114,20 +114,20 @@
                         <action selector="CUI_MENUACTION_switchShowBinaryImageIdentifier:" target="-2" id="pin-0C-OOg"/>
                     </connections>
                 </button>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="ekh-hq-gUp" customClass="NSCrashLogTextScrollView">
-                    <rect key="frame" x="0.0" y="23" width="692" height="589"/>
+                <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="ekh-hq-gUp" customClass="NSCrashLogTextScrollView">
+                    <rect key="frame" x="-1" y="23" width="694" height="590"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="5MQ-yl-x1z">
-                        <rect key="frame" x="0.0" y="0.0" width="692" height="589"/>
+                        <rect key="frame" x="1" y="1" width="692" height="588"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" smartInsertDelete="YES" id="Gtc-Yk-xtd" customClass="CUICrashLogTextView">
-                                <rect key="frame" x="0.0" y="0.0" width="692" height="589"/>
+                                <rect key="frame" x="0.0" y="0.0" width="692" height="588"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="692" height="589"/>
-                                <size key="maxSize" width="692" height="10000000"/>
+                                <size key="minSize" width="692" height="588"/>
+                                <size key="maxSize" width="694" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
                         </subviews>

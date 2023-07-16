@@ -33,9 +33,9 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ycX-86-LPH">
-                    <rect key="frame" x="299" y="43" width="53" height="14"/>
+                    <rect key="frame" x="299" y="43" width="33" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="Location:" id="SZn-tV-fDm">
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="מָקוֹם:" id="SZn-tV-fDm">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -44,7 +44,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="3RL-Kg-wqv">
                     <rect key="frame" x="299" y="71" width="69" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="ארכיטקטורת:" id="gXy-9k-Kye">
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="ארכיטקטורת:" id="gXy-9k-Kye">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -94,9 +94,9 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JP3-16-pwL">
-                    <rect key="frame" x="313" y="160" width="66" height="14"/>
+                    <rect key="frame" x="313" y="160" width="61" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="Executable" id="hb6-Qr-SQw">
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="קובץ הרצה" id="hb6-Qr-SQw">
                         <font key="font" metaFont="smallSystemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

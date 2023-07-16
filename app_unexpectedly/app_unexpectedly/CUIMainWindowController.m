@@ -174,9 +174,11 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     if (tNumber==nil)
         return;
     
-    [_presentationModeSegmentedControl selectSegmentWithTag:tNumber.integerValue];
+    NSUInteger tMode=tNumber.integerValue;
     
-    [_mainLayoutSegmentedControl setEnabled:(tNumber.integerValue==1) forSegment:1];
+    [_presentationModeSegmentedControl selectSegmentWithTag:tMode];
+    
+    [_mainLayoutSegmentedControl setEnabled:(tMode==1) forSegment:1];
 }
 
 - (void)crashLogsSelectionDidChange:(NSNotification *)inNotification
@@ -188,7 +190,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     
     _presentationModeSegmentedControl.enabled=(tSelection.crashLogs.count>0);
     
-    if (_presentationModeSegmentedControl.selectedSegment==1)
+    if ([_presentationModeSegmentedControl tagForSegment:_presentationModeSegmentedControl.selectedSegment]==1)
     {
         [_mainLayoutSegmentedControl setEnabled:(tSelection.crashLogs.count>0) forSegment:1];
     }

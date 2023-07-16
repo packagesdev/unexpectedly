@@ -23,8 +23,6 @@ NSString * const CUICrashLogPresentationVisibleSectionsDidChangeNotification=@"C
 
 @implementation CUICrashLogPresentationViewController
 
-#pragma mark -
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -31,7 +31,7 @@
                 <button verticalHuggingPriority="750" id="Pvu-81-w7l">
                     <rect key="frame" x="298" y="204" width="60" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="כותרת" bezelStyle="regularSquare" imagePosition="trailing" state="on" inset="2" id="zEG-Wx-Nn2">
+                    <buttonCell key="cell" type="check" title="כותרת" bezelStyle="regularSquare" imagePosition="trailing" state="on" baseWritingDirection="rightToLeft" inset="2" id="zEG-Wx-Nn2">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -75,7 +75,7 @@
                 <button verticalHuggingPriority="750" id="ayi-wa-Elc">
                     <rect key="frame" x="239" y="99" width="120" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Binary Images" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="Kr8-SF-wcL">
+                    <buttonCell key="cell" type="check" title="קבצים בינאריים" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="Kr8-SF-wcL">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -95,7 +95,7 @@
                 <button verticalHuggingPriority="750" id="rRX-kg-J1V">
                     <rect key="frame" x="251" y="60" width="108" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Binary name" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="vWD-FK-a4a">
+                    <buttonCell key="cell" type="check" title="שם בינארי" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="vWD-FK-a4a">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -104,9 +104,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" id="2LX-nh-3AM">
-                    <rect key="frame" x="156" y="39" width="203" height="18"/>
+                    <rect key="frame" x="195" y="39" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Machine instruction address" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="XDv-jS-TfO">
+                    <buttonCell key="cell" type="check" title="כתובת של פקודת מכונה" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="XDv-jS-TfO">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -157,7 +157,7 @@
                 <button verticalHuggingPriority="750" id="n6c-lM-SZM">
                     <rect key="frame" x="251" y="283" width="107" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="מספרי שורות" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="8bP-wa-KPh">
+                    <buttonCell key="cell" type="check" title="מספרי שורות" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="8bP-wa-KPh">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -177,7 +177,7 @@
                 <button verticalHuggingPriority="750" id="cir-zS-0pp">
                     <rect key="frame" x="261" y="120" width="98" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="מצב השרשור" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="ysb-qv-8M9">
+                    <buttonCell key="cell" type="check" title="מצב השרשור" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="ysb-qv-8M9">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

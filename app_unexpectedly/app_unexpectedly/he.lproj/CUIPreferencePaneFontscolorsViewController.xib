@@ -54,9 +54,9 @@
                                     <button hidden="YES" tag="1" id="PFb-pf-cDg" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="273" y="1" width="93" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Outline" bezelStyle="regularSquare" alignment="center" enabled="NO" tag="1" inset="2" id="0bp-JB-hgi">
+                                        <buttonCell key="cell" type="radio" title="מתווה" bezelStyle="regularSquare" alignment="center" enabled="NO" tag="1" inset="2" id="0bp-JB-hgi">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" metaFont="system" size="12"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="switchSelectedPresentationMode:" target="-2" id="CaH-UR-hXI"/>
@@ -75,16 +75,16 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0qd-wx-JZe">
                                 <rect key="frame" x="461" y="16" width="32" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="רקע:" id="tXe-F9-mz7">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="רקע:" id="tXe-F9-mz7">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="x6u-0C-glq">
-                                <rect key="frame" x="267" y="16" width="45" height="17"/>
+                                <rect key="frame" x="267" y="16" width="51" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="בחירה:" id="5b7-64-CqX">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="בחירה:" id="5b7-64-CqX">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -196,9 +196,9 @@
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E3D-RK-YW7">
-                                <rect key="frame" x="70" y="16" width="90" height="17"/>
+                                <rect key="frame" x="70" y="16" width="83" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Selected Text:" id="hlx-fO-U4G">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="טקסט נבחר:" id="hlx-fO-U4G">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

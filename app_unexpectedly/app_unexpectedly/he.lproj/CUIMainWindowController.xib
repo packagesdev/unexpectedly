@@ -28,13 +28,13 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="E5E3FE75-B923-4050-8328-E8DBF77270DA" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="qok-Nh-ZqX">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="4BB16A90-DFB3-4B72-BC1E-0501635805D9" label="Registers" paletteLabel="Registers" toolTip="Show or hide registers window" id="odd-p2-xXV">
+                    <toolbarItem implicitItemIdentifier="4BB16A90-DFB3-4B72-BC1E-0501635805D9" label="Registers" paletteLabel="Registers" toolTip="הצג או הסתר את חלון של אוגרים" id="odd-p2-xXV">
                         <size key="minSize" width="29" height="23"/>
                         <size key="maxSize" width="29" height="23"/>
                         <button key="view" verticalHuggingPriority="750" id="tOu-D2-Ept">
                             <rect key="frame" x="14" y="14" width="29" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" title="R" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="pn6-k3-IBk">
+                            <buttonCell key="cell" type="roundTextured" title="א" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="pn6-k3-IBk">
                                 <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="systemBold"/>
                             </buttonCell>
@@ -69,7 +69,7 @@
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="esc-Se-3Gu">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment toolTip="Outline" image="presentation_structured_Template" width="32" tag="1"/>
+                                    <segment toolTip="מתווה" image="presentation_structured_Template" width="32" tag="1"/>
                                     <segment toolTip="מלל" image="presentation_text_Template" width="32" selected="YES"/>
                                 </segments>
                             </segmentedCell>
@@ -86,9 +86,9 @@
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectAny" id="IFc-bQ-yuq">
                                 <font key="font" metaFont="system"/>
                                 <segments>
-                                    <segment toolTip="Hide or show the side bar" image="left_switch_Template" width="32" selected="YES" tag="2"/>
-                                    <segment toolTip="Hide or show the binary images" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
-                                    <segment toolTip="Hide or show the inspector" image="right_switch_Template" width="32" selected="YES"/>
+                                    <segment toolTip="הסתר או הצג את סרגל הצד" image="left_switch_Template" width="32" selected="YES" tag="2"/>
+                                    <segment toolTip="הסתר או הצג את קבצים בינאריים" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
+                                    <segment toolTip="הסתר או הצג את הסוקר" image="right_switch_Template" width="32" selected="YES"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>

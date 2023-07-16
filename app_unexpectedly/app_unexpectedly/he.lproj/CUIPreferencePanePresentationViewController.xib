@@ -35,7 +35,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="radio" title="מלל" bezelStyle="regularSquare" alignment="center" inset="2" id="ARO-B4-zFG">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPresentationOptions:" target="-2" id="ClQ-Fr-Q9W"/>
@@ -44,9 +44,9 @@
                                     <button tag="1" id="mm7-bt-sqK" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="280" y="1" width="65" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Outline" bezelStyle="regularSquare" alignment="center" tag="1" inset="2" id="K3H-7g-Y6W">
+                                        <buttonCell key="cell" type="radio" title="מתווה" bezelStyle="regularSquare" alignment="center" tag="1" inset="2" id="K3H-7g-Y6W">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" metaFont="system" size="12"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPresentationOptions:" target="-2" id="9nl-0S-hxW"/>

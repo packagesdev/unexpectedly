@@ -267,7 +267,7 @@ CA
                                     <action selector="showHideViews:" target="-1" id="kra-FC-RZC"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show Binary Images" tag="1" keyEquivalent="2" id="2z5-3m-6dw">
+                            <menuItem title="הצג את קבצים בינאריים" tag="1" keyEquivalent="2" id="2z5-3m-6dw">
                                 <connections>
                                     <action selector="showHideViews:" target="-1" id="s1k-G0-TLi"/>
                                 </connections>
@@ -284,7 +284,7 @@ CA
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="eRM-Kc-O5r"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Outline" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
+                            <menuItem title="מתווה" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="TDI-d2-Yku"/>
@@ -379,7 +379,7 @@ CA
                                                 <action selector="CUI_MENUACTION_switchThreadStateVisibility:" target="-1" id="XYE-gq-GnF"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Binary Images" id="rnV-QR-Tam">
+                                        <menuItem title="קבצים בינאריים" id="rnV-QR-Tam">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchBinaryImagesVisibility:" target="-1" id="qnf-0L-mBO"/>
@@ -391,9 +391,9 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Navigate" id="aG2-MW-iKZ">
+                <menuItem title="נווט" id="aG2-MW-iKZ">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Navigate" id="YUZ-OQ-Qfb">
+                    <menu key="submenu" title="נווט" id="YUZ-OQ-Qfb">
                         <items>
                             <menuItem title="Jump to Line…" keyEquivalent="l" id="JtL-ON-s7d">
                                 <connections>
@@ -437,7 +437,7 @@ CA
                                                 <action selector="CUI_MENUACTION_jumpToThreadState:" target="-1" id="Lbe-gO-nw1"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Binary Images" id="ON2-La-JSh">
+                                        <menuItem title="קבצים בינאריים" id="ON2-La-JSh">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToBinaryImages:" target="-1" id="hF5-h4-Mqo"/>
@@ -499,7 +499,7 @@ CA
                             <menuItem isSeparatorItem="YES" id="NhV-yu-WbQ">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Send Feedback" id="Agb-QS-hQl">
+                            <menuItem title="שלח משוב" id="Agb-QS-hQl">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="sendFeedback:" target="Voe-Tx-rLC" id="GdC-FT-8s8"/>
@@ -522,7 +522,7 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Crash Reporter" id="90M-1A-X88">
                                     <items>
-                                        <menuItem title="Operation Mode" enabled="NO" id="rSJ-Ir-6Ad">
+                                        <menuItem title="אופן פעולה" enabled="NO" id="rSJ-Ir-6Ad">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="בסיסי" id="cZ2-Me-tJE">
@@ -544,23 +544,23 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="riH-1J-NUS"/>
-                                        <menuItem title="Notification Mode" enabled="NO" id="BLJ-R5-6HZ">
+                                        <menuItem title="אופן ההתראה" enabled="NO" id="BLJ-R5-6HZ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Alert dialog" id="EDw-Kd-564">
+                                        <menuItem title="תיבת דו-שיח" id="EDw-Kd-564">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterNotificationMode:" target="Voe-Tx-rLC" id="pfK-8S-sWf"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="System notification" tag="1" id="zLw-vY-Ttl">
+                                        <menuItem title="עדכון" tag="1" id="zLw-vY-Ttl">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchCrashReporterNotificationMode:" target="Voe-Tx-rLC" id="yUA-00-NUV"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="isO-68-Tw7"/>
-                                        <menuItem title="Report uncaught exceptions" id="eLO-Pu-jRW">
+                                        <menuItem title="דווח על חריגים שלא נתפסו" id="eLO-Pu-jRW">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="switchReportUncaughtException:" target="Voe-Tx-rLC" id="3Tb-Lg-qE2"/>

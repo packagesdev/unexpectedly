@@ -38,7 +38,7 @@
                             <action selector="showPane:" target="-2" id="JJk-NZ-vjn"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="FB786CBB-BCFC-44B7-8C12-288ADA8E21C6" explicitItemIdentifier="toolbarItem.presentation" label="Presentation" paletteLabel="Presentation" image="TextMode" selectable="YES" id="eCa-Vk-UOp">
+                    <toolbarItem implicitItemIdentifier="FB786CBB-BCFC-44B7-8C12-288ADA8E21C6" explicitItemIdentifier="toolbarItem.presentation" label="מצג" paletteLabel="מצג" image="TextMode" selectable="YES" id="eCa-Vk-UOp">
                         <connections>
                             <action selector="showPane:" target="-2" id="4IV-xn-tOM"/>
                         </connections>

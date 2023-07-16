@@ -24,7 +24,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="s8b-in-hjv">
                     <rect key="frame" x="299" y="59" width="38" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="תאריכ:" id="f0C-O7-hfc">
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="תאריכ:" id="f0C-O7-hfc">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -72,7 +72,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Eku-en-ffA">
                     <rect key="frame" x="345" y="83" width="34" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="כללי" id="Slr-R1-4oS">
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" baseWritingDirection="rightToLeft" title="כללי" id="Slr-R1-4oS">
                         <font key="font" metaFont="smallSystemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

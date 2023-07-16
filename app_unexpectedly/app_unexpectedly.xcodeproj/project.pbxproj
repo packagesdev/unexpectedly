@@ -90,10 +90,8 @@
 		F4301A6825EF0DE000ACDA3F /* CUIPreferencePanePresentationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4301A6A25EF0DE000ACDA3F /* CUIPreferencePanePresentationViewController.xib */; };
 		F4306D592577E168007E667F /* CUICrashLogThreadState+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4306D582577E168007E667F /* CUICrashLogThreadState+UI.m */; };
 		F432ACC824A95014000A3E7A /* CUIThreadsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F432ACC624A95014000A3E7A /* CUIThreadsListViewController.m */; };
-		F432ACC924A95014000A3E7A /* CUIThreadsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F432ACC724A95014000A3E7A /* CUIThreadsListViewController.xib */; };
 		F432ACCC24A9502A000A3E7A /* CUIThreadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F432ACCB24A9502A000A3E7A /* CUIThreadsViewController.m */; };
 		F432ACD024A95042000A3E7A /* CUIThreadsColumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F432ACCE24A95042000A3E7A /* CUIThreadsColumnViewController.m */; };
-		F432ACD124A95042000A3E7A /* CUIThreadsColumnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F432ACCF24A95042000A3E7A /* CUIThreadsColumnViewController.xib */; };
 		F43362FE25FCEFBA006E7894 /* CUIRawCrashLog+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = F43362FD25FCEFBA006E7894 /* CUIRawCrashLog+Path.m */; };
 		F4341C6B258EB8FE001A5605 /* CUICrashReporterDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F4341C6A258EB8FE001A5605 /* CUICrashReporterDefaults.m */; };
 		F4386B0F2849541C00B83525 /* CUICrashLogExceptionInformation+QuickHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = F4386B0D2849541B00B83525 /* CUICrashLogExceptionInformation+QuickHelp.m */; };
@@ -161,6 +159,10 @@
 		F476EEC125686EC000F40F87 /* CUIContentBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F476EEBF25686EC000F40F87 /* CUIContentBox.m */; };
 		F4775479255B0054006BA662 /* CUIThemesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4775478255B0054006BA662 /* CUIThemesTableView.m */; };
 		F47AF8C0255DE61E0037E2D8 /* NSCrashLogTextScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AF8BF255DE61E0037E2D8 /* NSCrashLogTextScrollView.m */; };
+		F47C381E2A422E880020D88F /* CUIThreadsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C381C2A422E880020D88F /* CUIThreadsListViewController.xib */; };
+		F47C381F2A422E880020D88F /* CUIThreadsListViewController_RTL.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C381D2A422E880020D88F /* CUIThreadsListViewController_RTL.xib */; };
+		F47C38222A4230370020D88F /* CUIThreadsColumnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C38202A4230370020D88F /* CUIThreadsColumnViewController.xib */; };
+		F47C38232A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C38212A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib */; };
 		F47F76622673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */; };
 		F47F76652673548600A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */; };
 		F47F7668267355EA00A74905 /* CUICrashLogErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F7667267355EA00A74905 /* CUICrashLogErrors.m */; };
@@ -593,12 +595,10 @@
 		F4306D582577E168007E667F /* CUICrashLogThreadState+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogThreadState+UI.m"; sourceTree = "<group>"; };
 		F432ACC524A95014000A3E7A /* CUIThreadsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIThreadsListViewController.h; sourceTree = "<group>"; };
 		F432ACC624A95014000A3E7A /* CUIThreadsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIThreadsListViewController.m; sourceTree = "<group>"; };
-		F432ACC724A95014000A3E7A /* CUIThreadsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsListViewController.xib; sourceTree = "<group>"; };
 		F432ACCA24A9502A000A3E7A /* CUIThreadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIThreadsViewController.h; sourceTree = "<group>"; };
 		F432ACCB24A9502A000A3E7A /* CUIThreadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIThreadsViewController.m; sourceTree = "<group>"; };
 		F432ACCD24A95042000A3E7A /* CUIThreadsColumnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUIThreadsColumnViewController.h; sourceTree = "<group>"; };
 		F432ACCE24A95042000A3E7A /* CUIThreadsColumnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUIThreadsColumnViewController.m; sourceTree = "<group>"; };
-		F432ACCF24A95042000A3E7A /* CUIThreadsColumnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsColumnViewController.xib; sourceTree = "<group>"; };
 		F43362FC25FCEFBA006E7894 /* CUIRawCrashLog+Path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUIRawCrashLog+Path.h"; sourceTree = "<group>"; };
 		F43362FD25FCEFBA006E7894 /* CUIRawCrashLog+Path.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUIRawCrashLog+Path.m"; sourceTree = "<group>"; };
 		F4341C69258EB8FE001A5605 /* CUICrashReporterDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashReporterDefaults.h; sourceTree = "<group>"; };
@@ -743,6 +743,10 @@
 		F4775478255B0054006BA662 /* CUIThemesTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThemesTableView.m; sourceTree = "<group>"; };
 		F47AF8BE255DE61E0037E2D8 /* NSCrashLogTextScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCrashLogTextScrollView.h; sourceTree = "<group>"; };
 		F47AF8BF255DE61E0037E2D8 /* NSCrashLogTextScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCrashLogTextScrollView.m; sourceTree = "<group>"; };
+		F47C381C2A422E880020D88F /* CUIThreadsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsListViewController.xib; sourceTree = "<group>"; };
+		F47C381D2A422E880020D88F /* CUIThreadsListViewController_RTL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsListViewController_RTL.xib; sourceTree = "<group>"; };
+		F47C38202A4230370020D88F /* CUIThreadsColumnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsColumnViewController.xib; sourceTree = "<group>"; };
+		F47C38212A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsColumnViewController_RTL.xib; sourceTree = "<group>"; };
 		F47F76602673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUICrashLogsOpenErrorRecord+UI.h"; sourceTree = "<group>"; };
 		F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogsOpenErrorRecord+UI.m"; sourceTree = "<group>"; };
 		F47F76632673548600A74905 /* CUICrashLogsOpenErrorRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsOpenErrorRecord.h; sourceTree = "<group>"; };
@@ -2110,7 +2114,8 @@
 				F4F5395524D2066300D537BC /* Views */,
 				F432ACC524A95014000A3E7A /* CUIThreadsListViewController.h */,
 				F432ACC624A95014000A3E7A /* CUIThreadsListViewController.m */,
-				F432ACC724A95014000A3E7A /* CUIThreadsListViewController.xib */,
+				F47C381C2A422E880020D88F /* CUIThreadsListViewController.xib */,
+				F47C381D2A422E880020D88F /* CUIThreadsListViewController_RTL.xib */,
 			);
 			name = "View Mode - List";
 			sourceTree = "<group>";
@@ -2120,7 +2125,8 @@
 			children = (
 				F432ACCD24A95042000A3E7A /* CUIThreadsColumnViewController.h */,
 				F432ACCE24A95042000A3E7A /* CUIThreadsColumnViewController.m */,
-				F432ACCF24A95042000A3E7A /* CUIThreadsColumnViewController.xib */,
+				F47C38202A4230370020D88F /* CUIThreadsColumnViewController.xib */,
+				F47C38212A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib */,
 			);
 			name = "View Mode - Columns";
 			sourceTree = "<group>";
@@ -2240,6 +2246,7 @@
 				F495AED025F034C0000D92E1 /* EXC_BREAKPOINT_SIGTRAP.html in Resources */,
 				F45015CE25FAD279000C4B8D /* EXC_CRASH_SIGQUIT.html in Resources */,
 				F45A2D6D25EC60920007D50E /* CUICrashLogsSourcesViewController.xib in Resources */,
+				F47C38232A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib in Resources */,
 				F48CF5FF24A96992002AD214 /* MainMenu.xib in Resources */,
 				F483845324EB11F700FAEF5D /* default_themes.plist in Resources */,
 				F4CE83DE2554B97400A8BD87 /* CUICenteredLabelViewController.xib in Resources */,
@@ -2252,7 +2259,6 @@
 				F495AEC425F03141000D92E1 /* unknown_exception_type.html in Resources */,
 				F4A3A6DF25ED7F450018053E /* CUICrashLogsSourceSmartEditorWindowController.xib in Resources */,
 				F453AE4925EE706F00B7BEF0 /* CUIExportAccessoryViewController.xib in Resources */,
-				F432ACC924A95014000A3E7A /* CUIThreadsListViewController.xib in Resources */,
 				F41ECA5424AB689B00CE56C7 /* CUIInspectorViewController.xib in Resources */,
 				F4A3A6EB25ED82F10018053E /* EXC_BAD_ACCESS_SIGBUS.html in Resources */,
 				F4A9967C2675078B0001B40E /* CUICrashLogsOpenErrorWindowController.xib in Resources */,
@@ -2262,12 +2268,13 @@
 				F4545C3D256C1AF900F62A39 /* CUIRegistersWindowController.xib in Resources */,
 				F4055C8125EEE37400DC6CCA /* CUIMainWindowController.xib in Resources */,
 				F4B74C1A24B233C900CD1E60 /* CUIRightViewController.xib in Resources */,
+				F47C38222A4230370020D88F /* CUIThreadsColumnViewController.xib in Resources */,
 				F45A2D7125EC60D90007D50E /* CUICrashLogsListViewController.xib in Resources */,
 				F495AEC025F02F74000D92E1 /* CUIPreferencePanePresentationOutlineViewController.xib in Resources */,
 				F45854FA25C76591007A3A79 /* Unexpectedly_License.pdf in Resources */,
 				F4301A6825EF0DE000ACDA3F /* CUIPreferencePanePresentationViewController.xib in Resources */,
-				F432ACD124A95042000A3E7A /* CUIThreadsColumnViewController.xib in Resources */,
 				F4CC570A24A79EDA00150EC4 /* Images.xcassets in Resources */,
+				F47C381E2A422E880020D88F /* CUIThreadsListViewController.xib in Resources */,
 				F40B832625FC0AEC0091D886 /* EXC_CRASH_SIGSEGV.html in Resources */,
 				F4E6EDA1284969DD00766F9A /* known_termination_reasons.css in Resources */,
 				F493DB1C24F1CF30001AA8C0 /* Localizable.strings in Resources */,
@@ -2294,6 +2301,7 @@
 				F4F892FE2575A70800BE4CE0 /* CUIRegistersMainViewController.xib in Resources */,
 				F406B4992687AB1400B90C7B /* CUIPreferencePaneAdvancedViewController.xib in Resources */,
 				F45A2D6925EC602B0007D50E /* CUIBinaryImagesViewController.xib in Resources */,
+				F47C381F2A422E880020D88F /* CUIThreadsListViewController_RTL.xib in Resources */,
 				F4A3A6E725ED817E0018053E /* CUIPreferencePaneCrashreporterViewController.xib in Resources */,
 				F416687A24B0BA5000C2AB89 /* CUICrashLogContentsViewController.xib in Resources */,
 				F495AEC825F0320D000D92E1 /* EXC_CRASH_SIGABRT.html in Resources */,
