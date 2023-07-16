@@ -34,7 +34,7 @@
                         <button key="view" verticalHuggingPriority="750" id="tOu-D2-Ept">
                             <rect key="frame" x="14" y="14" width="29" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" title="R" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="pn6-k3-IBk">
+                            <buttonCell key="cell" type="roundTextured" title="タ" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="pn6-k3-IBk">
                                 <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="systemBold"/>
                             </buttonCell>
