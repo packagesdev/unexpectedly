@@ -48,10 +48,10 @@
                                         </menuItem>
                                         <menuItem title="Booleano" tag="1" id="VoA-fE-sxQ"/>
                                         <menuItem title="Decimal" tag="3" id="Hab-wq-jWg"/>
-                                        <menuItem title="Real" tag="2" id="2IG-5I-rJY"/>
+                                        <menuItem title="Decimal sin signo" tag="6" id="QOY-jj-Mna"/>
                                         <menuItem title="Hex" tag="4" id="SoX-XB-pNK"/>
                                         <menuItem title="Octal" tag="5" id="5Ci-Jw-A07"/>
-                                        <menuItem title="Decimal sin signo" tag="6" id="QOY-jj-Mna"/>
+                                        <menuItem title="Real" tag="2" id="2IG-5I-rJY"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>
