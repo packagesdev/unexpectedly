@@ -31,6 +31,7 @@
                                 <menuItem title="HTML" state="on" id="lK1-XA-eFw"/>
                                 <menuItem title="RTF" tag="1" id="OPJ-uJ-ymt"/>
                                 <menuItem title="PDF" tag="2" id="Hq6-BX-2O0"/>
+                                <menuItem title="テキスト" tag="3" id="U96-pL-0X0"/>
                             </items>
                         </menu>
                     </popUpButtonCell>

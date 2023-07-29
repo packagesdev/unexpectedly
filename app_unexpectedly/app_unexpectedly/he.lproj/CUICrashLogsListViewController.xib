@@ -138,7 +138,7 @@
                                         <action selector="switchDisplayedName:" target="-2" id="4jX-xR-Vde"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Report File Name" tag="1" id="ymb-51-zC8">
+                                <menuItem title="שם הדוח" tag="1" id="ymb-51-zC8">
                                     <modifierMask key="keyEquivalentModifierMask"/>
                                     <connections>
                                         <action selector="switchDisplayedName:" target="-2" id="9Yt-ZP-CXj"/>
@@ -209,7 +209,7 @@
                         <action selector="CUI_MENUACTION_moveToTrash:" target="-2" id="5Yv-gc-anj"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Move All xxxxx to Trash" alternate="YES" id="bpu-1P-Sum">
+                <menuItem title="העבר את כל הדוחות של \XXXX&quot; לפח" alternate="YES" id="bpu-1P-Sum">
                     <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                     <connections>
                         <action selector="CUI_MENUACTION_moveAllToTrash:" target="-2" id="jz9-Pm-lkY"/>

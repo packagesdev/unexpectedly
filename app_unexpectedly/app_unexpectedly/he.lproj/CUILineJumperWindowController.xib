@@ -27,9 +27,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField focusRingType="none" verticalHuggingPriority="750" id="Hsy-sF-ru8">
-                        <rect key="frame" x="45" y="11" width="147" height="25"/>
+                        <rect key="frame" x="192" y="11" width="147" height="25"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" focusRingType="none" placeholderString="מספר שורה" usesSingleLineMode="YES" id="Ju2-zH-bhG">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" focusRingType="none" alignment="right" placeholderString="מספר שורה" usesSingleLineMode="YES" id="Ju2-zH-bhG">
                             <font key="font" metaFont="system" size="21"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -40,8 +40,8 @@
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dpK-Gf-az3">
-                        <rect key="frame" x="9" y="10" width="32" height="32"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="343" y="10" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="#" id="x4t-M3-5dd">
                             <font key="font" metaFont="system" size="30"/>
                             <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -49,7 +49,7 @@
                         </textFieldCell>
                     </textField>
                     <button hidden="YES" verticalHuggingPriority="750" id="dIW-wv-LKd">
-                        <rect key="frame" x="345" y="14" width="20" height="20"/>
+                        <rect key="frame" x="19" y="14" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="AFZ-Xq-Pjf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

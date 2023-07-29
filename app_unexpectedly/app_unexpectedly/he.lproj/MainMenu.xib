@@ -79,7 +79,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="Mx6-UK-5B4"/>
-                            <menuItem title="Add File or Folder…" keyEquivalent="a" id="3wG-3v-uZk">
+                            <menuItem title="הוסף קובץ או תיקיה…" keyEquivalent="a" id="3wG-3v-uZk">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_addSource:" target="-1" id="b1Q-ed-4lm"/>
@@ -132,7 +132,7 @@ CA
                                     <action selector="CUI_MENUACTION_moveToTrash:" target="-1" id="9KY-Gr-Skj"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Move All xxxxx to Trash" alternate="YES" id="BHd-Dv-6Wl">
+                            <menuItem title="העבר את כל הדוחות של \XXXX&quot; לפח" alternate="YES" id="BHd-Dv-6Wl">
                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -505,7 +505,7 @@ CA
                                     <action selector="sendFeedback:" target="Voe-Tx-rLC" id="GdC-FT-8s8"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Unexpectedly on the web" id="FUb-BV-YgJ">
+                            <menuItem title="אתר אינטרנט של Unexpectedly" id="FUb-BV-YgJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="showUnexpectedlyWebSite:" target="Voe-Tx-rLC" id="Zhd-rv-Pi9"/>

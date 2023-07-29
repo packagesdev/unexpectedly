@@ -51,7 +51,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQT-bg-eZT">
-                    <rect key="frame" x="165" y="112" width="137" height="18"/>
+                    <rect key="frame" x="185" y="112" width="117" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="דו&quot;ח מלא" bezelStyle="regularSquare" imagePosition="right" alignment="right" inset="2" id="pba-yN-6P5">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -62,9 +62,9 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCi-24-cSg">
-                    <rect key="frame" x="165" y="91" width="137" height="18"/>
+                    <rect key="frame" x="185" y="91" width="117" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="Selected text only" bezelStyle="regularSquare" imagePosition="right" inset="2" id="kfb-cJ-elR">
+                    <buttonCell key="cell" type="radio" title="רק טקסט נבחר" bezelStyle="regularSquare" imagePosition="right" alignment="right" inset="2" id="kfb-cJ-elR">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
