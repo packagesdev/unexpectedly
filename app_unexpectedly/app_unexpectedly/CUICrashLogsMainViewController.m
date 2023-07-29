@@ -597,13 +597,6 @@ NSString * const CUIDefaultsInspectorViewCollapsedKey=@"rightView.collapsed";
 - (CGFloat)splitView:(NSSplitView *)inSplitView constrainMaxCoordinate:(CGFloat)proposedMax ofSubviewAt:(NSInteger)inDividerIndex
 {
     BOOL tIsLeftToRightLayout=(_splitView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight);
-    
-    NSView *tInspectorView=nil;
-    
-    if (tIsLeftToRightLayout==YES)
-        tInspectorView=_rightView;
-    else
-        tInspectorView=_leftView;
         
     switch(inDividerIndex)
     {

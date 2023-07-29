@@ -640,16 +640,10 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     NSUInteger tSelectionLastIndex=tSelectedRows.lastIndex;
     
-    CUICrashLogsSource * tNextSelectedSource=NULL;
+    CUICrashLogsSource * tNextSelectedSource=nil;
     
-    if ((tSelectionLastIndex+1)==_sourcesManager.allSources.count)
-    {
-        tSelectionLastIndex=NSNotFound;
-    }
-    else
-    {
+    if ((tSelectionLastIndex+1)!=_sourcesManager.allSources.count)
         tNextSelectedSource=_sourcesManager.allSources[tSelectionLastIndex+1];
-    }
     
     NSArray * tArray=[_sourcesManager.allSources objectsAtIndexes:tSelectedRows];
     
@@ -661,7 +655,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     NSUInteger tNewSelectedIndex=NSNotFound;
     
-    if (tNextSelectedSource!=NULL)
+    if (tNextSelectedSource!=nil)
         tNewSelectedIndex=[_sourcesManager.allSources indexOfObject:tNextSelectedSource];
     
     if (tNewSelectedIndex==NSNotFound)

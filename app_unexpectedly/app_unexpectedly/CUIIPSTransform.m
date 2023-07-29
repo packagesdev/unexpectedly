@@ -642,12 +642,15 @@
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
     CUICrashLogBacktraces * tBacktraces=self.crashlog.backtraces;
+#ifndef __DISABLE_SYMBOLICATION_
     NSInteger tThreadIndexOffset=0;
+#endif
     
     if (tBacktraces.hasApplicationSpecificBacktrace==YES)
     {
+#ifndef __DISABLE_SYMBOLICATION_
         tThreadIndexOffset=1;
-        
+#endif
         NSMutableAttributedString * tMutableAttributedString=nil;
         
         tMutableAttributedString=[[self attributedStringForThreadLabelWithFormat:@"Application Specific Backtrace %lu",(unsigned long)1] mutableCopy];
@@ -1052,7 +1055,7 @@
         [tMutableArray addObject:tMutableAttributedString];
         
         
-        NSArray * tRegistersOrder=@[];
+        NSArray * tRegistersOrder;
         
         if ([tCrashedThreadState.flavor isEqualToString:@"x86_THREAD_STATE"]==YES)
         {

@@ -96,7 +96,7 @@
         
         _CPUType=[tHeader.cpuType CUI_CPUType];
         
-        NSArray * tRegistersOrder=@[];
+        NSArray * tRegistersOrder;
         
         if ([tThreadState.flavor isEqualToString:@"x86_THREAD_STATE"]==YES)
         {
