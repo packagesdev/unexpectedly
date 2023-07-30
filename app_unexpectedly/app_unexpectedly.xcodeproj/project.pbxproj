@@ -953,6 +953,8 @@
 		F4CCCC6D24AE9EDA0031BC27 /* CUICrashLogsSource+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogsSource+UI.m"; sourceTree = "<group>"; };
 		F4CD32B3257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIPreferencePaneSymbolicationViewController.h; sourceTree = "<group>"; };
 		F4CD32B4257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIPreferencePaneSymbolicationViewController.m; sourceTree = "<group>"; };
+		F4CE09A42A76E43300BACB71 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = es; path = Help/es.lproj/ENDPOINTSECURITY_2.html; sourceTree = "<group>"; };
+		F4CE09A52A76E44D00BACB71 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = Help/ja.lproj/ENDPOINTSECURITY_2.html; sourceTree = "<group>"; };
 		F4CE83DD2554B97300A8BD87 /* CUICenteredLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUICenteredLabelViewController.xib; sourceTree = "<group>"; };
 		F4D0EE93273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSThreadState+RegisterDisplayName.m"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSThreadState+RegisterDisplayName.m"; sourceTree = "<group>"; };
 		F4D0EE94273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSThreadState+RegisterDisplayName.h"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSThreadState+RegisterDisplayName.h"; sourceTree = "<group>"; };
@@ -3104,6 +3106,8 @@
 				F4E6EDA3284969E500766F9A /* en */,
 				F4E6EDA528496E2A00766F9A /* fr */,
 				F43066E32A12EDE8002AB430 /* he */,
+				F4CE09A42A76E43300BACB71 /* es */,
+				F4CE09A52A76E44D00BACB71 /* ja */,
 			);
 			name = ENDPOINTSECURITY_2.html;
 			sourceTree = "<group>";

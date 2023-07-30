@@ -51,7 +51,7 @@
                                         <menuItem title="צפה" tag="2" id="2IG-5I-rJY"/>
                                         <menuItem title="הקסדצימלי" tag="4" id="SoX-XB-pNK"/>
                                         <menuItem title="אוקטלי" tag="5" id="5Ci-Jw-A07"/>
-                                        <menuItem title="Unsigned Decimal" tag="6" id="QOY-jj-Mna"/>
+                                        <menuItem title="עשרוני ללא סימן" tag="6" id="QOY-jj-Mna"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>
