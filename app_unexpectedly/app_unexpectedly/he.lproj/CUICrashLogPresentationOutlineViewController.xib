@@ -38,7 +38,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UjR-qo-T8o">
-                    <rect key="frame" x="390" y="420" width="361" height="17"/>
+                    <rect key="frame" x="383" y="420" width="413" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="s2X-DC-xIe">
                         <font key="font" metaFont="system"/>
@@ -114,7 +114,7 @@
                                         <action selector="switchViewMode:" target="-2" id="e7v-G7-W7s"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Show only crashed thread" verticalHuggingPriority="750" id="QRs-W6-mBT">
+                                <button toolTip="הצג רק את השרשור שקרס" verticalHuggingPriority="750" id="QRs-W6-mBT">
                                     <rect key="frame" x="87" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="con-zk-L9l">
@@ -212,16 +212,16 @@
                     </connections>
                 </splitView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gdJ-dt-1kl">
-                    <rect key="frame" x="755" y="420" width="101" height="17"/>
+                    <rect key="frame" x="800" y="420" width="56" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Exception Type:" id="ayc-kQ-Slx">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="סוג חריג:" id="ayc-kQ-Slx">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="57" y="-86"/>
+            <point key="canvasLocation" x="56.5" y="-86.5"/>
         </customView>
     </objects>
     <resources>

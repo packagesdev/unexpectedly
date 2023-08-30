@@ -40,12 +40,12 @@
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="fZC-QV-uXY"/>
-                                <menuItem title="Exception Information" id="LpK-Zx-Gla">
+                                <menuItem title="מידע על חריג" id="LpK-Zx-Gla">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchExceptionInformationVisibility:" target="-2" id="2VZ-w6-6FZ"/>
                                     </connections>
                                 </menuItem>
-                                <menuItem title="Diagnostic Messages" id="M4h-Oa-aq3">
+                                <menuItem title="הודעות אבחון" id="M4h-Oa-aq3">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchDiagnosticMessagesVisibility:" target="-2" id="hQt-R4-vLH"/>
                                     </connections>
@@ -70,7 +70,7 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
-                <button toolTip="Show only crashed thread" verticalHuggingPriority="750" id="hZe-Mo-RWl">
+                <button toolTip="הצג רק את השרשור שקרס" verticalHuggingPriority="750" id="hZe-Mo-RWl">
                     <rect key="frame" x="87" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="cgk-bN-rIw">
@@ -138,7 +138,7 @@
                     </scroller>
                 </scrollView>
             </subviews>
-            <point key="canvasLocation" x="327" y="99"/>
+            <point key="canvasLocation" x="228" y="-447"/>
         </customView>
     </objects>
     <resources>
