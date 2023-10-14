@@ -61,7 +61,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Unexpectedl סיים את" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Unexpectedly סיים את" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -343,9 +343,9 @@ CA
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="2Cq-5I-dEU"/>
-                            <menuItem title="Visible Sections" id="wAR-FX-MEm">
+                            <menuItem title="חלקים גלויים" id="wAR-FX-MEm">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Visible Sections" id="WFL-Rm-rhq">
+                                <menu key="submenu" title="חלקים גלויים" id="WFL-Rm-rhq">
                                     <items>
                                         <menuItem title="כותרת" id="HIC-nM-hNN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
