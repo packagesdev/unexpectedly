@@ -54,7 +54,7 @@
                 <button verticalHuggingPriority="750" id="r6r-RI-kcs">
                     <rect key="frame" x="161" y="241" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Byte offset and source" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="DAf-CC-sze">
+                    <buttonCell key="cell" type="check" title="היסט של בתים ומקור" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="DAf-CC-sze">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

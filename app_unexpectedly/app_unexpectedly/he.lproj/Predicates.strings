@@ -1,13 +1,13 @@
 /* Predicate Editor */
 
-"%[All]@ of the following are true" = "%1$[All]@ of the following are true";
-"%[Any]@ of the following are true" = "%1$[Any]@ of the following are true";
+"%[All]@ of the following are true" = "%1$[כל]@ התנאים הבאים נכונים";
+"%[Any]@ of the following are true" = "%1$[כל אחד]@ מהתנאים הבאים הוא נכון";
 
-"%[processName]@ %[is]@ %@" = "%1$[Process Name]@ %2$[is]@ %3$@";
-"%[processName]@ %[is not]@ %@" = "%1$[Process Name]@ %2$[is not]@ %3$@";
-"%[processName]@ %[begins with]@ %@" = "%1$[Process Name]@ %2$[begins with]@ %3$@";
-"%[processName]@ %[ends with]@ %@" = "%1$[Process Name]@ %2$[ends with]@ %3$@";
-"%[processName]@ %[contains]@ %@" = "%1$[Process Name]@ %2$[contains]@ %3$@";
+"%[processName]@ %[is]@ %@" = "%1$[השם תהליך]@ %2$[הוא]@ %3$@";
+"%[processName]@ %[is not]@ %@" = "%1$[השם תהליך]@ %2$[אינו שווה ל-]@ %3$@";
+"%[processName]@ %[begins with]@ %@" = "%1$[השם תהליך]@ %2$[מתחיל ב-]@ %3$@";
+"%[processName]@ %[ends with]@ %@" = "%1$[השם תהליך]@ %2$[מסתיים ב-]@ %3$@";
+"%[processName]@ %[contains]@ %@" = "%1$[השם תהליך]@ %2$[מכיל]@ %3$@";
 
 "%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[Identifier]@ %2$[is]@ %3$@";
 "%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[Identifier]@ %2$[is not]@ %3$@";
@@ -42,19 +42,19 @@
 "%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Date]@ %2$[is earlier than or equal to]@ %3$@";
 "%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Date]@ %2$[is later than or equal to]@ %3$@";
 
-"%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "%1$[Exception Type]@ is %2$[EXC_ARITHMETIC]@";
-"%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "%1$[Exception Type]@ is %2$[EXC_BAD_ACCESS]@";
-"%[exceptionType]@ is %[EXC_BAD_INSTRUCTION]@" = "%1$[Exception Type]@ is %2$[EXC_BAD_INSTRUCTION]@";
-"%[exceptionType]@ is %[EXC_BREAKPOINT]@" = "%1$[Exception Type]@ is %2$[EXC_BREAKPOINT]@";
-"%[exceptionType]@ is %[EXC_CORPSE_NOTIFY]@" = "%1$[Exception Type]@ is %2$[EXC_CORPSE_NOTIFY]@";
-"%[exceptionType]@ is %[EXC_CRASH]@" = "%1$[Exception Type]@ is %2$[EXC_CRASH]@";
-"%[exceptionType]@ is %[EXC_EMULATION]@" = "%1$[Exception Type]@ is %2$[EXC_EMULATION]@";
-"%[exceptionType]@ is %[EXC_GUARD]@" = "%1$[Exception Type]@ is %2$[EXC_GUARD]@";
-"%[exceptionType]@ is %[EXC_MACH_SYSCALL]@" = "%1$[Exception Type]@ is %2$[EXC_MACH_SYSCALL]@";
-"%[exceptionType]@ is %[EXC_RESOURCE]@" = "%1$[Exception Type]@ is %2$[EXC_RESOURCE]@";
-"%[exceptionType]@ is %[EXC_RPC_ALERT]@" = "%1$[Exception Type]@ is %2$[EXC_RPC_ALERT]@";
-"%[exceptionType]@ is %[EXC_SOFTWARE]@" = "%1$[Exception Type]@ is %2$[EXC_SOFTWARE]@";
-"%[exceptionType]@ is %[EXC_SYSCALL]@" = "%1$[Exception Type]@ is %2$[EXC_SYSCALL]@";
+"%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_ARITHMETIC]@";
+"%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_BAD_ACCESS]@";
+"%[exceptionType]@ is %[EXC_BAD_INSTRUCTION]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_BAD_INSTRUCTION]@";
+"%[exceptionType]@ is %[EXC_BREAKPOINT]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_BREAKPOINT]@";
+"%[exceptionType]@ is %[EXC_CORPSE_NOTIFY]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_CORPSE_NOTIFY]@";
+"%[exceptionType]@ is %[EXC_CRASH]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_CRASH]@";
+"%[exceptionType]@ is %[EXC_EMULATION]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_EMULATION]@";
+"%[exceptionType]@ is %[EXC_GUARD]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_GUARD]@";
+"%[exceptionType]@ is %[EXC_MACH_SYSCALL]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_MACH_SYSCALL]@";
+"%[exceptionType]@ is %[EXC_RESOURCE]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_RESOURCE]@";
+"%[exceptionType]@ is %[EXC_RPC_ALERT]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_RPC_ALERT]@";
+"%[exceptionType]@ is %[EXC_SOFTWARE]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_SOFTWARE]@";
+"%[exceptionType]@ is %[EXC_SYSCALL]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_SYSCALL]@";
 
 "%[exceptionSignal]@ is %[SIGABRT]@" = "%1$[Exception Signal]@ is %2$[SIGABRT]@";
 "%[exceptionSignal]@ is %[SIGBUS]@" = "%1$[Exception Signal]@ is %2$[SIGBUS]@";
@@ -71,7 +71,7 @@
 "%[crashLogFileName]@ %[ends with]@ %@" = "%1$[Report File Name]@ %2$[ends with]@ %3$@";
 "%[crashLogFileName]@ %[contains]@ %@" = "%1$[Report File Name]@ %2$[contains]@ %3$@";
 
-"%[reportSourceTypeNumber]@ is %[0]@" = "%1$[Source]@ is %2$[System Reports]@";
-"%[reportSourceTypeNumber]@ is %[1]@" = "%1$[Source]@ is %2$[User Reports]@";
-"%[reportSourceTypeNumber]@ is %[2]@" = "%1$[Source]@ is %2$[Another Source]@";
+"%[reportSourceTypeNumber]@ is %[0]@" = "‏%1$[מקור]@ הוא %2$[דוחות המשתמש]@";
+"%[reportSourceTypeNumber]@ is %[1]@" = "%1$[מקור]@ הוא %2$[דוחות המשתמש]@";
+"%[reportSourceTypeNumber]@ is %[2]@" = "‏%1$[מקור]@ הוא %2$[מקור אחר]@";
 

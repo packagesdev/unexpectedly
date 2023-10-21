@@ -54,9 +54,9 @@
                         </connections>
                     </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="l74-1V-jTB">
-                        <rect key="frame" x="711" y="386" width="41" height="20"/>
+                        <rect key="frame" x="711" y="386" width="27" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="שׁם:" id="reH-vX-GUc">
+                        <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="right" title="שׁם:" id="reH-vX-GUc">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -124,9 +124,9 @@ Gw
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="scv-qL-eIO">
-                        <rect key="frame" x="711" y="356" width="49" height="20"/>
+                        <rect key="frame" x="711" y="357" width="41" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="תיאור:" id="zQj-c9-rhZ">
+                        <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="right" title="תיאור:" id="zQj-c9-rhZ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

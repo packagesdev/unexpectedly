@@ -147,7 +147,7 @@
                                         <action selector="CUI_MENUACTION_switchShowBinaryImageIdentifier:" target="-2" id="sVI-Dr-72U"/>
                                     </connections>
                                 </button>
-                                <button toolTip="Hide or show the byte offset" verticalHuggingPriority="750" id="tXx-uN-2vh">
+                                <button toolTip="הסתר או הצג את היסט של בתים" verticalHuggingPriority="750" id="tXx-uN-2vh">
                                     <rect key="frame" x="0.0" y="-1" width="30" height="23"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="GRj-N7-F4j">

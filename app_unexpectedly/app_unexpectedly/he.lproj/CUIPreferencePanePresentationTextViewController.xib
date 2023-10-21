@@ -117,7 +117,7 @@
                 <button verticalHuggingPriority="750" id="Kfz-pY-oUd">
                     <rect key="frame" x="195" y="18" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Byte offset and source" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="zE5-mb-UZb">
+                    <buttonCell key="cell" type="check" title="היסט של בתים ומקור" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="zE5-mb-UZb">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
