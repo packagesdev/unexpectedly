@@ -9,23 +9,23 @@
 "%[processName]@ %[ends with]@ %@" = "%1$[השם תהליך]@ %2$[מסתיים ב-]@ %3$@";
 "%[processName]@ %[contains]@ %@" = "%1$[השם תהליך]@ %2$[מכיל]@ %3$@";
 
-"%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[Identifier]@ %2$[is]@ %3$@";
-"%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[Identifier]@ %2$[is not]@ %3$@";
-"%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[Identifier]@ %2$[begins with]@ %3$@";
-"%[header.bundleIdentifier]@ %[ends with]@ %@" = "%1$[Identifier]@ %2$[ends with]@ %3$@";
-"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[Identifier]@ %2$[contains]@ %3$@";
+"%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[המזהה]@ %2$[הוא]@ %3$@";
+"%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[המזהה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[המזהה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.bundleIdentifier]@ %[ends with]@ %@" = "%1$[המזהה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[המזהה]@ %2$[מכיל]@ %3$@";
 
-"%[header.executablePath]@ %[is]@ %@" = "%1$[Executable Path]@ %2$[is]@ %3$@";
-"%[header.executablePath]@ %[is not]@ %@" = "%1$[Executable Path]@ %2$[is not]@ %3$@";
-"%[header.executablePath]@ %[begins with]@ %@" = "%1$[Executable Path]@ %2$[begins with]@ %3$@";
-"%[header.executablePath]@ %[ends with]@ %@" = "%1$[Executable Path]@ %2$[ends with]@ %3$@";
-"%[header.executablePath]@ %[contains]@ %@" = "%1$[Executable Path]@ %2$[contains]@ %3$@";
+"%[header.executablePath]@ %[is]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[הוא]@ %3$@";
+"%[header.executablePath]@ %[is not]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.executablePath]@ %[begins with]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.executablePath]@ %[ends with]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.executablePath]@ %[contains]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מכיל]@ %3$@";
 
-"%[header.executableVersion]@ %[is]@ %@" = "%1$[Executable Version]@ %2$[is]@ %3$@";
-"%[header.executableVersion]@ %[is not]@ %@" = "%1$[Executable Version]@ %2$[is not]@ %3$@";
-"%[header.executableVersion]@ %[begins with]@ %@" = "%1$[Executable Version]@ %2$[begins with]@ %3$@";
-"%[header.executableVersion]@ %[ends with]@ %@" = "%1$[Executable Version]@ %2$[ends with]@ %3$@";
-"%[header.executableVersion]@ %[contains]@ %@" = "%1$[Executable Version]@ %2$[contains]@ %3$@";
+"%[header.executableVersion]@ %[is]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[הוא]@ %3$@";
+"%[header.executableVersion]@ %[is not]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.executableVersion]@ %[begins with]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.executableVersion]@ %[ends with]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.executableVersion]@ %[contains]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מכיל]@ %3$@";
 
 "%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[Crashed Thread Name]@ %2$[is]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[Crashed Thread Name]@ %2$[is not]@ %3$@";
@@ -65,11 +65,11 @@
 "%[exceptionSignal]@ is %[SIGTRAP]@" = "%1$[Exception Signal]@ is %2$[SIGTRAP]@";
 "%[exceptionSignal]@ is %[Code Signature Invalid]@" = "%1$[Exception Signal]@ is %2$[Code Signature Invalid]@";
 
-"%[crashLogFileName]@ %[is]@ %@" = "%1$[Report File Name]@ %2$[is]@ %3$@";
-"%[crashLogFileName]@ %[is not]@ %@" = "%1$[Report File Name]@ %2$[is not]@ %3$@";
-"%[crashLogFileName]@ %[begins with]@ %@" = "%1$[Report File Name]@ %2$[begins with]@ %3$@";
-"%[crashLogFileName]@ %[ends with]@ %@" = "%1$[Report File Name]@ %2$[ends with]@ %3$@";
-"%[crashLogFileName]@ %[contains]@ %@" = "%1$[Report File Name]@ %2$[contains]@ %3$@";
+"%[crashLogFileName]@ %[is]@ %@" = "%1$[שם קובץ הדוח]@ %2$[הוא]@ %3$@";
+"%[crashLogFileName]@ %[is not]@ %@" = "%1$[שם קובץ הדוח]@ %2$[אינו שווה ל-]@ %3$@";
+"%[crashLogFileName]@ %[begins with]@ %@" = "%1$[שם קובץ הדוח]@ %2$[מתחיל ב-]@ %3$@";
+"%[crashLogFileName]@ %[ends with]@ %@" = "%1$[שם קובץ הדוח]@ %2$[מסתיים ב-]@ %3$@";
+"%[crashLogFileName]@ %[contains]@ %@" = "%1$[שם קובץ הדוח]@ %2$[מכיל]@ %3$@";
 
 "%[reportSourceTypeNumber]@ is %[0]@" = "‏%1$[מקור]@ הוא %2$[דוחות המשתמש]@";
 "%[reportSourceTypeNumber]@ is %[1]@" = "%1$[מקור]@ הוא %2$[דוחות המשתמש]@";

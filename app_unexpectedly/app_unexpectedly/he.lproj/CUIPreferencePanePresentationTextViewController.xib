@@ -126,25 +126,14 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eDV-BF-Pu1">
-                    <rect key="frame" x="363" y="245" width="99" height="17"/>
+                    <rect key="frame" x="362" y="245" width="77" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Line wrapping:" id="nm4-Se-bRD">
+                    <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="גלישת מלל:" id="nm4-Se-bRD">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" id="ANa-W0-TnO">
-                    <rect key="frame" x="170" y="244" width="189" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Wrap lines to viewer width" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="1PO-2B-RhF">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="switchLineWrapping:" target="-2" id="BfM-Sn-zvX"/>
-                    </connections>
-                </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="1vN-WD-7S5">
                     <rect key="frame" x="363" y="206" width="154" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -166,9 +155,9 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9bL-sk-EjC">
-                    <rect key="frame" x="363" y="285" width="30" height="17"/>
+                    <rect key="frame" x="362" y="284" width="30" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="הצג:" id="gBx-bb-vVK">
+                    <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="הצג:" id="gBx-bb-vVK">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -183,6 +172,17 @@
                     </buttonCell>
                     <connections>
                         <action selector="switchShowThreadState:" target="-2" id="5aJ-mY-Zn1"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" id="ANa-W0-TnO">
+                    <rect key="frame" x="158" y="244" width="200" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="גלישת טקסט אלי רוחב המסמך " bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="1PO-2B-RhF">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="switchLineWrapping:" target="-2" id="BfM-Sn-zvX"/>
                     </connections>
                 </button>
             </subviews>
