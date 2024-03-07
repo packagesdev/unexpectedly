@@ -33,7 +33,7 @@
             
         case CPU_TYPE_ARM64:
             
-            return @"ARM64";
+            return @"ARM-64";
             
         case CPU_TYPE_POWERPC:
             

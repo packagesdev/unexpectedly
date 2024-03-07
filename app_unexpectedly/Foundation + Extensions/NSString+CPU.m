@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2021, Stephane Sudre
+ Copyright (c) 2021-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -23,8 +23,10 @@
     dispatch_once(&onceToken, ^{
         
         sCPUFamiliesRegistry=@{
-                               @"X86-64":@(CPU_TYPE_X86),
-                               @"arm64":@(CPU_ARCH_ABI64)
+                               @"X86-64":@(CPU_TYPE_X86_64),
+                               @"x86_64":@(CPU_TYPE_X86_64),
+                               @"ARM-64":@(CPU_TYPE_ARM64),
+                               @"arm64":@(CPU_TYPE_ARM64),
                                };
         
     });
