@@ -395,7 +395,7 @@ CA
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="נווט" id="YUZ-OQ-Qfb">
                         <items>
-                            <menuItem title="Jump to Line…" keyEquivalent="l" id="JtL-ON-s7d">
+                            <menuItem title="בחר שורה…" keyEquivalent="l" id="JtL-ON-s7d">
                                 <connections>
                                     <action selector="CUI_MENUACTION_jumpToLine:" target="-1" id="hAa-kF-BVg"/>
                                 </connections>

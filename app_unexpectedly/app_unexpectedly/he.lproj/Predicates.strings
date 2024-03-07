@@ -27,11 +27,11 @@
 "%[header.executableVersion]@ %[ends with]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מסתיים ב-]@ %3$@";
 "%[header.executableVersion]@ %[contains]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מכיל]@ %3$@";
 
-"%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[Crashed Thread Name]@ %2$[is]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[Crashed Thread Name]@ %2$[is not]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[Crashed Thread Name]@ %2$[begins with]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[Crashed Thread Name]@ %2$[ends with]@ %3$@";
-"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[Crashed Thread Name]@ %2$[contains]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[שם שרשור שקרס]@ %2$[הוא]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[שם שרשור שקרס]@ %2$[אינו שווה ל-]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מתחיל ב-]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מסתיים ב-]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מכיל]@ %3$@";
 
 "%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[Operating System Version]@ %2$[is]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[Operating System Version]@ %2$[is not]@ %3$@";
