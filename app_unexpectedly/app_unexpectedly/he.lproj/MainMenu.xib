@@ -401,9 +401,9 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="qbu-Eo-jRw"/>
-                            <menuItem title="Jump to Section" id="2Ip-qq-DKf">
+                            <menuItem title="עבור אל הקטע" id="2Ip-qq-DKf">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Jump to Section" id="AcZ-wd-kkj">
+                                <menu key="submenu" title="עבור אל הקטע" id="AcZ-wd-kkj">
                                     <items>
                                         <menuItem title="כותרת" id="Bmg-Jh-vql">
                                             <modifierMask key="keyEquivalentModifierMask"/>
