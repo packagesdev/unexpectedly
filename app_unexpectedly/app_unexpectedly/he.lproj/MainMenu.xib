@@ -446,7 +446,7 @@ CA
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Jump to Crashed Thread" keyEquivalent="c" id="XPO-uf-5Ox">
+                            <menuItem title="בחר השרשור שקרס" keyEquivalent="c" id="XPO-uf-5Ox">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_jumpToCrashedThread:" target="-1" id="ymM-Im-3Fw"/>
