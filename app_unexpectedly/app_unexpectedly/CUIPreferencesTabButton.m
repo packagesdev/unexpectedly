@@ -45,9 +45,9 @@
 {
 	if (_pushed==YES)
 	{
-		if ([self state]!=NSOnState)
+		if ([self state]!=NSControlStateValueOn)
 		{
-			[self setState:NSOnState];
+			[self setState:NSControlStateValueOn];
 			
 			[self sendAction:[self action] to:[self target]];
 		}
@@ -66,7 +66,7 @@
 	BOOL tIsDark=[self WB_isEffectiveAppearanceDarkAqua];
 	NSColor * tColor;
 	
-	if (self.state==NSOnState)
+	if (self.state==NSControlStateValueOn)
 	{
 		if (tIsDark==NO)
 		{

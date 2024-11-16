@@ -156,7 +156,7 @@
     
     CUIApplicationPreferences * tPreferences=[CUIApplicationPreferences sharedPreferences];
     
-    _showsRegistersWindowAtLaunchCheckbox.state=(tPreferences.showsRegistersWindowAutomaticallyAtLaunch==YES) ? NSOnState : NSOffState;
+    _showsRegistersWindowAtLaunchCheckbox.state=(tPreferences.showsRegistersWindowAutomaticallyAtLaunch==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     
     NSURL * tPreferedApplicationURL=tPreferences.preferedSourceCodeEditorURL;
     
@@ -210,7 +210,7 @@
 
 - (IBAction)switchShowsRegisterWindowAtLaunch:(NSButton *)sender
 {
-    [CUIApplicationPreferences sharedPreferences].showsRegistersWindowAutomaticallyAtLaunch=(sender.state==NSOnState);
+    [CUIApplicationPreferences sharedPreferences].showsRegistersWindowAutomaticallyAtLaunch=(sender.state==NSControlStateValueOn);
 }
 
 - (IBAction)switchPreferedSourceCodeEditor:(NSPopUpButton *)sender

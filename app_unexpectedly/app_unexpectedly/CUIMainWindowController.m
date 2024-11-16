@@ -137,7 +137,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     {
         [tRegistersWindowController showWindow:nil];
         
-        _registersWindowButton.state=NSOnState;
+        _registersWindowButton.state=NSControlStateValueOn;
     }
 }
 
@@ -225,7 +225,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     
     if ([tWindow.windowController isKindOfClass:[CUIRegistersWindowController class]]==YES)
     {
-        _registersWindowButton.state=NSOffState;
+        _registersWindowButton.state=NSControlStateValueOff;
     }
 }
 

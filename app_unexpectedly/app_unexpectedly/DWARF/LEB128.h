@@ -14,6 +14,7 @@
 #ifndef LEB128_h
 #define LEB128_h
 
+#include <stdint.h>
 #include <stdio.h>
 
 uint64_t DWRF_readULEB128(uint8_t * inBufferPtr,uint8_t ** outBufferPtr);

@@ -139,7 +139,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
     
     _selectedPresentationMode=CUIPresentationModeText;
     
-    [((NSButton *)[_presentationModeTabHeaderView viewWithTag:_selectedPresentationMode]) setState:NSOnState];
+    [((NSButton *)[_presentationModeTabHeaderView viewWithTag:_selectedPresentationMode]) setState:NSControlStateValueOn];
     
     ((NSClipView *)_categoriesTableView.superview).drawsBackground=YES;
     

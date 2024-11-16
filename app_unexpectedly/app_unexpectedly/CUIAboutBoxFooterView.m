@@ -30,7 +30,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	
 	// Draw top line
 	
-	NSRect tBounds=[self bounds];
+	NSRect tBounds=self.bounds;
 	
 	if (tIsDarkMode==NO)
 		[[NSColor colorWithDeviceWhite:0.698 alpha:1.0] set];

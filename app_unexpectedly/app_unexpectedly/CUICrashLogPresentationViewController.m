@@ -50,11 +50,11 @@ NSString * const CUICrashLogPresentationVisibleSectionsDidChangeNotification=@"C
     {
         if ([inMenuItem.title isEqualToString:[CUIThemesManager sharedManager].currentTheme.name]==YES)
         {
-            inMenuItem.state=NSOnState;
+            inMenuItem.state=NSControlStateValueOn;
         }
         else
         {
-            inMenuItem.state=NSOffState;
+            inMenuItem.state=NSControlStateValueOff;
         }
     
         return YES;
@@ -62,15 +62,15 @@ NSString * const CUICrashLogPresentationVisibleSectionsDidChangeNotification=@"C
     
     if (tAction==@selector(CUI_MENUACTION_switchShowOffset:))
     {
-        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSOnState : NSOffState;
+        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     else if (tAction==@selector(CUI_MENUACTION_switchShowMemoryAddress:))
     {
-        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSOnState : NSOffState;
+        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     else if (tAction==@selector(CUI_MENUACTION_switchShowBinaryImageIdentifier:))
     {
-        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
+        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     
     return YES;

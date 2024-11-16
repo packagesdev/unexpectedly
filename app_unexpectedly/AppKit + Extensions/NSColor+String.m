@@ -21,9 +21,9 @@
     
     if (inString!=nil)
     {
-        NSArray * tComponents=[inString componentsSeparatedByString:@"|"];
+        NSArray<NSString *> * tComponents=[inString componentsSeparatedByString:@"|"];
     
-        if ([tComponents count]==3)
+        if (tComponents.count==3)
         {
             tColor=[NSColor colorWithCalibratedRed:[tComponents[0] floatValue]
                                              green:[tComponents[1] floatValue]

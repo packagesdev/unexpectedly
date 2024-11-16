@@ -94,17 +94,17 @@
     
     NSButton * tRadioButton=[_dialogTypeGroup viewWithTag:tDefaults.dialogType];
     
-    tRadioButton.state=NSOnState;
+    tRadioButton.state=NSControlStateValueOn;
     
     // Notification Mode
     
     tRadioButton=[_notificationModeGroup viewWithTag:tDefaults.notificationMode];
     
-    tRadioButton.state=NSOnState;
+    tRadioButton.state=NSControlStateValueOn;
     
     // Report Uncaught Exceptions
     
-    _reportUncaughtExceptionsCheckbox.state=(tDefaults.reportUncaughtExceptions==YES) ? NSOnState : NSOffState;
+    _reportUncaughtExceptionsCheckbox.state=(tDefaults.reportUncaughtExceptions==YES) ? NSControlStateValueOn : NSControlStateValueOff;
 }
 
 #pragma mark -
@@ -127,7 +127,7 @@
 {
     CUICrashReporterDefaults * tDefaults=[CUICrashReporterDefaults standardCrashReporterDefaults];
     
-    tDefaults.reportUncaughtExceptions=(sender.state==NSOnState);
+    tDefaults.reportUncaughtExceptions=(sender.state==NSControlStateValueOn);
 }
 
 #pragma mark - Notifications

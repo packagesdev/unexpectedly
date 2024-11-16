@@ -27,7 +27,7 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
     
     if (tEvent!=nil)
     {
-        NSUInteger tModifierFlags=[tEvent modifierFlags];
+        NSUInteger tModifierFlags=tEvent.modifierFlags;
         
         BOOL isDown=((tModifierFlags & NSEventModifierFlagOption) == NSEventModifierFlagOption);
         
@@ -65,7 +65,7 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
     if (inEvent==nil)
         return;
     
-    NSUInteger tModifierFlags=[inEvent modifierFlags];
+    NSUInteger tModifierFlags=inEvent.modifierFlags;
     
     BOOL isDown=((tModifierFlags & NSEventModifierFlagOption) == NSEventModifierFlagOption);
     

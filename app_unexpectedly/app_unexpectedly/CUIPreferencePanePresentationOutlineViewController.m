@@ -75,11 +75,11 @@
     
     // Stack Frame
     
-    _showBinaryNameCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
+    _showBinaryNameCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showMachineInstructionAddressCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSOnState : NSOffState;
+    _showMachineInstructionAddressCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showByteOffsetCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSOnState : NSOffState;
+    _showByteOffsetCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
 }
 
 #pragma mark -
@@ -98,17 +98,17 @@
 
 - (IBAction)switchShowBinaryName:(NSButton *)sender
 {
-    [self _setStackFrameComponent:CUIStackFrameBinaryNameComponent visible:(sender.state==NSOnState)];
+    [self _setStackFrameComponent:CUIStackFrameBinaryNameComponent visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowMachineInstructionAddress:(NSButton *)sender
 {
-    [self _setStackFrameComponent:CUIStackFrameMachineInstructionAddressComponent visible:(sender.state==NSOnState)];
+    [self _setStackFrameComponent:CUIStackFrameMachineInstructionAddressComponent visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowByteOffset:(NSButton *)sender
 {
-    [self _setStackFrameComponent:CUIStackFrameByteOffsetComponent visible:(sender.state==NSOnState)];
+    [self _setStackFrameComponent:CUIStackFrameByteOffsetComponent visible:(sender.state==NSControlStateValueOn)];
 }
 
 @end

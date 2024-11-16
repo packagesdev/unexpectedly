@@ -58,9 +58,9 @@
     
     CUIApplicationPreferences * tPreferences=[CUIApplicationPreferences sharedPreferences];
     
-    _symbolicateButton.state=(tPreferences.symbolicateAutomatically==YES) ? NSOnState : NSOffState;
+    _symbolicateButton.state=(tPreferences.symbolicateAutomatically==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _searchForSymbolsFilesButton.state=(tPreferences.searchForSymbolsFilesAutomatically==YES) ? NSOnState : NSOffState;
+    _searchForSymbolsFilesButton.state=(tPreferences.searchForSymbolsFilesAutomatically==YES) ? NSControlStateValueOn : NSControlStateValueOff;
 }
 
 #pragma mark -
@@ -79,12 +79,12 @@
 
 - (IBAction)switchSymbolicate:(NSButton *)sender
 {
-    [CUIApplicationPreferences sharedPreferences].symbolicateAutomatically=(sender.state==NSOnState);
+    [CUIApplicationPreferences sharedPreferences].symbolicateAutomatically=(sender.state==NSControlStateValueOn);
 }
 
 - (IBAction)switchSearchForSymbolFiles:(NSButton *)sender
 {
-    [CUIApplicationPreferences sharedPreferences].searchForSymbolsFilesAutomatically=(sender.state==NSOnState);
+    [CUIApplicationPreferences sharedPreferences].searchForSymbolsFilesAutomatically=(sender.state==NSControlStateValueOn);
 }
 
 @end

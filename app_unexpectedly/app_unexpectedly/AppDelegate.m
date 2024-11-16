@@ -158,7 +158,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     {
         CUICrashReporterDefaults * tDefaults=[CUICrashReporterDefaults standardCrashReporterDefaults];
         
-        inMenuItem.state=(tDefaults.dialogType==inMenuItem.tag) ? NSOnState : NSOffState;
+        inMenuItem.state=(tDefaults.dialogType==inMenuItem.tag) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
@@ -167,7 +167,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     {
         CUICrashReporterDefaults * tDefaults=[CUICrashReporterDefaults standardCrashReporterDefaults];
         
-        inMenuItem.state=(tDefaults.notificationMode==inMenuItem.tag) ? NSOnState : NSOffState;
+        inMenuItem.state=(tDefaults.notificationMode==inMenuItem.tag) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
@@ -176,7 +176,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     {
         CUICrashReporterDefaults * tDefaults=[CUICrashReporterDefaults standardCrashReporterDefaults];
         
-        inMenuItem.state=(tDefaults.reportUncaughtExceptions==YES) ? NSOnState : NSOffState;
+        inMenuItem.state=(tDefaults.reportUncaughtExceptions==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     
     return YES;

@@ -365,13 +365,13 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     if (tIsRawCrashLog==NO)
     {
-        _showOnlyCrashedThreadButton.state=((self.displaySettings.visibleSections & CUIDocumentBacktraceCrashedThreadSubSection)==CUIDocumentBacktraceCrashedThreadSubSection) ? NSOnState : NSOffState;
+        _showOnlyCrashedThreadButton.state=((self.displaySettings.visibleSections & CUIDocumentBacktraceCrashedThreadSubSection)==CUIDocumentBacktraceCrashedThreadSubSection) ? NSControlStateValueOn : NSControlStateValueOff;
         
-        _showByteOffsetButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent) ? NSOnState : NSOffState;
+        _showByteOffsetButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent) ? NSControlStateValueOn : NSControlStateValueOff;
         
-        _showMachineInstructionAddressButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==CUIStackFrameMachineInstructionAddressComponent) ? NSOnState : NSOffState;
+        _showMachineInstructionAddressButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==CUIStackFrameMachineInstructionAddressComponent) ? NSControlStateValueOn : NSControlStateValueOff;
         
-        _showBinaryNameButton.state=(((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
+        _showBinaryNameButton.state=(((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     
     if (tIsRawCrashLog==NO)
@@ -877,7 +877,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     /*if (tAction==@selector(CUI_MENUACTION_switchSyntaxHighlighting:))
     {
-        inMenuItem.state=(self.displaySettings.highlightSyntax==YES) ? NSOnState : NSOffState;
+        inMenuItem.state=(self.displaySettings.highlightSyntax==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     }*/
     
     if (tAction==@selector(performTextFinderAction:))
@@ -970,7 +970,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         BOOL tEnabled=tCrashLog.isHeaderAvailable;
         
-        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentHeaderSection)==CUIDocumentHeaderSection) : NSOffState;
+        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentHeaderSection)==CUIDocumentHeaderSection) : NSControlStateValueOff;
         
         return tEnabled;
     }
@@ -982,7 +982,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         BOOL tEnabled=tCrashLog.isExceptionInformationAvailable;
         
-        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentExceptionInformationSection)==CUIDocumentExceptionInformationSection) : NSOffState;
+        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentExceptionInformationSection)==CUIDocumentExceptionInformationSection) : NSControlStateValueOff;
         
         return tEnabled;
     }
@@ -994,7 +994,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         BOOL tEnabled=tCrashLog.isDiagnosticMessageAvailable;
         
-        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentDiagnosticMessagesSection)==CUIDocumentDiagnosticMessagesSection) : NSOffState;
+        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentDiagnosticMessagesSection)==CUIDocumentDiagnosticMessagesSection) : NSControlStateValueOff;
         
         return tEnabled;
     }
@@ -1006,7 +1006,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         BOOL tEnabled=tCrashLog.isBacktracesAvailable;
         
-        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentBacktracesSection)==CUIDocumentBacktracesSection) : NSOffState;
+        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentBacktracesSection)==CUIDocumentBacktracesSection) : NSControlStateValueOff;
         
         return tEnabled;
     }
@@ -1018,7 +1018,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         BOOL tEnabled=tCrashLog.isThreadStateAvailable;
         
-        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentThreadStateSection)==CUIDocumentThreadStateSection) : NSOffState;
+        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentThreadStateSection)==CUIDocumentThreadStateSection) : NSControlStateValueOff;
         
         return tEnabled;
     }
@@ -1030,7 +1030,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         BOOL tEnabled=tCrashLog.isBinaryImagesAvailable;
         
-        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection) : NSOffState;
+        inMenuItem.state=(tEnabled==YES) ? ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection) : NSControlStateValueOff;
         
         return tEnabled;
     }

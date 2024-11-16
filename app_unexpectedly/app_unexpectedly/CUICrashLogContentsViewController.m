@@ -146,7 +146,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     
     if (tAction==@selector(CUI_MENUACTION_switchPresentationMode:))
     {
-        inMenuItem.state=(inMenuItem.tag==self.presentationMode) ? NSOnState : NSOffState;
+        inMenuItem.state=(inMenuItem.tag==self.presentationMode) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }

@@ -361,14 +361,14 @@
     
     if (tAction==@selector(switchDisplayedName:))
     {
-        inMenuItem.state=(inMenuItem.tag==_showsFileNames) ? NSOnState : NSOffState;
+        inMenuItem.state=(inMenuItem.tag==_showsFileNames) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
     
     if (tAction==@selector(switchSortType:))
     {
-        inMenuItem.state=(inMenuItem.tag==_sortType) ? NSOnState : NSOffState;
+        inMenuItem.state=(inMenuItem.tag==_sortType) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
