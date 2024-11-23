@@ -82,7 +82,7 @@
         return;
     }
     
-    [[NSWorkspace sharedWorkspace] openFile:tPath];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:tPath]];
 }
 
 - (IBAction)showAcknowledgments:(id)sender
@@ -95,7 +95,7 @@
         return;
     }
     
-    [[NSWorkspace sharedWorkspace] openFile:tPath];
+    [[NSWorkspace sharedWorkspace] openFile:[NSURL fileURLWithPath:tPath]];
 }
 
 #pragma mark - Notifications
