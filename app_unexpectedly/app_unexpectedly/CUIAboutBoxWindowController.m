@@ -95,7 +95,7 @@
         return;
     }
     
-    [[NSWorkspace sharedWorkspace] openFile:[NSURL fileURLWithPath:tPath]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:tPath]];
 }
 
 #pragma mark - Notifications
