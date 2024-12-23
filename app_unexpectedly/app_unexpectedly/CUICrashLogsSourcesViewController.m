@@ -108,7 +108,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -139,7 +139,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(sourcesManagerSourcesDidChange:) name:CUICrashLogsSourcesManagerSourcesDidChangeNotification object:_sourcesManager];
     
@@ -1162,7 +1162,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 
 - (void)sourcesSelectionDidChange:(NSNotification *)inNotification
 {
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     // Stop observing
     

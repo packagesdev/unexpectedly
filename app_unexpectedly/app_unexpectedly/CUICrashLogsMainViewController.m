@@ -99,7 +99,7 @@ NSString * const CUIDefaultsInspectorViewCollapsedKey=@"rightView.collapsed";
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark - NSObject

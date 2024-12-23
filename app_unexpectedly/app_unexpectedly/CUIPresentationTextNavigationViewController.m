@@ -176,7 +176,7 @@
     
     // Register for Notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:self.view];
     
@@ -205,7 +205,7 @@
 {
     [super viewWillDisappear];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -1039,7 +1039,7 @@
         return;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"jumpToSectionNotification" object:tRepresentedObject userInfo:@{}];
+    [NSNotificationCenter.defaultCenter postNotificationName:@"jumpToSectionNotification" object:tRepresentedObject userInfo:@{}];
     
     [self updateLayout];
 }

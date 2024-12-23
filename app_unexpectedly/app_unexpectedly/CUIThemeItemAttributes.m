@@ -80,7 +80,7 @@ NSString * const CUIThemeItemAttributesDidChangeNotification=@"CUIThemeItemAttri
     {
         _font=inFont;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
     }
 }
 
@@ -90,7 +90,7 @@ NSString * const CUIThemeItemAttributesDidChangeNotification=@"CUIThemeItemAttri
     {
         _color=inColor;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
     }
 }
 

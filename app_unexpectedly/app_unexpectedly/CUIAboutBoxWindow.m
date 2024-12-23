@@ -35,9 +35,9 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
         {
             _optionKeyDown=isDown;
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:CUIOptionKeyStateDidChangeNotification
-                                                                object:self
-                                                              userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
+            [NSNotificationCenter.defaultCenter postNotificationName:CUIOptionKeyStateDidChangeNotification
+                                                              object:self
+                                                            userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
         }
     }
     
@@ -52,9 +52,9 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
         
         // Post Notification
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIOptionKeyStateDidChangeNotification
-                                                            object:self
-                                                          userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIOptionKeyStateDidChangeNotification
+                                                          object:self
+                                                        userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
     }
     
     [super resignKeyWindow];
@@ -75,9 +75,9 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
         
         // Post Notification
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIOptionKeyStateDidChangeNotification
-                                                            object:self
-                                                          userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIOptionKeyStateDidChangeNotification
+                                                          object:self
+                                                        userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
     }
 }
 

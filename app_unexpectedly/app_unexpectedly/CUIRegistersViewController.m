@@ -34,7 +34,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (NSString *)nibName
@@ -57,7 +57,7 @@
     
     // Register for notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerItemValueAsDidChange:) name:CUIRegisterItemViewAsValueDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(registerItemValueAsDidChange:) name:CUIRegisterItemViewAsValueDidChangeNotification object:nil];
 }
 
 #pragma mark -

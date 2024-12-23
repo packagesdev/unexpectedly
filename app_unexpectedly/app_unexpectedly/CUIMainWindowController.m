@@ -54,7 +54,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -70,7 +70,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(crashLogsSelectionDidChange:) name:CUICrashLogsSelectionDidChangeNotification object:nil];
     
@@ -122,7 +122,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     if (inEventSelector!=@selector(keyDown:))
         return;
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"windowDidNotHandleKeyEventNotification" object:self.window userInfo:@{@"Event":[NSApp currentEvent]}];
+    [NSNotificationCenter.defaultCenter postNotificationName:@"windowDidNotHandleKeyEventNotification" object:self.window userInfo:@{@"Event":[NSApp currentEvent]}];
 }
 
 - (IBAction)CUIMENUACTION_showHideRegisters:(id)sender

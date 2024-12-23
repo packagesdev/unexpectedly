@@ -109,7 +109,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
         
         // Register for notifications
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:NSApplicationDidBecomeActiveNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive:) name:NSApplicationDidBecomeActiveNotification object:nil];
     }
     
     return self;
@@ -117,7 +117,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -

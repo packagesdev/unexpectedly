@@ -45,18 +45,18 @@
  
     [self refreshDate];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:self.view];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:self.view];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemClockDidChange:) name:NSCurrentLocaleDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(systemClockDidChange:) name:NSCurrentLocaleDidChangeNotification object:nil];
 }
 
 - (void)viewWillDisappear
 {
     [super viewWillDisappear];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:self.view];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:NSViewFrameDidChangeNotification object:self.view];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSCurrentLocaleDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:NSCurrentLocaleDidChangeNotification object:nil];
 }
 
 #pragma mark -
@@ -69,6 +69,7 @@
     dispatch_once(&onceToken, ^{
         
         NSDateFormatter * tLongMediumFormatter=[NSDateFormatter new];
+        
         tLongMediumFormatter.locale=[NSLocale autoupdatingCurrentLocale];
         tLongMediumFormatter.formatterBehavior=NSDateFormatterBehavior10_4;
         tLongMediumFormatter.dateStyle=NSDateFormatterLongStyle;

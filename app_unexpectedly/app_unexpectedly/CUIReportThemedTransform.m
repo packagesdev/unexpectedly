@@ -280,8 +280,8 @@
                                                                                                             {
                                                                                                                 inStackFrame.symbolicationData=bSymbolicationData;
                                                                                                                 
-                                                                                                                [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                    object:self.input];
+                                                                                                                [NSNotificationCenter.defaultCenter postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                                                                  object:self.input];
                                                                                                                 
                                                                                                                 break;
                                                                                                             }

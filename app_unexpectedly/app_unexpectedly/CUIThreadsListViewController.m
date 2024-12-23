@@ -109,7 +109,7 @@
     
     _outlineView.menu=tMenu;
     
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:_outlineView];
+    //[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:_outlineView];
 }
 
 - (void)viewWillDisappear
@@ -592,8 +592,8 @@
                                                                                                                         
                                                                                                                         tCall.symbolicationData=bSymbolicationData;
                                                                                                                         
-                                                                                                                        [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                            object:self.crashLog];
+                                                                                                                        [NSNotificationCenter.defaultCenter postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                                                                          object:self.crashLog];
                                                                                                                         
                                                                                                                         break;
                                                                                                                         
@@ -887,7 +887,7 @@
                                                                                                                     {
                                                                                                                         tCall.symbolicationData=bSymbolicationData;
                                                                                                                         
-                                                                                                                        [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                        [NSNotificationCenter.defaultCenter postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
                                                                                                                                                                             object:self.crashLog];
                                                                                                                         
                                                                                                                         break;

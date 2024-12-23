@@ -108,7 +108,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -150,7 +150,7 @@
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(crashLogsSourcesSelectionDidChange:) name:CUICrashLogsSourcesSelectionDidChangeNotification object:[CUICrashLogsSourcesSelection sharedSourcesSelection]];
     
@@ -622,7 +622,7 @@
 {
     NSInteger tSelectedRow=_tableView.selectedRow;
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     // Stop observing
     
@@ -672,7 +672,7 @@
     if (tFirstSource==_source)
         return;
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter removeObserver:self name:CUICrashLogsSourceDidUpdateSourceNotification object:_source];
     

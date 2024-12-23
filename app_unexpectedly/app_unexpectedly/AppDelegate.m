@@ -106,7 +106,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
     

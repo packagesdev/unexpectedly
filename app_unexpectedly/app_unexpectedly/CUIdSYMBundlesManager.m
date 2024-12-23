@@ -167,7 +167,7 @@ NSString * const CUIdSYMBundlesManagerContentsKey=@"dSYMLibrary.contents";
     // Post Notification?
         
     if (inNotify==YES)
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIdSYMBundlesManagerDidAddBundlesNotification object:tAllBinaryUUIDs];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIdSYMBundlesManagerDidAddBundlesNotification object:tAllBinaryUUIDs];
     
     [self _synchronizeDefaults];
     
@@ -202,7 +202,7 @@ NSString * const CUIdSYMBundlesManagerContentsKey=@"dSYMLibrary.contents";
     
     // Post Notification
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:tAllBinaryUUIDs];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:tAllBinaryUUIDs];
     
     [self _synchronizeDefaults];
 }

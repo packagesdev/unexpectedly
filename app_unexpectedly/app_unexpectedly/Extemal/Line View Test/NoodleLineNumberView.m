@@ -76,7 +76,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -124,7 +124,7 @@
 
 - (void)setClientView:(NSView *)inClientView
 {
-    NSNotificationCenter *tNotificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *tNotificationCenter = NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter removeObserver:self name:NSTextStorageDidProcessEditingNotification object:nil];
     

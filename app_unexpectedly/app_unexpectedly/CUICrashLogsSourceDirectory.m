@@ -187,7 +187,7 @@ void mycallback(
         _crashLogs=tCrashLogs;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
 }
 
 @end

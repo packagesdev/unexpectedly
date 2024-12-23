@@ -69,7 +69,7 @@ extern NSString * const CUIApplicationShowDebugDidChangeNotification;
     
     [tDefaults setBool:(sender.state==NSControlStateValueOn) forKey:CUIApplicationShowDebugMenuKey];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIApplicationShowDebugDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIApplicationShowDebugDidChangeNotification object:nil];
 }
 
 @end

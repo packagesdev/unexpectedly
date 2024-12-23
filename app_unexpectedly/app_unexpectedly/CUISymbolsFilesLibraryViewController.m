@@ -115,18 +115,18 @@
     
     // Register for notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dSYMBundlesManagerDidAddBundles:) name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(dSYMBundlesManagerDidAddBundles:) name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dSYMBundlesManagerDidRemoveBundles:) name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(dSYMBundlesManagerDidRemoveBundles:) name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
 }
 
 - (void)viewWillDisappear
 {
     [super viewWillDisappear];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
 }
 
 #pragma mark -

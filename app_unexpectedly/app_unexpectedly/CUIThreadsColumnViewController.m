@@ -450,8 +450,8 @@
                                                                                                                     {
                                                                                                                         tCall.symbolicationData=bSymbolicationData;
                                                                                                                         
-                                                                                                                        [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                            object:self.crashLog];
+                                                                                                                        [NSNotificationCenter.defaultCenter postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                                                                          object:self.crashLog];
                                                                                                                         
                                                                                                                         break;
                                                                                                                     }
@@ -701,8 +701,8 @@
                                                                                                                 {
                                                                                                                     tCall.symbolicationData=bSymbolicationData;
                                                                                                                     
-                                                                                                                    [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                        object:self.crashLog];
+                                                                                                                    [NSNotificationCenter.defaultCenter postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                                                                      object:self.crashLog];
                                                                                                                     
                                                                                                                     break;
                                                                                                                 }

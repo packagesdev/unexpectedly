@@ -45,7 +45,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -65,7 +65,7 @@
     
     // Register for notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(optionKeyStateDidChange:) name:CUIOptionKeyStateDidChangeNotification object:self.window];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(optionKeyStateDidChange:) name:CUIOptionKeyStateDidChangeNotification object:self.window];
     
     [self.window center];
 }

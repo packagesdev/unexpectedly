@@ -129,11 +129,11 @@ NSString * const CUIRegisterItemViewAsValueDidChangeNotification=@"CUIRegisterIt
     
     // Post Notification
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIRegisterItemViewAsValueDidChangeNotification
-                                                        object:tRegister
-                                                      userInfo:@{
-                                                                 @"viewAs":@(inType)
-                                                                 }];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIRegisterItemViewAsValueDidChangeNotification
+                                                      object:tRegister
+                                                    userInfo:@{
+                                                               @"viewAs":@(inType)
+                                                               }];
 }
 
 @end

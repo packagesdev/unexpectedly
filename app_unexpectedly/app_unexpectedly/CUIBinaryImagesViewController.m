@@ -112,7 +112,7 @@
     
     // Notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(callsSelectionDidChange:) name:CUICallsSelectionDidChangeNotification object:[CUICallsSelection sharedCallsSelection]];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(callsSelectionDidChange:) name:CUICallsSelectionDidChangeNotification object:[CUICallsSelection sharedCallsSelection]];
 }
 
 #pragma mark -

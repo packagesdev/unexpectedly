@@ -178,18 +178,18 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
     
     [self.view.window makeFirstResponder:_categoriesTableView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentThemeDidChange:) name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(currentThemeDidChange:) name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
 }
 
 - (void)viewWillDisappear
 {
     [super viewWillDisappear];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIThemesManagerThemesListDidChangeNotification object:nil];
 }
 
 #pragma mark -

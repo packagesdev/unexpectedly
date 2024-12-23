@@ -90,7 +90,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     
     // Register for notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(huntDidFinish:) name:CUIdSYMHunterHuntDidFinishNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(huntDidFinish:) name:CUIdSYMHunterHuntDidFinishNotification object:nil];
 }
 
 #pragma mark -
@@ -358,7 +358,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     
     // Post Notification
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogContentsViewPresentationModeDidChangeNotification object:self userInfo:@{@"mode":@(_presentationMode)}];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogContentsViewPresentationModeDidChangeNotification object:self userInfo:@{@"mode":@(_presentationMode)}];
     
     // Save presentation mode in defaults
     

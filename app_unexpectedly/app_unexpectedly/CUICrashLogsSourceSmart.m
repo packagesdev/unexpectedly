@@ -44,7 +44,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
     
     if (self!=nil)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceAllDidUpdateSource:) name:CUICrashLogsSourceDidUpdateSourceNotification object:[CUICrashLogsSourceAll crashLogsSourceAll]];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(sourceAllDidUpdateSource:) name:CUICrashLogsSourceDidUpdateSourceNotification object:[CUICrashLogsSourceAll crashLogsSourceAll]];
         
         self.name=NSLocalizedString(@"Untitled source", @"");
         
@@ -62,7 +62,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
     
     if (self!=nil)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sourceAllDidUpdateSource:) name:CUICrashLogsSourceDidUpdateSourceNotification object:[CUICrashLogsSourceAll crashLogsSourceAll]];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(sourceAllDidUpdateSource:) name:CUICrashLogsSourceDidUpdateSourceNotification object:[CUICrashLogsSourceAll crashLogsSourceAll]];
         
         NSNumber * tNumber=inRepresentation[CUICrashLogsSourcesSmartVersionKey];
         
@@ -98,7 +98,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -141,7 +141,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
 {
     _filteredCrashLogs=[[CUICrashLogsSourceAll crashLogsSourceAll].crashLogs filteredArrayUsingPredicate:self.predicate];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
 }
 
 @end

@@ -66,7 +66,7 @@ NSString * const CUIRegistersMainViewContentsViewDidChangeNotificaton=@"CUIRegis
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -82,7 +82,7 @@ NSString * const CUIRegistersMainViewContentsViewDidChangeNotificaton=@"CUIRegis
     
     // Register for Notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(crashLogsSelectionDidChange:) name:CUICrashLogsSelectionDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(crashLogsSelectionDidChange:) name:CUICrashLogsSelectionDidChangeNotification object:nil];
 }
 
 - (void)viewWillAppear
@@ -93,7 +93,7 @@ NSString * const CUIRegistersMainViewContentsViewDidChangeNotificaton=@"CUIRegis
     
     // Post Notification
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIRegistersMainViewContentsViewDidChangeNotificaton object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIRegistersMainViewContentsViewDidChangeNotificaton object:self];
 }
 
 
@@ -185,7 +185,7 @@ NSString * const CUIRegistersMainViewContentsViewDidChangeNotificaton=@"CUIRegis
     
     // Post Notification
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIRegistersMainViewContentsViewDidChangeNotificaton object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIRegistersMainViewContentsViewDidChangeNotificaton object:self];
 }
 
 - (NSSize)idealSizeForNumberOfColumns:(NSUInteger)inColumnsNumber
