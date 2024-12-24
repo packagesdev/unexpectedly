@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2012-2021 Stephane Sudre
+ Copyright (c) 2012-2024 Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -27,15 +27,13 @@ NSString * const WBSkipRemoteAvailableVersionKey=@"WBSkipRemoteAvailableVersion"
 
 NSString * const WBVersionCheckURL=@"WBVersionCheckURL";
 
-@interface WBRemoteVersionChecker () <NSURLConnectionDataDelegate>
+@interface WBRemoteVersionChecker ()
 {
 	NSString * _productName;
 	NSString * _productLocalVersion;
 	NSString * _productCheckURL;
 	
 	NSUserDefaults * _defaults;
-	
-	NSMutableData * _data;
 }
 
 @end
@@ -46,7 +44,6 @@ NSString * const WBVersionCheckURL=@"WBVersionCheckURL";
 {
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
                                                               WBRemoteCheckEnabledKey:@(YES),
-                                                              
                                                               }];
 }
 
@@ -151,38 +148,92 @@ NSString * const WBVersionCheckURL=@"WBVersionCheckURL";
 		
 			if (_productCheckURL.length>0)
 			{
-				// Check whether it's time to check for a newer version
+				NSUserDefaults *defaults = _defaults;
+                
+                // Check whether it's time to check for a newer version
 				
-				BOOL tCheckEnabled=[_defaults boolForKey:WBRemoteCheckEnabledKey];
+				BOOL tCheckEnabled=[defaults boolForKey:WBRemoteCheckEnabledKey];
 				
 				if (tCheckEnabled==YES)
 				{
-					NSDate * tLastCheckDate=[_defaults objectForKey:WBRemoteLastCheckDateKey];
+					NSDate * tLastCheckDate=[defaults objectForKey:WBRemoteLastCheckDateKey];
 					
-					if (tLastCheckDate==nil || ([tCurrentDate timeIntervalSinceDate:tLastCheckDate]>WBREMOTEVERSIONCHECK_PERIOD))
-					{
-						// Perform Remote Check
-						
-						_data=nil;
-						
-						NSURLRequest * tRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:_productCheckURL]];
-						
-						if (tRequest!=nil)
-						{
-							NSURLConnection * tURLConnection=[[NSURLConnection alloc] initWithRequest:tRequest delegate:self];
-							
-							if (tURLConnection==nil)
-							{
-								NSLog(@"Could not allocate NSURLConnection");
-							}
-						}
-						else
-						{
-							NSLog(@"Could not allocate NSURLRequest");
-						}
-
-					}
-				}
+                    if (tLastCheckDate!=nil && ([tCurrentDate timeIntervalSinceDate:tLastCheckDate]<=WBREMOTEVERSIONCHECK_PERIOD))
+                        return self;
+                    
+                    // Perform Remote Check
+                    
+                    NSURLSessionConfiguration * tURLSessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+                    NSURLSession * tURLSession = [NSURLSession sessionWithConfiguration:tURLSessionConfiguration];
+                    
+                    NSURLSessionDataTask * tDataTask = [tURLSession dataTaskWithURL:[NSURL URLWithString:_productCheckURL] completionHandler:^(NSData *bData, NSURLResponse *bResponse, NSError *bError) {
+                        
+                        if (bData==nil)
+                        {
+                            NSLog(@"Unable to retrieve last available remove version: %@.", bError);
+                            
+                            return;
+                        }
+                        
+                        if (bResponse!=nil)
+                        {
+                            NSHTTPURLResponse * tHTTPResponse=(NSHTTPURLResponse *)bResponse;
+                            
+                            switch (tHTTPResponse.statusCode)
+                            {
+                                case 200:
+                                    break;
+                                default:
+                                    NSLog(@"HTTP Response status: %ld", tHTTPResponse.statusCode);
+                                    break;
+                            }
+                        }
+                        
+                        [defaults setObject:[NSDate date] forKey:WBRemoteLastCheckDateKey];
+                        
+                        NSPropertyListFormat tPropertyListFormat;
+                        NSDictionary * tDictionary=[NSPropertyListSerialization propertyListWithData:bData options:NSPropertyListImmutable format:&tPropertyListFormat error:NULL];
+                        
+                        if (tDictionary==nil)
+                        {
+                            NSLog(@"Unable to deserialize downloaded data into a property list.");
+                            return;
+                        }
+                        
+                        NSString * tRemoteVersion=tDictionary[WBRemoteAvailableVersionKey];
+                        
+                        NSString * tLocalRemoteVersion=[defaults objectForKey:WBRemoteAvailableVersionKey];
+                        
+                        if (tLocalRemoteVersion!=nil && [tRemoteVersion compare:tLocalRemoteVersion options:NSNumericSearch]!=NSOrderedDescending)
+                        {
+                            return;
+                        }
+                        
+                        if (self->_productLocalVersion!=nil)
+                        {
+                            if ([tRemoteVersion compare:self->_productLocalVersion options:NSNumericSearch]==NSOrderedDescending)
+                            {
+                                NSString * tRemoteURL=[tDictionary objectForKey:WBRemoteAvailableVersionURLKey];
+                                
+                                if (tRemoteURL!=nil)
+                                {
+                                    [defaults setObject:tRemoteURL forKey:WBRemoteAvailableVersionURLKey];
+                                    [defaults setObject:tRemoteVersion forKey:WBRemoteAvailableVersionKey];
+                                    [defaults setBool:NO forKey:WBSkipRemoteAvailableVersionKey];
+                                }
+                            }
+                        }
+                    }];
+                    
+                    if (tDataTask==nil)
+                    {
+                        NSLog(@"Could not allocate NSURLSessionDataTask");
+                    }
+                    else
+                    {
+                        [tDataTask resume];
+                    }
+                }
 			}
 		}
 	}
@@ -205,94 +256,6 @@ NSString * const WBVersionCheckURL=@"WBVersionCheckURL";
 - (void)setCheckEnabled:(BOOL)inBool
 {
 	[_defaults setBool:inBool forKey:WBRemoteCheckEnabledKey];
-}
-
-#pragma mark - NSURLConnectionDataDelegate
-
-- (void)connection:(NSURLConnection *)inConnection didReceiveResponse:(NSURLResponse *)inResponse
-{
-	if (inConnection!=nil)
-	{
-		NSHTTPURLResponse * tHTTPResponse=(NSHTTPURLResponse *) inResponse;
-		
-		switch (tHTTPResponse.statusCode)
-		{
-			case 200:
-				
-				break;
-				
-			default:
-				
-				[inConnection cancel];
-				
-				break;
-		}
-	}
-}
-
-- (void)connection:(NSURLConnection *)inConnection didReceiveData:(NSData *)inData
-{
-    if (inConnection!=nil && inData!=nil)
-	{
-        if (_data==nil)
-			_data=[inData mutableCopy];
-        else
-			[_data appendData:inData];
-    }
-}
-
-- (void)connection:(NSURLConnection *)inConnection didFailWithError:(NSError *)inError
-{
-	if (inConnection!=nil)
-		_data=nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)inConnection
-{
-	if (inConnection==nil)
-        return;
-    
-	
-    if (_data==nil)
-        return;
-    
-    [_defaults setObject:[NSDate date] forKey:WBRemoteLastCheckDateKey];
-    
-    NSPropertyListFormat tPropertyListFormat;
-    NSDictionary * tDictionary=[NSPropertyListSerialization propertyListWithData:_data options:NSPropertyListImmutable format:&tPropertyListFormat error:NULL];
-    
-    if (tDictionary==nil)
-    {
-        _data=nil;
-        return;
-    }
-
-    NSString * tRemoteVersion=tDictionary[WBRemoteAvailableVersionKey];
-    
-    NSString * tLocalRemoteVersion=[_defaults objectForKey:WBRemoteAvailableVersionKey];
-    
-    if (tLocalRemoteVersion!=nil && [tRemoteVersion compare:tLocalRemoteVersion options:NSNumericSearch]!=NSOrderedDescending)
-    {
-        _data=nil;
-        return;
-    }
-    
-    if (_productLocalVersion!=nil)
-    {
-        if ([tRemoteVersion compare:_productLocalVersion options:NSNumericSearch]==NSOrderedDescending)
-        {
-            NSString * tRemoteURL=[tDictionary objectForKey:WBRemoteAvailableVersionURLKey];
-            
-            if (tRemoteURL!=nil)
-            {
-                [_defaults setObject:tRemoteURL forKey:WBRemoteAvailableVersionURLKey];
-                [_defaults setObject:tRemoteVersion forKey:WBRemoteAvailableVersionKey];
-                [_defaults setBool:NO forKey:WBSkipRemoteAvailableVersionKey];
-            }
-        }
-    }
-																		   
-    _data=nil;
 }
 
 @end
