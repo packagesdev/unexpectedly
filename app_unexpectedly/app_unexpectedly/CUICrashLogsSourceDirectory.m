@@ -90,6 +90,19 @@ void mycallback(
     return self;
 }
 
+- (instancetype)initWithContentsOfFileSystemItemAtPath:(NSString *)inPath error:(NSError **)outError
+{
+    self = [super initWithContentsOfFileSystemItemAtPath:inPath error:outError];
+    
+    if (self!=nil)
+    {
+        if ([self initCommonWithError:NULL]==NO)
+            return nil;
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithContentsOfFileSystemItemAtPath:(NSString *)inPath collectRetired:(BOOL)inCollectRetired error:(NSError **)outError
 {
     self=[super initWithContentsOfFileSystemItemAtPath:inPath error:outError];
