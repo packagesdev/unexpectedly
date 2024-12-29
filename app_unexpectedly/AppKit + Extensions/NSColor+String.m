@@ -39,7 +39,8 @@
 
 - (NSString *)stringValue
 {
-    NSColor *tColor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColorSpace * tColorSpace = [NSColorSpace genericRGBColorSpace];
+    NSColor * tColor = [self colorUsingColorSpace:tColorSpace];
     
     return([NSString stringWithFormat:@"%f|%f|%f",(float)[tColor redComponent],(float)[tColor greenComponent],(float)[tColor blueComponent]]);
 }

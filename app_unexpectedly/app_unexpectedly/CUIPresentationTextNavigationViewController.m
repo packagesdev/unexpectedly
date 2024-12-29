@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2023, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -33,7 +33,7 @@
 #define GROSSE_CHIURE_APPKIT_VERSION_NUMBER     1894
 #define GROSSE_CHIURE_EXTRA_WIDTH   5
 
-@interface CUIPresentationTextNavigationViewController ()
+@interface CUIPresentationTextNavigationViewController () <NSMenuItemValidation>
 {
     IBOutlet NSPopUpButton * _sourcesPopUpButton;
     

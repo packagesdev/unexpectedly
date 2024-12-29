@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -41,7 +41,7 @@
 
 NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedly.sources.internal.array";
 
-@interface CUICrashLogsSourcesViewController () <NSOpenSavePanelDelegate,NSTableViewDataSource,NSTableViewDelegate>
+@interface CUICrashLogsSourcesViewController () <NSMenuItemValidation,NSOpenSavePanelDelegate,NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet NSTableView * _tableView;
     

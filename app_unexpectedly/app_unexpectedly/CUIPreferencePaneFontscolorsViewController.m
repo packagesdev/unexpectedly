@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -37,7 +37,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
 
 @end
 
-@interface CUIPreferencePaneFontscolorsViewController () <NSTableViewDataSource,NSTableViewDelegate>
+@interface CUIPreferencePaneFontscolorsViewController () <NSFontChanging, NSMenuItemValidation, NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet NSTableView * _themesTableView;
     

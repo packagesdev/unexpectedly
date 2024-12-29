@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -54,7 +54,7 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 
 NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationShowDebugDidChangeNotification";
 
-@interface AppDelegate () <NSApplicationDelegate>
+@interface AppDelegate () <NSApplicationDelegate,NSMenuItemValidation>
 {
     IBOutlet NSMenu * _themesMenu;
     
