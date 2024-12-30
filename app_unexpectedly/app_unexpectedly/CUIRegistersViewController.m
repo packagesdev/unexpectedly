@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -116,40 +116,38 @@
 
 #pragma mark - NSCollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView
+- (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)inCollectionView
 {
+    NSAssert(inCollectionView==_collectionView, @"Unexpected collection view provided as parameter");
+    
     return 1;
 }
 
 - (NSInteger)collectionView:(NSCollectionView *)inCollectionView numberOfItemsInSection:(NSInteger)inSection
 {
-    if (inCollectionView==_collectionView)
-        return _threadState.registers.count;
+    NSAssert(inCollectionView==_collectionView, @"Unexpected collection view provided as parameter");
     
-    return 0;
+    return _threadState.registers.count;
 }
 
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)inCollectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)inIndexPath
 {
-    if (inCollectionView==_collectionView)
-    {
-        CUICollectionViewRegisterItem * tCollectionViewItem=(CUICollectionViewRegisterItem *)[inCollectionView makeItemWithIdentifier:@"register" forIndexPath:inIndexPath];
-        
-        CUIRegister * tRegister=_threadState.registers[inIndexPath.item];
-        
-        NSMutableDictionary * tRepresentedObject=[NSMutableDictionary dictionaryWithObject:tRegister forKey:@"register"];
-        
-        NSNumber * tNumber=self.browsingState.registersViewValues[tRegister.name];
-        
-        if (tNumber!=nil)
-            tRepresentedObject[@"viewAs"]=tNumber;
-        
-        tCollectionViewItem.representedObject=tRepresentedObject;
-        
-        return tCollectionViewItem;
-    }
+    NSAssert(inCollectionView==_collectionView, @"Unexpected collection view provided as parameter");
     
-    return nil;
+    CUICollectionViewRegisterItem * tCollectionViewItem=(CUICollectionViewRegisterItem *)[inCollectionView makeItemWithIdentifier:@"register" forIndexPath:inIndexPath];
+    
+    CUIRegister * tRegister=_threadState.registers[inIndexPath.item];
+    
+    NSMutableDictionary * tRepresentedObject=[NSMutableDictionary dictionaryWithObject:tRegister forKey:@"register"];
+    
+    NSNumber * tNumber=self.browsingState.registersViewValues[tRegister.name];
+    
+    if (tNumber!=nil)
+        tRepresentedObject[@"viewAs"]=tNumber;
+    
+    tCollectionViewItem.representedObject=tRepresentedObject;
+    
+    return tCollectionViewItem;
 }
 
 #pragma mark - Notifications
