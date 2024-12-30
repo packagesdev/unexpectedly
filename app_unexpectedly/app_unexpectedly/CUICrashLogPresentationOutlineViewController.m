@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 #define CUIThreadsViewMinimumHeight    200.0
 #define CUIBinaryImagesViewMinimumHeight    190.0
 
-@interface CUICrashLogPresentationOutlineViewController () <CUIQuickHelpPopUpViewControllerDelegate,NSOutlineViewDataSource,NSOutlineViewDelegate,NSSplitViewDelegate,NSPopoverDelegate>
+@interface CUICrashLogPresentationOutlineViewController () <CUIQuickHelpPopUpViewControllerDelegate,NSMenuItemValidation, NSOutlineViewDataSource,NSOutlineViewDelegate,NSPopoverDelegate,NSSplitViewDelegate>
 {
 	IBOutlet NSTextField * _exceptionTypeValue;
 	
@@ -790,9 +790,9 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     
     _showBinaryImagesButton.state=(tIsCollapsed==NO) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIBottomViewCollapseStateDidChangeNotification
-                                                        object:self.view.window
-                                                      userInfo:@{@"Collapsed":@(tIsCollapsed)}];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIBottomViewCollapseStateDidChangeNotification
+                                                      object:self.view.window
+                                                    userInfo:@{@"Collapsed":@(tIsCollapsed)}];
 }
 
 /* Given a divider index, return an additional rectangular area (in the coordinate system established by the split view's bounds) in which mouse clicks should also initiate divider dragging, or NSZeroRect to not add one. If a split view has no delegate, or if its delegate does not respond to this message, only mouse clicks within the effective frame of a divider initiate divider dragging.

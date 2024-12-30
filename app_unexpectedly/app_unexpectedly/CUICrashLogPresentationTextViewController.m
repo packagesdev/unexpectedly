@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -57,7 +57,7 @@
 
 NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize.delta";
 
-@interface CUICrashLogPresentationTextViewController () <NSTextViewDelegate,CUIQuickHelpPopUpViewControllerDelegate>
+@interface CUICrashLogPresentationTextViewController () <CUIQuickHelpPopUpViewControllerDelegate, NSMenuItemValidation, NSTextViewDelegate>
 {
     IBOutlet CUICrashLogTextView * _textView;
     
@@ -148,7 +148,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -201,7 +201,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(currentThemeDidChange:) name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
 }
@@ -210,7 +210,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
 {
     [super viewDidAppear];
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter removeObserver:self name:CUIThemeItemAttributesDidChangeNotification object:nil];
     [tNotificationCenter addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
@@ -253,7 +253,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     [self saveBrowsingState];
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter removeObserver:self name:CUIThemeItemAttributesDidChangeNotification object:nil];
     
@@ -394,7 +394,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         
         //[_textView scrollToBeginningOfDocument:self];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogPresentationDisplayedSectionsDidChangeNotification object:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogPresentationDisplayedSectionsDidChangeNotification object:nil];
         
         return;
     }
@@ -1523,7 +1523,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     // Update the Sections menu in the navigation bar
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogPresentationDisplayedSectionsDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogPresentationDisplayedSectionsDidChangeNotification object:nil];
     
     // Update the selected item in the Sections menu if needed
     
@@ -1689,7 +1689,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     [tVisibleSections removeObjectsAtIndexes:tMutableIndexSet];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogPresentationVisibleSectionsDidChangeNotification object:tVisibleSections];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogPresentationVisibleSectionsDidChangeNotification object:tVisibleSections];
     
     //NSLog(@"%@",NSStringFromRange(tVisibleRange));
     

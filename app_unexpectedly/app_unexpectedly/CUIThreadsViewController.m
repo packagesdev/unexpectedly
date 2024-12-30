@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -21,7 +21,7 @@
 
 NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsViewSelectedCallsDidChangeNotification";
 
-@interface CUIThreadsViewController ()
+@interface CUIThreadsViewController () <NSMenuItemValidation>
 
     @property (readwrite) CUISymbolicationDataFormatter * symbolColumnFormatter;
 
@@ -33,7 +33,7 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -69,7 +69,7 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
 {
     [super viewDidAppear];
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(dSYMBundlesManagerDidAddBundles:) name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
@@ -82,7 +82,7 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
 {
     [super viewWillDisappear];
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter removeObserver:self name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
@@ -250,8 +250,8 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
     
     NSPasteboard * tPasteboard=[NSPasteboard  generalPasteboard];
     
-    [tPasteboard declareTypes:@[NSStringPboardType] owner:nil];
-    [tPasteboard setString:tPasteboardString forType:NSStringPboardType];
+    [tPasteboard declareTypes:@[WBPasteboardTypeString] owner:nil];
+    [tPasteboard setString:tPasteboardString forType:WBPasteboardTypeString];
 }
 
 - (IBAction)copyMachineInstructionAddress:(id)sender
@@ -269,8 +269,8 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
     
     NSPasteboard * tPasteboard=[NSPasteboard  generalPasteboard];
     
-    [tPasteboard declareTypes:@[NSStringPboardType] owner:nil];
-    [tPasteboard setString:tPasteboardString forType:NSStringPboardType];
+    [tPasteboard declareTypes:@[WBPasteboardTypeString] owner:nil];
+    [tPasteboard setString:tPasteboardString forType:WBPasteboardTypeString];
     
 }
 
@@ -303,8 +303,8 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
     
     NSPasteboard * tPasteboard=[NSPasteboard  generalPasteboard];
     
-    [tPasteboard declareTypes:@[NSStringPboardType] owner:nil];
-    [tPasteboard setString:tPasteboardString forType:NSStringPboardType];
+    [tPasteboard declareTypes:@[WBPasteboardTypeString] owner:nil];
+    [tPasteboard setString:tPasteboardString forType:WBPasteboardTypeString];
 }
 
 - (IBAction)openWithHopperDisassembler:(NSMenuItem *)sender
