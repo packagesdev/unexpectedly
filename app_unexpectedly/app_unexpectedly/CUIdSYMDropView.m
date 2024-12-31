@@ -28,7 +28,14 @@
         
         tPath.lineWidth=3.0;
         
-        [[NSColor alternateSelectedControlColor] setStroke];
+        if (@available(*, macOS 10.14))
+        {
+            [[NSColor selectedContentBackgroundColor] setStroke];
+        }
+        else
+        {
+            [[NSColor alternateSelectedControlColor] setStroke];
+        }
         
         [tPath stroke];
     }

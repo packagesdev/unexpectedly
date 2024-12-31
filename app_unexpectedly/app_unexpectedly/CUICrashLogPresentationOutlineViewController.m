@@ -547,6 +547,8 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     tExceptionTypeLookUpPopOver.contentViewController=tPopUpViewController;
     
     NSView * tTrick=tPopUpViewController.view;  // This is used to trigger the viewDidLoad method of the contentViewController.
+    
+    (void)tTrick;
 }
 
 - (IBAction)showInFinder:(id)sender
