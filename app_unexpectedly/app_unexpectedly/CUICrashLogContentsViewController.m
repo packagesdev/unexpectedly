@@ -379,38 +379,36 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
 
 #pragma mark - CUIFileDeadDropViewDelegate
 
-- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView validateDropFiles:(NSArray *)inFilenames
+- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView validateDropFileURLs:(NSArray<NSURL *> *)inURLArray
 {
-    if (inFilenames==nil)
+    if (inURLArray==nil)
         return NO;
     
     if ([self.crashLog isMemberOfClass:[CUICrashLog class]]==NO)
         return NO;
     
-    NSFileManager * tFileManager=[NSFileManager defaultManager];
-    
     CUIdSYMBundlesManager * tBundlesManager=[CUIdSYMBundlesManager sharedManager];
     
     NSArray * tAllUUIDs=self.crashLog.binaryImages.allUUIDs;
     
-    NSArray * tFilteredArray=[inFilenames WB_filteredArrayUsingBlock:^BOOL(NSString * bPath, NSUInteger bIndex) {
+    NSArray<NSURL *> * tFilteredArray=[inURLArray WB_filteredArrayUsingBlock:^BOOL(NSURL * bURL, NSUInteger bIndex) {
         
-        BOOL tIsDirectory;
+        NSNumber *tIsDirectoryNumber;
         
-        if ([tFileManager fileExistsAtPath:bPath isDirectory:&tIsDirectory]==NO)
-            return NO;
+        if ([bURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
+            return nil;
         
-        if (tIsDirectory==NO)
-            return NO;
+        if (tIsDirectoryNumber.boolValue==NO)
+            return nil;
         
         // Should have .crash extension
         
-        if ([bPath.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
+        if ([bURL.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
             return NO;
         
         // Check that these are dSYM bundles and that the UUIDs are not already listed
         
-        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithPath:bPath];
+        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithURL:bURL];
         
         if (tBundle.isDSYMBundle==NO)
             return NO;
@@ -434,35 +432,33 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     return (tFilteredArray.count>0);
 }
 
-- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView acceptDropFiles:(NSArray *)inFilenames
+- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView acceptDropFileURLs:(NSArray<NSURL *> *)inURLArray
 {
-    if (inFilenames==nil)
+    if (inURLArray==nil)
         return NO;
-    
-    NSFileManager * tFileManager=[NSFileManager defaultManager];
     
     CUIdSYMBundlesManager * tBundlesManager=[CUIdSYMBundlesManager sharedManager];
     
     NSArray * tAllUUIDs=self.crashLog.binaryImages.allUUIDs;
     
-    NSArray * tMappedArray=[inFilenames WB_arrayByMappingObjectsLenientlyUsingBlock:^CUIdSYMBundle *(NSString * bPath, NSUInteger bIndex) {
+    NSArray * tMappedArray=[inURLArray WB_arrayByMappingObjectsLenientlyUsingBlock:^CUIdSYMBundle *(NSURL * bURL, NSUInteger bIndex) {
         
-        BOOL tIsDirectory;
+        NSNumber *tIsDirectoryNumber;
         
-        if ([tFileManager fileExistsAtPath:bPath isDirectory:&tIsDirectory]==NO)
+        if ([bURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
             return nil;
         
-        if (tIsDirectory==NO)
+        if (tIsDirectoryNumber.boolValue==NO)
             return nil;
         
         // Should have .crash extension
         
-        if ([bPath.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
+        if ([bURL.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
             return nil;
         
         // Check that these are dSYM bundles and that the UUIDs are not already listed
         
-        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithPath:bPath];
+        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithURL:bURL];
         
         if (tBundle.isDSYMBundle==NO)
             return nil;
@@ -471,8 +467,6 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
             return nil;
         
         // Check that one the UUIDs is the one of a binary of the crash log
-        
-        
         
         NSUInteger tIndex=[tBundle.binaryUUIDs indexOfObjectPassingTest:^BOOL(NSString * bUUID, NSUInteger bIndex, BOOL * bOutStop) {
             

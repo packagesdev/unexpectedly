@@ -17,9 +17,9 @@
 
 @protocol CUIFileDeadDropViewDelegate
 
-- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView validateDropFiles:(NSArray *)inFilenames;
+- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView validateDropFileURLs:(NSArray<NSURL *> *)inFileURLs;
 
-- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView acceptDropFiles:(NSArray *)inFilenames;
+- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView acceptDropFileURLs:(NSArray<NSURL *> *)inFileURLs;
 
 @end
 
