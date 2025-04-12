@@ -416,9 +416,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
         if ([tBundlesManager containsBundle:tBundle]==YES)
             return NO;
         
-        // Check that one the UUIDs is the one of a binary of the crash log
-        
-        
+        // Check that one of the UUIDs is the one of a binary of the crash log
         
         NSUInteger tIndex=[tBundle.binaryUUIDs indexOfObjectPassingTest:^BOOL(NSString * bUUID, NSUInteger bIndex, BOOL * bOutStop) {
             
