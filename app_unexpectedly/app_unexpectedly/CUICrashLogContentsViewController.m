@@ -396,10 +396,10 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
         NSNumber *tIsDirectoryNumber;
         
         if ([bURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
-            return nil;
+            return NO;
         
         if (tIsDirectoryNumber.boolValue==NO)
-            return nil;
+            return NO;
         
         // Should have .crash extension
         
