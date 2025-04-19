@@ -53,7 +53,7 @@
                                 <textField verticalHuggingPriority="750" id="1i6-Ud-XKB">
                                     <rect key="frame" x="297" y="121" width="257" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="© 2020-2024 Stéphane Sudre. All rights reserved." id="Xdh-fz-kMR">
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="© 2020-2025 Stéphane Sudre. All rights reserved." id="Xdh-fz-kMR">
                                         <font key="font" metaFont="system" size="10"/>
                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
