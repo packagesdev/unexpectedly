@@ -330,12 +330,12 @@
     [inPanel orderOut:self];
 }
 
-- (void)beginSheetModalForWindow:(NSWindow *)inWindow completionHandler:(void (^)(NSModalResponse response))handler
+- (void)beginSheetModalForWindow:(NSWindow *)inWindow completionHandler:(void (^)(NSModalResponse bResponse))handler
 {
-    [inWindow beginSheet:self completionHandler:^(NSModalResponse bReturnCode) {
+    [inWindow beginSheet:self completionHandler:^(NSModalResponse bResponse) {
         
         if (handler!=nil)
-            handler(bReturnCode);
+            handler(bResponse);
         
         self->retainedWindowController=nil;
     }];
