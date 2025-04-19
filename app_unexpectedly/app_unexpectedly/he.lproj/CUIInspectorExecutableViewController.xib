@@ -73,10 +73,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="ctr-8J-DUa"/>
                 </imageView>
-                <button verticalHuggingPriority="750" id="HUC-Md-GwA">
+                <button verticalHuggingPriority="750" mirrorLayoutDirectionWhenInternationalizing="never" id="HUC-Md-GwA">
                     <rect key="frame" x="3" y="15" width="14" height="15"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSFollowLinkFreestandingTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="R8w-To-3V9">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSFollowLinkFreestandingTemplate" imagePosition="overlaps" alignment="center" baseWritingDirection="rightToLeft" userInterfaceLayoutDirection="rightToLeft" imageScaling="proportionallyDown" inset="2" id="R8w-To-3V9">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

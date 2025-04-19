@@ -44,7 +44,7 @@
 {
     [super viewDidLoad];
     
-    if (_executablePathShowButton.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+    if (_executablePathShowButton.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft)
     {
         // Mirror image.
         NSImage * originalImage=_executablePathShowButton.image;
