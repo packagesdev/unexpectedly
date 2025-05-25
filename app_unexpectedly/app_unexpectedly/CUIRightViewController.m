@@ -99,7 +99,7 @@
     {
         CUICrashLog * tCrashLog=_selection.crashLogs.firstObject;
         
-        if ([tCrashLog isMemberOfClass:[CUIRawCrashLog class]]==YES)
+        if ([tCrashLog isMemberOfClass:CUIRawCrashLog.class]==YES)
         {
             _unavailableViewController.view.frame=self.view.bounds;
             
@@ -126,7 +126,7 @@
 {
     CUICrashLogsSelection * tSelection=inNotification.object;
     
-    if ([tSelection isKindOfClass:[CUICrashLogsSelection class]]==NO)
+    if ([tSelection isKindOfClass:CUICrashLogsSelection.class]==NO)
         return;
     
     self.selection=tSelection;

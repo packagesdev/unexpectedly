@@ -23,7 +23,7 @@ NSString * const CUITextModeDisplaySettingsVisibleStackFrameComponentsKey=@"stac
 
 - (instancetype)initWithRepresentation:(NSDictionary *)inDictionary
 {
-    if ([inDictionary isKindOfClass:[NSDictionary class]]==NO)
+    if ([inDictionary isKindOfClass:NSDictionary.class]==NO)
         return nil;
     
     self=[super init];
@@ -32,18 +32,18 @@ NSString * const CUITextModeDisplaySettingsVisibleStackFrameComponentsKey=@"stac
     {
         NSNumber * tNumber=inDictionary[CUITextModeDisplaySettingsVisibleSectionKey];
         
-        if ([tNumber isKindOfClass:[NSNumber class]]==NO)
+        if ([tNumber isKindOfClass:NSNumber.class]==NO)
             return nil;
         
-        _visibleSections=[tNumber unsignedIntegerValue];
+        _visibleSections=tNumber.unsignedIntegerValue;
         
         
         tNumber=inDictionary[CUITextModeDisplaySettingsVisibleStackFrameComponentsKey];
         
-        if ([tNumber isKindOfClass:[NSNumber class]]==NO)
+        if ([tNumber isKindOfClass:NSNumber.class]==NO)
             return nil;
         
-        _visibleStackFrameComponents=[tNumber unsignedIntegerValue];
+        _visibleStackFrameComponents=tNumber.unsignedIntegerValue;
     }
     
     return self;

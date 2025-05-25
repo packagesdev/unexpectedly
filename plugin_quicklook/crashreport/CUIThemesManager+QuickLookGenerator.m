@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2021, Stephane Sudre
+ Copyright (c) 2021-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -35,7 +35,7 @@ NSString * const CUIThemesQuickLookGeneratorThemeUUIDKey=@"themes.quicklook-gene
         
         sQLThemeRegistry=[NSMutableDictionary dictionary];
         
-        NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle bundleForClass:[CUIThemesManager class]] URLForResource:@"default_themes" withExtension:@"plist"]];
+        NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle bundleForClass:CUIThemesManager.class] URLForResource:@"default_themes" withExtension:@"plist"]];
         
         for (NSDictionary * tThemeRepresentation in tThemesArray)
         {

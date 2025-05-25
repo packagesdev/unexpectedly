@@ -349,7 +349,7 @@
         
         CUIStackFrame * tStackFrame=[self->_outlineView itemAtRow:bRow];
         
-        if ([tStackFrame isKindOfClass:[CUIStackFrame class]]==NO)
+        if ([tStackFrame isKindOfClass:CUIStackFrame.class]==NO)
             return;
         
         [tMutableArray addObject:tStackFrame];

@@ -44,7 +44,7 @@ NSString * const CUICrashLogsSourceDidRemoveSourcesNotification=@"CUICrashLogsSo
 
 - (instancetype)initWithRepresentation:(NSDictionary *)inRepresentation
 {
-    if ([inRepresentation isKindOfClass:[NSDictionary class]]==NO)
+    if ([inRepresentation isKindOfClass:NSDictionary.class]==NO)
         return nil;
     
     self=[super init];
@@ -53,14 +53,14 @@ NSString * const CUICrashLogsSourceDidRemoveSourcesNotification=@"CUICrashLogsSo
     {
         NSString * tString=inRepresentation[CUICrashLogsSourceNameKey];
         
-        if (tString!=nil && [tString isKindOfClass:[NSString class]]==NO)
+        if (tString!=nil && [tString isKindOfClass:NSString.class]==NO)
             return nil;
         
         _name=(tString!=nil) ? [tString copy] : @"";
         
         tString=inRepresentation[CUICrashLogsSourceDescription];
         
-        if (tString!=nil && [tString isKindOfClass:[NSString class]]==NO)
+        if (tString!=nil && [tString isKindOfClass:NSString.class]==NO)
             return nil;
         
         _sourceDescription=(tString!=nil) ? [tString copy] : @"";

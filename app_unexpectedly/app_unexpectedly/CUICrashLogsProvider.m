@@ -54,7 +54,7 @@ NSString * const CUIRetiredPathComponent=@"Retired";
 
 - (id)crashLogWithContentsOfFile:(NSString *)inPath error:(NSError **)outError
 {
-	if ([inPath isKindOfClass:[NSString class]]==NO)
+	if ([inPath isKindOfClass:NSString.class]==NO)
 	{
 		if (outError!=NULL)
 			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -127,7 +127,7 @@ NSString * const CUIRetiredPathComponent=@"Retired";
 
 - (NSArray *)crashLogsForDirectory:(NSString *)inDirectoryPath options:(CUICrashLogsProviderCollectOptions)inOptions error:(NSError **)outError
 {
-	if ([inDirectoryPath isKindOfClass:[NSString class]]==NO)
+	if ([inDirectoryPath isKindOfClass:NSString.class]==NO)
 	{
 		if (outError!=NULL)
 			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];

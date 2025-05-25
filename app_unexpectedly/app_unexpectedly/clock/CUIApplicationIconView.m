@@ -848,7 +848,7 @@ static void CGPathToBezierPathApplierFunction(void *info, const CGPathElement *e
     
     for(CUIWatchPart * tPart in _parts)
     {
-        if ([tPart isKindOfClass:[CUIWatchGear class]]==YES)
+        if ([tPart isKindOfClass:CUIWatchGear.class]==YES)
         {
             [(CUIWatchGear *)tPart tick];
         }

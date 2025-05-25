@@ -55,7 +55,7 @@
 
 - (instancetype)initWithString:(NSString *)inString error:(NSError **)outError
 {
-    if ([inString isKindOfClass:[NSString class]]==NO)
+    if ([inString isKindOfClass:NSString.class]==NO)
 	{
 		if (outError!=NULL)
 			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
