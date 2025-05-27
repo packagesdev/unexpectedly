@@ -66,12 +66,20 @@
     
     // Offset the text view frame to take into account the vertical ruler width
     
+    BOOL dontOffset = ([self.identifier isEqualToString:@"DontOffset"] == YES);
+    
+    if (dontOffset==YES)
+    {
+        [super _scrollDown:inOffset];
+        
+        return;
+    }
+    
     NSRect tNewFrame=tOldFrame;
     
     tNewFrame.origin.x-=NSWidth(tVerticalRulerView.frame);
-    
     self.frame=tNewFrame;
-    
+
     [super _scrollUp:inOffset];
     
     // Restore the text view frame
@@ -98,11 +106,18 @@
     NSRect tOldFrame=tDocumentView.frame;
     
     // Offset the text view frame to take into account the vertical ruler width
+    BOOL dontOffset = ([self.identifier isEqualToString:@"DontOffset"] == YES);
+    
+    if (dontOffset==YES)
+    {
+        [super _scrollDown:inOffset];
         
+        return;
+    }
+    
     NSRect tNewFrame=tOldFrame;
         
     tNewFrame.origin.x-=NSWidth(tVerticalRulerView.frame);
-        
     self.frame=tNewFrame;
     
     [super _scrollDown:inOffset];

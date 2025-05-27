@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -21,7 +21,7 @@ NSString * const CUIOutlineModeDisplaySettingsVisibleStackFrameComponentsKey=@"s
 
 - (instancetype)initWithRepresentation:(NSDictionary *)inDictionary
 {
-    if ([inDictionary isKindOfClass:[NSDictionary class]]==NO)
+    if ([inDictionary isKindOfClass:NSDictionary.class]==NO)
         return nil;
     
     self=[super init];
@@ -30,18 +30,18 @@ NSString * const CUIOutlineModeDisplaySettingsVisibleStackFrameComponentsKey=@"s
     {
         NSNumber * tNumber=inDictionary[CUIOutlineModeDisplaySettingsShowOnlyCrashedThreadKey];
         
-        if ([tNumber isKindOfClass:[NSNumber class]]==NO)
+        if ([tNumber isKindOfClass:NSNumber.class]==NO)
             return nil;
         
-        _showOnlyCrashedThread=[tNumber boolValue];
+        _showOnlyCrashedThread=tNumber.boolValue;
         
         
         tNumber=inDictionary[CUIOutlineModeDisplaySettingsVisibleStackFrameComponentsKey];
         
-        if ([tNumber isKindOfClass:[NSNumber class]]==NO)
+        if ([tNumber isKindOfClass:NSNumber.class]==NO)
             return nil;
         
-        _visibleStackFrameComponents=[tNumber unsignedIntegerValue];
+        _visibleStackFrameComponents=tNumber.unsignedIntegerValue;
     }
     
     return self;

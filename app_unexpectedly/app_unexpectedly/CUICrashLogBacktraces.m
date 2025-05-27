@@ -32,7 +32,7 @@
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError
 {
-    if ([inLines isKindOfClass:[NSArray class]]==NO)
+    if ([inLines isKindOfClass:NSArray.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -57,7 +57,7 @@
 
 - (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
 {
-    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    if ([inIncident isKindOfClass:IPSIncident.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];

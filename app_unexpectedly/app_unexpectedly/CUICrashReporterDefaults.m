@@ -53,7 +53,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
 
 + (CUICrashReporterDialogType)dialogTypeFromString:(NSString *)inString
 {
-    if ([inString isKindOfClass:[NSString class]]==NO)
+    if ([inString isKindOfClass:NSString.class]==NO)
         return CUICrashReporterDialogTypeBasic;
     
     static NSDictionary * sStringToEnumDictionary=nil;
@@ -144,7 +144,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
     
     NSString * tDialogTypeValue=tRepresentation[CUICrashReporterDefaultsDialogTypeKey];
     
-    if ([tDialogTypeValue isKindOfClass:[NSString class]]==NO)
+    if ([tDialogTypeValue isKindOfClass:NSString.class]==NO)
     {
         if (tDialogTypeValue!=nil)
             NSLog(@"Unexpected value type for key: %@",CUICrashReporterDefaultsDialogTypeKey);
@@ -160,7 +160,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
     
     NSNumber * tNumber=tRepresentation[CUICrashReporterDefaultsNotificationModeKey];
     
-    if ([tDialogTypeValue isKindOfClass:[NSString class]]==NO)
+    if ([tDialogTypeValue isKindOfClass:NSString.class]==NO)
     {
         self.notificationMode=CUICrashReporterNotificationModeDialog;
     }

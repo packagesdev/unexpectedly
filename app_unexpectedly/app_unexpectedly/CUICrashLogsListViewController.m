@@ -183,7 +183,7 @@
         
         [tArray enumerateObjectsUsingBlock:^(CUICrashLog * bCrashLog, NSUInteger bIndex, BOOL * bOutStop) {
             
-            if ([bCrashLog isKindOfClass:[CUICrashLog class]]==NO)
+            if ([bCrashLog isKindOfClass:CUICrashLog.class]==NO)
                 return;
             
             if (self->_showsFileNames==NO)
@@ -565,7 +565,7 @@
     NSString * tExceptionType=nil;
     CUICrashLogExceptionInformation * tExceptionInformation=nil;
     
-    if ([tCrashLog isKindOfClass:[CUICrashLog class]]==YES)
+    if ([tCrashLog isKindOfClass:CUICrashLog.class]==YES)
     {
         tExceptionInformation=((CUICrashLog *)tCrashLog).exceptionInformation;
     
@@ -664,7 +664,7 @@
 {
     CUICrashLogsSourcesSelection * tSelection=inNotification.object;
     
-    if ([tSelection isKindOfClass:[CUICrashLogsSourcesSelection class]]==NO)
+    if ([tSelection isKindOfClass:CUICrashLogsSourcesSelection.class]==NO)
         return;
     
     CUICrashLogsSource * tFirstSource=tSelection.sources.allObjects.firstObject;

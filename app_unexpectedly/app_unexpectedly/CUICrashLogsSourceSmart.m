@@ -68,7 +68,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
         
         if (tNumber!=nil)
         {
-            if ([tNumber isKindOfClass:[NSNumber class]]==NO)
+            if ([tNumber isKindOfClass:NSNumber.class]==NO)
                 return nil;
             
             _version=tNumber.unsignedIntegerValue;
@@ -87,7 +87,7 @@ NSString * const CUICrashLogsSourcesSmartPredicateKey=@"predicate";
         
         NSString * tString=inRepresentation[CUICrashLogsSourcesSmartPredicateKey];
         
-        if ([tString isKindOfClass:[NSString class]]==NO)
+        if ([tString isKindOfClass:NSString.class]==NO)
             return nil;
         
         self.predicate=[NSPredicate predicateWithFormat:tString];

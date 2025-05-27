@@ -319,7 +319,7 @@
 
 - (instancetype)initWithData:(NSData *)inData
 {
-    if (inData==nil || [inData isKindOfClass:[NSData class]]==NO)
+    if (inData==nil || [inData isKindOfClass:NSData.class]==NO)
         return nil;
     
     self=[super init];

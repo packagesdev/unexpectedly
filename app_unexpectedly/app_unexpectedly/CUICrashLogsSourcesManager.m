@@ -119,7 +119,7 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
            
             NSNumber * tNumber=bRepresentation[CUICrashLogsSourceTypeKey];
             
-            if ([tNumber isKindOfClass:[NSNumber class]]==NO)
+            if ([tNumber isKindOfClass:NSNumber.class]==NO)
                 return nil;
             
             CUICrashLogsSourceType tType=[tNumber unsignedIntegerValue];
