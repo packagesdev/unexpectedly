@@ -33,11 +33,11 @@
 "%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מסתיים ב-]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מכיל]@ %3$@";
 
-"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[Operating System Version]@ %2$[is]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[Operating System Version]@ %2$[is not]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[Operating System Version]@ %2$[begins with]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[Operating System Version]@ %2$[ends with]@ %3$@";
-"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[Operating System Version]@ %2$[contains]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[הוא]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מכיל]@ %3$@";
 
 "%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Date]@ %2$[is earlier than or equal to]@ %3$@";
 "%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Date]@ %2$[is later than or equal to]@ %3$@";
