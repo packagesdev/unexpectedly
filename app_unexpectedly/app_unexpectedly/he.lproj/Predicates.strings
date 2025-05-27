@@ -21,7 +21,7 @@
 "%[header.executablePath]@ %[ends with]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מסתיים ב-]@ %3$@";
 "%[header.executablePath]@ %[contains]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מכיל]@ %3$@";
 
-"%[header.executableVersion]@ %[is]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[הוא]@ %3$@";
+"%[header.executableVersion]@ %[is]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[היא]@ %3$@";
 "%[header.executableVersion]@ %[is not]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[אינו שווה ל-]@ %3$@";
 "%[header.executableVersion]@ %[begins with]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מתחיל ב-]@ %3$@";
 "%[header.executableVersion]@ %[ends with]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מסתיים ב-]@ %3$@";
@@ -33,7 +33,7 @@
 "%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מסתיים ב-]@ %3$@";
 "%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מכיל]@ %3$@";
 
-"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[הוא]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[היא]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[אינו שווה ל-]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מתחיל ב-]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מסתיים ב-]@ %3$@";
