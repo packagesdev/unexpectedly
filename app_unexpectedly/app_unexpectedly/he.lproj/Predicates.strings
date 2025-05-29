@@ -39,8 +39,8 @@
 "%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מסתיים ב-]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מכיל]@ %3$@";
 
-"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Date]@ %2$[is earlier than or equal to]@ %3$@";
-"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Date]@ %2$[is later than or equal to]@ %3$@";
+"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[תאריך]@ %2$[חל לפני]@ %3$@";
+"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[תאריך]@ %2$[חל לאחר]@ %3$@";
 
 "%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_ARITHMETIC]@";
 "%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "‏%1$[סוג חריג]@ הוא %2$[EXC_BAD_ACCESS]@";
