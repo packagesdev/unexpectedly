@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -367,7 +367,7 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="z5a-l7-tQ4"/>
-                                        <menuItem title="Backtraces" id="DbA-sZ-kG6">
+                                        <menuItem title="עקבות חזרה" id="DbA-sZ-kG6">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-1" id="eUz-AU-LoI"/>
@@ -425,7 +425,7 @@ CA
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="Szz-TX-hIO"/>
-                                        <menuItem title="Backtraces" id="a2B-9S-c4g">
+                                        <menuItem title="עקבות חזרה" id="a2B-9S-c4g">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="CUI_MENUACTION_jumpToBacktraces:" target="-1" id="Sfi-Ce-HQ0"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,12 +23,12 @@
             <rect key="frame" x="0.0" y="0.0" width="692" height="612"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <popUpButton toolTip="Filter visible sections" id="o3T-bg-7a6">
+                <popUpButton toolTip="Filter visible sections" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-bg-7a6">
                     <rect key="frame" x="661" y="1" width="31" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" pullsDown="YES" arrowPosition="noArrow" id="hR3-DY-z5t">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
+                        <font key="font" metaFont="message"/>
                         <menu key="menu" id="e8c-hg-WG7">
                             <items>
                                 <menuItem state="on" image="quote_Template" hidden="YES" id="ggI-rC-fEt">
@@ -51,7 +51,7 @@
                                     </connections>
                                 </menuItem>
                                 <menuItem isSeparatorItem="YES" id="3Wr-0I-wum"/>
-                                <menuItem title="Backtraces" id="kXZ-qs-DxU">
+                                <menuItem title="עקבות חזרה" id="kXZ-qs-DxU">
                                     <connections>
                                         <action selector="CUI_MENUACTION_switchBacktracesVisibility:" target="-2" id="B8j-HN-qA3"/>
                                     </connections>
@@ -70,7 +70,7 @@
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
-                <button toolTip="הצג רק את השרשור שקרס" verticalHuggingPriority="750" id="hZe-Mo-RWl">
+                <button toolTip="הצג רק את השרשור שקרס" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-Mo-RWl">
                     <rect key="frame" x="87" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="smallCrashedThread_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="cgk-bN-rIw">
@@ -81,7 +81,7 @@
                         <action selector="CUI_MENUACTION_switchShowOnlyCrashedThread:" target="-2" id="hSj-AL-N38"/>
                     </connections>
                 </button>
-                <button toolTip="הסתר או הצג את היסט של בתים" verticalHuggingPriority="750" id="gHh-U9-6ts">
+                <button toolTip="הסתר או הצג את היסט של בתים" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHh-U9-6ts">
                     <rect key="frame" x="0.0" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="bytesOffset_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="O1c-Fy-oRt">
@@ -92,7 +92,7 @@
                         <action selector="CUI_MENUACTION_switchShowOffset:" target="-2" id="s9c-GQ-gYk"/>
                     </connections>
                 </button>
-                <button toolTip="הסתר או הצג את כתובת של פקודת מכונה" verticalHuggingPriority="750" id="V1i-87-jZk">
+                <button toolTip="הסתר או הצג את כתובת של פקודת מכונה" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-87-jZk">
                     <rect key="frame" x="29" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="0x" bezelStyle="texturedRounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="N9g-4y-bag">
@@ -103,7 +103,7 @@
                         <action selector="CUI_MENUACTION_switchShowMemoryAddress:" target="-2" id="muF-oq-Yyp"/>
                     </connections>
                 </button>
-                <button toolTip="הסתר או הצג את שם הבינארי" verticalHuggingPriority="750" id="Ytt-64-lj2">
+                <button toolTip="הסתר או הצג את שם הבינארי" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ytt-64-lj2">
                     <rect key="frame" x="58" y="1" width="30" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="binaryImage_Template" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="feE-rv-jxh">
@@ -114,7 +114,7 @@
                         <action selector="CUI_MENUACTION_switchShowBinaryImageIdentifier:" target="-2" id="pin-0C-OOg"/>
                     </connections>
                 </button>
-                <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="ekh-hq-gUp" customClass="NSCrashLogTextScrollView">
+                <scrollView fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekh-hq-gUp" customClass="NSCrashLogTextScrollView">
                     <rect key="frame" x="-1" y="23" width="694" height="590"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="5MQ-yl-x1z">
@@ -132,7 +132,11 @@
                             </textView>
                         </subviews>
                     </clipView>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" mirrorLayoutDirectionWhenInternationalizing="never" horizontal="NO" id="ilc-Nf-Ue4">
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="M5I-BV-SOJ">
+                        <rect key="frame" x="-100" y="-100" width="100" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="ilc-Nf-Ue4">
                         <rect key="frame" x="677" y="0.0" width="15" height="589"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>

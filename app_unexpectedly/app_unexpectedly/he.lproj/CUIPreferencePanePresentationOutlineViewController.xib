@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,17 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="688" height="321"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="98p-UU-gFL">
-                    <rect key="frame" x="329" y="284" width="257" height="17"/>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="98p-UU-gFL">
+                    <rect key="frame" x="367" y="284" width="248" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Default visible stack frame components:" id="9hi-bS-vgU">
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="רכיבי מסגרת הערימה הגלויים כברירת מחדל:" id="9hi-bS-vgU">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" id="ZYd-5r-yQv">
-                    <rect key="frame" x="237" y="283" width="88" height="18"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYd-5r-yQv">
+                    <rect key="frame" x="275" y="283" width="88" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="שם בינארי" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="Gp3-2V-rzt">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -40,8 +40,8 @@
                         <action selector="switchShowBinaryName:" target="-2" id="WHi-RH-9MD"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="8Nm-R3-fGu">
-                    <rect key="frame" x="167" y="262" width="158" height="18"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Nm-R3-fGu">
+                    <rect key="frame" x="205" y="262" width="158" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="כתובת של פקודת מכונה" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="TVT-Ex-NJf">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -51,8 +51,8 @@
                         <action selector="switchShowMachineInstructionAddress:" target="-2" id="jH7-tG-qIn"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="r6r-RI-kcs">
-                    <rect key="frame" x="161" y="241" width="164" height="18"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r6r-RI-kcs">
+                    <rect key="frame" x="199" y="241" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="היסט של בתים ומקור" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="DAf-CC-sze">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
