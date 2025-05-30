@@ -421,12 +421,12 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     {
         case CUIThreadsModeViewList:
             
-            _threadsViewController=[CUIThreadsListViewController new];
+			_threadsViewController=[[CUIThreadsListViewController alloc] initWithUserInterfaceLayoutDirection:self.view.userInterfaceLayoutDirection];
             break;
             
         case CUIThreadsModeViewColumn:
             
-            _threadsViewController=[CUIThreadsColumnViewController new];
+			_threadsViewController=[[CUIThreadsColumnViewController alloc] initWithUserInterfaceLayoutDirection:self.view.userInterfaceLayoutDirection];
             break;
             
         default:
@@ -774,12 +774,23 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     
     if (inDividerIndex==1)
     {
-        proposedEffectiveRect.size.height=CUIThreadsBottomBarHeight+inSplitView.dividerThickness+4.0;
-        proposedEffectiveRect.origin.y-=CUIThreadsBottomBarHeight;
-        
-        proposedEffectiveRect.origin.x=NSMaxX(_columnModeButton.frame);
-        proposedEffectiveRect.size.width=NSMinX(_showOnlyCrashedThreadButton.frame)-proposedEffectiveRect.origin.x;
-
+		proposedEffectiveRect.size.height=CUIThreadsBottomBarHeight+inSplitView.dividerThickness+4.0;
+		proposedEffectiveRect.origin.y-=CUIThreadsBottomBarHeight;
+		
+		switch(self.view.userInterfaceLayoutDirection)
+		{
+			case NSUserInterfaceLayoutDirectionLeftToRight:
+				
+				proposedEffectiveRect.origin.x=NSMaxX(_columnModeButton.frame);
+				proposedEffectiveRect.size.width=NSMinX(_showOnlyCrashedThreadButton.frame)-proposedEffectiveRect.origin.x;
+				break;
+			case NSUserInterfaceLayoutDirectionRightToLeft:
+				
+				proposedEffectiveRect.origin.x=NSMaxX(_showOnlyCrashedThreadButton.frame);
+				proposedEffectiveRect.size.width=NSMinX(_columnModeButton.frame)-proposedEffectiveRect.origin.x;
+				break;
+		}
+		
         return proposedEffectiveRect;
     }
     

@@ -45,6 +45,8 @@
 
     @property (nonatomic) NSArray<CUIStackFrame *> * selectedStackFrames;
 
+- (instancetype)initWithUserInterfaceLayoutDirection:(NSUserInterfaceLayoutDirection)inUserInterfaceLayoutDirection;
+
 - (NSMenu *)createFrameContextualMenu;;
 
 - (IBAction)copyMachineInstructionAddress:(id)sender;
