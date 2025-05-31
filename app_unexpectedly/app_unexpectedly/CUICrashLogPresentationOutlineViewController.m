@@ -238,11 +238,14 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         tTopViewHeight=[tNumber doubleValue];
     
     
-
+    BOOL tIsCollapsed=NO;
     
     tNumber=[tUserDefaults objectForKey:CUIDefaultsBottomViewCollapsedKey];
     
     if (tNumber==nil || [tNumber boolValue]==YES)
+        tIsCollapsed=YES;
+    
+    if (tIsCollapsed==YES)
         [_splitView setPosition:[_splitView maxPossiblePositionOfDividerAtIndex:1] ofDividerAtIndex:1];
     
     CGFloat tBottomViewWHeight=CUIBinaryImagesViewMinimumHeight;
@@ -253,6 +256,10 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         tBottomViewWHeight=[tNumber doubleValue];
     
     [self _splitView:_splitView resizeSubviewsWithTopViewHeight:tTopViewHeight bottomViewHeight:tBottomViewWHeight];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIBottomViewCollapseStateDidChangeNotification
+                                                      object:self.view.window
+                                                    userInfo:@{@"Collapsed":@(tIsCollapsed)}];
 }
 
 - (void)viewWillDisappear
@@ -422,11 +429,13 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         case CUIThreadsModeViewList:
             
 			_threadsViewController=[[CUIThreadsListViewController alloc] initWithUserInterfaceLayoutDirection:self.view.userInterfaceLayoutDirection];
+            
             break;
             
         case CUIThreadsModeViewColumn:
             
 			_threadsViewController=[[CUIThreadsColumnViewController alloc] initWithUserInterfaceLayoutDirection:self.view.userInterfaceLayoutDirection];
+
             break;
             
         default:
@@ -573,7 +582,34 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 - (IBAction)switchViewMode:(NSButton *)sender
 {
     if (sender.tag==_threadsViewMode)
+    {
+        switch(_threadsViewMode)
+        {
+            case CUIThreadsModeViewList:
+                
+                _listModeButton.state=WBControlStateValueOn;
+                
+                break;
+                
+            case CUIThreadsModeViewColumn:
+                
+                _columnModeButton.state=WBControlStateValueOn;
+                
+                break;
+                
+            case CUIThreadsModeViewLightTable:
+                
+                _lightTableModeButton.state=WBControlStateValueOn;
+                
+                break;
+                
+            default:
+                
+                break;
+        }
+        
         return;
+    }
     
     switch(_threadsViewMode)
     {
