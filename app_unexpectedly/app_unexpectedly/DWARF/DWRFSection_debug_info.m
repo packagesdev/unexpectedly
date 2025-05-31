@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -379,7 +379,7 @@
     NSNumber * tNumber=[self.referencedEntry objectForAttribute:DW_AT_low_pc];
     
     if (tNumber==nil)
-        tNumber=[self objectForAttribute:DW_AT_low_pc];;
+        tNumber=[self objectForAttribute:DW_AT_low_pc];
     
     return [tNumber unsignedIntegerValue];
 }

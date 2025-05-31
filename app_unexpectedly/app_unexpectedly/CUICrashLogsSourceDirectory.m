@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2022 Stephane Sudre
+ Copyright (c) 2020-2025 Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -186,7 +186,7 @@ void mycallback(
          return;
          }*/
         
-        _crashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path options:(_collectRetired==YES) ? CUICrashLogsProviderCollectRetired : 0 error:NULL];;
+        _crashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path options:(_collectRetired==YES) ? CUICrashLogsProviderCollectRetired : 0 error:NULL];
     }
     else
     {
