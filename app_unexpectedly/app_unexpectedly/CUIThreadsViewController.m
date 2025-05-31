@@ -31,6 +31,11 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
 
 @implementation CUIThreadsViewController
 
+- (instancetype)initWithUserInterfaceLayoutDirection:(NSUserInterfaceLayoutDirection)userInterfaceLayoutDirection
+{
+    return [super init];
+}
+
 - (void)dealloc
 {
     [NSNotificationCenter.defaultCenter removeObserver:self];
