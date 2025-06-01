@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2024, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -24,6 +24,8 @@
 extern NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification;
 
 extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
+
+extern NSString * const CUIDefaultsBottomViewCollapsedKey;
 
 @interface CUIMainWindowController () <NSMenuItemValidation, NSToolbarDelegate,NSWindowDelegate>
 {
@@ -179,6 +181,22 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     [_presentationModeSegmentedControl selectSegmentWithTag:tMode];
     
     [_mainLayoutSegmentedControl setEnabled:(tMode==1) forSegment:1];
+    
+    if (tMode!=1)
+    {
+        [_mainLayoutSegmentedControl setSelected:NO forSegment:1];
+    }
+    else
+    {
+        BOOL tIsCollapsed=NO;
+        
+        tNumber=[[NSUserDefaults standardUserDefaults] objectForKey:CUIDefaultsBottomViewCollapsedKey];
+        
+        if (tNumber==nil || [tNumber boolValue]==YES)
+            tIsCollapsed=YES;
+        
+        [_mainLayoutSegmentedControl setSelected:(tIsCollapsed==NO) forSegment:1];
+    }
 }
 
 - (void)crashLogsSelectionDidChange:(NSNotification *)inNotification
