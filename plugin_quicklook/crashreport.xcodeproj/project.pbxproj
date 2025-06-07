@@ -144,6 +144,8 @@
 		F48DAE2D2661207800C93D40 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F48DAE2C2661207800C93D40 /* main.c */; };
 		F4ACF4BD266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */; };
 		F4ACF4BE266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */; };
+		F4BD8C6D2DF4DDE900BD61A8 /* IPSExceptionReason.h in Headers */ = {isa = PBXBuildFile; fileRef = F4BD8C6B2DF4DDE900BD61A8 /* IPSExceptionReason.h */; };
+		F4BD8C6E2DF4DDE900BD61A8 /* IPSExceptionReason.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BD8C6C2DF4DDE900BD61A8 /* IPSExceptionReason.m */; };
 		F4D0EE98273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D0EE96273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.m */; };
 		F4D0EE99273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.h in Headers */ = {isa = PBXBuildFile; fileRef = F4D0EE97273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.h */; };
 		F4D14D642745BFBC003698AD /* IPSImage+UserCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D14D622745BFBB003698AD /* IPSImage+UserCode.m */; };
@@ -305,6 +307,8 @@
 		F48DAE3B266123C300C93D40 /* SharedConfigurationSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SharedConfigurationSettings.xcconfig; path = ../Configs/SharedConfigurationSettings.xcconfig; sourceTree = "<group>"; };
 		F4ACF4BB266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUIThemesManager+QuickLookGenerator.h"; sourceTree = "<group>"; };
 		F4ACF4BC266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUIThemesManager+QuickLookGenerator.m"; sourceTree = "<group>"; };
+		F4BD8C6B2DF4DDE900BD61A8 /* IPSExceptionReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSExceptionReason.h; path = ../../submodules/ips2crash/Model/IPSExceptionReason.h; sourceTree = "<group>"; };
+		F4BD8C6C2DF4DDE900BD61A8 /* IPSExceptionReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPSExceptionReason.m; path = ../../submodules/ips2crash/Model/IPSExceptionReason.m; sourceTree = "<group>"; };
 		F4D0EE96273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSThreadState+RegisterDisplayName.m"; path = "../../submodules/ips2crash/tool_ips2crash/ips2crash/IPSThreadState+RegisterDisplayName.m"; sourceTree = "<group>"; };
 		F4D0EE97273DB91600CC9737 /* IPSThreadState+RegisterDisplayName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSThreadState+RegisterDisplayName.h"; path = "../../submodules/ips2crash/tool_ips2crash/ips2crash/IPSThreadState+RegisterDisplayName.h"; sourceTree = "<group>"; };
 		F4D14D622745BFBB003698AD /* IPSImage+UserCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSImage+UserCode.m"; path = "../../submodules/ips2crash/tool_ips2crash/ips2crash/IPSImage+UserCode.m"; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 				F428C0AB27245D0600FB8CAC /* IPSError.m */,
 				F428C0BF27245D0800FB8CAC /* IPSException.h */,
 				F428C0A427245D0600FB8CAC /* IPSException.m */,
+				F4BD8C6B2DF4DDE900BD61A8 /* IPSExceptionReason.h */,
+				F4BD8C6C2DF4DDE900BD61A8 /* IPSExceptionReason.m */,
 				F428C0B427245D0700FB8CAC /* IPSExternalModificationStatistics.h */,
 				F428C0A027245D0600FB8CAC /* IPSExternalModificationStatistics.m */,
 				F428C0AA27245D0600FB8CAC /* IPSExternalModificationSummary.h */,
@@ -638,6 +644,7 @@
 				F4069C8E26683D10002B32F5 /* CUIStackFrame.h in Headers */,
 				F428C0D727245D0800FB8CAC /* IPSIncidentExceptionInformation.h in Headers */,
 				F4FA4327273EF3FE0068EDB8 /* NSString+CPU.h in Headers */,
+				F4BD8C6D2DF4DDE900BD61A8 /* IPSExceptionReason.h in Headers */,
 				F47F76702673577C00A74905 /* CUICrashLogsOpenErrorRecord.h in Headers */,
 				F428C0D127245D0800FB8CAC /* IPSTermination.h in Headers */,
 				F428C0ED27245D0800FB8CAC /* IPSOperatingSystemVersion.h in Headers */,
@@ -745,6 +752,7 @@
 				F4D14D642745BFBC003698AD /* IPSImage+UserCode.m in Sources */,
 				F4069CD42668415A002B32F5 /* CUIApplicationPreferences.m in Sources */,
 				F4ACF4BE266EC92000272A25 /* CUIThemesManager+QuickLookGenerator.m in Sources */,
+				F4BD8C6E2DF4DDE900BD61A8 /* IPSExceptionReason.m in Sources */,
 				F428C0CC27245D0800FB8CAC /* IPSTermination.m in Sources */,
 				F4069CC62668411A002B32F5 /* NSColor+String.m in Sources */,
 				F4069CDD26684199002B32F5 /* CUIOutlineModeDisplaySettings.m in Sources */,

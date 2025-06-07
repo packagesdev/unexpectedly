@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -15,15 +15,11 @@
 
 @interface CUIThread ()
 
-    //@property BOOL applicationSpecificBackTrace;
-
     @property BOOL crashed;
-
 
     @property NSUInteger number;
 
     @property (copy) NSString * name;
-
 
     @property CUICallStackBacktrace * callStackBacktrace;
 
@@ -125,15 +121,40 @@
 	return self;
 }
 
-- (instancetype)initApplicationSpecificBacktraceAtIndex:(NSUInteger)inIndex withTextualRepresentation:(NSArray *)inLines error:(NSError **)outError
+- (instancetype)initApplicationSpecificBacktraceWithTextualRepresentation:(NSArray *)inLines error:(NSError **)outError
 {
     self=[self initWithTextualRepresentation:inLines error:outError];
     
     if (self!=nil)
     {
+        _crashed=NO;
+        
         _applicationSpecificBackTrace=YES;
         
         _name=@"Application Specific Backtrace";
+    }
+    
+    return self;
+}
+
+- (instancetype)initApplicationSpecificBacktraceWithThreadFrames:(NSArray<IPSThreadFrame *> *)inFrames binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError
+{
+    self=[super init];
+    
+    if (self!=nil)
+    {
+        _crashed=NO;
+        
+        _applicationSpecificBackTrace=YES;
+        
+        _name=@"Application Specific Backtrace";
+        
+        _callStackBacktrace=[[CUICallStackBacktrace alloc] initWithFrames:inFrames binaryImages:inImages error:outError];
+        
+        if (_callStackBacktrace==nil)
+        {
+            return nil;
+        }
     }
     
     return self;
@@ -153,8 +174,6 @@
     
     if (self!=nil)
     {
-        //_applicationSpecificBackTrace=;
-        
         _crashed=inThread.triggered;
         
         _number=inIndex;
@@ -177,7 +196,10 @@
 
 - (NSString *)description
 {
-	return [NSString stringWithFormat:@"Thread %ld %@ :: Dispatch queue: %@\n%@",self.number,(self.isCrashed==YES) ? @"(Crashed)": @"",self.name,self.callStackBacktrace];
+	if (_applicationSpecificBackTrace==YES)
+        return [NSString stringWithFormat:@"%@ 1\n%@",self.name,self.callStackBacktrace];
+    else
+        return [NSString stringWithFormat:@"Thread %ld %@ :: Dispatch queue: %@\n%@",self.number,(self.isCrashed==YES) ? @"(Crashed)": @"",self.name,self.callStackBacktrace];
 }
 
 @end

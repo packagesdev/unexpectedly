@@ -248,6 +248,7 @@
 		F4BBAC5D24AA7D37000511BE /* CUIBinaryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAC5C24AA7D37000511BE /* CUIBinaryImage.m */; };
 		F4BC577124DF426200063545 /* CUIAATextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BC577024DF426200063545 /* CUIAATextFieldCell.m */; };
 		F4BD6A0025553E9000F98F3E /* CUICrashLogSectionsDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BD69FF25553E9000F98F3E /* CUICrashLogSectionsDetector.m */; };
+		F4BD8C6A2DF4DDCB00BD61A8 /* IPSExceptionReason.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BD8C692DF4DDCA00BD61A8 /* IPSExceptionReason.m */; };
 		F4C269CD2503BCC100C8F3B3 /* CUISymbolicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C269CC2503BCC100C8F3B3 /* CUISymbolicationManager.m */; };
 		F4C269D02503BE6500C8F3B3 /* CUISymbolicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C269CF2503BE6500C8F3B3 /* CUISymbolicationData.m */; };
 		F4C7498E24F84689004F38C0 /* CUIQuickHelpPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C7498C24F84689004F38C0 /* CUIQuickHelpPopUpViewController.m */; };
@@ -874,6 +875,8 @@
 		F4BC577024DF426200063545 /* CUIAATextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIAATextFieldCell.m; sourceTree = "<group>"; };
 		F4BD69FE25553E8F00F98F3E /* CUICrashLogSectionsDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogSectionsDetector.h; sourceTree = "<group>"; };
 		F4BD69FF25553E9000F98F3E /* CUICrashLogSectionsDetector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogSectionsDetector.m; sourceTree = "<group>"; };
+		F4BD8C682DF4DDCA00BD61A8 /* IPSExceptionReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSExceptionReason.h; path = ../submodules/ips2crash/Model/IPSExceptionReason.h; sourceTree = "<group>"; };
+		F4BD8C692DF4DDCA00BD61A8 /* IPSExceptionReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPSExceptionReason.m; path = ../submodules/ips2crash/Model/IPSExceptionReason.m; sourceTree = "<group>"; };
 		F4C269CB2503BCC100C8F3B3 /* CUISymbolicationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUISymbolicationManager.h; sourceTree = "<group>"; };
 		F4C269CC2503BCC100C8F3B3 /* CUISymbolicationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUISymbolicationManager.m; sourceTree = "<group>"; };
 		F4C269CE2503BE6500C8F3B3 /* CUISymbolicationData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUISymbolicationData.h; sourceTree = "<group>"; };
@@ -1216,6 +1219,8 @@
 				F428C05B2724592B00FB8CAC /* IPSError.m */,
 				F428C06F2724592D00FB8CAC /* IPSException.h */,
 				F428C0542724592A00FB8CAC /* IPSException.m */,
+				F4BD8C682DF4DDCA00BD61A8 /* IPSExceptionReason.h */,
+				F4BD8C692DF4DDCA00BD61A8 /* IPSExceptionReason.m */,
 				F428C0642724592C00FB8CAC /* IPSExternalModificationStatistics.h */,
 				F428C0502724592A00FB8CAC /* IPSExternalModificationStatistics.m */,
 				F428C05A2724592B00FB8CAC /* IPSExternalModificationSummary.h */,
@@ -2462,6 +2467,7 @@
 				F4A58D1B24CA4B1500D98FDB /* CUICrashedThreadRowView.m in Sources */,
 				F4871E0825435AF400580562 /* LEB128.c in Sources */,
 				F4EBD24B24E01556007F0252 /* CUITableCustomSelectionColorRowView.m in Sources */,
+				F4BD8C6A2DF4DDCB00BD61A8 /* IPSExceptionReason.m in Sources */,
 				F442FCED24AB855C00E87B69 /* CUIBinaryImagesViewController.m in Sources */,
 				F496740A24D0D2A300716289 /* CUIPreferencePaneFontscolorsViewController.m in Sources */,
 				F4DF815A2893463E008EF1B3 /* IPSThreadState+Obfuscating.m in Sources */,
