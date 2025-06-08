@@ -267,6 +267,7 @@
 		F4CCCC6E24AE9EDA0031BC27 /* CUICrashLogsSource+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CCCC6D24AE9EDA0031BC27 /* CUICrashLogsSource+UI.m */; };
 		F4CD32B6257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CD32B4257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.m */; };
 		F4CE83DE2554B97400A8BD87 /* CUICenteredLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4CE83DD2554B97300A8BD87 /* CUICenteredLabelViewController.xib */; };
+		F4CF6CF62DF6111B0078458E /* IPSIncident+ApplicationSpecificInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CF6CF42DF6111B0078458E /* IPSIncident+ApplicationSpecificInformation.m */; };
 		F4D0EE95273DB8CD00CC9737 /* IPSThreadState+RegisterDisplayName.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D0EE93273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.m */; };
 		F4D14D682745C0A9003698AD /* IPSImage+UserCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D14D662745C0A9003698AD /* IPSImage+UserCode.m */; };
 		F4D5C77C2571AF900029B051 /* CUIRegisterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D5C77B2571AF900029B051 /* CUIRegisterLabel.m */; };
@@ -911,6 +912,8 @@
 		F4CD32B3257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIPreferencePaneSymbolicationViewController.h; sourceTree = "<group>"; };
 		F4CD32B4257D17B3008C71AA /* CUIPreferencePaneSymbolicationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIPreferencePaneSymbolicationViewController.m; sourceTree = "<group>"; };
 		F4CE83DD2554B97300A8BD87 /* CUICenteredLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUICenteredLabelViewController.xib; sourceTree = "<group>"; };
+		F4CF6CF42DF6111B0078458E /* IPSIncident+ApplicationSpecificInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSIncident+ApplicationSpecificInformation.m"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSIncident+ApplicationSpecificInformation.m"; sourceTree = "<group>"; };
+		F4CF6CF52DF6111B0078458E /* IPSIncident+ApplicationSpecificInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSIncident+ApplicationSpecificInformation.h"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSIncident+ApplicationSpecificInformation.h"; sourceTree = "<group>"; };
 		F4D0EE93273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSThreadState+RegisterDisplayName.m"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSThreadState+RegisterDisplayName.m"; sourceTree = "<group>"; };
 		F4D0EE94273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IPSThreadState+RegisterDisplayName.h"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSThreadState+RegisterDisplayName.h"; sourceTree = "<group>"; };
 		F4D14D662745C0A9003698AD /* IPSImage+UserCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IPSImage+UserCode.m"; path = "../submodules/ips2crash/tool_ips2crash/ips2crash/IPSImage+UserCode.m"; sourceTree = "<group>"; };
@@ -1269,12 +1272,14 @@
 		F428C08727245BBF00FB8CAC /* ips model + Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F4D0EE94273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.h */,
-				F4D0EE93273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.m */,
-				F4D14D672745C0A9003698AD /* IPSImage+UserCode.h */,
-				F4D14D662745C0A9003698AD /* IPSImage+UserCode.m */,
 				F4DAF0B127C44AA700256EA4 /* IPSImage+Offset.h */,
 				F4DAF0B227C44AA700256EA4 /* IPSImage+Offset.m */,
+				F4D14D672745C0A9003698AD /* IPSImage+UserCode.h */,
+				F4D14D662745C0A9003698AD /* IPSImage+UserCode.m */,
+				F4CF6CF52DF6111B0078458E /* IPSIncident+ApplicationSpecificInformation.h */,
+				F4CF6CF42DF6111B0078458E /* IPSIncident+ApplicationSpecificInformation.m */,
+				F4D0EE94273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.h */,
+				F4D0EE93273DB8CC00CC9737 /* IPSThreadState+RegisterDisplayName.m */,
 			);
 			name = "ips model + Extensions";
 			sourceTree = "<group>";
@@ -2363,6 +2368,7 @@
 				F472CC972550631A003F6338 /* CUISwiftDemangler.m in Sources */,
 				F428C07A2724592D00FB8CAC /* IPSSummary.m in Sources */,
 				F428C0782724592D00FB8CAC /* IPSDateFormatter.m in Sources */,
+				F4CF6CF62DF6111B0078458E /* IPSIncident+ApplicationSpecificInformation.m in Sources */,
 				F4040A7924F5BC230072BF65 /* CUINavigationView.m in Sources */,
 				F4B018372620FEC7009727F1 /* CUIApplicationIconView.m in Sources */,
 				F4BC577124DF426200063545 /* CUIAATextFieldCell.m in Sources */,

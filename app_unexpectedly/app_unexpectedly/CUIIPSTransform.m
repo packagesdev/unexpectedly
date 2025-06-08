@@ -18,6 +18,7 @@
 
 #import "IPSDateFormatter.h"
 
+#import "IPSIncident+ApplicationSpecificInformation.h"
 #import "IPSThreadState+RegisterDisplayName.h"
 #import "IPSImage+UserCode.h"
 
@@ -560,77 +561,55 @@
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
     
-    if (tDiagnosticMessage!=nil)
+    if (tDiagnosticMessage.vmregioninfo!=nil)
     {
-        if (tDiagnosticMessage.vmregioninfo!=nil)
-        {
-            NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"VM Region Info:"] mutableCopy];
-            [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@" %@",tDiagnosticMessage.vmregioninfo]];
-            
-            [tMutableArray addObject:tMutableAttributedString];
-            
-            [tMutableArray addObject:@""];
-        }
+        NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"VM Region Info:"] mutableCopy];
+        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@" %@",tDiagnosticMessage.vmregioninfo]];
         
-        IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
+        [tMutableArray addObject:tMutableAttributedString];
         
-        if (tApplicationSpecificInformation!=nil)
-        {
-            NSDictionary * tApplicationsInformation=tApplicationSpecificInformation.applicationsInformation;
-            
-            if (tApplicationsInformation!=nil)
-            {
-                NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Information:"] mutableCopy];
-                
-                [tMutableArray addObject:tMutableAttributedString];
-                
-                
-                [tApplicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
-                    
-                    [bInformation enumerateObjectsUsingBlock:^(NSString * bInformation, NSUInteger bIndex, BOOL * bOutStop2) {
-                        
-                        [tMutableArray addObject:[self attributedStringForPlainText:bInformation]];
-                    }];
-                    
-                }];
-                
-                [tMutableArray addObject:@""];
-            }
-            
-            NSArray * tSignatures=tApplicationSpecificInformation.signatures;
-            
-            if (tSignatures!=nil)
-            {
-                NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Signatures:"] mutableCopy];
-                
-                [tMutableArray addObject:tMutableAttributedString];
-                
-                [tSignatures enumerateObjectsUsingBlock:^(NSString * bSignature, NSUInteger bIndex, BOOL * bOutStop) {
-                    
-                    [tMutableArray addObject:[self attributedStringForPlainText:bSignature]];
-                }];
-                
-                [tMutableArray addObject:@""];
-            }
-            
-            NSArray * tBacktraces=tApplicationSpecificInformation.backtraces;
-            
-            if (tBacktraces!=nil)
-            {
-                // A COMPLETER
-            }
-        }
+        [tMutableArray addObject:@""];
+    }
         
-        NSMutableAttributedString * tMutableAttributedString=tMutableArray.firstObject;
+    NSArray<NSString *> * tApplicationSpecificInformation=[inIncident applicationSpecificInformationMessage];
+    
+    if (tApplicationSpecificInformation.count>0)
+    {
+        NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Information:"] mutableCopy];
         
-        if ([tMutableAttributedString isKindOfClass:[NSMutableAttributedString class]]==YES)
-        {
-            NSDictionary * tJumpAnchorAttributes=@{
-                                                   CUISectionAnchorAttributeName:@"section:Diagnostic Messages"
-                                                   };
+        [tMutableArray addObject:tMutableAttributedString];
+        
+        for (NSString *tSring in tApplicationSpecificInformation)
+             [tMutableArray addObject:[self attributedStringForPlainText:tSring]];
+        
+        [tMutableArray addObject:@""];
+    }
+
+    NSArray * tSignatures=tDiagnosticMessage.asi.signatures;
             
-            [tMutableAttributedString addAttributes:tJumpAnchorAttributes range:NSMakeRange(0,tMutableAttributedString.length)];
-        }
+    if (tSignatures!=nil)
+    {
+        NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Signatures:"] mutableCopy];
+        
+        [tMutableArray addObject:tMutableAttributedString];
+        
+        [tSignatures enumerateObjectsUsingBlock:^(NSString * bSignature, NSUInteger bIndex, BOOL * bOutStop) {
+            
+            [tMutableArray addObject:[self attributedStringForPlainText:bSignature]];
+        }];
+        
+        [tMutableArray addObject:@""];
+    }
+        
+    NSMutableAttributedString * tMutableAttributedString=tMutableArray.firstObject;
+    
+    if ([tMutableAttributedString isKindOfClass:[NSMutableAttributedString class]]==YES)
+    {
+        NSDictionary * tJumpAnchorAttributes=@{
+                                               CUISectionAnchorAttributeName:@"section:Diagnostic Messages"
+                                               };
+        
+        [tMutableAttributedString addAttributes:tJumpAnchorAttributes range:NSMakeRange(0,tMutableAttributedString.length)];
     }
     
     return tMutableArray;
