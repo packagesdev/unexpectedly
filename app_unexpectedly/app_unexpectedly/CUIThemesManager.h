@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -15,11 +15,9 @@
 
 #import "CUITheme.h"
 
-@interface CUIThemesManager : NSObject
+@interface CUIThemesManager : NSObject <CUIThemesProvider>
 
 + (CUIThemesManager *)sharedManager;
-
-@property (nonatomic,readonly) NSArray * allThemes;
 
 @property (nonatomic) CUITheme * currentTheme;
 

@@ -581,13 +581,13 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     if (tCrashLog.ipsReport!=nil)
     {
-        tDataTransform=[CUIIPSTransform new];
+        tDataTransform=[[CUIIPSTransform alloc] initWithThemesProvider:[CUIThemesManager sharedManager]];
         tDataTransform.input=tCrashLog.ipsReport;
         ((CUIIPSTransform *)tDataTransform).crashlog=tCrashLog;
     }
     else
     {
-        tDataTransform=[CUICrashDataTransform new];
+        tDataTransform=[[CUICrashDataTransform alloc] initWithThemesProvider:[CUIThemesManager sharedManager]];
         tDataTransform.input=tCrashLog;
     }
     
@@ -1164,7 +1164,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         {
             IPSReport * tFinalIPSReport=tIPSReport;
             
-            tDataTransform=[CUIIPSTransform new];
+            tDataTransform=[[CUIIPSTransform  alloc] initWithThemesProvider:[CUIThemesManager sharedManager]];
             
             if (tAccessoryViewController.obfuscateContents==YES)
             {
@@ -1180,7 +1180,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         }
         else
         {
-            tDataTransform=[CUICrashDataTransform new];
+            tDataTransform=[[CUICrashDataTransform  alloc] initWithThemesProvider:[CUIThemesManager sharedManager]];
             tDataTransform.input=self.crashLog;
         }
         

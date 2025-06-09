@@ -16,7 +16,6 @@
 #import "CUIApplicationPreferences.h"
 #import "CUIApplicationPreferences+Themes.h"
 
-#import "CUIThemesManager.h"
 #import "CUIThemeItemsGroup+UI.h"
 
 @interface CUIReportThemedTransform ()
@@ -53,12 +52,14 @@
 
 @implementation CUIReportThemedTransform
 
-- (instancetype)init
+- (instancetype)initWithThemesProvider:(id <CUIThemesProvider>)inThemesProvider;
 {
     self=[super init];
     
     if (self!=nil)
     {
+        _themesProvider=inThemesProvider;
+        
 #ifndef __DISABLE_SYMBOLICATION_
         _symbolicationDataFormatter=[CUISymbolicationDataFormatter new];
 #endif
@@ -75,9 +76,7 @@
 {
     NSFontManager * tFontManager = [NSFontManager sharedFontManager];
     
-    CUIThemesManager * tThemesManager=[CUIThemesManager sharedManager];
-    
-    CUIThemeItemsGroup * tItemsGroup=[tThemesManager.currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
+    CUIThemeItemsGroup * tItemsGroup=[self.themesProvider.currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
     
     NSMutableArray * tItemsNames=[tItemsGroup.itemsNames mutableCopy];
     

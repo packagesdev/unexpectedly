@@ -26,6 +26,8 @@
 #import "CUIApplicationPreferences+Themes.h"
 #import "CUIThemeItemsGroup+UI.h"
 
+#import "QLCUIThemesProvider.h"
+
 extern NSString * const CUITextModeDisplaySettingsVisibleSectionKey;
 
 extern NSString * const CUITextModeDisplaySettingsVisibleStackFrameComponentsKey;
@@ -57,31 +59,33 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
         tDisplaySettings.visibleSections=CUIDocumentAllSections;
         tDisplaySettings.visibleStackFrameComponents=CUIStackFrameAllComponents;
         
-        CUIDataTransform * tDataTransform=nil;
+        QLCUIThemesProvider * tThemesProvider = [QLCUIThemesProvider new];
+        
+        CUIReportThemedTransform * tReportThemedTransform=nil;
         
         if (tCrashLog.ipsReport!=nil)
         {
-            tDataTransform=[CUIIPSTransform new];
-            tDataTransform.input=tCrashLog.ipsReport;
+            tReportThemedTransform=[[CUIIPSTransform alloc] initWithThemesProvider:tThemesProvider];
+            tReportThemedTransform.input=tCrashLog.ipsReport;
         }
         else
         {
-            tDataTransform=[CUICrashDataTransform new];
-            tDataTransform.input=tCrashLog;
+            tReportThemedTransform=[[CUICrashDataTransform alloc] initWithThemesProvider:tThemesProvider];
+            tReportThemedTransform.input=tCrashLog;
         }
         
-        tDataTransform.displaySettings=tDisplaySettings;
-        tDataTransform.fontSizeDelta=0;
-        tDataTransform.hyperlinksStyle=CUIHyperlinksNone;
+        tReportThemedTransform.displaySettings=tDisplaySettings;
+        tReportThemedTransform.fontSizeDelta=0;
+        tReportThemedTransform.hyperlinksStyle=CUIHyperlinksNone;
         
-        if ([tDataTransform transform]==NO)
+        if ([tReportThemedTransform transform]==NO)
         {
             // A COMPLETER
         }
         
-        NSAttributedString * tAttributedString=tDataTransform.output;
+        NSAttributedString * tAttributedString=tReportThemedTransform.output;
         
-        CUIThemeItemsGroup * tGroup=[[CUIThemesManager sharedManager].currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
+        CUIThemeItemsGroup * tGroup=[tThemesProvider.currentTheme itemsGroupWithIdentifier:[CUIApplicationPreferences groupIdentifierForPresentationMode:CUIPresentationModeText]];
         
         NSColor * tBackgroundColor=[tGroup attributesForItem:CUIThemeItemBackground].color;
         

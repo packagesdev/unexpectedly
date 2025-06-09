@@ -1207,7 +1207,7 @@
     
     [tMutableArray addObject:tMutableAttributedString];
     
-    BOOL tIsMonochromeTheme=[CUIThemesManager sharedManager].currentTheme.isMonochrome;
+    BOOL tIsMonochromeTheme=self.themesProvider.currentTheme.isMonochrome;
     
     [[inIncident.binaryImages sortedArrayUsingSelector:@selector(compare:)] enumerateObjectsUsingBlock:^(IPSImage * bImage, NSUInteger bIndex, BOOL * bOutStop) {
     

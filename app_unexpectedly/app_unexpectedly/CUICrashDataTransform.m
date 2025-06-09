@@ -1127,7 +1127,7 @@
     
     NSDictionary * tIdentifierAttributes=self.plainTextAttributes;
     
-    if ([CUIThemesManager sharedManager].currentTheme.isMonochrome==NO)
+    if (self.themesProvider.currentTheme.isMonochrome==NO)
     {
         tIdentifierAttributes=@{
                                 NSForegroundColorAttributeName:(tIsUserCode==YES) ? [CUIBinaryImageUtility colorForUserCode]: [CUIBinaryImageUtility colorForIdentifier:tIdentifier]
