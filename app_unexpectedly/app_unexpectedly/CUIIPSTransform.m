@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2021-2022, Stephane Sudre
+ Copyright (c) 2021-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -18,6 +18,7 @@
 
 #import "IPSDateFormatter.h"
 
+#import "IPSIncident+ApplicationSpecificInformation.h"
 #import "IPSThreadState+RegisterDisplayName.h"
 #import "IPSImage+UserCode.h"
 
@@ -560,77 +561,55 @@
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
     
-    if (tDiagnosticMessage!=nil)
+    if (tDiagnosticMessage.vmregioninfo!=nil)
     {
-        if (tDiagnosticMessage.vmregioninfo!=nil)
-        {
-            NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"VM Region Info:"] mutableCopy];
-            [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@" %@",tDiagnosticMessage.vmregioninfo]];
-            
-            [tMutableArray addObject:tMutableAttributedString];
-            
-            [tMutableArray addObject:@""];
-        }
+        NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"VM Region Info:"] mutableCopy];
+        [tMutableAttributedString appendAttributedString:[self attributedStringForPlainTextWithFormat:@" %@",tDiagnosticMessage.vmregioninfo]];
         
-        IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
+        [tMutableArray addObject:tMutableAttributedString];
         
-        if (tApplicationSpecificInformation!=nil)
-        {
-            NSDictionary * tApplicationsInformation=tApplicationSpecificInformation.applicationsInformation;
-            
-            if (tApplicationsInformation!=nil)
-            {
-                NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Information:"] mutableCopy];
-                
-                [tMutableArray addObject:tMutableAttributedString];
-                
-                
-                [tApplicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
-                    
-                    [bInformation enumerateObjectsUsingBlock:^(NSString * bInformation, NSUInteger bIndex, BOOL * bOutStop2) {
-                        
-                        [tMutableArray addObject:[self attributedStringForPlainText:bInformation]];
-                    }];
-                    
-                }];
-                
-                [tMutableArray addObject:@""];
-            }
-            
-            NSArray * tSignatures=tApplicationSpecificInformation.signatures;
-            
-            if (tSignatures!=nil)
-            {
-                NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Signatures:"] mutableCopy];
-                
-                [tMutableArray addObject:tMutableAttributedString];
-                
-                [tSignatures enumerateObjectsUsingBlock:^(NSString * bSignature, NSUInteger bIndex, BOOL * bOutStop) {
-                    
-                    [tMutableArray addObject:[self attributedStringForPlainText:bSignature]];
-                }];
-                
-                [tMutableArray addObject:@""];
-            }
-            
-            NSArray * tBacktraces=tApplicationSpecificInformation.backtraces;
-            
-            if (tBacktraces!=nil)
-            {
-                // A COMPLETER
-            }
-        }
+        [tMutableArray addObject:@""];
+    }
         
-        NSMutableAttributedString * tMutableAttributedString=tMutableArray.firstObject;
+    NSArray<NSString *> * tApplicationSpecificInformation=[inIncident applicationSpecificInformationMessage];
+    
+    if (tApplicationSpecificInformation.count>0)
+    {
+        NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Information:"] mutableCopy];
         
-        if ([tMutableAttributedString isKindOfClass:[NSMutableAttributedString class]]==YES)
-        {
-            NSDictionary * tJumpAnchorAttributes=@{
-                                                   CUISectionAnchorAttributeName:@"section:Diagnostic Messages"
-                                                   };
+        [tMutableArray addObject:tMutableAttributedString];
+        
+        for (NSString *tSring in tApplicationSpecificInformation)
+             [tMutableArray addObject:[self attributedStringForPlainText:tSring]];
+        
+        [tMutableArray addObject:@""];
+    }
+
+    NSArray * tSignatures=tDiagnosticMessage.asi.signatures;
             
-            [tMutableAttributedString addAttributes:tJumpAnchorAttributes range:NSMakeRange(0,tMutableAttributedString.length)];
-        }
+    if (tSignatures!=nil)
+    {
+        NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Application Specific Signatures:"] mutableCopy];
+        
+        [tMutableArray addObject:tMutableAttributedString];
+        
+        [tSignatures enumerateObjectsUsingBlock:^(NSString * bSignature, NSUInteger bIndex, BOOL * bOutStop) {
+            
+            [tMutableArray addObject:[self attributedStringForPlainText:bSignature]];
+        }];
+        
+        [tMutableArray addObject:@""];
+    }
+        
+    NSMutableAttributedString * tMutableAttributedString=tMutableArray.firstObject;
+    
+    if ([tMutableAttributedString isKindOfClass:[NSMutableAttributedString class]]==YES)
+    {
+        NSDictionary * tJumpAnchorAttributes=@{
+                                               CUISectionAnchorAttributeName:@"section:Diagnostic Messages"
+                                               };
+        
+        [tMutableAttributedString addAttributes:tJumpAnchorAttributes range:NSMakeRange(0,tMutableAttributedString.length)];
     }
     
     return tMutableArray;
@@ -643,6 +622,220 @@
     NSMutableArray * tMutableArray=[NSMutableArray array];
     CUICrashLogBacktraces * tBacktraces=self.crashlog.backtraces;
     NSInteger tThreadIndexOffset=0;
+    
+    NSString * tProcessPath=inIncident.header.processPath;
+    
+    NSArray * tSortedBinaryImages=[inIncident.binaryImages sortedArrayUsingSelector:@selector(compare:)];
+    
+#ifndef __DISABLE_SYMBOLICATION_
+    NSArray * tBacktracesThreads=tBacktraces.threads;
+    __block CUIThread * tBacktraceThread;
+    __block NSArray<CUIStackFrame *> * tStackFrames;
+#endif
+    
+    void (^transformThreadFrame)(IPSThreadFrame*, NSUInteger, BOOL *) = ^(IPSThreadFrame * bFrame, NSUInteger bFrameIndex, BOOL * _Nonnull stop) {
+        
+        IPSImage * tBinaryImage=inIncident.binaryImages[bFrame.imageIndex];
+        
+        BOOL tIsUserCode=tBinaryImage.isUserCode;
+        
+        if (tIsUserCode==NO)
+        {
+            if ([tSortedBinaryImages indexOfObjectIdenticalTo:tBinaryImage]==0)
+            {
+                tIsUserCode=YES;
+            }
+            else
+            {
+                NSString * tPath=tBinaryImage.path;
+                
+                tIsUserCode=(tPath!=nil && [tProcessPath isEqualToString:tPath]==YES);
+            }
+        }
+        
+        NSString * tFrameIndexString=[NSString stringWithFormat:@"%lu",(unsigned long)bFrameIndex];
+        
+        NSString * tIndexSpace=[@"    " substringFromIndex:tFrameIndexString.length];
+        
+        NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForUser:tIsUserCode code:tFrameIndexString] mutableCopy];
+        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:tIndexSpace]];
+        
+        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)
+        {
+            NSString * tBinaryImageIdentifier=(tBinaryImage.bundleIdentifier!=nil) ? tBinaryImage.bundleIdentifier : tBinaryImage.name;
+            
+            if (tBinaryImageIdentifier==nil)
+                tBinaryImageIdentifier=@"???";
+            
+            NSUInteger tImageNameLength=tBinaryImageIdentifier.length;
+            
+            NSMutableAttributedString * tMutableBinaryImageAttributedString=[[self attributedStringForUser:tIsUserCode code:tBinaryImageIdentifier] mutableCopy];
+            
+            if (self.hyperlinksStyle!=CUIHyperlinksNone && ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection))
+            {
+                NSURL * tURL=nil;
+                
+                switch(self.hyperlinksStyle)
+                {
+                    case CUIHyperlinksInternal:
+                        
+                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"bin://%@",tBinaryImage.UUID.UUIDString]];
+                        
+                        break;
+                        
+                    case CUIHyperlinksHTML:
+                        
+                        tURL=[NSURL URLWithString:[NSString stringWithFormat:@"sharp://%@",tBinaryImage.UUID.UUIDString]];
+                        
+                        break;
+                        
+                    default:
+                        
+                        break;
+                }
+                
+                if (tURL!=nil)
+                    [tMutableBinaryImageAttributedString addAttributes:@{NSLinkAttributeName:tURL} range:NSMakeRange(0,tMutableBinaryImageAttributedString.length)];
+            }
+            
+            [tMutableAttributedString appendAttributedString:tMutableBinaryImageAttributedString];
+            
+            if ((tImageNameLength+4)>BINARYIMAGENAME_AND_SPACE_MAXLEN)
+            {
+                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:@"    "]];
+            }
+            else
+            {
+                NSString * tImageSpace=[@"                                  " substringFromIndex:tImageNameLength];
+                
+                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:tImageSpace]];
+            }
+        }
+        
+        NSUInteger tMachineInstructionAddress=tBinaryImage.loadAddress+bFrame.imageOffset;
+        
+        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==CUIStackFrameMachineInstructionAddressComponent)
+        {
+            [tMutableAttributedString appendAttributedString:[self attributedStringForMemoryAddressWithFormat:@"0x%016lx ",(unsigned long)tMachineInstructionAddress]];
+        }
+        
+#ifndef __DISABLE_SYMBOLICATION_
+        
+        BOOL tSymbolicateAutomatically=[CUIApplicationPreferences sharedPreferences].symbolicateAutomatically;
+        
+        if (self.symbolicationMode==CUISymbolicationModeNone)
+            tSymbolicateAutomatically=NO;
+        
+        CUIStackFrame * tStackFrame=tStackFrames[bFrameIndex];
+        CUISymbolicationData * tSymbolicationData=nil;
+        
+        if (tSymbolicateAutomatically==YES)
+        {
+            tSymbolicationData=tStackFrame.symbolicationData;
+        }
+        
+        if (tSymbolicationData!=nil)
+        {
+            if (tSymbolicationData.stackFrameSymbol==nil)
+                NSLog(@"Missing stackFrameSymbol");
+            
+            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:tSymbolicationData]]];
+        }
+        else
+        {
+            if (tSymbolicateAutomatically==YES)
+            {
+                // Default values
+                
+                __block NSAttributedString * tCachedResultedAttributedString=nil;
+                
+                [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tMachineInstructionAddress-tBinaryImage.binaryImageOffset
+                                                                                                               binaryUUID:tBinaryImage.UUID.UUIDString
+                                                                                                        completionHandler:^(CUISymbolicationDataLookUpResult bLookUpResult, CUISymbolicationData *bSymbolicationData) {
+                                                                                                            
+                                                                                                            switch(bLookUpResult)
+                                                                                                            {
+                                                                                                                case CUISymbolicationDataLookUpResultError:
+                                                                                                                case CUISymbolicationDataLookUpResultNotFound:
+                                                                                                                    
+                                                                                                                    break;
+                                                                                                                    
+                                                                                                                case CUISymbolicationDataLookUpResultFound:
+                                                                                                                {
+                                                                                                                    tStackFrame.symbolicationData=bSymbolicationData;
+                                                                                                                    
+                                                                                                                    [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                                                                        object:self.crashlog];
+                                                                                                                    
+                                                                                                                    break;
+                                                                                                                }
+                                                                                                                    
+                                                                                                                case CUISymbolicationDataLookUpResultFoundInCache:
+                                                                                                                {
+                                                                                                                    tStackFrame.symbolicationData=bSymbolicationData;
+                                                                                                                    
+                                                                                                                    tCachedResultedAttributedString=[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:bSymbolicationData]];
+                                                                                                                    
+                                                                                                                    break;
+                                                                                                                }
+                                                                                                                    
+                                                                                                            }
+                                                                                                            
+                                                                                                        }];
+                
+                if (tCachedResultedAttributedString==nil)
+                {
+                    if (bFrame.symbol!=nil)
+                    {
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
+                        
+                        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.symbolLocation]];
+                    }
+                    else
+                    {
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
+                        
+                        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.imageOffset]];
+                    }
+                    
+                    if (bFrame.sourceFile!=nil)
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" (%@:%lu)",bFrame.sourceFile,(unsigned long)bFrame.sourceLine]];
+                }
+                else
+                {
+                    [tMutableAttributedString appendAttributedString:tCachedResultedAttributedString];
+                }
+            }
+            else
+            {
+                if (bFrame.symbol!=nil && (tIsUserCode==NO || self.symbolicationMode==CUISymbolicationModeSymbolicate))
+                {
+                    [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
+                    
+                    if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.symbolLocation]];
+                }
+                else
+                {
+                    [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
+                    
+                    if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
+                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.imageOffset]];
+                }
+                
+                if (bFrame.sourceFile!=nil)
+                    [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" (%@:%lu)",bFrame.sourceFile,(unsigned long)bFrame.sourceLine]];
+            }
+        }
+        
+#endif
+        
+        [tMutableArray addObject:tMutableAttributedString];
+        
+    };
+    
     
     if (tBacktraces.hasApplicationSpecificBacktrace==YES)
     {
@@ -659,66 +852,67 @@
         
         [tMutableArray addObject:tMutableAttributedString];
         
-        IPSIncidentDiagnosticMessage * tDiagnosticMesage=inIncident.diagnosticMessage;
+        NSArray<NSString *> * tBacktraces=inIncident.diagnosticMessage.asi.backtraces;
         
-        IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMesage.asi;
-        
-        NSArray * tBacktraces=tApplicationSpecificInformation.backtraces;
-        
-        [tBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
-        
-            CUIThread * tThread=self.crashlog.backtraces.threads.firstObject;
+        if (tBacktraces!=nil)
+        {
+            [tBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
             
-            NSMutableArray * tLines=[NSMutableArray array];
-            
-            [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * _Nonnull stop) {
+                CUIThread * tThread=self.crashlog.backtraces.threads.firstObject;
                 
-                [tLines addObject:bLine];
-            }];
-            
-            __block NSUInteger tStackFrameIndex=0;
-            
-            [tLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
+                NSMutableArray * tLines=[NSMutableArray array];
                 
-                if (bLine.length==0)
-                {
-                    [tMutableArray addObject:@""];
-                    return;
-                }
-                
-                NSString * tProcessedStackFrameLine=[self processedStackFrameLine:bLine stackFrame:tThread.callStackBacktrace.stackFrames[tStackFrameIndex]];
-                
-                if (tProcessedStackFrameLine!=nil)
-                {
-                    [tMutableArray addObject:tProcessedStackFrameLine];
-                }
-                else
-                {
-                    NSLog(@"Error transforming line: %@",bLine);
+                [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * _Nonnull stop) {
                     
-                    [tMutableArray addObject:[[NSAttributedString alloc] initWithString:bLine]];
-                }
+                    [tLines addObject:bLine];
+                }];
                 
-                tStackFrameIndex+=1;
+                __block NSUInteger tStackFrameIndex=0;
+                
+                [tLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
+                    
+                    if (bLine.length==0)
+                    {
+                        [tMutableArray addObject:@""];
+                        return;
+                    }
+                    
+                    NSString * tProcessedStackFrameLine=[self processedStackFrameLine:bLine stackFrame:tThread.callStackBacktrace.stackFrames[tStackFrameIndex]];
+                    
+                    if (tProcessedStackFrameLine!=nil)
+                    {
+                        [tMutableArray addObject:tProcessedStackFrameLine];
+                    }
+                    else
+                    {
+                        NSLog(@"Error transforming line: %@",bLine);
+                        
+                        [tMutableArray addObject:[[NSAttributedString alloc] initWithString:bLine]];
+                    }
+                    
+                    tStackFrameIndex+=1;
+                }];
             }];
-        }];
+        }
+        else
+        {
+            NSArray<IPSThreadFrame *> * tFrames=inIncident.exceptionInformation.lastExceptionBacktrace;
+            
+            if (tFrames!=nil)
+            {
+#ifndef __DISABLE_SYMBOLICATION_
+                tBacktraceThread=tBacktracesThreads.firstObject;
+                tStackFrames=tBacktraceThread.callStackBacktrace.stackFrames;
+#endif
+                
+                [tFrames enumerateObjectsUsingBlock:transformThreadFrame];
+            }
+        }
         
         [tMutableArray addObject:@""];
     }
     
-#ifndef __DISABLE_SYMBOLICATION_
-    NSArray * tBacktracesThreads=tBacktraces.threads;
-#endif
-    
-    NSString * tProcessPath=inIncident.header.processPath;
-    
-    NSArray * tSortedBinaryImages=[inIncident.binaryImages sortedArrayUsingSelector:@selector(compare:)];
-    
     [inIncident.threads enumerateObjectsUsingBlock:^(IPSThread * bThread, NSUInteger bThreadIndex, BOOL * bOutStop) {
-
-#ifndef __DISABLE_SYMBOLICATION_
-        CUIThread * tBacktraceThread=tBacktracesThreads[bThreadIndex + tThreadIndexOffset];
-#endif
         
         NSString * tCrashedString=(bThread.triggered==YES) ? @" Crashed":@"";
         
@@ -783,211 +977,11 @@
         [tMutableArray addObject:tMutableAttributedString];
     
 #ifndef __DISABLE_SYMBOLICATION_
-        NSArray<CUIStackFrame *> * tStackFrames=tBacktraceThread.callStackBacktrace.stackFrames;
+        tBacktraceThread=tBacktracesThreads[bThreadIndex + tThreadIndexOffset];
+        tStackFrames=tBacktraceThread.callStackBacktrace.stackFrames;
 #endif
         
-        [bThread.frames enumerateObjectsUsingBlock:^(IPSThreadFrame * bFrame, NSUInteger bFrameIndex, BOOL * _Nonnull stop) {
-            
-            IPSImage * tBinaryImage=inIncident.binaryImages[bFrame.imageIndex];
-            
-            BOOL tIsUserCode=tBinaryImage.isUserCode;
-            
-            if (tIsUserCode==NO)
-            {
-                if ([tSortedBinaryImages indexOfObjectIdenticalTo:tBinaryImage]==0)
-                {
-                    tIsUserCode=YES;
-                }
-                else
-                {
-                    NSString * tPath=tBinaryImage.path;
-            
-                    tIsUserCode=(tPath!=nil && [tProcessPath isEqualToString:tPath]==YES);
-                }
-            }
-            
-            NSString * tFrameIndexString=[NSString stringWithFormat:@"%lu",(unsigned long)bFrameIndex];
-            
-            NSString * tIndexSpace=[@"    " substringFromIndex:tFrameIndexString.length];
-            
-            NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForUser:tIsUserCode code:tFrameIndexString] mutableCopy];
-            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:tIndexSpace]];
-            
-            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)
-            {
-                NSString * tBinaryImageIdentifier=(tBinaryImage.bundleIdentifier!=nil) ? tBinaryImage.bundleIdentifier : tBinaryImage.name;
-                
-                if (tBinaryImageIdentifier==nil)
-                    tBinaryImageIdentifier=@"???";
-                
-                NSUInteger tImageNameLength=tBinaryImageIdentifier.length;
-                
-                NSMutableAttributedString * tMutableBinaryImageAttributedString=[[self attributedStringForUser:tIsUserCode code:tBinaryImageIdentifier] mutableCopy];
-                
-                if (self.hyperlinksStyle!=CUIHyperlinksNone && ((self.displaySettings.visibleSections & CUIDocumentBinaryImagesSection)==CUIDocumentBinaryImagesSection))
-                {
-                    NSURL * tURL=nil;
-                    
-                    switch(self.hyperlinksStyle)
-                    {
-                        case CUIHyperlinksInternal:
-                            
-                            tURL=[NSURL URLWithString:[NSString stringWithFormat:@"bin://%@",tBinaryImage.UUID.UUIDString]];
-                            
-                            break;
-                            
-                        case CUIHyperlinksHTML:
-                            
-                            tURL=[NSURL URLWithString:[NSString stringWithFormat:@"sharp://%@",tBinaryImage.UUID.UUIDString]];
-                            
-                            break;
-                            
-                        default:
-                            
-                            break;
-                    }
-                    
-                    if (tURL!=nil)
-                        [tMutableBinaryImageAttributedString addAttributes:@{NSLinkAttributeName:tURL} range:NSMakeRange(0,tMutableBinaryImageAttributedString.length)];
-                }
-                
-                [tMutableAttributedString appendAttributedString:tMutableBinaryImageAttributedString];
-                
-                if ((tImageNameLength+4)>BINARYIMAGENAME_AND_SPACE_MAXLEN)
-                {
-                    [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:@"    "]];
-                }
-                else
-                {
-                    NSString * tImageSpace=[@"                                  " substringFromIndex:tImageNameLength];
-                    
-                    [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:tImageSpace]];
-                }
-            }
-            
-            NSUInteger tMachineInstructionAddress=tBinaryImage.loadAddress+bFrame.imageOffset;
-            
-            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==CUIStackFrameMachineInstructionAddressComponent)
-            {
-                [tMutableAttributedString appendAttributedString:[self attributedStringForMemoryAddressWithFormat:@"0x%016lx ",(unsigned long)tMachineInstructionAddress]];
-            }
-            
-#ifndef __DISABLE_SYMBOLICATION_
-            
-            BOOL tSymbolicateAutomatically=[CUIApplicationPreferences sharedPreferences].symbolicateAutomatically;
-            
-            if (self.symbolicationMode==CUISymbolicationModeNone)
-                tSymbolicateAutomatically=NO;
-            
-            CUIStackFrame * tStackFrame=tStackFrames[bFrameIndex];
-            CUISymbolicationData * tSymbolicationData=nil;
-            
-            if (tSymbolicateAutomatically==YES)
-            {
-                tSymbolicationData=tStackFrame.symbolicationData;
-            }
-            
-            if (tSymbolicationData!=nil)
-            {
-                if (tSymbolicationData.stackFrameSymbol==nil)
-                    NSLog(@"Missing stackFrameSymbol");
-
-                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:tSymbolicationData]]];
-            }
-            else
-            {
-                if (tSymbolicateAutomatically==YES)
-                {
-                    // Default values
-                    
-                    __block NSAttributedString * tCachedResultedAttributedString=nil;
-                    
-                    [[CUISymbolicationManager sharedSymbolicationManager] lookUpSymbolicationDataForMachineInstructionAddress:tMachineInstructionAddress-tBinaryImage.binaryImageOffset
-                                                                                                                   binaryUUID:tBinaryImage.UUID.UUIDString
-                                                                                                            completionHandler:^(CUISymbolicationDataLookUpResult bLookUpResult, CUISymbolicationData *bSymbolicationData) {
-                                                                                                                
-                                                                                                                switch(bLookUpResult)
-                                                                                                                {
-                                                                                                                    case CUISymbolicationDataLookUpResultError:
-                                                                                                                    case CUISymbolicationDataLookUpResultNotFound:
-                                                                                                                        
-                                                                                                                        break;
-                                                                                                                        
-                                                                                                                    case CUISymbolicationDataLookUpResultFound:
-                                                                                                                    {
-                                                                                                                        tStackFrame.symbolicationData=bSymbolicationData;
-                                                                                                                        
-                                                                                                                        [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                            object:self.crashlog];
-                                                                                                                        
-                                                                                                                        break;
-                                                                                                                    }
-                                                                                                                        
-                                                                                                                    case CUISymbolicationDataLookUpResultFoundInCache:
-                                                                                                                    {
-                                                                                                                        tStackFrame.symbolicationData=bSymbolicationData;
-                                                                                                                        
-                                                                                                                        tCachedResultedAttributedString=[self attributedStringForUser:tIsUserCode code:[self.symbolicationDataFormatter stringForObjectValue:bSymbolicationData]];
-                                                                                                                        
-                                                                                                                        break;
-                                                                                                                    }
-                                                                                                                        
-                                                                                                                }
-                                                                                                                
-                                                                                                            }];
-                    
-                    if (tCachedResultedAttributedString==nil)
-                    {
-                        if (bFrame.symbol!=nil)
-                        {
-                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
-
-                            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.symbolLocation]];
-                        }
-                        else
-                        {
-                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
-
-                            if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                                [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.imageOffset]];
-                        }
-
-                        if (bFrame.sourceFile!=nil)
-                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" (%@:%lu)",bFrame.sourceFile,(unsigned long)bFrame.sourceLine]];
-                    }
-                    else
-                    {
-                        [tMutableAttributedString appendAttributedString:tCachedResultedAttributedString];
-                    }
-                }
-                else
-                {
-                    if (bFrame.symbol!=nil && (tIsUserCode==NO || self.symbolicationMode==CUISymbolicationModeSymbolicate))
-                    {
-                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode code:bFrame.symbol]];
-                        
-                        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.symbolLocation]];
-                    }
-                    else
-                    {
-                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@"0x%lx",(unsigned long)tBinaryImage.loadAddress]];
-                        
-                        if ((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent)
-                            [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" + %lu",(unsigned long)bFrame.imageOffset]];
-                    }
-                    
-                    if (bFrame.sourceFile!=nil)
-                        [tMutableAttributedString appendAttributedString:[self attributedStringForUser:tIsUserCode codeWithFormat:@" (%@:%lu)",bFrame.sourceFile,(unsigned long)bFrame.sourceLine]];
-                }
-            }
-            
-#endif
-            
-            [tMutableArray addObject:tMutableAttributedString];
-            
-        }];
+        [bThread.frames enumerateObjectsUsingBlock:transformThreadFrame];
         
         [tMutableArray addObject:@""];
     }];

@@ -94,9 +94,7 @@
                     
                     NSError * tError;
                     
-                    CUIThread * tThread=[[CUIThread alloc] initApplicationSpecificBacktraceAtIndex:bIndex
-                                                                         withTextualRepresentation:tLines
-                                                                                             error:&tError];
+                    CUIThread * tThread=[[CUIThread alloc] initApplicationSpecificBacktraceWithTextualRepresentation:tLines error:&tError];
                     
                     if (tThread==nil)
                     {
@@ -110,6 +108,29 @@
                 }];
                 
                 // A COMPLETER
+                
+                _hasApplicationSpecificBacktrace=YES;
+            }
+        }
+        
+        IPSIncidentExceptionInformation * tExceptionInformation=inIncident.exceptionInformation;
+        
+        if (tExceptionInformation!=nil)
+        {
+            NSArray<IPSThreadFrame *> * tLastExceptionBacktrace=tExceptionInformation.lastExceptionBacktrace;
+            
+            if (tLastExceptionBacktrace.count>0)
+            {
+                NSError * tError;
+                
+                CUIThread * tThread=[[CUIThread alloc] initApplicationSpecificBacktraceWithThreadFrames:tLastExceptionBacktrace binaryImages:inIncident.binaryImages error:&tError];
+                
+                if (tThread==nil)
+                {
+                    return nil;
+                }
+                
+                [tApplicationBacktracesThreads addObject:tThread];
                 
                 _hasApplicationSpecificBacktrace=YES;
             }
