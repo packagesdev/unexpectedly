@@ -13,6 +13,8 @@
 
 #import "CUICrashLogDianosticMessages.h"
 
+#import "IPSIncident+ApplicationSpecificInformation.h"
+
 #import "CUIParsingErrors.h"
 
 @interface CUICrashLogDianosticMessages ()
@@ -65,40 +67,41 @@
         {
             NSMutableString * tMessages=[NSMutableString string];
             
+            // VM Region Info
+            
             if (tDiagnosticMessage.vmregioninfo!=nil)
             {
                 [tMessages appendFormat:@"VM Region Info: %@\n",tDiagnosticMessage.vmregioninfo];
+                
+                [tMessages appendString:@"\n"];
             }
             
-            IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
+            // Application Specific Information
             
-            if (tApplicationSpecificInformation!=nil)
+            NSArray<NSString *> * tApplicationSpecificInformationMessage = [inIncident applicationSpecificInformationMessage];
+            
+            if (tApplicationSpecificInformationMessage.count>0)
             {
                 [tMessages appendString:@"Application Specific Information:\n"];
                 
-                [tApplicationSpecificInformation.applicationsInformation enumerateKeysAndObjectsUsingBlock:^(NSString * bProcess, NSArray * bInformation, BOOL * bOutStop) {
-                    
-                    [bInformation enumerateObjectsUsingBlock:^(NSString * bInformation, NSUInteger bIndex, BOOL * bOutStop2) {
-                        
-                        [tMessages appendFormat:@"%@\n",bInformation];
-                    }];
-                    
-                }];
+                [tMessages appendString:[tApplicationSpecificInformationMessage componentsJoinedByString:@"\n"]];
                 
-                if (tApplicationSpecificInformation.signatures!=nil)
-                {
-                    [tMessages appendString:@"\n"];
-                    
-                    [tMessages appendString:@"Application Specific Signatures:\n"];
-                    
-                    [tApplicationSpecificInformation.signatures enumerateObjectsUsingBlock:^(NSString * bSignature, NSUInteger bIndex, BOOL * bOutStop) {
-                        
-                        [tMessages appendFormat:@"%@\n",bSignature];
-                    }];
-                }
+                 [tMessages appendString:@"\n"];
             }
             
-             _messages=[tMessages copy];
+            // Application Specific Signatures
+            
+            NSArray<NSString *> * tSignatures = tDiagnosticMessage.asi.signatures;
+            
+            if (tSignatures)
+            {
+                [tMessages appendString:@"Application Specific Signatures:\n"];
+                
+                for(NSString * tSignature in tSignatures)
+                    [tMessages appendFormat:@"%@\n",tSignature];
+            }
+            
+            _messages=[tMessages copy];
         }
     }
     
