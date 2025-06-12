@@ -120,6 +120,17 @@
     return _alternateTextColor;
 }
 
+
+- (BOOL)clipsToBounds
+{
+	return YES;
+}
+
+- (BOOL)isOpaque
+{
+	return YES;
+}
+
 #pragma mark -
 
 - (void)setClientView:(NSView *)inClientView
