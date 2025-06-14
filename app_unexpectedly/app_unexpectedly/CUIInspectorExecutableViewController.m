@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -47,18 +47,18 @@
     if (_executablePathShowButton.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft)
     {
         // Mirror image.
-        NSImage * originalImage=_executablePathShowButton.image;
+        NSImage * tOriginalImage=_executablePathShowButton.image;
         
         NSImage * newTemplate=[NSImage imageWithSize:_executablePathShowButton.bounds.size
                                              flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
                                                  
-                                                 NSAffineTransform * transform = [NSAffineTransform transform];
+                                                 NSAffineTransform * tTransform = [NSAffineTransform transform];
                                                  
-                                                 [transform translateXBy:NSWidth(self->_executablePathShowButton.bounds) yBy:0];
-                                                 [transform scaleXBy:-1.0 yBy:1.0];
-                                                 [transform concat];
+                                                 [tTransform translateXBy:NSWidth(self->_executablePathShowButton.bounds) yBy:0];
+                                                 [tTransform scaleXBy:-1.0 yBy:1.0];
+                                                 [tTransform concat];
                                                  
-                                                 [originalImage drawInRect:dstRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+                                                 [tOriginalImage drawInRect:dstRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
                                                  
                                                  return YES;
                                              }];

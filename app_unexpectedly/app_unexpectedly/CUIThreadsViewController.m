@@ -189,9 +189,11 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
             
             case NSUserInterfaceLayoutDirectionRightToLeft:
                 
-                // A COMPLETER
+                tFrame.size.width=tWidth+5;
                 
-                // Also fix the direction of the arrow.
+                tLabel.frame=tFrame;
+                
+                tButtonFrame.origin.x=NSMinX(tLabel.frame)-15;
                 
                 break;
         }

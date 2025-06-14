@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -14,5 +14,35 @@
 #import "CUISourceFileTableCellView.h"
 
 @implementation CUISourceFileTableCellView
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    if (self.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft)
+    {
+        // Mirror image.
+        NSImage * tOriginalImage=self.openButton.image;
+        NSRect tBounds=self.openButton.bounds;
+        
+        NSImage * newTemplate=[NSImage imageWithSize:tBounds.size
+                                             flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
+                                                 
+                                                 NSAffineTransform * tTransform = [NSAffineTransform transform];
+                                                 
+                                                 [tTransform translateXBy:NSWidth(tBounds) yBy:0];
+                                                 [tTransform scaleXBy:-1.0 yBy:1.0];
+                                                 [tTransform concat];
+                                                 
+                                                 [tOriginalImage drawInRect:dstRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+                                                 
+                                                 return YES;
+                                             }];
+        
+        newTemplate.template=YES;
+        
+        self.openButton.image=newTemplate;
+    }
+}
 
 @end

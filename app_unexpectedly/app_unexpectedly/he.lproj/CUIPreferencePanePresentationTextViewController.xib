@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
@@ -27,7 +27,7 @@
             <rect key="frame" x="0.0" y="0.0" width="688" height="321"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pvu-81-w7l">
+                <button verticalHuggingPriority="750" id="Pvu-81-w7l">
                     <rect key="frame" x="302" y="204" width="60" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="כותרת" bezelStyle="regularSquare" imagePosition="trailing" state="on" baseWritingDirection="rightToLeft" inset="2" id="zEG-Wx-Nn2">
@@ -38,7 +38,7 @@
                         <action selector="switchShowHeader:" target="-2" id="r82-eB-Q1G"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qt3-ro-d2D">
+                <button verticalHuggingPriority="750" id="Qt3-ro-d2D">
                     <rect key="frame" x="262" y="184" width="100" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="מידע על חריג" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="F76-W3-yAd">
@@ -49,7 +49,7 @@
                         <action selector="switchShowExceptionInformation:" target="-2" id="cUe-nn-bRr"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNz-Qb-2d2">
+                <button verticalHuggingPriority="750" id="iNz-Qb-2d2">
                     <rect key="frame" x="261" y="163" width="101" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="הודעות אבחון" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="EEv-JV-T5b">
@@ -60,7 +60,7 @@
                         <action selector="switchShowDiagnosticMessages:" target="-2" id="wy4-KN-LXQ"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vj7-9l-wu4">
+                <button verticalHuggingPriority="750" id="vj7-9l-wu4">
                     <rect key="frame" x="267" y="142" width="95" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="עקבות חזרה" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="ZOK-Ny-hlt">
@@ -71,7 +71,7 @@
                         <action selector="switchShowBacktraces:" target="-2" id="M7z-KY-6jd"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayi-wa-Elc">
+                <button verticalHuggingPriority="750" id="ayi-wa-Elc">
                     <rect key="frame" x="243" y="99" width="120" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="קבצים בינאריים" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="Kr8-SF-wcL">
@@ -82,7 +82,7 @@
                         <action selector="switchShowBinaryImages:" target="-2" id="r9d-Iu-XGO"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-5K-RaR">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MNF-5K-RaR">
                     <rect key="frame" x="367" y="61" width="248" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="רכיבי מסגרת הערימה הגלויים כברירת מחדל:" id="2et-oL-bun">
@@ -91,7 +91,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRX-kg-J1V">
+                <button verticalHuggingPriority="750" id="rRX-kg-J1V">
                     <rect key="frame" x="255" y="60" width="108" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="שם בינארי" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="vWD-FK-a4a">
@@ -102,7 +102,7 @@
                         <action selector="switchShowBinaryName:" target="-2" id="1JN-45-hUv"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2LX-nh-3AM">
+                <button verticalHuggingPriority="750" id="2LX-nh-3AM">
                     <rect key="frame" x="199" y="39" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="כתובת של פקודת מכונה" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="XDv-jS-TfO">
@@ -113,7 +113,7 @@
                         <action selector="switchShowMachineInstructionAddress:" target="-2" id="jZT-K0-Oql"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfz-pY-oUd">
+                <button verticalHuggingPriority="750" id="Kfz-pY-oUd">
                     <rect key="frame" x="199" y="18" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="היסט של בתים ומקור" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="zE5-mb-UZb">
@@ -124,7 +124,7 @@
                         <action selector="switchShowByteOffset:" target="-2" id="TPQ-k5-sP5"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-BF-Pu1">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eDV-BF-Pu1">
                     <rect key="frame" x="366" y="245" width="77" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="גלישת מלל:" id="nm4-Se-bRD">
@@ -133,7 +133,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n6c-lM-SZM">
+                <button verticalHuggingPriority="750" id="n6c-lM-SZM">
                     <rect key="frame" x="255" y="283" width="107" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="מספרי שורות" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="8bP-wa-KPh">
@@ -144,7 +144,7 @@
                         <action selector="switchShowsLineNumbers:" target="-2" id="evn-zL-ZnP"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-sk-EjC">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9bL-sk-EjC">
                     <rect key="frame" x="366" y="284" width="30" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="הצג:" id="gBx-bb-vVK">
@@ -153,7 +153,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cir-zS-0pp">
+                <button verticalHuggingPriority="750" id="cir-zS-0pp">
                     <rect key="frame" x="243" y="120" width="120" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="מצב השרשור" bezelStyle="regularSquare" imagePosition="right" state="on" baseWritingDirection="rightToLeft" inset="2" id="ysb-qv-8M9">
@@ -164,7 +164,7 @@
                         <action selector="switchShowThreadState:" target="-2" id="5aJ-mY-Zn1"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANa-W0-TnO">
+                <button verticalHuggingPriority="750" id="ANa-W0-TnO">
                     <rect key="frame" x="162" y="244" width="200" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="גלישת טקסט אלי רוחב המסמך " bezelStyle="regularSquare" imagePosition="right" enabled="NO" state="on" baseWritingDirection="rightToLeft" inset="2" id="1PO-2B-RhF">
@@ -172,7 +172,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vN-WD-7S5">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="1vN-WD-7S5">
                     <rect key="frame" x="366" y="205" width="184" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="הקטעים שמוצגים כברירת מחדל:" id="LKq-kF-sWQ">
