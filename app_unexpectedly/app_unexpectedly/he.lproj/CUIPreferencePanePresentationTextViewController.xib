@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CUIPreferencePanePresentationTextViewController">
             <connections>
-                <outlet property="_lineWrappingCheckbox" destination="ANa-W0-TnO" id="0X3-XK-fry"/>
                 <outlet property="_showBacktracesCheckbox" destination="vj7-9l-wu4" id="KSi-Nm-wqp"/>
                 <outlet property="_showBinaryImagesCheckbox" destination="ayi-wa-Elc" id="mYB-oN-qAA"/>
                 <outlet property="_showBinaryNameCheckbox" destination="rRX-kg-J1V" id="qyO-wp-PBr"/>
@@ -83,7 +82,7 @@
                         <action selector="switchShowBinaryImages:" target="-2" id="r9d-Iu-XGO"/>
                     </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-5K-RaR">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-5K-RaR">
                     <rect key="frame" x="367" y="61" width="248" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="רכיבי מסגרת הערימה הגלויים כברירת מחדל:" id="2et-oL-bun">
@@ -125,7 +124,7 @@
                         <action selector="switchShowByteOffset:" target="-2" id="TPQ-k5-sP5"/>
                     </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-BF-Pu1">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-BF-Pu1">
                     <rect key="frame" x="366" y="245" width="77" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="גלישת מלל:" id="nm4-Se-bRD">
@@ -145,7 +144,7 @@
                         <action selector="switchShowsLineNumbers:" target="-2" id="evn-zL-ZnP"/>
                     </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-sk-EjC">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-sk-EjC">
                     <rect key="frame" x="366" y="284" width="30" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" baseWritingDirection="rightToLeft" alignment="left" title="הצג:" id="gBx-bb-vVK">
@@ -172,11 +171,8 @@
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="switchLineWrapping:" target="-2" id="BfM-Sn-zvX"/>
-                    </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vN-WD-7S5">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vN-WD-7S5">
                     <rect key="frame" x="366" y="205" width="184" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="הקטעים שמוצגים כברירת מחדל:" id="LKq-kF-sWQ">

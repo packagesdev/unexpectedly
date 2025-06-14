@@ -197,7 +197,10 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     [self showsLineNumbers:[CUIApplicationPreferences sharedPreferences].showsLineNumbers];
     
-    [self setWrapText:[CUIApplicationPreferences sharedPreferences].lineWrapping];
+    if ([_textView.identifier isEqualToString:@"CUIAlwaysWrap"]==YES)
+        [self setWrapText:YES];
+    else
+        [self setWrapText:[CUIApplicationPreferences sharedPreferences].lineWrapping];
     
     // Register for notifications
     
