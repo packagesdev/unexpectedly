@@ -174,14 +174,27 @@ NSString * const CUIThreadsViewSelectedCallsDidChangeNotification=@"CUIThreadsVi
     else
     {
         CGFloat tWidth=[tLabel.attributedStringValue size].width;
-        
-        tFrame.size.width=tWidth+5;
-        
-        tLabel.frame=tFrame;
-        
         NSRect tButtonFrame=inTableCellView.openButton.frame;
         
-        tButtonFrame.origin.x=NSMaxX(tLabel.frame)+2;
+        switch(inTableCellView.userInterfaceLayoutDirection)
+        {
+            case NSUserInterfaceLayoutDirectionLeftToRight:
+                tFrame.size.width=tWidth+5;
+                
+                tLabel.frame=tFrame;
+                
+                tButtonFrame.origin.x=NSMaxX(tLabel.frame)+2;
+                
+                break;
+            
+            case NSUserInterfaceLayoutDirectionRightToLeft:
+                
+                // A COMPLETER
+                
+                // Also fix the direction of the arrow.
+                
+                break;
+        }
         
         inTableCellView.openButton.frame=tButtonFrame;
     }
