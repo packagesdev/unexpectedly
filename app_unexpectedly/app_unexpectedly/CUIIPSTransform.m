@@ -855,60 +855,60 @@
         
         [tMutableArray addObject:tMutableAttributedString];
         
-        NSArray<NSString *> * tBacktraces=inIncident.diagnosticMessage.asi.backtraces;
+        NSArray<IPSThreadFrame *> * tFrames=inIncident.exceptionInformation.lastExceptionBacktrace;
         
-        if (tBacktraces!=nil)
+        if (tFrames!=nil)
         {
-            [tBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
-            
-                CUIThread * tThread=self.crashlog.backtraces.threads.firstObject;
-                
-                NSMutableArray * tLines=[NSMutableArray array];
-                
-                [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * _Nonnull stop) {
-                    
-                    [tLines addObject:bLine];
-                }];
-                
-                __block NSUInteger tStackFrameIndex=0;
-                
-                [tLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
-                    
-                    if (bLine.length==0)
-                    {
-                        [tMutableArray addObject:@""];
-                        return;
-                    }
-                    
-                    NSString * tProcessedStackFrameLine=[self processedStackFrameLine:bLine stackFrame:tThread.callStackBacktrace.stackFrames[tStackFrameIndex]];
-                    
-                    if (tProcessedStackFrameLine!=nil)
-                    {
-                        [tMutableArray addObject:tProcessedStackFrameLine];
-                    }
-                    else
-                    {
-                        NSLog(@"Error transforming line: %@",bLine);
-                        
-                        [tMutableArray addObject:[[NSAttributedString alloc] initWithString:bLine]];
-                    }
-                    
-                    tStackFrameIndex+=1;
-                }];
-            }];
-        }
-        else
-        {
-            NSArray<IPSThreadFrame *> * tFrames=inIncident.exceptionInformation.lastExceptionBacktrace;
-            
-            if (tFrames!=nil)
-            {
 #ifndef __DISABLE_SYMBOLICATION_
                 tBacktraceThread=tBacktracesThreads.firstObject;
                 tStackFrames=tBacktraceThread.callStackBacktrace.stackFrames;
 #endif
                 
                 [tFrames enumerateObjectsUsingBlock:transformThreadFrame];
+        }
+        else
+        {
+            NSArray<NSString *> * tBacktraces=inIncident.diagnosticMessage.asi.backtraces;
+        
+            if (tBacktraces!=nil)
+            {
+                [tBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
+                
+                    CUIThread * tThread=self.crashlog.backtraces.threads.firstObject;
+                    
+                    NSMutableArray * tLines=[NSMutableArray array];
+                    
+                    [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * _Nonnull stop) {
+                        
+                        [tLines addObject:bLine];
+                    }];
+                    
+                    __block NSUInteger tStackFrameIndex=0;
+                    
+                    [tLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
+                        
+                        if (bLine.length==0)
+                        {
+                            [tMutableArray addObject:@""];
+                            return;
+                        }
+                        
+                        NSString * tProcessedStackFrameLine=[self processedStackFrameLine:bLine stackFrame:tThread.callStackBacktrace.stackFrames[tStackFrameIndex]];
+                        
+                        if (tProcessedStackFrameLine!=nil)
+                        {
+                            [tMutableArray addObject:tProcessedStackFrameLine];
+                        }
+                        else
+                        {
+                            NSLog(@"Error transforming line: %@",bLine);
+                            
+                            [tMutableArray addObject:[[NSAttributedString alloc] initWithString:bLine]];
+                        }
+                        
+                        tStackFrameIndex+=1;
+                    }];
+                }];
             }
         }
         
