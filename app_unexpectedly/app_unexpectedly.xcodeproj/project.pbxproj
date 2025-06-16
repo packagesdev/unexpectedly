@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0790DBD2E00BACF00CD6A72 /* CUIThreadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */; };
 		F4040A7624F5B9CE0072BF65 /* CUINavigationChevronView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4040A7524F5B9CE0072BF65 /* CUINavigationChevronView.m */; };
 		F4040A7924F5BC230072BF65 /* CUINavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4040A7824F5BC230072BF65 /* CUINavigationView.m */; };
 		F4055C8125EEE37400DC6CCA /* CUIMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4055C8325EEE37400DC6CCA /* CUIMainWindowController.xib */; };
@@ -163,7 +164,6 @@
 		F47C381F2A422E880020D88F /* CUIThreadsListViewController_RTL.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C381D2A422E880020D88F /* CUIThreadsListViewController_RTL.xib */; };
 		F47C38222A4230370020D88F /* CUIThreadsColumnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C38202A4230370020D88F /* CUIThreadsColumnViewController.xib */; };
 		F47C38232A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C38212A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib */; };
-		F47D66AE2DF6311500E078F8 /* IPSExceptionReason.m in Sources */ = {isa = PBXBuildFile; fileRef = F47D66AC2DF6311400E078F8 /* IPSExceptionReason.m */; };
 		F47F76622673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */; };
 		F47F76652673548600A74905 /* CUICrashLogsOpenErrorRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F76642673548600A74905 /* CUICrashLogsOpenErrorRecord.m */; };
 		F47F7668267355EA00A74905 /* CUICrashLogErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = F47F7667267355EA00A74905 /* CUICrashLogErrors.m */; };
@@ -356,6 +356,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D0790DBB2E00BACF00CD6A72 /* CUIThreadImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThreadImageView.h; sourceTree = "<group>"; };
+		D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThreadImageView.m; sourceTree = "<group>"; };
 		F4040A7424F5B9CE0072BF65 /* CUINavigationChevronView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUINavigationChevronView.h; sourceTree = "<group>"; };
 		F4040A7524F5B9CE0072BF65 /* CUINavigationChevronView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUINavigationChevronView.m; sourceTree = "<group>"; };
 		F4040A7724F5BC230072BF65 /* CUINavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUINavigationView.h; sourceTree = "<group>"; };
@@ -750,8 +752,6 @@
 		F47C381D2A422E880020D88F /* CUIThreadsListViewController_RTL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsListViewController_RTL.xib; sourceTree = "<group>"; };
 		F47C38202A4230370020D88F /* CUIThreadsColumnViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsColumnViewController.xib; sourceTree = "<group>"; };
 		F47C38212A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUIThreadsColumnViewController_RTL.xib; sourceTree = "<group>"; };
-		F47D66AC2DF6311400E078F8 /* IPSExceptionReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPSExceptionReason.m; path = ../submodules/ips2crash/Model/IPSExceptionReason.m; sourceTree = "<group>"; };
-		F47D66AD2DF6311400E078F8 /* IPSExceptionReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPSExceptionReason.h; path = ../submodules/ips2crash/Model/IPSExceptionReason.h; sourceTree = "<group>"; };
 		F47F76602673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUICrashLogsOpenErrorRecord+UI.h"; sourceTree = "<group>"; };
 		F47F76612673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CUICrashLogsOpenErrorRecord+UI.m"; sourceTree = "<group>"; };
 		F47F76632673548600A74905 /* CUICrashLogsOpenErrorRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsOpenErrorRecord.h; sourceTree = "<group>"; };
@@ -1369,6 +1369,8 @@
 				F4545C38256C1ADB00F62A39 /* Registers Palette */,
 				F48BAB3425D9D4140005F3E5 /* CUIThreadImageCell.h */,
 				F48BAB3525D9D4140005F3E5 /* CUIThreadImageCell.m */,
+				D0790DBB2E00BACF00CD6A72 /* CUIThreadImageView.h */,
+				D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */,
 				F48906AC25D2BA0C002D79A9 /* CUISelectedWhiteTextFieldCell.h */,
 				F48906AD25D2BA0C002D79A9 /* CUISelectedWhiteTextFieldCell.m */,
 				F442FCEA24AB855C00E87B69 /* CUIBinaryImagesViewController.h */,
@@ -2526,6 +2528,7 @@
 				F420C9C1254F335000D24249 /* CUIdSYMDropView.m in Sources */,
 				F44356F324A8A113001D3D35 /* CUICrashLogPresentationOutlineViewController.m in Sources */,
 				F40B0D8D24D356A200663282 /* NSArray+WBExtensions.m in Sources */,
+				D0790DBD2E00BACF00CD6A72 /* CUIThreadImageView.m in Sources */,
 				F4A58D1B24CA4B1500D98FDB /* CUICrashedThreadRowView.m in Sources */,
 				F4871E0825435AF400580562 /* LEB128.c in Sources */,
 				F4EBD24B24E01556007F0252 /* CUITableCustomSelectionColorRowView.m in Sources */,
@@ -3233,7 +3236,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 72;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3254,7 +3257,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 72;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;
