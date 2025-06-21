@@ -15,6 +15,8 @@
 
 @interface CUICrashLogTextView : NSTextView
 
+@property BOOL wrapLines;
+
 - (void) CUI_scrollPoint:(NSPoint)inPoint;
 
 @end

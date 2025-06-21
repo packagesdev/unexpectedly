@@ -184,6 +184,8 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
     
     [_textView setPostsBoundsChangedNotifications:YES];
     
+    _textView.wrapLines=YES;
+    
     CUIThemeItemAttributes * tAttributes=[_textThemeItemsGroup attributesForItem:CUIThemeItemSelectionBackground];
     
     if (tAttributes!=nil)
@@ -554,6 +556,8 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
         _textView.horizontallyResizable=NO;
         _textView.verticallyResizable=YES;
     }
+    
+    _textView.wrapLines=inWrap;
     
     _textView.autoresizingMask=NSViewNotSizable;
     

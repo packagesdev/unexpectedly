@@ -23,8 +23,88 @@
 
 @implementation CUICrashLogTextView
 
+- (void)_scrollUp:(CGFloat)inOffset
+{
+    if (self.wrapLines==YES)
+    {
+        [super _scrollUp:inOffset];
+        return;
+    }
+    
+    NSScrollView * tScrollView=self.enclosingScrollView;
+    
+    NSView * tDocumentView=tScrollView.documentView;
+    NSRulerView * tVerticalRulerView=tScrollView.verticalRulerView;
+    
+    if (self!=tDocumentView ||
+        tVerticalRulerView==nil ||
+        tScrollView.horizontalScroller.isHidden==YES)
+    {
+        [super _scrollUp:inOffset];
+        
+        return;
+    }
+    
+    NSRect tOldFrame=tDocumentView.frame;
+    
+    // Offset the text view frame to take into account the vertical ruler width
+    
+    NSRect tNewFrame=tOldFrame;
+    
+    tNewFrame.origin.x-=NSWidth(tVerticalRulerView.frame);
+    self.frame=tNewFrame;
+    
+    [super _scrollUp:inOffset];
+    
+    // Restore the text view frame
+    
+    self.frame=tOldFrame;
+}
+
+- (void)_scrollDown:(CGFloat)inOffset
+{
+    if (self.wrapLines==YES)
+    {
+        [super _scrollDown:inOffset];
+        return;
+    }
+    
+    NSScrollView * tScrollView=self.enclosingScrollView;
+    
+    NSView * tDocumentView=tScrollView.documentView;
+    NSRulerView * tVerticalRulerView=tScrollView.verticalRulerView;
+    
+    if (self!=tDocumentView ||
+        tVerticalRulerView==nil ||
+        tScrollView.horizontalScroller.isHidden==YES)
+    {
+        [super _scrollDown:inOffset];
+        
+        return;
+    }
+    
+    NSRect tOldFrame=tDocumentView.frame;
+    
+    NSRect tNewFrame=tOldFrame;
+    
+    tNewFrame.origin.x-=NSWidth(tVerticalRulerView.frame);
+    self.frame=tNewFrame;
+    
+    [super _scrollDown:inOffset];
+    
+    // Restore the text view frame
+    
+    self.frame=tOldFrame;
+}
+
 - (void)CUI_scrollPoint:(NSPoint)inPoint
 {
+    if (self.wrapLines==YES)
+    {
+        [super scrollPoint:inPoint];
+        return;
+    }
+    
     NSScrollView * tScrollView=self.enclosingScrollView;
     
     NSView * tDocumentView=tScrollView.documentView;
