@@ -83,7 +83,7 @@
     
     NSString * tVersion=tHeader.executableVersion;
     
-    if ([tVersion isEqualToString:@"???"]==YES)
+    if (tVersion==nil || [tVersion isEqualToString:@"???"]==YES)
     {
         _executableVersionValue.stringValue=NSLocalizedString(@"Unknown version",@"");
     }
