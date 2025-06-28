@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CUIInspectorExecutableViewController">
             <connections>
+                <outlet property="_codeSigningButton" destination="t1b-WY-R33" id="N91-6Q-1r8"/>
                 <outlet property="_executableArchitectureValue" destination="FHg-iH-xDN" id="gZP-1i-Ula"/>
                 <outlet property="_executableIconView" destination="Sae-Ke-hDq" id="ypT-Mj-Zdm"/>
                 <outlet property="_executableNameValue" destination="Lro-Zd-nK3" id="TjT-bg-eaE"/>
@@ -84,6 +85,17 @@
                         <action selector="showExecutableInFinder:" target="-2" id="tyZ-In-ieS"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" id="t1b-WY-R33">
+                    <rect key="frame" x="366" y="160" width="14" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockLockedTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="xKl-nT-2wK">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showExecutableInFinder:" target="-2" id="Xfa-Jp-ZYz"/>
+                    </connections>
+                </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="FHg-iH-xDN">
                     <rect key="frame" x="88" y="71" width="277" height="14"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -108,5 +120,6 @@
     </objects>
     <resources>
         <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
+        <image name="NSLockLockedTemplate" width="10" height="14"/>
     </resources>
 </document>

@@ -23,6 +23,8 @@
     
     IBOutlet NSTextField * _executableNameValue;
     
+    IBOutlet NSButton * _codeSigningButton;
+    
     IBOutlet NSTextField * _executableVersionValue;
     
     IBOutlet NSTextField * _executableArchitectureValue;
@@ -80,6 +82,19 @@
     _executableIconView.image=tCrashLog.processIcon;
     
     _executableNameValue.stringValue=tHeader.processName;
+    
+    BOOL tShowCodeSigningInfoButton=NO;
+    
+    IPSIncidentHeader * tIPSHeader=tCrashLog.ipsReport.incident.header;
+    
+    if (tIPSHeader!=nil)
+    {
+        IPSCodeSigningInfo *tCodeSigningInfo=tIPSHeader.codeSigningInfo;
+        
+        tShowCodeSigningInfoButton=(tCodeSigningInfo.identifier!=nil || tCodeSigningInfo.teamIdentifier!=nil);
+    }
+    
+    _codeSigningButton.hidden=(tShowCodeSigningInfoButton==NO);
     
     NSString * tVersion=tHeader.executableVersion;
     
