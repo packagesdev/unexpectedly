@@ -28,9 +28,9 @@ typedef NS_ENUM(NSUInteger, CUICrashLogReportSourceType)
 
     @property (readonly) id resourceIdentifier;
 
-    @property (readonly) IPSReport * ipsReport;
+    @property (readonly) IPSReport * ipsReport;     // Can be nil
 
-    @property (readonly,copy) NSString * rawText;
+    @property (readonly,copy) NSString * rawText;   // Can be nil
 
     @property (readonly,copy) NSString * crashLogFilePath;
 
