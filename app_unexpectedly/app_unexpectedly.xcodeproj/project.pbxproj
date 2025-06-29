@@ -357,9 +357,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D000743B2E11F30900CC5121 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = Help/ja.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
+		D000743C2E11F30B00CC5121 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = es; path = Help/es.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		D00B152C2E0B52740098456B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = Help/fr.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		D0790DBB2E00BACF00CD6A72 /* CUIThreadImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThreadImageView.h; sourceTree = "<group>"; };
 		D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThreadImageView.m; sourceTree = "<group>"; };
+		D0AECAE42E0F34830028246E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = he; path = Help/he.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		D0BA6A452E09FEB50010D630 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = Help/en.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		F4040A7424F5B9CE0072BF65 /* CUINavigationChevronView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUINavigationChevronView.h; sourceTree = "<group>"; };
 		F4040A7524F5B9CE0072BF65 /* CUINavigationChevronView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUINavigationChevronView.m; sourceTree = "<group>"; };
@@ -2626,6 +2629,9 @@
 			children = (
 				D0BA6A452E09FEB50010D630 /* en */,
 				D00B152C2E0B52740098456B /* fr */,
+				D0AECAE42E0F34830028246E /* he */,
+				D000743B2E11F30900CC5121 /* ja */,
+				D000743C2E11F30B00CC5121 /* es */,
 			);
 			name = EXC_GUARD.html;
 			sourceTree = "<group>";
