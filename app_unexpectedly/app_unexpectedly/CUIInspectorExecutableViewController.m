@@ -83,18 +83,7 @@
     
     _executableNameValue.stringValue=tHeader.processName;
     
-    BOOL tShowCodeSigningInfoButton=NO;
-    
-    IPSIncidentHeader * tIPSHeader=tCrashLog.ipsReport.incident.header;
-    
-    if (tIPSHeader!=nil)
-    {
-        IPSCodeSigningInfo *tCodeSigningInfo=tIPSHeader.codeSigningInfo;
-        
-        tShowCodeSigningInfoButton=(tCodeSigningInfo.identifier!=nil || tCodeSigningInfo.teamIdentifier!=nil);
-    }
-    
-    _codeSigningButton.hidden=(tShowCodeSigningInfoButton==NO);
+	_codeSigningButton.hidden=(tCrashLog.ipsReport.incident.header.codeSigningInfo==nil);
     
     NSString * tVersion=tHeader.executableVersion;
     
