@@ -860,12 +860,24 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
             
             NSURL * tFileURL=[NSURL fileURLWithPath:tURL.path];
             
-            [[NSWorkspace sharedWorkspace] openURLs:@[tFileURL]
-                               withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
-                                            options:NSWorkspaceLaunchDefault
-                                      configuration:@{}
-                                              error:NULL];
-            
+			if (@available(*, macOS 11.0))
+			{
+				[[NSWorkspace sharedWorkspace] openURLs:@[tFileURL]
+								   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
+										  configuration:[NSWorkspaceOpenConfiguration configuration]
+									  completionHandler:^(NSRunningApplication * _Nullable app, NSError * _Nullable error) {
+					
+				}];
+			}
+			else
+			{
+				[[NSWorkspace sharedWorkspace] openURLs:@[tFileURL]
+								   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
+												options:NSWorkspaceLaunchDefault
+										  configuration:@{}
+												  error:NULL];
+			}
+			
             return YES;
         }
     }

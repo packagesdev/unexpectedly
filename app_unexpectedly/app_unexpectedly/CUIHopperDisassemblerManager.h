@@ -30,6 +30,6 @@
 
 - (NSMenu *)availableApplicationsMenuWithTarget:(id<CUIHopperDisassemblerActions>)inTarget;
 
-- (BOOL)openBinaryImage:(NSString *)inPath withApplicationAttributes:(CUIApplicationItemAttributes *)inApplicationAttributes codeType:(CUICodeType)inCodeType fileOffSet:(void *)inOffset;
+- (void)openBinaryImage:(NSString *)inPath withApplicationAttributes:(CUIApplicationItemAttributes *)inApplicationAttributes codeType:(CUICodeType)inCodeType fileOffSet:(void *)inOffset;
 
 @end

@@ -291,11 +291,22 @@
     
     CUIStackFrame * tCall=(CUIStackFrame *)_selectedThread.callStackBacktrace.stackFrames[tRow];
     
-    [[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
-                       withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
-                                    options:NSWorkspaceLaunchDefault
-                              configuration:@{}
-                                      error:NULL];
+	if (@available(*, macOS 11.0))
+	{
+		[[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
+						   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
+								  configuration:[NSWorkspaceOpenConfiguration configuration]
+							  completionHandler:^(NSRunningApplication * _Nullable app, NSError * _Nullable error) {
+		}];
+	}
+	else
+	{
+		[[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
+						   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
+										options:NSWorkspaceLaunchDefault
+								  configuration:@{}
+										  error:NULL];
+	}
 }
 
 #pragma mark - NSTableViewDataSource

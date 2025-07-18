@@ -93,107 +93,124 @@ NSString * const CUIHopperDisassembler4BundleIdentifier=@"com.cryptic-apps.hoppe
     return tMenu;
 }
 
-- (BOOL)openBinaryImage:(NSString *)inPath withApplicationAttributes:(CUIApplicationItemAttributes *)inApplicationAttributes codeType:(CUICodeType)inCodeType fileOffSet:(void *)inOffset
+- (void)openBinaryImage:(NSString *)inPath withApplicationAttributes:(CUIApplicationItemAttributes *)inApplicationAttributes codeType:(CUICodeType)inCodeType fileOffSet:(void *)inOffset
 {
     if (inPath==nil)
     {
         NSLog(@"Binary image path should not be nil");
-        
-        return NO;
+        return;
     }
     
-    // Launch the Hopper Disassembler application if it's not already running (workaround for a limitation of the hopper command line tool)
+	__auto_type postLaunchActions = ^(NSRunningApplication * runningApplication)
+	{
+		// Convert the codeType
+		
+		NSString * tCPUSelection=nil;
+		
+		switch(inCodeType)
+		{
+			case CUICodeTypeX86:
+				
+				tCPUSelection=@"--intel-32";
+				break;
+				
+			case CUICodeTypeX86_64:
+				
+				tCPUSelection=@"--intel-64";
+				break;
+				
+			case CUICodeTypeARM_64:
+				
+				tCPUSelection=@"--aarch64";
+				break;
+		
+			case CUICodeTypePPC:
+				
+				tCPUSelection=@"--ppc";
+				break;
+				
+			default:
+				
+				break;
+		}
+		
+		NSURL * tCommandLineToolURL=[inApplicationAttributes.applicationURL URLByAppendingPathComponent:@"/Contents/MacOS/hopper"];
+		
+		NSTask * tTask=[NSTask new];
+		tTask.executableURL=tCommandLineToolURL;
+		
+		NSMutableArray * tArguments=[NSMutableArray array];
+		
+		[tArguments addObjectsFromArray:@[
+										  @"-a",
+										  @"-l",
+										  @"FAT",
+										  @"-l",
+										  @"Mach-O",
+										  @"-e",
+										  inPath]];
+		
+		if (tCPUSelection!=nil)
+			[tArguments addObject:tCPUSelection];
+		
+		if (inOffset!=NULL)
+		{
+			[tArguments addObjectsFromArray:@[
+											  @"--python-command",
+											  [NSString stringWithFormat:@"doc = Document.getCurrentDocument();doc.setCurrentAddress(0x%lx)",(unsigned long)inOffset]
+											  ]];
+		}
+		
+		tTask.arguments=tArguments;
+		
+		tTask.terminationHandler=^(NSTask * bTask){
+		
+			dispatch_async(dispatch_get_main_queue(), ^{
+				
+				if (bTask.terminationStatus!=0)
+				{
+					NSLog(@"hopper tool returned with status %d",bTask.terminationStatus);
+				}
+			});
+		};
+		
+		NSError * tError=nil;
+		
+		[tTask launchAndReturnError:&tError];
+	};
+	
+	// Launch the Hopper Disassembler application if it's not already running (workaround for a limitation of the hopper command line tool)
     
-    NSRunningApplication * tRunningApplication=[[NSWorkspace sharedWorkspace] launchApplicationAtURL:inApplicationAttributes.applicationURL
-                                                                                             options:0
-                                                                                       configuration:@{}
-                                                                                               error:NULL];
-    
-    if (tRunningApplication==nil)
-    {
-        NSLog(@"No running instances of Hopper Disassembler and not able to launch one.");
-        
-        return NO;
-    }
-    
-    // Convert the codeType
-    
-    NSString * tCPUSelection=nil;
-    
-    switch(inCodeType)
-    {
-        case CUICodeTypeX86:
-            
-            tCPUSelection=@"--intel-32";
-            
-            break;
-            
-        case CUICodeTypeX86_64:
-            
-            tCPUSelection=@"--intel-64";
-            
-            break;
-            
-        case CUICodeTypeARM_64:
-            
-            tCPUSelection=@"--aarch64";
-            
-            break;
-    
-        case CUICodeTypePPC:
-            
-            tCPUSelection=@"--ppc";
-            
-            break;
-            
-        default:
-            
-            break;
-    }
-    
-    NSURL * tCommandLineToolURL=[inApplicationAttributes.applicationURL URLByAppendingPathComponent:@"/Contents/MacOS/hopper"];
-    
-    NSTask * tTask=[NSTask new];
-    tTask.executableURL=tCommandLineToolURL;
-    
-    NSMutableArray * tArguments=[NSMutableArray array];
-    
-    [tArguments addObjectsFromArray:@[
-                                      @"-a",
-                                      @"-l",
-                                      @"FAT",
-                                      @"-l",
-                                      @"Mach-O",
-                                      @"-e",
-                                      inPath]];
-    
-    if (tCPUSelection!=nil)
-        [tArguments addObject:tCPUSelection];
-    
-    if (inOffset!=NULL)
-    {
-        [tArguments addObjectsFromArray:@[
-                                          @"--python-command",
-                                          [NSString stringWithFormat:@"doc = Document.getCurrentDocument();doc.setCurrentAddress(0x%lx)",(unsigned long)inOffset]
-                                          ]];
-    }
-    
-    tTask.arguments=tArguments;
-    
-    tTask.terminationHandler=^(NSTask * bTask){
-    
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            if (bTask.terminationStatus!=0)
-            {
-                NSLog(@"hopper tool returned with status %d",bTask.terminationStatus);
-            }
-        });
-    };
-    
-    NSError * tError=nil;
-    
-    return [tTask launchAndReturnError:&tError];
+	if (@available(*, macOS 11.0))
+	{
+		[[NSWorkspace sharedWorkspace] openApplicationAtURL:inApplicationAttributes.applicationURL
+											  configuration:[NSWorkspaceOpenConfiguration configuration] completionHandler:^(NSRunningApplication * _Nullable bRunningApplication, NSError * _Nullable error) {
+			if (bRunningApplication==nil)
+			{
+				NSLog(@"No running instances of Hopper Disassembler and not able to launch one: %@",error);
+				
+				return;
+			}
+			
+			postLaunchActions(bRunningApplication);
+		}];
+	}
+	else
+	{
+		NSRunningApplication * tRunningApplication=[[NSWorkspace sharedWorkspace] launchApplicationAtURL:inApplicationAttributes.applicationURL
+																								 options:0
+																						   configuration:@{}
+																								   error:NULL];
+		
+		if (tRunningApplication==nil)
+		{
+			NSLog(@"No running instances of Hopper Disassembler and not able to launch one.");
+			
+			return;
+		}
+		
+		postLaunchActions(tRunningApplication);
+	}
 }
 
 @end
