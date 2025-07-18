@@ -135,9 +135,11 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     
     NSArray * tThemes=[tThemesManager allThemes];
     
+	SEL selector=NSSelectorFromString(@"CUI_MENUACTION_switchTheme:");
+	
     [tThemes enumerateObjectsWithOptions:NSEnumerationReverse  usingBlock:^(CUITheme * bTheme, NSUInteger bIndex, BOOL * bOutStop) {
         
-        NSMenuItem * tMenuItem=[[NSMenuItem alloc] initWithTitle:bTheme.name action:@selector(CUI_MENUACTION_switchTheme:) keyEquivalent:@""];
+        NSMenuItem * tMenuItem=[[NSMenuItem alloc] initWithTitle:bTheme.name action:selector keyEquivalent:@""];
         
         tMenuItem.representedObject=bTheme.UUID;
         
