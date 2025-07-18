@@ -13,11 +13,13 @@
 
 #import "CUIInspectorExecutableViewController.h"
 
+#import "CUICodeSigningInformationViewController.h"
+
 #import "CUICrashLog+UI.h"
 
 #import "CUIRawCrashLog+Path.h"
 
-@interface CUIInspectorExecutableViewController ()
+@interface CUIInspectorExecutableViewController () <NSPopoverDelegate>
 {
     IBOutlet NSImageView * _executableIconView;
     
@@ -35,6 +37,8 @@
 }
 
 - (void)layoutView;
+
+- (IBAction)showCodeSigningInformation:(id)sender;
 
 - (IBAction)showExecutableInFinder:(id)sender;
 
@@ -197,6 +201,29 @@
 
 #pragma mark -
 
+- (IBAction)showCodeSigningInformation:(id)sender
+{
+	NSPopover * tCodeSigningInformationPopOver = [NSPopover new];
+	tCodeSigningInformationPopOver.contentSize=NSMakeSize(500.0, 20.0);
+	tCodeSigningInformationPopOver.behavior=NSPopoverBehaviorTransient;
+	tCodeSigningInformationPopOver.animates=NO;
+	tCodeSigningInformationPopOver.delegate=self;
+	
+	NSViewController * tPopUpViewController=[[CUICodeSigningInformationViewController alloc] initWithCodeSigningInfo:self.crashLog.ipsReport.incident.header.codeSigningInfo];
+	
+	tCodeSigningInformationPopOver.contentViewController=tPopUpViewController;
+	
+	tCodeSigningInformationPopOver.contentSize=tPopUpViewController.view.bounds.size;
+	
+	NSView * tTrick=tPopUpViewController.view;  // This is used to trigger the viewDidLoad method of the contentViewController.
+	
+	(void)tTrick;
+	
+	[tCodeSigningInformationPopOver showRelativeToRect:_codeSigningButton.bounds
+												ofView:_codeSigningButton
+										 preferredEdge:NSMaxXEdge];
+}
+
 - (IBAction)showExecutableInFinder:(id)sender
 {
     NSWorkspace * tSharedWorkspace=[NSWorkspace sharedWorkspace];
@@ -207,6 +234,16 @@
         tExecutablePath=self.crashLog.header.executablePath;
     
     [tSharedWorkspace selectFile:tExecutablePath inFileViewerRootedAtPath:@""];
+}
+
+#pragma mark - NSPopoverDelegate
+
+- (void)popoverDidClose:(NSNotification *)inNotification
+{
+	NSWindow * tWindow=self.view.window;
+	
+	if (tWindow.firstResponder==tWindow.contentView)
+		[tWindow makeFirstResponder:self];
 }
 
 @end

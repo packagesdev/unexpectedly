@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D06294382E1DD8150008895D /* CUICodeSigningInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */; };
+		D06294392E1DD8150008895D /* CUICodeSigningInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06294372E1DD8150008895D /* CUICodeSigningInformationViewController.xib */; };
 		D0790DBD2E00BACF00CD6A72 /* CUIThreadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */; };
 		D0BA6A462E09FEB50010D630 /* EXC_GUARD.html in Resources */ = {isa = PBXBuildFile; fileRef = D0BA6A442E09FEB50010D630 /* EXC_GUARD.html */; };
 		F4040A7624F5B9CE0072BF65 /* CUINavigationChevronView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4040A7524F5B9CE0072BF65 /* CUINavigationChevronView.m */; };
@@ -360,6 +362,9 @@
 		D000743B2E11F30900CC5121 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = Help/ja.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		D000743C2E11F30B00CC5121 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = es; path = Help/es.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		D00B152C2E0B52740098456B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = Help/fr.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
+		D06294352E1DD8150008895D /* CUICodeSigningInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICodeSigningInformationViewController.h; sourceTree = "<group>"; };
+		D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICodeSigningInformationViewController.m; sourceTree = "<group>"; };
+		D06294372E1DD8150008895D /* CUICodeSigningInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CUICodeSigningInformationViewController.xib; sourceTree = "<group>"; };
 		D0790DBB2E00BACF00CD6A72 /* CUIThreadImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThreadImageView.h; sourceTree = "<group>"; };
 		D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThreadImageView.m; sourceTree = "<group>"; };
 		D0AECAE42E0F34830028246E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = he; path = Help/he.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
@@ -1609,6 +1614,9 @@
 				F4B649D024EDCD2300008C47 /* CUIInspectorExecutableViewController.h */,
 				F4B649D124EDCD2300008C47 /* CUIInspectorExecutableViewController.m */,
 				F46D77A525ED8D5700039663 /* CUIInspectorExecutableViewController.xib */,
+				D06294352E1DD8150008895D /* CUICodeSigningInformationViewController.h */,
+				D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */,
+				D06294372E1DD8150008895D /* CUICodeSigningInformationViewController.xib */,
 				F4B649D824EDD64900008C47 /* CUIInspectorProcessesViewController.h */,
 				F4B649D924EDD64900008C47 /* CUIInspectorProcessesViewController.m */,
 				F46D77A925ED8E3B00039663 /* CUIInspectorProcessesViewController.xib */,
@@ -2311,6 +2319,7 @@
 				F4E6EDA4284969E500766F9A /* ENDPOINTSECURITY_2.html in Resources */,
 				F45A2D6525EC5F850007D50E /* CUIAboutBoxWindowController.xib in Resources */,
 				D0BA6A462E09FEB50010D630 /* EXC_GUARD.html in Resources */,
+				D06294392E1DD8150008895D /* CUICodeSigningInformationViewController.xib in Resources */,
 				F49282C325696BF900D255D8 /* known_exceptions.css in Resources */,
 				F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */,
 				F4754D7125F5678700B0D48F /* CUICrashLogPresentationOutlineViewController.xib in Resources */,
@@ -2402,6 +2411,7 @@
 				F4F8D26924F29624007661D6 /* CUIPresentationTextNavigationViewController.m in Sources */,
 				F469AB2524B3DDEA0053C824 /* CUICrashLogExceptionInformation.m in Sources */,
 				F419376F2672B2BE00B796EB /* CUICrashLogsOpenErrorPanel.m in Sources */,
+				D06294382E1DD8150008895D /* CUICodeSigningInformationViewController.m in Sources */,
 				F4F5395924D21DB800D537BC /* CUIPreferencePaneGeneralViewController.m in Sources */,
 				F4B9AD3425319A410083FA6C /* MCHObjectFile.m in Sources */,
 				F4B649D324EDCD2300008C47 /* CUIInspectorExecutableViewController.m in Sources */,
@@ -3256,7 +3266,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 73;
+				CURRENT_PROJECT_VERSION = 75;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3277,7 +3287,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 73;
+				CURRENT_PROJECT_VERSION = 75;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = app_unexpectedly/app_unexpectedly_Prefix.pch;
