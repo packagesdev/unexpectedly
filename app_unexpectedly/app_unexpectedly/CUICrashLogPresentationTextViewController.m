@@ -860,6 +860,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
             
             NSURL * tFileURL=[NSURL fileURLWithPath:tURL.path];
             
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101600
 			if (@available(*, macOS 11.0))
 			{
 				[[NSWorkspace sharedWorkspace] openURLs:@[tFileURL]
@@ -870,6 +871,7 @@ NSString * const CUICrashLogPresentationTextViewFontSizeDelta=@"ui.text.fontSize
 				}];
 			}
 			else
+#endif
 			{
 				[[NSWorkspace sharedWorkspace] openURLs:@[tFileURL]
 								   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL

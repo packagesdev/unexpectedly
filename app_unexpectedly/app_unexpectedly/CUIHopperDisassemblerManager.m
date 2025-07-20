@@ -181,6 +181,7 @@ NSString * const CUIHopperDisassembler4BundleIdentifier=@"com.cryptic-apps.hoppe
 	
 	// Launch the Hopper Disassembler application if it's not already running (workaround for a limitation of the hopper command line tool)
     
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101600
 	if (@available(*, macOS 11.0))
 	{
 		[[NSWorkspace sharedWorkspace] openApplicationAtURL:inApplicationAttributes.applicationURL
@@ -196,6 +197,7 @@ NSString * const CUIHopperDisassembler4BundleIdentifier=@"com.cryptic-apps.hoppe
 		}];
 	}
 	else
+#endif
 	{
 		NSRunningApplication * tRunningApplication=[[NSWorkspace sharedWorkspace] launchApplicationAtURL:inApplicationAttributes.applicationURL
 																								 options:0

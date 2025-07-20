@@ -291,6 +291,7 @@
     
     CUIStackFrame * tCall=(CUIStackFrame *)_selectedThread.callStackBacktrace.stackFrames[tRow];
     
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101600
 	if (@available(*, macOS 11.0))
 	{
 		[[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
@@ -300,6 +301,7 @@
 		}];
 	}
 	else
+#endif
 	{
 		[[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
 						   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL

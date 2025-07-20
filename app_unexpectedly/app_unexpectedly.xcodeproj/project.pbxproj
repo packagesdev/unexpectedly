@@ -299,6 +299,8 @@
 		F4DF81672893463E008EF1B3 /* IPSBundleInfo+Obfuscating.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DF81562893463D008EF1B3 /* IPSBundleInfo+Obfuscating.m */; };
 		F4DF81682893463E008EF1B3 /* IPSIncident+Obfuscating.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DF81572893463D008EF1B3 /* IPSIncident+Obfuscating.m */; };
 		F4E0BD25262078220048647C /* CUIAboutBoxWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E0BD24262078220048647C /* CUIAboutBoxWindow.m */; };
+		F4E671922E2C3B1600E5A064 /* CUICodeSigningFlagsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E671912E2C3B1600E5A064 /* CUICodeSigningFlagsTableView.m */; };
+		F4E671952E2C405F00E5A064 /* CodeSigningFlags.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4E671942E2C405F00E5A064 /* CodeSigningFlags.plist */; };
 		F4E6ED9C2849695200766F9A /* unknown_termination_reason.html in Resources */ = {isa = PBXBuildFile; fileRef = F4E6ED9A2849695100766F9A /* unknown_termination_reason.html */; };
 		F4E6EDA1284969DD00766F9A /* known_termination_reasons.css in Resources */ = {isa = PBXBuildFile; fileRef = F4E6EDA0284969DD00766F9A /* known_termination_reasons.css */; };
 		F4E6EDA4284969E500766F9A /* ENDPOINTSECURITY_2.html in Resources */ = {isa = PBXBuildFile; fileRef = F4E6EDA2284969E500766F9A /* ENDPOINTSECURITY_2.html */; };
@@ -1040,6 +1042,9 @@
 		F4E1C11F24C22FB5000F5C0F /* CUILightTableVisibleThreadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUILightTableVisibleThreadView.m; sourceTree = "<group>"; };
 		F4E1C12124C22FEE000F5C0F /* CUILightTableVisibleInterGapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUILightTableVisibleInterGapView.h; sourceTree = "<group>"; };
 		F4E1C12224C22FEE000F5C0F /* CUILightTableVisibleInterGapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUILightTableVisibleInterGapView.m; sourceTree = "<group>"; };
+		F4E671902E2C3B1600E5A064 /* CUICodeSigningFlagsTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICodeSigningFlagsTableView.h; sourceTree = "<group>"; };
+		F4E671912E2C3B1600E5A064 /* CUICodeSigningFlagsTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICodeSigningFlagsTableView.m; sourceTree = "<group>"; };
+		F4E671942E2C405F00E5A064 /* CodeSigningFlags.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CodeSigningFlags.plist; sourceTree = "<group>"; };
 		F4E6ED9B2849695100766F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = Help/en.lproj/unknown_termination_reason.html; sourceTree = "<group>"; };
 		F4E6ED9D2849696000766F9A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = es; path = Help/es.lproj/unknown_termination_reason.html; sourceTree = "<group>"; };
 		F4E6ED9E2849696600766F9A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = Help/fr.lproj/unknown_termination_reason.html; sourceTree = "<group>"; };
@@ -1547,6 +1552,8 @@
 		F46198EB24CA457E00FA9717 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4E671902E2C3B1600E5A064 /* CUICodeSigningFlagsTableView.h */,
+				F4E671912E2C3B1600E5A064 /* CUICodeSigningFlagsTableView.m */,
 				F46198EC24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.h */,
 				F46198ED24CA459700FA9717 /* CUIInspectorAlternateBackgroundView.m */,
 			);
@@ -1616,6 +1623,7 @@
 				F46D77A525ED8D5700039663 /* CUIInspectorExecutableViewController.xib */,
 				D06294352E1DD8150008895D /* CUICodeSigningInformationViewController.h */,
 				D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */,
+				F4E671942E2C405F00E5A064 /* CodeSigningFlags.plist */,
 				D06294372E1DD8150008895D /* CUICodeSigningInformationViewController.xib */,
 				F4B649D824EDD64900008C47 /* CUIInspectorProcessesViewController.h */,
 				F4B649D924EDD64900008C47 /* CUIInspectorProcessesViewController.m */,
@@ -2316,6 +2324,7 @@
 				F495AECC25F033CC000D92E1 /* EXC_CRASH_SIGKILL.html in Resources */,
 				F4A0BEF3261BC39700BADEED /* brushed-alum.png in Resources */,
 				F46D2A2624C33FA200652D50 /* Predicates.strings in Resources */,
+				F4E671952E2C405F00E5A064 /* CodeSigningFlags.plist in Resources */,
 				F4E6EDA4284969E500766F9A /* ENDPOINTSECURITY_2.html in Resources */,
 				F45A2D6525EC5F850007D50E /* CUIAboutBoxWindowController.xib in Resources */,
 				D0BA6A462E09FEB50010D630 /* EXC_GUARD.html in Resources */,
@@ -2499,6 +2508,7 @@
 				F4DF81662893463E008EF1B3 /* IPSIncidentExceptionInformation+Obfuscating.m in Sources */,
 				F4C269CD2503BCC100C8F3B3 /* CUISymbolicationManager.m in Sources */,
 				F4DF815F2893463E008EF1B3 /* IPSCrashSummary+Obfuscating.m in Sources */,
+				F4E671922E2C3B1600E5A064 /* CUICodeSigningFlagsTableView.m in Sources */,
 				F4DAFBEE2736B7B200FB50A6 /* CUIIPSTransform.m in Sources */,
 				F47F76622673542600A74905 /* CUICrashLogsOpenErrorRecord+UI.m in Sources */,
 				F462DD3124ADC5F900044AB1 /* CUICrashLogsSourceSmart.m in Sources */,

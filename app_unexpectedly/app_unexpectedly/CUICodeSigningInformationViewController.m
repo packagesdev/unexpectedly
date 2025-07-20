@@ -12,6 +12,7 @@
  */
 
 #import "CUICodeSigningInformationViewController.h"
+#import "NSDictionary+WBExtensions.h"
 
 @interface IPSCodeSigningInfo (UI)
 
@@ -53,20 +54,42 @@
 
 @end
 
-@interface CUICodeSigningInformationViewController ()
+@interface CUICodeSigningInformationViewController () <NSTableViewDataSource, NSTableViewDelegate>
 {
-	IPSCodeSigningInfo *_info;
+	IPSCodeSigningInfo * _info;
 	
-	IBOutlet NSTextField *_identifierTextField;
-	IBOutlet NSTextField *_teamIdentifierTextField;
+	IBOutlet NSTextField * _identifierTextField;
+	IBOutlet NSTextField * _teamIdentifierTextField;
 	
-	IBOutlet NSTextField *_validationCategoryTextField;
-	IBOutlet NSTextField *_trustLevelTextField;
+	IBOutlet NSTextField * _validationCategoryTextField;
+	
+	IBOutlet NSTableView * _flagsTableView;
+	
+	IBOutlet NSTextField * _trustLevelTextField;
+	
+	NSArray <NSString *> * _allFlags;
+	
+	SecCodeSignatureFlags tet;
 }
 
 @end
 
 @implementation CUICodeSigningInformationViewController
+
++ (NSDictionary <NSString *, NSNumber *> *)flagsToLocalizedNameDictionary
+{
+	static dispatch_once_t onceToken;
+	static NSDictionary <NSString *, NSNumber *> * sConversionDictionary=nil;
+	
+	dispatch_once(&onceToken, ^{
+		
+		NSURL * resourceURL=[[NSBundle bundleForClass:self] URLForResource:@"CodeSigningFlags" withExtension:@"plist"];
+		
+		sConversionDictionary=[[NSDictionary alloc] initWithContentsOfURL:resourceURL error:NULL];	// A COMPLETER
+	});
+	
+	return sConversionDictionary;
+}
 
 - (instancetype)initWithCodeSigningInfo:(IPSCodeSigningInfo *)inCodeSigningInfo
 {
@@ -76,6 +99,8 @@
 	{
 		_info=[inCodeSigningInfo copy];
 	}
+	
+	_allFlags = [[CUICodeSigningInformationViewController flagsToLocalizedNameDictionary].allKeys sortedArrayUsingSelector:@selector(compare:)];
 	
 	return self;
 }
@@ -88,7 +113,33 @@
 	_teamIdentifierTextField.stringValue=_info.teamIdentifier ?: @"-";
 	_validationCategoryTextField.stringValue=_info.validationCategoryDisplayString;
 	
-	_trustLevelTextField.stringValue=[NSString stringWithFormat:@"%u",_info.trustLevel];
+	_trustLevelTextField.stringValue=[NSString stringWithFormat:@"0x%x",_info.trustLevel];
+}
+
+#pragma mark - NSTableViewDataSource
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+	return _allFlags.count;
+}
+
+#pragma mark - NSTableViewDelegate
+
+- (NSView *)tableView:(NSTableView *)inTableView viewForTableColumn:(NSTableColumn *)inTableColumn row:(NSInteger)inRow
+{
+	NSString * tTableColumnIdentifier=inTableColumn.identifier;
+	NSTableCellView * tTableCellView=[inTableView makeViewWithIdentifier:tTableColumnIdentifier owner:self];
+	
+	NSString * tKey=_allFlags[inRow];
+	NSNumber *flagNumber=[CUICodeSigningInformationViewController flagsToLocalizedNameDictionary][tKey];
+	
+	BOOL tIsFlagSet=((flagNumber.unsignedIntValue & _info.flags)!=0);
+	
+	tTableCellView.textField.stringValue=tKey;
+	tTableCellView.textField.textColor=(tIsFlagSet==YES) ? [NSColor controlTextColor] : [NSColor disabledControlTextColor];
+	
+	
+	return tTableCellView;
 }
 
 @end
