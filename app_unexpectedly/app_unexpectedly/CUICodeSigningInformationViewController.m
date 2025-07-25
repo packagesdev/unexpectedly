@@ -63,11 +63,9 @@
 	
 	IBOutlet NSTextField * _validationCategoryTextField;
 	
-	IBOutlet NSTableView * _flagsTableView;
+	IBOutlet NSTextField * _flagsRichTextField;
 	
 	IBOutlet NSTextField * _trustLevelTextField;
-	
-	NSArray <NSString *> * _allFlags;
 	
 	SecCodeSignatureFlags tet;
 }
@@ -100,8 +98,6 @@
 		_info=[inCodeSigningInfo copy];
 	}
 	
-	_allFlags = [[CUICodeSigningInformationViewController flagsToLocalizedNameDictionary].allKeys sortedArrayUsingSelector:@selector(compare:)];
-	
 	return self;
 }
 
@@ -110,36 +106,53 @@
     [super viewDidLoad];
     
 	_identifierTextField.stringValue=_info.identifier ?: @"-";
+	//_identifierTextField.toolTip = _info.identifier;
+	
 	_teamIdentifierTextField.stringValue=_info.teamIdentifier ?: @"-";
 	_validationCategoryTextField.stringValue=_info.validationCategoryDisplayString;
+	
+	_flagsRichTextField.attributedStringValue=[self codeSigningFlagsDisplayString];
 	
 	_trustLevelTextField.stringValue=[NSString stringWithFormat:@"0x%x",_info.trustLevel];
 }
 
-#pragma mark - NSTableViewDataSource
+#pragma mark -
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+- (NSAttributedString *)codeSigningFlagsDisplayString
 {
-	return _allFlags.count;
-}
-
-#pragma mark - NSTableViewDelegate
-
-- (NSView *)tableView:(NSTableView *)inTableView viewForTableColumn:(NSTableColumn *)inTableColumn row:(NSInteger)inRow
-{
-	NSString * tTableColumnIdentifier=inTableColumn.identifier;
-	NSTableCellView * tTableCellView=[inTableView makeViewWithIdentifier:tTableColumnIdentifier owner:self];
+	NSMutableAttributedString * tMutableAttributedString=[[NSMutableAttributedString alloc] initWithString:@""];
 	
-	NSString * tKey=_allFlags[inRow];
-	NSNumber *flagNumber=[CUICodeSigningInformationViewController flagsToLocalizedNameDictionary][tKey];
+	NSDictionary <NSString *, NSNumber *> *tFlagsToLocalizedNameDictionary = [CUICodeSigningInformationViewController flagsToLocalizedNameDictionary];
+	static dispatch_once_t onceToken;
+	static NSArray <NSString *> * sAllFlags=nil;
 	
-	BOOL tIsFlagSet=((flagNumber.unsignedIntValue & _info.flags)!=0);
+	dispatch_once(&onceToken, ^{
+		sAllFlags = [tFlagsToLocalizedNameDictionary.allKeys sortedArrayUsingSelector:@selector(compare:)];
+	});
 	
-	tTableCellView.textField.stringValue=tKey;
-	tTableCellView.textField.textColor=(tIsFlagSet==YES) ? [NSColor controlTextColor] : [NSColor disabledControlTextColor];
+	BOOL tFirstLine=YES;
+	NSAttributedString * tNewLine=[[NSAttributedString alloc] initWithString:@"\n"
+																  attributes:nil];
 	
+	for(NSString * tKey in sAllFlags)
+	{
+		if (tFirstLine==NO)
+			[tMutableAttributedString appendAttributedString:tNewLine];
+		else
+			tFirstLine=NO;
+		
+		NSNumber * tFlagNumber=tFlagsToLocalizedNameDictionary[tKey];
+		BOOL tIsFlagSet=((tFlagNumber.unsignedIntValue & _info.flags)!=0);
+		
+		NSAttributedString * tAttributedLine=[[NSAttributedString alloc] initWithString:tKey
+																			 attributes:@{
+			NSForegroundColorAttributeName : (tIsFlagSet==YES) ? [NSColor controlTextColor] : [NSColor disabledControlTextColor],
+		}];
+		
+		[tMutableAttributedString appendAttributedString:tAttributedLine];
+	}
 	
-	return tTableCellView;
+	return tMutableAttributedString;
 }
 
 @end
