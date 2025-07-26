@@ -209,6 +209,10 @@
 	tCodeSigningInformationPopOver.animates=NO;
 	tCodeSigningInformationPopOver.delegate=self;
 	
+	NSAppearanceName tAppearanceName = ([self.view WB_isEffectiveAppearanceDarkAqua] == NO) ? WB_NSAppearanceNameAqua : WB_NSAppearanceNameDarkAqua;
+	
+	tCodeSigningInformationPopOver.appearance = [NSAppearance appearanceNamed:tAppearanceName];
+	
 	NSViewController * tPopUpViewController=[[CUICodeSigningInformationViewController alloc] initWithCodeSigningInfo:self.crashLog.ipsReport.incident.header.codeSigningInfo];
 	
 	tCodeSigningInformationPopOver.contentViewController=tPopUpViewController;

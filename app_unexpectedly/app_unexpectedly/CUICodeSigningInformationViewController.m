@@ -28,25 +28,25 @@
 	switch(self.validationCategory)
 	{
 		case IPSCodeSigningValidationCategoryPlatform:
-			return @"";
+			return NSLocalizedStringFromTable(@"",@"CodeSigning",@"");
 			
 		case IPSCodeSigningValidationCategoryTestFlight:
-			return @"TestFlight";
+			return NSLocalizedStringFromTable(@"TestFlight",@"CodeSigning",@"");
 			
 		case IPSCodeSigningValidationCategoryDevelopment:
-			return @"Development";
+			return NSLocalizedStringFromTable(@"Development",@"CodeSigning",@"");
 			
 		case IPSCodeSigningValidationCategoryAppStore:
-			return @"AppStore";
+			return NSLocalizedStringFromTable(@"AppStore",@"CodeSigning",@"");
 			
 		case IPSCodeSigningValidationCategoryEnterprise:
-			return @"Enterprise";
+			return NSLocalizedStringFromTable(@"Enterprise",@"CodeSigning",@"");
 			
 		case IPSCodeSigningValidationCategoryDeveloperID:
-			return @"Developer ID";
+			return NSLocalizedStringFromTable(@"Developer ID",@"CodeSigning",@"");
 
 		case IPSCodeSigningValidationCategoryNone:
-			return @"None";
+			return NSLocalizedStringFromTable(@"None",@"CodeSigning",@"");
 	}
 	
 	return @"-";
@@ -54,7 +54,7 @@
 
 @end
 
-@interface CUICodeSigningInformationViewController () <NSTableViewDataSource, NSTableViewDelegate>
+@interface CUICodeSigningInformationViewController ()
 {
 	IPSCodeSigningInfo * _info;
 	
@@ -66,8 +66,6 @@
 	IBOutlet NSTextField * _flagsRichTextField;
 	
 	IBOutlet NSTextField * _trustLevelTextField;
-	
-	SecCodeSignatureFlags tet;
 }
 
 @end
@@ -127,12 +125,15 @@
 	static NSArray <NSString *> * sAllFlags=nil;
 	
 	dispatch_once(&onceToken, ^{
-		sAllFlags = [tFlagsToLocalizedNameDictionary.allKeys sortedArrayUsingSelector:@selector(compare:)];
+		sAllFlags=[tFlagsToLocalizedNameDictionary.allKeys sortedArrayUsingSelector:@selector(compare:)];
 	});
 	
 	BOOL tFirstLine=YES;
 	NSAttributedString * tNewLine=[[NSAttributedString alloc] initWithString:@"\n"
 																  attributes:nil];
+	BOOL tShouldIncreaseContrast=NSWorkspace.sharedWorkspace.accessibilityDisplayShouldIncreaseContrast;
+	NSFont * tSystemFont=[NSFont systemFontOfSize:NSFont.systemFontSize];;
+	NSFont * tBoldSystemFont=[NSFont boldSystemFontOfSize:NSFont.systemFontSize];
 	
 	for(NSString * tKey in sAllFlags)
 	{
@@ -143,11 +144,32 @@
 		
 		NSNumber * tFlagNumber=tFlagsToLocalizedNameDictionary[tKey];
 		BOOL tIsFlagSet=((tFlagNumber.unsignedIntValue & _info.flags)!=0);
+		NSDictionary * tAttributes;
+		
+		if (tIsFlagSet==YES)
+		{
+			NSFont * tFont;
+			
+			if (tShouldIncreaseContrast==YES)
+				tFont = tBoldSystemFont;
+			else
+				tFont = tSystemFont;
+			
+			tAttributes = @{
+							NSForegroundColorAttributeName : NSColor.labelColor,
+							NSFontAttributeName : tFont
+							};
+		}
+		else
+		{
+			tAttributes = @{
+							NSForegroundColorAttributeName : NSColor.tertiaryLabelColor,
+							NSFontAttributeName : tSystemFont
+							};
+		}
 		
 		NSAttributedString * tAttributedLine=[[NSAttributedString alloc] initWithString:tKey
-																			 attributes:@{
-			NSForegroundColorAttributeName : (tIsFlagSet==YES) ? [NSColor controlTextColor] : [NSColor disabledControlTextColor],
-		}];
+																			 attributes:tAttributes];
 		
 		[tMutableAttributedString appendAttributedString:tAttributedLine];
 	}

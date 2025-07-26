@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D06294382E1DD8150008895D /* CUICodeSigningInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */; };
-		D06294392E1DD8150008895D /* CUICodeSigningInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06294372E1DD8150008895D /* CUICodeSigningInformationViewController.xib */; };
 		D0790DBD2E00BACF00CD6A72 /* CUIThreadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */; };
 		D0BA6A462E09FEB50010D630 /* EXC_GUARD.html in Resources */ = {isa = PBXBuildFile; fileRef = D0BA6A442E09FEB50010D630 /* EXC_GUARD.html */; };
 		F4040A7624F5B9CE0072BF65 /* CUINavigationChevronView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4040A7524F5B9CE0072BF65 /* CUINavigationChevronView.m */; };
@@ -136,6 +135,8 @@
 		F45A2D6D25EC60920007D50E /* CUICrashLogsSourcesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45A2D6F25EC60920007D50E /* CUICrashLogsSourcesViewController.xib */; };
 		F45A2D7125EC60D90007D50E /* CUICrashLogsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45A2D7325EC60D90007D50E /* CUICrashLogsListViewController.xib */; };
 		F45B518C24AFA04000E97B87 /* CUICrashLogsSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = F45B518B24AFA04000E97B87 /* CUICrashLogsSelection.m */; };
+		F45DED692E350F07008F4CE8 /* CUICodeSigningInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45DED6B2E350F07008F4CE8 /* CUICodeSigningInformationViewController.xib */; };
+		F45DED6F2E3510D9008F4CE8 /* CodeSigning.strings in Resources */ = {isa = PBXBuildFile; fileRef = F45DED6D2E3510D9008F4CE8 /* CodeSigning.strings */; };
 		F45F2F5B2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F45F2F5A2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m */; };
 		F45F84DC266ABB7600F354F3 /* crashreport.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = F45F84D8266ABB5800F354F3 /* crashreport.qlgenerator */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F46198E924CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F46198E824CA390700FA9717 /* CUICrashLogBacktraces+Utilities.m */; };
@@ -366,7 +367,6 @@
 		D00B152C2E0B52740098456B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = Help/fr.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		D06294352E1DD8150008895D /* CUICodeSigningInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICodeSigningInformationViewController.h; sourceTree = "<group>"; };
 		D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICodeSigningInformationViewController.m; sourceTree = "<group>"; };
-		D06294372E1DD8150008895D /* CUICodeSigningInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CUICodeSigningInformationViewController.xib; sourceTree = "<group>"; };
 		D0790DBB2E00BACF00CD6A72 /* CUIThreadImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIThreadImageView.h; sourceTree = "<group>"; };
 		D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThreadImageView.m; sourceTree = "<group>"; };
 		D0AECAE42E0F34830028246E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = he; path = Help/he.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
@@ -710,6 +710,16 @@
 		F45A2D7425EC60DB0007D50E /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUICrashLogsListViewController.xib; sourceTree = "<group>"; };
 		F45B518A24AFA04000E97B87 /* CUICrashLogsSelection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUICrashLogsSelection.h; sourceTree = "<group>"; };
 		F45B518B24AFA04000E97B87 /* CUICrashLogsSelection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUICrashLogsSelection.m; sourceTree = "<group>"; };
+		F45DED6A2E350F07008F4CE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CUICodeSigningInformationViewController.xib; sourceTree = "<group>"; };
+		F45DED6C2E350F0D008F4CE8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CUICodeSigningInformationViewController.xib; sourceTree = "<group>"; };
+		F45DED6E2E3510D9008F4CE8 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CodeSigning.strings; sourceTree = "<group>"; };
+		F45DED702E351134008F4CE8 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CodeSigning.strings; sourceTree = "<group>"; };
+		F45DED712E3511B8008F4CE8 /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/CodeSigning.strings; sourceTree = "<group>"; };
+		F45DED722E3511BB008F4CE8 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/CodeSigning.strings; sourceTree = "<group>"; };
+		F45DED732E3511BC008F4CE8 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/CodeSigning.strings; sourceTree = "<group>"; };
+		F45DED742E351277008F4CE8 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/CUICodeSigningInformationViewController.xib; sourceTree = "<group>"; };
+		F45DED752E351279008F4CE8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CUICodeSigningInformationViewController.xib; sourceTree = "<group>"; };
+		F45DED762E35127A008F4CE8 /* he */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = he; path = he.lproj/CUICodeSigningInformationViewController.xib; sourceTree = "<group>"; };
 		F45F2F592538EF3F0030A402 /* NSFileManager+ExtendedAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+ExtendedAttributes.h"; path = "app_unexpectedly/NSFileManager+ExtendedAttributes.h"; sourceTree = "<group>"; };
 		F45F2F5A2538EF3F0030A402 /* NSFileManager+ExtendedAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+ExtendedAttributes.m"; path = "app_unexpectedly/NSFileManager+ExtendedAttributes.m"; sourceTree = "<group>"; };
 		F45F84D3266ABB5800F354F3 /* crashreport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = crashreport.xcodeproj; path = ../plugin_quicklook/crashreport.xcodeproj; sourceTree = "<group>"; };
@@ -1624,7 +1634,7 @@
 				D06294352E1DD8150008895D /* CUICodeSigningInformationViewController.h */,
 				D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */,
 				F4E671942E2C405F00E5A064 /* CodeSigningFlags.plist */,
-				D06294372E1DD8150008895D /* CUICodeSigningInformationViewController.xib */,
+				F45DED6B2E350F07008F4CE8 /* CUICodeSigningInformationViewController.xib */,
 				F4B649D824EDD64900008C47 /* CUIInspectorProcessesViewController.h */,
 				F4B649D924EDD64900008C47 /* CUIInspectorProcessesViewController.m */,
 				F46D77A925ED8E3B00039663 /* CUIInspectorProcessesViewController.xib */,
@@ -1892,6 +1902,7 @@
 			children = (
 				F493DB1A24F1CF2F001AA8C0 /* Localizable.strings */,
 				F46D2A2824C33FA200652D50 /* Predicates.strings */,
+				F45DED6D2E3510D9008F4CE8 /* CodeSigning.strings */,
 				F4CC570B24A79EDA00150EC4 /* MainMenu.xib */,
 				F483845224EB11F700FAEF5D /* default_themes.plist */,
 				F4CC570324A79EDA00150EC4 /* Info.plist */,
@@ -2285,6 +2296,7 @@
 				F416687024B0AEE800C2AB89 /* CUIContentsViewController.xib in Resources */,
 				F495AED025F034C0000D92E1 /* EXC_BREAKPOINT_SIGTRAP.html in Resources */,
 				F45015CE25FAD279000C4B8D /* EXC_CRASH_SIGQUIT.html in Resources */,
+				F45DED6F2E3510D9008F4CE8 /* CodeSigning.strings in Resources */,
 				F45A2D6D25EC60920007D50E /* CUICrashLogsSourcesViewController.xib in Resources */,
 				F47C38232A4230370020D88F /* CUIThreadsColumnViewController_RTL.xib in Resources */,
 				F48CF5FF24A96992002AD214 /* MainMenu.xib in Resources */,
@@ -2328,7 +2340,7 @@
 				F4E6EDA4284969E500766F9A /* ENDPOINTSECURITY_2.html in Resources */,
 				F45A2D6525EC5F850007D50E /* CUIAboutBoxWindowController.xib in Resources */,
 				D0BA6A462E09FEB50010D630 /* EXC_GUARD.html in Resources */,
-				D06294392E1DD8150008895D /* CUICodeSigningInformationViewController.xib in Resources */,
+				F45DED692E350F07008F4CE8 /* CUICodeSigningInformationViewController.xib in Resources */,
 				F49282C325696BF900D255D8 /* known_exceptions.css in Resources */,
 				F4D7F15F25F04A9D0024E9A5 /* CUIPreferencePaneSymbolicationViewController.xib in Resources */,
 				F4754D7125F5678700B0D48F /* CUICrashLogPresentationOutlineViewController.xib in Resources */,
@@ -2838,6 +2850,30 @@
 				F43066D32A12EDE6002AB430 /* he */,
 			);
 			name = CUICrashLogsListViewController.xib;
+			sourceTree = "<group>";
+		};
+		F45DED6B2E350F07008F4CE8 /* CUICodeSigningInformationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F45DED6A2E350F07008F4CE8 /* en */,
+				F45DED6C2E350F0D008F4CE8 /* fr */,
+				F45DED742E351277008F4CE8 /* es */,
+				F45DED752E351279008F4CE8 /* ja */,
+				F45DED762E35127A008F4CE8 /* he */,
+			);
+			name = CUICodeSigningInformationViewController.xib;
+			sourceTree = "<group>";
+		};
+		F45DED6D2E3510D9008F4CE8 /* CodeSigning.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F45DED6E2E3510D9008F4CE8 /* en */,
+				F45DED702E351134008F4CE8 /* fr */,
+				F45DED712E3511B8008F4CE8 /* es */,
+				F45DED722E3511BB008F4CE8 /* ja */,
+				F45DED732E3511BC008F4CE8 /* he */,
+			);
+			name = CodeSigning.strings;
 			sourceTree = "<group>";
 		};
 		F46D2A2824C33FA200652D50 /* Predicates.strings */ = {
