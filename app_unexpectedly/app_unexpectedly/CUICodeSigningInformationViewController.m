@@ -79,9 +79,13 @@
 	
 	dispatch_once(&onceToken, ^{
 		
-		NSURL * resourceURL=[[NSBundle bundleForClass:self] URLForResource:@"CodeSigningFlags" withExtension:@"plist"];
+		NSURL * tResourceURL=[[NSBundle bundleForClass:self] URLForResource:@"CodeSigningFlags" withExtension:@"plist"];
+		NSError * tError;
 		
-		sConversionDictionary=[[NSDictionary alloc] initWithContentsOfURL:resourceURL error:NULL];	// A COMPLETER
+		sConversionDictionary=[[NSDictionary alloc] initWithContentsOfURL:tResourceURL error:&tError];
+		
+		if (sConversionDictionary==nil)
+			NSLog(@"Could not get the list of codesigning flags: %@",tError);
 	});
 	
 	return sConversionDictionary;
@@ -104,13 +108,9 @@
     [super viewDidLoad];
     
 	_identifierTextField.stringValue=_info.identifier ?: @"-";
-	//_identifierTextField.toolTip = _info.identifier;
-	
 	_teamIdentifierTextField.stringValue=_info.teamIdentifier ?: @"-";
 	_validationCategoryTextField.stringValue=_info.validationCategoryDisplayString;
-	
 	_flagsRichTextField.attributedStringValue=[self codeSigningFlagsDisplayString];
-	
 	_trustLevelTextField.stringValue=[NSString stringWithFormat:@"0x%x",_info.trustLevel];
 }
 
