@@ -363,6 +363,11 @@
         [self calculateLines];
 }
 
+- (void)drawRect:(NSRect)dirtyRect
+{
+	[super drawRect:dirtyRect];
+}
+
 - (void)drawSeparatorInRect:(NSRect)inRect
 {
 }
