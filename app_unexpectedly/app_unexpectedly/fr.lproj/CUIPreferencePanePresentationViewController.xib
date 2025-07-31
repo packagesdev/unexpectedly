@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,18 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="730" height="387"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
-                <box autoresizesSubviews="NO" boxType="custom" borderType="line" title="Box" id="wmc-fZ-hP3" customClass="CUIPreferencesTabBox">
+                <box autoresizesSubviews="NO" fixedFrame="YES" boxType="custom" borderType="line" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="wmc-fZ-hP3" customClass="CUIPreferencesTabBox">
                     <rect key="frame" x="20" y="20" width="690" height="347"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <view key="contentView" id="ArU-KV-0n7">
                         <rect key="frame" x="1" y="1" width="688" height="345"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <customView id="8YE-EY-01p" customClass="CUIPreferencesTabHeaderView">
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8YE-EY-01p" customClass="CUIPreferencesTabHeaderView">
                                 <rect key="frame" x="0.0" y="321" width="688" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <button id="OdN-hf-Q5a" customClass="CUIPreferencesTabButton">
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OdN-hf-Q5a" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="279" y="1" width="50" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="radio" title="Texte" bezelStyle="regularSquare" alignment="center" inset="2" id="ARO-B4-zFG">
@@ -41,10 +41,10 @@
                                             <action selector="showPresentationOptions:" target="-2" id="ClQ-Fr-Q9W"/>
                                         </connections>
                                     </button>
-                                    <button tag="1" id="mm7-bt-sqK" customClass="CUIPreferencesTabButton">
+                                    <button tag="1" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mm7-bt-sqK" customClass="CUIPreferencesTabButton">
                                         <rect key="frame" x="345" y="1" width="65" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="radio" title="Schéma" bezelStyle="regularSquare" alignment="center" tag="1" inset="2" id="K3H-7g-Y6W">
+                                        <buttonCell key="cell" type="radio" title="Liste" bezelStyle="regularSquare" alignment="center" tag="1" inset="2" id="K3H-7g-Y6W">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
                                         </buttonCell>
@@ -54,7 +54,7 @@
                                     </button>
                                 </subviews>
                             </customView>
-                            <customView id="3Hi-kO-8Wu">
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Hi-kO-8Wu">
                                 <rect key="frame" x="0.0" y="0.0" width="688" height="321"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </customView>
