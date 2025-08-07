@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 #define CUIThreadsViewMinimumHeight    200.0
 #define CUIBinaryImagesViewMinimumHeight    190.0
 
-@interface CUICrashLogPresentationOutlineViewController () <CUIQuickHelpPopUpViewControllerDelegate,NSOutlineViewDataSource,NSOutlineViewDelegate,NSSplitViewDelegate,NSPopoverDelegate>
+@interface CUICrashLogPresentationOutlineViewController () <CUIQuickHelpPopUpViewControllerDelegate,NSMenuItemValidation, NSOutlineViewDataSource,NSOutlineViewDelegate,NSPopoverDelegate,NSSplitViewDelegate>
 {
 	IBOutlet NSTextField * _exceptionTypeValue;
 	
@@ -169,27 +169,27 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 
     _diagnosticMessageTextView.textContainerInset=NSMakeSize(8.0, 8.0);
     
-    _listModeButton.state=NSOffState;
-    _columnModeButton.state=NSOffState;
-    _lightTableModeButton.state=NSOffState;
+    _listModeButton.state=NSControlStateValueOff;
+    _columnModeButton.state=NSControlStateValueOff;
+    _lightTableModeButton.state=NSControlStateValueOff;
     
 	switch(_threadsViewMode)
     {
         case CUIThreadsModeViewList:
             
-            _listModeButton.state=NSOnState;
+            _listModeButton.state=NSControlStateValueOn;
             
             break;
             
         case CUIThreadsModeViewColumn:
             
-            _columnModeButton.state=NSOnState;
+            _columnModeButton.state=NSControlStateValueOn;
             
             break;
             
         case CUIThreadsModeViewLightTable:
             
-            _lightTableModeButton.state=NSOnState;
+            _lightTableModeButton.state=NSControlStateValueOn;
             
             break;
             
@@ -199,13 +199,13 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     }
 	
 	
-	_showOnlyCrashedThreadButton.state=(self.showOnlyCrashedThread==YES) ? NSOnState : NSOffState;
+	_showOnlyCrashedThreadButton.state=(self.showOnlyCrashedThread==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showByteOffsetButton.state=((self.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSOnState : NSOffState;
+    _showByteOffsetButton.state=((self.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showMachineInstructionAddressButton.state=((self.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSOnState : NSOffState;
+    _showMachineInstructionAddressButton.state=((self.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showBinaryNameButton.state=((self.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
+    _showBinaryNameButton.state=((self.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
 	
     
 	[self showThreadsViewForMode:_threadsViewMode];
@@ -238,11 +238,14 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         tTopViewHeight=[tNumber doubleValue];
     
     
-
+    BOOL tIsCollapsed=NO;
     
     tNumber=[tUserDefaults objectForKey:CUIDefaultsBottomViewCollapsedKey];
     
     if (tNumber==nil || [tNumber boolValue]==YES)
+        tIsCollapsed=YES;
+    
+    if (tIsCollapsed==YES)
         [_splitView setPosition:[_splitView maxPossiblePositionOfDividerAtIndex:1] ofDividerAtIndex:1];
     
     CGFloat tBottomViewWHeight=CUIBinaryImagesViewMinimumHeight;
@@ -253,6 +256,10 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
         tBottomViewWHeight=[tNumber doubleValue];
     
     [self _splitView:_splitView resizeSubviewsWithTopViewHeight:tTopViewHeight bottomViewHeight:tBottomViewWHeight];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIBottomViewCollapseStateDidChangeNotification
+                                                      object:self.view.window
+                                                    userInfo:@{@"Collapsed":@(tIsCollapsed)}];
 }
 
 - (void)viewWillDisappear
@@ -358,23 +365,23 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     
     if (tIsRawCrashLog==NO && tAreBacktracesAvailable==YES)
     {
-        _showOnlyCrashedThreadButton.state=(self.displaySettings.showOnlyCrashedThread==YES) ? NSOnState : NSOffState;
+        _showOnlyCrashedThreadButton.state=(self.displaySettings.showOnlyCrashedThread==YES) ? NSControlStateValueOn : NSControlStateValueOff;
         
-        _showByteOffsetButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent) ? NSOnState : NSOffState;
+        _showByteOffsetButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)==CUIStackFrameByteOffsetComponent) ? NSControlStateValueOn : NSControlStateValueOff;
         
-        _showMachineInstructionAddressButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==CUIStackFrameMachineInstructionAddressComponent) ? NSOnState : NSOffState;
+        _showMachineInstructionAddressButton.state=((self.displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)==CUIStackFrameMachineInstructionAddressComponent) ? NSControlStateValueOn : NSControlStateValueOff;
         
-        _showBinaryNameButton.state=(((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
+        _showBinaryNameButton.state=(((self.displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)==CUIStackFrameBinaryNameComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     else
     {
-        _showOnlyCrashedThreadButton.state=NSOffState;
+        _showOnlyCrashedThreadButton.state=NSControlStateValueOff;
         
-        _showByteOffsetButton.state=NSOffState;
+        _showByteOffsetButton.state=NSControlStateValueOff;
         
-        _showMachineInstructionAddressButton.state=NSOffState;
+        _showMachineInstructionAddressButton.state=NSControlStateValueOff;
         
-        _showBinaryNameButton.state=NSOffState;
+        _showBinaryNameButton.state=NSControlStateValueOff;
     }
     
     _binaryImagesViewController.crashLog=(tIsRawCrashLog==NO) ? inCrashLog : nil;
@@ -421,12 +428,14 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     {
         case CUIThreadsModeViewList:
             
-            _threadsViewController=[CUIThreadsListViewController new];
+			_threadsViewController=[[CUIThreadsListViewController alloc] initWithUserInterfaceLayoutDirection:self.view.userInterfaceLayoutDirection];
+            
             break;
             
         case CUIThreadsModeViewColumn:
             
-            _threadsViewController=[CUIThreadsColumnViewController new];
+			_threadsViewController=[[CUIThreadsColumnViewController alloc] initWithUserInterfaceLayoutDirection:self.view.userInterfaceLayoutDirection];
+
             break;
             
         default:
@@ -547,6 +556,8 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     tExceptionTypeLookUpPopOver.contentViewController=tPopUpViewController;
     
     NSView * tTrick=tPopUpViewController.view;  // This is used to trigger the viewDidLoad method of the contentViewController.
+    
+    (void)tTrick;
 }
 
 - (IBAction)showInFinder:(id)sender
@@ -571,25 +582,52 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 - (IBAction)switchViewMode:(NSButton *)sender
 {
     if (sender.tag==_threadsViewMode)
+    {
+        switch(_threadsViewMode)
+        {
+            case CUIThreadsModeViewList:
+                
+                _listModeButton.state=WBControlStateValueOn;
+                
+                break;
+                
+            case CUIThreadsModeViewColumn:
+                
+                _columnModeButton.state=WBControlStateValueOn;
+                
+                break;
+                
+            case CUIThreadsModeViewLightTable:
+                
+                _lightTableModeButton.state=WBControlStateValueOn;
+                
+                break;
+                
+            default:
+                
+                break;
+        }
+        
         return;
+    }
     
     switch(_threadsViewMode)
     {
         case CUIThreadsModeViewList:
             
-            _listModeButton.state=NSOffState;
+            _listModeButton.state=NSControlStateValueOff;
             
             break;
             
         case CUIThreadsModeViewColumn:
             
-            _columnModeButton.state=NSOffState;
+            _columnModeButton.state=NSControlStateValueOff;
             
             break;
             
         case CUIThreadsModeViewLightTable:
             
-            _lightTableModeButton.state=NSOffState;
+            _lightTableModeButton.state=NSControlStateValueOff;
             
             break;
             
@@ -607,7 +645,7 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 
 - (IBAction)CUI_MENUACTION_switchShowOnlyCrashedThread:(NSButton *)sender
 {
-    BOOL tShow=(sender.state==NSOnState);
+    BOOL tShow=(sender.state==NSControlStateValueOn);
     
     self.showOnlyCrashedThread=tShow;
 	
@@ -772,12 +810,23 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
     
     if (inDividerIndex==1)
     {
-        proposedEffectiveRect.size.height=CUIThreadsBottomBarHeight+inSplitView.dividerThickness+4.0;
-        proposedEffectiveRect.origin.y-=CUIThreadsBottomBarHeight;
-        
-        proposedEffectiveRect.origin.x=NSMaxX(_columnModeButton.frame);
-        proposedEffectiveRect.size.width=NSMinX(_showOnlyCrashedThreadButton.frame)-proposedEffectiveRect.origin.x;
-
+		proposedEffectiveRect.size.height=CUIThreadsBottomBarHeight+inSplitView.dividerThickness+4.0;
+		proposedEffectiveRect.origin.y-=CUIThreadsBottomBarHeight;
+		
+		switch(self.view.userInterfaceLayoutDirection)
+		{
+			case NSUserInterfaceLayoutDirectionLeftToRight:
+				
+				proposedEffectiveRect.origin.x=NSMaxX(_columnModeButton.frame);
+				proposedEffectiveRect.size.width=NSMinX(_showOnlyCrashedThreadButton.frame)-proposedEffectiveRect.origin.x;
+				break;
+			case NSUserInterfaceLayoutDirectionRightToLeft:
+				
+				proposedEffectiveRect.origin.x=NSMaxX(_showOnlyCrashedThreadButton.frame);
+				proposedEffectiveRect.size.width=NSMinX(_columnModeButton.frame)-proposedEffectiveRect.origin.x;
+				break;
+		}
+		
         return proposedEffectiveRect;
     }
     
@@ -788,11 +837,11 @@ typedef NS_ENUM(NSUInteger, CUIThreadsModeView)
 {
     BOOL tIsCollapsed=self.isBinaryImagesViewCollapsed;
     
-    _showBinaryImagesButton.state=(tIsCollapsed==NO) ? NSOnState : NSOffState;
+    _showBinaryImagesButton.state=(tIsCollapsed==NO) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIBottomViewCollapseStateDidChangeNotification
-                                                        object:self.view.window
-                                                      userInfo:@{@"Collapsed":@(tIsCollapsed)}];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIBottomViewCollapseStateDidChangeNotification
+                                                      object:self.view.window
+                                                    userInfo:@{@"Collapsed":@(tIsCollapsed)}];
 }
 
 /* Given a divider index, return an additional rectangular area (in the coordinate system established by the split view's bounds) in which mouse clicks should also initiate divider dragging, or NSZeroRect to not add one. If a split view has no delegate, or if its delegate does not respond to this message, only mouse clicks within the effective frame of a divider initiate divider dragging.

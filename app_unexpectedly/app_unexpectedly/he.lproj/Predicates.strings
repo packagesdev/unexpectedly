@@ -1,0 +1,77 @@
+/* Predicate Editor */
+
+"%[All]@ of the following are true" = "%1$[כל]@ התנאים הבאים נכונים";
+"%[Any]@ of the following are true" = "%1$[כל אחד]@ מהתנאים הבאים הוא נכון";
+
+"%[processName]@ %[is]@ %@" = "%1$[השם תהליך]@ %2$[הוא]@ %3$@";
+"%[processName]@ %[is not]@ %@" = "%1$[השם תהליך]@ %2$[אינו שווה ל-]@ %3$@";
+"%[processName]@ %[begins with]@ %@" = "%1$[השם תהליך]@ %2$[מתחיל ב-]@ %3$@";
+"%[processName]@ %[ends with]@ %@" = "%1$[השם תהליך]@ %2$[מסתיים ב-]@ %3$@";
+"%[processName]@ %[contains]@ %@" = "%1$[השם תהליך]@ %2$[מכיל]@ %3$@";
+
+"%[header.bundleIdentifier]@ %[is]@ %@" = "%1$[המזהה]@ %2$[הוא]@ %3$@";
+"%[header.bundleIdentifier]@ %[is not]@ %@" = "%1$[המזהה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.bundleIdentifier]@ %[begins with]@ %@" = "%1$[המזהה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.bundleIdentifier]@ %[ends with]@ %@" = "%1$[המזהה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.bundleIdentifier]@ %[contains]@ %@" = "%1$[המזהה]@ %2$[מכיל]@ %3$@";
+
+"%[header.executablePath]@ %[is]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[הוא]@ %3$@";
+"%[header.executablePath]@ %[is not]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.executablePath]@ %[begins with]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.executablePath]@ %[ends with]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.executablePath]@ %[contains]@ %@" = "%1$[הנתיב של קובץ הרצה]@ %2$[מכיל]@ %3$@";
+
+"%[header.executableVersion]@ %[is]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[היא]@ %3$@";
+"%[header.executableVersion]@ %[is not]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.executableVersion]@ %[begins with]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.executableVersion]@ %[ends with]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.executableVersion]@ %[contains]@ %@" = "%1$[גירסה של קובץ הרצה]@ %2$[מכיל]@ %3$@";
+
+"%[exceptionInformation.crashedThreadName]@ %[is]@ %@" = "%1$[שם שרשור שקרס]@ %2$[הוא]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[is not]@ %@" = "%1$[שם שרשור שקרס]@ %2$[אינו שווה ל-]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[begins with]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מתחיל ב-]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[ends with]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מסתיים ב-]@ %3$@";
+"%[exceptionInformation.crashedThreadName]@ %[contains]@ %@" = "%1$[שם שרשור שקרס]@ %2$[מכיל]@ %3$@";
+
+"%[header.operatingSystemVersion.stringValue]@ %[is]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[היא]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[is not]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[אינו שווה ל-]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[begins with]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מתחיל ב-]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מסתיים ב-]@ %3$@";
+"%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[גירסה של מַעֲרֶכֶת הַפעָלָה]@ %2$[מכיל]@ %3$@";
+
+"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[תאריך]@ %2$[חל לפני]@ %3$@";
+"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[תאריך]@ %2$[חל לאחר]@ %3$@";
+
+"%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_ARITHMETIC]@";
+"%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_BAD_ACCESS]@";
+"%[exceptionType]@ is %[EXC_BAD_INSTRUCTION]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_BAD_INSTRUCTION]@";
+"%[exceptionType]@ is %[EXC_BREAKPOINT]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_BREAKPOINT]@";
+"%[exceptionType]@ is %[EXC_CORPSE_NOTIFY]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_CORPSE_NOTIFY]@";
+"%[exceptionType]@ is %[EXC_CRASH]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_CRASH]@";
+"%[exceptionType]@ is %[EXC_EMULATION]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_EMULATION]@";
+"%[exceptionType]@ is %[EXC_GUARD]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_GUARD]@";
+"%[exceptionType]@ is %[EXC_MACH_SYSCALL]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_MACH_SYSCALL]@";
+"%[exceptionType]@ is %[EXC_RESOURCE]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_RESOURCE]@";
+"%[exceptionType]@ is %[EXC_RPC_ALERT]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_RPC_ALERT]@";
+"%[exceptionType]@ is %[EXC_SOFTWARE]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_SOFTWARE]@";
+"%[exceptionType]@ is %[EXC_SYSCALL]@" = "‏%1$[Exception Type]@ הוא %2$[EXC_SYSCALL]@";
+
+"%[exceptionSignal]@ is %[SIGABRT]@" = "‏%1$[Exception Signal]@ הוא %2$[SIGABRT]@";
+"%[exceptionSignal]@ is %[SIGBUS]@" = "‏%1$[Exception Signal]@ הוא %2$[SIGBUS]@";
+"%[exceptionSignal]@ is %[SIGILL]@" = "‏%1$[Exception Signal]@ הוא %2$[SIGILL]@";
+"%[exceptionSignal]@ is %[SIGKILL]@" = "‏%1$[Exception Signal]@ הוא %2$[SIGKILL]@";
+"%[exceptionSignal]@ is %[SIGQUIT]@" = "‏%1$[Exception Signal]@ הוא %2$[SIGQUIT]@";
+"%[exceptionSignal]@ is %[SIGSEGV]@" = "‏%1$[Exception Signal]@ הוא %2$[SIGSEGV]@";
+"%[exceptionSignal]@ is %[SIGTRAP]@" = "‏%1$[Exception Signal]@ הוא %2$[SIGTRAP]@";
+"%[exceptionSignal]@ is %[Code Signature Invalid]@" = "‏%1$[Exception Signal]@ הוא %2$[Code Signature Invalid]@";
+
+"%[crashLogFileName]@ %[is]@ %@" = "%1$[שם קובץ הדוח]@ %2$[הוא]@ %3$@";
+"%[crashLogFileName]@ %[is not]@ %@" = "%1$[שם קובץ הדוח]@ %2$[אינו שווה ל-]@ %3$@";
+"%[crashLogFileName]@ %[begins with]@ %@" = "%1$[שם קובץ הדוח]@ %2$[מתחיל ב-]@ %3$@";
+"%[crashLogFileName]@ %[ends with]@ %@" = "%1$[שם קובץ הדוח]@ %2$[מסתיים ב-]@ %3$@";
+"%[crashLogFileName]@ %[contains]@ %@" = "%1$[שם קובץ הדוח]@ %2$[מכיל]@ %3$@";
+
+"%[reportSourceTypeNumber]@ is %[0]@" = "‏%1$[מקור]@ הוא %2$[דוחות המשתמש]@";
+"%[reportSourceTypeNumber]@ is %[1]@" = "%1$[מקור]@ הוא %2$[דוחות המשתמש]@";
+"%[reportSourceTypeNumber]@ is %[2]@" = "‏%1$[מקור]@ הוא %2$[מקור אחר]@";
+

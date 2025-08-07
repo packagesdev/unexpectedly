@@ -19,6 +19,14 @@
 
 @class CUITheme;
 
+@protocol CUIThemesProvider <NSObject>
+
+- (NSArray<CUITheme *> *)allThemes;
+
+- (CUITheme *)currentTheme;
+
+@end
+
 @protocol CUIThemeDelegate <NSObject>
 
 - (void)theme:(CUITheme *)inTheme didRenameTo:(NSString *)inNewName;

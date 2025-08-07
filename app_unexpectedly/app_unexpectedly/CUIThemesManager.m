@@ -49,7 +49,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
 
 + (void)initialize
 {
-    NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle bundleForClass:[CUIThemesManager class]] URLForResource:@"default_themes" withExtension:@"plist"]];
+    NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle bundleForClass:CUIThemesManager.class] URLForResource:@"default_themes" withExtension:@"plist"]];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
                                                               CUIThemesListKey:tThemesArray,
@@ -115,9 +115,9 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
             _currentTheme=_themes.firstObject;
         
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
     }
     
     return self;
@@ -125,7 +125,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -147,7 +147,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
     {
         _currentTheme=inTheme;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
         
         [_defaults setObject:_currentTheme.UUID forKey:CUIThemesCurrentThemeUUIDKey];
     }
@@ -170,7 +170,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
     
     inTheme.name=inNewName;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
     
     return YES;
 }
@@ -187,7 +187,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
     
     [_themes addObject:inTheme];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
 }
 
 - (CUITheme *)duplicateTheme:(CUITheme *)inTheme
@@ -211,7 +211,7 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
     
     [_themes addObject:nTheme];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
     
     return nTheme;
 }
@@ -233,21 +233,21 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
         
         self.currentTheme=_themes[tIndex];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
     }
     
     [_cachedThemeUUIDsRegistry removeObjectForKey:inTheme.UUID];
     
     [_themes removeObject:inTheme];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
 }
 
 - (void)reset
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIThemeItemAttributesDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIThemeItemAttributesDidChangeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIThemesManagerThemesListDidChangeNotification object:nil];
     
     [_defaults removeObjectForKey:CUIThemesCurrentThemeUUIDKey];
     
@@ -283,13 +283,13 @@ NSString * const CUIThemesManagerThemesListDidChangeNotification=@"CUIThemesMana
     
     _currentTheme=_themes.firstObject;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerThemesListDidChangeNotification object:nil];
     
-     [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+     [NSNotificationCenter.defaultCenter postNotificationName:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(itemAttributesDidChange:) name:CUIThemeItemAttributesDidChangeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
     
     // Save defaults
     

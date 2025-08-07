@@ -48,7 +48,7 @@
 
 - (instancetype)initWithContentsOfURL:(NSURL *)inURL error:(NSError **)outError
 {
-    if ([inURL isKindOfClass:[NSURL class]]==NO)
+    if ([inURL isKindOfClass:NSURL.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -105,7 +105,7 @@
 
 - (instancetype)initWithContentsOfFile:(NSString *)inPath error:(NSError **)outError
 {
-    if ([inPath isKindOfClass:[NSString class]]==NO)
+    if ([inPath isKindOfClass:NSString.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -118,7 +118,7 @@
 
 - (instancetype)initWithData:(NSData *)inData error:(NSError **)outError
 {
-    if ([inData isKindOfClass:[NSData class]]==NO)
+    if ([inData isKindOfClass:NSData.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -144,7 +144,7 @@
 
 - (instancetype)initWithString:(NSString *)inString error:(NSError **)outError
 {
-    if ([inString isKindOfClass:[NSString class]]==NO)
+    if ([inString isKindOfClass:NSString.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSCocoaErrorDomain code:EINVAL userInfo:@{}];

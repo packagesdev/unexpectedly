@@ -32,7 +32,7 @@
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError
 {
-    if ([inLines isKindOfClass:[NSArray class]]==NO)
+    if ([inLines isKindOfClass:NSArray.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -57,7 +57,7 @@
 
 - (instancetype)initWithIPSIncident:(IPSIncident *)inIncident error:(NSError **)outError
 {
-    if ([inIncident isKindOfClass:[IPSIncident class]]==NO)
+    if ([inIncident isKindOfClass:IPSIncident.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -69,49 +69,9 @@
     
     if (self!=nil)
     {
-        _hasApplicationSpecificBacktrace=NO;
-        
-        IPSIncidentDiagnosticMessage * tDiagnosticMessage=inIncident.diagnosticMessage;
-        
         NSMutableArray * tApplicationBacktracesThreads=[NSMutableArray array];
         
-        if (tDiagnosticMessage!=nil)
-        {
-            IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
-            
-            if (tApplicationSpecificInformation.backtraces.count>0)
-            {
-                NSArray * tApplicationSpecificBacktraces=tApplicationSpecificInformation.backtraces;
-                
-                [tApplicationSpecificBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
-                   
-                    NSMutableArray * tLines=[NSMutableArray arrayWithObject:@"Application Specific Backtrace 1"];
-                    
-                    [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
-                        
-                        [tLines addObject:bLine];
-                    }];
-                    
-                    NSError * tError;
-                    
-                    CUIThread * tThread=[[CUIThread alloc] initApplicationSpecificBacktraceWithTextualRepresentation:tLines error:&tError];
-                    
-                    if (tThread==nil)
-                    {
-                        *bOutStop=YES;
-                        
-                        return;
-                    }
-                    
-                    [tApplicationBacktracesThreads addObject:tThread];
-                    
-                }];
-                
-                // A COMPLETER
-                
-                _hasApplicationSpecificBacktrace=YES;
-            }
-        }
+        _hasApplicationSpecificBacktrace=NO;
         
         IPSIncidentExceptionInformation * tExceptionInformation=inIncident.exceptionInformation;
         
@@ -135,6 +95,50 @@
                 _hasApplicationSpecificBacktrace=YES;
             }
         }
+        
+        if (_hasApplicationSpecificBacktrace==NO)
+        {
+            IPSIncidentDiagnosticMessage * tDiagnosticMessage=inIncident.diagnosticMessage;
+            
+            if (tDiagnosticMessage!=nil)
+            {
+                IPSApplicationSpecificInformation * tApplicationSpecificInformation=tDiagnosticMessage.asi;
+                
+                if (tApplicationSpecificInformation.backtraces.count>0)
+                {
+                    NSArray * tApplicationSpecificBacktraces=tApplicationSpecificInformation.backtraces;
+                    
+                    [tApplicationSpecificBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
+                       
+                        NSMutableArray * tLines=[NSMutableArray arrayWithObject:@"Application Specific Backtrace 1"];
+                        
+                        [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * bOutStop) {
+                            
+                            [tLines addObject:bLine];
+                        }];
+                        
+                        NSError * tError;
+                        
+                        CUIThread * tThread=[[CUIThread alloc] initApplicationSpecificBacktraceWithTextualRepresentation:tLines error:&tError];
+                        
+                        if (tThread==nil)
+                        {
+                            *bOutStop=YES;
+                            
+                            return;
+                        }
+                        
+                        [tApplicationBacktracesThreads addObject:tThread];
+                        
+                    }];
+                    
+                    // A COMPLETER
+                    
+                    _hasApplicationSpecificBacktrace=YES;
+                }
+            }
+        }
+        
         
         NSArray * tThreads=inIncident.threads;
         

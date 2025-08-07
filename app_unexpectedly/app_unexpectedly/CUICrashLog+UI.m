@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2023, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -74,6 +74,18 @@
         case 11:
             
             return @"macOS Big Sur";
+            
+        case 12:
+            
+            return @"macOS Monterey";
+            
+        case 13:
+            
+            return @"macOS Ventura";
+            
+        case 14:
+            
+            return @"macOS Sonoma";
             
         default:
             

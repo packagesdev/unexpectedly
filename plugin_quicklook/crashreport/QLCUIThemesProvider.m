@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2021, Stephane Sudre
+ Copyright (c) 2021-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -14,13 +14,13 @@
 // Category to replace the init and currentTheme methods as defined in the main application.
 // For the preview and thumbnail, use the default theme UUID.
 
-#import "CUIThemesManager+QuickLookGenerator.h"
+#import "QLCUIThemesProvider.h"
 
-static NSMutableDictionary * sQLThemeRegistry=nil;
+static NSMutableDictionary<NSString *, CUITheme *> * sQLThemeRegistry=nil;
 
-NSString * const CUIThemesQuickLookGeneratorThemeUUIDKey=@"themes.quicklook-generator.UUID";
+NSString * const QLCUIThemesQuickLookGeneratorThemeUUIDKey=@"themes.quicklook-generator.UUID";
 
-@implementation CUIThemesManager (QuickLookGenerator)
+@implementation QLCUIThemesProvider
 
 - (instancetype)init
 {
@@ -29,13 +29,13 @@ NSString * const CUIThemesQuickLookGeneratorThemeUUIDKey=@"themes.quicklook-gene
     if (self!=nil)
     {
         [[NSUserDefaults standardUserDefaults] registerDefaults:@{
-                                                                 CUIThemesQuickLookGeneratorThemeUUIDKey:@"UUID2"
+                                                                 QLCUIThemesQuickLookGeneratorThemeUUIDKey:@"UUID2"
                                                                   
                                                                   }];
         
         sQLThemeRegistry=[NSMutableDictionary dictionary];
         
-        NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle bundleForClass:[CUIThemesManager class]] URLForResource:@"default_themes" withExtension:@"plist"]];
+        NSArray * tThemesArray=[NSArray arrayWithContentsOfURL:[[NSBundle bundleForClass:QLCUIThemesProvider.class] URLForResource:@"default_themes" withExtension:@"plist"]];
         
         for (NSDictionary * tThemeRepresentation in tThemesArray)
         {
@@ -57,9 +57,14 @@ NSString * const CUIThemesQuickLookGeneratorThemeUUIDKey=@"themes.quicklook-gene
 
 #pragma mark -
 
+- (NSArray<CUITheme *> *)allThemes
+{
+    return sQLThemeRegistry.allValues;
+}
+
 - (CUITheme *)currentTheme
 {
-    return sQLThemeRegistry[[[NSUserDefaults standardUserDefaults] objectForKey:CUIThemesQuickLookGeneratorThemeUUIDKey]];
+    return sQLThemeRegistry[[[NSUserDefaults standardUserDefaults] objectForKey:QLCUIThemesQuickLookGeneratorThemeUUIDKey]];
 }
 
 @end

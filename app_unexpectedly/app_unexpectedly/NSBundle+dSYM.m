@@ -58,7 +58,7 @@
     
     NSString * tPackageType=[self objectForInfoDictionaryKey:@"CFBundlePackageType"];
     
-    if ([tPackageType isKindOfClass:[NSString class]]==NO)
+    if ([tPackageType isKindOfClass:NSString.class]==NO)
         return NO;
     
     if ([tPackageType isEqualToString:@"dSYM"]==NO)

@@ -1,14 +1,16 @@
+# General
+.DS_Store
+
+# Build
+
 distribution/build
 distribution/artifacts
-
-app_unexpectedly/app_unexpectedly.xcodeproj/project.xcworkspace/xcuserdata/stephane.xcuserdatad/UserInterfaceState.xcuserstate
-
-app_unexpectedly/app_unexpectedly.xcodeproj/xcuserdata/stephane.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-
-app_unexpectedly/app_unexpectedly/Extemal/Line View Test/Line View Test.xcodeproj/xcuserdata/stephane.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-
-app_unexpectedly/app_unexpectedly/Extemal/Line View Test/Line View Test.xcodeproj/project.xcworkspace/xcuserdata/stephane.xcuserdatad/UserInterfaceState.xcuserstate
-
-app_unexpectedly/app_unexpectedly/Extemal/Line View Test/Line View Test.xcodeproj/xcuserdata/stephane.xcuserdatad/xcschemes/xcschememanagement.plist
-
 distribution/Template/Template_rw.dmg
+
+# Xcode project
+
+project.xcworkspace/xcuserdata/
+
+*.xcodeproj/xcuserdata/
+*.xcuserdata
+*.xcuserstate

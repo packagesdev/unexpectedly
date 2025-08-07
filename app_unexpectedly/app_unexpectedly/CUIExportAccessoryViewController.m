@@ -77,14 +77,14 @@
     _selectionOnlyRadioButton.enabled=tRadioButtonEnabled;
     _allContentsRadioButton.enabled=tRadioButtonEnabled;
     
-    _allContentsRadioButton.state=NSOnState;
+    _allContentsRadioButton.state=NSControlStateValueOn;
     
     // Obfuscate Contents
     
     tRadioButtonEnabled=(self.canObfuscateContents==YES);
     
     _obfuscateContentsRadioButton.enabled=tRadioButtonEnabled;
-    _obfuscateContentsRadioButton.state=NSOffState;
+    _obfuscateContentsRadioButton.state=NSControlStateValueOff;
     
     _obfuscateDescriptionLabel.textColor=(tRadioButtonEnabled==YES) ? [NSColor labelColor] : [NSColor disabledControlTextColor];
 }
@@ -111,13 +111,13 @@
     else
     {
         _selectionOnlyRadioButton.enabled=NO;
-        _allContentsRadioButton.state=NSOnState;
+        _allContentsRadioButton.state=NSControlStateValueOn;
     }
 }
 
 - (CUICrashLogExportedContentsType)exportedContents
 {
-    if (_allContentsRadioButton.state==NSOnState)
+    if (_allContentsRadioButton.state==NSControlStateValueOn)
         return CUICrashLogExportedContentsAll;
     
     return CUICrashLogExportedContentsSelection;
@@ -134,7 +134,7 @@
     else
     {
         _obfuscateContentsRadioButton.enabled=NO;
-        _obfuscateContentsRadioButton.state=NSOffState;
+        _obfuscateContentsRadioButton.state=NSControlStateValueOff;
     }
 }
 
@@ -179,7 +179,7 @@
 
 - (IBAction)switchObfuscateContents:(NSButton *)sender
 {
-    BOOL tObfuscateContents=(sender.state==NSOnState);
+    BOOL tObfuscateContents=(sender.state==NSControlStateValueOn);
     
     if (tObfuscateContents==_obfuscateContents)
         return;
@@ -192,7 +192,7 @@
         _allContentsRadioButton.enabled=(_obfuscateContents==NO);
         
         if (_obfuscateContents==YES)
-            _allContentsRadioButton.state=NSOnState;
+            _allContentsRadioButton.state=NSControlStateValueOn;
     }
 }
 

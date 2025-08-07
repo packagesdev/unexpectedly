@@ -27,7 +27,7 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
     
     if (tEvent!=nil)
     {
-        NSUInteger tModifierFlags=[tEvent modifierFlags];
+        NSUInteger tModifierFlags=tEvent.modifierFlags;
         
         BOOL isDown=((tModifierFlags & NSEventModifierFlagOption) == NSEventModifierFlagOption);
         
@@ -35,9 +35,9 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
         {
             _optionKeyDown=isDown;
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:CUIOptionKeyStateDidChangeNotification
-                                                                object:self
-                                                              userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
+            [NSNotificationCenter.defaultCenter postNotificationName:CUIOptionKeyStateDidChangeNotification
+                                                              object:self
+                                                            userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
         }
     }
     
@@ -52,9 +52,9 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
         
         // Post Notification
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIOptionKeyStateDidChangeNotification
-                                                            object:self
-                                                          userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIOptionKeyStateDidChangeNotification
+                                                          object:self
+                                                        userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
     }
     
     [super resignKeyWindow];
@@ -65,7 +65,7 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
     if (inEvent==nil)
         return;
     
-    NSUInteger tModifierFlags=[inEvent modifierFlags];
+    NSUInteger tModifierFlags=inEvent.modifierFlags;
     
     BOOL isDown=((tModifierFlags & NSEventModifierFlagOption) == NSEventModifierFlagOption);
     
@@ -75,9 +75,9 @@ NSString * const CUIOptionKeyState=@"CUIOptionKeyState";
         
         // Post Notification
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIOptionKeyStateDidChangeNotification
-                                                            object:self
-                                                          userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIOptionKeyStateDidChangeNotification
+                                                          object:self
+                                                        userInfo:@{CUIOptionKeyState:@(_optionKeyDown)}];
     }
 }
 

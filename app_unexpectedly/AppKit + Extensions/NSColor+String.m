@@ -21,9 +21,9 @@
     
     if (inString!=nil)
     {
-        NSArray * tComponents=[inString componentsSeparatedByString:@"|"];
+        NSArray<NSString *> * tComponents=[inString componentsSeparatedByString:@"|"];
     
-        if ([tComponents count]==3)
+        if (tComponents.count==3)
         {
             tColor=[NSColor colorWithCalibratedRed:[tComponents[0] floatValue]
                                              green:[tComponents[1] floatValue]
@@ -39,7 +39,8 @@
 
 - (NSString *)stringValue
 {
-    NSColor *tColor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColorSpace * tColorSpace = [NSColorSpace genericRGBColorSpace];
+    NSColor * tColor = [self colorUsingColorSpace:tColorSpace];
     
     return([NSString stringWithFormat:@"%f|%f|%f",(float)[tColor redComponent],(float)[tColor greenComponent],(float)[tColor blueComponent]]);
 }

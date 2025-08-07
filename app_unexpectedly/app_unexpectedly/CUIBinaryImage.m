@@ -112,7 +112,7 @@
 
 - (instancetype)initWithString:(NSString *)inString reportVersion:(NSUInteger)inReportVersion error:(NSError **)outError
 {
-    if ([inString isKindOfClass:[NSString class]]==NO)
+    if ([inString isKindOfClass:NSString.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -284,7 +284,7 @@
 
 - (instancetype)initWithImage:(IPSImage *)inImage error:(NSError **)outError
 {
-    if ([inImage isKindOfClass:[IPSImage class]]==NO)
+    if ([inImage isKindOfClass:IPSImage.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];

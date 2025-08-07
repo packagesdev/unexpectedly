@@ -72,7 +72,7 @@
     
     // Register for notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registersMainViewContentsViewDidChange:) name:CUIRegistersMainViewContentsViewDidChangeNotificaton object:_mainViewController];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(registersMainViewContentsViewDidChange:) name:CUIRegistersMainViewContentsViewDidChangeNotificaton object:_mainViewController];
     
     NSRect tContentsBounds=self.window.contentView.bounds;
     

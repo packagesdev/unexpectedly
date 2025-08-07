@@ -102,10 +102,10 @@ NSString * const CUIdSYMHunterHuntDidFinishNotification=@"CUIdSYMHunterHuntDidFi
 
     NSMetadataQuery * tMetadataQuery=[NSMetadataQuery new];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(metadataQueryDidFinishGathering:)
-                                                 name:NSMetadataQueryDidFinishGatheringNotification
-                                               object:tMetadataQuery];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(metadataQueryDidFinishGathering:)
+                                               name:NSMetadataQueryDidFinishGatheringNotification
+                                             object:tMetadataQuery];
     
     // Look for dSYM with filtered UUIDs
     
@@ -159,7 +159,7 @@ NSString * const CUIdSYMHunterHuntDidFinishNotification=@"CUIdSYMHunterHuntDidFi
         
         [tMetadataQuery enumerateResultsUsingBlock:^(id bResult, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            if ([bResult isKindOfClass:[NSMetadataItem class]]==YES)
+            if ([bResult isKindOfClass:NSMetadataItem.class]==YES)
             {
                 NSMetadataItem * tMetaDataItem=(NSMetadataItem *)bResult;
                 
@@ -186,7 +186,7 @@ NSString * const CUIdSYMHunterHuntDidFinishNotification=@"CUIdSYMHunterHuntDidFi
         
         // Post Notification
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIdSYMHunterHuntDidFinishNotification object:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIdSYMHunterHuntDidFinishNotification object:nil];
     });
 }
 

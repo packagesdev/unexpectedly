@@ -29,7 +29,7 @@
 
 - (instancetype)initWithTextualRepresentation:(NSArray *)inLines error:(NSError **)outError
 {
-	if ([inLines isKindOfClass:[NSArray class]]==NO)
+	if ([inLines isKindOfClass:NSArray.class]==NO)
 	{
 		if (outError!=NULL)
 			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -162,7 +162,7 @@
 
 - (instancetype)initWithIPSThread:(IPSThread *)inThread atIndex:(NSUInteger)inIndex binaryImages:(NSArray<IPSImage *> *)inImages error:(NSError **)outError
 {
-    if ([inThread isKindOfClass:[IPSThread class]]==NO)
+    if ([inThread isKindOfClass:IPSThread.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];

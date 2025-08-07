@@ -231,7 +231,7 @@ NSString * const CUIPreferencesCrashLogsShowFileNamesDidChangeNotification=@"CUI
     
     [_defaults setBool:inSymbolicateAutomatically forKey:CUIPreferencesSymbolicationSymbolicateAutomaticallyKey];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIPreferencesSymbolicationSymbolicateAutomaticallyDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIPreferencesSymbolicationSymbolicateAutomaticallyDidChangeNotification object:nil];
 }
 
 - (void)setPreferedSourceCodeEditorURL:(NSURL *)inURL
@@ -252,7 +252,7 @@ NSString * const CUIPreferencesCrashLogsShowFileNamesDidChangeNotification=@"CUI
     
     [_defaults setBool:inShowsLineNumber forKey:CUIPreferencesTextModeShowsLineNumbersKey];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIPreferencesTextModeShowsLineNumbersDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIPreferencesTextModeShowsLineNumbersDidChangeNotification object:nil];
 }
 
 - (void)setLineWrapping:(BOOL)inLineWrapping
@@ -261,7 +261,7 @@ NSString * const CUIPreferencesCrashLogsShowFileNamesDidChangeNotification=@"CUI
     
     [_defaults setBool:inLineWrapping forKey:CUIPreferencesTextModeLineWrappingKey];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIPreferencesTextModeLineWrappingDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIPreferencesTextModeLineWrappingDidChangeNotification object:nil];
 }
 
 - (void)setDefaultTextModeDisplaySettings:(CUITextModeDisplaySettings *)inDisplaySettings
@@ -289,7 +289,7 @@ NSString * const CUIPreferencesCrashLogsShowFileNamesDidChangeNotification=@"CUI
     
     [_defaults setObject:@(_crashLogsSortType) forKey:CUIPreferencesCrashLogsSortTypeKey];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIPreferencesCrashLogsSortTypeDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIPreferencesCrashLogsSortTypeDidChangeNotification object:nil];
 }
 
 - (void)setCrashLogsShowFileNames:(BOOL)inCrashLogsShowFileNames
@@ -301,7 +301,7 @@ NSString * const CUIPreferencesCrashLogsShowFileNamesDidChangeNotification=@"CUI
     
     [_defaults setObject:@(_crashLogsShowFileNames) forKey:CUIPreferencesCrashLogsShowFileNamesKey];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIPreferencesCrashLogsShowFileNamesDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIPreferencesCrashLogsShowFileNamesDidChangeNotification object:nil];
 }
 
 @end

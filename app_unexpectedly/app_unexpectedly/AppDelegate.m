@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -54,7 +54,7 @@ NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 
 NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationShowDebugDidChangeNotification";
 
-@interface AppDelegate () <NSApplicationDelegate>
+@interface AppDelegate () <NSApplicationDelegate,NSMenuItemValidation>
 {
     IBOutlet NSMenu * _themesMenu;
     
@@ -90,7 +90,8 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
 + (void)initialize
 {
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
-                                                              CUIApplicationShowDebugMenuKey:@(NO)
+                                                              CUIApplicationShowDebugMenuKey:@(NO),
+                                                              @"NSScrollViewShouldFlipRulerForRTL":@(NO)
                                                               }];
 }
 
@@ -105,7 +106,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
     
@@ -134,9 +135,11 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     
     NSArray * tThemes=[tThemesManager allThemes];
     
+	SEL selector=NSSelectorFromString(@"CUI_MENUACTION_switchTheme:");
+	
     [tThemes enumerateObjectsWithOptions:NSEnumerationReverse  usingBlock:^(CUITheme * bTheme, NSUInteger bIndex, BOOL * bOutStop) {
         
-        NSMenuItem * tMenuItem=[[NSMenuItem alloc] initWithTitle:bTheme.name action:@selector(CUI_MENUACTION_switchTheme:) keyEquivalent:@""];
+        NSMenuItem * tMenuItem=[[NSMenuItem alloc] initWithTitle:bTheme.name action:selector keyEquivalent:@""];
         
         tMenuItem.representedObject=bTheme.UUID;
         
@@ -157,7 +160,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     {
         CUICrashReporterDefaults * tDefaults=[CUICrashReporterDefaults standardCrashReporterDefaults];
         
-        inMenuItem.state=(tDefaults.dialogType==inMenuItem.tag) ? NSOnState : NSOffState;
+        inMenuItem.state=(tDefaults.dialogType==inMenuItem.tag) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
@@ -166,7 +169,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     {
         CUICrashReporterDefaults * tDefaults=[CUICrashReporterDefaults standardCrashReporterDefaults];
         
-        inMenuItem.state=(tDefaults.notificationMode==inMenuItem.tag) ? NSOnState : NSOffState;
+        inMenuItem.state=(tDefaults.notificationMode==inMenuItem.tag) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
@@ -175,7 +178,7 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
     {
         CUICrashReporterDefaults * tDefaults=[CUICrashReporterDefaults standardCrashReporterDefaults];
         
-        inMenuItem.state=(tDefaults.reportUncaughtExceptions==YES) ? NSOnState : NSOffState;
+        inMenuItem.state=(tDefaults.reportUncaughtExceptions==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     
     return YES;

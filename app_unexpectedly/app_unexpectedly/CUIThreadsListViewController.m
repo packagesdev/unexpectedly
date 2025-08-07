@@ -88,10 +88,14 @@
 
 @implementation CUIThreadsListViewController
 
-- (NSString *)nibName
+- (instancetype)initWithUserInterfaceLayoutDirection:(NSUserInterfaceLayoutDirection)inUserInterfaceLayoutDirection
 {
-	return @"CUIThreadsListViewController";
+    NSString *nibName=(inUserInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight) ? @"CUIThreadsListViewController" : @"CUIThreadsListViewController_RTL";
+
+    return [super initWithNibName:nibName bundle:nil];
 }
+
+#pragma mark -
 
 - (void)viewDidLoad
 {
@@ -105,7 +109,7 @@
     
     _outlineView.menu=tMenu;
     
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:_outlineView];
+    //[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:_outlineView];
 }
 
 - (void)viewWillDisappear
@@ -345,7 +349,7 @@
         
         CUIStackFrame * tStackFrame=[self->_outlineView itemAtRow:bRow];
         
-        if ([tStackFrame isKindOfClass:[CUIStackFrame class]]==NO)
+        if ([tStackFrame isKindOfClass:CUIStackFrame.class]==NO)
             return;
         
         [tMutableArray addObject:tStackFrame];
@@ -365,11 +369,25 @@
     
     CUIStackFrame * tCall=(CUIStackFrame *)[_outlineView itemAtRow:tRow];
     
-    [[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
-                       withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
-                                    options:NSWorkspaceLaunchDefault
-                              configuration:@{}
-                                      error:NULL];
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101600
+	if (@available(*, macOS 11.0))
+	{
+		[[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
+						   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
+								  configuration:[NSWorkspaceOpenConfiguration configuration]
+							  completionHandler:^(NSRunningApplication * _Nullable app, NSError * _Nullable error) {
+			
+		}];
+	}
+	else
+#endif
+	{
+		[[NSWorkspace sharedWorkspace] openURLs:@[[NSURL fileURLWithPath:tCall.symbolicationData.sourceFilePath]]
+						   withApplicationAtURL:[CUIApplicationPreferences sharedPreferences].preferedSourceCodeEditorURL
+										options:NSWorkspaceLaunchDefault
+								  configuration:@{}
+										  error:NULL];
+	}
 }
 
 #pragma mark -
@@ -588,8 +606,8 @@
                                                                                                                         
                                                                                                                         tCall.symbolicationData=bSymbolicationData;
                                                                                                                         
-                                                                                                                        [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
-                                                                                                                                                                            object:self.crashLog];
+                                                                                                                        [NSNotificationCenter.defaultCenter postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                                                                          object:self.crashLog];
                                                                                                                         
                                                                                                                         break;
                                                                                                                         
@@ -655,6 +673,7 @@
         
 		if ([inItem isKindOfClass:[CUIStackFrame class]]==YES)
 		{
+            BOOL isRightToLeft=(inOutlineView.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft);
 			CUIStackFrame * tCall=(CUIStackFrame *)inItem;
             
             NSString * tBinaryImageIdentifier=tCall.binaryImageIdentifier;
@@ -724,12 +743,23 @@
                     
                 }
                 
+                
+                
                 tCallTableCellView.binaryImageLabel.hidden=NO;
                 
                 NSRect tFrame=tCallTableCellView.binaryImageLabel.frame;
                 
-                tFrame.origin.x=NSMaxX(tLeftFrame)+8;
                 tFrame.size.width=_optimizedBinaryImageTextFieldWidth;
+                
+                if (isRightToLeft==NO)
+                {
+                    tFrame.origin.x=NSMaxX(tLeftFrame)+8;
+                    
+                }
+                else
+                {
+                    tFrame.origin.x=NSMinX(tLeftFrame)-8-NSWidth(tFrame);
+                }
                 
                 tCallTableCellView.binaryImageLabel.frame=tFrame;
                 
@@ -759,7 +789,14 @@
                 
                 NSRect tFrame=tCallTableCellView.addressLabel.frame;
                 
-                tFrame.origin.x=NSMaxX(tLeftFrame)+8;
+                if (isRightToLeft==NO)
+                {
+                    tFrame.origin.x=NSMaxX(tLeftFrame)+8;
+                }
+                else
+                {
+                    tFrame.origin.x=NSMinX(tLeftFrame)-8-NSWidth(tFrame);
+                }
                 
                 tCallTableCellView.addressLabel.frame=tFrame;
                 
@@ -783,11 +820,22 @@
             
             NSRect tFrame=tCallTableCellView.textField.frame;
             
-            CGFloat tMaxX=NSMaxX(tFrame);
+            if (isRightToLeft==NO)
+            {
+                CGFloat tMaxX=NSMaxX(tFrame);
             
-			tFrame.origin.x=NSMaxX(tLeftFrame)+8;
+                tFrame.origin.x=NSMaxX(tLeftFrame)+8;
             
-            tFrame.size.width=tMaxX-tFrame.origin.x;
+                tFrame.size.width=tMaxX-tFrame.origin.x;
+            }
+            else
+            {
+                CGFloat tMinX=NSMinX(tFrame);
+                
+                tFrame.origin.x=tMinX;
+                
+                tFrame.size.width=(NSMinX(tLeftFrame)-8-tMinX);
+            }
             
             tCallTableCellView.textField.frame=tFrame;
             
@@ -853,7 +901,7 @@
                                                                                                                     {
                                                                                                                         tCall.symbolicationData=bSymbolicationData;
                                                                                                                         
-                                                                                                                        [[NSNotificationCenter defaultCenter] postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
+                                                                                                                        [NSNotificationCenter.defaultCenter postNotificationName:CUIStackFrameSymbolicationDidSucceedNotification
                                                                                                                                                                             object:self.crashLog];
                                                                                                                         
                                                                                                                         break;

@@ -88,7 +88,7 @@
                                 <segments>
                                     <segment toolTip="Hide or show the side bar" image="left_switch_Template" width="32" selected="YES"/>
                                     <segment toolTip="Hide or show the binary images" image="middle_switch_Template" width="32" enabled="NO" tag="1"/>
-                                    <segment toolTip="Hide or show the inspector" image="right_switch_Template" width="32" selected="YES"/>
+                                    <segment toolTip="Hide or show the inspector" image="right_switch_Template" width="32" selected="YES" tag="2"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>

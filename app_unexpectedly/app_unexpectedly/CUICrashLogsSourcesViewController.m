@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -41,7 +41,7 @@
 
 NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedly.sources.internal.array";
 
-@interface CUICrashLogsSourcesViewController () <NSOpenSavePanelDelegate,NSTableViewDataSource,NSTableViewDelegate>
+@interface CUICrashLogsSourcesViewController () <NSMenuItemValidation,NSOpenSavePanelDelegate,NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet NSTableView * _tableView;
     
@@ -108,7 +108,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -124,7 +124,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     _tableView.doubleAction=@selector(tableViewDoubleAction:);
     
-    [_tableView registerForDraggedTypes:@[NSFilenamesPboardType,CUICrashLogsSourcesInternalPboardType]];
+    [_tableView registerForDraggedTypes:@[NSPasteboardTypeFileURL,CUICrashLogsSourcesInternalPboardType]];
     
     _removeButton.enabled=NO;
     
@@ -139,18 +139,20 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(sourcesManagerSourcesDidChange:) name:CUICrashLogsSourcesManagerSourcesDidChangeNotification object:_sourcesManager];
     
     [tNotificationCenter addObserver:self selector:@selector(sourceDidUpdateSource:) name:CUICrashLogsSourceDidUpdateSourceNotification object:nil];
     
     [tNotificationCenter addObserver:self selector:@selector(sourcesSelectionDidChange:) name:CUICrashLogsSourcesSelectionDidChangeNotification object:_sourcesSelection];
+    
+    [self tableViewSelectionDidChange:[NSNotification notificationWithName:NSTableViewSelectionDidChangeNotification object:_tableView userInfo:nil]];
 }
 
 - (void)viewDidAppear
 {
-    [self tableViewSelectionDidChange:[NSNotification notificationWithName:NSTableViewSelectionDidChangeNotification object:_tableView userInfo:nil]];
+    [super viewDidAppear];
 }
 
 #pragma mark -
@@ -159,11 +161,22 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 {
     NSRect tEffectiveRect;
     
-    tEffectiveRect.origin.x=NSMaxX(_removeButton.frame);
-    tEffectiveRect.size.width=NSMinX(_actionPopUpButton.frame)-tEffectiveRect.origin.x;
+    if (self.view.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionLeftToRight)
+    {
+        tEffectiveRect.origin.x=NSMaxX(_removeButton.frame);
+        tEffectiveRect.size.width=NSMinX(_actionPopUpButton.frame)-tEffectiveRect.origin.x;
     
-    tEffectiveRect.origin.y=NSHeight(_tableView.enclosingScrollView.frame);
-    tEffectiveRect.size.height=NSMinY(_tableView.enclosingScrollView.frame);
+        tEffectiveRect.origin.y=NSHeight(_tableView.enclosingScrollView.frame);
+        tEffectiveRect.size.height=NSMinY(_tableView.enclosingScrollView.frame);
+    }
+    else
+    {
+        tEffectiveRect.origin.x=NSMaxX(_actionPopUpButton.frame);
+        tEffectiveRect.size.width=NSMinX(_removeButton.frame)-tEffectiveRect.origin.x;
+        
+        tEffectiveRect.origin.y=NSHeight(_tableView.enclosingScrollView.frame);
+        tEffectiveRect.size.height=NSMinY(_tableView.enclosingScrollView.frame);
+    }
     
     return tEffectiveRect;
 }
@@ -627,16 +640,10 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     NSUInteger tSelectionLastIndex=tSelectedRows.lastIndex;
     
-    CUICrashLogsSource * tNextSelectedSource=NULL;
+    CUICrashLogsSource * tNextSelectedSource=nil;
     
-    if ((tSelectionLastIndex+1)==_sourcesManager.allSources.count)
-    {
-        tSelectionLastIndex=NSNotFound;
-    }
-    else
-    {
+    if ((tSelectionLastIndex+1)!=_sourcesManager.allSources.count)
         tNextSelectedSource=_sourcesManager.allSources[tSelectionLastIndex+1];
-    }
     
     NSArray * tArray=[_sourcesManager.allSources objectsAtIndexes:tSelectedRows];
     
@@ -648,7 +655,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
     
     NSUInteger tNewSelectedIndex=NSNotFound;
     
-    if (tNextSelectedSource!=NULL)
+    if (tNextSelectedSource!=nil)
         tNewSelectedIndex=[_sourcesManager.allSources indexOfObject:tNextSelectedSource];
     
     if (tNewSelectedIndex==NSNotFound)
@@ -725,7 +732,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 
 #pragma mark - Drag and Drop support
 
-- (BOOL)tableView:(NSTableView *)inTableView writeRowsWithIndexes:(NSIndexSet *)inRowIndexes toPasteboard:(NSPasteboard *)inPasteboard;
+- (BOOL)tableView:(NSTableView *)inTableView writeRowsWithIndexes:(NSIndexSet *)inRowIndexes toPasteboard:(NSPasteboard *)inPasteboard
 {
     for(CUICrashLogsSource * tSource in [_sourcesManager.allSources objectsAtIndexes:inRowIndexes])
     {
@@ -790,75 +797,67 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         return NSDragOperationMove;
     }
     
-    if ([tPasteBoard availableTypeFromArray:@[NSFilenamesPboardType]]!=nil)
+    if ([tPasteBoard availableTypeFromArray:@[NSPasteboardTypeFileURL]]!=nil)
     {
-        NSArray * tArray=(NSArray *) [tPasteBoard propertyListForType:NSFilenamesPboardType];
-    
-        if (tArray==nil || [tArray isKindOfClass:NSArray.class]==NO)
-        {
-            // We were provided invalid data
-            
-            // A COMPLETER
-            
-            return NSDragOperationNone;
-        }
-        
-        /*if (tArray.count!=1)
-            return NSDragOperationNone;*/   // A VOIR (Check that multiple drop works)
-        
-        NSFileManager * tFileManager=[NSFileManager defaultManager];
-        BOOL tIsDirectory;
+        NSArray<Class> *tClasses = @[NSURL.class];
+        NSArray<NSURL*> *tURLArray = [tPasteBoard readObjectsForClasses:tClasses
+                                                                options:@{NSPasteboardURLReadingFileURLsOnlyKey:@(YES)}];
         
         CUICrashLogsSourceAll * tSourcesAll=[CUICrashLogsSourceAll crashLogsSourceAll];
         
-        for(NSString * tPath in tArray)
+        for (NSURL *tURL in tURLArray)
         {
-            if ([tFileManager fileExistsAtPath:tPath isDirectory:&tIsDirectory]==YES)
+            NSNumber *tIsDirectoryNumber;
+            
+            if ([tURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
+                continue;
+            
+            NSString *tPath=tURL.path;
+            
+            if (tIsDirectoryNumber.boolValue==YES)
             {
-                if (tIsDirectory==NO)
+                // Do not have the same directory twice
+                
+                for(CUICrashLogsSource * tSource in _sourcesManager.allSources)
                 {
-                    // Should have .crash or .smartsource extension
-                    
-                    if ([tPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame ||
-                        [tPath.pathExtension caseInsensitiveCompare:@"ips"]==NSOrderedSame)
+                    switch(tSource.type)
                     {
-                        // Do not have the same file twice (as a single file source)
-                    
-                        for(CUIRawCrashLog * tCrashLog in tSourcesAll.crashLogs)
+                        case CUICrashLogsSourceTypeStandardDirectory:
+                        case CUICrashLogsSourceTypeDirectory:
                         {
-                            if ([tCrashLog.crashLogFilePath isEqualToString:tPath]==YES)
-                                    return NSDragOperationNone;
+                            CUICrashLogsSourceDirectory * tSourceFile=(CUICrashLogsSourceDirectory *)tSource;
+                            
+                            if ([tSourceFile.path isEqualToString:tPath]==YES)
+                                return NSDragOperationNone;
+                            
+                            break;
                         }
+                        default:
+                            
+                            break;
                     }
-                    else
+                }
+            }
+            else
+            {
+                // Should have .crash or .smartsource extension
+                NSString *tExtension=tPath.pathExtension;
+                
+                if ([tExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame ||
+                    [tExtension caseInsensitiveCompare:@"ips"]==NSOrderedSame)
+                {
+                    // Do not have the same file twice (as a single file source)
+                
+                    for(CUIRawCrashLog * tCrashLog in tSourcesAll.crashLogs)
                     {
-                        if ([tPath.pathExtension caseInsensitiveCompare:@"smartsource"]!=NSOrderedSame)
-                            return NSDragOperationNone;
+                        if ([tCrashLog.crashLogFilePath isEqualToString:tPath]==YES)
+                                return NSDragOperationNone;
                     }
                 }
                 else
                 {
-                    // Do not have the same directory twice
-                    
-                    for(CUICrashLogsSource * tSource in _sourcesManager.allSources)
-                    {
-                        switch(tSource.type)
-                        {
-                            case CUICrashLogsSourceTypeStandardDirectory:
-                            case CUICrashLogsSourceTypeDirectory:
-                            {
-                                CUICrashLogsSourceDirectory * tSourceFile=(CUICrashLogsSourceDirectory *)tSource;
-                                
-                                if ([tSourceFile.path isEqualToString:tPath]==YES)
-                                    return NSDragOperationNone;
-                                
-                                break;
-                            }
-                            default:
-                                
-                                break;
-                        }
-                    }
+                    if ([tExtension caseInsensitiveCompare:@"smartsource"]!=NSOrderedSame)
+                        return NSDragOperationNone;
                 }
             }
         }
@@ -909,74 +908,89 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
         return YES;
     }
     
-    if ([tPasteBoard availableTypeFromArray:@[NSFilenamesPboardType]]!=nil)
+    if ([tPasteBoard availableTypeFromArray:@[NSPasteboardTypeFileURL]]!=nil)
     {
-        NSArray * tArray=(NSArray *) [tPasteBoard propertyListForType:NSFilenamesPboardType];
-        
-        NSFileManager * tFileManager=[NSFileManager defaultManager];
+        NSArray<Class> *tClasses = @[NSURL.class];
+        NSArray<NSURL*> *tURLArray = [tPasteBoard readObjectsForClasses:tClasses
+                                                                options:@{NSPasteboardURLReadingFileURLsOnlyKey:@(YES)}];
         
         NSMutableArray * tDelayedSmartSources=[NSMutableArray array];
         
         NSMutableArray<CUICrashLogsOpenErrorRecord *> * tOpenErrors=[NSMutableArray array];
         
-        NSArray * tNewSources=[tArray WB_arrayByMappingObjectsLenientlyUsingBlock:^id(NSString * bPath, NSUInteger bIndex) {
+        NSArray * tNewSources=[tURLArray WB_arrayByMappingObjectsLenientlyUsingBlock:^id(NSURL * bURL, NSUInteger bIndex) {
             
             CUICrashLogsSource * tSource=nil;
-            BOOL tIsDirectory;
+            NSNumber *tIsDirectoryNumber;
             
-            if ([tFileManager fileExistsAtPath:bPath isDirectory:&tIsDirectory]==YES)
+            if ([bURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
+                return nil;
+            
+            NSError * tError;
+            
+            if (tIsDirectoryNumber.boolValue==NO)
             {
-                NSError * tError;
+                NSString * tPathExtension=bURL.pathExtension;
                 
-                if (tIsDirectory==NO)
+                if ([tPathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame ||
+                    [tPathExtension caseInsensitiveCompare:@"ips"]==NSOrderedSame)
                 {
-                    if ([bPath.pathExtension caseInsensitiveCompare:@"crash"]==NSOrderedSame ||
-                        [bPath.pathExtension caseInsensitiveCompare:@"ips"]==NSOrderedSame)
+                    tSource=[[CUICrashLogsSourceFile alloc] initWithContentsOfFileSystemItemAtPath:bURL.path error:&tError];
+                    
+                    if (tSource==nil)
                     {
-                        tSource=[[CUICrashLogsSourceFile alloc] initWithContentsOfFileSystemItemAtPath:bPath error:&tError];
-                        
-                        if (tSource==nil)
-                        {
-                            CUICrashLogsOpenErrorRecord * tRecord=[CUICrashLogsOpenErrorRecord new];
-                            tRecord.sourceURL=[NSURL fileURLWithPath:bPath];
-                            tRecord.openError=tError;
-                        
-                            [tOpenErrors addObject:tRecord];
-                        }
+                        CUICrashLogsOpenErrorRecord * tRecord=[CUICrashLogsOpenErrorRecord new];
+                        tRecord.sourceURL=bURL;
+                        tRecord.openError=tError;
+                    
+                        [tOpenErrors addObject:tRecord];
                     }
-                    else if ([bPath.pathExtension caseInsensitiveCompare:@"smartsource"]==NSOrderedSame)
+                }
+                else if ([tPathExtension caseInsensitiveCompare:@"smartsource"]==NSOrderedSame)
+                {
+                    NSDictionary * tRepresentation=[NSDictionary dictionaryWithContentsOfURL:bURL error:NULL];
+                    
+                    if (tRepresentation==nil)
                     {
-                        NSDictionary * tRepresentation=[NSDictionary dictionaryWithContentsOfFile:bPath];
+                        // A COMPLETER
+                        return nil;
+                    }
+                    
+                    tSource=[[CUICrashLogsSourceSmart alloc] initWithRepresentation:tRepresentation];
+                    
+                    if (tSource==nil)
+                    {
+                        // A COMLETER
                         
-                        tSource=[[CUICrashLogsSourceSmart alloc] initWithRepresentation:tRepresentation];
+                        return nil;
+                    }
+                    
+                    // Check that the name is not already used and offer to use a unique name
+                    
+                    NSString * tName=tSource.name;
+                    
+                    if (tName.length==0)
+                    {
+                        // A COMPLETER
                         
-                        // Check that the name is not already used and offer to use a unique name
-                        
-                        NSString * tName=tSource.name;
-                        
-                        if (tName.length==0)
+                        return nil;
+                    }
+                    
+                    NSArray * tExistingSmartSources=[[CUICrashLogsSourcesManager sharedManager] sourcesOfType:CUICrashLogsSourceTypeSmart];
+                    
+                    for(CUICrashLogsSourceSmart * tSmartSource in tExistingSmartSources)
+                    {
+                        if ([tSmartSource.name isEqualToString:tName]==YES)
                         {
-                            // A COMPLETER
-                            
+                            [tDelayedSmartSources addObject:tSource];
                             return nil;
                         }
-                        
-                        NSArray * tExistingSmartSources=[[CUICrashLogsSourcesManager sharedManager] sourcesOfType:CUICrashLogsSourceTypeSmart];
-                        
-                        for(CUICrashLogsSourceSmart * tSmartSource in tExistingSmartSources)
-                        {
-                            if ([tSmartSource.name isEqualToString:tName]==YES)
-                            {
-                                [tDelayedSmartSources addObject:tSource];
-                                return nil;
-                            }
-                        }
                     }
                 }
-                else
-                {
-                    tSource=[[CUICrashLogsSourceDirectory alloc] initWithContentsOfFileSystemItemAtPath:bPath error:&tError];
-                }
+            }
+            else
+            {
+                tSource=[[CUICrashLogsSourceDirectory alloc] initWithContentsOfFileSystemItemAtPath:bURL.path error:&tError];
             }
             
             return tSource;
@@ -1155,7 +1169,7 @@ NSString * const CUICrashLogsSourcesInternalPboardType=@"fr.whitebox.unexpectedl
 
 - (void)sourcesSelectionDidChange:(NSNotification *)inNotification
 {
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     // Stop observing
     

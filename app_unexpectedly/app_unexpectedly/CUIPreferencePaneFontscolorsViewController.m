@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -37,7 +37,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
 
 @end
 
-@interface CUIPreferencePaneFontscolorsViewController () <NSTableViewDataSource,NSTableViewDelegate>
+@interface CUIPreferencePaneFontscolorsViewController () <NSFontChanging, NSMenuItemValidation, NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet NSTableView * _themesTableView;
     
@@ -139,7 +139,7 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
     
     _selectedPresentationMode=CUIPresentationModeText;
     
-    [((NSButton *)[_presentationModeTabHeaderView viewWithTag:_selectedPresentationMode]) setState:NSOnState];
+    [((NSButton *)[_presentationModeTabHeaderView viewWithTag:_selectedPresentationMode]) setState:NSControlStateValueOn];
     
     ((NSClipView *)_categoriesTableView.superview).drawsBackground=YES;
     
@@ -178,18 +178,18 @@ NSString * const CUICustomColorSelectionRowViewIdentifier=@"whitebox.colorSelect
     
     [self.view.window makeFirstResponder:_categoriesTableView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentThemeDidChange:) name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(currentThemeDidChange:) name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(themesListDidChange:) name:CUIThemesManagerThemesListDidChangeNotification object:nil];
 }
 
 - (void)viewWillDisappear
 {
     [super viewWillDisappear];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIThemesManagerCurrentThemeDidChangeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIThemesManagerThemesListDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIThemesManagerThemesListDidChangeNotification object:nil];
 }
 
 #pragma mark -

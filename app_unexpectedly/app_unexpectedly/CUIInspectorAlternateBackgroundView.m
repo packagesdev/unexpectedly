@@ -24,6 +24,7 @@
 
 - (void)drawRect:(NSRect)inRect
 {
+    NSRect tRefreshRect=NSIntersectionRect(self.bounds, inRect);
     BOOL tIsDark=[self WB_isEffectiveAppearanceDarkAqua];
     
     if (tIsDark==NO)
@@ -31,7 +32,7 @@
     else
         [[NSColor colorWithDeviceWhite:0.0 alpha:0.15] set];
     
-    NSRectFillUsingOperation(inRect,NSCompositingOperationSourceOver);
+    NSRectFillUsingOperation(tRefreshRect,NSCompositingOperationSourceOver);
     
     if (tIsDark==NO)
         [[NSColor colorWithDeviceWhite:0.85 alpha:1.0] setStroke];

@@ -40,7 +40,7 @@ NSString * const CUICrashLogsSourcesSelectionDidChangeNotification=@"CUICrashLog
     
     _sources=inSources;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogsSourcesSelectionDidChangeNotification object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogsSourcesSelectionDidChangeNotification object:self];
 }
 
 - (NSArray *)crashLogs

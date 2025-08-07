@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -284,7 +284,7 @@ CA
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="eRM-Kc-O5r"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Schéma" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
+                            <menuItem title="Liste" tag="1" keyEquivalent="2" id="Nr3-m8-qOB">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
                                     <action selector="CUI_MENUACTION_switchPresentationMode:" target="-1" id="TDI-d2-Yku"/>
@@ -573,7 +573,7 @@ CA
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-1534" y="-1437"/>
+            <point key="canvasLocation" x="-1574" y="-1552"/>
         </menu>
     </objects>
 </document>

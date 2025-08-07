@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -21,7 +21,7 @@
 #import "NSArray+WBExtensions.h"
 #import "NSTableView+Selection.h"
 
-@interface CUISymbolsFilesLibraryViewController () <NSTableViewDataSource,NSTableViewDelegate>
+@interface CUISymbolsFilesLibraryViewController () <NSMenuItemValidation,NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet NSTableView * _tableView;
     
@@ -83,7 +83,7 @@
     
     _cachedBundleIcon=[[NSWorkspace sharedWorkspace] iconForFileType:@"com.apple.xcode.dsym"];
     
-    [_tableView registerForDraggedTypes:@[NSFilenamesPboardType]];
+    [_tableView registerForDraggedTypes:@[NSPasteboardTypeFileURL]];
     
     NSSortDescriptor *buildETASortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES selector:@selector(compareNameAndVersion:)];
     
@@ -115,18 +115,18 @@
     
     // Register for notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dSYMBundlesManagerDidAddBundles:) name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(dSYMBundlesManagerDidAddBundles:) name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dSYMBundlesManagerDidRemoveBundles:) name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(dSYMBundlesManagerDidRemoveBundles:) name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
 }
 
 - (void)viewWillDisappear
 {
     [super viewWillDisappear];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIdSYMBundlesManagerDidAddBundlesNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self name:CUIdSYMBundlesManagerDidRemoveBundlesNotification object:nil];
 }
 
 #pragma mark -
@@ -394,12 +394,14 @@
     
     NSPasteboard * tPasteBoard=[info draggingPasteboard];
     
-    if ([tPasteBoard availableTypeFromArray:@[NSFilenamesPboardType]]==nil)
+    if ([tPasteBoard availableTypeFromArray:@[NSPasteboardTypeFileURL]]==nil)
         return NSDragOperationNone;
     
-    NSArray * tArray=(NSArray *) [tPasteBoard propertyListForType:NSFilenamesPboardType];
+    NSArray<Class> *tClasses = @[NSURL.class];
+    NSArray<NSURL*> *tURLArray = [tPasteBoard readObjectsForClasses:tClasses
+                                                            options:@{NSPasteboardURLReadingFileURLsOnlyKey:@(YES)}];
     
-    if (tArray==nil || [tArray isKindOfClass:NSArray.class]==NO)
+    if (tURLArray==nil)
     {
         // We were provided invalid data
         
@@ -408,32 +410,29 @@
         return NSDragOperationNone;
     }
     
-    if (tArray.count!=1)
+    if (tURLArray.count!=1)
         return NSDragOperationNone;
     
-    NSFileManager * tFileManager=[NSFileManager defaultManager];
-    
-    
-    for(NSString * tPath in tArray)
+    for(NSURL * tURL in tURLArray)
     {
-        BOOL tIsDirectory;
+        NSNumber *tIsDirectoryNumber;
         
-        if ([tFileManager fileExistsAtPath:tPath isDirectory:&tIsDirectory]==NO)
+        if ([tURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
             return NSDragOperationNone;
         
-        if (tIsDirectory==NO)
+        if (tIsDirectoryNumber.boolValue==NO)
             return NSDragOperationNone;
 
         // Should have .crash extension
         
-        if ([tPath.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
+        if ([tURL.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
             return NSDragOperationNone;
         
         // Do not have the same dSYM twice
         
         for(CUIdSYMBundle * tBundle in _filteredAndSortedBundlesArray)
         {
-            if ([tBundle.bundlePath isEqualToString:tPath]==YES)
+            if ([tBundle.bundleURL isEqual:tURL]==YES)
                 return NSDragOperationNone;
         }
     }
@@ -442,9 +441,9 @@
     
     CUIdSYMBundlesManager * tBundlesManager=[CUIdSYMBundlesManager sharedManager];
     
-    for(NSString * tPath in tArray)
+    for(NSURL * tURL in tURLArray)
     {
-        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithPath:tPath];
+        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithURL:tURL];
         
         if (tBundle.isDSYMBundle==NO)
             return NSDragOperationNone;
@@ -465,14 +464,16 @@
     
     NSPasteboard * tPasteBoard=[info draggingPasteboard];
     
-    if ([tPasteBoard availableTypeFromArray:@[NSFilenamesPboardType]]==nil)
+    if ([tPasteBoard availableTypeFromArray:@[NSPasteboardTypeFileURL]]==nil)
         return NO;
     
-    NSArray * tArray=(NSArray *) [tPasteBoard propertyListForType:NSFilenamesPboardType];
+    NSArray<Class> *tClasses = @[NSURL.class];
+    NSArray<NSURL*> *tURLArray = [tPasteBoard readObjectsForClasses:tClasses
+                                                            options:@{NSPasteboardURLReadingFileURLsOnlyKey:@(YES)}];
     
-    NSArray * tNewBundles=[tArray WB_arrayByMappingObjectsUsingBlock:^id(NSString * bPath, NSUInteger bIndex) {
+    NSArray * tNewBundles=[tURLArray WB_arrayByMappingObjectsUsingBlock:^id(NSURL * bURL, NSUInteger bIndex) {
         
-        return [[CUIdSYMBundle alloc] initWithPath:bPath];
+        return [[CUIdSYMBundle alloc] initWithURL:bURL];
     }];
     
     if (tNewBundles==nil)

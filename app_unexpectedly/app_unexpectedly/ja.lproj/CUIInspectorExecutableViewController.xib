@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CUIInspectorExecutableViewController">
             <connections>
+                <outlet property="_codeSigningButton" destination="S19-tz-doW" id="YIj-Ra-uaQ"/>
                 <outlet property="_executableArchitectureValue" destination="FHg-iH-xDN" id="gZP-1i-Ula"/>
                 <outlet property="_executableIconView" destination="Sae-Ke-hDq" id="ypT-Mj-Zdm"/>
                 <outlet property="_executableNameValue" destination="Lro-Zd-nK3" id="TjT-bg-eaE"/>
@@ -50,7 +51,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vJ5-dm-szr">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="vJ5-dm-szr">
                     <rect key="frame" x="88" y="15" width="277" height="42"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <textFieldCell key="cell" controlSize="small" selectable="YES" title="-" id="wdP-NI-1D3">
@@ -97,16 +98,28 @@
                     <rect key="frame" x="4" y="160" width="51" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="left" title="実行可能" id="hb6-Qr-SQw">
-                        <font key="font" metaFont="systemBold" size="11"/>
+                        <font key="font" metaFont="smallSystemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" id="S19-tz-doW">
+                    <rect key="frame" x="366" y="161" width="14" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockLockedTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="q3s-6z-c4l">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showCodeSigningInformation:" target="-2" id="2U6-EK-y6N"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="-51.5" y="-186"/>
         </customView>
     </objects>
     <resources>
         <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
+        <image name="NSLockLockedTemplate" width="10" height="14"/>
     </resources>
 </document>

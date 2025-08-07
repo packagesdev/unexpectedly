@@ -56,7 +56,7 @@
         
         // Register for notifications
         
-        NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+        NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
         
         [tNotificationCenter addObserver:self selector:@selector(crashLogsSourceDidAddSources:) name:CUICrashLogsSourceDidAddSourcesNotification object:nil];
         [tNotificationCenter addObserver:self selector:@selector(crashLogsSourceDidUpdateSource:) name:CUICrashLogsSourceDidUpdateSourceNotification object:nil];
@@ -68,7 +68,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -114,7 +114,7 @@
 {
     _crashLogs=nil;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
 }
 
 

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -31,7 +31,7 @@ NSString * const CUICrashLogSourcePathKey=@"path";
     {
         NSString * tString=inRepresentation[CUICrashLogSourcePathKey];
         
-        if ([tString isKindOfClass:[NSString class]]==NO)
+        if ([tString isKindOfClass:NSString.class]==NO)
             return nil;
         
         if (tString.length==0)
@@ -45,7 +45,7 @@ NSString * const CUICrashLogSourcePathKey=@"path";
 
 - (instancetype)initWithContentsOfFileSystemItemAtPath:(NSString *)inPath error:(NSError **)outError
 {
-    if ([inPath isKindOfClass:[NSString class]]==NO)
+    if ([inPath isKindOfClass:NSString.class]==NO)
     {
         if (outError!=NULL)
             *outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];

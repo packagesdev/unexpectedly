@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="688" height="321"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" id="Pvu-81-w7l">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pvu-81-w7l">
                     <rect key="frame" x="329" y="205" width="77" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Header" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zEG-Wx-Nn2">
@@ -39,7 +39,7 @@
                         <action selector="switchShowHeader:" target="-2" id="r82-eB-Q1G"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="Qt3-ro-d2D">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qt3-ro-d2D">
                     <rect key="frame" x="329" y="184" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Exception Information" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="F76-W3-yAd">
@@ -50,7 +50,7 @@
                         <action selector="switchShowExceptionInformation:" target="-2" id="cUe-nn-bRr"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="iNz-Qb-2d2">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNz-Qb-2d2">
                     <rect key="frame" x="329" y="163" width="154" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Diagnostic Messages" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="EEv-JV-T5b">
@@ -61,7 +61,7 @@
                         <action selector="switchShowDiagnosticMessages:" target="-2" id="wy4-KN-LXQ"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="vj7-9l-wu4">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vj7-9l-wu4">
                     <rect key="frame" x="329" y="142" width="101" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Backtraces" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZOK-Ny-hlt">
@@ -72,7 +72,7 @@
                         <action selector="switchShowBacktraces:" target="-2" id="M7z-KY-6jd"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="cir-zS-0pp">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cir-zS-0pp">
                     <rect key="frame" x="329" y="120" width="108" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Thread State" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ysb-qv-8M9">
@@ -83,7 +83,7 @@
                         <action selector="switchShowThreadState:" target="-2" id="5aJ-mY-Zn1"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="ayi-wa-Elc">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayi-wa-Elc">
                     <rect key="frame" x="329" y="99" width="120" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Binary Images" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Kr8-SF-wcL">
@@ -94,7 +94,7 @@
                         <action selector="switchShowBinaryImages:" target="-2" id="r9d-Iu-XGO"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MNF-5K-RaR">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNF-5K-RaR">
                     <rect key="frame" x="68" y="61" width="257" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default visible stack frame components:" id="2et-oL-bun">
@@ -103,7 +103,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" id="rRX-kg-J1V">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRX-kg-J1V">
                     <rect key="frame" x="329" y="60" width="108" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Binary name" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vWD-FK-a4a">
@@ -114,7 +114,7 @@
                         <action selector="switchShowBinaryName:" target="-2" id="1JN-45-hUv"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="2LX-nh-3AM">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2LX-nh-3AM">
                     <rect key="frame" x="329" y="39" width="203" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Machine instruction address" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XDv-jS-TfO">
@@ -125,7 +125,7 @@
                         <action selector="switchShowMachineInstructionAddress:" target="-2" id="jZT-K0-Oql"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="Kfz-pY-oUd">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfz-pY-oUd">
                     <rect key="frame" x="329" y="18" width="164" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Byte offset and source" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zE5-mb-UZb">
@@ -136,7 +136,7 @@
                         <action selector="switchShowByteOffset:" target="-2" id="TPQ-k5-sP5"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eDV-BF-Pu1">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-BF-Pu1">
                     <rect key="frame" x="226" y="245" width="99" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Line wrapping:" id="nm4-Se-bRD">
@@ -145,7 +145,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" id="ANa-W0-TnO">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANa-W0-TnO">
                     <rect key="frame" x="329" y="244" width="189" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Wrap lines to viewer width" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1PO-2B-RhF">
@@ -156,7 +156,7 @@
                         <action selector="switchLineWrapping:" target="-2" id="BfM-Sn-zvX"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="1vN-WD-7S5">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vN-WD-7S5">
                     <rect key="frame" x="171" y="206" width="154" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Default visible sections:" id="LKq-kF-sWQ">
@@ -165,7 +165,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9bL-sk-EjC">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-sk-EjC">
                     <rect key="frame" x="273" y="284" width="52" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Show:" id="gBx-bb-vVK">
@@ -174,7 +174,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" id="n6c-lM-SZM">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n6c-lM-SZM">
                     <rect key="frame" x="329" y="283" width="120" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Line numbers" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8bP-wa-KPh">

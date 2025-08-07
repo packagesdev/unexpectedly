@@ -29,7 +29,7 @@
     {
         // Register for Drop
         
-        [self registerForDraggedTypes:@[NSFilenamesPboardType]];
+        [self registerForDraggedTypes:@[NSPasteboardTypeFileURL]];
     }
     
     return self;
@@ -43,7 +43,7 @@
     {
         // Register for Drop
         
-        [self registerForDraggedTypes:@[NSFilenamesPboardType]];
+        [self registerForDraggedTypes:@[NSPasteboardTypeFileURL]];
     }
     
     return self;
@@ -82,7 +82,7 @@
     
     NSPasteboard * tPasteBoard=[sender draggingPasteboard];
     
-    if ([[tPasteBoard types] containsObject:NSFilenamesPboardType]==NO)
+    if ([tPasteBoard.types containsObject:NSPasteboardTypeFileURL]==NO)
         return NSDragOperationNone;
     
     NSDragOperation tSourceDragMask = [sender draggingSourceOperationMask];
@@ -90,11 +90,13 @@
     if ((tSourceDragMask & NSDragOperationCopy)==0)
         return NSDragOperationNone;
     
-    NSArray * tFiles=[tPasteBoard propertyListForType:NSFilenamesPboardType];
+    NSArray<Class> *tClasses = @[NSURL.class];
+    NSArray<NSURL*> *tURLArray = [tPasteBoard readObjectsForClasses:tClasses
+                                                            options:@{NSPasteboardURLReadingFileURLsOnlyKey:@(YES)}];
     
-    if (tFiles!=nil)
+    if (tURLArray!=nil)
     {
-        if ([self.delegate fileDeadDropView:self validateDropFiles:tFiles]==YES)
+        if ([self.delegate fileDeadDropView:self validateDropFileURLs:tURLArray]==YES)
         {
             self.highlighted=YES;
             
@@ -117,12 +119,14 @@
     
     NSPasteboard * tPasteBoard=[sender draggingPasteboard];
     
-    if ([[tPasteBoard types] containsObject:NSFilenamesPboardType]==YES)
+    if ([tPasteBoard.types containsObject:NSPasteboardTypeFileURL]==YES)
     {
-        NSArray * tFiles = [tPasteBoard propertyListForType:NSFilenamesPboardType];
+        NSArray<Class> *tClasses = @[NSURL.class];
+        NSArray<NSURL*> *tURLArray = [tPasteBoard readObjectsForClasses:tClasses
+                                                                options:@{NSPasteboardURLReadingFileURLsOnlyKey:@(YES)}];
         
-        if (tFiles!=nil)
-            return [self.delegate fileDeadDropView:self acceptDropFiles:tFiles];
+       if (tURLArray!=nil)
+            return [self.delegate fileDeadDropView:self acceptDropFileURLs:tURLArray];
     }
     
     return NO;

@@ -72,7 +72,7 @@
     
     CUICrashLog * tCrashLog=self.input;
     
-    if ([tCrashLog isKindOfClass:[CUIRawCrashLog class]]==NO)
+    if ([tCrashLog isKindOfClass:CUIRawCrashLog.class]==NO)
     {
         // A COMPLETER
         
@@ -81,7 +81,7 @@
     
     [self updatesCachedAttributes];
     
-    if ([tCrashLog isMemberOfClass:[CUIRawCrashLog class]]==YES)
+    if ([tCrashLog isMemberOfClass:CUIRawCrashLog.class]==YES)
     {
         NSAttributedString * tAttributedString=[[NSAttributedString alloc] initWithString:tCrashLog.rawText
                                                                                attributes:self.plainTextAttributes];
@@ -91,7 +91,7 @@
         return YES;
     }
     
-    if ([tCrashLog isMemberOfClass:[CUICrashLog class]]==NO)
+    if ([tCrashLog isMemberOfClass:CUICrashLog.class]==NO)
     {
         // A COMPLETER
         
@@ -1127,7 +1127,7 @@
     
     NSDictionary * tIdentifierAttributes=self.plainTextAttributes;
     
-    if ([CUIThemesManager sharedManager].currentTheme.isMonochrome==NO)
+    if (self.themesProvider.currentTheme.isMonochrome==NO)
     {
         tIdentifierAttributes=@{
                                 NSForegroundColorAttributeName:(tIsUserCode==YES) ? [CUIBinaryImageUtility colorForUserCode]: [CUIBinaryImageUtility colorForIdentifier:tIdentifier]
@@ -1169,7 +1169,7 @@
     
     [inLines enumerateObjectsUsingBlock:^(id bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
         
-        if ([bLine isKindOfClass:[NSString class]]==YES)
+        if ([bLine isKindOfClass:NSString.class]==YES)
         {
             NSAttributedString * tAttributedString=[[NSAttributedString alloc] initWithString:bLine
                                                                                    attributes:self.plainTextAttributes];
@@ -1182,7 +1182,7 @@
             return;
         }
         
-        if ([bLine isKindOfClass:[NSAttributedString class]]==YES)
+        if ([bLine isKindOfClass:NSAttributedString.class]==YES)
         {
             [tMutableAttributedString appendAttributedString:bLine];
             

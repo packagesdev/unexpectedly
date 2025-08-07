@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -31,7 +31,7 @@
 
 #import "CUICrashLogExceptionInformation+UI.h"
 
-@interface CUICrashLogsListViewController () <NSSharingServiceDelegate,NSTableViewDataSource,NSTableViewDelegate>
+@interface CUICrashLogsListViewController () <NSMenuItemValidation,NSSharingServiceDelegate,NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet NSTableView * _tableView;
     
@@ -108,7 +108,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -150,7 +150,7 @@
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(crashLogsSourcesSelectionDidChange:) name:CUICrashLogsSourcesSelectionDidChangeNotification object:[CUICrashLogsSourcesSelection sharedSourcesSelection]];
     
@@ -183,7 +183,7 @@
         
         [tArray enumerateObjectsUsingBlock:^(CUICrashLog * bCrashLog, NSUInteger bIndex, BOOL * bOutStop) {
             
-            if ([bCrashLog isKindOfClass:[CUICrashLog class]]==NO)
+            if ([bCrashLog isKindOfClass:CUICrashLog.class]==NO)
                 return;
             
             if (self->_showsFileNames==NO)
@@ -361,14 +361,14 @@
     
     if (tAction==@selector(switchDisplayedName:))
     {
-        inMenuItem.state=(inMenuItem.tag==_showsFileNames) ? NSOnState : NSOffState;
+        inMenuItem.state=(inMenuItem.tag==_showsFileNames) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
     
     if (tAction==@selector(switchSortType:))
     {
-        inMenuItem.state=(inMenuItem.tag==_sortType) ? NSOnState : NSOffState;
+        inMenuItem.state=(inMenuItem.tag==_sortType) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
@@ -565,7 +565,7 @@
     NSString * tExceptionType=nil;
     CUICrashLogExceptionInformation * tExceptionInformation=nil;
     
-    if ([tCrashLog isKindOfClass:[CUICrashLog class]]==YES)
+    if ([tCrashLog isKindOfClass:CUICrashLog.class]==YES)
     {
         tExceptionInformation=((CUICrashLog *)tCrashLog).exceptionInformation;
     
@@ -622,7 +622,7 @@
 {
     NSInteger tSelectedRow=_tableView.selectedRow;
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     // Stop observing
     
@@ -664,7 +664,7 @@
 {
     CUICrashLogsSourcesSelection * tSelection=inNotification.object;
     
-    if ([tSelection isKindOfClass:[CUICrashLogsSourcesSelection class]]==NO)
+    if ([tSelection isKindOfClass:CUICrashLogsSourcesSelection.class]==NO)
         return;
     
     CUICrashLogsSource * tFirstSource=tSelection.sources.allObjects.firstObject;
@@ -672,7 +672,7 @@
     if (tFirstSource==_source)
         return;
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter removeObserver:self name:CUICrashLogsSourceDidUpdateSourceNotification object:_source];
     

@@ -31,7 +31,7 @@
 
     @property (nonatomic,readonly) BOOL isConstant;
 
-@property (nonatomic,readonly) BOOL isString;
+    @property (nonatomic,readonly) BOOL isString;
 
 @end
 
@@ -99,7 +99,7 @@
 
     @property (nonatomic,readonly) DW_LANG language;
 
-@property (nonatomic,readonly) NSString * compilationDirectory;
+    @property (nonatomic,readonly) NSString * compilationDirectory;
 
 - (DWRFDebuggingInformationEntry *)entryAtAddress:(uint8_t *)inAddress;
 
@@ -110,7 +110,7 @@
 
 @interface DWRFSection_debug_info : NSObject
 
-@property (readonly) DWRFFileObject * fileObject;
+    @property (readonly) DWRFFileObject * fileObject;
 
 - (instancetype)initWithData:(NSData *)inData fileObject:(DWRFFileObject *)inFileObject;
 

@@ -47,7 +47,7 @@
 
 - (NSString *)stringForObjectValue:(CUISymbolicationData *)inSymbolicationData
 {
-    if ([inSymbolicationData isKindOfClass:[CUISymbolicationData class]]==NO)
+    if ([inSymbolicationData isKindOfClass:CUISymbolicationData.class]==NO)
         return nil;
     
     NSMutableString * tMutableString=[NSMutableString string];

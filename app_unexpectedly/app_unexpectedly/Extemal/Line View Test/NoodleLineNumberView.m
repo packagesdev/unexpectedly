@@ -76,7 +76,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -120,11 +120,22 @@
     return _alternateTextColor;
 }
 
+
+- (BOOL)clipsToBounds
+{
+	return YES;
+}
+
+- (BOOL)isOpaque
+{
+	return YES;
+}
+
 #pragma mark -
 
 - (void)setClientView:(NSView *)inClientView
 {
-    NSNotificationCenter *tNotificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *tNotificationCenter = NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter removeObserver:self name:NSTextStorageDidProcessEditingNotification object:nil];
     
@@ -290,9 +301,21 @@
     if (tAdjustedFont==nil)
         tAdjustedFont=tFont;
     
+    static NSParagraphStyle * sLeftAlignedStyle=nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        NSMutableParagraphStyle *mutableStyle=[[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        mutableStyle.alignment=NSTextAlignmentLeft;
+        
+        sLeftAlignedStyle = [mutableStyle copy];
+    });
+    
     return @{
              NSFontAttributeName:tAdjustedFont,
-             NSForegroundColorAttributeName:self.textColor
+             NSForegroundColorAttributeName:self.textColor,
+             NSWritingDirectionAttributeName:@[@(NSWritingDirectionLeftToRight)],
+             NSParagraphStyleAttributeName:sLeftAlignedStyle
              };
 }
 
@@ -338,6 +361,11 @@
     
     if (lineIndices == nil)
         [self calculateLines];
+}
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+	[super drawRect:dirtyRect];
 }
 
 - (void)drawSeparatorInRect:(NSRect)inRect

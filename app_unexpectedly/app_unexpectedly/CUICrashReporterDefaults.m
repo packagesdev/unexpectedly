@@ -53,7 +53,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
 
 + (CUICrashReporterDialogType)dialogTypeFromString:(NSString *)inString
 {
-    if ([inString isKindOfClass:[NSString class]]==NO)
+    if ([inString isKindOfClass:NSString.class]==NO)
         return CUICrashReporterDialogTypeBasic;
     
     static NSDictionary * sStringToEnumDictionary=nil;
@@ -109,7 +109,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
         
         // Register for notifications
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:NSApplicationDidBecomeActiveNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive:) name:NSApplicationDidBecomeActiveNotification object:nil];
     }
     
     return self;
@@ -117,7 +117,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -144,7 +144,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
     
     NSString * tDialogTypeValue=tRepresentation[CUICrashReporterDefaultsDialogTypeKey];
     
-    if ([tDialogTypeValue isKindOfClass:[NSString class]]==NO)
+    if ([tDialogTypeValue isKindOfClass:NSString.class]==NO)
     {
         if (tDialogTypeValue!=nil)
             NSLog(@"Unexpected value type for key: %@",CUICrashReporterDefaultsDialogTypeKey);
@@ -160,7 +160,7 @@ NSString * const CUICrashReporterDefaultsReportUncaughtExceptionKey=@"NSApplicat
     
     NSNumber * tNumber=tRepresentation[CUICrashReporterDefaultsNotificationModeKey];
     
-    if ([tDialogTypeValue isKindOfClass:[NSString class]]==NO)
+    if ([tDialogTypeValue isKindOfClass:NSString.class]==NO)
     {
         self.notificationMode=CUICrashReporterNotificationModeDialog;
     }

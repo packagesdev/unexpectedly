@@ -621,7 +621,9 @@
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
     CUICrashLogBacktraces * tBacktraces=self.crashlog.backtraces;
+#ifndef __DISABLE_SYMBOLICATION_
     NSInteger tThreadIndexOffset=0;
+#endif
     
     NSString * tProcessPath=inIncident.header.processPath;
     
@@ -839,8 +841,9 @@
     
     if (tBacktraces.hasApplicationSpecificBacktrace==YES)
     {
+#ifndef __DISABLE_SYMBOLICATION_
         tThreadIndexOffset=1;
-        
+#endif
         NSMutableAttributedString * tMutableAttributedString=nil;
         
         tMutableAttributedString=[[self attributedStringForThreadLabelWithFormat:@"Application Specific Backtrace %lu",(unsigned long)1] mutableCopy];
@@ -852,60 +855,60 @@
         
         [tMutableArray addObject:tMutableAttributedString];
         
-        NSArray<NSString *> * tBacktraces=inIncident.diagnosticMessage.asi.backtraces;
+        NSArray<IPSThreadFrame *> * tFrames=inIncident.exceptionInformation.lastExceptionBacktrace;
         
-        if (tBacktraces!=nil)
+        if (tFrames!=nil)
         {
-            [tBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
-            
-                CUIThread * tThread=self.crashlog.backtraces.threads.firstObject;
-                
-                NSMutableArray * tLines=[NSMutableArray array];
-                
-                [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * _Nonnull stop) {
-                    
-                    [tLines addObject:bLine];
-                }];
-                
-                __block NSUInteger tStackFrameIndex=0;
-                
-                [tLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
-                    
-                    if (bLine.length==0)
-                    {
-                        [tMutableArray addObject:@""];
-                        return;
-                    }
-                    
-                    NSString * tProcessedStackFrameLine=[self processedStackFrameLine:bLine stackFrame:tThread.callStackBacktrace.stackFrames[tStackFrameIndex]];
-                    
-                    if (tProcessedStackFrameLine!=nil)
-                    {
-                        [tMutableArray addObject:tProcessedStackFrameLine];
-                    }
-                    else
-                    {
-                        NSLog(@"Error transforming line: %@",bLine);
-                        
-                        [tMutableArray addObject:[[NSAttributedString alloc] initWithString:bLine]];
-                    }
-                    
-                    tStackFrameIndex+=1;
-                }];
-            }];
-        }
-        else
-        {
-            NSArray<IPSThreadFrame *> * tFrames=inIncident.exceptionInformation.lastExceptionBacktrace;
-            
-            if (tFrames!=nil)
-            {
 #ifndef __DISABLE_SYMBOLICATION_
                 tBacktraceThread=tBacktracesThreads.firstObject;
                 tStackFrames=tBacktraceThread.callStackBacktrace.stackFrames;
 #endif
                 
                 [tFrames enumerateObjectsUsingBlock:transformThreadFrame];
+        }
+        else
+        {
+            NSArray<NSString *> * tBacktraces=inIncident.diagnosticMessage.asi.backtraces;
+        
+            if (tBacktraces!=nil)
+            {
+                [tBacktraces enumerateObjectsUsingBlock:^(NSString * bString, NSUInteger bIndex, BOOL * bOutStop) {
+                
+                    CUIThread * tThread=self.crashlog.backtraces.threads.firstObject;
+                    
+                    NSMutableArray * tLines=[NSMutableArray array];
+                    
+                    [bString enumerateLinesUsingBlock:^(NSString * bLine, BOOL * _Nonnull stop) {
+                        
+                        [tLines addObject:bLine];
+                    }];
+                    
+                    __block NSUInteger tStackFrameIndex=0;
+                    
+                    [tLines enumerateObjectsUsingBlock:^(NSString * bLine, NSUInteger bLineNumber, BOOL * bOutStop) {
+                        
+                        if (bLine.length==0)
+                        {
+                            [tMutableArray addObject:@""];
+                            return;
+                        }
+                        
+                        NSString * tProcessedStackFrameLine=[self processedStackFrameLine:bLine stackFrame:tThread.callStackBacktrace.stackFrames[tStackFrameIndex]];
+                        
+                        if (tProcessedStackFrameLine!=nil)
+                        {
+                            [tMutableArray addObject:tProcessedStackFrameLine];
+                        }
+                        else
+                        {
+                            NSLog(@"Error transforming line: %@",bLine);
+                            
+                            [tMutableArray addObject:[[NSAttributedString alloc] initWithString:bLine]];
+                        }
+                        
+                        tStackFrameIndex+=1;
+                    }];
+                }];
             }
         }
         
@@ -1046,7 +1049,7 @@
         [tMutableArray addObject:tMutableAttributedString];
         
         
-        NSArray * tRegistersOrder=@[];
+        NSArray * tRegistersOrder;
         
         if ([tCrashedThreadState.flavor isEqualToString:@"x86_THREAD_STATE"]==YES)
         {
@@ -1198,7 +1201,7 @@
     
     [tMutableArray addObject:tMutableAttributedString];
     
-    BOOL tIsMonochromeTheme=[CUIThemesManager sharedManager].currentTheme.isMonochrome;
+    BOOL tIsMonochromeTheme=self.themesProvider.currentTheme.isMonochrome;
     
     [[inIncident.binaryImages sortedArrayUsingSelector:@selector(compare:)] enumerateObjectsUsingBlock:^(IPSImage * bImage, NSUInteger bIndex, BOOL * bOutStop) {
     

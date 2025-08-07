@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -118,7 +118,7 @@
 
 - (size_t)addressRangeDescriptorSize
 {
-    return _segmentSize+2*_addressSize;;
+    return _segmentSize+2*_addressSize;
 }
 
 - (size_t)paddingSize
@@ -319,7 +319,7 @@
 
 - (instancetype)initWithData:(NSData *)inData
 {
-    if (inData==nil || [inData isKindOfClass:[NSData class]]==NO)
+    if (inData==nil || [inData isKindOfClass:NSData.class]==NO)
         return nil;
     
     self=[super init];

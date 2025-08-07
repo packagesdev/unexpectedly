@@ -27,7 +27,7 @@ NSString * const CUIThemeItemAttributesDidChangeNotification=@"CUIThemeItemAttri
 
 - (instancetype)initWithRepresentation:(NSDictionary *)inRepresentation
 {
-    if ([inRepresentation isKindOfClass:[NSDictionary class]]==NO)
+    if ([inRepresentation isKindOfClass:NSDictionary.class]==NO)
         return nil;
     
     self=[super init];
@@ -36,7 +36,7 @@ NSString * const CUIThemeItemAttributesDidChangeNotification=@"CUIThemeItemAttri
     {
         NSString * tString=inRepresentation[CUIThemeAttributeColorKey];
         
-        if ([tString isKindOfClass:[NSString class]]==NO)
+        if ([tString isKindOfClass:NSString.class]==NO)
             return nil;
         
         _color=[NSColor colorFromString:tString];
@@ -45,7 +45,7 @@ NSString * const CUIThemeItemAttributesDidChangeNotification=@"CUIThemeItemAttri
         
         if (tString!=nil)
         {
-            if ([tString isKindOfClass:[NSString class]]==NO)
+            if ([tString isKindOfClass:NSString.class]==NO)
                 return nil;
             
         
@@ -80,7 +80,7 @@ NSString * const CUIThemeItemAttributesDidChangeNotification=@"CUIThemeItemAttri
     {
         _font=inFont;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
     }
 }
 
@@ -90,7 +90,7 @@ NSString * const CUIThemeItemAttributesDidChangeNotification=@"CUIThemeItemAttri
     {
         _color=inColor;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUIThemeItemAttributesDidChangeNotification object:self];
     }
 }
 

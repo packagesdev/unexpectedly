@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -24,7 +24,7 @@ NSString * const CUIDefaultsSidebarTopHeightKey=@"sidebar.top.height";
 
 NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
 
-@interface CUISidebarViewController () <NSSplitViewDelegate>
+@interface CUISidebarViewController () <NSMenuItemValidation,NSSplitViewDelegate>
 {
     IBOutlet NSSplitView * _splitView;
     
@@ -147,9 +147,7 @@ NSString * const CUIDefaultsSidebarTopCollapsedKey=@"sidebar.top.collapsed";
 {
     // Save SplitView divider position
     
-    NSArray * tSubviews=_splitView.subviews;
-    
-    NSView * tViewTop=tSubviews[0];
+    NSView * tViewTop=_splitView.subviews.firstObject;
     
     NSUserDefaults * tUserDefaults=[NSUserDefaults standardUserDefaults];
     

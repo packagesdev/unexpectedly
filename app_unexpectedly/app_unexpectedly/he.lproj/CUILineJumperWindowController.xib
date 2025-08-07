@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUILineJumperWindowController">
+            <connections>
+                <outlet property="_lineNumberField" destination="Hsy-sF-ru8" id="Szf-Gn-kjq"/>
+                <outlet property="_resetButton" destination="dIW-wv-LKd" id="vVJ-Nt-akO"/>
+                <outlet property="window" destination="mSG-cx-fbW" id="fe5-gS-1Ha"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hidesOnDeactivate="YES" visibleAtLaunch="NO" frameAutosaveName="window.lineNumber" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" id="mSG-cx-fbW">
+            <windowStyleMask key="styleMask" titled="YES" fullSizeContentView="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES" fullScreenDisallowsTiling="YES"/>
+            <rect key="contentRect" x="196" y="240" width="384" height="49"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <value key="minSize" type="size" width="384" height="49"/>
+            <value key="maxSize" type="size" width="384" height="49"/>
+            <view key="contentView" wantsLayer="YES" id="Xph-p4-B8X">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField focusRingType="none" verticalHuggingPriority="750" id="Hsy-sF-ru8">
+                        <rect key="frame" x="192" y="11" width="147" height="25"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" focusRingType="none" alignment="right" placeholderString="מספר שורה" usesSingleLineMode="YES" id="Ju2-zH-bhG">
+                            <font key="font" metaFont="system" size="21"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="takeLineNumberFrom:" target="-2" id="d6v-mK-cXL"/>
+                            <outlet property="delegate" destination="-2" id="X5a-vS-Tae"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dpK-Gf-az3">
+                        <rect key="frame" x="343" y="10" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="#" id="x4t-M3-5dd">
+                            <font key="font" metaFont="system" size="30"/>
+                            <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button hidden="YES" verticalHuggingPriority="750" id="dIW-wv-LKd">
+                        <rect key="frame" x="19" y="14" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="AFZ-Xq-Pjf">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reset:" target="-2" id="XzM-AA-Vzv"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="awR-rx-pPU"/>
+                <outlet property="initialFirstResponder" destination="Hsy-sF-ru8" id="j6W-l3-TNl"/>
+            </connections>
+            <point key="canvasLocation" x="177" y="-15"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
+    </resources>
+</document>

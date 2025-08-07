@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -13,15 +13,19 @@
 
 #import "CUIInspectorExecutableViewController.h"
 
+#import "CUICodeSigningInformationViewController.h"
+
 #import "CUICrashLog+UI.h"
 
 #import "CUIRawCrashLog+Path.h"
 
-@interface CUIInspectorExecutableViewController ()
+@interface CUIInspectorExecutableViewController () <NSPopoverDelegate>
 {
     IBOutlet NSImageView * _executableIconView;
     
     IBOutlet NSTextField * _executableNameValue;
+    
+    IBOutlet NSButton * _codeSigningButton;
     
     IBOutlet NSTextField * _executableVersionValue;
     
@@ -34,6 +38,8 @@
 
 - (void)layoutView;
 
+- (IBAction)showCodeSigningInformation:(id)sender;
+
 - (IBAction)showExecutableInFinder:(id)sender;
 
 @end
@@ -43,6 +49,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (_executablePathShowButton.userInterfaceLayoutDirection==NSUserInterfaceLayoutDirectionRightToLeft)
+    {
+        // Mirror image.
+        NSImage * tOriginalImage=_executablePathShowButton.image;
+        
+        NSImage * newTemplate=[NSImage imageWithSize:_executablePathShowButton.bounds.size
+                                             flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
+                                                 
+                                                 NSAffineTransform * tTransform = [NSAffineTransform transform];
+                                                 
+                                                 [tTransform translateXBy:NSWidth(self->_executablePathShowButton.bounds) yBy:0];
+                                                 [tTransform scaleXBy:-1.0 yBy:1.0];
+                                                 [tTransform concat];
+                                                 
+                                                 [tOriginalImage drawInRect:dstRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+                                                 
+                                                 return YES;
+                                             }];
+        
+        newTemplate.template=YES;
+        
+        _executablePathShowButton.image=newTemplate;
+    }
 }
 
 #pragma mark -
@@ -57,9 +87,11 @@
     
     _executableNameValue.stringValue=tHeader.processName;
     
+	_codeSigningButton.hidden=(tCrashLog.ipsReport.incident.header.codeSigningInfo==nil);
+    
     NSString * tVersion=tHeader.executableVersion;
     
-    if ([tVersion isEqualToString:@"???"]==YES)
+    if (tVersion==nil || [tVersion isEqualToString:@"???"]==YES)
     {
         _executableVersionValue.stringValue=NSLocalizedString(@"Unknown version",@"");
     }
@@ -169,6 +201,33 @@
 
 #pragma mark -
 
+- (IBAction)showCodeSigningInformation:(id)sender
+{
+	NSPopover * tCodeSigningInformationPopOver = [NSPopover new];
+	tCodeSigningInformationPopOver.contentSize=NSMakeSize(500.0, 20.0);
+	tCodeSigningInformationPopOver.behavior=NSPopoverBehaviorTransient;
+	tCodeSigningInformationPopOver.animates=NO;
+	tCodeSigningInformationPopOver.delegate=self;
+	
+	NSAppearanceName tAppearanceName = ([self.view WB_isEffectiveAppearanceDarkAqua] == NO) ? WB_NSAppearanceNameAqua : WB_NSAppearanceNameDarkAqua;
+	
+	tCodeSigningInformationPopOver.appearance = [NSAppearance appearanceNamed:tAppearanceName];
+	
+	NSViewController * tPopUpViewController=[[CUICodeSigningInformationViewController alloc] initWithCodeSigningInfo:self.crashLog.ipsReport.incident.header.codeSigningInfo];
+	
+	tCodeSigningInformationPopOver.contentViewController=tPopUpViewController;
+	
+	tCodeSigningInformationPopOver.contentSize=tPopUpViewController.view.bounds.size;
+	
+	NSView * tTrick=tPopUpViewController.view;  // This is used to trigger the viewDidLoad method of the contentViewController.
+	
+	(void)tTrick;
+	
+	[tCodeSigningInformationPopOver showRelativeToRect:_codeSigningButton.bounds
+												ofView:_codeSigningButton
+										 preferredEdge:NSMaxXEdge];
+}
+
 - (IBAction)showExecutableInFinder:(id)sender
 {
     NSWorkspace * tSharedWorkspace=[NSWorkspace sharedWorkspace];
@@ -179,6 +238,16 @@
         tExecutablePath=self.crashLog.header.executablePath;
     
     [tSharedWorkspace selectFile:tExecutablePath inFileViewerRootedAtPath:@""];
+}
+
+#pragma mark - NSPopoverDelegate
+
+- (void)popoverDidClose:(NSNotification *)inNotification
+{
+	NSWindow * tWindow=self.view.window;
+	
+	if (tWindow.firstResponder==tWindow.contentView)
+		[tWindow makeFirstResponder:self];
 }
 
 @end

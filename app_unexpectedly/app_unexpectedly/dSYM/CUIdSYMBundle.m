@@ -65,17 +65,16 @@
 {
     if (_displayVersion==nil)
     {
-        NSMutableString * tMutableString=[NSMutableString string];
+        NSString * tBundleShortVersionString=[self objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
         
-        NSString * tString=[self objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+        if (tBundleShortVersionString==nil)
+            tBundleShortVersionString=@"-";
         
-        [tMutableString appendString:(tString!=nil) ? tString : @"-"];
+        NSString * tBundleVersionString=[self objectForInfoDictionaryKey:@"CFBundleVersion"];
+        if (tBundleVersionString==nil)
+            tBundleVersionString=@"-";
         
-        tString=[self objectForInfoDictionaryKey:@"CFBundleVersion"];
-        
-        [tMutableString appendFormat:@" (%@)",(tString!=nil) ? tString : @"-"];
-        
-        _displayVersion=[tMutableString copy];
+         _displayVersion=[NSString stringWithFormat:NSLocalizedString(@"%@ (%@)",@""), tBundleShortVersionString, tBundleVersionString ];
     }
     
     return _displayVersion;
@@ -126,7 +125,7 @@
     
     NSString * tPackageType=[self objectForInfoDictionaryKey:@"CFBundlePackageType"];
     
-    if ([tPackageType isKindOfClass:[NSString class]]==NO)
+    if ([tPackageType isKindOfClass:NSString.class]==NO)
         return NO;
     
     if ([tPackageType isEqualToString:@"dSYM"]==NO)

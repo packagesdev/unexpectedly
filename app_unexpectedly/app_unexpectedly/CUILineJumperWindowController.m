@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -178,7 +178,9 @@
     
     NSUInteger tGlyphIndex = 0;
     
-    for (NSUInteger tLineNumber = 1; tGlyphIndex < tNumberOfGlyphs; tLineNumber++)
+    NSString *text = _targetedTextView.string;
+    
+    for (NSUInteger tLineNumber = 1; tGlyphIndex < tNumberOfGlyphs;)
     {
         NSRange tLineRange;
         
@@ -207,7 +209,19 @@
             return;
         }
         
-        tGlyphIndex = NSMaxRange(tLineRange);
+        tGlyphIndex=NSMaxRange(tLineRange);
+        
+        NSUInteger characterIndex=[tLayoutManager characterIndexForGlyphAtIndex:tGlyphIndex];
+        
+        if (characterIndex > 0)
+        {
+            if ([text characterAtIndex:characterIndex-1]=='\n')
+                tLineNumber++;
+        }
+        else
+        {
+            tLineNumber++;
+        }
     }
     
     // Line not found (tLineNumberToJumpTo > number of lines)

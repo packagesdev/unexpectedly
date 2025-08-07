@@ -103,31 +103,31 @@
     
     // Document
     
-    _showsLineNumbersCheckbox.state=(_applicationPreferences.showsLineNumbers==YES) ? NSOnState : NSOffState;
+    _showsLineNumbersCheckbox.state=(_applicationPreferences.showsLineNumbers==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _lineWrappingCheckbox.state=(_applicationPreferences.lineWrapping==YES) ? NSOnState : NSOffState;
+    _lineWrappingCheckbox.state=(_applicationPreferences.lineWrapping==YES) ? NSControlStateValueOn : NSControlStateValueOff;
     
     // Sections
     
-    _showHeaderCheckbox.state=((_displaySettings.visibleSections & CUIDocumentHeaderSection)!=0) ? NSOnState : NSOffState;
+    _showHeaderCheckbox.state=((_displaySettings.visibleSections & CUIDocumentHeaderSection)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showExceptionInformationCheckbox.state=((_displaySettings.visibleSections & CUIDocumentExceptionInformationSection)!=0) ? NSOnState : NSOffState;
+    _showExceptionInformationCheckbox.state=((_displaySettings.visibleSections & CUIDocumentExceptionInformationSection)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showDiagnosticMessagesCheckbox.state=((_displaySettings.visibleSections & CUIDocumentDiagnosticMessagesSection)!=0) ? NSOnState : NSOffState;
+    _showDiagnosticMessagesCheckbox.state=((_displaySettings.visibleSections & CUIDocumentDiagnosticMessagesSection)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showBacktracesCheckbox.state=((_displaySettings.visibleSections & CUIDocumentBacktracesSection)!=0) ? NSOnState : NSOffState;
+    _showBacktracesCheckbox.state=((_displaySettings.visibleSections & CUIDocumentBacktracesSection)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showThreadStateCheckbox.state=((_displaySettings.visibleSections & CUIDocumentThreadStateSection)!=0) ? NSOnState : NSOffState;
+    _showThreadStateCheckbox.state=((_displaySettings.visibleSections & CUIDocumentThreadStateSection)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showBinaryImagesCheckbox.state=((_displaySettings.visibleSections & CUIDocumentBinaryImagesSection)!=0) ? NSOnState : NSOffState;
+    _showBinaryImagesCheckbox.state=((_displaySettings.visibleSections & CUIDocumentBinaryImagesSection)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
     // Stack Frame
     
-    _showBinaryNameCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
+    _showBinaryNameCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showMachineInstructionAddressCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSOnState : NSOffState;
+    _showMachineInstructionAddressCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     
-    _showByteOffsetCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSOnState : NSOffState;
+    _showByteOffsetCheckbox.state=((_displaySettings.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
 }
 
 #pragma mark -
@@ -156,57 +156,57 @@
 
 - (IBAction)switchShowsLineNumbers:(NSButton *)sender
 {
-    _applicationPreferences.showsLineNumbers=(sender.state==NSOnState);
+    _applicationPreferences.showsLineNumbers=(sender.state==NSControlStateValueOn);
 }
 
 - (IBAction)switchLineWrapping:(NSButton *)sender
 {
-    _applicationPreferences.lineWrapping=(sender.state==NSOnState);
+    _applicationPreferences.lineWrapping=(sender.state==NSControlStateValueOn);
 }
 
 - (IBAction)switchShowHeader:(NSButton *)sender
 {
-    [self _setSection:CUIDocumentHeaderSection visible:(sender.state==NSOnState)];
+    [self _setSection:CUIDocumentHeaderSection visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowExceptionInformation:(NSButton *)sender
 {
-    [self _setSection:CUIDocumentExceptionInformationSection visible:(sender.state==NSOnState)];
+    [self _setSection:CUIDocumentExceptionInformationSection visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowDiagnosticMessages:(NSButton *)sender
 {
-    [self _setSection:CUIDocumentDiagnosticMessagesSection visible:(sender.state==NSOnState)];
+    [self _setSection:CUIDocumentDiagnosticMessagesSection visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowBacktraces:(NSButton *)sender
 {
-    [self _setSection:CUIDocumentBacktracesSection visible:(sender.state==NSOnState)];
+    [self _setSection:CUIDocumentBacktracesSection visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowThreadState:(NSButton *)sender
 {
-    [self _setSection:CUIDocumentThreadStateSection visible:(sender.state==NSOnState)];
+    [self _setSection:CUIDocumentThreadStateSection visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowBinaryImages:(NSButton *)sender
 {
-    [self _setSection:CUIDocumentBinaryImagesSection visible:(sender.state==NSOnState)];
+    [self _setSection:CUIDocumentBinaryImagesSection visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowBinaryName:(NSButton *)sender
 {
-    [self _setStackFrameComponent:CUIStackFrameBinaryNameComponent visible:(sender.state==NSOnState)];
+    [self _setStackFrameComponent:CUIStackFrameBinaryNameComponent visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowMachineInstructionAddress:(NSButton *)sender
 {
-    [self _setStackFrameComponent:CUIStackFrameMachineInstructionAddressComponent visible:(sender.state==NSOnState)];
+    [self _setStackFrameComponent:CUIStackFrameMachineInstructionAddressComponent visible:(sender.state==NSControlStateValueOn)];
 }
 
 - (IBAction)switchShowByteOffset:(NSButton *)sender
 {
-    [self _setStackFrameComponent:CUIStackFrameByteOffsetComponent visible:(sender.state==NSOnState)];
+    [self _setStackFrameComponent:CUIStackFrameByteOffsetComponent visible:(sender.state==NSControlStateValueOn)];
 }
 
 @end

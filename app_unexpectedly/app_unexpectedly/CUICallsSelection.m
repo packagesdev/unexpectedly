@@ -39,7 +39,7 @@ NSString * const CUICallsSelectionDidChangeNotification=@"CUICallsSelectionDidCh
 {
     _calls=inCalls;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICallsSelectionDidChangeNotification object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICallsSelectionDidChangeNotification object:self];
 }
 
 - (NSSet *)binaryImageIdentifiers

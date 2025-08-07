@@ -42,7 +42,7 @@
     
     //[[NSColor redColor] set];
      
-     /*if ([tPart isKindOfClass:[CUIWatchGear class]]==NO)
+     /*if ([tPart isKindOfClass:CUIWatchGear.class]==NO)
      {
      [[NSColor greenColor] set];
      }*/

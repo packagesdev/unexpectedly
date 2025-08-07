@@ -15,8 +15,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 @implementation CUIAboutBoxFooterView
 
-- (void)drawRect:(NSRect) inRect
+- (void)drawRect:(NSRect)inRect
 {
+    NSRect tRefreshRect=NSIntersectionRect(self.bounds, inRect);
+    
 	// Draw background
 	
     BOOL tIsDarkMode=[self WB_isEffectiveAppearanceDarkAqua];
@@ -26,11 +28,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	else
 		[[NSColor colorWithDeviceWhite:0.0 alpha:0.18] set];
 	
-	NSRectFillUsingOperation(inRect,NSCompositingOperationSourceOver);
+	NSRectFillUsingOperation(tRefreshRect,NSCompositingOperationSourceOver);
 	
 	// Draw top line
-	
-	NSRect tBounds=[self bounds];
 	
 	if (tIsDarkMode==NO)
 		[[NSColor colorWithDeviceWhite:0.698 alpha:1.0] set];
@@ -40,9 +40,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	NSRect tLineRect;
 	
 	if (tIsDarkMode==NO)
-		tLineRect=NSMakeRect(NSMinX(inRect),NSMaxY(tBounds)-1.0,NSWidth(tBounds),1.0);
+		tLineRect=NSMakeRect(NSMinX(tRefreshRect),NSMaxY(tRefreshRect)-1.0,NSWidth(tRefreshRect),1.0);
 	else
-		tLineRect=NSMakeRect(NSMinX(inRect)+1.0,NSMaxY(tBounds)-1.0,NSWidth(tBounds)-3.0,1.0);
+		tLineRect=NSMakeRect(NSMinX(tRefreshRect)+1.0,NSMaxY(tRefreshRect)-1.0,NSWidth(tRefreshRect)-3.0,1.0);
 		
 	NSRectFillUsingOperation(tLineRect,NSCompositingOperationSourceOver);
 }

@@ -30,7 +30,7 @@
             case ' ':
             case 'b':
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"windowDidNotHandleKeyEventNotification" object:self.window userInfo:@{@"Event":[NSApp currentEvent]}];
+                [NSNotificationCenter.defaultCenter postNotificationName:@"windowDidNotHandleKeyEventNotification" object:self.window userInfo:@{@"Event":[NSApp currentEvent]}];
                 return;
         }
     }

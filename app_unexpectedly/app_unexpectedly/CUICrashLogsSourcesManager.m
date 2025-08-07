@@ -119,7 +119,7 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
            
             NSNumber * tNumber=bRepresentation[CUICrashLogsSourceTypeKey];
             
-            if ([tNumber isKindOfClass:[NSNumber class]]==NO)
+            if ([tNumber isKindOfClass:NSNumber.class]==NO)
                 return nil;
             
             CUICrashLogsSourceType tType=[tNumber unsignedIntegerValue];
@@ -157,7 +157,7 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
             [tMutableArray addObjectsFromArray:tCustomSources];
         }
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogsSourceDidAddSourcesNotification object:tMutableArray];
+        [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogsSourceDidAddSourcesNotification object:tMutableArray];
     }
     
     return self;
@@ -236,7 +236,7 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
         
         _customSourcesCount+=tPossibleSources.count;
         
-        NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+        NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
         
         [tNotificationCenter postNotificationName:CUICrashLogsSourceDidAddSourcesNotification object:tPossibleSources];
         
@@ -283,7 +283,7 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
         if (_customSourcesCount==0)
             [_sources removeObjectIdenticalTo:[CUICrashLogsSourceSeparator separator]];
         
-        NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+        NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
         
         [tNotificationCenter postNotificationName:CUICrashLogsSourceDidRemoveSourcesNotification object:tPossibleSources];
         
@@ -308,7 +308,7 @@ NSString * const CUICrashLogsSourcesManagerSourcesDidChangeNotification=@"CUICra
     
     [_sources addObjectsFromArray:tSortableArray];
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter postNotificationName:CUICrashLogsSourcesManagerSourcesDidChangeNotification object:self];
     

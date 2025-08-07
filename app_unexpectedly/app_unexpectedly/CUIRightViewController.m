@@ -60,7 +60,7 @@
     
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -73,7 +73,7 @@
     
     // Register for Notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(crashLogsSelectionDidChange:) name:CUICrashLogsSelectionDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(crashLogsSelectionDidChange:) name:CUICrashLogsSelectionDidChangeNotification object:nil];
 }
 
 #pragma mark -
@@ -99,7 +99,7 @@
     {
         CUICrashLog * tCrashLog=_selection.crashLogs.firstObject;
         
-        if ([tCrashLog isMemberOfClass:[CUIRawCrashLog class]]==YES)
+        if ([tCrashLog isMemberOfClass:CUIRawCrashLog.class]==YES)
         {
             _unavailableViewController.view.frame=self.view.bounds;
             
@@ -126,7 +126,7 @@
 {
     CUICrashLogsSelection * tSelection=inNotification.object;
     
-    if ([tSelection isKindOfClass:[CUICrashLogsSelection class]]==NO)
+    if ([tSelection isKindOfClass:CUICrashLogsSelection.class]==NO)
         return;
     
     self.selection=tSelection;

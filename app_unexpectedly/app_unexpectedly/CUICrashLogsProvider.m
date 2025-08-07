@@ -54,7 +54,7 @@ NSString * const CUIRetiredPathComponent=@"Retired";
 
 - (id)crashLogWithContentsOfFile:(NSString *)inPath error:(NSError **)outError
 {
-	if ([inPath isKindOfClass:[NSString class]]==NO)
+	if ([inPath isKindOfClass:NSString.class]==NO)
 	{
 		if (outError!=NULL)
 			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];
@@ -74,6 +74,8 @@ NSString * const CUIRetiredPathComponent=@"Retired";
     
     if (tCrashLog==nil)
     {
+		BOOL tryAgainIfRawSucceed=NO;
+		
         if ([tError.domain isEqualToString:NSCocoaErrorDomain]==YES)
         {
             switch(tError.code)
@@ -86,7 +88,18 @@ NSString * const CUIRetiredPathComponent=@"Retired";
                     
                     return nil;
                     
-                default:
+				case NSFileReadUnknownError:
+				{
+					NSError * tUnderlyingError=tError.userInfo[NSUnderlyingErrorKey];
+					
+					if ([tUnderlyingError.domain isEqualToString:NSPOSIXErrorDomain]==YES &&
+						tUnderlyingError.code==EINTR)
+					{
+						tryAgainIfRawSucceed=YES;
+					}
+				}
+				
+				default:
                     
                     break;
             }
@@ -109,12 +122,17 @@ NSString * const CUIRetiredPathComponent=@"Retired";
             }
         }
         
-        NSLog(@"Error when parsing report file \"%@\", will try to parse it as raw report",inPath);
+        NSLog(@"Error when parsing report file \"%@\", will try to parse it as raw report: %@",inPath,tError.description);
         
         tCrashLog=[[CUIRawCrashLog alloc] initWithContentsOfFile:inPath error:&tError];
         
-        if (outError!=nil)
-            *outError=tError;
+		if (tCrashLog!=nil)
+		{
+			id newCrashLogAttempt=[[CUICrashLog alloc] initWithContentsOfFile:inPath error:&tError];
+			
+			if (newCrashLogAttempt!=nil)
+				tCrashLog=newCrashLogAttempt;
+		}
     }
     
 	return tCrashLog;
@@ -127,7 +145,7 @@ NSString * const CUIRetiredPathComponent=@"Retired";
 
 - (NSArray *)crashLogsForDirectory:(NSString *)inDirectoryPath options:(CUICrashLogsProviderCollectOptions)inOptions error:(NSError **)outError
 {
-	if ([inDirectoryPath isKindOfClass:[NSString class]]==NO)
+	if ([inDirectoryPath isKindOfClass:NSString.class]==NO)
 	{
 		if (outError!=NULL)
 			*outError=[NSError errorWithDomain:NSPOSIXErrorDomain code:EINVAL userInfo:@{}];

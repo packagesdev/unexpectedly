@@ -39,8 +39,8 @@
 "%[header.operatingSystemVersion.stringValue]@ %[ends with]@ %@" = "%1$[Operating System Version]@ %2$[ends with]@ %3$@";
 "%[header.operatingSystemVersion.stringValue]@ %[contains]@ %@" = "%1$[Operating System Version]@ %2$[contains]@ %3$@";
 
-"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Date]@ %2$[is earlier than or equal to]@ %3$@";
-"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Date]@ %2$[is later than or equal to]@ %3$@";
+"%[dateTime]@ %[is less than or equal to]@ %@" = "%1$[Date]@ %2$[is before or the same as]@ %3$@";
+"%[dateTime]@ %[is greater than or equal to]@ %@" = "%1$[Date]@ %2$[is on or after]@ %3$@";
 
 "%[exceptionType]@ is %[EXC_ARITHMETIC]@" = "%1$[Exception Type]@ is %2$[EXC_ARITHMETIC]@";
 "%[exceptionType]@ is %[EXC_BAD_ACCESS]@" = "%1$[Exception Type]@ is %2$[EXC_BAD_ACCESS]@";

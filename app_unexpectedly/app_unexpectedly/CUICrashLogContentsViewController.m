@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -27,7 +27,7 @@ NSString * const CUIDefaultsPresentationModeKey=@"ui.presentationMode";
 
 NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"CUICrashLogContentsViewPresentationModeDidChangeNotification";
 
-@interface CUICrashLogContentsViewController () <CUIFileDeadDropViewDelegate>
+@interface CUICrashLogContentsViewController () <CUIFileDeadDropViewDelegate,NSMenuItemValidation>
 {
     CUICrashLogPresentationTextViewController * _textViewController;
     
@@ -90,7 +90,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     
     // Register for notifications
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(huntDidFinish:) name:CUIdSYMHunterHuntDidFinishNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(huntDidFinish:) name:CUIdSYMHunterHuntDidFinishNotification object:nil];
 }
 
 #pragma mark -
@@ -146,7 +146,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     
     if (tAction==@selector(CUI_MENUACTION_switchPresentationMode:))
     {
-        inMenuItem.state=(inMenuItem.tag==self.presentationMode) ? NSOnState : NSOffState;
+        inMenuItem.state=(inMenuItem.tag==self.presentationMode) ? NSControlStateValueOn : NSControlStateValueOff;
         
         return YES;
     }
@@ -195,7 +195,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     {
         NSSegmentedControl * tSegmentedControl=(NSSegmentedControl *)sender;
         
-        tPresentationMode=tSegmentedControl.selectedSegment;
+        tPresentationMode=[tSegmentedControl tagForSegment:tSegmentedControl.selectedSegment];
     }
     else
     {
@@ -358,7 +358,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     
     // Post Notification
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogContentsViewPresentationModeDidChangeNotification object:self userInfo:@{@"mode":@(_presentationMode)}];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogContentsViewPresentationModeDidChangeNotification object:self userInfo:@{@"mode":@(_presentationMode)}];
     
     // Save presentation mode in defaults
     
@@ -379,38 +379,36 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
 
 #pragma mark - CUIFileDeadDropViewDelegate
 
-- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView validateDropFiles:(NSArray *)inFilenames
+- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView validateDropFileURLs:(NSArray<NSURL *> *)inURLArray
 {
-    if (inFilenames==nil)
+    if (inURLArray==nil)
         return NO;
     
-    if ([self.crashLog isKindOfClass:[CUIRawCrashLog class]]==YES)
+    if ([self.crashLog isMemberOfClass:[CUICrashLog class]]==NO)
         return NO;
-    
-    NSFileManager * tFileManager=[NSFileManager defaultManager];
     
     CUIdSYMBundlesManager * tBundlesManager=[CUIdSYMBundlesManager sharedManager];
     
     NSArray * tAllUUIDs=self.crashLog.binaryImages.allUUIDs;
     
-    NSArray * tFilteredArray=[inFilenames WB_filteredArrayUsingBlock:^BOOL(NSString * bPath, NSUInteger bIndex) {
+    NSArray<NSURL *> * tFilteredArray=[inURLArray WB_filteredArrayUsingBlock:^BOOL(NSURL * bURL, NSUInteger bIndex) {
         
-        BOOL tIsDirectory;
+        NSNumber *tIsDirectoryNumber;
         
-        if ([tFileManager fileExistsAtPath:bPath isDirectory:&tIsDirectory]==NO)
+        if ([bURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
             return NO;
         
-        if (tIsDirectory==NO)
+        if (tIsDirectoryNumber.boolValue==NO)
             return NO;
         
         // Should have .crash extension
         
-        if ([bPath.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
+        if ([bURL.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
             return NO;
         
         // Check that these are dSYM bundles and that the UUIDs are not already listed
         
-        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithPath:bPath];
+        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithURL:bURL];
         
         if (tBundle.isDSYMBundle==NO)
             return NO;
@@ -418,9 +416,7 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
         if ([tBundlesManager containsBundle:tBundle]==YES)
             return NO;
         
-        // Check that one the UUIDs is the one of a binary of the crash log
-        
-        
+        // Check that one of the UUIDs is the one of a binary of the crash log
         
         NSUInteger tIndex=[tBundle.binaryUUIDs indexOfObjectPassingTest:^BOOL(NSString * bUUID, NSUInteger bIndex, BOOL * bOutStop) {
             
@@ -434,35 +430,33 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
     return (tFilteredArray.count>0);
 }
 
-- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView acceptDropFiles:(NSArray *)inFilenames
+- (BOOL)fileDeadDropView:(CUIFileDeadDropView *)inView acceptDropFileURLs:(NSArray<NSURL *> *)inURLArray
 {
-    if (inFilenames==nil)
+    if (inURLArray==nil)
         return NO;
-    
-    NSFileManager * tFileManager=[NSFileManager defaultManager];
     
     CUIdSYMBundlesManager * tBundlesManager=[CUIdSYMBundlesManager sharedManager];
     
     NSArray * tAllUUIDs=self.crashLog.binaryImages.allUUIDs;
     
-    NSArray * tMappedArray=[inFilenames WB_arrayByMappingObjectsLenientlyUsingBlock:^CUIdSYMBundle *(NSString * bPath, NSUInteger bIndex) {
+    NSArray * tMappedArray=[inURLArray WB_arrayByMappingObjectsLenientlyUsingBlock:^CUIdSYMBundle *(NSURL * bURL, NSUInteger bIndex) {
         
-        BOOL tIsDirectory;
+        NSNumber *tIsDirectoryNumber;
         
-        if ([tFileManager fileExistsAtPath:bPath isDirectory:&tIsDirectory]==NO)
+        if ([bURL getResourceValue:&tIsDirectoryNumber forKey:NSURLIsDirectoryKey error:NULL]==NO)
             return nil;
         
-        if (tIsDirectory==NO)
+        if (tIsDirectoryNumber.boolValue==NO)
             return nil;
         
         // Should have .crash extension
         
-        if ([bPath.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
+        if ([bURL.pathExtension caseInsensitiveCompare:@"dSYM"]!=NSOrderedSame)
             return nil;
         
         // Check that these are dSYM bundles and that the UUIDs are not already listed
         
-        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithPath:bPath];
+        CUIdSYMBundle * tBundle=[[CUIdSYMBundle alloc] initWithURL:bURL];
         
         if (tBundle.isDSYMBundle==NO)
             return nil;
@@ -471,8 +465,6 @@ NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotification=@"
             return nil;
         
         // Check that one the UUIDs is the one of a binary of the crash log
-        
-        
         
         NSUInteger tIndex=[tBundle.binaryUUIDs indexOfObjectPassingTest:^BOOL(NSString * bUUID, NSUInteger bIndex, BOOL * bOutStop) {
             

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2022 Stephane Sudre
+ Copyright (c) 2020-2025 Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -80,6 +80,19 @@ void mycallback(
 - (instancetype)initWithRepresentation:(NSDictionary *)inRepresentation
 {
     self=[super initWithRepresentation:inRepresentation];
+    
+    if (self!=nil)
+    {
+        if ([self initCommonWithError:NULL]==NO)
+            return nil;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithContentsOfFileSystemItemAtPath:(NSString *)inPath error:(NSError **)outError
+{
+    self = [super initWithContentsOfFileSystemItemAtPath:inPath error:outError];
     
     if (self!=nil)
     {
@@ -173,7 +186,7 @@ void mycallback(
          return;
          }*/
         
-        _crashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path options:(_collectRetired==YES) ? CUICrashLogsProviderCollectRetired : 0 error:NULL];;
+        _crashLogs=[[CUICrashLogsProvider defaultProvider] crashLogsForDirectory:self.path options:(_collectRetired==YES) ? CUICrashLogsProviderCollectRetired : 0 error:NULL];
     }
     else
     {
@@ -187,7 +200,7 @@ void mycallback(
         _crashLogs=tCrashLogs;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUICrashLogsSourceDidUpdateSourceNotification object:self];
 }
 
 @end

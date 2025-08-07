@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2024, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -21,9 +21,11 @@ NSString * const CUICrashLogPresentationDisplayedSectionsDidChangeNotification=@
 
 NSString * const CUICrashLogPresentationVisibleSectionsDidChangeNotification=@"CUICrashLogPresentationVisibleSectionsDidChangeNotification";
 
-@implementation CUICrashLogPresentationViewController
+@interface CUICrashLogPresentationViewController () <NSMenuItemValidation>
 
-#pragma mark -
+@end
+
+@implementation CUICrashLogPresentationViewController
 
 - (void)viewDidLoad
 {
@@ -52,11 +54,11 @@ NSString * const CUICrashLogPresentationVisibleSectionsDidChangeNotification=@"C
     {
         if ([inMenuItem.title isEqualToString:[CUIThemesManager sharedManager].currentTheme.name]==YES)
         {
-            inMenuItem.state=NSOnState;
+            inMenuItem.state=NSControlStateValueOn;
         }
         else
         {
-            inMenuItem.state=NSOffState;
+            inMenuItem.state=NSControlStateValueOff;
         }
     
         return YES;
@@ -64,15 +66,15 @@ NSString * const CUICrashLogPresentationVisibleSectionsDidChangeNotification=@"C
     
     if (tAction==@selector(CUI_MENUACTION_switchShowOffset:))
     {
-        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSOnState : NSOffState;
+        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameByteOffsetComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     else if (tAction==@selector(CUI_MENUACTION_switchShowMemoryAddress:))
     {
-        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSOnState : NSOffState;
+        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameMachineInstructionAddressComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     else if (tAction==@selector(CUI_MENUACTION_switchShowBinaryImageIdentifier:))
     {
-        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSOnState : NSOffState;
+        inMenuItem.state=((self.visibleStackFrameComponents & CUIStackFrameBinaryNameComponent)!=0) ? NSControlStateValueOn : NSControlStateValueOff;
     }
     
     return YES;

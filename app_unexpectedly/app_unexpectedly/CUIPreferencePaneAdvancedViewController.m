@@ -47,29 +47,29 @@ extern NSString * const CUIApplicationShowDebugDidChangeNotification;
     
     // Remote Version Check
     
-    _remoteVersionCheckerCheckbox.state=([WBRemoteVersionChecker sharedChecker].isCheckEnabled==YES) ? NSOnState: NSOffState;
+    _remoteVersionCheckerCheckbox.state=([WBRemoteVersionChecker sharedChecker].isCheckEnabled==YES) ? NSControlStateValueOn: NSControlStateValueOff;
     
     // Show Debug Menu
     
     NSUserDefaults * tDefaults=[NSUserDefaults standardUserDefaults];
     
-    _showDebugMenuCheckbox.state=([tDefaults boolForKey:CUIApplicationShowDebugMenuKey]==YES) ? NSOnState: NSOffState;
+    _showDebugMenuCheckbox.state=([tDefaults boolForKey:CUIApplicationShowDebugMenuKey]==YES) ? NSControlStateValueOn: NSControlStateValueOff;
 }
 
 #pragma mark -
 
 - (IBAction)switchRemoteVersionCheck:(NSButton *)sender
 {
-    [WBRemoteVersionChecker sharedChecker].checkEnabled=(sender.state==NSOnState);
+    [WBRemoteVersionChecker sharedChecker].checkEnabled=(sender.state==NSControlStateValueOn);
 }
 
 - (IBAction)switchShowDebugMenu:(NSButton *)sender
 {
     NSUserDefaults * tDefaults=[NSUserDefaults standardUserDefaults];
     
-    [tDefaults setBool:(sender.state==NSOnState) forKey:CUIApplicationShowDebugMenuKey];
+    [tDefaults setBool:(sender.state==NSControlStateValueOn) forKey:CUIApplicationShowDebugMenuKey];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIApplicationShowDebugDidChangeNotification object:nil];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIApplicationShowDebugDidChangeNotification object:nil];
 }
 
 @end

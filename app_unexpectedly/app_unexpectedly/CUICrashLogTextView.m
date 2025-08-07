@@ -23,31 +23,14 @@
 
 @implementation CUICrashLogTextView
 
-- (void)CUI_scrollPoint:(NSPoint)inPoint
-{
-    NSScrollView * tScrollView=self.enclosingScrollView;
-    
-    NSView * tDocumentView=tScrollView.documentView;
-    NSRulerView * tVerticalRulerView=tScrollView.verticalRulerView;
-    
-    if (self!=tDocumentView ||
-        tVerticalRulerView==nil ||
-        tScrollView.horizontalScroller.isHidden==YES)
-    {
-        [self scrollPoint:inPoint];
-        
-        return;
-    }
-
-    // Offset the text view frame to take into account the vertical ruler width
-    
-    inPoint.x-=NSWidth(tVerticalRulerView.frame);
-    
-    [self scrollPoint:inPoint];
-}
-
 - (void)_scrollUp:(CGFloat)inOffset
 {
+    if (self.wrapLines==YES)
+    {
+        [super _scrollUp:inOffset];
+        return;
+    }
+    
     NSScrollView * tScrollView=self.enclosingScrollView;
     
     NSView * tDocumentView=tScrollView.documentView;
@@ -69,7 +52,6 @@
     NSRect tNewFrame=tOldFrame;
     
     tNewFrame.origin.x-=NSWidth(tVerticalRulerView.frame);
-    
     self.frame=tNewFrame;
     
     [super _scrollUp:inOffset];
@@ -81,6 +63,12 @@
 
 - (void)_scrollDown:(CGFloat)inOffset
 {
+    if (self.wrapLines==YES)
+    {
+        [super _scrollDown:inOffset];
+        return;
+    }
+    
     NSScrollView * tScrollView=self.enclosingScrollView;
     
     NSView * tDocumentView=tScrollView.documentView;
@@ -94,22 +82,48 @@
         
         return;
     }
-
+    
     NSRect tOldFrame=tDocumentView.frame;
     
-    // Offset the text view frame to take into account the vertical ruler width
-        
     NSRect tNewFrame=tOldFrame;
-        
+    
     tNewFrame.origin.x-=NSWidth(tVerticalRulerView.frame);
-        
     self.frame=tNewFrame;
     
     [super _scrollDown:inOffset];
     
     // Restore the text view frame
-        
+    
     self.frame=tOldFrame;
+}
+
+- (void)CUI_scrollPoint:(NSPoint)inPoint
+{
+    if (self.wrapLines==YES)
+    {
+        [super scrollPoint:inPoint];
+        return;
+    }
+    
+    NSScrollView * tScrollView=self.enclosingScrollView;
+    
+    NSView * tDocumentView=tScrollView.documentView;
+    NSRulerView * tVerticalRulerView=tScrollView.verticalRulerView;
+    
+    if (self!=tDocumentView ||
+        tVerticalRulerView==nil ||
+        tScrollView.horizontalScroller.isHidden==YES)
+    {
+        [self scrollPoint:inPoint];
+        
+        return;
+    }
+
+    // Offset the text view frame to take into account the vertical ruler width
+    
+    inPoint.x-=NSWidth(tVerticalRulerView.frame);
+    
+    [self scrollPoint:inPoint];
 }
 
 - (NSPoint)textContainerOrigin

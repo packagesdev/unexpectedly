@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CUIPreferencePaneCrashreporterViewController">
+            <connections>
+                <outlet property="_dialogTypeGroup" destination="G3J-O5-TdF" id="ZfW-ac-1tR"/>
+                <outlet property="_notificationModeGroup" destination="7ak-aK-Hz3" id="2VA-sI-h8f"/>
+                <outlet property="_reportUncaughtExceptionsCheckbox" destination="k0s-Jp-SYV" id="GO5-qu-ZEq"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="730" height="222"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wjm-1k-GIP">
+                    <rect key="frame" x="384" y="76" width="94" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="אופן ההתראה:" id="Ipc-sm-G5f">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView id="G3J-O5-TdF">
+                    <rect key="frame" x="191" y="107" width="189" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button toolTip="The Unexpectedly Quit dialog is displayed for all processes run by the user." verticalHuggingPriority="750" tag="1" id="q4r-Gy-3Z5">
+                            <rect key="frame" x="132" y="21" width="58" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="radio" title="מפתח" bezelStyle="regularSquare" imagePosition="right" baseWritingDirection="rightToLeft" inset="2" id="Tjt-95-3Z2">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="switchCrashReporterDialogType:" target="-2" id="hvp-pX-cgQ"/>
+                            </connections>
+                        </button>
+                        <button toolTip="The Unexpectedly Quit dialog is never displayed." verticalHuggingPriority="750" tag="2" id="i8F-ge-i9c">
+                            <rect key="frame" x="139" y="-1" width="50" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="radio" title="שרת" bezelStyle="regularSquare" imagePosition="right" baseWritingDirection="rightToLeft" inset="2" id="l5e-xv-Kdo">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="switchCrashReporterDialogType:" target="-2" id="eST-mh-Dhc"/>
+                            </connections>
+                        </button>
+                        <button toolTip="The Unexpectedly Quit dialog is only displayed for application crashes." verticalHuggingPriority="750" id="KDV-3D-Zmr">
+                            <rect key="frame" x="134" y="43" width="55" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="radio" title="בסיסי" bezelStyle="regularSquare" imagePosition="right" baseWritingDirection="rightToLeft" inset="2" id="8un-EB-HxH">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="switchCrashReporterDialogType:" target="-2" id="K5B-SF-Gng"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </customView>
+                <customView id="7ak-aK-Hz3">
+                    <rect key="frame" x="191" y="54" width="189" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" tag="1" id="AhZ-xe-s0x">
+                            <rect key="frame" x="137" y="-1" width="52" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="radio" title="עדכון" bezelStyle="regularSquare" imagePosition="right" baseWritingDirection="rightToLeft" inset="2" id="1LC-JU-zMZ">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="switchCrashReporterNotificationMode:" target="-2" id="Zpu-SM-Vup"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" id="nMG-po-tCI">
+                            <rect key="frame" x="92" y="21" width="97" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="radio" title="תיבת דו-שיח" bezelStyle="regularSquare" imagePosition="right" baseWritingDirection="rightToLeft" inset="2" id="2af-hi-y4e">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="switchCrashReporterNotificationMode:" target="-2" id="M91-HQ-GhJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </customView>
+                <button verticalHuggingPriority="750" id="k0s-Jp-SYV">
+                    <rect key="frame" x="206" y="18" width="174" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="דווח על חריגים שלא נתפסו" bezelStyle="regularSquare" imagePosition="right" state="on" inset="2" id="b1K-o7-rhS">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="switchReportUncaughtException:" target="-2" id="eNP-mM-U1S"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="3C8-jD-0F8">
+                    <rect key="frame" x="-2" y="188" width="734" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" alignment="center" title=".כאשר אפליקציה נסגרת באופן בלתי צפוי ב-macOS, דוח הקריסה מופק על ידי שירות Crash Reporter של Apple" id="XPU-ts-yFW">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="X5h-y9-eMQ">
+                    <rect key="frame" x="384" y="151" width="77" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="אופן פעולה:" id="NM5-WZ-kg0">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <point key="canvasLocation" x="27" y="15"/>
+        </customView>
+    </objects>
+</document>

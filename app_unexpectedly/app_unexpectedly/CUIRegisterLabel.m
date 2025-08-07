@@ -139,11 +139,11 @@ NSString * const CUIRegisterLabelViewAsValueDidChangeNotification=@"CUIRegisterL
     
     // Post notification
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:CUIRegisterLabelViewAsValueDidChangeNotification
-                                                        object:self
-                                                      userInfo:@{
-                                                                 @"viewAs":@(tViewValueAs)
-                                                                 }];
+    [NSNotificationCenter.defaultCenter postNotificationName:CUIRegisterLabelViewAsValueDidChangeNotification
+                                                      object:self
+                                                    userInfo:@{
+                                                               @"viewAs":@(tViewValueAs)
+                                                               }];
 }
 
 #pragma mark -

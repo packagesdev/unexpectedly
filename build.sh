@@ -42,6 +42,14 @@ pushd app_unexpectedly
 popd
 
 
+## Notarize if supported
+
+if [ -f request_notarization-notarytool.sh ]; then
+
+	/bin/sh request_notarization-notarytool.sh
+
+fi
+
 ## Create the disk image
 
 pushd distribution

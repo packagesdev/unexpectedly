@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2020-2021, Stephane Sudre
+ Copyright (c) 2020-2025, Stephane Sudre
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -25,7 +25,9 @@ extern NSString * const CUICrashLogContentsViewPresentationModeDidChangeNotifica
 
 extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
 
-@interface CUIMainWindowController () <NSToolbarDelegate,NSWindowDelegate>
+extern NSString * const CUIDefaultsBottomViewCollapsedKey;
+
+@interface CUIMainWindowController () <NSMenuItemValidation, NSToolbarDelegate,NSWindowDelegate>
 {
     CUICrashLogsMainViewController * _mainViewController;
     
@@ -54,7 +56,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 #pragma mark -
@@ -70,7 +72,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     
     // Register for notifications
     
-    NSNotificationCenter * tNotificationCenter=[NSNotificationCenter defaultCenter];
+    NSNotificationCenter * tNotificationCenter=NSNotificationCenter.defaultCenter;
     
     [tNotificationCenter addObserver:self selector:@selector(crashLogsSelectionDidChange:) name:CUICrashLogsSelectionDidChangeNotification object:nil];
     
@@ -122,7 +124,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     if (inEventSelector!=@selector(keyDown:))
         return;
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"windowDidNotHandleKeyEventNotification" object:self.window userInfo:@{@"Event":[NSApp currentEvent]}];
+    [NSNotificationCenter.defaultCenter postNotificationName:@"windowDidNotHandleKeyEventNotification" object:self.window userInfo:@{@"Event":[NSApp currentEvent]}];
 }
 
 - (IBAction)CUIMENUACTION_showHideRegisters:(id)sender
@@ -137,7 +139,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     {
         [tRegistersWindowController showWindow:nil];
         
-        _registersWindowButton.state=NSOnState;
+        _registersWindowButton.state=NSControlStateValueOn;
     }
 }
 
@@ -174,9 +176,27 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     if (tNumber==nil)
         return;
     
-    [_presentationModeSegmentedControl selectSegmentWithTag:tNumber.integerValue];
+    NSUInteger tMode=tNumber.integerValue;
     
-    [_mainLayoutSegmentedControl setEnabled:(tNumber.integerValue==1) forSegment:1];
+    [_presentationModeSegmentedControl selectSegmentWithTag:tMode];
+    
+    [_mainLayoutSegmentedControl setEnabled:(tMode==1) forSegment:1];
+    
+    if (tMode!=1)
+    {
+        [_mainLayoutSegmentedControl setSelected:NO forSegment:1];
+    }
+    else
+    {
+        BOOL tIsCollapsed=NO;
+        
+        tNumber=[[NSUserDefaults standardUserDefaults] objectForKey:CUIDefaultsBottomViewCollapsedKey];
+        
+        if (tNumber==nil || [tNumber boolValue]==YES)
+            tIsCollapsed=YES;
+        
+        [_mainLayoutSegmentedControl setSelected:(tIsCollapsed==NO) forSegment:1];
+    }
 }
 
 - (void)crashLogsSelectionDidChange:(NSNotification *)inNotification
@@ -188,7 +208,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     
     _presentationModeSegmentedControl.enabled=(tSelection.crashLogs.count>0);
     
-    if (_presentationModeSegmentedControl.selectedSegment==1)
+    if ([_presentationModeSegmentedControl tagForSegment:_presentationModeSegmentedControl.selectedSegment]==1)
     {
         [_mainLayoutSegmentedControl setEnabled:(tSelection.crashLogs.count>0) forSegment:1];
     }
@@ -223,7 +243,7 @@ extern NSString * const CUIBottomViewCollapseStateDidChangeNotification;
     
     if ([tWindow.windowController isKindOfClass:[CUIRegistersWindowController class]]==YES)
     {
-        _registersWindowButton.state=NSOffState;
+        _registersWindowButton.state=NSControlStateValueOff;
     }
 }
 

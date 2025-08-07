@@ -1,0 +1,17 @@
+<html dir="rtl" lang="he">
+    <head>
+        <link rel="stylesheet" type="text/css" href="./known_exceptions.css">
+    </head>
+    
+<body>
+<b>תַקצִיר</b>
+<p>הסוג EXC_BAD_ACCESS (SIGSEGV) מציין שתהליך משתמש בזיכרון בצורה בלתי צפויה.</p>
+
+<b>דיון</b>
+<p>החריג יכול להתרחש כאשר התהליך מנסה לגשת לזיכרון לא ממופה (KERN_INVALID_ADDRESS), לזיכרון לא מיושר (EXC_ARM_DA_ALIGN) או לזיכרון לא זמין (KERN_MEMORY_ERROR). זה יכול לקרות גם כאשר התהליך מנסה לכתוב על זיכרון לקריאה בלבד או מוגן (KERN_PROTECTION_FAILURE).</p>
+
+<div class="external_link">
+<a href="https://developer.apple.com/documentation/xcode/sigsegv" target="_blank">פתח באתר המפתחים של Apple</a>
+</div>
+</body>
+</html>

@@ -17,6 +17,8 @@
 
 #import "CUICrashLog.h"
 
+#import "CUITheme.h"
+
 #ifndef __DISABLE_SYMBOLICATION_
 
 #import "CUISymbolicationManager.h"
@@ -25,6 +27,9 @@
 #endif
 
 @interface CUIReportThemedTransform : CUIDataTransform
+
+    @property (readonly) id<CUIThemesProvider> themesProvider;
+
 
     @property (readonly) NSDictionary * plainTextAttributes;
 
@@ -63,6 +68,9 @@
     @property (copy) NSString * processPath;
 
     @property (nonatomic) CUICrashLog * crashlog;
+
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithThemesProvider:(id <CUIThemesProvider>)inThemesProvider NS_DESIGNATED_INITIALIZER;
 
 - (void)updatesCachedAttributes;
 

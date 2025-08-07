@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CUIInspectorExecutableViewController">
             <connections>
+                <outlet property="_codeSigningButton" destination="s4h-eD-ItN" id="To8-h6-Yko"/>
                 <outlet property="_executableArchitectureValue" destination="FHg-iH-xDN" id="gZP-1i-Ula"/>
                 <outlet property="_executableIconView" destination="Sae-Ke-hDq" id="ypT-Mj-Zdm"/>
                 <outlet property="_executableNameValue" destination="Lro-Zd-nK3" id="TjT-bg-eaE"/>
@@ -50,7 +51,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="vJ5-dm-szr">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="vJ5-dm-szr">
                     <rect key="frame" x="99" y="15" width="266" height="42"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <textFieldCell key="cell" controlSize="small" selectable="YES" title="-" id="wdP-NI-1D3">
@@ -102,11 +103,23 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" id="s4h-eD-ItN">
+                    <rect key="frame" x="366" y="161" width="14" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockLockedTemplate" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Wz4-rQ-pgV">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showCodeSigningInformation:" target="-2" id="m9b-V9-6GE"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="-51.5" y="-186"/>
         </customView>
     </objects>
     <resources>
         <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
+        <image name="NSLockLockedTemplate" width="10" height="14"/>
     </resources>
 </document>
