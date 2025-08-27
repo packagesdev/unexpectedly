@@ -98,7 +98,13 @@ NSString * const CUIRetiredPathComponent=@"Retired";
 						tryAgainIfRawSucceed=YES;
 					}
 				}
-				
+					
+				case NSPropertyListReadCorruptError:	// Invalid json file.
+					if (outError!=nil)
+						*outError=tError;
+					
+					return nil;
+					
 				default:
                     
                     break;
