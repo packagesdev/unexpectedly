@@ -286,6 +286,9 @@
 {
     IPSIncidentHeader * tHeader=inIncident.header;
     
+    if (tHeader.crashReporterKey==nil)
+        return [NSArray array];
+    
     NSMutableArray * tMutableArray=[NSMutableArray array];
     
     NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Process:"] mutableCopy];
