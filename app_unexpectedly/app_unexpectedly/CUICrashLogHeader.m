@@ -45,6 +45,8 @@
 
     @property (copy) NSString * executableVersion;
 
+    @property (copy) NSString * buildVersion;
+
 
     @property (copy) NSString * responsibleProcessName;
 
@@ -258,6 +260,8 @@
         _bundleIdentifier=tIPSHeader.bundleInfo.bundleIdentifier;
         
         _executableVersion=tIPSHeader.bundleInfo.bundleShortVersionString;
+        
+        _buildVersion=tIPSHeader.bundleInfo.bundleVersion;
         
         
         _responsibleProcessName=tIPSHeader.responsibleProcessName;
