@@ -287,8 +287,18 @@
     IPSIncidentHeader * tHeader=inIncident.header;
     
     NSMutableArray * tMutableArray=[NSMutableArray array];
-    
-    NSMutableAttributedString * tMutableAttributedString=[[self attributedStringForKey:@"Process:"] mutableCopy];
+	NSMutableAttributedString * tMutableAttributedString;
+	
+	if ([tHeader.crashReporterKey isKindOfClass:NSString.class])
+	{
+		tMutableAttributedString=[[self attributedStringForKey:@"CrashReporter Key:"] mutableCopy];
+		[tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@"      "]];
+		[tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:tHeader.crashReporterKey]];
+		
+		[tMutableArray addObject:tMutableAttributedString];
+	}
+	
+	tMutableAttributedString=[[self attributedStringForKey:@"Process:"] mutableCopy];
     
     NSDictionary * tJumpAnchorAttributes=@{
                                            CUISectionAnchorAttributeName:@"section:Header"
@@ -369,11 +379,14 @@
     
     [tMutableArray addObject:tMutableAttributedString];
     
-    tMutableAttributedString=[[self attributedStringForKey:@"Anonymous UUID:"] mutableCopy];
-    [tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@"        "]];
-    [tMutableAttributedString appendAttributedString:[self attributedStringForUUID:tHeader.crashReporterKey.UUIDString]];
-    
-    [tMutableArray addObject:tMutableAttributedString];
+	if ([tHeader.crashReporterKey isKindOfClass:NSUUID.class])
+	{
+		tMutableAttributedString=[[self attributedStringForKey:@"Anonymous UUID:"] mutableCopy];
+		[tMutableAttributedString appendAttributedString:[self attributedStringForPlainText:@"        "]];
+		[tMutableAttributedString appendAttributedString:[self attributedStringForUUID:[tHeader.crashReporterKey UUIDString]]];
+		
+		[tMutableArray addObject:tMutableAttributedString];
+	}
     
     [tMutableArray addObject:@""];
     

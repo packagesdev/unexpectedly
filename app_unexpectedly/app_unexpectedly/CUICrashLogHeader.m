@@ -233,8 +233,10 @@
         
         _bridgeOSVersion=nil;
         
-        
-        _anonymousUUID=tIPSHeader.crashReporterKey.UUIDString;
+        if ([tIPSHeader.crashReporterKey isKindOfClass:NSUUID.class]==YES)
+			_anonymousUUID=[tIPSHeader.crashReporterKey UUIDString];
+		else
+			_anonymousUUID=tIPSHeader.crashReporterKey;
         
         
         _codeType=CUICodeTypeARM_64;
