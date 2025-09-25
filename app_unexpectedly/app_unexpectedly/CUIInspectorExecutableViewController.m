@@ -91,13 +91,22 @@
     
     NSString * tVersion=tHeader.executableVersion;
     
+    NSString * tBuild=tHeader.buildVersion;
+    
     if (tVersion==nil || [tVersion isEqualToString:@"???"]==YES)
     {
         _executableVersionValue.stringValue=NSLocalizedString(@"Unknown version",@"");
     }
     else
     {
-        _executableVersionValue.stringValue=[NSString stringWithFormat:NSLocalizedString(@"Version %@",@""),tVersion];
+        NSString * buildString = @"";
+        
+        if (tBuild!=nil)
+        {
+            buildString=[NSString stringWithFormat:@" (%@)",tBuild];
+        }
+        
+        _executableVersionValue.stringValue=[NSString stringWithFormat:NSLocalizedString(@"Version %@%@",@""),tVersion,buildString];
     }
     
     NSString * tArchitectureValue=@"-";
