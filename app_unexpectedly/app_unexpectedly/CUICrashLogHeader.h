@@ -50,6 +50,8 @@
 
     @property (readonly,copy) NSString * executableVersion;
 
+    @property (readonly, copy) NSString * buildVersion;
+
 
 
     @property (readonly,copy) NSString * responsibleProcessName;
