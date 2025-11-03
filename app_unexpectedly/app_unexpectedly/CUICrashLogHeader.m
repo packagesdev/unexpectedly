@@ -512,8 +512,8 @@
         
         if ([tKey isEqualToString:@"Code Type"]==YES)
         {
-            CUICodeType tCodeType;
-            BOOL tNative;
+            CUICodeType tCodeType=CUICodeTypeUnknown;
+            BOOL tNative=NO;
             
             // X86-64 (Native)
             // X86 (Native)
