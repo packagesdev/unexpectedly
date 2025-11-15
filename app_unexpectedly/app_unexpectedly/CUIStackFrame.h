@@ -25,7 +25,7 @@ extern NSString * const CUIStackFrameSymbolicationDidSucceedNotification;
 
     @property (readonly) NSUInteger index;
 
-    @property (readonly,copy) NSString * binaryImageIdentifier;
+    @property (nullable,readonly,copy) NSString * binaryImageIdentifier;
 
     @property (readonly) NSUInteger machineInstructionAddress;
 

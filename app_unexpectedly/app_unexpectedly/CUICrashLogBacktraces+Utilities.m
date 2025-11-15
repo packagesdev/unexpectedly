@@ -23,7 +23,8 @@
        
         [bThread.callStackBacktrace.stackFrames enumerateObjectsUsingBlock:^(CUIStackFrame * bCall, NSUInteger bOtherIndex, BOOL * bOutOtherStop) {
             
-            [tMutableSet addObject:bCall.binaryImageIdentifier];
+            if (bCall.binaryImageIdentifier!=nil)
+				[tMutableSet addObject:bCall.binaryImageIdentifier];
             
         }];
         
