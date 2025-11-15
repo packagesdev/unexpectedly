@@ -255,11 +255,20 @@
         
         _executablePath=tIPSHeader.processPath;
         
-        _bundleIdentifier=tIPSHeader.bundleInfo.bundleIdentifier;
+		IPSBundleInfo * tBundleInfo=tIPSHeader.bundleInfo;
+		
+		_bundleIdentifier=tBundleInfo.bundleIdentifier;
         
-        _executableVersion=tIPSHeader.bundleInfo.bundleShortVersionString;
+		if (tBundleInfo.bundleVersion!=nil)
+		{
+			_executableVersion=[NSString stringWithFormat:@"%@ (%@)",tBundleInfo.bundleShortVersionString,tBundleInfo.bundleVersion];
+		}
+		else
+		{
+			_executableVersion=tIPSHeader.bundleInfo.bundleShortVersionString;
+		}
         
-        
+		
         _responsibleProcessName=tIPSHeader.responsibleProcessName;
         _responsibleProcessIdentifier=tIPSHeader.responsibleProcessID;
         
@@ -503,8 +512,8 @@
         
         if ([tKey isEqualToString:@"Code Type"]==YES)
         {
-            CUICodeType tCodeType;
-            BOOL tNative;
+            CUICodeType tCodeType=CUICodeTypeUnknown;
+            BOOL tNative=NO;
             
             // X86-64 (Native)
             // X86 (Native)

@@ -89,16 +89,43 @@
     
 	_codeSigningButton.hidden=(tCrashLog.ipsReport.incident.header.codeSigningInfo==nil);
     
-    NSString * tVersion=tHeader.executableVersion;
-    
-    if (tVersion==nil || [tVersion isEqualToString:@"???"]==YES)
-    {
-        _executableVersionValue.stringValue=NSLocalizedString(@"Unknown version",@"");
-    }
-    else
-    {
-        _executableVersionValue.stringValue=[NSString stringWithFormat:NSLocalizedString(@"Version %@",@""),tVersion];
-    }
+	IPSIncidentHeader * tIncidentHeader=tCrashLog.ipsReport.incident.header;
+	
+	if (tIncidentHeader!=nil)
+	{
+		NSString * tShorttVersionString=tIncidentHeader.bundleInfo.bundleShortVersionString;
+		
+		if (tShorttVersionString==nil || [tShorttVersionString isEqualToString:@"???"]==YES)
+		{
+			_executableVersionValue.stringValue=NSLocalizedString(@"Unknown version",@"");
+		}
+		else
+		{
+			NSString * tBundleVersion=tIncidentHeader.bundleInfo.bundleVersion;
+			
+			if (tBundleVersion!=nil)
+			{
+				_executableVersionValue.stringValue=[NSString stringWithFormat:NSLocalizedString(@"Version %@ (%@)",@""),tShorttVersionString, tBundleVersion];
+			}
+			else
+			{
+				_executableVersionValue.stringValue=[NSString stringWithFormat:NSLocalizedString(@"Version %@",@""),tShorttVersionString];
+			}
+		}
+	}
+	else
+	{
+		NSString * tVersion=tHeader.executableVersion;
+		
+		if (tVersion==nil || [tVersion isEqualToString:@"???"]==YES)
+		{
+			_executableVersionValue.stringValue=NSLocalizedString(@"Unknown version",@"");
+		}
+		else
+		{
+			_executableVersionValue.stringValue=[NSString stringWithFormat:NSLocalizedString(@"Version %@",@""),tVersion];
+		}
+	}
     
     NSString * tArchitectureValue=@"-";
     
