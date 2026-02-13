@@ -10,6 +10,7 @@
 		D06294382E1DD8150008895D /* CUICodeSigningInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06294362E1DD8150008895D /* CUICodeSigningInformationViewController.m */; };
 		D0790DBD2E00BACF00CD6A72 /* CUIThreadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */; };
 		D0BA6A462E09FEB50010D630 /* EXC_GUARD.html in Resources */ = {isa = PBXBuildFile; fileRef = D0BA6A442E09FEB50010D630 /* EXC_GUARD.html */; };
+		D0BD223B2F3FC6810052AD8E /* NSMenuItem+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BD223A2F3FC6810052AD8E /* NSMenuItem+RSCore.m */; };
 		F4040A7624F5B9CE0072BF65 /* CUINavigationChevronView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4040A7524F5B9CE0072BF65 /* CUINavigationChevronView.m */; };
 		F4040A7924F5BC230072BF65 /* CUINavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4040A7824F5BC230072BF65 /* CUINavigationView.m */; };
 		F4055C8125EEE37400DC6CCA /* CUIMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4055C8325EEE37400DC6CCA /* CUIMainWindowController.xib */; };
@@ -371,6 +372,8 @@
 		D0790DBC2E00BACF00CD6A72 /* CUIThreadImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUIThreadImageView.m; sourceTree = "<group>"; };
 		D0AECAE42E0F34830028246E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = he; path = Help/he.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
 		D0BA6A452E09FEB50010D630 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = Help/en.lproj/EXC_GUARD.html; sourceTree = "<group>"; };
+		D0BD22392F3FC6810052AD8E /* NSMenuItem+RSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSMenuItem+RSCore.h"; path = "RSCore/NSMenuItem+RSCore.h"; sourceTree = "<group>"; };
+		D0BD223A2F3FC6810052AD8E /* NSMenuItem+RSCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSMenuItem+RSCore.m"; path = "RSCore/NSMenuItem+RSCore.m"; sourceTree = "<group>"; };
 		F4040A7424F5B9CE0072BF65 /* CUINavigationChevronView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUINavigationChevronView.h; sourceTree = "<group>"; };
 		F4040A7524F5B9CE0072BF65 /* CUINavigationChevronView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUINavigationChevronView.m; sourceTree = "<group>"; };
 		F4040A7724F5BC230072BF65 /* CUINavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUINavigationView.h; sourceTree = "<group>"; };
@@ -1160,6 +1163,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0BD22382F3FC6430052AD8E /* RSCore */ = {
+			isa = PBXGroup;
+			children = (
+				D0BD22392F3FC6810052AD8E /* NSMenuItem+RSCore.h */,
+				D0BD223A2F3FC6810052AD8E /* NSMenuItem+RSCore.m */,
+			);
+			name = RSCore;
+			sourceTree = "<group>";
+		};
 		F4040A7324F5B9B40072BF65 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1834,6 +1846,7 @@
 				F4871DF125435AE500580562 /* DWARF */,
 				F40B0D8124D3568000663282 /* Foundation + Extensions */,
 				F40B0D8224D3568A00663282 /* AppKit + Extensions */,
+				D0BD22382F3FC6430052AD8E /* RSCore */,
 				F4CC570124A79EDA00150EC4 /* app_unexpectedly */,
 				F4CC570024A79EDA00150EC4 /* Products */,
 			);
@@ -2419,6 +2432,7 @@
 				F428C0792724592D00FB8CAC /* IPSApplicationSpecificInformation.m in Sources */,
 				F4D0EE95273DB8CD00CC9737 /* IPSThreadState+RegisterDisplayName.m in Sources */,
 				F49C47CA24E9B48B003FC65C /* CUIThemesManager.m in Sources */,
+				D0BD223B2F3FC6810052AD8E /* NSMenuItem+RSCore.m in Sources */,
 				F416688224B0BBFC00C2AB89 /* CUICrashLogPresentationViewController.m in Sources */,
 				F428C0802724592D00FB8CAC /* IPSThread.m in Sources */,
 				F4A0BEF4261BC39700BADEED /* CUIWatchAxis.m in Sources */,
