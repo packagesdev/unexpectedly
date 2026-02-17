@@ -50,6 +50,9 @@
 
 #import "WBRemoteVersionChecker.h"
 
+#import "NSMenuItem+RSCore.h"
+
+
 NSString * const CUIApplicationShowDebugMenuKey=@"ui.menu.debug.show";
 
 NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationShowDebugDidChangeNotification";
@@ -93,6 +96,8 @@ NSString * const CUIApplicationShowDebugDidChangeNotification=@"CUIApplicationSh
                                                               CUIApplicationShowDebugMenuKey:@(NO),
                                                               @"NSScrollViewShouldFlipRulerForRTL":@(NO)
                                                               }];
+	
+	[NSMenuItem rs_disableIcons];
 }
 
 - (void)awakeFromNib
